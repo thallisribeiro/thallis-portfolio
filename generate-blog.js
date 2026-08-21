@@ -13,6 +13,7 @@ const WA_LINK = 'https://wa.me/5573988899345?text=Oi%20ThallisRibeiro%2C%20vi%20
 
 // ── Frontmatter + markdown mínimo (headers, bold, itálico, links, listas, citação, código) ──
 function parseFrontmatter(raw) {
+  raw = raw.replace(/\r\n/g, '\n');
   const m = raw.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
   if (!m) return { meta: {}, body: raw };
   const meta = {};

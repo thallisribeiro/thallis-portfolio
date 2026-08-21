@@ -41,7 +41,7 @@ function main() {
   }
 
   const file = queue[0];
-  const raw = fs.readFileSync(path.join(QUEUE_DIR, file), 'utf-8');
+  const raw = fs.readFileSync(path.join(QUEUE_DIR, file), 'utf-8').replace(/\r\n/g, '\n');
   const m = raw.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
   if (!m) { log(`[erro] ${file} não tem frontmatter válido — pulando, arquivo mantido na fila pra correção manual`); return; }
 
