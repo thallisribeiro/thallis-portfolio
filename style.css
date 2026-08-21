@@ -292,11 +292,94 @@ a { color: var(--accent); }
   color: var(--accent);
 }
 
+/* NAV LINKS */
+.nav-links {
+  display: none;
+  gap: var(--space-md);
+}
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+.nav-links a:hover { color: var(--text); }
+
+/* HERO KICKER */
+.hero-text > .kicker {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: var(--space-sm);
+}
+
+/* ABOUT */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+  text-align: center;
+}
+.about-grid .about-photo { margin: 0 auto; }
+.about-photo {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 30px;
+  color: var(--background);
+  flex: none;
+}
+.about-text h3 { font-size: 22px; margin-bottom: 2px; }
+.about-role { color: var(--muted); font-size: 14px; margin-bottom: var(--space-sm); }
+
+/* GUARANTEE TAG */
+.tag-lg {
+  background: rgba(37,211,102,0.15);
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: var(--space-sm);
+}
+.center-text { margin-left: auto; margin-right: auto; }
+
+/* PRICING */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+.price-card {
+  background: var(--background);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-md);
+}
+.price-card h3 { font-size: 18px; }
+.price-sub { color: var(--muted); font-size: 13px; margin: 2px 0 var(--space-sm); }
+.price-value { font-family: var(--font-display); font-weight: 700; font-size: 22px; color: var(--primary); margin-bottom: var(--space-xs); }
+.price-desc { color: var(--muted); font-size: 14px; margin: 0; }
+.pricing-cta { display: block; width: fit-content; margin: 0 auto; }
+
 /* TABLET */
 @media (min-width: 768px) {
   .hero h1 { font-size: 46px; }
   .cases-grid { grid-template-columns: 1fr 1fr; }
   .services-grid { grid-template-columns: 1fr 1fr 1fr; }
+  .nav-links { display: flex; }
+  .about-grid { grid-template-columns: auto 1fr; text-align: left; }
+  .about-grid .about-photo { margin: 0; }
+  .pricing-grid { grid-template-columns: 1fr 1fr 1fr; }
 }
 
 /* DESKTOP */
