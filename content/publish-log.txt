@@ -1,0 +1,1 @@
+[2026-08-21T13:03:11.965Z] [erro] 01-estado-da-agencia-autonoma.md não tem frontmatter válido — pulando, arquivo mantido na fila pra correção manual

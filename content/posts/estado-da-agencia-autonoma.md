@@ -1,5 +1,6 @@
 ---
 title: Como está a agência autônoma que eu opero com IA (números reais, sem enfeite)
+date: 2026-08-21
 summary: 23 squads de agentes catalogados. Só 7 já rodaram de verdade pelo menos uma vez. Mostro os dois números, não só o bonito.
 ---
 
