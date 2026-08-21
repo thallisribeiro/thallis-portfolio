@@ -371,6 +371,48 @@ a { color: var(--accent); }
 .price-desc { color: var(--muted); font-size: 14px; margin: 0; }
 .pricing-cta { display: block; width: fit-content; margin: 0 auto; }
 
+/* BLOG */
+.blog-hero { padding-bottom: var(--space-md); }
+.blog-hero h1 { font-size: 34px; margin-bottom: var(--space-sm); }
+.blog-list { display: grid; gap: var(--space-md); }
+.blog-card {
+  background: var(--background);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-md);
+}
+.blog-card-date { color: var(--muted); font-size: 13px; }
+.blog-card h2 { font-size: 20px; margin: var(--space-xs) 0; }
+.blog-card h2 a { color: var(--text); text-decoration: none; }
+.blog-card h2 a:hover { color: var(--accent); }
+.blog-card p { color: var(--muted); margin-bottom: var(--space-xs); }
+.blog-card-link { color: var(--accent); font-weight: 600; text-decoration: none; }
+.blog-card-link:hover { text-decoration: underline; }
+
+.blog-back { color: var(--muted); text-decoration: none; font-size: 14px; display: inline-block; margin-bottom: var(--space-md); }
+.blog-back:hover { color: var(--accent); }
+.blog-title { font-size: 30px; margin-bottom: var(--space-xs); }
+.blog-byline { color: var(--muted); font-size: 14px; margin-bottom: var(--space-lg); }
+
+.blog-article { color: var(--text); line-height: 1.75; }
+.blog-article h2 { font-family: var(--font-display); font-size: 22px; margin: var(--space-lg) 0 var(--space-sm); }
+.blog-article h3 { font-family: var(--font-display); font-size: 18px; margin: var(--space-md) 0 var(--space-xs); }
+.blog-article p { margin-bottom: var(--space-sm); }
+.blog-article ul, .blog-article ol { padding-left: 22px; margin-bottom: var(--space-sm); color: var(--text); }
+.blog-article li { margin-bottom: 6px; }
+.blog-article blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 10px 16px;
+  color: var(--muted);
+  background: var(--secondary);
+  border-radius: 0 var(--radius-btn) var(--radius-btn) 0;
+  margin-bottom: var(--space-sm);
+}
+.blog-article code { background: var(--secondary); border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; padding: 1px 6px; font-size: 0.9em; }
+.blog-article hr { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: var(--space-lg) 0; }
+
+.blog-post-cta { margin-top: var(--space-xl); padding-top: var(--space-lg); border-top: 1px solid rgba(255,255,255,0.08); text-align: center; }
+
 /* TABLET */
 @media (min-width: 768px) {
   .hero h1 { font-size: 46px; }
