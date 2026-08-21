@@ -2,6 +2,7 @@
 title: "Diário — Dia 5: O robô escreve, mas quem aperta publicar sou eu"
 date: 2026-08-14
 summary: "Desenhei a linha entre o que a IA faz sozinha e o que continua exigindo minha mão — e por que essa linha importa mais do que parece."
+tema: Agência autônoma
 ---
 
 Quarta entrada. Chegou o momento de decidir uma coisa que eu vinha adiando: até onde o squad vai sozinho, e onde a corda para comigo.

@@ -2,6 +2,7 @@
 title: Auditei meu próprio site com 20 parâmetros de copywriting (e achei zero prova social)
 date: 2026-08-21
 summary: Antes de vender site pros outros, testei o meu. Nota final 4,7/10 — e o motivo não foi falta de design.
+tema: Site & copy
 ---
 
 Faço site pros outros. Fazia sentido testar o meu com a mesma régua que uso quando entrego pra um cliente.

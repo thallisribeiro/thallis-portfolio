@@ -2,6 +2,7 @@
 title: "Diário — Dia 6 (parte 2): No mesmo dia, comecei a reconstruir o site de uma imobiliária inteira"
 date: 2026-08-15
 summary: "Enquanto o blog do Grana estreava, eu abria um segundo projeto do zero: o Eunoimóvel, de scaffold a URL no ar em uma tarde."
+tema: Eunoimóvel
 ---
 
 Ainda [dia 6](/blog/diario-5-o-blog-foi-ao-ar-e-quase-saiu-bloqueado-por-uma-regra-que-nao-existia-mais/) — mas essa entrada é sobre o segundo projeto que nasceu na mesma data: a reconstrução do site da Eunoimóvel, uma imobiliária.

@@ -2,6 +2,7 @@
 title: "Diário — Dia 2-3: O robô quis parar no meio do trabalho pra perguntar se podia continuar"
 date: 2026-08-12
 summary: "Os primeiros dias de squad rodando de verdade trouxeram um problema chato: o agente parava sozinho no meio da tarefa."
+tema: Agência autônoma
 ---
 
 Segunda entrada do diário — dois dias depois do [primeiro squad](/blog/diario-1-contratei-meu-primeiro-funcionario-e-ele-e-um-robo/), a primeira lição chata apareceu.

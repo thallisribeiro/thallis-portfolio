@@ -2,6 +2,7 @@
 title: "Diário — Dia 11 (parte 2): Contratei sete funcionários no mesmo dia"
 date: 2026-08-20
 summary: "O dia em que um squad isolado virou uma agência inteira: sete squads novos, departamentos definidos, e os dois primeiros rodando de verdade ainda hoje."
+tema: Agência autônoma
 ---
 
 Ainda [dia 11](/blog/diario-11-esse-site-nasceu-hoje/) — mas essa é a entrada que dá nome a este diário.
