@@ -373,7 +373,8 @@ a { color: var(--accent); }
 
 /* BLOG */
 .blog-hero { padding-bottom: var(--space-md); }
-.blog-hero h1 { font-size: 34px; margin-bottom: var(--space-sm); }
+.blog-hero h1 { font-size: 34px; margin-bottom: var(--space-sm); text-wrap: balance; }
+.blog-hero .section-lead { margin-bottom: 0; }
 .blog-list { display: grid; gap: var(--space-md); }
 .blog-card {
   background: var(--background);
@@ -408,10 +409,10 @@ a { color: var(--accent); }
 .blog-layout { display: grid; gap: var(--space-lg); align-items: start; }
 
 /* Sidebar de temas */
-.blog-sidebar { background: var(--background); border-radius: var(--radius-card); box-shadow: var(--shadow-card); padding: var(--space-md); }
-.sidebar-title { font-size: 15px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: var(--space-sm); }
+.blog-sidebar { background: var(--background); border-radius: var(--radius-card); box-shadow: var(--shadow-card); padding: var(--space-md) var(--space-md) var(--space-sm); }
+.sidebar-title { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: var(--space-sm); }
 .tema-list { list-style: none; margin: 0 0 var(--space-md); padding: 0; display: flex; flex-direction: column; gap: 4px; }
-.tema-link { display: flex; justify-content: space-between; gap: var(--space-xs); color: var(--text); text-decoration: none; font-size: 14px; padding: 6px 10px; border-radius: 8px; }
+.tema-link { display: flex; justify-content: space-between; gap: var(--space-xs); color: var(--text); text-decoration: none; font-size: 15px; padding: 9px 12px; border-radius: 8px; }
 .tema-link:hover { background: var(--secondary); color: var(--accent); }
 .tema-link.ativo { background: var(--secondary); color: var(--accent); font-weight: 600; }
 .tema-count { color: var(--muted); font-variant-numeric: tabular-nums; }
@@ -479,7 +480,9 @@ a { color: var(--accent); }
   .about-grid { grid-template-columns: auto 1fr; text-align: left; }
   .about-grid .about-photo { margin: 0; }
   .pricing-grid { grid-template-columns: 1fr 1fr 1fr; }
-  .blog-layout { grid-template-columns: 1fr 280px; }
+  .blog-hero h1 { font-size: 44px; }
+  .blog-layout { grid-template-columns: 1fr 300px; }
+  .blog-sidebar { position: sticky; top: calc(var(--space-lg) + 72px); }
   .blog-list-related { grid-template-columns: 1fr 1fr; }
   .blog-post-nav { grid-template-columns: 1fr 1fr; }
   .blog-post-nav-prev { text-align: right; grid-column: 2; }

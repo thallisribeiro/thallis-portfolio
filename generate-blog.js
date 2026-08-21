@@ -330,7 +330,7 @@ function main() {
   function paginaDeLista({ postsFiltrados, temaAtual, urlPath, title, description, heading, lead }) {
     const body = `
   <section class="section blog-hero">
-    <div class="section-inner section-narrow">
+    <div class="section-inner">
       <h1>${heading}</h1>
       <p class="section-lead">${lead}</p>
     </div>
