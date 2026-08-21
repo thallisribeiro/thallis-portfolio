@@ -2,7 +2,7 @@
 title: "Diário — Dia 8: Uma sugestão da IA, e eu disse não"
 date: 2026-08-17
 summary: "O agente propôs redesenhar um formulário do Eunoimóvel baseado numa teoria de persuasão. Eu revertei — e isso virou regra permanente."
-tema: Eunoimóvel
+tema: Agência autônoma
 ---
 
 Oitava entrada. Depois de dois dias de sprint pesado no Eunoimóvel ([dia 6](/blog/diario-6-no-mesmo-dia-comecei-a-reconstruir-uma-imobiliaria-inteira/), [dia 7](/blog/diario-7-um-dia-uma-imobiliaria-inteira/)), hoje o assunto foi mais tranquilo, mas talvez o mais importante até aqui.

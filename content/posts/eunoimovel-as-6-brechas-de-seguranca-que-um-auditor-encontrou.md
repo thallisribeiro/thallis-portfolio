@@ -1,7 +1,7 @@
 ---
 title: "As 6 brechas de segurança que um auditor encontrou no Eunoimóvel antes de qualquer cliente ver"
 date: 2026-08-15
-tema: Eunoimóvel
+tema: Produto
 summary: "Enquanto eu construía a Fatia 2 do Eunoimóvel, um agente auditor rodou atrás só de brecha de acesso — e achou 6 reais no mesmo dia."
 ---
 

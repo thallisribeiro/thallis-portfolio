@@ -90,7 +90,7 @@
     <div class="section-inner section-narrow">
       <a class="blog-back" href="/blog/">← Todo o blog</a>
       <h1 class="blog-title">As 6 brechas de segurança que um auditor encontrou no Eunoimóvel antes de qualquer cliente ver</h1>
-      <p class="blog-byline">Por Thallis Ribeiro · 15/08/2026 · 2 min de leitura · <a class="tema-pill" href="/blog/tema/eunoimovel/">Eunoimóvel</a></p>
+      <p class="blog-byline">Por Thallis Ribeiro · 15/08/2026 · 2 min de leitura · <a class="tema-pill" href="/blog/tema/produto/">Produto</a></p>
       
       <div class="blog-article"><p>Complemento de uma <a href="/blog/diario-6-no-mesmo-dia-comecei-a-reconstruir-uma-imobiliaria-inteira/" target="_blank" rel="noopener">entrada do diário</a>: no mesmo dia em que o Eunoimóvel foi ao ar pela primeira vez, também rodei um agente com uma única função — desconfiar do controle de acesso que eu tinha acabado de construir.</p><h2>O que ele achou</h2><p>Antes mesmo da auditoria formal, duas brechas já tinham aparecido na primeira fatia: o upload de mídia estava aceitando escrita anônima (qualquer um, sem login, conseguia subir arquivo), e o processo de auto-cadastro tinha um caminho onde o usuário conseguia escalar o próprio nível de permissão sozinho, sem ninguém aprovar.</p><p>Corrigidas essas duas, segui construindo a Fatia 2 (controle de acesso pra Leads e para o escopo real de uma imobiliária). Rodei o agente auditor de novo, dedicado só a achar brecha de acesso — não código bonito, não performance, só "onde alguém consegue ver ou fazer o que não devia". Ele voltou com <strong>6 brechas reais</strong>, todas corrigidas ainda no mesmo dia. Uma delas, separada: apagar um registro que ainda era referenciado por outro lugar do sistema quebrava a integridade dos dados — não é bem uma falha de acesso, mas o mesmo tipo de "descobri rodando, não pensando antes".</p><h2>Por que um agente separado, e não eu mesmo revisando</h2><p>Eu tinha acabado de escrever aquele código. Minha atenção estava em fazer funcionar, não em desconfiar dele. Um agente cuja única tarefa é auditoria de acesso não carrega esse viés — ele não sabe (nem precisa saber) a intenção por trás do código, só se o resultado permite algo que não deveria permitir.</p><p>Esse padrão — construir com um agente, auditar com outro que nunca viu a intenção original — virou prática permanente depois desse dia. Nenhum controle de acesso novo vai pro ar sem passar por alguém (ou algo) cujo trabalho é só tentar quebrar.</p></div>
       
@@ -138,18 +138,8 @@
           <article class="blog-card">
   
   <div class="blog-card-meta">
-    <span class="blog-card-date">17/08/2026 · 1 min de leitura</span>
-    <a class="tema-pill" href="/blog/tema/eunoimovel/">Eunoimóvel</a>
-  </div>
-  <h2><a href="/blog/diario-9-uma-sugestao-da-ia-e-eu-disse-nao/">Diário — Dia 8: Uma sugestão da IA, e eu disse não</a></h2>
-  <p>O agente propôs redesenhar um formulário do Eunoimóvel baseado numa teoria de persuasão. Eu revertei — e isso virou regra permanente.</p>
-  <a class="blog-card-link" href="/blog/diario-9-uma-sugestao-da-ia-e-eu-disse-nao/">Ler →</a>
-</article>
-<article class="blog-card">
-  
-  <div class="blog-card-meta">
     <span class="blog-card-date">16/08/2026 · 1 min de leitura</span>
-    <a class="tema-pill" href="/blog/tema/eunoimovel/">Eunoimóvel</a>
+    <a class="tema-pill" href="/blog/tema/produto/">Produto</a>
   </div>
   <h2><a href="/blog/diario-7-um-dia-uma-imobiliaria-inteira/">Diário — Dia 7: Um dia, uma imobiliária inteira</a></h2>
   <p>Identidade visual, controle de acesso geográfico, busca, autenticação, favoritos, SEO técnico — tudo no mesmo dia, no Eunoimóvel.</p>
@@ -159,11 +149,21 @@
   
   <div class="blog-card-meta">
     <span class="blog-card-date">15/08/2026 · 1 min de leitura</span>
-    <a class="tema-pill" href="/blog/tema/eunoimovel/">Eunoimóvel</a>
+    <a class="tema-pill" href="/blog/tema/produto/">Produto</a>
   </div>
   <h2><a href="/blog/diario-6-no-mesmo-dia-comecei-a-reconstruir-uma-imobiliaria-inteira/">Diário — Dia 6 (parte 2): No mesmo dia, comecei a reconstruir o site de uma imobiliária inteira</a></h2>
   <p>Enquanto o blog do Grana estreava, eu abria um segundo projeto do zero: o Eunoimóvel, de scaffold a URL no ar em uma tarde.</p>
   <a class="blog-card-link" href="/blog/diario-6-no-mesmo-dia-comecei-a-reconstruir-uma-imobiliaria-inteira/">Ler →</a>
+</article>
+<article class="blog-card">
+  
+  <div class="blog-card-meta">
+    <span class="blog-card-date">21/08/2026 · 2 min de leitura</span>
+    <a class="tema-pill" href="/blog/tema/agencia-autonoma/">Agência autônoma</a>
+  </div>
+  <h2><a href="/blog/dois-clientes-de-conteudo-e-nenhuma-regra-em-comum/">Descobri que meus dois clientes de conteúdo não tinham nenhuma regra em comum</a></h2>
+  <p>Grana e Wil, dois squads de conteúdo ativos, cada um com seu próprio padrão de qualidade — e nenhum princípio compartilhado escrito em lugar nenhum.</p>
+  <a class="blog-card-link" href="/blog/dois-clientes-de-conteudo-e-nenhuma-regra-em-comum/">Ler →</a>
 </article>
         </div>
       </section>

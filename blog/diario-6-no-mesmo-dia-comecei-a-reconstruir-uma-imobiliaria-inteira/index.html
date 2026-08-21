@@ -90,7 +90,7 @@
     <div class="section-inner section-narrow">
       <a class="blog-back" href="/blog/">← Todo o blog</a>
       <h1 class="blog-title">Diário — Dia 6 (parte 2): No mesmo dia, comecei a reconstruir o site de uma imobiliária inteira</h1>
-      <p class="blog-byline">Por Thallis Ribeiro · 15/08/2026 · 1 min de leitura · <a class="tema-pill" href="/blog/tema/eunoimovel/">Eunoimóvel</a></p>
+      <p class="blog-byline">Por Thallis Ribeiro · 15/08/2026 · 1 min de leitura · <a class="tema-pill" href="/blog/tema/produto/">Produto</a></p>
       
       <div class="blog-article"><p>Ainda <a href="/blog/diario-5-o-blog-foi-ao-ar-e-quase-saiu-bloqueado-por-uma-regra-que-nao-existia-mais/" target="_blank" rel="noopener">dia 6</a> — mas essa entrada é sobre o segundo projeto que nasceu na mesma data: a reconstrução do site da Eunoimóvel, uma imobiliária.</p><h2>Do zero ao ar, na mesma tarde</h2><p>Comecei pelo scaffold — Payload CMS + Next.js, coleções de dados, estrutura de squad própria pra esse projeto. Nas horas seguintes: corrigi dois buracos reais de segurança que o próprio processo de revisão encontrou (upload de mídia aberto pra qualquer um escrever, e uma falha que deixava um usuário escalar o próprio nível de permissão sozinho no cadastro). Construí a primeira fatia funcional — hierarquia de localização, cadastro de imóvel premium, página de imóvel.</p><p>Bugs de infraestrutura apareceram um atrás do outro, típico de subir algo novo pra produção pela primeira vez: o painel administrativo não carregava por um arquivo de mapeamento desatualizado; o build de produção falhava porque a versão do <code>npm</code> no ambiente de deploy não batia com a que gerou o lockfile; a imagem Docker baseada em Alpine quebrava o servidor Next em tempo de execução por incompatibilidade de biblioteca (musl vs. glibc); a rede customizada do Docker Compose não era coberta pelas regras de firewall que eu esperava.</p><p>Resolvido um por um, o site foi ao ar ainda hoje, em <code>novo.eunoimovel.com.br</code> — sem HTTPS ainda, sem DNS público apontando pra ele, mas <em>no ar</em>, rodando num servidor de verdade.</p><h2>Por que isso importa</h2><p>Nenhum desses bugs foi glamouroso. Foi trabalho de infraestrutura chato, do tipo que normalmente consome dias. Sair do zero pra uma URL respondendo, com autenticação e controle de acesso já auditado, no mesmo dia em que outro projeto completamente diferente também avançava — foi a primeira vez que senti, de verdade, o que "construir com IA" significava em velocidade, não só em teoria.</p></div>
       
@@ -138,18 +138,8 @@
           <article class="blog-card">
   
   <div class="blog-card-meta">
-    <span class="blog-card-date">17/08/2026 · 1 min de leitura</span>
-    <a class="tema-pill" href="/blog/tema/eunoimovel/">Eunoimóvel</a>
-  </div>
-  <h2><a href="/blog/diario-9-uma-sugestao-da-ia-e-eu-disse-nao/">Diário — Dia 8: Uma sugestão da IA, e eu disse não</a></h2>
-  <p>O agente propôs redesenhar um formulário do Eunoimóvel baseado numa teoria de persuasão. Eu revertei — e isso virou regra permanente.</p>
-  <a class="blog-card-link" href="/blog/diario-9-uma-sugestao-da-ia-e-eu-disse-nao/">Ler →</a>
-</article>
-<article class="blog-card">
-  
-  <div class="blog-card-meta">
     <span class="blog-card-date">16/08/2026 · 1 min de leitura</span>
-    <a class="tema-pill" href="/blog/tema/eunoimovel/">Eunoimóvel</a>
+    <a class="tema-pill" href="/blog/tema/produto/">Produto</a>
   </div>
   <h2><a href="/blog/diario-7-um-dia-uma-imobiliaria-inteira/">Diário — Dia 7: Um dia, uma imobiliária inteira</a></h2>
   <p>Identidade visual, controle de acesso geográfico, busca, autenticação, favoritos, SEO técnico — tudo no mesmo dia, no Eunoimóvel.</p>
@@ -159,11 +149,21 @@
   
   <div class="blog-card-meta">
     <span class="blog-card-date">15/08/2026 · 2 min de leitura</span>
-    <a class="tema-pill" href="/blog/tema/eunoimovel/">Eunoimóvel</a>
+    <a class="tema-pill" href="/blog/tema/produto/">Produto</a>
   </div>
   <h2><a href="/blog/eunoimovel-as-6-brechas-de-seguranca-que-um-auditor-encontrou/">As 6 brechas de segurança que um auditor encontrou no Eunoimóvel antes de qualquer cliente ver</a></h2>
   <p>Enquanto eu construía a Fatia 2 do Eunoimóvel, um agente auditor rodou atrás só de brecha de acesso — e achou 6 reais no mesmo dia.</p>
   <a class="blog-card-link" href="/blog/eunoimovel-as-6-brechas-de-seguranca-que-um-auditor-encontrou/">Ler →</a>
+</article>
+<article class="blog-card">
+  
+  <div class="blog-card-meta">
+    <span class="blog-card-date">21/08/2026 · 2 min de leitura</span>
+    <a class="tema-pill" href="/blog/tema/agencia-autonoma/">Agência autônoma</a>
+  </div>
+  <h2><a href="/blog/dois-clientes-de-conteudo-e-nenhuma-regra-em-comum/">Descobri que meus dois clientes de conteúdo não tinham nenhuma regra em comum</a></h2>
+  <p>Grana e Wil, dois squads de conteúdo ativos, cada um com seu próprio padrão de qualidade — e nenhum princípio compartilhado escrito em lugar nenhum.</p>
+  <a class="blog-card-link" href="/blog/dois-clientes-de-conteudo-e-nenhuma-regra-em-comum/">Ler →</a>
 </article>
         </div>
       </section>
