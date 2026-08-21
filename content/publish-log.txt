@@ -2,3 +2,4 @@
 [2026-08-21T13:04:09.065Z] publicado: /blog/estado-da-agencia-autonoma/ — "Como está a agência autônoma que eu opero com IA (números reais, sem enfeite)"
 [2026-08-21T13:11:33.304Z] [ensure-queue] fila já tem 2 post(s) — nada a gerar
 [2026-08-21T13:19:40.770Z] [ensure-queue] fila já tem 2 post(s) — nada a gerar
+[2026-08-21T20:30:01.035Z] [ensure-queue] fila já tem 2 post(s) — nada a gerar

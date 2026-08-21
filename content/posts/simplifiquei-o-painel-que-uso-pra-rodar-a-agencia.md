@@ -1,5 +1,6 @@
 ---
 title: Simplifiquei o painel que eu uso pra rodar minha agência de IA
+date: 2026-08-21
 summary: O painel tinha 11 seções empilhadas numa página só e um alerta importante que carregava mas nunca aparecia na tela. Refiz a hierarquia inteira.
 ---
 
