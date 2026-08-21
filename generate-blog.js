@@ -72,7 +72,11 @@ function tempoDeLeitura(md) {
   return Math.max(1, Math.round(palavras / 200));
 }
 
-const DEFAULT_OG_IMAGE = `${SITE_URL}/assets/grana-case.webp`;
+// Fallback pra post sem imagem própria. Era o print do Grana — errado pra post
+// que não tem nada a ver com o Grana (é o que aparecia ao compartilhar qualquer
+// post no Twitter/X). Agora é uma marca genérica do site (gerada por
+// generate-og-image.js), nunca um case específico.
+const DEFAULT_OG_IMAGE = `${SITE_URL}/assets/og-default.png`;
 
 // ── Ícones inline (SVG monocromático via currentColor — zero dependência externa) ──
 const ICONS = {
@@ -118,8 +122,11 @@ function shareButtons(post, canonical) {
 }
 
 // ── Layout compartilhado (mesmo header/footer do site) ──
-function shell({ title, description, ogType = 'website', canonical, body, jsonLd = [], ogImage = DEFAULT_OG_IMAGE }) {
+function shell({ title, description, ogType = 'website', canonical, body, jsonLd = [], ogImage = DEFAULT_OG_IMAGE, ogImageWidth = 1200, ogImageHeight = 630 }) {
   const jsonLdBlock = jsonLd.map(obj => `<script type="application/ld+json">\n${JSON.stringify(obj, null, 2)}\n</script>`).join('\n');
+  const ogImageDims = (ogImageWidth && ogImageHeight)
+    ? `<meta property="og:image:width" content="${ogImageWidth}">\n<meta property="og:image:height" content="${ogImageHeight}">\n`
+    : '';
   return `<!doctype html>
 <html lang="pt-BR">
 <head>
@@ -132,9 +139,7 @@ function shell({ title, description, ogType = 'website', canonical, body, jsonLd
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:image" content="${ogImage}">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="844">
-<meta name="twitter:card" content="summary_large_image">
+${ogImageDims}<meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="${canonical}">
 <link rel="alternate" type="application/rss+xml" title="Blog ThallisRibeiro" href="${SITE_URL}/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -321,6 +326,10 @@ function main() {
       body,
       jsonLd,
       ogImage: post.image || DEFAULT_OG_IMAGE,
+      // Imagem própria (ex: Unsplash) não tem dimensão fixa conhecida — omite
+      // og:image:width/height nesse caso em vez de declarar um tamanho errado.
+      ogImageWidth: post.image ? null : 1200,
+      ogImageHeight: post.image ? null : 630,
     });
     fs.writeFileSync(path.join(postDir, 'index.html'), html);
     console.log(`[gerado] /blog/${post.slug}/`);
