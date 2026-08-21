@@ -62,7 +62,7 @@ function formatDate(iso) {
 const DEFAULT_OG_IMAGE = `${SITE_URL}/assets/grana-case.webp`;
 
 // ── Layout compartilhado (mesmo header/footer do site) ──
-function shell({ title, description, ogType = 'website', canonical, body, jsonLd = [] }) {
+function shell({ title, description, ogType = 'website', canonical, body, jsonLd = [], ogImage = DEFAULT_OG_IMAGE }) {
   const jsonLdBlock = jsonLd.map(obj => `<script type="application/ld+json">\n${JSON.stringify(obj, null, 2)}\n</script>`).join('\n');
   return `<!doctype html>
 <html lang="pt-BR">
@@ -75,7 +75,7 @@ function shell({ title, description, ogType = 'website', canonical, body, jsonLd
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${canonical}">
-<meta property="og:image" content="${DEFAULT_OG_IMAGE}">
+<meta property="og:image" content="${ogImage}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="844">
 <meta name="twitter:card" content="summary_large_image">
@@ -121,7 +121,9 @@ ${body}
 }
 
 function postCard(post) {
+  const thumb = post.image ? `<a href="/blog/${post.slug}/" class="blog-card-thumb"><img src="${esc(post.image)}" alt="" loading="lazy"></a>` : '';
   return `<article class="blog-card">
+  ${thumb}
   <span class="blog-card-date">${formatDate(post.date)}</span>
   <h2><a href="/blog/${post.slug}/">${esc(post.title)}</a></h2>
   <p>${esc(post.summary)}</p>
@@ -137,7 +139,7 @@ function main() {
     const raw = fs.readFileSync(path.join(POSTS_DIR, f), 'utf-8');
     const { meta, body } = parseFrontmatter(raw);
     if (!meta.title || !meta.date) { console.error(`[skip] ${f} — falta title ou date no frontmatter`); return null; }
-    return { slug, title: meta.title, date: meta.date, summary: meta.summary || '', html: mdToHtml(body) };
+    return { slug, title: meta.title, date: meta.date, summary: meta.summary || '', image: meta.image || '', imageCredit: meta.image_credit || '', html: mdToHtml(body) };
   }).filter(Boolean).sort((a, b) => b.date.localeCompare(a.date));
 
   fs.mkdirSync(OUT_DIR, { recursive: true });
@@ -146,12 +148,16 @@ function main() {
   for (const post of posts) {
     const postDir = path.join(OUT_DIR, post.slug);
     fs.mkdirSync(postDir, { recursive: true });
+    const heroImg = post.image
+      ? `<figure class="blog-hero-img"><img src="${esc(post.image)}" alt="${esc(post.title)}" loading="eager"><figcaption>${post.imageCredit || ''}</figcaption></figure>`
+      : '';
     const body = `
   <article class="section blog-article-wrap">
     <div class="section-inner section-narrow">
       <a class="blog-back" href="/blog/">← Todo o blog</a>
       <h1 class="blog-title">${esc(post.title)}</h1>
       <p class="blog-byline">Por Thallis Ribeiro · ${formatDate(post.date)}</p>
+      ${heroImg}
       <div class="blog-article">${post.html}</div>
       <div class="blog-post-cta">
         <p class="cta-final-text" style="font-size:17px">Curtiu? Isso é o tipo de coisa que eu também construo pra quem me chama.</p>
@@ -169,7 +175,7 @@ function main() {
         datePublished: post.date,
         dateModified: post.date,
         mainEntityOfPage: canonical,
-        image: DEFAULT_OG_IMAGE,
+        image: post.image || DEFAULT_OG_IMAGE,
         author: { '@id': `${SITE_URL}/#person` },
         publisher: { '@id': `${SITE_URL}/#person` },
       },
@@ -190,6 +196,7 @@ function main() {
       canonical,
       body,
       jsonLd,
+      ogImage: post.image || DEFAULT_OG_IMAGE,
     });
     fs.writeFileSync(path.join(postDir, 'index.html'), html);
     console.log(`[gerado] /blog/${post.slug}/`);

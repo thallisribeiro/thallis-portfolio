@@ -56,7 +56,11 @@ function main() {
   // slug de publicação = nome do arquivo sem prefixo numérico de ordem (ex: "01-foo.md" -> "foo")
   const slug = file.replace(/\.md$/, '').replace(/^\d+-/, '');
   const date = todayIso();
-  const finalMd = `---\ntitle: ${meta.title}\ndate: ${date}\nsummary: ${meta.summary || ''}\n---\n\n${m[2].trim()}\n`;
+  const frontmatterLinhas = [`title: ${meta.title}`, `date: ${date}`, `summary: ${meta.summary || ''}`];
+  if (meta.tema) frontmatterLinhas.push(`tema: ${meta.tema}`);
+  if (meta.image) frontmatterLinhas.push(`image: ${meta.image}`);
+  if (meta.image_credit) frontmatterLinhas.push(`image_credit: ${meta.image_credit}`);
+  const finalMd = `---\n${frontmatterLinhas.join('\n')}\n---\n\n${m[2].trim()}\n`;
 
   fs.writeFileSync(path.join(POSTS_DIR, `${slug}.md`), finalMd);
   fs.unlinkSync(path.join(QUEUE_DIR, file));
