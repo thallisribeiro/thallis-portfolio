@@ -59,8 +59,11 @@ function formatDate(iso) {
   return `${d}/${m}/${y}`;
 }
 
+const DEFAULT_OG_IMAGE = `${SITE_URL}/assets/grana-case.webp`;
+
 // ── Layout compartilhado (mesmo header/footer do site) ──
-function shell({ title, description, ogType = 'website', canonical, body }) {
+function shell({ title, description, ogType = 'website', canonical, body, jsonLd = [] }) {
+  const jsonLdBlock = jsonLd.map(obj => `<script type="application/ld+json">\n${JSON.stringify(obj, null, 2)}\n</script>`).join('\n');
   return `<!doctype html>
 <html lang="pt-BR">
 <head>
@@ -72,12 +75,17 @@ function shell({ title, description, ogType = 'website', canonical, body }) {
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${canonical}">
+<meta property="og:image" content="${DEFAULT_OG_IMAGE}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="844">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="${canonical}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2325D366'/%3E%3Cstop offset='1' stop-color='%2358A6FF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='42' font-family='Space Grotesk, sans-serif' font-weight='800' font-size='26' text-anchor='middle' fill='%230B0F14'%3ETR%3C/text%3E%3C/svg%3E">
+${jsonLdBlock}
 </head>
 <body>
 
@@ -151,12 +159,37 @@ function main() {
       </div>
     </div>
   </article>`;
+    const canonical = `${SITE_URL}/blog/${post.slug}/`;
+    const jsonLd = [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: post.title,
+        description: post.summary,
+        datePublished: post.date,
+        dateModified: post.date,
+        mainEntityOfPage: canonical,
+        image: DEFAULT_OG_IMAGE,
+        author: { '@id': `${SITE_URL}/#person` },
+        publisher: { '@id': `${SITE_URL}/#person` },
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+          { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog/` },
+          { '@type': 'ListItem', position: 3, name: post.title, item: canonical },
+        ],
+      },
+    ];
     const html = shell({
       title: `${post.title} — Blog ThallisRibeiro`,
       description: post.summary,
       ogType: 'article',
-      canonical: `${SITE_URL}/blog/${post.slug}/`,
+      canonical,
       body,
+      jsonLd,
     });
     fs.writeFileSync(path.join(postDir, 'index.html'), html);
     console.log(`[gerado] /blog/${post.slug}/`);
@@ -182,9 +215,37 @@ function main() {
     description: 'O que eu vou construindo, testando e aprendendo sobre site, conteúdo e automação com IA.',
     canonical: `${SITE_URL}/blog/`,
     body: indexBody,
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Blog',
+        '@id': `${SITE_URL}/blog/#blog`,
+        url: `${SITE_URL}/blog/`,
+        name: 'Blog — ThallisRibeiro',
+        publisher: { '@id': `${SITE_URL}/#person` },
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+          { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog/` },
+        ],
+      },
+    ],
   });
   fs.writeFileSync(path.join(OUT_DIR, 'index.html'), indexHtml);
   console.log(`[gerado] /blog/ (${posts.length} post${posts.length===1?'':'s'})`);
+
+  // Sitemap
+  const urls = [
+    { loc: `${SITE_URL}/`, lastmod: posts[0]?.date },
+    { loc: `${SITE_URL}/blog/`, lastmod: posts[0]?.date },
+    ...posts.map(p => ({ loc: `${SITE_URL}/blog/${p.slug}/`, lastmod: p.date })),
+  ];
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `  <url>\n    <loc>${u.loc}</loc>\n${u.lastmod ? `    <lastmod>${u.lastmod}</lastmod>\n` : ''}  </url>`).join('\n')}\n</urlset>\n`;
+  fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap);
+  console.log(`[gerado] sitemap.xml (${urls.length} urls)`);
 }
 
 main();

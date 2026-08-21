@@ -1,0 +1,11 @@
+# ThallisRibeiro
+
+> Sites, conteúdo e sistemas construídos com IA — entregues em dias, não meses. Thallis Ribeiro é administrador (UFV), MBA em Gestão Financeira (FGV), e fundador do Grana (suagrana.app).
+
+Este site inclui um blog em /blog/ — um diário real do que é construído, incluindo números, decisões e limitações, sem estatística nem depoimento inventado.
+
+## Páginas
+
+- [Home](https://thallisribeiro.com.br/): serviços, cases ao vivo (Grana e Eunoimóvel), investimento e garantia.
+- [Blog](https://thallisribeiro.com.br/blog/): posts sobre construir produtos e conteúdo com IA.
+- [Sitemap](https://thallisribeiro.com.br/sitemap.xml): lista completa de páginas.
