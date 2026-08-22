@@ -1,5 +1,6 @@
 ---
 title: Tirei a autorização manual do bot do Telegram — agora ele só avisa
+date: 2026-08-22
 summary: Troquei "posso fazer isso?" por "fiz isso" na ponte de automação da agência, e isso expõe o real teste da palavra "autônoma".
 tema: Agência autônoma
 ---
