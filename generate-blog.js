@@ -88,7 +88,9 @@ const ICONS = {
 };
 
 function shareButtons(post, canonical) {
-  const texto = encodeURIComponent(post.title);
+  // summary já é escrito como gancho (é o meta description) -- bem mais forte pra
+  // compartilhar que o título cru. Cai pro título só se um post antigo não tiver summary.
+  const texto = encodeURIComponent(post.summary || post.title);
   const url = encodeURIComponent(canonical);
   return `
       <div class="share-bar">
