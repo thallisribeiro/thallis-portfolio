@@ -27,6 +27,18 @@
 
 html { scroll-behavior: smooth; }
 
+@media (prefers-reduced-motion: no-preference) {
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+}
+
+.case-card, .price-card, .service {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.case-card:hover, .price-card:hover { transform: translateY(-4px); }
+.service:hover .service-icon { transform: translateY(-2px); }
+.service-icon { transition: transform 0.2s ease; }
+
 body {
   margin: 0;
   background: var(--background);
@@ -72,7 +84,10 @@ a { color: var(--accent); }
   background: rgba(11,15,20,0.85);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
 }
+.nav.scrolled { box-shadow: 0 8px 24px rgba(0,0,0,0.35); border-bottom-color: rgba(255,255,255,0.12); }
 .nav-inner {
   max-width: 1280px;
   margin: 0 auto;
@@ -312,12 +327,23 @@ a { color: var(--accent); }
   gap: var(--space-md);
 }
 .nav-links a {
+  position: relative;
   color: var(--muted);
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
+  transition: color 0.15s ease;
 }
 .nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--text); }
+.nav-links a.active::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -6px;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 2px;
+}
 
 /* HERO KICKER */
 .hero-text > .kicker {
@@ -539,6 +565,16 @@ a { color: var(--accent); }
   .chip-live { top: 20px; right: 0; }
   .chip-paying { bottom: 20px; left: 10px; }
   .steps { grid-template-columns: repeat(4, 1fr); position: relative; }
+}
+@media (min-width: 1280px) and (prefers-reduced-motion: no-preference) {
+  .chip-live { animation: float-chip 4s ease-in-out infinite; }
+  .chip-paying { animation: float-chip 4s ease-in-out infinite; animation-delay: -2s; }
+  @keyframes float-chip {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+}
+@media (min-width: 1280px) {
   .steps::before { content: ""; position: absolute; top: 17px; left: 60px; right: 60px; height: 1px; background: var(--line); }
   .steps li { flex-direction: column; }
   .step-num { position: relative; z-index: 1; }
