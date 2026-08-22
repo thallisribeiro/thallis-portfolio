@@ -21,9 +21,9 @@ Não é um slogan. É um prazo real, com uma métrica única: dinheiro de client
 
 A parte fácil de uma aposta dessas é ela soar bem antes de qualquer prova. Então aqui estão os dois fatos que sustentam ela, hoje, verificáveis:
 
-O [suagrana.app](https://suagrana.app) já tem assinante pagando — não é MVP fake, é um app de finanças pessoais no ar, construído com o mesmo processo que estou apostando agora. O [eunoimovel.com.br](https://eunoimovel.com.br) já tem tráfego real, reconstruído do zero com a mesma máquina, e [não nasceu como microSaaS](/blog/por-que-o-eunoimovel-nao-e-um-microsaas/) — nasceu como serviço contínuo de verdade.
+O [suagrana.app](https://suagrana.app) já tem assinantes pagando — não é MVP fake, é um app de finanças pessoais no ar, construído com IA. O [eunoimovel.com.br](https://eunoimovel.com.br) já tem tráfego real, reconstruído do zero com IA, e [não nasceu como microSaaS](/blog/por-que-o-eunoimovel-nao-e-um-microsaas/) — nasceu como serviço contínuo de verdade.
 
-E o carrossel que anuncia essa aposta no Instagram? Também foi essa máquina que fez — do roteiro ao render de cada slide.
+Os dois são prova de que construir com IA funciona — não são prova de que essa máquina específica de conteúdo os construiu, e essa distinção importa. O carrossel que anuncia essa aposta no Instagram, esse post que você está lendo agora? Esses sim, foram a máquina de conteúdo que fez — do roteiro ao render de cada slide.
 
 ## O que a IA faz sozinha, e o que continua comigo
 
