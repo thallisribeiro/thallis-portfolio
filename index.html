@@ -20,6 +20,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<!-- Google Analytics 4 — troque G-XXXXXXXXXX pela Measurement ID real (analytics.google.com > Admin > Fluxos de dados > Web). Sem essa troca, nada é enviado. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2325D366'/%3E%3Cstop offset='1' stop-color='%2358A6FF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='42' font-family='Space Grotesk, sans-serif' font-weight='800' font-size='26' text-anchor='middle' fill='%230B0F14'%3ETR%3C/text%3E%3C/svg%3E">
 <script type="application/ld+json">
 {
@@ -46,6 +54,47 @@
       ],
       "founder": { "@type": "Organization", "name": "Grana", "url": "https://suagrana.app" },
       "sameAs": ["https://instagram.com/thallis.lab"]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://thallisribeiro.com.br/#servicos",
+      "name": "Sites, conteúdo e sistemas com IA",
+      "provider": { "@id": "https://thallisribeiro.com.br/#person" },
+      "areaServed": "BR",
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "name": "Landing Page Express",
+          "price": "399",
+          "priceCurrency": "BRL",
+          "description": "Página única, pra validar a oferta antes do site completo."
+        },
+        {
+          "@type": "Offer",
+          "name": "Site em 1 Semana",
+          "price": "999",
+          "priceCurrency": "BRL",
+          "description": "Site completo que vende, no ar em até 1 semana."
+        },
+        {
+          "@type": "Offer",
+          "name": "Máquina de Conteúdo",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "497",
+            "priceCurrency": "BRL",
+            "unitText": "mês"
+          },
+          "description": "Conteúdo automático mensal — Instagram, blog e relatório."
+        },
+        {
+          "@type": "Offer",
+          "name": "Sistema sob Medida",
+          "price": "5000",
+          "priceCurrency": "BRL",
+          "description": "Automação e sistemas sob medida."
+        }
+      ]
     }
   ]
 }
@@ -59,14 +108,19 @@
       <span class="logo-mark" aria-hidden="true">TR</span>
       <span class="logo">ThallisRibeiro</span>
     </div>
-    <nav class="nav-links" aria-label="Seções">
+    <nav class="nav-links" id="nav-links" aria-label="Seções">
       <a href="#cases">Cases</a>
       <a href="#servicos">Serviços</a>
       <a href="#investimento">Investimento</a>
       <a href="/blog/">Blog</a>
       <a href="#perguntas">Perguntas</a>
     </nav>
-    <a class="btn btn-primary btn-nav" href="https://wa.me/5573988899345?text=Oi%20ThallisRibeiro%2C%20vi%20seu%20site%20e%20quero%20conversar%20sobre%20um%20projeto" target="_blank" rel="noopener">WhatsApp</a>
+    <div class="nav-actions">
+      <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+      <a class="btn btn-primary btn-nav" href="https://wa.me/5573988899345?text=Oi%20ThallisRibeiro%2C%20vi%20seu%20site%20e%20quero%20conversar%20sobre%20um%20projeto" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
   </div>
 </header>
 
@@ -93,7 +147,7 @@
             <span class="browser-url">eunoimovel.com.br</span>
           </div>
           <div class="hero-card-shot">
-            <img src="assets/eunoimovel-case.webp" alt="" width="1200" height="844">
+            <img src="assets/eunoimovel-case.webp" alt="" width="1200" height="844" fetchpriority="low">
           </div>
         </div>
         <div class="browser-frame frame-front">
@@ -102,7 +156,7 @@
             <span class="browser-url">suagrana.app</span>
           </div>
           <div class="hero-card-shot">
-            <img src="assets/grana-case.webp" alt="" width="1200" height="844">
+            <img src="assets/grana-case.webp" alt="" width="1200" height="844" fetchpriority="high">
           </div>
         </div>
         <span class="float-chip chip-live"><span class="badge-dot"></span>no ar agora</span>
@@ -173,17 +227,17 @@
       <p class="section-lead">Quem já foi mal atendido por freelancer geralmente termina com três fornecedores diferentes — um pro site, outro pro conteúdo, outro pro sistema — e nenhum fala com o outro. Aqui é uma pessoa só, que já entende como as três coisas se encaixam.</p>
       <div class="services-grid">
         <div class="service reveal">
-          <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><circle cx="6.5" cy="6.5" r="0.6" fill="currentColor" stroke="none"></circle></svg></span>
+          <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><circle cx="6.5" cy="6.5" r="0.6" fill="currentColor" stroke="none"></circle></svg></span>
           <h3>Site</h3>
           <p>Carrega rápido, existe pra vender — e você vê rodando antes de pagar o resto.</p>
         </div>
         <div class="service reveal" style="transition-delay:.08s">
-          <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2 7 4-14 2 7h6"></path></svg></span>
+          <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2 7 4-14 2 7h6"></path></svg></span>
           <h3>Máquina de Conteúdo</h3>
           <p>Posts saindo todo dia, no automático, pra você só aprovar. Cada post fica — vira histórico e SEO acumulado, não gasto que some no fim do mês.</p>
         </div>
         <div class="service reveal" style="transition-delay:.16s">
-          <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1.04 1.56V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1.04-1.56 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.56-1.04H3a2 2 0 1 1 0-4h.09A1.7 1.7 0 0 0 4.65 9a1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.87.34H9a1.7 1.7 0 0 0 1.04-1.56V3a2 2 0 1 1 4 0v.09A1.7 1.7 0 0 0 15 4.65a1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.87V9c.14.62.62 1.13 1.56 1.04H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.56 1.04z"></path></svg></span>
+          <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1.04 1.56V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1.04-1.56 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.56-1.04H3a2 2 0 1 1 0-4h.09A1.7 1.7 0 0 0 4.65 9a1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.87.34H9a1.7 1.7 0 0 0 1.04-1.56V3a2 2 0 1 1 4 0v.09A1.7 1.7 0 0 0 15 4.65a1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.87V9c.14.62.62 1.13 1.56 1.04H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.56 1.04z"></path></svg></span>
           <h3>Sistema / automação</h3>
           <p>Tira trabalho manual repetitivo da sua rotina.</p>
         </div>

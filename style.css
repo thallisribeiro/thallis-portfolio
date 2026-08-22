@@ -321,11 +321,44 @@ a { color: var(--accent); }
   color: var(--accent);
 }
 
+/* NAV ACTIONS / TOGGLE */
+.nav-actions { display: flex; align-items: center; gap: var(--space-sm); }
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+.nav-toggle svg { width: 18px; height: 18px; }
+.nav-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
 /* NAV LINKS */
 .nav-links {
   display: none;
   gap: var(--space-md);
 }
+.nav-links.open {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--secondary);
+  padding: var(--space-sm) var(--space-md) var(--space-md);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  box-shadow: var(--shadow-card);
+}
+.nav-links.open a { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.nav-links.open a:last-child { border-bottom: none; }
 .nav-links a {
   position: relative;
   color: var(--muted);
@@ -532,6 +565,9 @@ a { color: var(--accent); }
   .cases-grid { grid-template-columns: 1fr 1fr; }
   .services-grid { grid-template-columns: 1fr 1fr 1fr; }
   .nav-links { display: flex; }
+  .nav-links.open { position: static; flex-direction: row; background: none; padding: 0; border: none; box-shadow: none; }
+  .nav-links.open a { padding: 0; border: none; }
+  .nav-toggle { display: none; }
   .about-grid { grid-template-columns: auto 1fr; text-align: left; }
   .about-grid .about-photo { margin: 0; }
   .pricing-grid { grid-template-columns: 1fr 1fr 1fr; }
