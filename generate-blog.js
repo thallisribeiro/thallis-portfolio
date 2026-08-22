@@ -99,7 +99,7 @@ function shareButtons(post, canonical) {
         <a class="share-btn" href="https://wa.me/?text=${texto}%20${url}" target="_blank" rel="noopener" aria-label="Compartilhar no WhatsApp">${ICONS.whatsapp}</a>
         <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=${url}" target="_blank" rel="noopener" aria-label="Compartilhar no LinkedIn">${ICONS.linkedin}</a>
         <button class="share-btn" type="button" data-copy-link="${esc(canonical)}" aria-label="Copiar link">${ICONS.link}</button>
-        <button class="share-btn share-native" type="button" data-share-title="${esc(post.title)}" data-share-url="${esc(canonical)}" aria-label="Compartilhar (Instagram e outros apps)" hidden>${ICONS.share}</button>
+        <button class="share-btn share-native" type="button" data-share-title="${esc(post.title)}" data-share-text="${esc(post.summary || post.title)}" data-share-url="${esc(canonical)}" aria-label="Compartilhar (Instagram e outros apps)" hidden>${ICONS.share}</button>
       </div>
       <script>
         (function(){
@@ -108,7 +108,7 @@ function shareButtons(post, canonical) {
           if (navigator.share) {
             nativeBtn.hidden = false;
             nativeBtn.addEventListener('click', function(){
-              navigator.share({ title: nativeBtn.dataset.shareTitle, url: nativeBtn.dataset.shareUrl }).catch(function(){});
+              navigator.share({ title: nativeBtn.dataset.shareTitle, text: nativeBtn.dataset.shareText, url: nativeBtn.dataset.shareUrl }).catch(function(){});
             });
           }
           var copyBtn = n.querySelector('[data-copy-link]');
