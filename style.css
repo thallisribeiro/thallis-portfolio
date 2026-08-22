@@ -365,6 +365,19 @@ a { color: var(--accent); }
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
   padding: var(--space-md);
+  position: relative;
+}
+.price-card-featured { border: 2px solid var(--primary); }
+.price-badge {
+  position: absolute;
+  top: -12px;
+  left: var(--space-md);
+  background: var(--primary);
+  color: var(--background);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
 }
 .price-card h3 { font-size: 18px; }
 .price-sub { color: var(--muted); font-size: 13px; margin: 2px 0 var(--space-sm); }
