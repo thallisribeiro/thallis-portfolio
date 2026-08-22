@@ -5,6 +5,20 @@
   <description>O que eu vou construindo, testando e aprendendo sobre site, conteúdo e automação com IA.</description>
   <language>pt-BR</language>
   <item>
+    <title>30 dias pra minha agência de IA fechar o primeiro cliente pago</title>
+    <link>https://thallisribeiro.com.br/blog/30-dias-agencia-de-ia-fechar-primeiro-cliente-pago/</link>
+    <guid>https://thallisribeiro.com.br/blog/30-dias-agencia-de-ia-fechar-primeiro-cliente-pago/</guid>
+    <pubDate>Sat, 22 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Montei uma agência de marketing onde nenhum funcionário é humano — os agentes pesquisam, criam, produzem e organizam sozinhos. Dei 30 dias pra ela fechar o primeiro cliente pago, e vou documentar cada dia aqui.</description>
+  </item>
+  <item>
+    <title>A régua de 20 parâmetros que eu uso pra avaliar qualquer copy</title>
+    <link>https://thallisribeiro.com.br/blog/a-regua-de-20-parametros-que-uso-pra-avaliar-qualquer-copy/</link>
+    <guid>https://thallisribeiro.com.br/blog/a-regua-de-20-parametros-que-uso-pra-avaliar-qualquer-copy/</guid>
+    <pubDate>Sat, 22 Aug 2026 00:00:00 GMT</pubDate>
+    <description>A mesma lista que usei pra auditar o meu próprio site, agora como checklist pra você rodar no seu.</description>
+  </item>
+  <item>
     <title>Descobri que meus dois clientes de conteúdo não tinham nenhuma regra em comum</title>
     <link>https://thallisribeiro.com.br/blog/dois-clientes-de-conteudo-e-nenhuma-regra-em-comum/</link>
     <guid>https://thallisribeiro.com.br/blog/dois-clientes-de-conteudo-e-nenhuma-regra-em-comum/</guid>
@@ -31,6 +45,13 @@
     <guid>https://thallisribeiro.com.br/blog/raio-x-da-copy-do-meu-site/</guid>
     <pubDate>Fri, 21 Aug 2026 00:00:00 GMT</pubDate>
     <description>Antes de vender site pros outros, testei o meu. Nota final 4,7/10 — e o motivo não foi falta de design.</description>
+  </item>
+  <item>
+    <title>Simplifiquei o painel que eu uso pra rodar minha agência de IA</title>
+    <link>https://thallisribeiro.com.br/blog/simplifiquei-o-painel-que-uso-pra-rodar-a-agencia/</link>
+    <guid>https://thallisribeiro.com.br/blog/simplifiquei-o-painel-que-uso-pra-rodar-a-agencia/</guid>
+    <pubDate>Fri, 21 Aug 2026 00:00:00 GMT</pubDate>
+    <description>O painel tinha 11 seções empilhadas numa página só e um alerta importante que carregava mas nunca aparecia na tela. Refiz a hierarquia inteira.</description>
   </item>
   <item>
     <title>Diário — Dia 11: Esse site que você está lendo agora nasceu hoje</title>
@@ -122,26 +143,5 @@
     <guid>https://thallisribeiro.com.br/blog/diario-4-o-robo-escreve-mas-quem-publica-sou-eu/</guid>
     <pubDate>Fri, 14 Aug 2026 00:00:00 GMT</pubDate>
     <description>Desenhei a linha entre o que a IA faz sozinha e o que continua exigindo minha mão — e por que essa linha importa mais do que parece.</description>
-  </item>
-  <item>
-    <title>Diário — Dia 4: Documentei uma regra e achei que ela já estava valendo</title>
-    <link>https://thallisribeiro.com.br/blog/diario-3-documentei-uma-regra-e-achei-que-ja-valia/</link>
-    <guid>https://thallisribeiro.com.br/blog/diario-3-documentei-uma-regra-e-achei-que-ja-valia/</guid>
-    <pubDate>Thu, 13 Aug 2026 00:00:00 GMT</pubDate>
-    <description>Escrever a regra num documento e o agente realmente segui-la são duas coisas diferentes — aprendi isso na marra.</description>
-  </item>
-  <item>
-    <title>Diário — Dia 2-3: O robô quis parar no meio do trabalho pra perguntar se podia continuar</title>
-    <link>https://thallisribeiro.com.br/blog/diario-2-o-robo-quis-parar-no-meio-do-trabalho/</link>
-    <guid>https://thallisribeiro.com.br/blog/diario-2-o-robo-quis-parar-no-meio-do-trabalho/</guid>
-    <pubDate>Wed, 12 Aug 2026 00:00:00 GMT</pubDate>
-    <description>Os primeiros dias de squad rodando de verdade trouxeram um problema chato: o agente parava sozinho no meio da tarefa.</description>
-  </item>
-  <item>
-    <title>Diário — Dia 1: Contratei meu primeiro funcionário, e ele é um robô</title>
-    <link>https://thallisribeiro.com.br/blog/diario-1-contratei-meu-primeiro-funcionario-e-ele-e-um-robo/</link>
-    <guid>https://thallisribeiro.com.br/blog/diario-1-contratei-meu-primeiro-funcionario-e-ele-e-um-robo/</guid>
-    <pubDate>Mon, 10 Aug 2026 00:00:00 GMT</pubDate>
-    <description>O dia em que criei o primeiro squad de agentes de IA — o começo de tudo que virou essa agência autônoma.</description>
   </item>
 </channel></rss>

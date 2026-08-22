@@ -2,11 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://thallisribeiro.com.br/</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-22</lastmod>
   </url>
   <url>
     <loc>https://thallisribeiro.com.br/blog/</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-22</lastmod>
+  </url>
+  <url>
+    <loc>https://thallisribeiro.com.br/blog/30-dias-agencia-de-ia-fechar-primeiro-cliente-pago/</loc>
+    <lastmod>2026-08-22</lastmod>
+  </url>
+  <url>
+    <loc>https://thallisribeiro.com.br/blog/a-regua-de-20-parametros-que-uso-pra-avaliar-qualquer-copy/</loc>
+    <lastmod>2026-08-22</lastmod>
   </url>
   <url>
     <loc>https://thallisribeiro.com.br/blog/dois-clientes-de-conteudo-e-nenhuma-regra-em-comum/</loc>
@@ -22,6 +30,10 @@
   </url>
   <url>
     <loc>https://thallisribeiro.com.br/blog/raio-x-da-copy-do-meu-site/</loc>
+    <lastmod>2026-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://thallisribeiro.com.br/blog/simplifiquei-o-painel-que-uso-pra-rodar-a-agencia/</loc>
     <lastmod>2026-08-21</lastmod>
   </url>
   <url>
@@ -90,18 +102,18 @@
   </url>
   <url>
     <loc>https://thallisribeiro.com.br/blog/tema/agencia-autonoma/</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-22</lastmod>
   </url>
   <url>
     <loc>https://thallisribeiro.com.br/blog/tema/automacao-de-conteudo/</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-22</lastmod>
   </url>
   <url>
     <loc>https://thallisribeiro.com.br/blog/tema/produto/</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-22</lastmod>
   </url>
   <url>
     <loc>https://thallisribeiro.com.br/blog/tema/site-copy/</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-22</lastmod>
   </url>
 </urlset>
