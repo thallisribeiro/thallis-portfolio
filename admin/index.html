@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin — ThallisRibeiro</title>
+<style>
+  :root { --bg:#0d1117; --card:#161b22; --text:#e6edf3; --muted:#8b949e; --accent:#58a6ff; --bad:#f85149; }
+  * { box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:system-ui,-apple-system,Segoe UI,sans-serif;
+         margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; }
+  #gate { background:var(--card); border-radius:12px; padding:32px; width:100%; max-width:360px; text-align:center; }
+  #gate h1 { font-size:1.1rem; margin:0 0 20px; }
+  #gate input { width:100%; padding:10px 12px; border-radius:8px; border:1px solid #30363d;
+                background:#0d1117; color:var(--text); font-size:0.95rem; margin-bottom:12px; }
+  #gate button { width:100%; padding:10px; border-radius:8px; border:none; background:var(--accent);
+                 color:#fff; font-size:0.95rem; cursor:pointer; }
+  #gate button:disabled { opacity:0.6; cursor:wait; }
+  #err { color:var(--bad); font-size:0.82rem; margin-top:10px; min-height:1.2em; }
+  #frame-wrap { display:none; width:100%; height:100vh; position:fixed; inset:0; }
+  #frame-wrap iframe { width:100%; height:100%; border:0; }
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <h1>🔒 Painel — acesso restrito</h1>
+  <input id="pw" type="password" placeholder="Senha" autofocus>
+  <button id="go">Entrar</button>
+  <div id="err"></div>
+</div>
+
+<div id="frame-wrap">
+  <iframe id="frame" sandbox="allow-scripts"></iframe>
+</div>
+
+<script>
+function b64ToBytes(b64) {
+  return Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+}
+
+async function decrypt(password, payload) {
+  const enc = new TextEncoder();
+  const salt = b64ToBytes(payload.salt);
+  const iv = b64ToBytes(payload.iv);
+  const data = b64ToBytes(payload.data);
+  const baseKey = await crypto.subtle.importKey('raw', enc.encode(password), 'PBKDF2', false, ['deriveKey']);
+  const key = await crypto.subtle.deriveKey(
+    { name: 'PBKDF2', salt, iterations: payload.iterations, hash: 'SHA-256' },
+    baseKey,
+    { name: 'AES-GCM', length: 256 },
+    false,
+    ['decrypt']
+  );
+  const plainBuf = await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, data);
+  return new TextDecoder().decode(plainBuf);
+}
+
+async function tryUnlock() {
+  const pw = document.getElementById('pw').value;
+  const btn = document.getElementById('go');
+  const err = document.getElementById('err');
+  if (!pw) return;
+  btn.disabled = true;
+  err.textContent = '';
+  try {
+    const res = await fetch('data.enc.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error('sem dado publicado ainda');
+    const payload = await res.json();
+    const html = await decrypt(pw, payload);
+    document.getElementById('frame').srcdoc = html;
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('frame-wrap').style.display = 'block';
+  } catch (e) {
+    err.textContent = 'Senha errada ou dado corrompido.';
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+document.getElementById('go').addEventListener('click', tryUnlock);
+document.getElementById('pw').addEventListener('keydown', e => { if (e.key === 'Enter') tryUnlock(); });
+</script>
+
+</body>
+</html>

@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
 
 # Crawlers de IA — permitidos de propósito, o site é sobre construir com IA
 User-agent: GPTBot

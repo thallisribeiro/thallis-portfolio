@@ -9,7 +9,7 @@ const ROOT = __dirname;
 const POSTS_DIR = path.join(ROOT, 'content', 'posts');
 const OUT_DIR = path.join(ROOT, 'blog');
 const SITE_URL = 'https://thallisribeiro.com.br';
-const WA_LINK = 'https://wa.me/5573988899345?text=Oi%20ThallisRibeiro%2C%20vi%20um%20post%20do%20seu%20blog%20e%20quero%20conversar%20sobre%20um%20projeto';
+const WA_LINK = 'https://wa.me/5573999865198?text=Oi%20ThallisRibeiro%2C%20vi%20um%20post%20do%20seu%20blog%20e%20quero%20conversar%20sobre%20um%20projeto';
 
 // ── Frontmatter + markdown mínimo (headers, bold, itálico, links, listas, citação, código) ──
 function parseFrontmatter(raw) {
