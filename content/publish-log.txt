@@ -10,3 +10,5 @@
 [2026-08-22T14:30:43.034Z] [ensure-queue] sem imagem pra este post (sem chave configurada ou nada encontrado) — seguindo sem imagem
 [2026-08-22T14:30:45.773Z] [ensure-queue] preparado pra publicar: "Tirei a autorização manual do bot do Telegram — agora ele só avisa" (modo real)
 [2026-08-22T15:00:04.544Z] publicado: /blog/tirei-a-autorizacao-manual-do-bot-do-telegram-agora-ele-so-avisa/ — "Tirei a autorização manual do bot do Telegram — agora ele só avisa"
+[2026-08-22T20:30:01.648Z] [ensure-queue] gerando post — modo: real
+[2026-08-22T20:30:39.842Z] [ensure-queue] sem imagem pra este post (sem chave configurada ou nada encontrado) — seguindo sem imagem
