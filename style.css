@@ -210,6 +210,7 @@ a { color: var(--accent); }
   display: block;
 }
 .case-card h3 { font-size: 20px; margin-bottom: var(--space-xs); }
+.case-label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0 var(--space-xs); }
 .case-card .result { color: var(--text); }
 .case-link {
   color: var(--accent);
@@ -368,7 +369,9 @@ a { color: var(--accent); }
 .price-card h3 { font-size: 18px; }
 .price-sub { color: var(--muted); font-size: 13px; margin: 2px 0 var(--space-sm); }
 .price-value { font-family: var(--font-display); font-weight: 700; font-size: 22px; color: var(--primary); margin-bottom: var(--space-xs); }
-.price-desc { color: var(--muted); font-size: 14px; margin: 0; }
+.price-desc { color: var(--muted); font-size: 14px; margin: 0 0 var(--space-sm); }
+.price-cta { color: var(--accent); font-weight: 600; font-size: 14px; text-decoration: none; }
+.price-cta:hover { text-decoration: underline; }
 .pricing-cta { display: block; width: fit-content; margin: 0 auto; }
 
 /* BLOG */
