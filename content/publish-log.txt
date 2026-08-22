@@ -3,3 +3,5 @@
 [2026-08-21T13:11:33.304Z] [ensure-queue] fila já tem 2 post(s) — nada a gerar
 [2026-08-21T13:19:40.770Z] [ensure-queue] fila já tem 2 post(s) — nada a gerar
 [2026-08-21T20:30:01.035Z] [ensure-queue] fila já tem 2 post(s) — nada a gerar
+[2026-08-21T21:00:04.816Z] publicado: /blog/simplifiquei-o-painel-que-uso-pra-rodar-a-agencia/ — "Simplifiquei o painel que eu uso pra rodar minha agência de IA"
+[2026-08-22T09:30:01.803Z] [ensure-queue] fila já tem 1 post(s) — nada a gerar

@@ -1,5 +1,6 @@
 ---
 title: A régua de 20 parâmetros que eu uso pra avaliar qualquer copy
+date: 2026-08-22
 summary: A mesma lista que usei pra auditar o meu próprio site, agora como checklist pra você rodar no seu.
 ---
 
