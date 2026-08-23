@@ -14,3 +14,6 @@
 [2026-08-22T20:30:39.842Z] [ensure-queue] sem imagem pra este post (sem chave configurada ou nada encontrado) — seguindo sem imagem
 [2026-08-22T20:30:42.377Z] [ensure-queue] preparado pra publicar: "Automatizei a publicação da série de 30 dias — e ela já é o teste do próprio pipeline" (modo real)
 [2026-08-22T21:00:04.703Z] publicado: /blog/automatizei-a-publicacao-da-serie-de-30-dias-e-ela-ja-e-o-teste-do-pro/ — "Automatizei a publicação da série de 30 dias — e ela já é o teste do próprio pipeline"
+[2026-08-23T09:30:02.018Z] [ensure-queue] gerando post — modo: real
+[2026-08-23T09:30:07.053Z] [ensure-queue] [erro] geração falhou: claude saiu com código 1: 
+[2026-08-23T10:00:01.891Z] fila vazia — nada publicado neste horário
