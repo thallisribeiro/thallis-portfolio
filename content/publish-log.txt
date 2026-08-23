@@ -17,3 +17,9 @@
 [2026-08-23T09:30:02.018Z] [ensure-queue] gerando post — modo: real
 [2026-08-23T09:30:07.053Z] [ensure-queue] [erro] geração falhou: claude saiu com código 1: 
 [2026-08-23T10:00:01.891Z] fila vazia — nada publicado neste horário
+[2026-08-23T14:30:02.070Z] [ensure-queue] gerando post — modo: real
+[2026-08-23T14:30:07.570Z] [ensure-queue] [erro] geração falhou: claude saiu com código 1: 
+[2026-08-23T15:00:01.922Z] fila vazia — nada publicado neste horário
+[2026-08-23T20:30:02.223Z] [ensure-queue] gerando post — modo: real
+[2026-08-23T20:30:09.848Z] [ensure-queue] [erro] geração falhou: claude saiu com código 1: 
+[2026-08-23T21:00:02.182Z] fila vazia — nada publicado neste horário
