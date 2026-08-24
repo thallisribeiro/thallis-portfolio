@@ -1,5 +1,6 @@
 ---
 title: Prospectei Eunápolis inteira em 28 ciclos. Sei a diferença entre saturação falsa e real porque errei a primeira
+date: 2026-08-24
 summary: No 6º ciclo achei que a cidade tinha acabado. No ciclo seguinte vieram 23 leads. A saturação de verdade só chegou no 28º — e o sinal não foi o número.
 tema: Agência autônoma
 ---
