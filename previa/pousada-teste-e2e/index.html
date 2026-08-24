@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pousada Teste E2E</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0B3A3D;--coral:#FF7A50;--ink:#EAF3F2;--muted:#9FC2C0}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Figtree",sans-serif;line-height:1.55;padding:20px}
+  h1,h2{font-family:"Bricolage Grotesque",sans-serif;line-height:1.1;margin:0}
+  .frame{max-width:680px;margin:0 auto;border:2px solid var(--coral);border-radius:4px;padding:48px 32px}
+  .badge{display:inline-block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--coral);margin-bottom:20px}
+  h1{font-size:clamp(30px,6vw,46px);color:#fff}
+  .sub{font-size:16px;color:var(--muted);margin-top:8px;text-transform:uppercase;letter-spacing:.04em}
+  .tagline{font-size:18px;margin-top:22px;max-width:44ch}
+  .picote{border-top:2px dashed var(--coral);margin:36px 0;position:relative}
+  .picote::before,.picote::after{content:"";position:absolute;top:-9px;width:18px;height:18px;border-radius:50%;background:var(--bg);border:2px solid var(--coral)}
+  .picote::before{left:-50px}
+  .picote::after{right:-50px}
+  .fato-label{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--coral);margin-bottom:10px}
+  .fato-texto{font-size:17px}
+  .cta{margin-top:40px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .cta a{display:inline-block;background:var(--coral);color:#0B3A3D;text-decoration:none;font-weight:700;font-size:17px;padding:14px 30px;border-radius:6px}
+  .cta a:hover{background:#fff}
+  .cta p{color:var(--muted);font-size:13px;margin:0}
+  footer{text-align:center;padding:20px 0 0;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<div class="frame">
+  <span class="badge">Prévia — a versão final é ajustada com você</span>
+  <h1>Pousada Teste E2E</h1>
+  <p class="sub">Pousada · Eunápolis, BA</p>
+  <p class="tagline">Quem já vive de receber gente merece ser encontrado antes da viagem começar.</p>
+  <div class="picote"></div>
+  <p class="fato-label">O que já notamos</p>
+  <p class="fato-texto">Vista pro mar, avaliação 4.9 no Booking</p>
+  <div class="cta">
+    <a href="https://wa.me/5573999990004">Falar no WhatsApp</a>
+    <p>Gostou? A versão de verdade fica pronta em 1 semana.</p>
+  </div>
+</div>
+<footer>Prévia gerada por Thallis Ribeiro</footer>
+</body>
+</html>
