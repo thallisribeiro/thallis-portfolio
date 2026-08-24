@@ -12,6 +12,13 @@
     <description>As três desculpas mais comuns pra adiar o lançamento de um site custam mais caro do que parecem, porque cada semana esperando é um cliente indo pro concorrente que já está no ar.</description>
   </item>
   <item>
+    <title>5 sinais de que você está perdendo cliente pro concorrente (e não é o preço)</title>
+    <link>https://thallisribeiro.com.br/blog/5-sinais-de-que-voce-esta-perdendo-cliente-pro-concorrente-e-nao-e-o-p/</link>
+    <guid>https://thallisribeiro.com.br/blog/5-sinais-de-que-voce-esta-perdendo-cliente-pro-concorrente-e-nao-e-o-p/</guid>
+    <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Cinco sinais silenciosos, verificáveis no seu próprio atendimento, que explicam por que o cliente escolhe o concorrente sem nunca ter comparado preço.</description>
+  </item>
+  <item>
     <title>96% das pequenas empresas já ouviu falar de IA. Só 15% usa de verdade</title>
     <link>https://thallisribeiro.com.br/blog/96-das-pequenas-empresas-ja-ouviu-falar-de-ia-so-15-usa-de-verdade/</link>
     <guid>https://thallisribeiro.com.br/blog/96-das-pequenas-empresas-ja-ouviu-falar-de-ia-so-15-usa-de-verdade/</guid>
@@ -31,6 +38,13 @@
     <guid>https://thallisribeiro.com.br/blog/por-que-documento-todo-erro-em-publico-de-proposito/</guid>
     <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
     <description>Mostro o bug antes do print bonito, de propósito, porque é assim que se constrói confiança calculável com quem pensa em me contratar.</description>
+  </item>
+  <item>
+    <title>Prévia automática de site: por que descartei o molde genérico antes de escrever uma linha de código</title>
+    <link>https://thallisribeiro.com.br/blog/previa-automatica-de-site-por-que-descartei-o-molde-generico-antes-de-/</link>
+    <guid>https://thallisribeiro.com.br/blog/previa-automatica-de-site-por-que-descartei-o-molde-generico-antes-de-/</guid>
+    <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Decidi que a prévia que o lead recebe vai usar template por categoria de negócio, não um molde único — e a decisão saiu de uma spec, não do código.</description>
   </item>
   <item>
     <title>Prospectei Eunápolis inteira em 28 ciclos. Sei a diferença entre saturação falsa e real porque errei a primeira</title>
@@ -129,19 +143,5 @@
     <guid>https://thallisribeiro.com.br/blog/raio-x-da-copy-do-meu-site/</guid>
     <pubDate>Fri, 21 Aug 2026 00:00:00 GMT</pubDate>
     <description>Antes de vender site pros outros, testei o meu. Nota final 4,7/10 — e o motivo não foi falta de design.</description>
-  </item>
-  <item>
-    <title>Simplifiquei o painel que eu uso pra rodar minha agência de IA</title>
-    <link>https://thallisribeiro.com.br/blog/simplifiquei-o-painel-que-uso-pra-rodar-a-agencia/</link>
-    <guid>https://thallisribeiro.com.br/blog/simplifiquei-o-painel-que-uso-pra-rodar-a-agencia/</guid>
-    <pubDate>Fri, 21 Aug 2026 00:00:00 GMT</pubDate>
-    <description>O painel tinha 11 seções empilhadas numa página só e um alerta importante que carregava mas nunca aparecia na tela. Refiz a hierarquia inteira.</description>
-  </item>
-  <item>
-    <title>Diário — Dia 11: Esse site que você está lendo agora nasceu hoje</title>
-    <link>https://thallisribeiro.com.br/blog/diario-11-esse-site-nasceu-hoje/</link>
-    <guid>https://thallisribeiro.com.br/blog/diario-11-esse-site-nasceu-hoje/</guid>
-    <pubDate>Thu, 20 Aug 2026 00:00:00 GMT</pubDate>
-    <description>thallisribeiro.com.br saiu do zero — construído pelo primeiro squad da casa dedicado a fazer site pra outras pessoas, começando por mim mesmo.</description>
   </item>
 </channel></rss>

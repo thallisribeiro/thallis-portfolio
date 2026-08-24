@@ -33,3 +33,4 @@
 [2026-08-24T20:30:01.681Z] [ensure-queue] gerando post — modo: real
 [2026-08-24T20:30:33.185Z] [ensure-queue] sem imagem pra este post (sem chave configurada ou nada encontrado) — seguindo sem imagem
 [2026-08-24T20:30:38.018Z] [ensure-queue] preparado pra publicar: "Prévia automática de site: por que descartei o molde genérico antes de escrever uma linha de código" (modo real)
+[2026-08-24T21:00:05.135Z] publicado: /blog/previa-automatica-de-site-por-que-descartei-o-molde-generico-antes-de-/ — "Prévia automática de site: por que descartei o molde genérico antes de escrever uma linha de código"
