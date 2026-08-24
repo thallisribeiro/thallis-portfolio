@@ -27,3 +27,8 @@
 [2026-08-24T09:30:57.358Z] [ensure-queue] sem imagem pra este post (sem chave configurada ou nada encontrado) — seguindo sem imagem
 [2026-08-24T09:31:01.033Z] [ensure-queue] preparado pra publicar: "Prospectei Eunápolis inteira em 28 ciclos. Sei a diferença entre saturação falsa e real porque errei a primeira" (modo real)
 [2026-08-24T10:00:05.073Z] publicado: /blog/prospectei-eunapolis-inteira-em-28-ciclos-sei-a-diferenca-entre-satura/ — "Prospectei Eunápolis inteira em 28 ciclos. Sei a diferença entre saturação falsa e real porque errei a primeira"
+[2026-08-24T14:30:02.031Z] [ensure-queue] gerando post — modo: real
+[2026-08-24T14:30:22.292Z] [ensure-queue] modelo decidiu que nada era interessante o bastante — pulando este horário
+[2026-08-24T15:00:01.555Z] fila vazia — nada publicado neste horário
+[2026-08-24T20:30:01.681Z] [ensure-queue] gerando post — modo: real
+[2026-08-24T20:30:33.185Z] [ensure-queue] sem imagem pra este post (sem chave configurada ou nada encontrado) — seguindo sem imagem
