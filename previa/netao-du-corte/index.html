@@ -17,64 +17,66 @@
   h1,h2{font-family:"Libre Caslon Display",Georgia,serif; font-weight:400; margin:0}
   a{color:inherit}
   a:focus-visible{outline:2px solid var(--brass); outline-offset:3px}
-
-  /* GRUPO A.2 -- largura da tela inteira, conteudo em 1140px, nao coluna de 640 */
   .wrap{max-width:1140px; margin:0 auto; padding:0 32px}
   @media(max-width:620px){ .wrap{padding:0 20px} }
 
-  /* GRUPO A.1 -- cabecalho de verdade */
   .cabecalho{
     position:sticky; top:0; z-index:30; height:var(--cab);
     background:rgba(15,27,22,.94); border-bottom:1px solid var(--linha);
     backdrop-filter:saturate(140%) blur(8px);
   }
   .cabecalho .wrap{height:100%; display:flex; align-items:center; justify-content:space-between; gap:16px}
-  .marca{font-family:"Libre Caslon Display",Georgia,serif; font-size:20px; letter-spacing:.01em; text-decoration:none; white-space:nowrap}
+  .marca{font-family:"Libre Caslon Display",Georgia,serif; font-size:20px; text-decoration:none; white-space:nowrap}
   .cab-dir{display:flex; align-items:center; gap:22px}
   .cab-tel{font-size:15px; font-weight:500; text-decoration:none; color:var(--creme)}
   .cab-tel:hover{color:var(--brass)}
-  @media(max-width:620px){
-    .marca{font-size:16px}
-    .cab-tel{display:none}
-  }
+  @media(max-width:620px){ .marca{font-size:16px} .cab-tel{display:none} }
 
-  /* GRUPO A.6 -- botao com largura de botao, nunca full-width */
   .botao{
     display:inline-block; background:var(--brass); color:#101a15; text-decoration:none;
-    font-weight:700; font-size:15px; letter-spacing:.01em; padding:14px 28px; border:0;
+    font-weight:700; font-size:15px; padding:14px 28px; border:0;
   }
   .botao:hover{background:#D9B45E}
   .botao.pequeno{padding:10px 18px; font-size:13px}
-  .botao.grande{padding:18px 38px; font-size:17px}
-  @media(max-width:620px){ .botao.grande{padding:16px 28px; font-size:16px} }
+  .botao.grande{padding:18px 34px; font-size:17px}
+  .botao.vazado{background:transparent; color:var(--creme); border:1px solid rgba(241,234,217,.35); font-weight:600}
+  .botao.vazado:hover{background:rgba(241,234,217,.08); border-color:var(--creme)}
+  @media(max-width:620px){ .botao.grande{padding:16px 26px; font-size:16px} }
 
-  /* GRUPO A.3 -- topo de tela cheia, com texto SOBRE a imagem */
   .topo{
     position:relative; min-height:calc(100vh - var(--cab)); display:flex; align-items:flex-end;
     background:var(--painel); overflow:hidden;
   }
-  /* marcador do placeholder no canto, longe do texto do hero */
   .topo .foto{position:absolute; inset:0; display:flex; align-items:flex-start; justify-content:flex-end; padding:36px}
   .topo .scrim{
     position:absolute; inset:0;
-    background:linear-gradient(180deg, rgba(15,27,22,.55) 0%, rgba(15,27,22,.35) 40%, rgba(15,27,22,.93) 100%);
+    background:linear-gradient(180deg, rgba(15,27,22,.55) 0%, rgba(15,27,22,.40) 35%, rgba(15,27,22,.95) 100%);
   }
-  .topo .conteudo{position:relative; z-index:2; width:100%; padding:0 0 72px}
-  @media(max-width:620px){ .topo .conteudo{padding-bottom:52px} }
+  .topo .conteudo{position:relative; z-index:2; width:100%; padding:0 0 64px}
+  @media(max-width:620px){ .topo{align-items:flex-end} .topo .conteudo{padding-bottom:40px} .topo .foto{padding:20px} }
 
-  .local{
-    font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--brass);
-    display:block; margin-bottom:20px;
+  /* rotulo que qualifica o publico, acima do titulo */
+  .publico{
+    font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--brass);
+    display:block; margin-bottom:18px;
   }
-  /* GRUPO A.4 -- titulo muito maior, linha apertada */
-  h1{
-    font-size:clamp(46px,8.5vw,86px); line-height:.96; letter-spacing:-.015em;
-    max-width:13ch; text-wrap:balance;
-  }
-  .frase{font-size:clamp(17px,2vw,20px); color:var(--creme); opacity:.88; margin:24px 0 0; max-width:44ch}
-  .topo .botao{margin-top:34px}
+  @media(max-width:620px){ .publico{font-size:11px; letter-spacing:.1em; margin-bottom:14px} }
 
-  /* GRUPO A.5 -- alternancia real de fundo entre secoes */
+  /* titulo abre na dor de quem le, nao na descricao do negocio */
+  h1{font-size:clamp(38px,7.5vw,78px); line-height:.98; letter-spacing:-.015em; max-width:15ch; text-wrap:balance}
+  .resposta{font-size:clamp(17px,2vw,21px); color:var(--creme); opacity:.9; margin:20px 0 0; max-width:40ch}
+
+  /* objecoes respondidas antes de aparecer */
+  .objecoes{list-style:none; margin:26px 0 0; padding:0; display:flex; flex-direction:column; gap:9px}
+  .objecoes li{display:flex; align-items:flex-start; gap:10px; font-size:16px; color:var(--creme); opacity:.92}
+  .objecoes svg{width:17px; height:17px; color:var(--brass); flex:none; margin-top:4px}
+  @media(max-width:620px){ .objecoes{margin-top:20px; gap:7px} .objecoes li{font-size:15px} }
+
+  .acoes{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-top:30px}
+  /* microcopy que quebra a objecao principal do clique */
+  .micro{font-size:14px; color:var(--muted); margin:14px 0 0}
+  @media(max-width:620px){ .acoes{margin-top:24px; gap:10px} .micro{font-size:13px} }
+
   .faixa{padding:80px 0}
   .faixa-escura{background:var(--bg)}
   .faixa-clara{background:var(--claro); color:var(--ink-claro)}
@@ -83,13 +85,10 @@
   .faixa-clara .nota{color:var(--muted-claro)}
   @media(max-width:620px){ .faixa{padding:56px 0} }
 
-  .rotulo{
-    font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--brass);
-    display:block; margin-bottom:14px;
-  }
+  .rotulo{font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--brass); display:block; margin-bottom:14px}
   h2{font-size:clamp(30px,4.5vw,44px); line-height:1.05; letter-spacing:-.01em}
   .nota{font-size:13px; color:var(--muted); font-style:italic; margin:14px 0 0}
-  .cab-secao{margin-bottom:40px; max-width:34ch}
+  .cab-secao{margin-bottom:40px; max-width:36ch}
 
   .servicos{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:0 56px}
   @media(max-width:720px){ .servicos{grid-template-columns:1fr; gap:0} }
@@ -112,10 +111,7 @@
   }
   .topo .foto .ph svg{width:20px; height:20px; flex:none}
   .topo .foto .ph span{font-size:12px; text-align:left; max-width:18ch}
-  @media(max-width:620px){
-    .topo .foto{padding:20px}
-    .topo .foto .ph span{max-width:13ch; font-size:11px}
-  }
+  @media(max-width:620px){ .topo .foto .ph span{max-width:13ch; font-size:11px} }
 
   .ambiente{display:grid; grid-template-columns:2fr 1fr 1fr; gap:14px}
   .ambiente .ph{aspect-ratio:1/1}
@@ -132,8 +128,9 @@
   .contato dd a{text-decoration:none; border-bottom:1px solid var(--linha-clara)}
 
   .fecho{background:var(--bg); padding:96px 0; text-align:center}
-  .fecho h2{margin:0 auto 14px; max-width:16ch}
-  .fecho p{color:var(--muted); margin:0 auto 32px; max-width:38ch; font-size:17px}
+  .fecho h2{margin:0 auto 14px; max-width:18ch}
+  .fecho p{color:var(--muted); margin:0 auto 30px; max-width:40ch; font-size:17px}
+  .fecho .micro{margin-top:16px}
   @media(max-width:620px){ .fecho{padding:64px 0} }
 
   footer{background:var(--bg); border-top:1px solid var(--linha); padding:28px 0; text-align:center; color:var(--muted); font-size:12px}
@@ -144,7 +141,7 @@
     <a class="marca" href="#topo">Netão Du Corte</a>
     <div class="cab-dir">
       <a class="cab-tel" href="tel:+5573981630303">(73) 98163-0303</a>
-      <a class="botao pequeno" href="https://wa.me/557399865198">Marcar horário</a>
+      <a class="botao pequeno" href="https://wa.me/557399865198?text=Oi!%20Quero%20marcar%20um%20hor%C3%A1rio%20na%20Net%C3%A3o%20Du%20Corte.">Marcar horário</a>
     </div>
   </div>
 </header>
@@ -154,18 +151,27 @@
   <div class="scrim"></div>
   <div class="conteudo">
     <div class="wrap">
-      <span class="local">Pequi, Eunápolis</span>
-      <h1>Corte, barba e navalha na Rua Belmonte</h1>
-      <p class="frase">Barbearia Netão Du Corte. Chama no WhatsApp e marca teu horário.</p>
-      <a class="botao grande" href="https://wa.me/557399865198">Marcar horário</a>
+      <span class="publico">Pra quem corta no Pequi e não quer perder a tarde</span>
+      <h1>Chegou na barbearia e tinha três na frente?</h1>
+      <p class="resposta">Manda mensagem antes e chega na hora do teu corte.</p>
+      <ul class="objecoes">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Você escolhe o dia e a hora pelo WhatsApp</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Corte, barba e navalha na mesma cadeira</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Rua Belmonte, 41, no Pequi</span></li>
+      </ul>
+      <div class="acoes">
+        <a class="botao grande" href="https://wa.me/557399865198?text=Oi!%20Quero%20marcar%20um%20hor%C3%A1rio%20na%20Net%C3%A3o%20Du%20Corte.">Marcar meu horário</a>
+        <a class="botao grande vazado" href="#servicos">Ver os serviços</a>
+      </div>
+      <p class="micro">Responde em minutos. É só dizer o dia e a hora que você quer.</p>
     </div>
   </div>
 </section>
 
-<section class="faixa faixa-clara">
+<section class="faixa faixa-clara" id="servicos">
   <div class="wrap">
     <div class="cab-secao">
-      <span class="rotulo">O que a casa faz</span>
+      <span class="rotulo">O que sai da cadeira</span>
       <h2>Serviços</h2>
       <p class="nota">valores a confirmar com a barbearia antes de publicar</p>
     </div>
@@ -182,7 +188,7 @@
   <div class="wrap">
     <div class="cab-secao">
       <span class="rotulo">Por dentro</span>
-      <h2>O ambiente</h2>
+      <h2>Onde você vai sentar</h2>
     </div>
     <div class="ambiente">
       <div class="ph "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 11V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v5"/><path d="M4 11h16v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-4z"/><path d="M8 17v3M16 17v3"/></svg><span>foto do salão por dentro entra aqui</span></div>
@@ -196,7 +202,7 @@
   <div class="wrap">
     <div class="cab-secao">
       <span class="rotulo">Como chegar</span>
-      <h2>Onde fica</h2>
+      <h2>No Pequi, Rua Belmonte</h2>
     </div>
     <dl class="contato">
       <div>
@@ -217,9 +223,10 @@
 
 <section class="fecho">
   <div class="wrap">
-    <h2>Marca teu horário</h2>
-    <p>Chama no WhatsApp e garante teu corte.</p>
-    <a class="botao grande" href="https://wa.me/557399865198">Marcar horário</a>
+    <h2>Marca agora e chega na hora certa</h2>
+    <p>Sem fila, sem esperar sentado. Você escolhe o horário.</p>
+    <a class="botao grande" href="https://wa.me/557399865198?text=Oi!%20Quero%20marcar%20um%20hor%C3%A1rio%20na%20Net%C3%A3o%20Du%20Corte.">Marcar meu horário</a>
+    <p class="micro">Responde em minutos, sem compromisso.</p>
   </div>
 </section>
 
