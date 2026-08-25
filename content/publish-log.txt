@@ -34,3 +34,8 @@
 [2026-08-24T20:30:33.185Z] [ensure-queue] sem imagem pra este post (sem chave configurada ou nada encontrado) — seguindo sem imagem
 [2026-08-24T20:30:38.018Z] [ensure-queue] preparado pra publicar: "Prévia automática de site: por que descartei o molde genérico antes de escrever uma linha de código" (modo real)
 [2026-08-24T21:00:05.135Z] publicado: /blog/previa-automatica-de-site-por-que-descartei-o-molde-generico-antes-de-/ — "Prévia automática de site: por que descartei o molde genérico antes de escrever uma linha de código"
+[2026-08-25T09:30:01.682Z] [ensure-queue] gerando post — modo: real
+[2026-08-25T09:30:08.068Z] [ensure-queue] [erro] geração falhou: claude saiu com código 1:
+[2026-08-25T10:00:01.562Z] fila vazia — nada publicado neste horário
+[2026-08-25T12:15:35.702Z] [ensure-queue] gerando post — modo: real
+[2026-08-25T12:15:38.366Z] [ensure-queue] [erro] geração falhou: claude saiu com código 1: You've hit your weekly limit · resets Aug 28, 1am (America/Bahia)
