@@ -5,6 +5,13 @@
   <description>O que eu vou construindo, testando e aprendendo sobre site, conteúdo e automação com IA.</description>
   <language>pt-BR</language>
   <item>
+    <title>3 coisas que eu nunca automatizo, mesmo podendo</title>
+    <link>https://thallisribeiro.com.br/blog/3-coisas-que-eu-nunca-automatizo-mesmo-podendo/</link>
+    <guid>https://thallisribeiro.com.br/blog/3-coisas-que-eu-nunca-automatizo-mesmo-podendo/</guid>
+    <pubDate>Tue, 25 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Ter a tecnologia pra automatizar não é a mesma coisa que dever automatizar: três limites que eu mantenho de propósito no estúdio.</description>
+  </item>
+  <item>
     <title>3 desculpas que atrasam o lançamento do seu site (e nenhuma é boa o bastante)</title>
     <link>https://thallisribeiro.com.br/blog/3-desculpas-que-atrasam-o-lancamento-do-seu-site-e-nenhuma-e-boa-o-bas/</link>
     <guid>https://thallisribeiro.com.br/blog/3-desculpas-que-atrasam-o-lancamento-do-seu-site-e-nenhuma-e-boa-o-bas/</guid>
@@ -136,12 +143,5 @@
     <guid>https://thallisribeiro.com.br/blog/o-checklist-tecnico-de-seo-que-apliquei-no-meu-site/</guid>
     <pubDate>Fri, 21 Aug 2026 00:00:00 GMT</pubDate>
     <description>Depois de auditar a copy, fiz a mesma coisa com o SEO técnico — e achei que a home não tinha nenhum Open Graph configurado.</description>
-  </item>
-  <item>
-    <title>Auditei meu próprio site com 20 parâmetros de copywriting (e achei zero prova social)</title>
-    <link>https://thallisribeiro.com.br/blog/raio-x-da-copy-do-meu-site/</link>
-    <guid>https://thallisribeiro.com.br/blog/raio-x-da-copy-do-meu-site/</guid>
-    <pubDate>Fri, 21 Aug 2026 00:00:00 GMT</pubDate>
-    <description>Antes de vender site pros outros, testei o meu. Nota final 4,7/10 — e o motivo não foi falta de design.</description>
   </item>
 </channel></rss>
