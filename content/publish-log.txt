@@ -55,3 +55,9 @@
 [2026-08-26T20:30:04.411Z] [ensure-queue] [erro] geração falhou: claude falhou (código 1): stdout: You've hit your weekly limit · resets Aug 28, 1am (America/Bahia)
 [2026-08-26T21:00:01.596Z] fila vazia — nada publicado neste horário
 [2026-08-27T10:00:01.804Z] fila vazia — nada publicado neste horário
+[2026-08-27T14:30:02.043Z] [ensure-queue] gerando post — modo: real
+[2026-08-27T14:30:04.533Z] [ensure-queue] [erro] geração falhou: claude falhou (código 1): stdout: You've hit your weekly limit · resets 1am (America/Bahia)
+[2026-08-27T15:00:01.826Z] fila vazia — nada publicado neste horário
+[2026-08-27T20:30:02.002Z] [ensure-queue] gerando post — modo: real
+[2026-08-27T20:30:04.834Z] [ensure-queue] [erro] geração falhou: claude falhou (código 1): stdout: You've hit your weekly limit · resets 1am (America/Bahia)
+[2026-08-27T21:00:01.788Z] fila vazia — nada publicado neste horário
