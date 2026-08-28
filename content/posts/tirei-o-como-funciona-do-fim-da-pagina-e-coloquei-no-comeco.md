@@ -1,5 +1,6 @@
 ---
 title: Tirei o "como funciona" do fim da página e coloquei no começo
+date: 2026-08-28
 summary: Uma mudança pequena no site da agência: o motor do Thallis.lab saiu de baixo pra virar topo de funil. Ainda não tenho número pra dizer se acertei.
 tema: Site & copy
 ---
