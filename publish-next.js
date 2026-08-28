@@ -6,7 +6,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { spawnSync } = require('child_process');
+const { failureDetail, retryPendingPush, runCommand } = require('./blog-workflow');
 
 const ROOT = __dirname;
 const QUEUE_DIR = path.join(ROOT, 'content', 'queue');
@@ -26,24 +26,33 @@ function todayIso() {
 }
 
 function run(cmd, args) {
-  const r = spawnSync(cmd, args, { cwd: ROOT, encoding: 'utf-8' });
-  return { ok: r.status === 0, stdout: (r.stdout || '').trim(), stderr: (r.stderr || '').trim() };
+  return runCommand(ROOT, cmd, args);
+}
+
+function rollbackUncommittedPublication({ queuePath, raw, postPath, publicationPaths }) {
+  fs.writeFileSync(queuePath, raw);
+  if (fs.existsSync(postPath)) fs.unlinkSync(postPath);
+  return run('git', ['restore', '--staged', '--', ...publicationPaths]);
 }
 
 function main() {
   fs.mkdirSync(QUEUE_DIR, { recursive: true });
   fs.mkdirSync(POSTS_DIR, { recursive: true });
 
+  const pendingPush = retryPendingPush(ROOT, log);
+  if (!pendingPush.ok) { log(`[erro] ${pendingPush.reason}`); return 1; }
+
   const queue = fs.readdirSync(QUEUE_DIR).filter(f => f.endsWith('.md')).sort();
   if (queue.length === 0) {
     log('fila vazia — nada publicado neste horário');
-    return;
+    return 0;
   }
 
   const file = queue[0];
-  const raw = fs.readFileSync(path.join(QUEUE_DIR, file), 'utf-8').replace(/\r\n/g, '\n');
+  const queuePath = path.join(QUEUE_DIR, file);
+  const raw = fs.readFileSync(queuePath, 'utf-8').replace(/\r\n/g, '\n');
   const m = raw.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
-  if (!m) { log(`[erro] ${file} não tem frontmatter válido — pulando, arquivo mantido na fila pra correção manual`); return; }
+  if (!m) { log(`[erro] ${file} não tem frontmatter válido — pulando, arquivo mantido na fila pra correção manual`); return 1; }
 
   const metaLines = m[1].split('\n');
   const meta = {};
@@ -51,7 +60,7 @@ function main() {
     const kv = line.match(/^([a-zA-Z_]+):\s*(.*)$/);
     if (kv) meta[kv[1]] = kv[2].trim().replace(/^["']|["']$/g, '');
   }
-  if (!meta.title) { log(`[erro] ${file} não tem "title" no frontmatter — pulando, arquivo mantido na fila`); return; }
+  if (!meta.title) { log(`[erro] ${file} não tem "title" no frontmatter — pulando, arquivo mantido na fila`); return 1; }
 
   // slug de publicação = nome do arquivo sem prefixo numérico de ordem (ex: "01-foo.md" -> "foo")
   const slug = file.replace(/\.md$/, '').replace(/^\d+-/, '');
@@ -62,20 +71,52 @@ function main() {
   if (meta.image_credit) frontmatterLinhas.push(`image_credit: ${meta.image_credit}`);
   const finalMd = `---\n${frontmatterLinhas.join('\n')}\n---\n\n${m[2].trim()}\n`;
 
-  fs.writeFileSync(path.join(POSTS_DIR, `${slug}.md`), finalMd);
-  fs.unlinkSync(path.join(QUEUE_DIR, file));
+  const postRelative = `content/posts/${slug}.md`;
+  const queueRelative = `content/queue/${file}`;
+  const postPath = path.join(POSTS_DIR, `${slug}.md`);
+  if (fs.existsSync(postPath)) {
+    log(`[erro] slug "${slug}" já existe em content/posts; arquivo mantido na fila para revisão`);
+    return 1;
+  }
+  fs.writeFileSync(postPath, finalMd);
 
   const gen = run(process.execPath, ['generate-blog.js']);
-  if (!gen.ok) { log(`[erro] generate-blog.js falhou: ${gen.stderr}`); return; }
+  if (!gen.ok) {
+    fs.unlinkSync(postPath);
+    log(`[erro] generate-blog.js falhou: ${failureDetail(gen)}`);
+    return 1;
+  }
 
-  run('git', ['add', 'content/', 'blog/']);
-  const commit = run('git', ['commit', '-m', `Publica post agendado: ${meta.title}`]);
-  if (!commit.ok) { log(`[erro] git commit falhou: ${commit.stderr || commit.stdout}`); return; }
+  // A fila só é consumida depois que todos os artefatos estáticos existem.
+  // Assim, uma falha do gerador continua automaticamente retryable.
+  fs.unlinkSync(queuePath);
 
-  const push = run('git', ['push', 'origin', 'main']);
-  if (!push.ok) { log(`[erro] git push falhou (commit local ok, retry manual necessário): ${push.stderr}`); return; }
+  const publicationPaths = [postRelative, queueRelative, 'blog/', 'feed.xml', 'sitemap.xml'];
+  const add = run('git', ['add', '--', ...publicationPaths]);
+  if (!add.ok) {
+    const rollback = rollbackUncommittedPublication({ queuePath, raw, postPath, publicationPaths });
+    const rollbackNote = rollback.ok ? '' : ` | rollback do index falhou: ${failureDetail(rollback)}`;
+    log(`[erro] git add falhou; post devolvido à fila: ${failureDetail(add)}${rollbackNote}`);
+    return 1;
+  }
+  const commit = run('git', ['commit', '-m', `Publica post agendado: ${meta.title}`, '--', ...publicationPaths]);
+  if (!commit.ok) {
+    const rollback = rollbackUncommittedPublication({ queuePath, raw, postPath, publicationPaths });
+    const rollbackNote = rollback.ok ? '' : ` | rollback do index falhou: ${failureDetail(rollback)}`;
+    log(`[erro] git commit falhou; post devolvido à fila: ${failureDetail(commit)}${rollbackNote}`);
+    return 1;
+  }
+
+  const push = run('git', ['push']);
+  if (!push.ok) { log(`[erro] git push falhou (commit local preservado para retry): ${failureDetail(push)}`); return 1; }
 
   log(`publicado: /blog/${slug}/ — "${meta.title}"`);
+  return 0;
 }
 
-main();
+try {
+  process.exitCode = main() || 0;
+} catch (e) {
+  console.error('[publish-next] erro fatal:', e.message);
+  process.exitCode = 1;
+}

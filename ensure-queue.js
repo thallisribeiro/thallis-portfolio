@@ -10,6 +10,7 @@
 const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
+const { failureDetail, retryPendingPush, runCommand } = require('./blog-workflow');
 
 const ROOT = __dirname;
 const QUEUE_DIR = path.join(ROOT, 'content', 'queue');
@@ -27,8 +28,9 @@ function log(line) {
 }
 
 function run(cmd, args, opts = {}) {
-  const r = spawnSync(cmd, args, { cwd: ROOT, encoding: 'utf-8', ...opts });
-  return { ok: r.status === 0, stdout: (r.stdout || '').trim(), stderr: (r.stderr || '').trim(), error: r.error };
+  const cwd = opts.cwd || ROOT;
+  const { cwd: _ignored, ...commandOptions } = opts;
+  return runCommand(cwd, cmd, args, commandOptions);
 }
 
 function readJson(p, fallback) {
@@ -95,7 +97,11 @@ REGRAS RÍGIDAS:
 - NÃO use nenhuma ferramenta (tool). NÃO leia nem escreva nenhum arquivo. NÃO rode nenhum comando. Sua resposta inteira é o próprio texto de saída, nada além disso.
 - NUNCA invente número, estatística, depoimento, cliente ou resultado que não esteja explicitamente nas informações abaixo. Onde não tiver dado real, não afirme nada no lugar — corte a frase.
 - Tom: primeira pessoa (o Thallis escrevendo), direto, sem hype, honesto sobre limitação/lacuna quando existir.
-- Tamanho: 300 a 600 palavras.
+- Tamanho: decida pela profundidade real do tema, nunca convirja sempre pro mesmo número.
+  Nota rápida de bastidor/decisão pontual: 300-600 palavras. Tema que sustenta explicação,
+  comparação ou passo a passo de verdade (principalmente evergreen educativo, o tipo que
+  alguém acharia buscando no Google): 1000-1800 palavras, com seções ## e exemplo concreto
+  em cada uma — nunca resumir um tema profundo só pra caber em 500 palavras.
 
 ${angleBlock}
 
@@ -116,20 +122,45 @@ tema: <1-3 palavras, categoria do post — reusa um tema existente da lista acim
 
 function callClaude(prompt) {
   const sessionId = require('crypto').randomUUID();
-  const r = spawnSync('claude', ['-p', '--dangerously-skip-permissions', '--session-id', sessionId], {
+  const args = [
+    '-p',
+    '--safe-mode',
+    '--tools', '',
+    '--disable-slash-commands',
+    '--strict-mcp-config',
+    '--no-session-persistence',
+    '--session-id', sessionId,
+  ];
+  const command = process.env.BLOG_CLAUDE_COMMAND || 'claude';
+  const invocation = process.platform === 'win32'
+    ? {
+        command: process.env.ComSpec || 'cmd.exe',
+        args: ['/d', '/s', '/c', [command, ...args].map(quoteCmdArg).join(' ')],
+      }
+    : { command, args };
+  const r = spawnSync(invocation.command, invocation.args, {
     cwd: ROOT,
     input: prompt,
     encoding: 'utf-8',
-    shell: true,
     timeout: 5 * 60 * 1000,
   });
-  if (r.error) return { ok: false, reason: `spawn falhou: ${r.error.message}` };
-  if (r.status !== 0) return { ok: false, reason: `claude saiu com código ${r.status}: ${(r.stderr || '').slice(0, 300)}` };
+  if (r.error || r.status !== 0) {
+    return { ok: false, reason: `claude falhou (código ${r.status ?? 'indisponível'}): ${failureDetail(r)}` };
+  }
   return { ok: true, text: (r.stdout || '').trim() };
+}
+
+function quoteCmdArg(value) {
+  if (value === '') return '""';
+  if (!/[\s&|<>^()"]/.test(value)) return value;
+  return `"${value.replace(/"/g, '\\"')}"`;
 }
 
 async function main() {
   fs.mkdirSync(QUEUE_DIR, { recursive: true });
+
+  const pendingPush = retryPendingPush(ROOT, log);
+  if (!pendingPush.ok) { log(`[erro] ${pendingPush.reason}`); return 1; }
 
   const queue = fs.readdirSync(QUEUE_DIR).filter(f => f.endsWith('.md'));
   if (queue.length > 0) {
@@ -163,11 +194,11 @@ async function main() {
   log(`gerando post — modo: ${mode}`);
   const result = callClaude(prompt);
 
-  if (!result.ok) { log(`[erro] geração falhou: ${result.reason}`); return; }
+  if (!result.ok) { log(`[erro] geração falhou: ${result.reason}`); return 1; }
   if (result.text === 'SKIP' || result.text.startsWith('SKIP')) { log('modelo decidiu que nada era interessante o bastante — pulando este horário'); return; }
   if (!/^---\n?title:/.test(result.text) && !/^---\r?\ntitle:/.test(result.text)) {
     log(`[erro] saída não bate com o formato esperado, descartando. Início: ${result.text.slice(0, 120)}`);
-    return;
+    return 1;
   }
 
   const titleMatch = result.text.match(/title:\s*(.+)/);
@@ -193,7 +224,8 @@ async function main() {
     log(`[aviso] busca de imagem falhou, seguindo sem imagem: ${e.message}`);
   }
 
-  fs.writeFileSync(path.join(QUEUE_DIR, `01-${slug}.md`), finalText + '\n');
+  const queueRelative = `content/queue/01-${slug}.md`;
+  fs.writeFileSync(path.join(ROOT, queueRelative), finalText + '\n');
   if (markEvergreenUsed) markEvergreenUsed();
 
   const newState = {
@@ -202,13 +234,19 @@ async function main() {
   };
   fs.writeFileSync(STATE_FILE, JSON.stringify(newState, null, 2));
 
-  run('git', ['add', 'content/']);
-  const commit = run('git', ['commit', '-m', `Prepara post pro próximo horário (auto): ${title}`]);
-  if (!commit.ok) { log(`[erro] git commit falhou: ${commit.stderr || commit.stdout}`); return; }
-  const push = run('git', ['push', 'origin', 'main']);
-  if (!push.ok) { log(`[erro] git push falhou (commit local ok): ${push.stderr}`); return; }
+  const generationPaths = [queueRelative, 'content/.ensure-queue-state.json'];
+  if (markEvergreenUsed) generationPaths.push('content/evergreen-topics.md');
+  const add = run('git', ['add', '--', ...generationPaths]);
+  if (!add.ok) { log(`[erro] git add falhou: ${failureDetail(add)}`); return 1; }
+  const commit = run('git', ['commit', '-m', `Prepara post pro próximo horário (auto): ${title}`, '--', ...generationPaths]);
+  if (!commit.ok) { log(`[erro] git commit falhou: ${failureDetail(commit)}`); return 1; }
+  const push = run('git', ['push']);
+  if (!push.ok) { log(`[erro] git push falhou (commit local ok): ${failureDetail(push)}`); return 1; }
 
   log(`preparado pra publicar: "${title}" (modo ${mode})`);
+  return 0;
 }
 
-main().catch(e => { console.error('[ensure-queue] erro fatal:', e.message); process.exit(1); });
+main()
+  .then(code => { process.exitCode = code || 0; })
+  .catch(e => { console.error('[ensure-queue] erro fatal:', e.message); process.exitCode = 1; });

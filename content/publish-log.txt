@@ -61,3 +61,10 @@
 [2026-08-27T20:30:02.002Z] [ensure-queue] gerando post — modo: real
 [2026-08-27T20:30:04.834Z] [ensure-queue] [erro] geração falhou: claude falhou (código 1): stdout: You've hit your weekly limit · resets 1am (America/Bahia)
 [2026-08-27T21:00:01.788Z] fila vazia — nada publicado neste horário
+[2026-08-28T09:30:02.275Z] [ensure-queue] gerando post — modo: real
+[2026-08-28T09:31:06.651Z] [ensure-queue] sem imagem pra este post (sem chave configurada ou nada encontrado) — seguindo sem imagem
+[2026-08-28T09:31:10.031Z] [ensure-queue] preparado pra publicar: "Eu deixava um agente ler o site do lead com as permissões desligadas" (modo real)
+[2026-08-28T10:00:05.244Z] publicado: /blog/eu-deixava-um-agente-ler-o-site-do-lead-com-as-permissoes-desligadas/ — "Eu deixava um agente ler o site do lead com as permissões desligadas"
+[2026-08-28T14:30:02.083Z] [ensure-queue] gerando post — modo: real
+[2026-08-28T14:30:37.949Z] [ensure-queue] sem imagem pra este post (sem chave configurada ou nada encontrado) — seguindo sem imagem
+[2026-08-28T14:30:40.486Z] [ensure-queue] preparado pra publicar: "Tirei o "como funciona" do fim da página e coloquei no começo" (modo real)

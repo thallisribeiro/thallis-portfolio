@@ -9,6 +9,9 @@ const ROOT = __dirname;
 const POSTS_DIR = path.join(ROOT, 'content', 'posts');
 const OUT_DIR = path.join(ROOT, 'blog');
 const SITE_URL = 'https://thallisribeiro.com.br';
+// Mesma propriedade GA4 da home (index.html). Até 2026-08-28 as páginas de post
+// eram geradas sem tracking nenhum: 50 posts publicados sem medir uma visita.
+const GA_ID = 'G-247F9N1WQE';
 const WA_LINK = 'https://wa.me/5573999865198?text=Oi%20ThallisRibeiro%2C%20vi%20um%20post%20do%20seu%20blog%20e%20quero%20conversar%20sobre%20um%20projeto';
 
 // ── Frontmatter + markdown mínimo (headers, bold, itálico, links, listas, citação, código) ──
@@ -150,6 +153,13 @@ ${ogImageDims}<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/style.css">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2325D366'/%3E%3Cstop offset='1' stop-color='%2358A6FF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='42' font-family='Space Grotesk, sans-serif' font-weight='800' font-size='26' text-anchor='middle' fill='%230B0F14'%3ETR%3C/text%3E%3C/svg%3E">
 ${jsonLdBlock}
+<script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '${GA_ID}');
+</script>
 </head>
 <body>
 
