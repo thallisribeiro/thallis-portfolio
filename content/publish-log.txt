@@ -68,3 +68,4 @@
 [2026-08-28T14:30:02.083Z] [ensure-queue] gerando post — modo: real
 [2026-08-28T14:30:37.949Z] [ensure-queue] sem imagem pra este post (sem chave configurada ou nada encontrado) — seguindo sem imagem
 [2026-08-28T14:30:40.486Z] [ensure-queue] preparado pra publicar: "Tirei o "como funciona" do fim da página e coloquei no começo" (modo real)
+[2026-08-28T14:42:24.247Z] [ensure-queue] fila já tem 1 post(s) — nada a gerar

@@ -71,6 +71,57 @@ function nextEvergreenTopic() {
   } };
 }
 
+const CONTENTHUB_SAIDA = path.join(
+  SQUADS_REPO, '_contenthub', '_clientes', 'thallisribeiro', 'saida'
+);
+
+function slugificar(texto) {
+  return texto
+    .normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 70);
+}
+
+function tituloDoFrontmatter(conteudo) {
+  const m = conteudo.match(/^title:\s*"?(.+?)"?\s*$/m);
+  return m ? m[1].trim() : null;
+}
+
+// Varre os artigos que o _contenthub ja escreveu e devolve o primeiro que ainda
+// nao virou post. Compara por slug do titulo, que e como o blog nomeia arquivo.
+function proximoArtigoDoContentHub() {
+  if (!fs.existsSync(CONTENTHUB_SAIDA)) return null;
+
+  const publicados = new Set();
+  for (const arq of fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.md'))) {
+    const titulo = tituloDoFrontmatter(fs.readFileSync(path.join(POSTS_DIR, arq), 'utf-8'));
+    if (titulo) publicados.add(slugificar(titulo));
+  }
+
+  const candidatos = [];
+  for (const dia of fs.readdirSync(CONTENTHUB_SAIDA)) {
+    const dirDia = path.join(CONTENTHUB_SAIDA, dia);
+    if (!fs.statSync(dirDia).isDirectory()) continue;
+    for (const topico of fs.readdirSync(dirDia)) {
+      const artigo = path.join(dirDia, topico, 'artigo', 'artigo.md');
+      if (!fs.existsSync(artigo)) continue;
+      const conteudo = fs.readFileSync(artigo, 'utf-8').replace(/\r\n/g, '\n');
+      const titulo = tituloDoFrontmatter(conteudo);
+      if (!titulo) continue;
+      const slug = slugificar(titulo);
+      if (publicados.has(slug)) continue;
+      candidatos.push({ dia, titulo, slug, conteudo });
+    }
+  }
+
+  if (candidatos.length === 0) return null;
+  // mais antigo primeiro: o carrossel irmao ja foi ao ar ha mais tempo
+  candidatos.sort((a, b) => a.dia.localeCompare(b.dia));
+  return candidatos[0];
+}
+
 function temasJaUsados() {
   if (!fs.existsSync(POSTS_DIR)) return [];
   const temas = new Set();
@@ -165,6 +216,20 @@ async function main() {
   const queue = fs.readdirSync(QUEUE_DIR).filter(f => f.endsWith('.md'));
   if (queue.length > 0) {
     log(`fila já tem ${queue.length} post(s) — nada a gerar`);
+    return;
+  }
+
+  // Mao dupla com o Instagram: o _contenthub deriva da mesma peca-mae um carrossel
+  // e um artigo, e o artigo ja sai reangulado pra intencao de busca. Ele so nunca
+  // era transportado ate aqui -- em 2026-08-28 havia 8 artigos escritos e parados.
+  // Entra antes de tudo: ja esta pronto, nao custa chamada de modelo.
+  const doContentHub = proximoArtigoDoContentHub();
+  if (doContentHub) {
+    const destino = path.join(QUEUE_DIR, doContentHub.slug + '.md');
+    fs.writeFileSync(destino, doContentHub.conteudo);
+    log(`artigo do content-hub aproveitado: ${doContentHub.titulo}`);
+    const commit = runCommand('git', ['add', '-A'], ROOT);
+    if (commit.ok) runCommand('git', ['commit', '-m', `Prepara post do content-hub: ${doContentHub.titulo}`], ROOT);
     return;
   }
 
