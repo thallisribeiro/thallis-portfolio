@@ -5,6 +5,13 @@
   <description>O que eu vou construindo, testando e aprendendo sobre site, conteúdo e automação com IA.</description>
   <language>pt-BR</language>
   <item>
+    <title>Eu deixava um agente ler o site do lead com as permissões desligadas</title>
+    <link>https://thallisribeiro.com.br/blog/eu-deixava-um-agente-ler-o-site-do-lead-com-as-permissoes-desligadas/</link>
+    <guid>https://thallisribeiro.com.br/blog/eu-deixava-um-agente-ler-o-site-do-lead-com-as-permissoes-desligadas/</guid>
+    <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
+    <description>O pipeline baixava o HTML do site de um estranho e mandava direto pra um Claude rodando com --dangerously-skip-permissions. Ninguém me atacou. Eu só percebi antes.</description>
+  </item>
+  <item>
     <title>9,1 milhões de empresas inadimplentes: o que isso muda pro seu marketing</title>
     <link>https://thallisribeiro.com.br/blog/9-1-milhoes-de-empresas-inadimplentes-o-que-isso-muda-pro-seu-marketin/</link>
     <guid>https://thallisribeiro.com.br/blog/9-1-milhoes-de-empresas-inadimplentes-o-que-isso-muda-pro-seu-marketin/</guid>
@@ -136,12 +143,5 @@
     <guid>https://thallisribeiro.com.br/blog/automatizei-a-publicacao-da-serie-de-30-dias-e-ela-ja-e-o-teste-do-pro/</guid>
     <pubDate>Sat, 22 Aug 2026 00:00:00 GMT</pubDate>
     <description>Publiquei o Dia 2 da série de 30 dias direto por um pipeline automático de Instagram, ainda sem saber se aguenta os outros 28 dias.</description>
-  </item>
-  <item>
-    <title>Dia 2. Como a máquina publica sozinha no Instagram</title>
-    <link>https://thallisribeiro.com.br/blog/dia-2-como-a-maquina-publica-sozinha/</link>
-    <guid>https://thallisribeiro.com.br/blog/dia-2-como-a-maquina-publica-sozinha/</guid>
-    <pubDate>Sat, 22 Aug 2026 00:00:00 GMT</pubDate>
-    <description>A promessa do Dia 1 era publicar isso amanhã. Não esperei: o pipeline de publicação automática do Instagram ficou pronto ainda hoje, com 2 bugs reais achados e corrigidos ao vivo.</description>
   </item>
 </channel></rss>

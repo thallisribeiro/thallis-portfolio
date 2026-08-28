@@ -1,5 +1,6 @@
 ---
 title: Eu deixava um agente ler o site do lead com as permissões desligadas
+date: 2026-08-28
 summary: O pipeline baixava o HTML do site de um estranho e mandava direto pra um Claude rodando com --dangerously-skip-permissions. Ninguém me atacou. Eu só percebi antes.
 tema: Agência autônoma
 ---
