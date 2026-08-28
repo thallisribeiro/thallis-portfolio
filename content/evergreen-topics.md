@@ -1,16 +1,51 @@
 # Temas evergreen do blog
 
-ensure-queue.js usa isto como reserva quando não tem nada real pra postar.
-Pega o primeiro `- [ ]`, escreve o post, marca `- [x]` depois de usado.
-Quando acabar a lista, adiciona mais linhas aqui (a régua de 20 parâmetros já foi usada como o 1º post real, por isso não repete aqui).
+ensure-queue.js usa isto como reserva, e só depois de esgotar duas fontes melhores:
+artigo pronto do content-hub, depois commit real. Pega o primeiro `- [ ]`, escreve o
+post, marca `- [x]` depois de usado. Quando acabar, adicionar mais linhas aqui.
 
-- [ ] Por que eu mostro o site no ar antes de fechar o resto do valor (a lógica por trás da Garantia Site no Ar)
-- [ ] O que muda de verdade quando alguém diz "eu construo com IA" — automação de verdade vs. só usar ChatGPT
-- [ ] Como decidir entre landing page e site completo pro seu negócio
-- [ ] Por que eu prefiro escrever "vago" a inventar uma métrica bonita — a régua que uso nos meus próprios painéis
-- [ ] O que aprendi construindo o Grana do zero até ter o primeiro assinante pagante
-- [ ] Preço fechado vs. sob orçamento — por que nem todo serviço deveria ter tabela pronta
-- [ ] Os 3 sinais de que um site existe só "pra existir" e não pra vender
-- [ ] Como eu decido o que automatizar primeiro no negócio de um cliente
-- [ ] O erro mais comum que eu vejo em site de prestador de serviço local
-- [ ] Por que prazo "combinamos depois" é a maior bandeira vermelha ao contratar freelancer
+> Reescrito em 2026-08-28. A lista anterior era toda da agência de sites (Garantia Site
+> no Ar, landing page vs site completo, preço fechado vs orçamento) — o negócio que foi
+> despriorizado. Ela só não tinha causado dano ainda porque a fila raramente chegava nela.
+>
+> **Critério dos temas novos:** casar intenção de busca real (é blog, o objetivo é SEO)
+> com os 5 pilares do Thallis.lab (`_contenthub/.../content-pillars.md`). Cada linha
+> abaixo é uma pergunta que alguém digita no Google **e** que só quem faz de verdade
+> consegue responder. Nenhum tema pede case de cliente, porque o posicionamento agora é
+> experimento público, não portfólio de serviço.
+
+## Custo e viabilidade (busca alta, quase ninguém responde com número real)
+
+- [ ] Quanto custa rodar agentes de IA por um mês de verdade (os números da minha conta)
+- [ ] Dá pra automatizar um negócio inteiro sem pagar API? O que consegui e onde travei
+- [ ] Quanto tempo a IA realmente economiza por semana (medido, não estimado)
+- [ ] Vale a pena pagar ChatGPT Plus, Claude Pro ou os dois? Como eu decidi
+
+## IA que roda no seu computador (pilar "de graça" + "o que a IA já faz sozinha")
+
+- [ ] Como transcrever vídeo de graça no próprio PC, sem mandar nada pra nuvem
+- [ ] Ferramentas de IA que rodam offline: o que dá pra fazer sem internet e sem mensalidade
+- [ ] Quanta placa de vídeo você precisa pra rodar IA em casa (testei numa 3070)
+- [ ] Editar vídeo com IA sem pagar nada: o que funciona e o que ainda não
+
+## O que a IA já faz e o que ainda não faz
+
+- [ ] A IA já edita vídeo sozinha? O que ela acerta e onde ainda precisa de gente
+- [ ] IA vai substituir editor de vídeo, designer ou programador? Separando o que já mudou
+- [ ] O que a IA ainda erra que ninguém comenta nos vídeos de IA
+- [ ] Por que o texto de IA parece de IA (e o que muda quando você força uma regra)
+
+## Experimentos e fracassos (pilares 1 e 3)
+
+- [ ] Deixei uma IA cuidar do meu Instagram por uma semana: o que aconteceu
+- [ ] Gastei mais da metade da minha cota de IA numa noite e não gerei nada de útil
+- [ ] Mandei a IA achar clientes na minha cidade: o que voltou e o que era lixo
+- [ ] Construí uma operação onde nenhum funcionário é humano: o que quebra primeiro
+- [ ] Pedi pra IA auditar meu próprio trabalho e ela achou erro que eu não tinha visto
+
+## Como fazer, para quem nunca fez (topo puro, busca alta)
+
+- [ ] Como começar a usar IA no trabalho sem saber programar
+- [ ] Como pedir pra IA de um jeito que ela não devolve resposta genérica
+- [ ] O que é agente de IA, na prática, sem jargão
+- [ ] Como saber se uma tarefa vale a pena automatizar (ou se dá mais trabalho)
