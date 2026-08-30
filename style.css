@@ -1258,3 +1258,190 @@ a.saida-link:hover .saida-canal { color: var(--primary); }
 /* Rodapé: os links saíam com 21px de altura de toque. São links soltos, não
    inline em parágrafo, então não pegam a isenção da WCAG pra link em prosa. */
 .footer-social { display: inline-block; padding: 12px 4px; }
+
+/* ---------- PROVA (números reais, injetados do blog) ----------
+   A auditoria achou o buraco: o site prometia um sistema de distribuição e não
+   mostrava nenhum número de distribuição. Estes vêm contados do próprio blog a
+   cada build -- ninguém os digita, então não têm como envelhecer e virar mentira.
+   E são conferíveis: dá pra contar os posts. */
+.prova {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 32px;
+  margin-top: clamp(36px, 6vw, 52px);
+  padding-top: clamp(24px, 4vw, 32px);
+  border-top: 1px solid var(--line);
+  max-width: 620px;
+}
+@media (min-width: 720px) { .prova { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; } }
+.prova-item { display: flex; flex-direction: column; gap: 2px; }
+.prova-num {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.7rem, 4.2vw, 2.3rem); line-height: 1;
+  letter-spacing: -.03em; color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+.prova-rot {
+  font-size: 13px; line-height: 1.35; color: var(--muted);
+  max-width: 16ch;
+}
+
+.prova-nota {
+  font-size: 14px; line-height: 1.6; color: var(--muted);
+  max-width: 58ch; margin: 20px 0 clamp(28px, 4vw, 36px);
+}
+
+/* ==========================================================================
+   CAMADA DE EFEITOS — 30/08/2026
+   Os movimentos que Linear, Vercel e Stripe usam, e que fazem uma página
+   parecer construída em vez de montada.
+
+   Regra que vale para todos: TODO efeito aqui é `transform` ou `opacity`.
+   Nada anima width/height/top/left, porque isso força reflow e trava em
+   celular. E tudo morre inteiro sob `prefers-reduced-motion` -- não "fica
+   mais lento", morre: quem pediu menos movimento pediu por um motivo.
+   ========================================================================== */
+
+/* ---------- 1. ENTRADA POR SCROLL, ESCALONADA ----------
+   Cada bloco sobe 14px e aparece quando entra na tela. O escalonamento é o
+   que separa "profissional" de "tudo pisca junto": 60ms entre irmãos deixa
+   o olho seguir a ordem de leitura em vez de receber a seção inteira de uma vez. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-surge] {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+    transition: opacity .7s cubic-bezier(.22, 1, .36, 1), transform .7s cubic-bezier(.22, 1, .36, 1);
+    will-change: opacity, transform;
+  }
+  [data-surge].visivel { opacity: 1; transform: none; }
+  [data-surge].visivel { will-change: auto; }
+}
+
+/* ---------- 2. BRILHO QUE SEGUE O CURSOR ----------
+   Um halo do acento acompanha o mouse dentro do bloco. É o efeito mais
+   reconhecível do gênero (Linear, Vercel) e o mais fácil de exagerar: fica
+   em 6% de opacidade e só nos blocos grandes, nunca no corpo do texto. */
+.brilho { position: relative; isolation: isolate; }
+.brilho::before {
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%),
+              rgba(232, 163, 61, .10), transparent 62%);
+  opacity: 0;
+  transition: opacity .45s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+.brilho:hover::before { opacity: 1; }
+@media (hover: none) { .brilho::before { display: none; } }
+
+/* ---------- 3. CONTADOR QUE SOBE ----------
+   Os números da prova sobem de 0 até o valor quando entram na tela. O número
+   é escrito no HTML pelo gerador e o JS só anima: sem JS, o valor certo já
+   está lá. Efeito nunca pode ser dono do dado. */
+.prova-num { font-variant-numeric: tabular-nums; }
+
+/* ---------- 4. BOTÃO COM VARREDURA ----------
+   Um brilho atravessa o botão primário no hover. Dura 600ms e passa uma vez.
+   Não fica em loop: brilho em loop lê como banner de anúncio. */
+.btn-primary { position: relative; overflow: hidden; }
+.btn-primary::after {
+  content: "";
+  position: absolute; top: 0; left: -140%;
+  width: 60%; height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .32), transparent);
+  transform: skewX(-18deg);
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .btn-primary:hover::after { animation: varredura .6s ease-out; }
+}
+@keyframes varredura { to { left: 160%; } }
+
+/* ---------- 5. LEVANTAR NO HOVER ----------
+   2px. Sozinho não é nada; junto com a sombra e a borda acesa é o que faz o
+   elemento responder ao dedo antes do clique. */
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+  .btn { transition: transform .18s cubic-bezier(.22, 1, .36, 1), box-shadow .18s ease, background-color .18s ease, border-color .18s ease; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn:active { transform: translateY(0); transition-duration: .06s; }
+  .btn-primary:hover { box-shadow: 0 8px 26px rgba(232, 163, 61, .26); }
+}
+
+/* ---------- 6. ATMOSFERA DO HERO ----------
+   Um halo enorme e quase invisível atrás do título, e uma textura de ruído
+   por cima de tudo. O ruído é o detalhe que mais muda a percepção: sem ele,
+   gradiente em tela escura mostra faixas (banding) e entrega que é CSS. */
+.hero-tese { position: relative; overflow: hidden; }
+.hero-tese::before {
+  content: "";
+  position: absolute;
+  top: -30%; left: 50%;
+  width: min(1100px, 130vw); aspect-ratio: 1;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(232, 163, 61, .075), transparent 66%);
+  pointer-events: none;
+}
+body::after {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: .028;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- 7. BARRA DE PROGRESSO DE LEITURA ----------
+   Só onde faz sentido: página longa. Diz quanto falta sem ocupar espaço. */
+.progresso {
+  position: fixed; top: 0; left: 0; height: 2px;
+  width: 100%; transform: scaleX(0); transform-origin: 0 50%;
+  background: var(--primary);
+  z-index: 40;
+  pointer-events: none;
+}
+
+/* ---------- 8. SUBLINHADO QUE CRESCE ----------
+   Link de texto ganha uma linha que cresce da esquerda. Substitui o
+   `text-decoration` que aparece de uma vez. */
+@media (hover: hover) {
+  .obra-link, .secao-link, .sobre-corpo a, .cta-tese-seguir a {
+    position: relative; text-decoration: none;
+  }
+  .obra-link::after, .secao-link::after, .sobre-corpo a::after, .cta-tese-seguir a::after {
+    content: "";
+    position: absolute; left: 0; bottom: -2px;
+    width: 100%; height: 1px;
+    background: currentColor;
+    transform: scaleX(0); transform-origin: 100% 50%;
+    transition: transform .28s cubic-bezier(.22, 1, .36, 1);
+  }
+  .obra-link:hover::after, .secao-link:hover::after, .sobre-corpo a:hover::after, .cta-tese-seguir a:hover::after {
+    transform: scaleX(1); transform-origin: 0 50%;
+  }
+}
+
+/* ---------- 9. IMAGEM DE PROJETO ----------
+   Zoom mínimo, 400ms. Passar de ~1.03 vira carrossel de e-commerce. */
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+  .obra-shot img { transition: transform .5s cubic-bezier(.22, 1, .36, 1); }
+  .obra-shot:hover img { transform: scale(1.025); }
+}
+
+/* ---------- 10. O CICLO SE DESENHA ----------
+   Os nós do diagrama entram em sequência, seguindo o próprio fluxo. Aqui o
+   movimento carrega significado: a ordem da animação É a ordem do processo. */
+@media (prefers-reduced-motion: no-preference) {
+  .fluxo [data-surge] { transition-duration: .55s; }
+}
+
+/* ---------- O QUE MORRE COM REDUCED-MOTION ----------
+   Tudo. Nada de "transição mais curta": quem liga essa preferência
+   frequentemente o faz por enxaqueca ou distúrbio vestibular. */
+@media (prefers-reduced-motion: reduce) {
+  [data-surge] { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .btn-primary::after, .hero-tese::before { display: none; }
+  .progresso { display: none; }
+  * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; }
+}

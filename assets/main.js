@@ -33,6 +33,111 @@
     gtag('event', document.body.dataset.pageEv);
   }
 
+
+  // ======================================================================
+  // CAMADA DE EFEITOS — 30/08/2026
+  //
+  // Regra que vale para todo este bloco: se o JS não rodar, a página fica
+  // CERTA, só sem movimento. Nenhum efeito aqui é dono de conteúdo — os
+  // números da prova já vêm escritos no HTML pelo gerador, os blocos já
+  // estão visíveis por padrão, e o `data-surge` só é aplicado depois que
+  // este código confirma que vai conseguir animar.
+  // ======================================================================
+
+  var semMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var temIO = 'IntersectionObserver' in window;
+
+  // ---------- 1. ENTRADA ESCALONADA POR SCROLL ----------
+  // O atributo é aplicado AQUI, não no HTML. Assim, com JS desligado nada
+  // fica invisível esperando uma classe que nunca chega -- que é como
+  // "revelação no scroll" costuma quebrar.
+  if (!semMovimento && temIO) {
+    var alvos = document.querySelectorAll(
+      '.secao > .section-inner > *, .obra, .ideia, .etapa, .saida, .proj, .prova-item, .fluxo-linha, .cta-tese'
+    );
+    Array.prototype.forEach.call(alvos, function (el) { el.setAttribute('data-surge', ''); });
+
+    var obs = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var irmaos = Array.prototype.slice.call(e.target.parentElement.children).filter(function (n) {
+          return n.hasAttribute && n.hasAttribute('data-surge');
+        });
+        var i = Math.min(irmaos.indexOf(e.target), 6); // teto: fila longa não pode virar espera
+        e.target.style.transitionDelay = (i * 60) + 'ms';
+        e.target.classList.add('visivel');
+        obs.unobserve(e.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    Array.prototype.forEach.call(alvos, function (el) { obs.observe(el); });
+  }
+
+  // ---------- 2. BRILHO QUE SEGUE O CURSOR ----------
+  // Coordenadas via variável CSS, atualizadas dentro de requestAnimationFrame:
+  // mousemove dispara dezenas de vezes por segundo e escrever estilo direto
+  // ali é o caminho mais curto pra travar o scroll.
+  if (!semMovimento && window.matchMedia('(hover: hover)').matches) {
+    var comBrilho = document.querySelectorAll('.obra-shot, .cta-tese, .fluxo, .prova');
+    Array.prototype.forEach.call(comBrilho, function (el) {
+      el.classList.add('brilho');
+      var pend = null;
+      el.addEventListener('mousemove', function (ev) {
+        if (pend) return;
+        pend = requestAnimationFrame(function () {
+          var r = el.getBoundingClientRect();
+          el.style.setProperty('--mx', ((ev.clientX - r.left) / r.width * 100) + '%');
+          el.style.setProperty('--my', ((ev.clientY - r.top) / r.height * 100) + '%');
+          pend = null;
+        });
+      });
+    });
+  }
+
+  // ---------- 3. CONTADOR ----------
+  // Sobe de 0 até o número que JÁ ESTÁ no HTML. Se este código não rodar, o
+  // valor certo continua na tela -- o efeito anima o dado, nunca o produz.
+  if (!semMovimento && temIO) {
+    var nums = document.querySelectorAll('.prova-num');
+    var obsNum = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var el = e.target;
+        var alvo = parseInt(el.textContent.replace(/\D/g, ''), 10);
+        if (!isFinite(alvo) || alvo === 0) { obsNum.unobserve(el); return; }
+        var t0 = null, dur = 900;
+        function passo(t) {
+          if (t0 === null) t0 = t;
+          var p = Math.min((t - t0) / dur, 1);
+          var suave = 1 - Math.pow(1 - p, 3); // desacelera na chegada
+          el.textContent = Math.round(alvo * suave);
+          if (p < 1) requestAnimationFrame(passo);
+        }
+        requestAnimationFrame(passo);
+        obsNum.unobserve(el);
+      });
+    }, { threshold: 0.6 });
+    Array.prototype.forEach.call(nums, function (el) { obsNum.observe(el); });
+  }
+
+  // ---------- 4. BARRA DE PROGRESSO DE LEITURA ----------
+  // Só em página longa. Numa página curta a barra fica quase cheia o tempo
+  // todo e não informa nada.
+  if (!semMovimento && document.body.scrollHeight > window.innerHeight * 3) {
+    var barra = document.createElement('div');
+    barra.className = 'progresso';
+    document.body.appendChild(barra);
+    var tickBarra = null;
+    window.addEventListener('scroll', function () {
+      if (tickBarra) return;
+      tickBarra = requestAnimationFrame(function () {
+        var max = document.body.scrollHeight - window.innerHeight;
+        barra.style.transform = 'scaleX(' + (max > 0 ? window.scrollY / max : 0) + ')';
+        tickBarra = null;
+      });
+    }, { passive: true });
+  }
+
   var revealEls = document.querySelectorAll('.reveal');
   if (reduce || !('IntersectionObserver' in window)) {
     revealEls.forEach(function (el) { el.classList.add('in-view'); });

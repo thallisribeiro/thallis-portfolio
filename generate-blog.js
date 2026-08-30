@@ -508,6 +508,46 @@ ${rssItems}
     ...posts.map(p => ({ loc: `${SITE_URL}/blog/${p.slug}/`, lastmod: p.date })),
     ...temaCounts.map(t => ({ loc: `${SITE_URL}/blog/tema/${t.slug}/`, lastmod: posts[0]?.date })),
   ];
+  // PROVA, injetada do dado real. Numero escrito a mao envelhece e vira mentira:
+  // "49 posts" fica errado no dia seguinte. Daqui sai sempre o que o blog TEM.
+  //
+  // Isto e a autoridade que o site nao mostrava: 49 posts em 21 dias e a propria
+  // tese ("distribuir e o gargalo") demonstrada, e qualquer visitante confere
+  // contando o blog.
+  if (fs.existsSync(path.join(ROOT, 'index.html'))) {
+    const datas = posts.map((p) => p.date).sort();
+    const dias = Math.max(1, Math.round((new Date(datas[datas.length - 1]) - new Date(datas[0])) / 86400000));
+    const HOME_P = path.join(ROOT, 'index.html');
+    let h = fs.readFileSync(HOME_P, 'utf-8');
+    const iniP = '<!-- PROVA_INICIO -->', fimP = '<!-- PROVA_FIM -->';
+    const a1 = h.indexOf(iniP), b1 = h.indexOf(fimP);
+    if (a1 !== -1 && b1 > a1) {
+      const bloco = `${iniP}
+        <div class="prova-item"><span class="prova-num">${posts.length}</span><span class="prova-rot">posts publicados</span></div>
+        <div class="prova-item"><span class="prova-num">${dias}</span><span class="prova-rot">dias no ar</span></div>
+        <div class="prova-item"><span class="prova-num">${temaCounts.length}</span><span class="prova-rot">temas</span></div>
+        <div class="prova-item"><span class="prova-num">3</span><span class="prova-rot">sites em produção</span></div>
+        ${fimP}`;
+      h = h.slice(0, a1) + bloco + h.slice(b1 + fimP.length);
+      fs.writeFileSync(HOME_P, h);
+
+      // Mesma prova na pagina do produto. La ela pesa mais: e a pagina que
+      // promete um sistema de distribuicao sem mostrar distribuicao nenhuma.
+      const PROD = path.join(ROOT, 'maquina-de-distribuicao', 'index.html');
+      if (fs.existsSync(PROD)) {
+        let d = fs.readFileSync(PROD, 'utf-8');
+        const a2 = d.indexOf(iniP), b2 = d.indexOf(fimP);
+        if (a2 !== -1 && b2 > a2) {
+          fs.writeFileSync(PROD, d.slice(0, a2) + bloco + d.slice(b2 + fimP.length));
+        }
+      }
+      console.log(`[gerado] prova: ${posts.length} posts em ${dias} dias`);
+    } else {
+      console.error('[erro] index.html sem marcadores de prova');
+      process.exitCode = 1;
+    }
+  }
+
   // Home: a lista de "Ultimas ideias" e INJETADA aqui, entre marcadores, em vez de
   // escrita a mao no index.html. Lista escrita a mao envelhece em silencio -- publica
   // um post e a home continua mostrando os de tres semanas atras. Assim ela nunca mente.
