@@ -1213,3 +1213,48 @@ a.saida-link:hover .saida-canal { color: var(--primary); }
 .nota-canal {
   font-size: 13px; color: var(--muted); margin: 12px 0 0;
 }
+
+/* ==========================================================================
+   AUDITORIA 30/08 — correções medidas, não achismo
+   ========================================================================== */
+
+/* ALVO DE TOQUE. Medido em 390px: os links dos projetos e os "ver mais" saíam
+   com 19-24px de altura. A WCAG 2.2 pede 24x24 no mínimo, e Apple/Material
+   pedem 44/48 -- no celular esses links SÃO o jeito de visitar o projeto.
+   O padding vertical resolve sem mudar nada de tamanho de letra. */
+@media (max-width: 860px) {
+  .obra-link, .secao-link, .saida-acao, .cta-tese-seguir a {
+    display: inline-block;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  .obra-link { margin-top: -4px; }
+}
+
+/* Linha de acompanhamento do CTA do índice do blog. */
+.cta-tese-seguir {
+  margin: 18px 0 0;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.cta-tese-seguir a {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.cta-tese-seguir a:hover { color: var(--primary); }
+
+/* GATILHO DE CLIQUE sob o CTA do hero. O rótulo do botão é a última coisa que
+   a pessoa lê antes de decidir, e sozinho ele não responde o que acontece
+   depois do clique. Esta linha responde -- e evita que alguém clique achando
+   que vai comprar alguma coisa. */
+.gatilho {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 14px 0 0;
+}
+
+/* Rodapé: os links saíam com 21px de altura de toque. São links soltos, não
+   inline em parágrafo, então não pegam a isenção da WCAG pra link em prosa. */
+.footer-social { display: inline-block; padding: 12px 4px; }

@@ -188,6 +188,7 @@ ${body}
   <a class="footer-social" href="/blog/">Blog</a>
   <a class="footer-social" href="/feed.xml">RSS</a>
   <a class="footer-social" href="https://instagram.com/thallis.lab" target="_blank" rel="noopener">@thallis.lab</a>
+  <a class="footer-social" href="https://www.linkedin.com/in/thallisribeiro/" target="_blank" rel="noopener">LinkedIn</a>
 </footer>
 
 <script src="/assets/main.js" defer></script>
@@ -218,6 +219,26 @@ const CTAS = {
     externo: false,
   },
 };
+
+// CTA do INDICE do blog. A auditoria de 30/08 achou o buraco mais caro do site:
+// o indice tem 48 posts e 12.000px de pagina, e o unico caminho de saida era o
+// link da nav. Quem gostou do que leu nao tinha onde continuar -- e o blog e
+// justamente o motor de audiencia da casa.
+//
+// Os dois proximos passos sao de compromissos diferentes de proposito: um caro
+// (entrar na lista do produto) e um barato (seguir em outro lugar). Sem o barato,
+// quem ainda nao confia sai e nao volta.
+function ctaDoIndice() {
+  return `<aside class="cta-tese">
+    <p class="cta-tese-frase"><span class="fria">Construir ficou barato.</span> <span class="quente">Distribuir virou o gargalo.</span></p>
+    <p class="cta-tese-texto">Este blog é a saída de uma esteira que apura, checa e publica sozinha. Estou construindo isso como produto — e escrevendo o processo aqui enquanto acontece.</p>
+    <a class="btn btn-primary btn-lg" href="/maquina-de-distribuicao/" data-ev="distribution_product_clicked" data-ev-local="indice-blog">Conhecer a Máquina de Distribuição</a>
+    <p class="cta-tese-seguir">Ou me acompanhe em
+      <a href="https://www.linkedin.com/in/thallisribeiro/" target="_blank" rel="noopener" data-ev="social_clicked" data-ev-local="linkedin">LinkedIn</a>,
+      <a href="https://instagram.com/thallis.lab" target="_blank" rel="noopener" data-ev="social_clicked" data-ev-local="instagram">Instagram</a>
+      e <a href="/feed.xml" data-ev="social_clicked" data-ev-local="rss">RSS</a>.</p>
+  </aside>`;
+}
 
 function ctaDoPost(post) {
   const c = CTAS[post.cta] || CTAS.distribuicao;
@@ -395,6 +416,11 @@ function main() {
         ${postsFiltrados.length ? postsFiltrados.map(postCard).join('\n') : '<p class="section-lead">Nenhum post ainda — o primeiro sai em breve.</p>'}
       </div>
       ${sidebarTemas(temaCounts, temaAtual)}
+    </div>
+  </section>
+  <section class="section">
+    <div class="section-inner section-narrow">
+      ${ctaDoIndice()}
     </div>
   </section>`;
     return shell({
