@@ -1,0 +1,13 @@
+{
+  "fato_central": "a frase que a peça inteira sustenta",
+  "itens": [
+    {
+      "afirmacao": "uma coisa só, escrita como você diria em voz alta",
+      "classificacao": "CONFIRMADO | REPORTADO | NÃO CONFIRMADO",
+      "base": "onde você viu. veículo, data, e o que exatamente estava escrito",
+      "data": "AAAA-MM-DD"
+    }
+  ],
+  "nao_confirmado": ["o que você tentou checar e não conseguiu"],
+  "fontes": [{ "nome": "", "url": "", "data": "" }]
+}

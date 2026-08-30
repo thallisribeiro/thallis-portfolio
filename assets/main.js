@@ -238,3 +238,57 @@
     sections.forEach(function (s) { navIo.observe(s); });
   }
 })();
+
+/* ---------- CAPTURA DE E-MAIL ----------
+   O <form> ja funciona sem JS: method=post + target=_blank cai na pagina do
+   provedor. Com JS a pessoa nao sai daqui e o kit aparece na hora -- entregar
+   antes de o e-mail chegar tira a unica friccao que ainda tinha sentido.
+   fetch no-cors nao devolve status: o provedor nao expoe CORS, e insistir em
+   ler a resposta so cria um estado de erro falso. Quem digitou e-mail valido
+   entrou; o resto o provedor resolve com o e-mail de confirmacao dele. */
+(function () {
+  var KIT = [
+    ['/assets/kit/ficha-de-apuracao.json', 'ficha-de-apuracao.json', 'o template em branco'],
+    ['/assets/kit/ficha-exemplo-preenchido.json', 'ficha-exemplo-preenchido.json', 'um exemplo preenchido de verdade']
+  ];
+
+  Array.prototype.forEach.call(document.querySelectorAll('form[data-captura]'), function (form) {
+    form.addEventListener('submit', function (e) {
+      var campo = form.querySelector('input[type="email"]');
+      if (!campo || !campo.checkValidity()) return;          /* deixa o browser reclamar */
+      if (form.querySelector('.captura-isca').value) { e.preventDefault(); return; }  /* robo */
+
+      e.preventDefault();
+      var botao = form.querySelector('button');
+      botao.disabled = true;
+      botao.textContent = 'Mandando...';
+
+      fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) })
+        .catch(function () {})
+        .then(function () { pronto(form, campo.value); });
+    });
+  });
+
+  function pronto(form, email) {
+    var local = form.getAttribute('data-captura-local') || '';
+    if (window.gtag) {
+      window.gtag('event', 'lead_magnet_captured', { local: local });
+    }
+    var bloco = form.closest('.captura');
+    var arquivos = KIT.map(function (k) {
+      return '<li><a href="' + k[0] + '" download="' + k[1] + '" data-ev="kit_downloaded" data-ev-local="' +
+             local + '">' + k[1] + '</a> — ' + k[2] + '</li>';
+    }).join('');
+    bloco.classList.add('captura-ok');
+    bloco.innerHTML =
+      '<p class="captura-olho">Pronto</p>' +
+      '<p class="captura-titulo">Baixa agora, o e-mail é só a confirmação</p>' +
+      '<p class="captura-texto">Mandei pra <strong>' + email.replace(/[<>&]/g, '') + '</strong>. ' +
+      'Se não chegar em alguns minutos, olha no spam e me responde por lá.</p>' +
+      '<ul class="captura-kit">' + arquivos + '</ul>' +
+      '<p class="captura-nota">Como usar cada campo está aberto em ' +
+      '<a href="/ficha-de-apuracao/">/ficha-de-apuracao/</a>.</p>';
+    bloco.setAttribute('tabindex', '-1');
+    bloco.focus();
+  }
+})();

@@ -201,6 +201,57 @@ ${body}
 `;
 }
 
+// ── Captura de e-mail ─────────────────────────────────────────────────────
+// A unica coisa deste site que vira ativo. Google e Instagram decidem quem ve
+// o blog; a lista nao. A isca e o kit da ficha de apuracao: os dois arquivos
+// prontos, nao a explicacao (essa continua aberta em /ficha-de-apuracao/,
+// onde esta escrito que nao pede e-mail -- a promessa fica de pe).
+//
+// LISTA.usuario vazio => nenhum formulario e renderizado e o CTA antigo
+// continua no lugar. Formulario que engole e-mail sem destino e pior que
+// formulario nenhum, entao o site nunca mostra um.
+const LISTA = {
+  // Buttondown: gratis ate 100 inscritos, exporta a lista inteira em CSV,
+  // form e POST puro (funciona sem JS). Criar conta e por o usuario aqui.
+  usuario: '',
+  endpoint(u) { return `https://buttondown.com/api/emails/embed-subscribe/${u}`; },
+};
+
+function blocoCaptura(local) {
+  if (!LISTA.usuario) return '';
+  const id = `captura-${local}`;
+  return `<aside class="captura" id="${id}">
+    <p class="captura-olho">A ficha de apuração</p>
+    <p class="captura-titulo">O documento que eu preencho antes de escrever qualquer coisa</p>
+    <p class="captura-texto">O template em branco e um exemplo preenchido de verdade: a apuração que virou artigo, carrossel e Reel sem ninguém reescrever a pesquisa. Chega no seu e-mail agora.</p>
+    <form class="captura-form" method="post" action="${LISTA.endpoint(LISTA.usuario)}" target="_blank" data-captura data-captura-local="${local}">
+      <label class="visually-hidden" for="${id}-email">Seu e-mail</label>
+      <input class="captura-input" id="${id}-email" type="email" name="email" required autocomplete="email" placeholder="seu@email.com">
+      <input type="hidden" name="metadata__origem" value="${local}">
+      <input class="captura-isca" type="text" name="empresa" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn btn-primary" type="submit" data-ev="lead_magnet_submitted" data-ev-local="${local}">Receber a ficha</button>
+    </form>
+    <p class="captura-nota">Também recebe o post quando sai um que presta. Sai num clique, e eu não mando o seu e-mail pra lugar nenhum.</p>
+  </aside>`;
+}
+
+// A pagina da ficha e estatica, mas o formulario tem que sair do mesmo lugar
+// que o dos posts: endpoint duplicado e endpoint que um dia diverge.
+function injetarNaFicha() {
+  const alvo = path.join(ROOT, 'ficha-de-apuracao', 'index.html');
+  if (!fs.existsSync(alvo)) return;
+  const antes = fs.readFileSync(alvo, 'utf8');
+  const bloco = blocoCaptura('ficha');
+  const depois = antes.replace(
+    /<!-- CAPTURA_INICIO -->[\s\S]*?<!-- CAPTURA_FIM -->/,
+    `<!-- CAPTURA_INICIO -->\n      ${bloco}\n      <!-- CAPTURA_FIM -->`
+  );
+  if (depois !== antes) {
+    fs.writeFileSync(alvo, depois);
+    console.log('  ficha-de-apuracao: captura ' + (bloco ? 'inserida' : 'removida (LISTA.usuario vazio)'));
+  }
+}
+
 // CTA de fim de artigo. O padrão é a tese; um artigo sobrescreve pondo
 // `cta: trabalhe-comigo` no frontmatter. Fica DEPOIS do texto e dos botões de
 // compartilhar, de propósito: primeiro entrega o valor, depois oferece o próximo passo.
@@ -237,6 +288,7 @@ function ctaDoIndice() {
     <p class="cta-tese-frase"><span class="fria">Construir ficou barato.</span> <span class="quente">Distribuir virou o gargalo.</span></p>
     <p class="cta-tese-texto">Este blog é a saída de uma esteira que apura, checa e publica sozinha. Estou transformando isso em produto e escrevendo o processo aqui enquanto acontece.</p>
     <a class="btn btn-primary btn-lg" href="/maquina-de-distribuicao/" data-ev="distribution_product_clicked" data-ev-local="indice-blog">Conhecer a Máquina de Distribuição</a>
+    ${blocoCaptura('indice-blog')}
     <p class="cta-tese-seguir">Ou me acompanhe em
       <a href="https://www.linkedin.com/in/thallisribeiro/" target="_blank" rel="noopener" data-ev="social_clicked" data-ev-local="linkedin">LinkedIn</a>,
       <a href="https://instagram.com/thallis.lab" target="_blank" rel="noopener" data-ev="social_clicked" data-ev-local="instagram">Instagram</a>
@@ -245,6 +297,13 @@ function ctaDoIndice() {
 }
 
 function ctaDoPost(post) {
+  // Quem acabou de ler tem a maior intencao do dia. Um pedido so: o e-mail.
+  // Post com `cta:` no frontmatter mantem o dele (intencao de servico e outra
+  // conversa, e nao vale trocar por captura).
+  if (!post.cta) {
+    const captura = blocoCaptura('fim-de-artigo');
+    if (captura) return captura;
+  }
   const c = CTAS[post.cta] || CTAS.distribuicao;
   const alvo = c.externo ? ' target="_blank" rel="noopener"' : '';
   return `<aside class="cta-tese">
@@ -639,6 +698,8 @@ ${rssItems}
       console.log(`[gerado] home: ${Math.min(posts.length, 4)} ideias recentes`);
     }
   }
+
+  injetarNaFicha();
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `  <url>\n    <loc>${u.loc}</loc>\n${u.lastmod ? `    <lastmod>${u.lastmod}</lastmod>\n` : ''}  </url>`).join('\n')}\n</urlset>\n`;
   fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap);

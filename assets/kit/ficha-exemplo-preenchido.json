@@ -1,0 +1,38 @@
+{
+  "fato_central": "O Amazon Mechanical Turk fecha em 30 de setembro de 2026.",
+  "itens": [
+    {
+      "afirmacao": "O Amazon Mechanical Turk fecha em 30 de setembro de 2026.",
+      "classificacao": "CONFIRMADO",
+      "base": "Aviso da própria Amazon no topo de mturk.com.",
+      "data": "2026-08-25"
+    },
+    {
+      "afirmacao": "A porta-voz Montana MacLachlan disse que a empresa segue focada na melhor experiência para os clientes.",
+      "classificacao": "REPORTADO",
+      "base": "CNBC, 25/08/2026. Declaração enviada à CNBC, reproduzida por TechSpot e Quartz.",
+      "data": "2026-08-25"
+    },
+    {
+      "afirmacao": "A Amazon fechou porque os trabalhadores passaram a usar IA.",
+      "classificacao": "NÃO CONFIRMADO",
+      "base": "Ninguém afirma isso. A Amazon não deu motivo. É ilação que aparece em comentário.",
+      "data": "2026-08-25"
+    }
+  ],
+  "nao_confirmado": [
+    "O motivo do fechamento. A Amazon não deu nenhum."
+  ],
+  "fontes": [
+    {
+      "nome": "Amazon Mechanical Turk (aviso no site)",
+      "url": "https://www.mturk.com/",
+      "data": "2026-08-25"
+    },
+    {
+      "nome": "CNBC",
+      "url": "",
+      "data": "2026-08-25"
+    }
+  ]
+}
