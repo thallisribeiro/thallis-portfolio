@@ -1445,3 +1445,137 @@ body::after {
   .progresso { display: none; }
   * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; }
 }
+
+/* ---------- O BARALHO: as peças que a máquina fez ----------
+   A página prometia uma esteira de distribuição e mostrava só texto. Estas são
+   as telas REAIS do carrossel que saiu da apuração do outbid.lol e foi publicado
+   no Instagram em 30/08 -- não é ilustração, é a saída do sistema.
+
+   Elas ficam sobrepostas como um baralho e se abrem no hover: a metáfora é a
+   mesma do produto (uma entrada, várias peças). No celular viram uma fileira
+   que rola, porque abrir leque em 390px não abre nada. */
+.baralho {
+  display: flex;
+  gap: 14px;
+  margin: clamp(28px, 5vw, 40px) 0 16px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.baralho::-webkit-scrollbar { display: none; }
+.carta {
+  margin: 0;
+  flex: 0 0 auto;
+  width: min(200px, 46vw);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--secondary);
+  line-height: 0;
+  scroll-snap-align: start;
+}
+.carta img { width: 100%; height: auto; display: block; }
+
+@media (min-width: 760px) {
+  /* No desktop viram baralho de verdade: sobrepostas, levemente giradas, e
+     se abrem quando o cursor entra. */
+  .baralho { overflow: visible; gap: 0; padding-left: 8px; }
+  .carta {
+    width: 216px;
+    margin-left: -84px;
+    transform: rotate(var(--giro)) translateY(var(--sobe, 0));
+    box-shadow: 0 18px 40px rgba(0,0,0,.45);
+  }
+  .carta:first-child { margin-left: 0; --giro: -4deg; }
+  .carta:nth-child(2) { --giro: 1.5deg; }
+  .carta:nth-child(3) { --giro: 5deg; }
+}
+@media (min-width: 760px) and (prefers-reduced-motion: no-preference) {
+  .carta { transition: transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s ease; }
+  .baralho:hover .carta { --giro: 0deg; margin-left: 14px; }
+  .baralho:hover .carta:first-child { margin-left: 0; }
+  .carta:hover { --sobe: -10px; box-shadow: 0 26px 56px rgba(0,0,0,.6); z-index: 2; }
+}
+.baralho-nota {
+  font-size: 14px; line-height: 1.6; color: var(--muted);
+  max-width: 56ch; margin: 0 0 clamp(28px, 4vw, 36px);
+}
+
+/* ---------- ÍCONE DE CANAL ----------
+   Só os quatro canais do diagrama ganharam glifo, e por um motivo: ali o ícone
+   é INFORMAÇÃO — diz de que canal se trata antes de a palavra ser lida, e é o
+   que transforma a fileira num mapa de sistema em vez de quatro pílulas.
+   Nenhum título de seção ganhou ícone: lá seria enfeite. */
+.no-canal { display: inline-flex; align-items: center; gap: 8px; }
+.ic { width: 15px; height: 15px; flex: 0 0 auto; opacity: .9; }
+
+/* ---------- O PULSO DO CICLO ----------
+   Um ponto de luz desce pelos fios do diagrama. Este é o único efeito da página
+   que carrega SIGNIFICADO em vez de acabamento: a direção do movimento é a
+   direção do processo, e é ela que responde "isso roda" antes de qualquer
+   frase. Por isso ele fica no elemento-assinatura e em nenhum outro lugar.
+
+   Só anima quando o diagrama está na tela (classe posta pelo JS): fio pulsando
+   fora de vista é bateria gasta à toa no celular. */
+@media (prefers-reduced-motion: no-preference) {
+  .fluxo.rodando .fluxo-tubo {
+    background: linear-gradient(180deg,
+      rgba(255,255,255,.16) 0%, rgba(255,255,255,.16) 40%,
+      var(--primary) 50%,
+      rgba(255,255,255,.16) 60%, rgba(255,255,255,.16) 100%);
+    background-size: 100% 300%;
+    animation: descer 2.4s linear infinite;
+  }
+  .fluxo.rodando .fluxo-tubo:nth-of-type(2) { animation-delay: .3s; }
+  .fluxo.rodando .fluxo-tubo:nth-of-type(3) { animation-delay: .6s; }
+  .fluxo.rodando .fluxo-tubo:nth-of-type(4) { animation-delay: .9s; }
+  .fluxo.rodando .no-saida {
+    animation: respirar 2.4s ease-in-out infinite;
+    animation-delay: 1.2s;
+  }
+}
+@keyframes descer { from { background-position: 0 -100%; } to { background-position: 0 200%; } }
+@keyframes respirar {
+  0%, 70%, 100% { box-shadow: 0 0 0 0 rgba(232,163,61,0); }
+  85% { box-shadow: 0 0 0 10px rgba(232,163,61,.14); }
+}
+
+/* ---------- SEQUÊNCIA DE ENTRADA DO HERO ----------
+   Um momento orquestrado na carga, não efeitos espalhados: kicker, as duas
+   linhas da tese, subtítulo, botões e prova entram em cascata, na ordem em que
+   se lê. A segunda linha ("Distribuir virou o gargalo") chega por último entre
+   as duas — é a frase que a página inteira defende, e ela merece o beat. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-tese .tese-kicker,
+  .hero-tese .tese-linha,
+  .hero-tese .tese-sub,
+  .hero-tese .tese-ctas,
+  .hero-tese .gatilho,
+  .hero-tese .prova {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+    animation: entrar .85s cubic-bezier(.22,1,.36,1) forwards;
+  }
+  .hero-tese .tese-kicker { animation-delay: .05s; }
+  .hero-tese .tese-linha-fria { animation-delay: .16s; }
+  .hero-tese .tese-linha-quente { animation-delay: .30s; }
+  .hero-tese .tese-sub { animation-delay: .46s; }
+  .hero-tese .tese-ctas { animation-delay: .58s; }
+  .hero-tese .gatilho { animation-delay: .66s; }
+  .hero-tese .prova { animation-delay: .74s; }
+}
+@keyframes entrar { to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .fluxo.rodando .fluxo-tubo { animation: none; background: rgba(255,255,255,.16); }
+  .fluxo.rodando .no-saida { animation: none; }
+  .hero-tese .tese-kicker, .hero-tese .tese-linha, .hero-tese .tese-sub,
+  .hero-tese .tese-ctas, .hero-tese .gatilho, .hero-tese .prova {
+    opacity: 1 !important; transform: none !important; animation: none !important;
+  }
+}
+
+/* Rodapé com glifo: aqui o ícone identifica a rede antes da palavra — é o
+   único lugar fora do diagrama onde ele informa em vez de enfeitar. */
+.footer-social { display: inline-flex; align-items: center; gap: 7px; }

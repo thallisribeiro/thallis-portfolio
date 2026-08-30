@@ -120,6 +120,19 @@
     Array.prototype.forEach.call(nums, function (el) { obsNum.observe(el); });
   }
 
+  // ---------- 5. O PULSO SÓ RODA COM O DIAGRAMA NA TELA ----------
+  // Animação infinita fora de vista é bateria gasta à toa. A classe entra
+  // quando o diagrama aparece e sai quando ele some.
+  if (!semMovimento && temIO) {
+    var fluxos = document.querySelectorAll('.fluxo');
+    if (fluxos.length) {
+      var obsFluxo = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { e.target.classList.toggle('rodando', e.isIntersecting); });
+      }, { threshold: 0.25 });
+      Array.prototype.forEach.call(fluxos, function (f) { obsFluxo.observe(f); });
+    }
+  }
+
   // ---------- 4. BARRA DE PROGRESSO DE LEITURA ----------
   // Só em página longa. Numa página curta a barra fica quase cheia o tempo
   // todo e não informa nada.
