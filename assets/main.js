@@ -27,6 +27,12 @@
     gtag('event', 'home_view');
   }
 
+  // Evento de pageview por pagina, declarado no <body data-page-ev="...">.
+  // Mesma logica do data-ev: a pagina diz o nome, o JS so despacha.
+  if (typeof gtag === 'function' && document.body.dataset.pageEv) {
+    gtag('event', document.body.dataset.pageEv);
+  }
+
   var revealEls = document.querySelectorAll('.reveal');
   if (reduce || !('IntersectionObserver' in window)) {
     revealEls.forEach(function (el) { el.classList.add('in-view'); });

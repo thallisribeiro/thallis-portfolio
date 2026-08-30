@@ -988,3 +988,159 @@ a { color: var(--accent); }
   .fluxo-entrada::after, .fluxo-entrada .no::after { display: none; }
   .fluxo-entrada { padding-bottom: 0; }
 }
+
+/* ==========================================================================
+   MÁQUINA DE DISTRIBUIÇÃO — landing do produto (30/08/2026)
+   Editorial, não infoproduto: sem card empilhado, sem cronômetro, sem bônus.
+   A peça visual que carrega a página é o ciclo, e ele FECHA — o desenho é a
+   diferença entre um funil (publica e acabou) e uma máquina (o dado da
+   distribuição escolhe a próxima entrada).
+   ========================================================================== */
+
+.selo-obra {
+  display: inline-block; margin-left: 8px;
+  font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--primary); border: 1px solid rgba(232,163,61,.35); border-radius: 999px;
+  padding: 3px 10px; vertical-align: middle;
+}
+
+/* O aviso de que não está à venda fica na PRIMEIRA dobra, junto do CTA, não
+   escondido no rodapé. Se a pessoa vai clicar, ela sabe onde está pisando. */
+.micro-honesto {
+  font-size: 14px; line-height: 1.6; color: var(--muted);
+  max-width: 54ch; margin: clamp(20px, 4vw, 28px) 0 0;
+  padding-left: 14px; border-left: 2px solid var(--line);
+}
+
+/* ---------- O CICLO DO PROBLEMA ---------- */
+.ciclo {
+  list-style: none; margin: 0 0 clamp(28px, 5vw, 40px); padding: 0;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px 0;
+  counter-reset: passo;
+}
+.ciclo li {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(1rem, 2.6vw, 1.35rem); letter-spacing: -.01em;
+  color: var(--muted); white-space: nowrap;
+}
+.ciclo li + li::before {
+  content: "→"; color: rgba(255,255,255,.22); margin: 0 14px; font-weight: 400;
+}
+.ciclo-morte { color: var(--primary) !important; }
+.ciclo-remate {
+  font-size: clamp(1.05rem, 2.2vw, 1.22rem); line-height: 1.7;
+  color: var(--text); max-width: 60ch; margin: 0;
+}
+
+/* ---------- O CICLO FECHA (retorno) ---------- */
+.fluxo-produto { position: relative; }
+.no-volta { border-color: rgba(232,163,61,.35); color: var(--primary); }
+.fluxo-retorno {
+  position: absolute; top: 42px; bottom: 42px; right: clamp(12px, 4vw, 48px);
+  width: clamp(28px, 6vw, 64px);
+  border: 1px solid rgba(232,163,61,.3); border-left: 0;
+  border-radius: 0 var(--radius-card) var(--radius-card) 0;
+  display: flex; align-items: center; justify-content: flex-start;
+  pointer-events: none;
+}
+.fluxo-retorno em {
+  font-style: normal; font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--primary); white-space: nowrap;
+  transform: rotate(180deg); writing-mode: vertical-rl;
+  background: var(--background); padding: 8px 0; margin-left: -7px;
+}
+/* Empilhado o retorno vira um fio grosso no vazio: some e a nota explica. */
+@media (max-width: 720px) { .fluxo-retorno { display: none; } }
+
+/* ---------- AS ETAPAS ---------- */
+.etapas { display: grid; gap: 0; }
+.etapa {
+  display: grid; grid-template-columns: auto 1fr; gap: 18px;
+  align-items: start;
+  border-top: 1px solid var(--line);
+  padding: clamp(22px, 3.5vw, 32px) 0;
+}
+.etapa:last-child { border-bottom: 1px solid var(--line); }
+.etapa-num {
+  font-family: var(--font-display); font-weight: 700; font-size: 13px;
+  letter-spacing: .08em; color: var(--primary);
+  padding-top: 4px; font-variant-numeric: tabular-nums;
+}
+.etapa h3 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem); letter-spacing: -.02em;
+  margin: 0 0 8px;
+}
+.etapa p { margin: 0; font-size: 16px; line-height: 1.7; color: var(--muted); max-width: 66ch; }
+.etapa p strong { color: var(--text); font-weight: 600; }
+@media (min-width: 780px) { .etapa { grid-template-columns: 64px 1fr; gap: 28px; } }
+
+/* ---------- AS SAÍDAS DO EXEMPLO ---------- */
+.saidas { list-style: none; margin: 0 0 clamp(24px, 4vw, 32px); padding: 0; }
+.saida { border-top: 1px solid var(--line); }
+.saida:last-child { border-bottom: 1px solid var(--line); }
+.saida-link {
+  display: grid; gap: 6px; padding: clamp(18px, 3vw, 24px) 0;
+  text-decoration: none; color: inherit; transition: padding-left .18s ease;
+}
+a.saida-link:hover { padding-left: 10px; }
+.saida-link-inerte { cursor: default; }
+.saida-canal {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.05rem, 2.3vw, 1.25rem); letter-spacing: -.015em;
+}
+a.saida-link:hover .saida-canal { color: var(--primary); }
+.saida-desc { color: var(--muted); font-size: 15px; line-height: 1.6; max-width: 64ch; }
+.saida-acao { font-size: 13px; font-weight: 600; color: var(--primary); }
+.saida-acao-muda {
+  color: var(--muted); font-weight: 500; letter-spacing: .1em; text-transform: uppercase; font-size: 11px;
+}
+@media (min-width: 780px) {
+  .saida-link { grid-template-columns: 1fr auto; align-items: baseline; column-gap: 32px; }
+  .saida-canal { grid-column: 1; grid-row: 1; }
+  .saida-desc { grid-column: 1; grid-row: 2; }
+  .saida-acao { grid-column: 2; grid-row: 1; text-align: right; }
+}
+
+/* ---------- PRA QUEM É / NÃO É ---------- */
+.duas-colunas { display: grid; gap: clamp(32px, 5vw, 48px); }
+@media (min-width: 780px) { .duas-colunas { grid-template-columns: 1fr 1fr; gap: 64px; } }
+.coluna-titulo {
+  font-family: var(--font-display); font-weight: 700; font-size: 1.1rem;
+  letter-spacing: -.01em; margin: 0 0 var(--space-sm);
+}
+.coluna-sim { color: var(--primary); }
+.coluna-nao { color: var(--muted); }
+.lista-marcada { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.lista-marcada li {
+  position: relative; padding-left: 22px;
+  font-size: 16px; line-height: 1.6; color: var(--text); max-width: 44ch;
+}
+.lista-marcada li::before {
+  content: "+"; position: absolute; left: 0; top: -1px;
+  color: var(--primary); font-weight: 600;
+}
+.lista-nao li { color: var(--muted); }
+.lista-nao li::before { content: "−"; color: rgba(255,255,255,.28); }
+
+/* Retorno colado no corpo do diagrama. Estava ancorado na borda do painel
+   (1100px) enquanto os nós ocupam só ~520px no centro: o arco ficava a meia
+   tela de distância e lia como enfeite, não como volta. Agora é medido a
+   partir do CENTRO, que é onde os nós de fato estão. */
+.fluxo-retorno {
+  right: max(12px, calc(50% - 330px));
+  width: clamp(24px, 4vw, 44px);
+}
+.fluxo-retorno em { margin-left: -8px; font-size: 10px; }
+
+/* Os braços do arco tinham que ALCANÇAR os nós. Ancorados só pela direita, eles
+   terminavam a 200-390px de distância da "próxima decisão" e da fila de entrada:
+   um colchete apontando pro vazio. Agora as duas bordas são medidas a partir do
+   centro, então o braço começa logo depois do nó e o ciclo fecha de fato. */
+.fluxo-retorno {
+  left: calc(50% + 135px);
+  right: max(12px, calc(50% - 330px));
+  width: auto;
+  justify-content: flex-end;
+}
+.fluxo-retorno em { margin-left: 0; margin-right: -8px; }
