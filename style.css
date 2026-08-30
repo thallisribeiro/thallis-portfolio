@@ -1783,3 +1783,20 @@ body::after {
 @media (max-width: 420px) {
   .captura-form .btn { width: 100%; }
 }
+
+/* ---------- TABELA DE PISO DE PRECO ----------
+   Nao e tabela de planos: e o piso, pra quem esta comparando fornecedor numa
+   tarde nao fechar a aba sem numero nenhum. */
+.preco-lista { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 0; }
+.preco-lista li {
+  display: flex; flex-wrap: wrap; gap: 4px 16px;
+  align-items: baseline; justify-content: space-between;
+  padding: 14px 0; border-bottom: 1px solid var(--line);
+}
+.preco-lista li:first-child { border-top: 1px solid var(--line); }
+.preco-item { color: var(--text); font-weight: 500; }
+.preco-valor {
+  font-family: var(--font-display); font-weight: 700; color: var(--primary);
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.preco-nota { color: var(--muted); font-size: .95rem; margin-top: 18px; }
