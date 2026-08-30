@@ -91,7 +91,13 @@ function main() {
   // Assim, uma falha do gerador continua automaticamente retryable.
   fs.unlinkSync(queuePath);
 
-  const publicationPaths = [postRelative, queueRelative, 'blog/', 'feed.xml', 'sitemap.xml'];
+  // Arquivo de fila que o git nunca viu não entra no `git add`: apagar do disco já basta.
+  // Tentar versionar a remoção de um arquivo não rastreado faz o pathspec falhar, o que
+  // derrubava a publicação INTEIRA e devolvia o post pra fila. Em 29/08 isso travou o blog
+  // num laço: o publish falhava sempre, e o ensure-queue saía cedo por ver a fila cheia,
+  // sem nunca chegar na linha que commitaria o arquivo.
+  const filaRastreada = run('git', ['ls-files', '--', queueRelative]).stdout.length > 0;
+  const publicationPaths = [postRelative, ...(filaRastreada ? [queueRelative] : []), 'blog/', 'feed.xml', 'sitemap.xml'];
   const add = run('git', ['add', '--', ...publicationPaths]);
   if (!add.ok) {
     const rollback = rollbackUncommittedPublication({ queuePath, raw, postPath, publicationPaths });

@@ -215,6 +215,22 @@ async function main() {
 
   const queue = fs.readdirSync(QUEUE_DIR).filter(f => f.endsWith('.md'));
   if (queue.length > 0) {
+    // Antes de sair: arquivo de fila não rastreado é versionado aqui. Se ele ficar
+    // untracked, o publish-next tenta versionar a remoção dele, o pathspec falha e a
+    // publicação inteira volta atrás -- e esta função saía cedo sem nunca corrigir,
+    // travando os dois lados. Aconteceu em 29/08 e segurou o blog por um dia.
+    const naoRastreados = queue
+      .map(f => `content/queue/${f}`)
+      .filter(rel => runCommand(ROOT, 'git', ['ls-files', '--', rel]).stdout.trim().length === 0);
+    if (naoRastreados.length > 0) {
+      log(`fila com ${naoRastreados.length} arquivo(s) fora do git — versionando pra destravar o publish`);
+      const add = runCommand(ROOT, 'git', ['add', '--', ...naoRastreados]);
+      if (!add.ok) log(`[erro] git add da fila falhou: ${failureDetail(add)}`);
+      else {
+        const commit = runCommand(ROOT, 'git', ['commit', '-m', 'Versiona post da fila que ficou fora do git', '--', ...naoRastreados]);
+        if (!commit.ok) log(`[erro] git commit da fila falhou: ${failureDetail(commit)}`);
+      }
+    }
     log(`fila já tem ${queue.length} post(s) — nada a gerar`);
     return;
   }
@@ -228,8 +244,22 @@ async function main() {
     const destino = path.join(QUEUE_DIR, doContentHub.slug + '.md');
     fs.writeFileSync(destino, doContentHub.conteudo);
     log(`artigo do content-hub aproveitado: ${doContentHub.titulo}`);
-    const commit = runCommand('git', ['add', '-A'], ROOT);
-    if (commit.ok) runCommand('git', ['commit', '-m', `Prepara post do content-hub: ${doContentHub.titulo}`], ROOT);
+    // A assinatura é runCommand(cwd, cmd, args). Estava chamada como
+    // runCommand('git', [...], ROOT) -- cwd virava "git" e cmd virava um Array, e o
+    // spawnSync jogava "The file argument must be of type string". Como isso estourava
+    // logo depois de gravar o arquivo, o post ficava na fila SEM ser versionado, e o
+    // publish-next travava tentando versionar a remoção dele. Foi a causa raiz do blog
+    // parado em 29/08, e o commit não é opcional: sem ele o arquivo nasce órfão.
+    const add = runCommand(ROOT, 'git', ['add', '--', path.relative(ROOT, destino).replace(/\\/g, '/')]);
+    if (!add.ok) {
+      log(`[erro] git add do artigo falhou: ${failureDetail(add)}`);
+      return 1;
+    }
+    const commit = runCommand(ROOT, 'git', ['commit', '-m', `Prepara post do content-hub: ${doContentHub.titulo}`]);
+    if (!commit.ok) {
+      log(`[erro] git commit do artigo falhou: ${failureDetail(commit)}`);
+      return 1;
+    }
     return;
   }
 
