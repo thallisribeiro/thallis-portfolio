@@ -1579,3 +1579,30 @@ body::after {
 /* Rodapé com glifo: aqui o ícone identifica a rede antes da palavra — é o
    único lugar fora do diagrama onde ele informa em vez de enfeitar. */
 .footer-social { display: inline-flex; align-items: center; gap: 7px; }
+
+/* ---------- HANDOFF PRO GSAP ----------
+   Quando a camada GSAP assume, ela marca <html class="gsap-on">. Aqui as
+   animações em CSS que ela substitui são desligadas -- dois sistemas animando
+   o mesmo elemento é exatamente como se ganha um piscar na tela.
+
+   A ordem importa: o CSS é o piso (funciona sem JS, sem CDN, sem nada) e o
+   GSAP é o reforço. Se o CDN cair, esta classe nunca entra e o piso segue. */
+.gsap-on [data-surge] { opacity: 1; transform: none; transition: none; }
+.gsap-on .hero-tese .tese-kicker,
+.gsap-on .hero-tese .tese-linha,
+.gsap-on .hero-tese .tese-sub,
+.gsap-on .hero-tese .tese-ctas,
+.gsap-on .hero-tese .gatilho,
+.gsap-on .hero-tese .prova { animation: none; opacity: 1; transform: none; }
+
+/* Split de caractere precisa de perspectiva pra rotateX ler como profundidade
+   em vez de achatamento. */
+.gsap-on .tese-h1 { perspective: 800px; }
+.gsap-on .tese-linha { transform-style: preserve-3d; }
+
+/* Alvo do efeito magnético: avisa o compositor antes, senão o primeiro
+   movimento sai engasgado. */
+.gsap-on .hero-tese .btn-primary { will-change: transform; }
+
+/* Seção presa: sem isso o pin recorta o conteúdo em telas curtas. */
+.gsap-on .fluxo { will-change: transform; }

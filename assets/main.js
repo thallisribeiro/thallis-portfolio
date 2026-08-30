@@ -51,7 +51,14 @@
   // O atributo é aplicado AQUI, não no HTML. Assim, com JS desligado nada
   // fica invisível esperando uma classe que nunca chega -- que é como
   // "revelação no scroll" costuma quebrar.
-  if (!semMovimento && temIO) {
+  // Se o GSAP subiu, quem revela e a camada de movimento. Este bloco e o piso
+  // pra quando ele nao subir -- CDN fora do ar, navegador velho, rede ruim.
+  // Checa o OBJETO, nao a classe: `defer` executa em ordem de documento, entao
+  // este arquivo roda ANTES do movimento.js marcar <html>. Olhar a classe aqui
+  // daria sempre falso e os dois sistemas revelariam o mesmo elemento.
+  var gsapAssumiu = function () { return !!(window.gsap && window.ScrollTrigger); };
+
+  if (!semMovimento && temIO && !gsapAssumiu()) {
     var alvos = document.querySelectorAll(
       '.secao > .section-inner > *, .obra, .ideia, .etapa, .saida, .proj, .prova-item, .fluxo-linha, .cta-tese'
     );
