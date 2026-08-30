@@ -521,6 +521,7 @@ ${rssItems}
     { loc: `${SITE_URL}/blog/`, lastmod: posts[0]?.date },
     { loc: `${SITE_URL}/maquina-de-distribuicao/` },
     { loc: `${SITE_URL}/trabalhe-comigo/` },
+    { loc: `${SITE_URL}/ficha-de-apuracao/` },
     ...posts.map(p => ({ loc: `${SITE_URL}/blog/${p.slug}/`, lastmod: p.date })),
     ...temaCounts.map(t => ({ loc: `${SITE_URL}/blog/tema/${t.slug}/`, lastmod: posts[0]?.date })),
   ];

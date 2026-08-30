@@ -140,6 +140,21 @@
     }
   }
 
+  // ---------- COPIAR BLOCO DE CODIGO ----------
+  // O botao confirma na propria etiqueta. Sem isso a pessoa clica duas vezes
+  // sem saber se funcionou.
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-copiar]');
+    if (!b) return;
+    var alvo = document.querySelector(b.getAttribute('data-copiar'));
+    if (!alvo || !navigator.clipboard) return;
+    navigator.clipboard.writeText(alvo.textContent.trim()).then(function () {
+      var antes = b.textContent;
+      b.textContent = 'Copiado';
+      setTimeout(function () { b.textContent = antes; }, 1600);
+    }).catch(function () {});
+  });
+
   // ---------- 4. BARRA DE PROGRESSO DE LEITURA ----------
   // Só em página longa. Numa página curta a barra fica quase cheia o tempo
   // todo e não informa nada.

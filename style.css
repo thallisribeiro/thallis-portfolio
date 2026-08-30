@@ -1643,3 +1643,70 @@ body::after {
 /* A miniatura no índice do blog ganhou proporção fixa: sem isso os cards
    pulavam de altura enquanto as imagens chegavam. */
 .blog-card-thumb img { width: 100%; height: auto; display: block; aspect-ratio: 600 / 338; object-fit: cover; }
+
+/* ---------- FICHA DE APURAÇÃO ----------
+   O degrau que faltava entre o blog de graça e o serviço. Ativo único que
+   resolve UM problema por inteiro, em vez de 49 posts que resolvem muitos
+   pela metade. Aberto, sem pedir e-mail: o argumento da casa é documentar em
+   público, e cobrar cadastro por isso contradiria a própria marca. */
+.classes { list-style: none; margin: 0 0 clamp(28px, 4vw, 36px); padding: 0; display: grid; gap: 12px; }
+.classe {
+  display: grid; gap: 6px;
+  border: 1px solid var(--line); border-left: 3px solid var(--marca, var(--muted));
+  border-radius: 8px; padding: 16px 18px; background: var(--secondary);
+}
+.classe-ok { --marca: var(--ok); }
+.classe-meio { --marca: var(--primary); }
+.classe-nao { --marca: var(--muted); }
+.classe-nome {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 12px; font-weight: 700; letter-spacing: .1em;
+  color: var(--marca);
+}
+.classe-regra { font-size: 15px; line-height: 1.6; color: var(--muted); }
+.classe-regra strong { color: var(--text); font-weight: 600; }
+
+.bloco-codigo { position: relative; margin: 0 0 clamp(28px, 4vw, 36px); }
+.bloco-codigo pre {
+  margin: 0; overflow-x: auto;
+  background: var(--secondary); border: 1px solid var(--line); border-radius: 10px;
+  padding: 20px 20px 20px 22px;
+}
+.bloco-codigo code {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px; line-height: 1.62; color: var(--text); white-space: pre;
+}
+.btn-copiar {
+  position: absolute; top: 10px; right: 10px; z-index: 2;
+  font-family: var(--font-body); font-size: 12px; font-weight: 600;
+  color: var(--muted); background: var(--background);
+  border: 1px solid var(--line); border-radius: 6px;
+  padding: 6px 12px; cursor: pointer;
+  transition: color .18s ease, border-color .18s ease;
+}
+.btn-copiar:hover { color: var(--primary); border-color: rgba(232,163,61,.4); }
+
+.regra-forte {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.05rem, 2.6vw, 1.3rem); line-height: 1.4;
+  letter-spacing: -.015em; color: var(--text) !important;
+  border-left: 3px solid var(--primary);
+  padding: 4px 0 4px 18px; margin: 0 0 var(--space-md);
+  max-width: 54ch;
+}
+.selo-obra + .classes { margin-top: 20px; }
+
+/* Retrato do Sobre. A regra fica pronta pro dia em que a imagem chegar:
+   quadrada, discreta, sem virar cartão de visita. */
+.retrato {
+  width: min(200px, 44vw); height: auto; aspect-ratio: 1;
+  object-fit: cover; border-radius: 12px;
+  border: 1px solid var(--line);
+  margin: 0 0 clamp(20px, 3vw, 28px);
+  display: block;
+}
+@media (min-width: 780px) {
+  #sobre .section-inner { display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: start; }
+  #sobre .secao-topo { grid-column: 1 / -1; }
+  .retrato { margin-bottom: 0; }
+}

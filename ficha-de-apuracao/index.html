@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A ficha de apuração que eu uso antes de escrever qualquer coisa</title>
+<meta name="description" content="O documento de uma página que separa o que é fato do que é alguém repetindo alguém. Template em branco, exemplo real preenchido e a regra que impede um boato de virar manchete.">
+<link rel="canonical" href="https://thallisribeiro.com.br/ficha-de-apuracao/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A ficha de apuração que eu uso antes de escrever qualquer coisa">
+<meta property="og:description" content="Template em branco, exemplo real preenchido e a regra que impede um boato de virar manchete.">
+<meta property="og:url" content="https://thallisribeiro.com.br/ficha-de-apuracao/">
+<meta property="og:image" content="https://thallisribeiro.com.br/assets/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="application/rss+xml" title="Blog ThallisRibeiro" href="https://thallisribeiro.com.br/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230B0F14'/%3E%3Crect x='10' y='14' width='44' height='4' rx='2' fill='%23E8A33D'/%3E%3Crect x='10' y='30' width='30' height='4' rx='2' fill='%238B949E'/%3E%3Crect x='10' y='46' width='18' height='4' rx='2' fill='%238B949E'/%3E%3C/svg%3E">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-247F9N1WQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-247F9N1WQE');
+</script>
+</head>
+<body data-page-ev="ficha_viewed">
+
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo-wrap" href="/" style="text-decoration:none;color:inherit">
+      <span class="logo-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="logo">Thallis Ribeiro</span>
+    </a>
+    <nav class="nav-links" id="nav-links" aria-label="Seções">
+      <a href="/blog/">Blog</a>
+      <a href="/#projetos">Projetos</a>
+      <a href="/#sobre">Sobre</a>
+      <a href="/trabalhe-comigo/">Trabalhe comigo</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <a class="btn btn-primary btn-nav" href="/maquina-de-distribuicao/" data-ev="distribution_product_clicked" data-ev-local="nav">Máquina de Distribuição</a>
+    </div>
+  </div>
+</header>
+
+<main class="pagina" id="conteudo">
+  <div class="pagina-inner">
+    <p class="tese-kicker">Ferramenta · uso livre</p>
+    <h1>A ficha de apuração</h1>
+    <p class="pagina-lead">Uma página que separa o que é fato do que é alguém repetindo alguém. É o primeiro documento de toda peça que sai daqui, e é ela que impede um boato de virar manchete.</p>
+
+    <div class="pagina-corpo">
+      <p><strong>Está tudo aberto nesta página.</strong> Sem e-mail, sem cadastro, sem download que pede alguma coisa em troca. Copia e usa.</p>
+
+      <h2>O problema que ela resolve</h2>
+      <p>Você acha uma história boa. Três veículos publicaram. Você escreve. Só que dois deles estavam citando o terceiro, o terceiro citava um post que ninguém abriu, e o número que virou o seu título é uma estimativa que alguém arredondou no caminho.</p>
+      <p>Isso não acontece por falta de cuidado. Acontece porque, sem um lugar pra registrar <em>de onde veio cada afirmação</em>, a única memória é a sua, e ela mistura tudo na hora de escrever.</p>
+
+      <h2>As três classificações</h2>
+      <p>Cada afirmação recebe uma, e é a classificação que decide como ela pode ser usada:</p>
+
+      <ul class="classes">
+        <li class="classe classe-ok">
+          <span class="classe-nome">CONFIRMADO</span>
+          <span class="classe-regra">Documento oficial, comunicado da própria empresa, ou coisa que dá pra abrir e ver. <strong>Pode virar afirmação direta.</strong></span>
+        </li>
+        <li class="classe classe-meio">
+          <span class="classe-nome">REPORTADO</span>
+          <span class="classe-regra">Alguém disse, um veículo publicou, mas não deu pra ver na fonte primária. <strong>Só entra com quem disse do lado.</strong> Nunca no título.</span>
+        </li>
+        <li class="classe classe-nao">
+          <span class="classe-nome">NÃO CONFIRMADO</span>
+          <span class="classe-regra">Achismo, ilação, causa que ninguém provou. <strong>Nunca vira afirmação.</strong> Fica na ficha pra você lembrar que checou e não achou.</span>
+        </li>
+      </ul>
+
+      <h2>O template</h2>
+      <p>Um objeto por afirmação. O campo <code>base</code> é o que faz a ficha funcionar: é onde você escreve <em>onde viu</em>, não o que achou.</p>
+
+      <div class="bloco-codigo">
+        <button class="btn-copiar" type="button" data-copiar="#template" data-ev="ficha_copiada" data-ev-local="template">Copiar</button>
+        <pre id="template"><code>{
+  "fato_central": "a frase que a peça inteira sustenta",
+  "itens": [
+    {
+      "afirmacao": "uma coisa só, escrita como você diria em voz alta",
+      "classificacao": "CONFIRMADO | REPORTADO | NÃO CONFIRMADO",
+      "base": "onde você viu. veículo, data, e o que exatamente estava escrito",
+      "data": "AAAA-MM-DD"
+    }
+  ],
+  "nao_confirmado": ["o que você tentou checar e não conseguiu"],
+  "fontes": [{ "nome": "", "url": "", "data": "" }]
+}</code></pre>
+      </div>
+
+      <h2>Preenchida de verdade</h2>
+      <p>Estes três itens saíram da ficha do post sobre o fim do Mechanical Turk. A ficha inteira tem 15, e foi ela que virou <a href="/blog/">artigo, carrossel e Reel</a> sem que ninguém reescrevesse a pesquisa.</p>
+
+      <div class="bloco-codigo">
+        <button class="btn-copiar" type="button" data-copiar="#exemplo" data-ev="ficha_copiada" data-ev-local="exemplo">Copiar</button>
+        <pre id="exemplo"><code>{
+  "afirmacao": "O Amazon Mechanical Turk fecha em 30 de setembro de 2026.",
+  "classificacao": "CONFIRMADO",
+  "base": "Aviso da própria Amazon no topo de mturk.com."
+}
+{
+  "afirmacao": "A porta-voz Montana MacLachlan disse que a empresa segue
+                focada na melhor experiência para os clientes.",
+  "classificacao": "REPORTADO",
+  "base": "CNBC, 25/08/2026. Declaração enviada à CNBC, reproduzida
+           por TechSpot e Quartz."
+}
+{
+  "afirmacao": "A Amazon fechou porque os trabalhadores passaram a usar IA.",
+  "classificacao": "NÃO CONFIRMADO",
+  "base": "Ninguém afirma isso. A Amazon não deu motivo. É ilação
+           que aparece em comentário."
+}</code></pre>
+      </div>
+
+      <h2>A regra que faz valer a pena</h2>
+      <p>Ter a ficha não adianta se na hora de escrever você ignorar a coluna do meio. A regra é curta:</p>
+      <p class="regra-forte">Só CONFIRMADO pode abrir uma peça. REPORTADO entra no meio, com atribuição. NÃO CONFIRMADO não entra.</p>
+      <p>Aqui isso deixou de ser disciplina e virou código: um verificador lê a ficha e o texto e reprova a peça se um número apareceu sem estar na ficha, ou se alguém pegou o teto de um intervalo e escreveu como se fosse o número. Mesmo texto, mesmo veredito, sempre.</p>
+      <p>Se você fizer só à mão, a parte que mais paga é a mais chata: <strong>preencher a ficha antes de escrever a primeira frase</strong>, e não depois, pra justificar o que já escreveu.</p>
+
+      <aside class="cta-tese">
+        <p class="cta-tese-frase"><span class="fria">Essa ficha é a primeira etapa</span> <span class="quente">de uma esteira inteira.</span></p>
+        <p class="cta-tese-texto">Depois dela vem o ângulo, a história-mãe e a versão de cada canal. Estou transformando isso em produto, e o blog daqui é a saída dele rodando.</p>
+        <a class="btn btn-primary btn-lg" href="/maquina-de-distribuicao/" data-ev="distribution_product_clicked" data-ev-local="ficha">Ver a esteira inteira</a>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <span>Thallis Ribeiro © 2026</span>
+  <a class="footer-social" href="/blog/">Blog</a>
+  <a class="footer-social" href="/feed.xml">RSS</a>
+  <a class="footer-social" href="https://instagram.com/thallis.lab" target="_blank" rel="noopener">@thallis.lab</a>
+  <a class="footer-social" href="https://www.linkedin.com/in/thallisribeiro/" target="_blank" rel="noopener">LinkedIn</a>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
+<script src="/assets/main.js" defer></script>
+<script src="/assets/movimento.js" defer></script>
+</body>
+</html>
