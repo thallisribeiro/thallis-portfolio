@@ -69,3 +69,21 @@
 [2026-08-28T14:30:37.949Z] [ensure-queue] sem imagem pra este post (sem chave configurada ou nada encontrado) — seguindo sem imagem
 [2026-08-28T14:30:40.486Z] [ensure-queue] preparado pra publicar: "Tirei o "como funciona" do fim da página e coloquei no começo" (modo real)
 [2026-08-28T14:42:24.247Z] [ensure-queue] fila já tem 1 post(s) — nada a gerar
+[2026-08-28T15:00:05.093Z] publicado: /blog/tirei-o-como-funciona-do-fim-da-pagina-e-coloquei-no-comeco/ — "Tirei o "como funciona" do fim da página e coloquei no começo"
+[2026-08-28T20:30:02.010Z] [ensure-queue] artigo do content-hub aproveitado: O Instagram não é mais sobre quem te segue
+[2026-08-28T21:00:02.067Z] [erro] git add falhou; post devolvido à fila: stderr: fatal: pathspec 'content/queue/o-instagram-nao-e-mais-sobre-quem-te-segue.md' did not match any files | rollback do index falhou: stderr: error: pathspec 'content/posts/o-instagram-nao-e-mais-sobre-quem-te-segue.md' did not match any file(s) known to git error: pathspec 'content/queue/o-instagram-nao-e-mais-sobre-quem-te-segue.md' did not match any file(s) known to git
+[2026-08-29T09:30:01.824Z] [ensure-queue] fila já tem 1 post(s) — nada a gerar
+[2026-08-29T10:00:02.235Z] [erro] git add falhou; post devolvido à fila: stderr: fatal: pathspec 'content/queue/o-instagram-nao-e-mais-sobre-quem-te-segue.md' did not match any files | rollback do index falhou: stderr: error: pathspec 'content/posts/o-instagram-nao-e-mais-sobre-quem-te-segue.md' did not match any file(s) known to git error: pathspec 'content/queue/o-instagram-nao-e-mais-sobre-quem-te-segue.md' did not match any file(s) known to git
+[2026-08-29T14:30:01.839Z] [ensure-queue] fila já tem 1 post(s) — nada a gerar
+[2026-08-29T15:00:02.224Z] [erro] git add falhou; post devolvido à fila: stderr: fatal: pathspec 'content/queue/o-instagram-nao-e-mais-sobre-quem-te-segue.md' did not match any files | rollback do index falhou: stderr: error: pathspec 'content/posts/o-instagram-nao-e-mais-sobre-quem-te-segue.md' did not match any file(s) known to git error: pathspec 'content/queue/o-instagram-nao-e-mais-sobre-quem-te-segue.md' did not match any file(s) known to git
+[2026-08-29T20:30:01.835Z] [ensure-queue] fila já tem 1 post(s) — nada a gerar
+[2026-08-29T21:00:02.088Z] [erro] git add falhou; post devolvido à fila: stderr: fatal: pathspec 'content/queue/o-instagram-nao-e-mais-sobre-quem-te-segue.md' did not match any files | rollback do index falhou: stderr: error: pathspec 'content/posts/o-instagram-nao-e-mais-sobre-quem-te-segue.md' did not match any file(s) known to git error: pathspec 'content/queue/o-instagram-nao-e-mais-sobre-quem-te-segue.md' did not match any file(s) known to git
+[2026-08-30T01:03:34.934Z] [erro] git add falhou; post devolvido à fila: stderr: fatal: pathspec 'content/queue/o-instagram-nao-e-mais-sobre-quem-te-segue.md' did not match any files | rollback do index falhou: stderr: error: pathspec 'content/posts/o-instagram-nao-e-mais-sobre-quem-te-segue.md' did not match any file(s) known to git error: pathspec 'content/queue/o-instagram-nao-e-mais-sobre-quem-te-segue.md' did not match any file(s) known to git
+[2026-08-30T01:07:04.143Z] [ensure-queue] fila com 1 arquivo(s) fora do git — versionando pra destravar o publish
+[2026-08-30T01:07:04.262Z] [ensure-queue] fila já tem 1 post(s) — nada a gerar
+[2026-08-30T01:07:12.383Z] 1 commit(s) local(is) aguardando push — tentando novamente
+[2026-08-30T01:07:14.743Z] push pendente concluído
+[2026-08-30T01:07:18.011Z] publicado: /blog/o-instagram-nao-e-mais-sobre-quem-te-segue/ — "O Instagram não é mais sobre quem te segue"
+[2026-08-30T01:07:28.553Z] [ensure-queue] artigo do content-hub aproveitado: Quanto tempo realmente demora criar um site com IA
+[2026-08-30T01:08:06.061Z] [ensure-queue] fila com 1 arquivo(s) fora do git — versionando pra destravar o publish
+[2026-08-30T01:08:06.322Z] [ensure-queue] fila já tem 1 post(s) — nada a gerar
