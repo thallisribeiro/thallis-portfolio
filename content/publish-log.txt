@@ -87,3 +87,5 @@
 [2026-08-30T01:07:28.553Z] [ensure-queue] artigo do content-hub aproveitado: Quanto tempo realmente demora criar um site com IA
 [2026-08-30T01:08:06.061Z] [ensure-queue] fila com 1 arquivo(s) fora do git — versionando pra destravar o publish
 [2026-08-30T01:08:06.322Z] [ensure-queue] fila já tem 1 post(s) — nada a gerar
+[2026-08-30T09:30:02.839Z] [ensure-queue] fila já tem 1 post(s) — nada a gerar
+[2026-08-30T10:00:05.781Z] publicado: /blog/quanto-tempo-realmente-demora-criar-um-site-com-ia/ — "Quanto tempo realmente demora criar um site com IA"
