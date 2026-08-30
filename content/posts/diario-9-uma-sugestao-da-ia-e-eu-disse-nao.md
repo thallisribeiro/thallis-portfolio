@@ -1,7 +1,7 @@
 ---
 title: "Diário — Dia 8: Uma sugestão da IA, e eu disse não"
 date: 2026-08-17
-summary: "O agente propôs redesenhar um formulário do Eunoimóvel baseado numa teoria de persuasão. Eu revertei — e isso virou regra permanente."
+summary: O agente propôs redesenhar um formulário do Eunoimóvel com base numa teoria de persuasão. Eu revertei, e isso virou regra permanente.
 tema: Agência autônoma
 ---
 

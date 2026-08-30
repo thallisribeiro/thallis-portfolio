@@ -208,7 +208,7 @@ ${body}
 const CTAS = {
   distribuicao: {
     frase: '<span class="fria">Construir ficou barato.</span> <span class="quente">Distribuir virou o gargalo.</span>',
-    texto: 'Estou construindo um sistema pra transformar uma apuração só em publicação em vários canais. É ele que publica este blog.',
+    texto: 'Estou construindo um sistema que transforma uma apuração só em publicação em vários canais. É ele que publica este blog.',
     rotulo: 'Conhecer a Máquina de Distribuição',
     href: '/maquina-de-distribuicao/',
     evento: 'distribution_product_clicked',
@@ -216,7 +216,7 @@ const CTAS = {
   },
   'trabalhe-comigo': {
     frase: '<span class="quente">Prefere que eu faça?</span>',
-    texto: 'Assumo alguns projetos por vez: sites e landing pages, produto, automação e sistemas de distribuição.',
+    texto: 'Pego poucos projetos por vez: site, landing page, produto, automação e sistema de distribuição.',
     rotulo: 'Trabalhar comigo',
     href: '/trabalhe-comigo/',
     evento: 'work_with_me_clicked',
@@ -235,7 +235,7 @@ const CTAS = {
 function ctaDoIndice() {
   return `<aside class="cta-tese">
     <p class="cta-tese-frase"><span class="fria">Construir ficou barato.</span> <span class="quente">Distribuir virou o gargalo.</span></p>
-    <p class="cta-tese-texto">Este blog é a saída de uma esteira que apura, checa e publica sozinha. Estou construindo isso como produto — e escrevendo o processo aqui enquanto acontece.</p>
+    <p class="cta-tese-texto">Este blog é a saída de uma esteira que apura, checa e publica sozinha. Estou transformando isso em produto e escrevendo o processo aqui enquanto acontece.</p>
     <a class="btn btn-primary btn-lg" href="/maquina-de-distribuicao/" data-ev="distribution_product_clicked" data-ev-local="indice-blog">Conhecer a Máquina de Distribuição</a>
     <p class="cta-tese-seguir">Ou me acompanhe em
       <a href="https://www.linkedin.com/in/thallisribeiro/" target="_blank" rel="noopener" data-ev="social_clicked" data-ev-local="linkedin">LinkedIn</a>,

@@ -1,7 +1,7 @@
 ---
 title: "Diário — Dia 7: Um dia, uma imobiliária inteira"
 date: 2026-08-16
-summary: "Identidade visual, controle de acesso geográfico, busca, autenticação, favoritos, SEO técnico — tudo no mesmo dia, no Eunoimóvel."
+summary: Identidade visual, controle de acesso por região, busca, autenticação, favoritos e SEO técnico. Tudo no mesmo dia, no Eunoimóvel.
 tema: Produto
 ---
 

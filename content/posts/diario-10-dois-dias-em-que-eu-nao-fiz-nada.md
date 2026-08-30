@@ -1,5 +1,5 @@
 ---
-title: "Diário — Dia 9-10: Dois dias em que eu não fiz nada — e o Grana publicou sozinho"
+title: "Diário — Dia 9-10: Dois dias em que eu não fiz nada, e o Grana publicou sozinho"
 date: 2026-08-19
 summary: "Depois de tanto ajuste manual, dois dias em que o sistema simplesmente funcionou: notícia do dia, post no ar, carrossel derivado, sem mim no meio."
 tema: Automação de conteúdo

@@ -1,7 +1,7 @@
 ---
 title: "Diário — Dia 7 (parte 2): O robô que gera imagem colocou o logo do Bitcoin numa moeda de ouro"
 date: 2026-08-16
-summary: "Automatizei a capa dos posts do blog com IA de imagem local. Ela alucinou marca em quase tudo — até quando eu mandei explicitamente não fazer isso."
+summary: Automatizei a capa dos posts com IA de imagem rodando aqui na máquina. Ela alucinou marca em quase tudo, até quando eu mandei explicitamente não fazer isso.
 tema: Automação de conteúdo
 ---
 

@@ -2,7 +2,7 @@
 title: "Por que decidi que o Eunoimóvel não seria um microSaaS"
 date: 2026-08-15
 tema: Agência autônoma
-summary: "A ideia inicial era vender acesso a um software. Percebi que o valor real estava em outro lugar — e corrigi a rota antes de escalar errado."
+summary: A ideia inicial era vender acesso a um software. Percebi que o valor real estava em outro lugar e corrigi a rota antes de escalar errado.
 ---
 
 Enquanto o [código do Eunoimóvel ganhava forma](/blog/diario-6-no-mesmo-dia-comecei-a-reconstruir-uma-imobiliaria-inteira/), uma decisão de negócio ficou clara: eu não estava construindo um microSaaS.

@@ -1,7 +1,7 @@
 ---
 title: "Diário — Dia 1: Contratei meu primeiro funcionário, e ele é um robô"
 date: 2026-08-10
-summary: "O dia em que criei o primeiro squad de agentes de IA — o começo de tudo que virou essa agência autônoma."
+summary: O dia em que criei o primeiro squad de agentes de IA. É o começo de tudo que virou essa agência autônoma.
 tema: Agência autônoma
 ---
 

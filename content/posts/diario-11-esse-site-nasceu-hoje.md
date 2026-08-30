@@ -1,7 +1,7 @@
 ---
 title: "Diário — Dia 11: Esse site que você está lendo agora nasceu hoje"
 date: 2026-08-20
-summary: "thallisribeiro.com.br saiu do zero — construído pelo primeiro squad da casa dedicado a fazer site pra outras pessoas, começando por mim mesmo."
+summary: thallisribeiro.com.br saiu do zero, construído pelo primeiro squad da casa dedicado a fazer site pra outras pessoas. Começando por mim mesmo.
 tema: Site & copy
 ---
 

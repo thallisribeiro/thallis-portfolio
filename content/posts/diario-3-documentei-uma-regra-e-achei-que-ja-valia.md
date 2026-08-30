@@ -1,7 +1,7 @@
 ---
 title: "Diário — Dia 4: Documentei uma regra e achei que ela já estava valendo"
 date: 2026-08-13
-summary: "Escrever a regra num documento e o agente realmente segui-la são duas coisas diferentes — aprendi isso na marra."
+summary: Escrever a regra num documento e o agente de fato segui-la são duas coisas diferentes. Aprendi isso na marra.
 tema: Agência autônoma
 ---
 

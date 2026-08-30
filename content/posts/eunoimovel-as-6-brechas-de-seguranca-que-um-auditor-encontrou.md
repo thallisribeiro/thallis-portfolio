@@ -2,7 +2,7 @@
 title: "As 6 brechas de segurança que um auditor encontrou no Eunoimóvel antes de qualquer cliente ver"
 date: 2026-08-15
 tema: Produto
-summary: "Enquanto eu construía a Fatia 2 do Eunoimóvel, um agente auditor rodou atrás só de brecha de acesso — e achou 6 reais no mesmo dia."
+summary: Enquanto eu construía a Fatia 2 do Eunoimóvel, um agente auditor rodou atrás só de brecha de acesso. Achou 6 reais no mesmo dia.
 ---
 
 Complemento de uma [entrada do diário](/blog/diario-6-no-mesmo-dia-comecei-a-reconstruir-uma-imobiliaria-inteira/): no mesmo dia em que o Eunoimóvel foi ao ar pela primeira vez, também rodei um agente com uma única função — desconfiar do controle de acesso que eu tinha acabado de construir.

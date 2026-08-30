@@ -1,5 +1,5 @@
 ---
-title: Automatizei a publicação da série de 30 dias — e ela já é o teste do próprio pipeline
+title: Automatizei a publicação da série de 30 dias, e ela virou o teste do próprio pipeline
 date: 2026-08-22
 summary: Publiquei o Dia 2 da série de 30 dias direto por um pipeline automático de Instagram, ainda sem saber se aguenta os outros 28 dias.
 tema: Automação de conteúdo

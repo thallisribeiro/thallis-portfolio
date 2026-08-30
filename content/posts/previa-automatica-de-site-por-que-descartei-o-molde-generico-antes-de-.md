@@ -1,7 +1,7 @@
 ---
 title: Prévia automática de site: por que descartei o molde genérico antes de escrever uma linha de código
 date: 2026-08-24
-summary: Decidi que a prévia que o lead recebe vai usar template por categoria de negócio, não um molde único — e a decisão saiu de uma spec, não do código.
+summary: Decidi que a prévia que o lead recebe usa template por categoria de negócio, não um molde único. A decisão saiu de uma spec, não do código.
 tema: Agência autônoma
 ---
 
