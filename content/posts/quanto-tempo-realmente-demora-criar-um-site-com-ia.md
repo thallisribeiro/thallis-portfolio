@@ -1,8 +1,8 @@
 ---
-title: "Quanto tempo realmente demora criar um site com IA"
-date: 2026-08-25
+title: Quanto tempo realmente demora criar um site com IA
+date: 2026-08-30
+summary: A resposta padrão de 'meses' para criar um site deixou de ser verdade quando a IA elimina o tempo morto entre etapas, sem pular segurança ou revisão.
 tema: Site & copy
-summary: "A resposta padrão de 'meses' para criar um site deixou de ser verdade quando a IA elimina o tempo morto entre etapas, sem pular segurança ou revisão."
 ---
 
 Quanto tempo demora criar um site de verdade? A resposta que a maioria escuta é "meses", e isso custa cliente todo mês que passa esperando. Mas essa resposta parou de ser verdade do jeito que era há alguns anos, e vale entender exatamente o que mudou, e o que não mudou, antes de aceitar o prazo padrão como inevitável.
