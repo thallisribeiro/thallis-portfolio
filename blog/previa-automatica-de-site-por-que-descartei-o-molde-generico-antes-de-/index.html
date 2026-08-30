@@ -98,7 +98,7 @@
       <h1 class="blog-title">Prévia automática de site: por que descartei o molde genérico antes de escrever uma linha de código</h1>
       <p class="blog-byline">Por Thallis Ribeiro · 24/08/2026 · 2 min de leitura · <a class="tema-pill" href="/blog/tema/agencia-autonoma/">Agência autônoma</a></p>
       
-      <div class="blog-article"><p>Essa semana escrevi a spec de uma feature nova pra prospecção: gerar uma prévia automática de site pro lead antes mesmo do primeiro contato dar em algo. Dois cenários — o negócio que não tem site nenhum, e o que tem um site velho pedindo redesign. A ideia é simples: em vez de dizer "posso fazer um site pra você", mostrar o site já meio pronto, com o nome e a cara do negócio da pessoa.</p><p>Ainda não existe. É spec e plano de implementação, nada no ar. Mas uma decisão de design já foi tomada, e é sobre ela que quero falar.</p><h2>A primeira versão da spec estava errada</h2><p>O rascunho inicial era um molde genérico: um template bonito, neutro, que serviria pra qualquer lead — troca a logo, troca o nome, pronto. É a versão mais barata de construir, e foi por isso que ela apareceu primeiro.</p><p>O problema é que "genérico" é exatamente o que a prévia não pode ser. Uma pousada, uma clínica e uma loja de material de construção não precisam das mesmas seções, do mesmo tom, da mesma estrutura de página. Se o dono da pousada abre a prévia e vê um layout que claramente serviria pra qualquer comércio, a mensagem que chega é "ele manda isso pra todo mundo". Que é verdade — mas a prévia inteira existe pra causar a impressão oposta: "alguém olhou pro meu negócio".</p><p>Então reescrevi a spec: template por categoria de negócio. Mais trabalho, porque cada categoria vira um molde que precisa ser desenhado e mantido. Menos escala no curto prazo. Mas a alternativa era escalar uma coisa que não funciona.</p><h2>O critério que usei</h2><p>A pergunta que decidiu foi: o que o lead sente nos primeiros cinco segundos abrindo o link? Com molde único, a resposta honesta é "spam bem-acabado". Com molde por categoria, tem chance de ser "isso aqui foi pensado pra mim". A automação fica invisível — e automação que precisa parecer artesanal só funciona se a variação for real, não cosmética.</p><p>É o mesmo princípio que já uso na prospecção por mensagem: personalização falsa é pior que nenhuma, porque o lead percebe e o custo é a confiança, não só aquela venda.</p><h2>O que ainda não sei</h2><p>Não sei quantas categorias vão bastar, nem quanto tempo cada template vai custar pra ficar bom. Também não sei se a prévia converte melhor que a abordagem atual — isso só o uso real vai responder, e ainda não tem uso real. Quando tiver, escrevo o resultado aqui, inclusive se for ruim.</p><p>Por enquanto, o registro é esse: a decisão mais importante da feature aconteceu antes do código, cortando a versão barata que teria saído mais rápido e convertido menos.</p></div>
+      <div class="blog-article"><p>Essa semana escrevi a spec de uma feature nova pra prospecção: gerar uma prévia automática de site pro lead antes mesmo do primeiro contato dar em algo. Dois cenários — o negócio que não tem site nenhum, e o que tem um site velho pedindo redesign. A ideia é simples: em vez de dizer "posso fazer um site pra você", mostrar o site já meio pronto, com o nome e a cara do negócio da pessoa.</p><p>Ainda não existe. É spec e plano de implementação, nada no ar. Mas uma decisão de design já foi tomada, e é sobre ela que quero falar.</p><h2>A primeira versão da spec estava errada</h2><p>O rascunho inicial era um molde genérico: um template bonito, neutro, que serviria pra qualquer lead — troca a logo, troca o nome, pronto. É a versão mais barata de construir, e foi por isso que ela apareceu primeiro.</p><aside class="leia-tambem"><span class="leia-rotulo">Leia também</span><a href="/blog/minha-ia-de-vendas-repetiu-a-mesma-frase-pra-3-pessoas-o-revisor-barro/" data-ev="article_clicked" data-ev-local="no-meio">Minha IA de vendas repetiu a mesma frase pra 3 pessoas. O revisor barrou antes de sair</a></aside><p>O problema é que "genérico" é exatamente o que a prévia não pode ser. Uma pousada, uma clínica e uma loja de material de construção não precisam das mesmas seções, do mesmo tom, da mesma estrutura de página. Se o dono da pousada abre a prévia e vê um layout que claramente serviria pra qualquer comércio, a mensagem que chega é "ele manda isso pra todo mundo". Que é verdade — mas a prévia inteira existe pra causar a impressão oposta: "alguém olhou pro meu negócio".</p><p>Então reescrevi a spec: template por categoria de negócio. Mais trabalho, porque cada categoria vira um molde que precisa ser desenhado e mantido. Menos escala no curto prazo. Mas a alternativa era escalar uma coisa que não funciona.</p><h2>O critério que usei</h2><p>A pergunta que decidiu foi: o que o lead sente nos primeiros cinco segundos abrindo o link? Com molde único, a resposta honesta é "spam bem-acabado". Com molde por categoria, tem chance de ser "isso aqui foi pensado pra mim". A automação fica invisível — e automação que precisa parecer artesanal só funciona se a variação for real, não cosmética.</p><p>É o mesmo princípio que já uso na prospecção por mensagem: personalização falsa é pior que nenhuma, porque o lead percebe e o custo é a confiança, não só aquela venda.</p><h2>O que ainda não sei</h2><p>Não sei quantas categorias vão bastar, nem quanto tempo cada template vai custar pra ficar bom. Também não sei se a prévia converte melhor que a abordagem atual — isso só o uso real vai responder, e ainda não tem uso real. Quando tiver, escrevo o resultado aqui, inclusive se for ruim.</p><p>Por enquanto, o registro é esse: a decisão mais importante da feature aconteceu antes do código, cortando a versão barata que teria saído mais rápido e convertido menos.</p></div>
       
       <div class="share-bar">
         <span class="share-label">Compartilhar</span>
@@ -143,6 +143,16 @@
         <h2 class="sidebar-title">Continue lendo</h2>
         <div class="blog-list blog-list-related">
           <article class="blog-card">
+  <a href="/blog/minha-ia-de-vendas-repetiu-a-mesma-frase-pra-3-pessoas-o-revisor-barro/" class="blog-card-thumb" tabindex="-1" aria-hidden="true"><img src="/assets/capas/minha-ia-de-vendas-repetiu-a-mesma-frase-pra-3-pessoas-o-revisor-barro.webp" alt="" width="600" height="338" loading="lazy" decoding="async"></a>
+  <div class="blog-card-meta">
+    <span class="blog-card-date">23/08/2026 · 1 min de leitura</span>
+    <a class="tema-pill" href="/blog/tema/agencia-autonoma/">Agência autônoma</a>
+  </div>
+  <h2><a href="/blog/minha-ia-de-vendas-repetiu-a-mesma-frase-pra-3-pessoas-o-revisor-barro/">Minha IA de vendas repetiu a mesma frase pra 3 pessoas. O revisor barrou antes de sair</a></h2>
+  <p>Um agente de vendas caiu num atalho e repetiu a mesma abertura em 3 mensagens diferentes. Outro agente, cujo único trabalho é revisar, travou tudo antes de qualquer lead ver.</p>
+  <a class="blog-card-link" href="/blog/minha-ia-de-vendas-repetiu-a-mesma-frase-pra-3-pessoas-o-revisor-barro/">Ler →</a>
+</article>
+<article class="blog-card">
   <a href="/blog/eu-deixava-um-agente-ler-o-site-do-lead-com-as-permissoes-desligadas/" class="blog-card-thumb" tabindex="-1" aria-hidden="true"><img src="/assets/capas/eu-deixava-um-agente-ler-o-site-do-lead-com-as-permissoes-desligadas.webp" alt="" width="600" height="338" loading="lazy" decoding="async"></a>
   <div class="blog-card-meta">
     <span class="blog-card-date">28/08/2026 · 6 min de leitura</span>
@@ -153,24 +163,14 @@
   <a class="blog-card-link" href="/blog/eu-deixava-um-agente-ler-o-site-do-lead-com-as-permissoes-desligadas/">Ler →</a>
 </article>
 <article class="blog-card">
-  <a href="/blog/3-coisas-que-eu-nunca-automatizo-mesmo-podendo/" class="blog-card-thumb" tabindex="-1" aria-hidden="true"><img src="/assets/capas/3-coisas-que-eu-nunca-automatizo-mesmo-podendo.webp" alt="" width="600" height="338" loading="lazy" decoding="async"></a>
+  <a href="/blog/dia-2-como-a-maquina-publica-sozinha/" class="blog-card-thumb" tabindex="-1" aria-hidden="true"><img src="/assets/capas/dia-2-como-a-maquina-publica-sozinha.webp" alt="" width="600" height="338" loading="lazy" decoding="async"></a>
   <div class="blog-card-meta">
-    <span class="blog-card-date">25/08/2026 · 6 min de leitura</span>
+    <span class="blog-card-date">22/08/2026 · 2 min de leitura</span>
     <a class="tema-pill" href="/blog/tema/agencia-autonoma/">Agência autônoma</a>
   </div>
-  <h2><a href="/blog/3-coisas-que-eu-nunca-automatizo-mesmo-podendo/">3 coisas que eu nunca automatizo, mesmo podendo</a></h2>
-  <p>Ter a tecnologia pra automatizar não é a mesma coisa que dever automatizar: três limites que eu mantenho de propósito no estúdio.</p>
-  <a class="blog-card-link" href="/blog/3-coisas-que-eu-nunca-automatizo-mesmo-podendo/">Ler →</a>
-</article>
-<article class="blog-card">
-  <a href="/blog/por-que-documento-todo-erro-em-publico-de-proposito/" class="blog-card-thumb" tabindex="-1" aria-hidden="true"><img src="/assets/capas/por-que-documento-todo-erro-em-publico-de-proposito.webp" alt="" width="600" height="338" loading="lazy" decoding="async"></a>
-  <div class="blog-card-meta">
-    <span class="blog-card-date">24/08/2026 · 4 min de leitura</span>
-    <a class="tema-pill" href="/blog/tema/agencia-autonoma/">Agência autônoma</a>
-  </div>
-  <h2><a href="/blog/por-que-documento-todo-erro-em-publico-de-proposito/">Por que documento todo erro em público, de propósito</a></h2>
-  <p>Mostro o bug antes do print bonito, de propósito, porque é assim que se constrói confiança calculável com quem pensa em me contratar.</p>
-  <a class="blog-card-link" href="/blog/por-que-documento-todo-erro-em-publico-de-proposito/">Ler →</a>
+  <h2><a href="/blog/dia-2-como-a-maquina-publica-sozinha/">Dia 2. Como a máquina publica sozinha no Instagram</a></h2>
+  <p>A promessa do Dia 1 era publicar isso amanhã. Não esperei: o pipeline de publicação automática do Instagram ficou pronto ainda hoje, com 2 bugs reais achados e corrigidos ao vivo.</p>
+  <a class="blog-card-link" href="/blog/dia-2-como-a-maquina-publica-sozinha/">Ler →</a>
 </article>
         </div>
       </section>

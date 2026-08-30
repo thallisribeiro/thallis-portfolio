@@ -1710,3 +1710,28 @@ body::after {
   #sobre .secao-topo { grid-column: 1 / -1; }
   .retrato { margin-bottom: 0; }
 }
+
+/* ---------- LEIA TAMBÉM, NO MEIO DO TEXTO ----------
+   O bloco de relacionados do rodapé só pega quem chegou até o fim. Este entra
+   depois do 3º parágrafo, que é onde a atenção ainda está inteira. Uma vez por
+   post, e só quando existe relação de verdade: link ruim no meio do texto
+   custa mais que link nenhum. */
+.leia-tambem {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px;
+  margin: clamp(28px, 4vw, 36px) 0;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--primary);
+  border-radius: 8px;
+  background: var(--secondary);
+}
+.leia-rotulo {
+  font-size: 11px; font-weight: 600; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--muted); flex: 0 0 auto;
+}
+.leia-tambem a {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 1rem; line-height: 1.35; letter-spacing: -.01em;
+  color: var(--text); text-decoration: none;
+}
+.leia-tambem a:hover { color: var(--primary); text-decoration: underline; text-underline-offset: 3px; }

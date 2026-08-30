@@ -304,11 +304,57 @@ function sidebarTemas(temaCounts, temaAtual) {
 
 // Posts relacionados: mesmo tema primeiro (mais recentes), completa com os mais
 // recentes de qualquer tema até 3, nunca inclui o próprio post.
+// Palavras de conteudo de um texto: sem acento, sem palavra curta, sem as
+// que aparecem em quase todo post daqui (elas nao distinguem nada).
+const VAZIAS = new Set(['para','como','isso','esse','essa','mais','pelo','pela','uma','que','com','por','dos','das','nao','sem','the','sobre','quando','porque','entre','depois','antes','todo','toda','cada','meu','minha','seu','sua','voce','aqui','agora','ainda','ate','fazer','feito','virou','vira','sai','saiu','tem','ter','foi','era','ser','estar','esta','ia','site','post','posts','blog']);
+
+function palavrasDe(txt) {
+  return new Set(String(txt || '').toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .split(/\s+/)
+    .filter(w => w.length >= 4 && !VAZIAS.has(w)));
+}
+
+// Quanto dois posts tem a ver. Tema igual pesa, mas nao decide sozinho: dois
+// posts do mesmo tema podem nao ter nada em comum, e dois de temas diferentes
+// podem tratar do mesmo caso.
+function pontuarRelacao(a, b) {
+  const pa = palavrasDe(a.title + ' ' + a.summary);
+  const pb = palavrasDe(b.title + ' ' + b.summary);
+  let comuns = 0;
+  pa.forEach(w => { if (pb.has(w)) comuns++; });
+  return comuns * 2 + (a.tema && a.tema === b.tema ? 3 : 0);
+}
+
 function postsRelacionados(post, todos) {
-  const outros = todos.filter(p => p.slug !== post.slug);
-  const mesmoTema = post.tema ? outros.filter(p => p.tema === post.tema) : [];
-  const resto = outros.filter(p => !mesmoTema.includes(p));
-  return [...mesmoTema, ...resto].slice(0, 3);
+  return todos
+    .filter(p => p.slug !== post.slug)
+    .map(p => ({ p, nota: pontuarRelacao(post, p) }))
+    .sort((x, y) => y.nota - x.nota || y.p.date.localeCompare(x.p.date))
+    .slice(0, 3)
+    .map(x => x.p);
+}
+
+// Link no MEIO do texto, que e onde a pessoa de fato clica: o bloco do rodape
+// so pega quem chegou ate o fim. Entra depois do 3o paragrafo, uma vez por
+// post, e so quando ha relacao de verdade (nota minima) e texto suficiente pra
+// nao interromper uma leitura curta.
+function linkNoMeio(post, todos, html) {
+  const paras = (html.match(/<\/p>/g) || []).length;
+  if (paras < 6) return html;
+
+  const alvo = todos
+    .filter(p => p.slug !== post.slug)
+    .map(p => ({ p, nota: pontuarRelacao(post, p) }))
+    .sort((x, y) => y.nota - x.nota)[0];
+  if (!alvo || alvo.nota < 6) return html;
+
+  const bloco = `<aside class="leia-tambem"><span class="leia-rotulo">Leia também</span>`
+    + `<a href="/blog/${alvo.p.slug}/" data-ev="article_clicked" data-ev-local="no-meio">${esc(alvo.p.title)}</a></aside>`;
+
+  let n = 0;
+  return html.replace(/<\/p>/g, (m) => (++n === 3 ? m + bloco : m));
 }
 
 function main() {
@@ -370,7 +416,7 @@ function main() {
       <h1 class="blog-title">${esc(post.title)}</h1>
       <p class="blog-byline">Por Thallis Ribeiro · ${formatDate(post.date)} · ${post.readingTime} min de leitura${post.tema ? ` · ${temaPill(post.tema)}` : ''}</p>
       ${heroImg}
-      <div class="blog-article">${post.html}</div>
+      <div class="blog-article">${linkNoMeio(post, posts, post.html)}</div>
       ${shareButtons(post, canonical)}
       ${ctaDoPost(post)}
       ${navLinks}
