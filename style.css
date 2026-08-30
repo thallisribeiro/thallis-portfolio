@@ -1207,3 +1207,9 @@ a.saida-link:hover .saida-canal { color: var(--primary); }
 @media (min-width: 860px) {
   .obra-invertida { grid-template-columns: minmax(0, 6fr) minmax(0, 4fr); }
 }
+
+/* Nota de canal sob o CTA: a pessoa sabe pra onde vai antes de clicar. Discreta
+   de propósito -- é informação, não promessa. */
+.nota-canal {
+  font-size: 13px; color: var(--muted); margin: 12px 0 0;
+}
