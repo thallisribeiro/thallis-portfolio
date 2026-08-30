@@ -258,8 +258,20 @@ function temaPill(tema) {
   return tema ? `<a class="tema-pill" href="/blog/tema/${slugify(tema)}/">${esc(tema)}</a>` : '';
 }
 
+// Capa de cada post: a imagem propria do frontmatter quando existe, senao a
+// capa gerada a partir do TITULO e do TEMA reais (assets/capas/<slug>.webp).
+// Nenhum dos 49 posts tinha imagem, e o indice era 12.000px de texto puro --
+// isto nao e ilustracao inventada, e a tipografia do site aplicada ao texto do
+// proprio post, mesma logica de uma imagem de compartilhamento.
+function capaDoPost(post) {
+  if (post.image) return esc(post.image);
+  const gerada = path.join(ROOT, 'assets', 'capas', post.slug + '.webp');
+  return fs.existsSync(gerada) ? `/assets/capas/${post.slug}.webp` : '';
+}
+
 function postCard(post) {
-  const thumb = post.image ? `<a href="/blog/${post.slug}/" class="blog-card-thumb"><img src="${esc(post.image)}" alt="" loading="lazy"></a>` : '';
+  const capa = capaDoPost(post);
+  const thumb = capa ? `<a href="/blog/${post.slug}/" class="blog-card-thumb" tabindex="-1" aria-hidden="true"><img src="${capa}" alt="" width="600" height="338" loading="lazy" decoding="async"></a>` : '';
   return `<article class="blog-card">
   ${thumb}
   <div class="blog-card-meta">
@@ -566,9 +578,12 @@ ${rssItems}
     } else {
       const itens = posts.slice(0, 4).map(p => `        <li class="ideia">
           <a class="ideia-link" href="/blog/${p.slug}/" data-ev="article_clicked" data-ev-local="${p.slug}">
+            <span class="ideia-capa">${capaDoPost(p) ? `<img src="${capaDoPost(p)}" alt="" width="600" height="338" loading="lazy" decoding="async">` : ''}</span>
+            <span class="ideia-texto">
             <span class="ideia-meta">${formatDate(p.date)} · ${p.readingTime} min${p.tema ? ` · ${esc(p.tema)}` : ''}</span>
             <span class="ideia-titulo">${esc(p.title)}</span>
             <span class="ideia-resumo">${esc(p.summary)}</span>
+            </span>
           </a>
         </li>`).join('\n');
       const bloco = `${ini}\n      <ul class="ideias-lista">\n${itens}\n      </ul>\n      ${fim}`;

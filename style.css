@@ -1606,3 +1606,40 @@ body::after {
 
 /* Seção presa: sem isso o pin recorta o conteúdo em telas curtas. */
 .gsap-on .fluxo { will-change: transform; }
+
+/* ---------- FUNDO DO HERO ----------
+   O canvas fica atrás de tudo do hero. O halo em CSS continua, mas subiu de
+   .075 pra .13: na força anterior ele simplesmente não se via, que é o mesmo
+   que não existir. */
+.fundo-canais {
+  position: absolute; inset: 0;
+  z-index: 0; pointer-events: none;
+  mask-image: linear-gradient(180deg, rgba(0,0,0,.35) 0%, #000 30%, #000 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,.35) 0%, #000 30%, #000 70%, transparent 100%);
+}
+.hero-tese .tese-inner { position: relative; z-index: 1; }
+.hero-tese::before { background: radial-gradient(circle, rgba(232,163,61,.13), transparent 64%); }
+
+/* ---------- CAPA NA LISTA DE IDEIAS DA HOME ----------
+   A listagem era quatro blocos de texto empilhados. Com a capa ao lado ela
+   passa a ser escaneável: a pessoa reconhece o assunto pela imagem antes de
+   ler a linha. No celular a capa vai em cima, largura cheia. */
+.ideia-link { grid-template-columns: 1fr; gap: 12px; }
+.ideia-capa {
+  display: block; border: 1px solid var(--line); border-radius: 8px;
+  overflow: hidden; line-height: 0; background: var(--secondary);
+}
+.ideia-capa img { width: 100%; height: auto; display: block; }
+.ideia-texto { display: grid; gap: 6px; }
+
+@media (min-width: 720px) {
+  .ideia-link { grid-template-columns: 190px 1fr; gap: 22px; align-items: start; }
+}
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+  .ideia-capa img { transition: transform .5s cubic-bezier(.22,1,.36,1); }
+  .ideia-link:hover .ideia-capa img { transform: scale(1.04); }
+}
+
+/* A miniatura no índice do blog ganhou proporção fixa: sem isso os cards
+   pulavam de altura enquanto as imagens chegavam. */
+.blog-card-thumb img { width: 100%; height: auto; display: block; aspect-ratio: 600 / 338; object-fit: cover; }
