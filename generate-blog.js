@@ -166,17 +166,16 @@ ${jsonLdBlock}
 <header class="nav">
   <div class="nav-inner">
     <a class="logo-wrap" href="/" style="text-decoration:none;color:inherit">
-      <span class="logo-mark" aria-hidden="true">TR</span>
-      <span class="logo">ThallisRibeiro</span>
+      <span class="logo-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="logo">Thallis Ribeiro</span>
     </a>
     <nav class="nav-links" aria-label="Seções">
-      <a href="/#cases">Cases</a>
-      <a href="/#servicos">Serviços</a>
-      <a href="/#investimento">Investimento</a>
       <a href="/blog/">Blog</a>
-      <a href="/#perguntas">Perguntas</a>
+      <a href="/#projetos">Projetos</a>
+      <a href="/#sobre">Sobre</a>
+      <a href="/trabalhe-comigo/">Trabalhe comigo</a>
     </nav>
-    <a class="btn btn-primary btn-nav" href="${WA_LINK}" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="btn btn-primary btn-nav" href="/maquina-de-distribuicao/" data-ev="distribution_product_clicked" data-ev-local="nav">Máquina de Distribuição</a>
   </div>
 </header>
 
@@ -185,13 +184,49 @@ ${body}
 </main>
 
 <footer class="footer">
-  <span>ThallisRibeiro © ${new Date().getFullYear()}</span>
+  <span>Thallis Ribeiro © ${new Date().getFullYear()}</span>
+  <a class="footer-social" href="/blog/">Blog</a>
+  <a class="footer-social" href="/feed.xml">RSS</a>
   <a class="footer-social" href="https://instagram.com/thallis.lab" target="_blank" rel="noopener">@thallis.lab</a>
 </footer>
 
+<script src="/assets/main.js" defer></script>
 </body>
 </html>
 `;
+}
+
+// CTA de fim de artigo. O padrão é a tese; um artigo sobrescreve pondo
+// `cta: trabalhe-comigo` no frontmatter. Fica DEPOIS do texto e dos botões de
+// compartilhar, de propósito: primeiro entrega o valor, depois oferece o próximo passo.
+// Nunca no meio da leitura, nunca cobrindo o conteúdo.
+const CTAS = {
+  distribuicao: {
+    frase: '<span class="fria">Construir ficou barato.</span> <span class="quente">Distribuir virou o gargalo.</span>',
+    texto: 'Estou construindo um sistema pra transformar uma apuração só em publicação em vários canais. É ele que publica este blog.',
+    rotulo: 'Conhecer a Máquina de Distribuição',
+    href: '/maquina-de-distribuicao/',
+    evento: 'distribution_product_clicked',
+    externo: false,
+  },
+  'trabalhe-comigo': {
+    frase: '<span class="quente">Prefere que eu faça?</span>',
+    texto: 'Assumo alguns projetos por vez: sites e landing pages, produto, automação e sistemas de distribuição.',
+    rotulo: 'Trabalhar comigo',
+    href: '/trabalhe-comigo/',
+    evento: 'work_with_me_clicked',
+    externo: false,
+  },
+};
+
+function ctaDoPost(post) {
+  const c = CTAS[post.cta] || CTAS.distribuicao;
+  const alvo = c.externo ? ' target="_blank" rel="noopener"' : '';
+  return `<aside class="cta-tese">
+    <p class="cta-tese-frase">${c.frase}</p>
+    <p class="cta-tese-texto">${esc(c.texto)}</p>
+    <a class="btn btn-primary btn-lg" href="${c.href}"${alvo} data-ev="${c.evento}" data-ev-local="fim-de-artigo">${esc(c.rotulo)}</a>
+  </aside>`;
 }
 
 function temaPill(tema) {
@@ -250,6 +285,7 @@ function main() {
     return {
       slug, title: meta.title, date: meta.date, summary: meta.summary || '',
       image: meta.image || '', imageCredit: meta.image_credit || '', tema: meta.tema || '',
+      cta: (meta.cta || '').trim().toLowerCase(),
       readingTime: tempoDeLeitura(body), html: mdToHtml(body),
     };
   }).filter(Boolean).sort((a, b) => b.date.localeCompare(a.date));
@@ -299,10 +335,7 @@ function main() {
       ${heroImg}
       <div class="blog-article">${post.html}</div>
       ${shareButtons(post, canonical)}
-      <div class="blog-post-cta">
-        <p class="cta-final-text" style="font-size:17px">Curtiu? Isso é o tipo de coisa que eu também construo pra quem me chama.</p>
-        <a class="btn btn-primary btn-lg" href="${WA_LINK}" target="_blank" rel="noopener">Chamar no WhatsApp agora →</a>
-      </div>
+      ${ctaDoPost(post)}
       ${navLinks}
       ${relacionadosBlock}
     </div>
@@ -444,9 +477,37 @@ ${rssItems}
   const urls = [
     { loc: `${SITE_URL}/`, lastmod: posts[0]?.date },
     { loc: `${SITE_URL}/blog/`, lastmod: posts[0]?.date },
+    { loc: `${SITE_URL}/maquina-de-distribuicao/` },
+    { loc: `${SITE_URL}/trabalhe-comigo/` },
     ...posts.map(p => ({ loc: `${SITE_URL}/blog/${p.slug}/`, lastmod: p.date })),
     ...temaCounts.map(t => ({ loc: `${SITE_URL}/blog/tema/${t.slug}/`, lastmod: posts[0]?.date })),
   ];
+  // Home: a lista de "Ultimas ideias" e INJETADA aqui, entre marcadores, em vez de
+  // escrita a mao no index.html. Lista escrita a mao envelhece em silencio -- publica
+  // um post e a home continua mostrando os de tres semanas atras. Assim ela nunca mente.
+  const HOME = path.join(ROOT, 'index.html');
+  if (fs.existsSync(HOME)) {
+    const html = fs.readFileSync(HOME, 'utf-8');
+    const ini = '<!-- ULTIMAS_IDEIAS_INICIO -->', fim = '<!-- ULTIMAS_IDEIAS_FIM -->';
+    const a0 = html.indexOf(ini), b0 = html.indexOf(fim);
+    if (a0 === -1 || b0 === -1 || b0 < a0) {
+      console.error('[erro] index.html sem os marcadores de ultimas ideias — home NAO atualizada');
+      process.exitCode = 1;
+    } else {
+      const itens = posts.slice(0, 4).map(p => `        <li class="ideia">
+          <a class="ideia-link" href="/blog/${p.slug}/" data-ev="article_clicked" data-ev-local="${p.slug}">
+            <span class="ideia-meta">${formatDate(p.date)} · ${p.readingTime} min${p.tema ? ` · ${esc(p.tema)}` : ''}</span>
+            <span class="ideia-titulo">${esc(p.title)}</span>
+            <span class="ideia-resumo">${esc(p.summary)}</span>
+          </a>
+        </li>`).join('\n');
+      const bloco = `${ini}\n      <ul class="ideias-lista">\n${itens}\n      </ul>\n      ${fim}`;
+      const novo = html.slice(0, a0) + bloco + html.slice(b0 + fim.length);
+      if (novo !== html) fs.writeFileSync(HOME, novo);
+      console.log(`[gerado] home: ${Math.min(posts.length, 4)} ideias recentes`);
+    }
+  }
+
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `  <url>\n    <loc>${u.loc}</loc>\n${u.lastmod ? `    <lastmod>${u.lastmod}</lastmod>\n` : ''}  </url>`).join('\n')}\n</urlset>\n`;
   fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap);
   console.log(`[gerado] sitemap.xml (${urls.length} urls)`);

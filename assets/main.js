@@ -11,6 +11,22 @@
     });
   });
 
+  // Eventos declarados no HTML com data-ev. O elemento diz o que e; o JS so despacha.
+  // Assim um CTA novo nao precisa de codigo novo -- e o que evita evento morto quando
+  // a home muda de forma.
+  document.addEventListener('click', function (e) {
+    var alvo = e.target.closest && e.target.closest('[data-ev]');
+    if (!alvo || typeof gtag !== 'function') return;
+    gtag('event', alvo.getAttribute('data-ev'), {
+      local: alvo.getAttribute('data-ev-local') || '',
+      rotulo: (alvo.textContent || '').trim().slice(0, 80)
+    });
+  });
+
+  if (typeof gtag === 'function' && document.body.querySelector('.hero-tese')) {
+    gtag('event', 'home_view');
+  }
+
   var revealEls = document.querySelectorAll('.reveal');
   if (reduce || !('IntersectionObserver' in window)) {
     revealEls.forEach(function (el) { el.classList.add('in-view'); });

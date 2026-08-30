@@ -1,5 +1,10 @@
 :root {
-  --primary: #25D366;
+  /* Acento da marca. Era o verde do WhatsApp (#25D366), que fazia o site inteiro ler
+     como "freelancer de site no zap". Trocado em 30/08/2026 pelo ambar de sinal: o
+     acento passa a marcar UMA coisa em toda a marca -- a metade do problema que é o
+     gargalo (distribuir), contra a metade barata (construir), que fica em cinza. */
+  --primary: #E8A33D;
+  --ok: #25D366; /* verde continua, mas só como estado ("no ar"), nunca como acento */
   --secondary: #11161C;
   --accent: #58A6FF;
   --background: #0B0F14;
@@ -614,4 +619,372 @@ a { color: var(--accent); }
   .steps::before { content: ""; position: absolute; top: 17px; left: 60px; right: 60px; height: 1px; background: var(--line); }
   .steps li { flex-direction: column; }
   .step-num { position: relative; z-index: 1; }
+}
+
+/* ==========================================================================
+   HOME REPOSICIONADA — 30/08/2026
+   Tese: "Construir ficou barato. Distribuir virou o gargalo."
+
+   Regra que organiza a cor desta pagina: o acento nao decora, ele MARCA. Tudo
+   que e "construir" fica em cinza; tudo que e "distribuir" recebe o ambar. O
+   contraste da tese aparece na tipografia antes de aparecer no texto.
+
+   Nada aqui redefine classe usada pelo blog. Classes novas, prefixos novos.
+   ========================================================================== */
+
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 100;
+  background: var(--primary); color: #0B0F14; padding: 12px 20px;
+  border-radius: 0 0 var(--radius-btn) 0; font-weight: 600;
+}
+.skip-link:focus { left: 0; }
+
+:where(a, button, .btn):focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Marca: tres barras de comprimento decrescente — uma entrada, varios canais. */
+.logo-bars { display: inline-flex; flex-direction: column; gap: 3px; width: 22px; }
+.logo-bars i { height: 3px; border-radius: 2px; background: var(--muted); display: block; }
+.logo-bars i:first-child { width: 100%; background: var(--primary); }
+.logo-bars i:nth-child(2) { width: 68%; }
+.logo-bars i:last-child { width: 40%; }
+
+.btn-ghost {
+  background: transparent; color: var(--text);
+  border: 1px solid var(--line);
+}
+.btn-ghost:hover { border-color: var(--muted); background: rgba(255,255,255,.03); }
+
+/* ---------- HERO ---------- */
+.hero-tese {
+  padding: clamp(72px, 14vw, 152px) var(--space-md) clamp(48px, 8vw, 88px);
+  border-bottom: 1px solid var(--line);
+}
+.tese-inner { max-width: 1100px; margin: 0 auto; }
+.tese-kicker {
+  font-family: var(--font-body); font-size: 13px; font-weight: 600;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+  margin: 0 0 clamp(20px, 4vw, 32px);
+}
+.tese-h1 {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(2.35rem, 7.4vw, 5.25rem);
+  line-height: 1.02; letter-spacing: -.035em;
+  margin: 0; text-wrap: balance;
+}
+.tese-linha { display: block; }
+.tese-linha-fria { color: var(--muted); }
+.tese-linha-quente { color: var(--primary); }
+.tese-sub {
+  font-size: clamp(1.05rem, 2.3vw, 1.3rem); line-height: 1.6;
+  color: var(--text); max-width: 46ch;
+  margin: clamp(24px, 4vw, 36px) 0 clamp(28px, 5vw, 40px);
+}
+.tese-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* ---------- ESTRUTURA DE SECAO ---------- */
+.section-linha { border-top: 1px solid var(--line); }
+.section-narrow { max-width: 720px; }
+.secao-topo {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: var(--space-sm); flex-wrap: wrap;
+  margin-bottom: clamp(28px, 5vw, 44px);
+}
+.secao-titulo {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.5rem, 3.6vw, 2.1rem); letter-spacing: -.02em;
+  margin: 0;
+}
+.secao-link { color: var(--muted); font-size: 15px; text-decoration: none; white-space: nowrap; }
+.secao-link:hover { color: var(--primary); }
+.secao-estado, .proj-estado {
+  font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted); border: 1px solid var(--line); border-radius: 999px;
+  padding: 4px 12px; white-space: nowrap;
+}
+.secao-lead {
+  font-size: clamp(1rem, 2.1vw, 1.15rem); line-height: 1.65;
+  color: var(--text); max-width: 62ch; margin: 0 0 clamp(32px, 6vw, 56px);
+}
+
+/* ---------- A TESE ---------- */
+.tese-corpo p {
+  font-size: clamp(1.05rem, 2.2vw, 1.22rem); line-height: 1.7;
+  color: var(--muted); margin: 0 0 var(--space-md); max-width: 62ch;
+}
+.tese-corpo p:last-child { margin-bottom: 0; }
+.tese-corpo strong { color: var(--text); font-weight: 600; }
+.tese-corpo em { color: var(--primary); font-style: normal; }
+
+/* ---------- ULTIMAS IDEIAS ---------- */
+.ideias-lista { list-style: none; margin: 0; padding: 0; }
+.ideia { border-top: 1px solid var(--line); }
+.ideia:last-child { border-bottom: 1px solid var(--line); }
+.ideia-link {
+  display: grid; gap: 6px; padding: clamp(20px, 3.5vw, 28px) 0;
+  text-decoration: none; color: inherit;
+  transition: padding-left .18s ease;
+}
+.ideia-link:hover { padding-left: 10px; }
+.ideia-meta { font-size: 13px; color: var(--muted); letter-spacing: .01em; }
+.ideia-titulo {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.15rem, 2.7vw, 1.5rem); line-height: 1.25;
+  letter-spacing: -.015em; text-wrap: balance;
+}
+.ideia-link:hover .ideia-titulo { color: var(--primary); }
+.ideia-resumo { color: var(--muted); font-size: 15px; line-height: 1.6; max-width: 68ch; }
+
+/* ---------- O QUE ESTOU CONSTRUINDO ---------- */
+.construindo { display: grid; gap: clamp(28px, 5vw, 44px); }
+.proj { border-top: 1px solid var(--line); padding-top: clamp(20px, 3vw, 28px); }
+.proj-cabeca { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+.proj-cabeca h3 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.3rem, 3vw, 1.7rem); letter-spacing: -.02em; margin: 0;
+}
+.proj-estado-obra { color: var(--primary); border-color: rgba(232,163,61,.35); }
+.proj-dl { margin: 0; display: grid; gap: 14px; }
+.proj-dl dt {
+  font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted);
+}
+.proj-dl dd { margin: 4px 0 0; font-size: 16px; line-height: 1.65; color: var(--text); max-width: 68ch; }
+@media (min-width: 780px) {
+  .proj-dl { grid-template-columns: 180px 1fr; gap: 10px 28px; align-items: baseline; }
+  .proj-dl dt { grid-column: 1; }
+  .proj-dl dd { grid-column: 2; margin-top: 0; }
+}
+
+/* ---------- FLUXO (uma entrada, varios canais) ---------- */
+.fluxo {
+  display: grid; justify-items: center; gap: 0;
+  padding: clamp(24px, 5vw, 40px) 0;
+}
+.fluxo-linha { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.no {
+  font-family: var(--font-body); font-size: 14px; font-weight: 500;
+  padding: 9px 16px; border-radius: 999px; border: 1px solid var(--line);
+  color: var(--muted); white-space: nowrap;
+}
+.no-etapa { color: var(--text); }
+.no-mae {
+  font-family: var(--font-display); font-weight: 700; font-size: clamp(15px, 2.6vw, 19px);
+  color: var(--text); border-color: rgba(255,255,255,.18); padding: 12px 24px;
+}
+.no-canal { color: var(--text); border-color: rgba(232,163,61,.3); }
+.no-saida {
+  font-family: var(--font-display); font-weight: 700; font-size: clamp(15px, 2.6vw, 19px);
+  color: #0B0F14; background: var(--primary); border-color: var(--primary); padding: 12px 26px;
+}
+.fluxo-tubo { width: 1px; height: 26px; background: var(--line); }
+.fluxo-leque {
+  display: flex; gap: clamp(28px, 12vw, 90px); height: 26px; align-items: stretch;
+}
+.fluxo-leque span { width: 1px; background: var(--line); display: block; }
+.fluxo-nota {
+  font-size: 15px; line-height: 1.6; color: var(--muted);
+  max-width: 60ch; margin: 0 0 var(--space-md);
+}
+
+/* ---------- PROJETOS SELECIONADOS ---------- */
+.work-lista { list-style: none; margin: 0; padding: 0; }
+.work-item { border-top: 1px solid var(--line); }
+.work-item:last-child { border-bottom: 1px solid var(--line); }
+.work-link {
+  display: grid; gap: 6px; padding: clamp(20px, 3.2vw, 26px) 0;
+  text-decoration: none; color: inherit; transition: padding-left .18s ease;
+}
+.work-link:hover { padding-left: 10px; }
+.work-nome {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.1rem, 2.4vw, 1.35rem); letter-spacing: -.015em;
+}
+.work-link:hover .work-nome { color: var(--primary); }
+.work-desc { color: var(--muted); font-size: 15px; line-height: 1.6; max-width: 66ch; }
+.work-tag {
+  font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted);
+}
+@media (min-width: 780px) {
+  .work-link { grid-template-columns: 1fr auto; align-items: baseline; column-gap: 32px; }
+  .work-nome { grid-column: 1; grid-row: 1; }
+  .work-desc { grid-column: 1; grid-row: 2; }
+  .work-tag { grid-column: 2; grid-row: 1; text-align: right; }
+}
+
+/* ---------- SOBRE ---------- */
+.sobre-corpo p {
+  font-size: clamp(1rem, 2.1vw, 1.12rem); line-height: 1.75;
+  color: var(--muted); margin: 0 0 var(--space-md); max-width: 62ch;
+}
+.sobre-corpo p:last-child { margin-bottom: 0; }
+.sobre-corpo a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+.sobre-corpo a:hover { color: var(--primary); }
+
+/* ---------- DONE FOR YOU ---------- */
+.section-dfy { border-top: 1px solid var(--line); }
+.dfy-titulo {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.6rem, 4vw, 2.4rem); letter-spacing: -.025em;
+  margin: 0 0 var(--space-sm);
+}
+.dfy-texto {
+  font-size: clamp(1rem, 2.1vw, 1.12rem); line-height: 1.7;
+  color: var(--muted); max-width: 58ch; margin: 0 0 clamp(24px, 4vw, 32px);
+}
+
+/* ---------- PAGINAS SIMPLES (produto / trabalhe comigo) ---------- */
+.pagina { padding: clamp(56px, 10vw, 104px) var(--space-md) clamp(48px, 8vw, 80px); }
+.pagina-inner { max-width: 720px; margin: 0 auto; }
+.pagina h1 {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(2rem, 6vw, 3.4rem); line-height: 1.05; letter-spacing: -.03em;
+  margin: 0 0 var(--space-md); text-wrap: balance;
+}
+.pagina-lead {
+  font-size: clamp(1.05rem, 2.3vw, 1.25rem); line-height: 1.65;
+  color: var(--muted); margin: 0 0 clamp(28px, 5vw, 40px); max-width: 58ch;
+}
+.pagina-corpo p { font-size: 1.05rem; line-height: 1.75; color: var(--muted); max-width: 62ch; }
+.pagina-corpo strong { color: var(--text); font-weight: 600; }
+.pagina-corpo h2 {
+  font-family: var(--font-display); font-weight: 700; font-size: 1.35rem;
+  letter-spacing: -.02em; margin: clamp(32px, 6vw, 48px) 0 var(--space-sm); color: var(--text);
+}
+.pagina-corpo ul { padding-left: 20px; color: var(--muted); line-height: 1.75; max-width: 62ch; }
+.pagina-corpo li { margin-bottom: 8px; }
+
+/* ---------- CTA DE FIM DE ARTIGO (blog) ---------- */
+.cta-tese {
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  padding: clamp(28px, 5vw, 40px) 0; margin: clamp(40px, 7vw, 64px) 0 0;
+}
+.cta-tese-frase {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.15rem, 3vw, 1.5rem); line-height: 1.25; letter-spacing: -.02em;
+  margin: 0 0 10px; text-wrap: balance;
+}
+.cta-tese-frase .fria { color: var(--muted); }
+.cta-tese-frase .quente { color: var(--primary); }
+.cta-tese-texto { color: var(--muted); font-size: 15px; line-height: 1.6; margin: 0 0 20px; max-width: 58ch; }
+
+@media (max-width: 520px) {
+  .tese-ctas .btn { width: 100%; justify-content: center; }
+}
+
+/* ---------- SEGUNDA PASSADA (30/08): UMA CALHA SÓ ----------
+   Na primeira versão a página tinha TRÊS margens esquerdas: hero em 1100,
+   seções em 1280 e texto narrow centrado em 720. Cada seção começava num x
+   diferente e a página lia como blocos colados, não como uma coisa só.
+   Agora tudo assenta na mesma calha; o que controla a leitura é a MEDIDA do
+   texto (em ch, nos próprios parágrafos), não a largura do contêiner.
+   Escopado em #conteudo pra não mexer no blog, que usa as mesmas classes. */
+#conteudo .section-inner,
+#conteudo .section-narrow { max-width: 1100px; }
+.pagina-inner { max-width: 1100px; }
+
+/* Hero respirava demais no topo: 152px de nada antes da primeira palavra. */
+.hero-tese { padding-top: clamp(64px, 10vw, 116px); }
+
+/* A tese é um momento editorial, não um parágrafo de apoio: primeira frase
+   com peso de manchete pra não parecer repetição do hero logo acima. */
+.tese-corpo p:first-child {
+  font-size: clamp(1.25rem, 3.2vw, 1.75rem);
+  line-height: 1.35;
+  letter-spacing: -.02em;
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--text);
+  max-width: 24ch;
+}
+
+/* O fluxo vira FIGURA: emoldurado, ele para de flutuar no meio do vazio. */
+.fluxo {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background: rgba(255,255,255,.015);
+  padding: clamp(28px, 5vw, 48px) var(--space-md);
+  margin-bottom: clamp(24px, 4vw, 32px);
+}
+
+/* ---------- NAV MOBILE (correção da 2ª passada) ----------
+   Em 390px a nav saía quebrada: o logo partia em duas linhas, o botão da
+   Máquina ocupava metade da largura e quebrava também, e o hambúrguer ficava
+   como uma caixa vazia — a marcação nova usa três <span>, e a regra antiga
+   só desenhava um <svg>. Três defeitos na primeira coisa que a pessoa vê. */
+.nav-toggle span {
+  display: block;
+  width: 16px; height: 2px;
+  background: currentColor; border-radius: 2px;
+  transition: transform .2s ease, opacity .2s ease;
+}
+.nav-toggle { flex-direction: column; gap: 4px; color: var(--text); background: transparent; }
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+.logo { white-space: nowrap; }
+
+@media (max-width: 780px) {
+  /* O CTA da nav some no mobile: ele reaparece inteiro no hero, dois dedos
+     abaixo. Dois botões iguais disputando a mesma dobra é ruído, não ênfase. */
+  .nav-actions .btn-nav { display: none; }
+  .logo { font-size: 17px; }
+}
+
+/* ---------- FLUXO: o leque virou colchete (2ª passada) ----------
+   As quatro linhas verticais soltas não liam como "um vira vários": pareciam
+   traços perdidos. Agora é um colchete de verdade — uma barra horizontal
+   ligando os quatro canais e uma queda curta descendo até cada um. E os fios
+   ficaram um pouco mais claros: em rgba .08 eles sumiam na tela do celular. */
+.fluxo-tubo { background: rgba(255,255,255,.16); }
+.fluxo-canais-wrap { position: relative; padding-top: 18px; width: 100%; }
+.fluxo-canais { position: relative; }
+.fluxo-canais::before {
+  content: ""; position: absolute; top: -18px; height: 1px;
+  left: 12%; right: 12%; background: rgba(255,255,255,.16);
+}
+.no-canal { position: relative; }
+.no-canal::before {
+  content: ""; position: absolute; top: -18px; left: 50%;
+  width: 1px; height: 18px; background: rgba(255,255,255,.16);
+}
+/* Empilhado (celular), o colchete não faz sentido: vira uma coluna só. */
+@media (max-width: 560px) {
+  .fluxo-canais::before { left: 50%; right: auto; width: 1px; top: -18px; height: 18px; }
+  .no-canal::before { display: none; }
+  .fluxo-canais { flex-direction: column; align-items: center; }
+}
+
+/* Rodapé estava empilhando em coluna e virando uma listinha triste. */
+.footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 20px; }
+
+/* ---------- FLUXO: ajuste fino do colchete (3ª olhada) ----------
+   A barra estava esticando 12%..88% do PAINEL (1100px) enquanto as pílulas
+   ocupavam só o centro — sobrava um traço enorme apontando pra nada. O wrap
+   agora encolhe até o conteúdo, então a barra mede os canais, não o painel.
+   E a entrada ganhou o colchete espelhado: as três origens CONVERGEM, que é
+   o que a frase "uma entrada, vários canais" promete. */
+.fluxo-canais-wrap { width: auto; }
+.fluxo-canais::before { left: 9%; right: 9%; }
+
+.fluxo-entrada { position: relative; padding-bottom: 18px; }
+.fluxo-entrada::after {
+  content: ""; position: absolute; bottom: 0; left: 16%; right: 16%;
+  height: 1px; background: rgba(255,255,255,.16);
+}
+.fluxo-entrada .no::after {
+  content: ""; position: absolute; bottom: -18px; left: 50%;
+  width: 1px; height: 18px; background: rgba(255,255,255,.16);
+}
+.fluxo-entrada .no { position: relative; }
+.no-frio { color: #A2ADB8; }
+
+@media (max-width: 560px) {
+  .fluxo-entrada::after, .fluxo-entrada .no::after { display: none; }
+  .fluxo-entrada { padding-bottom: 0; }
 }
