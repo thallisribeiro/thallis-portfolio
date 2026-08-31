@@ -486,7 +486,9 @@ a { color: var(--accent); }
 .blog-card h2 a { color: var(--text); text-decoration: none; }
 .blog-card h2 a:hover { color: var(--accent); }
 .blog-card p { color: var(--muted); margin-bottom: var(--space-xs); }
-.blog-card-link { color: var(--accent); font-weight: 600; text-decoration: none; }
+/* Era `inline` com 20px de altura: é a ação do card, não um link no meio de um
+   parágrafo, então não cabe na exceção de link inline do WCAG 2.2. */
+.blog-card-link { display: inline-flex; align-items: center; min-height: 24px; color: var(--accent); font-weight: 600; text-decoration: none; }
 .blog-card-link:hover { text-decoration: underline; }
 
 .blog-back { color: var(--muted); text-decoration: none; font-size: 14px; display: inline-block; margin-bottom: var(--space-md); }
@@ -515,8 +517,16 @@ a { color: var(--accent); }
 .sidebar-rss:hover { color: var(--accent); }
 
 /* Pill de tema (card + byline do post) */
-.tema-pill { display: inline-block; color: var(--primary); background: rgba(37,211,102,0.12); border-radius: 999px; padding: 2px 10px; font-size: 12px; font-weight: 600; text-decoration: none; }
-.tema-pill:hover { background: rgba(37,211,102,0.22); }
+/* Fundo era rgba(37,211,102,.12) -- o verde aposentado, com texto âmbar em cima: as duas
+   cores da marca brigando na mesma pílula, em 52 lugares. E 23,19px de altura contra o
+   piso de 24px do WCAG 2.2 (web-target-size), a um pixel de passar. */
+.tema-pill {
+  display: inline-block; color: var(--primary);
+  background: rgba(232,163,61,0.12); border: 1px solid rgba(232,163,61,0.22);
+  border-radius: 999px; padding: 4px 11px; font-size: 12px; font-weight: 600;
+  line-height: 1.25; text-decoration: none;
+}
+.tema-pill:hover { background: rgba(232,163,61,0.2); }
 
 /* Botões de compartilhar */
 .share-bar { display: flex; align-items: center; gap: var(--space-xs); margin: var(--space-lg) 0; flex-wrap: wrap; }
@@ -1907,3 +1917,27 @@ body::after {
   color: var(--text); margin: 0 0 28px; text-wrap: balance;
 }
 .dfy-fecho .dfy-acao-nota { display: block; margin-top: 12px; }
+
+/* 125 caracteres por linha no desktop, contra o teto legível de 75. A linha só não
+   parecia longa porque é pequena e cinza -- que é justamente o texto que mais custa ler. */
+.gatilho { max-width: 62ch; }
+
+/* ---------- ALVOS DE PONTEIRO: 24px, sem depender de exceção ----------
+   WCAG 2.2 (web-target-size) aceitaria os links da nav e os links de case a 22,4 e 19px
+   pela exceção de espaçamento -- os vizinhos estão a 66px ou mais. Mas passar por exceção
+   é passar por argumento, e são duas linhas pra passar pelo critério. */
+.nav-links a { display: inline-flex; align-items: center; min-height: 24px; }
+.obra-link, .blog-back { display: inline-flex; align-items: center; min-height: 24px; }
+
+/* ---------- MEDIDA DO ARTIGO ----------
+   Os 52 posts liam 109 caracteres por linha em 1440px: parágrafos de 1100px de largura,
+   16px, quebrando em 2-3 linhas. O teto legível é 75, e essa é a superfície de leitura
+   principal do site inteiro. O olho perde a linha na volta, e o texto parece mais longo
+   do que é. O container continua largo -- só o texto encolhe, então imagem, código e o
+   bloco de "leia também" mantêm a largura que já tinham. */
+.blog-article > p,
+.blog-article > ul,
+.blog-article > ol,
+.blog-article > blockquote,
+.blog-article > h2,
+.blog-article > h3 { max-width: 68ch; }
