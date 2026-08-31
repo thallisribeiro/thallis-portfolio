@@ -1,5 +1,6 @@
 ---
 title: Testei gerar capa com FLUX local. Um commit depois, voltei pro banco.
+date: 2026-08-31
 summary: Três commits em sequência contam a história: capa gerada junto com o post, depois um esquema híbrido, depois uma fonte só. O híbrido durou menos que um dia.
 tema: Automação de conteúdo
 ---
