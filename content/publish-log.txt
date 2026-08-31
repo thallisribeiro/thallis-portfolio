@@ -97,3 +97,6 @@
 [2026-08-30T21:00:02.044Z] 1 commit(s) local(is) aguardando push — tentando novamente
 [2026-08-30T21:00:04.339Z] push pendente concluído
 [2026-08-30T21:00:06.972Z] publicado: /blog/produto-viral-nao-e-produto-replicavel-a-licao-dos-170-clones/ — "Produto viral não é produto replicável: a lição dos 170 clones"
+[2026-08-31T02:36:26.054Z] [ensure-queue] gerando post — modo: real
+[2026-08-31T02:37:13.517Z] [ensure-queue] sem imagem pra este post (sem chave configurada ou nada encontrado) — seguindo sem imagem
+[2026-08-31T02:37:16.233Z] [ensure-queue] preparado pra publicar: "A IA que escreve não pode ser a mesma que aprova" (modo real)

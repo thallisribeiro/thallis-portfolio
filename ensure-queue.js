@@ -71,6 +71,23 @@ function nextEvergreenTopic() {
   } };
 }
 
+// Quem decide o ritmo dos dois canais. O carrossel sai primeiro (slot das 07h) e o
+// artigo irmao entra na fila logo depois, no ensure-queue das 09h30.
+const IG_PUBLICADOS = path.join(SQUADS_REPO, '_opensquad', '_memory', 'instagram-publicados.json');
+
+// Tópicos cujo carrossel JÁ foi ao ar no Instagram, como `<dia>/<topico>`.
+function topicosJaNoInstagram() {
+  try {
+    const bruto = JSON.parse(fs.readFileSync(IG_PUBLICADOS, 'utf-8'));
+    return new Set(bruto.map(r => String(r.aprovacaoId || '').split('/').slice(1).join('/')).filter(Boolean));
+  } catch {
+    // Ledger ilegível não pode publicar artigo solto: sem ele não dá pra saber o que
+    // já foi ao ar, e post de blog sem o carrossel irmão é exatamente a deriva que
+    // esta função existe pra impedir.
+    return null;
+  }
+}
+
 const CONTENTHUB_SAIDA = path.join(
   SQUADS_REPO, '_contenthub', '_clientes', 'thallisribeiro', 'saida'
 );
@@ -100,11 +117,17 @@ function proximoArtigoDoContentHub() {
     if (titulo) publicados.add(slugificar(titulo));
   }
 
+  const noInstagram = topicosJaNoInstagram();
+  if (!noInstagram) return null;
+
   const candidatos = [];
   for (const dia of fs.readdirSync(CONTENTHUB_SAIDA)) {
     const dirDia = path.join(CONTENTHUB_SAIDA, dia);
     if (!fs.statSync(dirDia).isDirectory()) continue;
     for (const topico of fs.readdirSync(dirDia)) {
+      // O par é a regra: artigo só vai pro blog depois que o carrossel do mesmo
+      // tópico foi ao ar. Um assunto, os dois canais, o mesmo dia.
+      if (!noInstagram.has(`${dia}/${topico}`)) continue;
       const artigo = path.join(dirDia, topico, 'artigo', 'artigo.md');
       if (!fs.existsSync(artigo)) continue;
       const conteudo = fs.readFileSync(artigo, 'utf-8').replace(/\r\n/g, '\n');
@@ -243,7 +266,7 @@ async function main() {
   if (doContentHub) {
     const destino = path.join(QUEUE_DIR, doContentHub.slug + '.md');
     fs.writeFileSync(destino, doContentHub.conteudo);
-    log(`artigo do content-hub aproveitado: ${doContentHub.titulo}`);
+    log(`artigo do content-hub aproveitado (par do carrossel ${doContentHub.dia}): ${doContentHub.titulo}`);
     // A assinatura é runCommand(cwd, cmd, args). Estava chamada como
     // runCommand('git', [...], ROOT) -- cwd virava "git" e cmd virava um Array, e o
     // spawnSync jogava "The file argument must be of type string". Como isso estourava
