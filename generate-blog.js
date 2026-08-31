@@ -151,7 +151,7 @@ ${ogImageDims}<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2325D366'/%3E%3Cstop offset='1' stop-color='%2358A6FF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='42' font-family='Space Grotesk, sans-serif' font-weight='800' font-size='26' text-anchor='middle' fill='%230B0F14'%3ETR%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230B0F14'/%3E%3Crect x='10' y='14' width='44' height='4' rx='2' fill='%23E8A33D'/%3E%3Crect x='10' y='30' width='30' height='4' rx='2' fill='%238B949E'/%3E%3Crect x='10' y='46' width='18' height='4' rx='2' fill='%238B949E'/%3E%3C/svg%3E">
 ${jsonLdBlock}
 <script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>
 <script>
@@ -162,6 +162,7 @@ ${jsonLdBlock}
 </script>
 </head>
 <body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
 <header class="nav">
   <div class="nav-inner">
@@ -169,17 +170,24 @@ ${jsonLdBlock}
       <span class="logo-bars" aria-hidden="true"><i></i><i></i><i></i></span>
       <span class="logo">Thallis Ribeiro</span>
     </a>
-    <nav class="nav-links" aria-label="Seções">
+    <nav class="nav-links" id="nav-links" aria-label="Seções">
       <a href="/blog/">Blog</a>
       <a href="/#projetos">Projetos</a>
       <a href="/#sobre">Sobre</a>
+      <a href="/ficha-de-apuracao/">Ficha de apuração</a>
       <a href="/trabalhe-comigo/">Trabalhe comigo</a>
+      <a class="nav-so-mobile" href="/maquina-de-distribuicao/" data-ev="distribution_product_clicked" data-ev-local="nav-mobile">Máquina de Distribuição</a>
     </nav>
-    <a class="btn btn-primary btn-nav" href="/maquina-de-distribuicao/" data-ev="distribution_product_clicked" data-ev-local="nav">Máquina de Distribuição</a>
+    <div class="nav-actions">
+      <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <a class="btn btn-primary btn-nav" href="/maquina-de-distribuicao/" data-ev="distribution_product_clicked" data-ev-local="nav">Máquina de Distribuição</a>
+    </div>
   </div>
 </header>
 
-<main>
+<main id="conteudo">
 ${body}
 </main>
 
@@ -705,12 +713,26 @@ ${rssItems}
   fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap);
   console.log(`[gerado] sitemap.xml (${urls.length} urls)`);
 
+  // A contagem de posts na pagina de servico. Estava escrita a mao: dizia 49 com 52 no
+  // ar. Numa pagina cujo argumento e "da pra conferir tudo que eu digo", o primeiro
+  // numero conferivel errado nao le como build velho, le como chute.
+  const TRAB = path.join(ROOT, 'trabalhe-comigo', 'index.html');
+  if (fs.existsSync(TRAB)) {
+    const antes = fs.readFileSync(TRAB, 'utf-8');
+    const depois = antes.replace(/<!-- POSTS_INICIO -->[\s\S]*?<!-- POSTS_FIM -->/,
+      `<!-- POSTS_INICIO -->${posts.length}<!-- POSTS_FIM -->`);
+    if (depois !== antes) {
+      fs.writeFileSync(TRAB, depois);
+      console.log(`[gerado] trabalhe-comigo: ${posts.length} posts`);
+    }
+  }
+
   // Manifesto: os arquivos que este script escreve FORA de blog/. Quem publica lê daqui
   // em vez de manter a própria lista -- duas listas escritas à mão divergem, e foi assim
   // que a página da Máquina passou um dia inteira com a prova velha enquanto a home e o
   // blog estavam certos. Só entra caminho que existe de verdade no disco.
   const gerados = ['index.html', 'maquina-de-distribuicao/index.html', 'ficha-de-apuracao/index.html',
-    'feed.xml', 'sitemap.xml']
+    'trabalhe-comigo/index.html', 'feed.xml', 'sitemap.xml']
     .filter((rel) => fs.existsSync(path.join(ROOT, rel)));
   fs.writeFileSync(path.join(ROOT, '.gerados.json'), JSON.stringify(gerados, null, 2) + '\n');
   console.log(`[gerado] .gerados.json (${gerados.length} arquivos fora de blog/)`);

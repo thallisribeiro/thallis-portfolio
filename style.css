@@ -24,7 +24,9 @@
   --radius-card: 20px;
 
   --shadow-card: 0 0 0 1px rgba(255,255,255,0.06), 0 8px 24px rgba(0,0,0,0.5);
-  --shadow-card-hover: 0 0 0 1px rgba(37,211,102,0.4), 0 12px 32px rgba(0,0,0,0.6);
+  /* Era o verde do WhatsApp: todo hover de botao ambar acendia um anel verde, entao a
+     troca de acento de 30/08 valia no screenshot e nao valia na interacao. */
+  --shadow-card-hover: 0 0 0 1px rgba(232,163,61,0.4), 0 12px 32px rgba(0,0,0,0.6);
   --line: rgba(255,255,255,0.08);
 }
 
@@ -961,7 +963,11 @@ a { color: var(--accent); }
 }
 
 /* Rodapé estava empilhando em coluna e virando uma listinha triste. */
-.footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 20px; }
+/* flex-direction PRECISA estar aqui: a regra original (linha ~311) declara `column` e
+   este conserto so redefinia display/wrap/align. O `column` continuava vencendo, entao o
+   rodape seguiu 328px de altura em coluna -- em toda pagina, no ultimo frame de toda
+   visita -- com um comentario logo acima dizendo que estava resolvido. */
+.footer { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 20px; }
 
 /* ---------- FLUXO: ajuste fino do colchete (3ª olhada) ----------
    A barra estava esticando 12%..88% do PAINEL (1100px) enquanto as pílulas
@@ -1483,13 +1489,17 @@ body::after {
   .baralho { overflow: visible; gap: 0; padding-left: 8px; }
   .carta {
     width: 216px;
-    margin-left: -84px;
+    /* Era -84px: a carta 3 cobria as outras duas e a copy da peça (que É o argumento
+       desta seção) não dava pra ler em repouso. Hover abre o baralho, mas hover não
+       existe no toque. Sobreposição menor + empilhamento invertido = a primeira carta
+       fica por cima, que é a ordem em que se lê. */
+    margin-left: -52px;
     transform: rotate(var(--giro)) translateY(var(--sobe, 0));
     box-shadow: 0 18px 40px rgba(0,0,0,.45);
   }
-  .carta:first-child { margin-left: 0; --giro: -4deg; }
-  .carta:nth-child(2) { --giro: 1.5deg; }
-  .carta:nth-child(3) { --giro: 5deg; }
+  .carta:first-child { margin-left: 0; --giro: -4deg; z-index: 3; }
+  .carta:nth-child(2) { --giro: 1.5deg; z-index: 2; }
+  .carta:nth-child(3) { --giro: 5deg; z-index: 1; }
 }
 @media (min-width: 760px) and (prefers-reduced-motion: no-preference) {
   .carta { transition: transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s ease; }
@@ -1656,7 +1666,10 @@ body::after {
   border-radius: 8px; padding: 16px 18px; background: var(--secondary);
 }
 .classe-ok { --marca: var(--ok); }
-.classe-meio { --marca: var(--primary); }
+/* Era var(--primary), o âmbar. Só que âmbar é "clique aqui" em cinco páginas; aqui
+   ele virava "cuidado", e o visitante que aprendeu uma coisa encontrava o contrário.
+   REPORTADO é referência a fonte de terceiro, então usa o azul das citações. */
+.classe-meio { --marca: var(--accent); }
 .classe-nao { --marca: var(--muted); }
 .classe-nome {
   font-family: var(--font-mono, "JetBrains Mono", monospace);
@@ -1800,3 +1813,38 @@ body::after {
   font-variant-numeric: tabular-nums; white-space: nowrap;
 }
 .preco-nota { color: var(--muted); font-size: .95rem; margin-top: 18px; }
+
+/* ---------- 404 ----------
+   Existia a página branca do GitHub Pages, em inglês, sem nav e sem marca. Os slugs
+   daqui são truncados no meio da palavra (".../por-que-as-170-c/"), então link antigo
+   quebrado é rotina, não exceção. Num site cuja tese é distribuição, beco sem saída é
+   contradição de posicionamento. */
+.erro { padding-top: clamp(72px, 12vh, 140px); }
+.erro-titulo {
+  font-size: clamp(2rem, 5.5vw, 3.4rem); line-height: 1.08; letter-spacing: -.03em;
+  color: var(--text); margin: 0 0 20px; text-wrap: balance;
+}
+.erro-texto { font-size: 1.1rem; color: var(--muted); max-width: 56ch; margin: 0 0 32px; }
+.erro-caminhos { display: flex; flex-wrap: wrap; gap: 12px; }
+.erro-nota { font-size: .9rem; color: var(--muted); margin: 28px 0 0; }
+.erro-nota a { color: var(--primary); }
+
+/* ---------- BLOCO DE CÓDIGO NO CELULAR ----------
+   Medido em 390px: container de 340px para 666px de conteúdo, `white-space: pre` em 16px.
+   Metade do template ficava fora da tela e nada indicava que rolava -- num scroll
+   horizontal aninhado num vertical, no toque. A página existe pra ser copiada e usada. */
+@media (max-width: 560px) {
+  .bloco-codigo code { font-size: 12.5px; line-height: 1.5; }
+  /* A máscara some na borda direita enquanto houver conteúdo fora da tela, e é o único
+     aviso de que dá pra arrastar. Sem ela o corte parece o fim do texto. */
+  .bloco-codigo pre {
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent 100%);
+    mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent 100%);
+  }
+}
+
+/* A Máquina é botão na barra a partir de 781px e some abaixo disso junto com .nav-actions.
+   Sem esta entrada no menu, o produto ficava inalcançável no celular a partir de qualquer
+   página -- inclusive dos 52 posts, que são a porta de entrada orgânica. */
+.nav-so-mobile { display: none; }
+@media (max-width: 780px) { .nav-so-mobile { display: block; color: var(--primary); } }

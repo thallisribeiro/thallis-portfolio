@@ -58,11 +58,20 @@
   // daria sempre falso e os dois sistemas revelariam o mesmo elemento.
   var gsapAssumiu = function () { return !!(window.gsap && window.ScrollTrigger); };
 
-  if (!semMovimento && temIO && !gsapAssumiu()) {
-    var alvos = document.querySelectorAll(
-      '.secao > .section-inner > *, .obra, .ideia, .etapa, .saida, .proj, .prova-item, .fluxo-linha, .cta-tese'
-    );
+  // O atributo e MARCADOR, nao comportamento: quem revela e o GSAP (movimento.js) ou o
+  // observer daqui embaixo. Ele era aplicado so no ramo `!gsapAssumiu()`, entao no caso
+  // NORMAL -- GSAP no ar -- ninguem marcava nada e o ScrollTrigger.batch('[data-surge]')
+  // rodava sobre coleccao vazia. O console avisava em toda pagina ("GSAP target
+  // [data-surge] not found") e a camada de entrada por scroll nunca revelou um elemento.
+  // Marcar sempre; condicionar so o observer, que e a alternativa de verdade.
+  var alvos = document.querySelectorAll(
+    '.secao > .section-inner > *, .obra, .ideia, .etapa, .saida, .proj, .prova-item, .fluxo-linha, .cta-tese'
+  );
+  if (!semMovimento) {
     Array.prototype.forEach.call(alvos, function (el) { el.setAttribute('data-surge', ''); });
+  }
+
+  if (!semMovimento && temIO && !gsapAssumiu()) {
 
     var obs = new IntersectionObserver(function (entradas) {
       entradas.forEach(function (e) {

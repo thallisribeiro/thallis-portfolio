@@ -40,7 +40,14 @@
        gargalo" significar alguma coisa.
     ------------------------------------------------------------------ */
     var linhas = document.querySelectorAll('.hero-tese .tese-linha');
-    if (linhas.length && window.SplitText) {
+    // Espera a fonte. Cortar em caractere com a fonte de fallback mede a largura errada,
+    // e quando a Space Grotesk chega a linha reflui com a animação no meio -- é o aviso
+    // "SplitText called before fonts loaded" que saía duas vezes por carga.
+    var prontoParaCortar = (document.fonts && document.fonts.ready)
+      ? document.fonts.ready
+      : Promise.resolve();
+    if (linhas.length && window.SplitText) prontoParaCortar.then(cortarTese);
+    function cortarTese() {
       var splits = [];
       var tlTese = gsap.timeline({ delay: 0.15 });
       Array.prototype.forEach.call(linhas, function (linha, i) {
@@ -84,17 +91,23 @@
         scrollTrigger: {
           trigger: fluxo,
           start: 'center center',
-          end: '+=150%',
+          // Era '+=150%' (~1350px). O h2, o selo e o lead saíam da viewport e a pessoa
+          // olhava um diagrama sem título durante o percurso inteiro. Encurtado, e o pin
+          // passou a prender a seção (que carrega o título junto), não só o painel.
+          end: '+=90%',
           scrub: 1,
-          pin: fluxo,
+          pin: fluxo.closest('.section-inner') || fluxo,
           pinSpacing: true,
           anticipatePin: 1,
         },
       });
 
       Array.prototype.forEach.call(etapas, function (et, i) {
-        tl.to(et, { opacity: 1, duration: 0.5 }, i * 0.85);
-        if (fios[i]) tl.to(fios[i], { scaleY: 1, duration: 0.5 }, i * 0.85 + 0.4);
+        // 0.85 de intervalo em 6 etapas deixava "distribuição" -- a palavra que a página
+        // inteira defende -- acendendo a ~75% do percurso, atrás do maior custo de scroll.
+        // Com 0.55 ela chega por volta da metade, que é onde a atenção ainda está.
+        tl.to(et, { opacity: 1, duration: 0.5 }, i * 0.55);
+        if (fios[i]) tl.to(fios[i], { scaleY: 1, duration: 0.5 }, i * 0.55 + 0.3);
       });
       if (retorno) {
         tl.to(retorno, { opacity: 1, duration: 0.6 }, '>-0.2')
@@ -158,13 +171,17 @@
        daqui -- o `gsap-on` no <html> desliga o outro no CSS. Dois sistemas
        animando o mesmo elemento é como se ganha um piscar na tela.
     ------------------------------------------------------------------ */
-    ScrollTrigger.batch('[data-surge]', {
+    // Pagina sem nenhum alvo (o /trabalhe-comigo/ e assim) fazia o batch logar
+    // "GSAP target [data-surge] not found" em toda carga. Nao e defeito visual, e
+    // ruido no console -- e console cheio de ruido e como o aviso REAL desta camada
+    // (ela estava morta no site inteiro) passou dias sem ser lido.
+    if (document.querySelector('[data-surge]')) ScrollTrigger.batch('[data-surge]', {
       start: 'top 88%',
       onEnter: function (lote) {
         gsap.to(lote, { opacity: 1, y: 0, duration: 0.7, stagger: 0.07, ease: 'expo.out', overwrite: true });
       },
     });
-    gsap.set('[data-surge]', { opacity: 0, y: 16 });
+    if (document.querySelector('[data-surge]')) gsap.set('[data-surge]', { opacity: 0, y: 16 });
 
     /* ------------------------------------------------------------------
        6. O BARALHO SE ABRE NO SCROLL
