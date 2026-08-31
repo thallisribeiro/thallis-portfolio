@@ -1848,3 +1848,62 @@ body::after {
    página -- inclusive dos 52 posts, que são a porta de entrada orgânica. */
 .nav-so-mobile { display: none; }
 @media (max-width: 780px) { .nav-so-mobile { display: block; color: var(--primary); } }
+
+/* ---------- TRABALHE COMIGO ----------
+   Era a única página que aceita dinheiro e a única com investimento de design zero:
+   2200px de prosa cinza numa coluna de 720px com 700px de vazio à direita, sem prova
+   visual, sem prazo e sem CTA acima da dobra. Agora a oferta, o piso e a ação dividem a
+   primeira tela, e a prova é o print dos três sites que estão no ar. */
+.dfy-topo { padding-top: clamp(56px, 9vw, 96px); }
+.dfy-topo-grade { display: grid; gap: clamp(32px, 5vw, 64px); align-items: start; }
+@media (min-width: 900px) {
+  /* O texto manda, o piso acompanha. Sem isso a coluna de preço competiria com a headline. */
+  .dfy-topo-grade { grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr); }
+}
+.dfy-h1 {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(2.2rem, 6vw, 3.8rem); line-height: 1.05; letter-spacing: -.035em;
+  color: var(--text); margin: 0 0 18px; text-wrap: balance;
+}
+.dfy-lead { font-size: clamp(1.05rem, 2.2vw, 1.25rem); color: var(--muted); max-width: 46ch; margin: 0 0 32px; }
+.dfy-acoes { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+.dfy-acao-nota { font-size: .875rem; color: var(--muted); }
+
+.dfy-piso { border: 1px solid var(--line); border-radius: 16px; padding: clamp(22px, 3vw, 30px); background: var(--secondary); }
+.dfy-piso-titulo {
+  font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 6px;
+}
+.dfy-piso-nota { font-size: .875rem; color: var(--muted); margin: 16px 0 0; }
+/* Um acento por página. Os quatro valores estavam em âmbar junto com o botão e o olho
+   não achava a ação: valor é informação, o botão é a única coisa clicável aqui. */
+.preco-valor { color: var(--text); }
+.preco-unidade { color: var(--muted); font-weight: 600; font-size: .8em; }
+
+.dfy-mais { color: var(--muted); max-width: 68ch; margin: clamp(32px, 5vw, 48px) 0 0; }
+
+.dfy-servicos { display: grid; gap: 0; margin: 0; }
+@media (min-width: 760px) { .dfy-servicos { grid-template-columns: 1fr 1fr; column-gap: clamp(32px, 5vw, 72px); } }
+.dfy-servico { padding: 20px 0; border-top: 1px solid var(--line); }
+.dfy-servico dt { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--text); margin: 0 0 6px; }
+.dfy-servico dd { margin: 0; color: var(--muted); max-width: 52ch; }
+
+.dfy-passos { list-style: none; counter-reset: none; margin: 0; padding: 0; display: grid; gap: clamp(24px, 3.5vw, 36px); }
+.dfy-passo { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 18px; align-items: start; }
+.dfy-passo-n {
+  font-family: var(--font-display); font-weight: 800; font-size: 1rem;
+  width: 34px; height: 34px; flex: 0 0 34px;
+  display: grid; place-items: center; border-radius: 50%;
+  color: var(--primary); border: 1px solid rgba(232,163,61,.35);
+  font-variant-numeric: tabular-nums;
+}
+.dfy-passo h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; line-height: 1.25; color: var(--text); margin: 4px 0 8px; }
+.dfy-passo p { margin: 0; color: var(--muted); max-width: 62ch; }
+
+.dfy-fecho { text-align: left; }
+.dfy-fecho-frase {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.35rem, 3.4vw, 2rem); line-height: 1.2; letter-spacing: -.02em;
+  color: var(--text); margin: 0 0 28px; text-wrap: balance;
+}
+.dfy-fecho .dfy-acao-nota { display: block; margin-top: 12px; }

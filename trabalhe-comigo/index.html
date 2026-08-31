@@ -52,43 +52,146 @@
   </div>
 </header>
 
-<main class="pagina">
-  <div class="pagina-inner">
-    <h1>Prefere que eu faça?</h1>
-    <p class="pagina-lead">Pego poucos projetos por vez. Cada um começa com uma conversa sobre o negócio, antes de escrever a primeira linha de código.</p>
+<main class="dfy" id="conteudo">
 
-    <div class="pagina-corpo">
-      <h2>O que eu pego</h2>
-      <ul>
-        <li><strong>Sites e landing pages.</strong> Inclusive refazer site que já ranqueia sem perder as URLs antigas, que é onde quase todo mundo escorrega.</li>
-        <li><strong>Produto.</strong> Do primeiro cálculo até estar no ar com gente usando.</li>
-        <li><strong>Automação.</strong> Aquele trabalho repetitivo que hoje ocupa uma pessoa inteira todo dia.</li>
-        <li><strong>Sistemas de distribuição.</strong> A esteira que transforma uma apuração em publicação em vários canais.</li>
-      </ul>
-
-      <h2>Como costuma funcionar</h2>
-      <p>Primeiro eu entendo o que o projeto precisa resolver e digo na cara se acho que dá. Já recusei trabalho porque o problema não era o que o cliente achava que era. Fazer a coisa errada mais rápido não ajuda ninguém.</p>
-      <p>Depois disso a gente combina escopo e prazo. Você acompanha o projeto no ar, não por print no WhatsApp.</p>
-
-      <h2>O que dá pra ver antes de me contratar</h2>
-      <p>Três projetos em produção agora, e você pode abrir os três: <a href="https://suagrana.app" target="_blank" rel="noopener">Grana</a>, que é produto meu com assinatura ativa, <a href="https://eunoimovel.com.br" target="_blank" rel="noopener">Eunoimóvel</a> e <a href="https://drdanielgazzola.com.br" target="_blank" rel="noopener">Dr. Daniel Gazzola</a>. Mais este site, com a esteira que publica sozinha por trás dele.</p>
-      <p>E tem o <a href="/blog/">blog</a>, com <!-- POSTS_INICIO -->52<!-- POSTS_FIM --> posts. Dá pra ver como eu penso antes de assinar qualquer coisa, inclusive os erros, que eu publico com o mesmo cuidado dos acertos.</p>
-
-      <h2>Preço</h2>
-      <p>O número final depende do escopo, mas o piso não é segredo. É daqui que a conversa começa:</p>
-      <ul class="preco-lista">
-        <li><span class="preco-item">Landing page</span> <span class="preco-valor">a partir de R$ 397</span></li>
-        <li><span class="preco-item">Site completo</span> <span class="preco-valor">a partir de R$ 699</span></li>
-        <li><span class="preco-item">Conteúdo publicado todo mês</span> <span class="preco-valor">a partir de R$ 497/mês</span></li>
-        <li><span class="preco-item">Produto, automação ou sistema</span> <span class="preco-valor">a partir de R$ 999</span></li>
-      </ul>
-      <p class="preco-nota">Se o seu caso for maior que isso, eu digo antes de começar, não no meio. E se eu achar que você não precisa do que veio pedir, eu digo isso também.</p>
-
-      <p style="margin-top:28px">
-        <a class="btn btn-primary btn-lg" href="https://wa.me/5573999865198?text=Oi%20Thallis%2C%20vi%20seu%20site%20e%20quero%20conversar%20sobre%20um%20projeto" target="_blank" rel="noopener" data-ev="work_with_me_clicked" data-ev-local="pagina-dfy">Chamar no WhatsApp</a>
-      </p>
+  <!-- 1. A OFERTA, O PISO E A AÇÃO, TUDO ACIMA DA DOBRA -->
+  <section class="section dfy-topo">
+    <div class="section-inner dfy-topo-grade">
+      <div class="dfy-topo-texto">
+        <h1 class="dfy-h1">Prefere que eu faça?</h1>
+        <p class="dfy-lead">Pego poucos projetos por vez. Cada um começa com uma conversa sobre o negócio, antes de escrever a primeira linha de código.</p>
+        <div class="dfy-acoes">
+          <a class="btn btn-primary btn-lg" href="https://wa.me/5573999865198?text=Oi%20Thallis%2C%20vi%20seu%20site%20e%20quero%20conversar%20sobre%20um%20projeto" target="_blank" rel="noopener" data-ev="work_with_me_clicked" data-ev-local="dfy-topo">Falar sobre o meu projeto</a>
+          <span class="dfy-acao-nota">Abre o WhatsApp com a mensagem pronta.</span>
+        </div>
+      </div>
+      <!-- O piso ao lado da ação, não 2000px abaixo dela: quem compara fornecedor numa
+           tarde não liga pra descobrir o número, fecha a aba. -->
+      <div class="dfy-piso">
+        <p class="dfy-piso-titulo">De onde a conversa começa</p>
+        <ul class="preco-lista">
+          <li><span class="preco-item">Landing page</span> <span class="preco-valor">R$ 397</span></li>
+          <li><span class="preco-item">Site completo</span> <span class="preco-valor">R$ 699</span></li>
+          <li><span class="preco-item">Conteúdo publicado todo mês</span> <span class="preco-valor">R$ 497<span class="preco-unidade">/mês</span></span></li>
+          <li><span class="preco-item">Produto, automação ou sistema</span> <span class="preco-valor">R$ 999</span></li>
+        </ul>
+        <p class="dfy-piso-nota">São pisos, não tabelas. Se o seu caso for maior, eu digo antes de começar, não no meio.</p>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <!-- 2. A PROVA. Estava escrita como link de texto numa página que argumenta "dá pra abrir". -->
+  <section class="section section-linha">
+    <div class="section-inner">
+      <div class="secao-topo"><h2 class="secao-titulo">Três estão no ar agora</h2></div>
+      <p class="section-lead">Você pode abrir os três antes de me mandar mensagem. É o único tipo de portfólio que eu acho honesto: o endereço, não o print.</p>
+      <div class="obras">
+        <article class="obra">
+          <div class="obra-texto">
+            <span class="obra-cat">Produto próprio</span>
+            <h3 class="obra-nome">Grana</h3>
+            <p class="obra-desc">App de finanças que abre respondendo uma pergunta só: quanto custa o seu dia. Fiz do primeiro cálculo até a assinatura ativa.</p>
+            <a class="obra-link" href="https://suagrana.app" target="_blank" rel="noopener" data-ev="case_clicked" data-ev-local="grana">suagrana.app →</a>
+          </div>
+          <a class="obra-shot" href="https://suagrana.app" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/grana-case.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"></a>
+        </article>
+        <article class="obra">
+          <div class="obra-texto">
+            <span class="obra-cat">Site · cliente</span>
+            <h3 class="obra-nome">Eunoimóvel</h3>
+            <p class="obra-desc">Imobiliária da Costa do Descobrimento. Refiz o site inteiro em Payload + Next.js sem perder uma URL antiga sequer, pra não jogar fora anos de posição no Google.</p>
+            <a class="obra-link" href="https://eunoimovel.com.br" target="_blank" rel="noopener" data-ev="case_clicked" data-ev-local="eunoimovel">eunoimovel.com.br →</a>
+          </div>
+          <a class="obra-shot" href="https://eunoimovel.com.br" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/eunoimovel-case.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"></a>
+        </article>
+        <article class="obra">
+          <div class="obra-texto">
+            <span class="obra-cat">Site · cliente</span>
+            <h3 class="obra-nome">Dr. Daniel Gazzola</h3>
+            <p class="obra-desc">Site médico feito pra uma coisa só: quem chega procurando o profissional sai com a consulta marcada, sem passar por formulário nenhum.</p>
+            <a class="obra-link" href="https://drdanielgazzola.com.br" target="_blank" rel="noopener" data-ev="case_clicked" data-ev-local="gazzola">drdanielgazzola.com.br →</a>
+          </div>
+          <a class="obra-shot" href="https://drdanielgazzola.com.br" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/dr-daniel-case.webp" alt="" width="1200" height="750" loading="lazy" decoding="async"></a>
+        </article>
+      </div>
+      <p class="dfy-mais">Mais este site, com a esteira que publica sozinha por trás dele, e o <a href="/blog/">blog</a> com <!-- POSTS_INICIO -->52<!-- POSTS_FIM --> posts. Dá pra ver como eu penso antes de assinar qualquer coisa, inclusive os erros, que eu publico com o mesmo cuidado dos acertos.</p>
+    </div>
+  </section>
+
+  <!-- 3. O QUE EU PEGO -->
+  <section class="section section-linha">
+    <div class="section-inner">
+      <div class="secao-topo"><h2 class="secao-titulo">O que eu pego</h2></div>
+      <dl class="dfy-servicos">
+        <div class="dfy-servico">
+          <dt>Sites e landing pages</dt>
+          <dd>Inclusive refazer site que já ranqueia sem perder as URLs antigas, que é onde quase todo mundo escorrega.</dd>
+        </div>
+        <div class="dfy-servico">
+          <dt>Produto</dt>
+          <dd>Do primeiro cálculo até estar no ar com gente usando.</dd>
+        </div>
+        <div class="dfy-servico">
+          <dt>Automação</dt>
+          <dd>Aquele trabalho repetitivo que hoje ocupa uma pessoa inteira todo dia.</dd>
+        </div>
+        <div class="dfy-servico">
+          <dt>Sistemas de distribuição</dt>
+          <dd>A esteira que transforma uma apuração em publicação em vários canais.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 4. O QUE ACONTECE DEPOIS QUE VOCÊ MANDA MENSAGEM.
+       Numerado porque é sequência de verdade: a ordem é a informação. A página antiga
+       parava em "a gente combina escopo" e deixava o momento de maior risco -- mandar
+       mensagem pra um desconhecido -- sem nenhuma descrição. -->
+  <section class="section section-linha">
+    <div class="section-inner">
+      <div class="secao-topo"><h2 class="secao-titulo">O que acontece depois que você manda mensagem</h2></div>
+      <ol class="dfy-passos">
+        <li class="dfy-passo">
+          <span class="dfy-passo-n">1</span>
+          <div>
+            <h3>Eu respondo e pergunto do negócio, não do site</h3>
+            <p>Antes de falar de tecnologia eu quero saber quem compra de você e o que trava hoje. Costuma ser uma conversa de vinte minutos, sem apresentação e sem proposta em PDF.</p>
+          </div>
+        </li>
+        <li class="dfy-passo">
+          <span class="dfy-passo-n">2</span>
+          <div>
+            <h3>Eu digo na cara se acho que dá</h3>
+            <p>Já recusei trabalho porque o problema não era o que o cliente achava que era. Fazer a coisa errada mais rápido não ajuda ninguém, e cobrar por isso ajuda menos ainda.</p>
+          </div>
+        </li>
+        <li class="dfy-passo">
+          <span class="dfy-passo-n">3</span>
+          <div>
+            <h3>Escopo, preço e prazo por escrito, antes de começar</h3>
+            <p>Um número fechado, não uma faixa. Se o escopo mudar no meio, a mudança é conversada antes de virar hora trabalhada.</p>
+          </div>
+        </li>
+        <li class="dfy-passo">
+          <span class="dfy-passo-n">4</span>
+          <div>
+            <h3>Você acompanha no ar, não por print</h3>
+            <p>O projeto sobe num endereço que você abre quando quiser, desde o começo. Nada de "está 80%".</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 5. FECHO -->
+  <section class="section section-linha dfy-fecho">
+    <div class="section-inner section-narrow">
+      <p class="dfy-fecho-frase">Se eu achar que você não precisa do que veio pedir, eu digo isso também.</p>
+      <a class="btn btn-primary btn-lg" href="https://wa.me/5573999865198?text=Oi%20Thallis%2C%20vi%20seu%20site%20e%20quero%20conversar%20sobre%20um%20projeto" target="_blank" rel="noopener" data-ev="work_with_me_clicked" data-ev-local="dfy-fecho">Falar sobre o meu projeto</a>
+      <p class="dfy-acao-nota">Abre o WhatsApp com a mensagem pronta. Respondo eu, não um robô.</p>
+    </div>
+  </section>
+
 </main>
 
 <footer class="footer">
