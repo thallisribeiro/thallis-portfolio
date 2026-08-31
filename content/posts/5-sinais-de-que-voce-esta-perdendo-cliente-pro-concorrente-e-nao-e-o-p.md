@@ -3,6 +3,7 @@ title: 5 sinais de que você está perdendo cliente pro concorrente (e não é o
 date: 2026-08-24
 summary: Cinco sinais silenciosos, verificáveis no seu próprio atendimento, que explicam por que o cliente escolhe o concorrente sem nunca ter comparado preço.
 tema: Mercado
+image: /assets/posts/5-sinais-de-que-voce-esta-perdendo-cliente-pro-concorrente-e-nao-e-o-p.webp
 ---
 
 Você provavelmente já pensou que perdeu um cliente porque o concorrente cobrava mais barato. Na prática, o motivo mais comum de perder cliente não é ser mais caro, é ser mais difícil de fechar negócio com você. E o pior: a maioria desses sinais é silenciosa. O cliente não reclama, ele só some, e você nunca fica sabendo por quê.

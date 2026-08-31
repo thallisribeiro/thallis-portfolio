@@ -3,6 +3,7 @@ title: Como aparecer no Google Maps em 10 minutos (passo a passo grátis)
 date: 2026-08-26
 summary: Passo a passo gratuito pra cadastrar seu negócio no Google Meu Negócio e aparecer no Google Maps, sem agência e sem custo pra começar.
 tema: Site & copy
+image: /assets/posts/como-aparecer-no-google-maps-em-10-minutos-passo-a-passo-gratis.webp
 ---
 
 Aparecer no Google Maps quando alguém procura um serviço perto de casa não exige agência nem investimento pra começar. Exige um cadastro bem feito, que leva cerca de 10 minutos. Antes de abrir o navegador, separe 3 coisas: o nome exato do seu negócio, a categoria certa, e um telefone ou endereço real pra confirmar que você existe.

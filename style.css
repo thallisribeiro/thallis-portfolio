@@ -1856,8 +1856,11 @@ body::after {
 /* A Máquina é botão na barra a partir de 781px e some abaixo disso junto com .nav-actions.
    Sem esta entrada no menu, o produto ficava inalcançável no celular a partir de qualquer
    página -- inclusive dos 52 posts, que são a porta de entrada orgânica. */
-.nav-so-mobile { display: none; }
-@media (max-width: 780px) { .nav-so-mobile { display: block; color: var(--primary); } }
+/* Especificidade importa: `.nav-links a` (0,1,1), acrescentado depois pro alvo de 24px,
+   vencia `.nav-so-mobile` (0,1,0) -- e o item aparecia DUAS vezes na barra do desktop,
+   link e botão lado a lado dizendo a mesma coisa. */
+.nav-links a.nav-so-mobile { display: none; }
+@media (max-width: 780px) { .nav-links a.nav-so-mobile { display: inline-flex; color: var(--primary); } }
 
 /* ---------- TRABALHE COMIGO ----------
    Era a única página que aceita dinheiro e a única com investimento de design zero:
@@ -1941,3 +1944,15 @@ body::after {
 .blog-article > blockquote,
 .blog-article > h2,
 .blog-article > h3 { max-width: 68ch; }
+
+/* ---------- CRÉDITO DA FOTO ----------
+   Banco de imagem com licença aberta exige crédito, e crédito escondido não é crédito.
+   Fica logo abaixo da capa, discreto, e some quando a foto é gerada aqui (que é o caso
+   em que não há a quem creditar). */
+.capa-credito { font-size: 12px; color: var(--muted); margin: 8px 0 0; }
+.capa-credito a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
+.capa-credito a:hover { color: var(--primary); }
+
+/* Card sem capa não reserva a coluna da miniatura: até 31/08 os posts sem imagem
+   deixavam um retângulo vazio do tamanho da foto que não existia. */
+.blog-card-thumb:empty { display: none; }

@@ -331,9 +331,17 @@ function temaPill(tema) {
 // isto nao e ilustracao inventada, e a tipografia do site aplicada ao texto do
 // proprio post, mesma logica de uma imagem de compartilhamento.
 function capaDoPost(post) {
-  if (post.image) return esc(post.image);
-  const gerada = path.join(ROOT, 'assets', 'capas', post.slug + '.webp');
-  return fs.existsSync(gerada) ? `/assets/capas/${post.slug}.webp` : '';
+  return post.image ? esc(post.image) : '';
+}
+
+// Crédito da foto, quando a fonte exige. Fica ao lado da imagem em assets/posts/<slug>.json,
+// escrito por capa-do-post.js na hora que a imagem entra.
+function creditoDaCapa(post) {
+  try {
+    const c = JSON.parse(fs.readFileSync(path.join(ROOT, 'assets', 'posts', post.slug + '.json'), 'utf-8'));
+    const quem = c.fonte ? `<a href="${esc(c.fonte)}" target="_blank" rel="noopener">${esc(c.autor)}</a>` : esc(c.autor);
+    return `<p class="capa-credito">Foto de ${quem}${c.banco ? ` no ${esc(c.banco)}` : ''}${c.licenca ? ` · ${esc(c.licenca)}` : ''}</p>`;
+  } catch { return ''; }
 }
 
 function postCard(post) {
@@ -459,8 +467,11 @@ function main() {
     const proximo = posts[i - 1];  // mais novo
     const postDir = path.join(OUT_DIR, post.slug);
     fs.mkdirSync(postDir, { recursive: true });
+    const credito = creditoDaCapa(post) || (post.imageCredit ? `<p class="capa-credito">${post.imageCredit}</p>` : '');
+    // alt="" de propósito: a capa é ilustrativa e o título dela está no <h1> logo abaixo.
+    // alt repetindo o título faz o leitor de tela anunciar a mesma frase duas vezes.
     const heroImg = post.image
-      ? `<figure class="blog-hero-img"><img src="${esc(post.image)}" alt="${esc(post.title)}" loading="eager"><figcaption>${post.imageCredit || ''}</figcaption></figure>`
+      ? `<figure class="blog-hero-img"><img src="${esc(post.image)}" alt="" loading="eager">${credito ? `<figcaption>${credito}</figcaption>` : ''}</figure>`
       : '';
     const canonical = `${SITE_URL}/blog/${post.slug}/`;
     const relacionados = postsRelacionados(post, posts);
@@ -692,7 +703,7 @@ ${rssItems}
     } else {
       const itens = posts.slice(0, 4).map(p => `        <li class="ideia">
           <a class="ideia-link" href="/blog/${p.slug}/" data-ev="article_clicked" data-ev-local="${p.slug}">
-            <span class="ideia-capa">${capaDoPost(p) ? `<img src="${capaDoPost(p)}" alt="" width="600" height="338" loading="lazy" decoding="async">` : ''}</span>
+            ${capaDoPost(p) ? `<span class="ideia-capa"><img src="${capaDoPost(p)}" alt="" width="600" height="338" loading="lazy" decoding="async"></span>` : ''}
             <span class="ideia-texto">
             <span class="ideia-meta">${formatDate(p.date)} · ${p.readingTime} min${p.tema ? ` · ${esc(p.tema)}` : ''}</span>
             <span class="ideia-titulo">${esc(p.title)}</span>

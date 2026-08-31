@@ -108,6 +108,13 @@ function tituloDoFrontmatter(conteudo) {
 
 // Varre os artigos que o _contenthub ja escreveu e devolve o primeiro que ainda
 // nao virou post. Compara por slug do titulo, que e como o blog nomeia arquivo.
+// Capa é conteúdo, não layout: entra na geração do post e fica gravada no frontmatter.
+// Se falhar, o post sai sem capa -- nunca segura a publicação por causa de imagem.
+function garantirCapa(arquivoDoPost) {
+  const r = runCommand(ROOT, process.execPath, ['capa-do-post.js', path.relative(ROOT, arquivoDoPost)]);
+  log(r.ok ? `capa: ${(r.stdout || '').trim().split('\n').pop()}` : `[aviso] capa falhou (post segue sem imagem): ${failureDetail(r)}`);
+}
+
 function proximoArtigoDoContentHub() {
   if (!fs.existsSync(CONTENTHUB_SAIDA)) return null;
 
@@ -267,6 +274,7 @@ async function main() {
     const destino = path.join(QUEUE_DIR, doContentHub.slug + '.md');
     fs.writeFileSync(destino, doContentHub.conteudo);
     log(`artigo do content-hub aproveitado (par do carrossel ${doContentHub.dia}): ${doContentHub.titulo}`);
+    garantirCapa(destino);
     // A assinatura é runCommand(cwd, cmd, args). Estava chamada como
     // runCommand('git', [...], ROOT) -- cwd virava "git" e cmd virava um Array, e o
     // spawnSync jogava "The file argument must be of type string". Como isso estourava
