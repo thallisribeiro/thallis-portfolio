@@ -704,6 +704,16 @@ ${rssItems}
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `  <url>\n    <loc>${u.loc}</loc>\n${u.lastmod ? `    <lastmod>${u.lastmod}</lastmod>\n` : ''}  </url>`).join('\n')}\n</urlset>\n`;
   fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap);
   console.log(`[gerado] sitemap.xml (${urls.length} urls)`);
+
+  // Manifesto: os arquivos que este script escreve FORA de blog/. Quem publica lê daqui
+  // em vez de manter a própria lista -- duas listas escritas à mão divergem, e foi assim
+  // que a página da Máquina passou um dia inteira com a prova velha enquanto a home e o
+  // blog estavam certos. Só entra caminho que existe de verdade no disco.
+  const gerados = ['index.html', 'maquina-de-distribuicao/index.html', 'ficha-de-apuracao/index.html',
+    'feed.xml', 'sitemap.xml']
+    .filter((rel) => fs.existsSync(path.join(ROOT, rel)));
+  fs.writeFileSync(path.join(ROOT, '.gerados.json'), JSON.stringify(gerados, null, 2) + '\n');
+  console.log(`[gerado] .gerados.json (${gerados.length} arquivos fora de blog/)`);
 }
 
 main();

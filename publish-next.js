@@ -100,7 +100,12 @@ function main() {
   // A home e a pagina da ficha tambem sao ESCRITAS pelo generate-blog (ultimas ideias,
   // numeros da prova, bloco de captura). Ficavam fora do commit, entao a home ficava
   // permanentemente um post atras do blog -- e a home e a pagina mais vista da casa.
-  const publicationPaths = [postRelative, ...(filaRastreada ? [queueRelative] : []), 'blog/', 'feed.xml', 'sitemap.xml', 'index.html', 'ficha-de-apuracao/index.html'];
+  // O que o generate-blog escreveu fora de blog/ vem do manifesto que ele mesmo grava.
+  // Manter a lista aqui à mão já custou dois bugs: primeiro a home, depois a página da
+  // Máquina, as duas commitadas velhas enquanto o blog subia certo.
+  let gerados = [];
+  try { gerados = JSON.parse(fs.readFileSync(path.join(ROOT, '.gerados.json'), 'utf-8')); } catch {}
+  const publicationPaths = [postRelative, ...(filaRastreada ? [queueRelative] : []), 'blog/', ...gerados];
   const add = run('git', ['add', '--', ...publicationPaths]);
   if (!add.ok) {
     const rollback = rollbackUncommittedPublication({ queuePath, raw, postPath, publicationPaths });
