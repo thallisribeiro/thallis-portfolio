@@ -81,6 +81,11 @@ function tempoDeLeitura(md) {
 // generate-og-image.js), nunca um case específico.
 const DEFAULT_OG_IMAGE = `${SITE_URL}/assets/og-default.png`;
 
+// Tudo que este script escreve FORA de blog/. Uma lista só, lida pela escrita do
+// manifesto e pelo self-test -- duas listas divergem, e já divergiram três vezes.
+const MANIFESTO = ['index.html', 'maquina-de-distribuicao/index.html', 'ficha-de-apuracao/index.html',
+  'trabalhe-comigo/index.html', 'feed.xml', 'sitemap.xml'];
+
 // ── Ícones inline (SVG monocromático via currentColor — zero dependência externa) ──
 const ICONS = {
   x: '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23.3 22h-7l-5.5-7.2L4.5 22H1.4l8.1-9.3L1 2h7.2l5 6.6L18.9 2zm-1.2 18h1.7L6.4 4h-1.8l13.1 16z"/></svg>',
@@ -742,11 +747,59 @@ ${rssItems}
   // em vez de manter a própria lista -- duas listas escritas à mão divergem, e foi assim
   // que a página da Máquina passou um dia inteira com a prova velha enquanto a home e o
   // blog estavam certos. Só entra caminho que existe de verdade no disco.
-  const gerados = ['index.html', 'maquina-de-distribuicao/index.html', 'ficha-de-apuracao/index.html',
-    'trabalhe-comigo/index.html', 'feed.xml', 'sitemap.xml']
-    .filter((rel) => fs.existsSync(path.join(ROOT, rel)));
+  const gerados = MANIFESTO.filter((rel) => fs.existsSync(path.join(ROOT, rel)));
   fs.writeFileSync(path.join(ROOT, '.gerados.json'), JSON.stringify(gerados, null, 2) + '\n');
   console.log(`[gerado] .gerados.json (${gerados.length} arquivos fora de blog/)`);
 }
 
-main();
+// ── self-test ────────────────────────────────────────────────────────────────
+// Cobre o que já quebrou aqui, não o que é fácil de testar:
+//   - capa saindo de qualquer lugar que não seja o frontmatter (era a capa
+//     tipográfica que escrevia o título duas vezes no índice)
+//   - relacionados voltando pra ordem de pasta (era "Continue lendo" arbitrário)
+//   - slug perdendo acento ou virando vazio (a URL é permanente, não dá pra corrigir)
+//   - o manifesto deixando de fora um arquivo que este script escreve (3 páginas já
+//     subiram velhas por causa disso, uma de cada vez)
+function selfTest() {
+  const assert = require('assert');
+
+  // 1. capa vem SÓ do frontmatter. Sem image:, o card não reserva caixa vazia.
+  assert.strictEqual(capaDoPost({ slug: 'x', image: '/assets/posts/x.webp' }), '/assets/posts/x.webp');
+  assert.strictEqual(capaDoPost({ slug: 'x' }), '');
+
+  // 2. relacionados rankeiam por relação, não por ordem da pasta
+  const base = { slug: 'a', title: 'Esteira de conteúdo com IA', summary: 'automação de publicação', tema: 'Automação de conteúdo', date: '2026-08-20' };
+  const irmao = { slug: 'b', title: 'Automação de publicação na esteira', summary: 'conteúdo e IA', tema: 'Automação de conteúdo', date: '2026-08-10' };
+  const estranho = { slug: 'c', title: 'Imobiliária trocou de tecnologia', summary: 'migração sem perder URL', tema: 'Site & copy', date: '2026-08-25' };
+  assert.strictEqual(postsRelacionados(base, [base, estranho, irmao])[0].slug, 'b',
+    'o post do mesmo assunto vem antes do mais recente sem relação');
+
+  // 3. o próprio post nunca aparece nos relacionados dele
+  assert.ok(!postsRelacionados(base, [base, irmao, estranho]).some((x) => x.slug === 'a'));
+
+  // 4. tema igual pesa, mas não decide sozinho
+  assert.ok(pontuarRelacao(base, irmao) > pontuarRelacao(base, estranho));
+
+  // 5. slug tira acento e não devolve vazio pra título com pontuação
+  assert.strictEqual(slugify('Ação e Reação: o que mudou?'), 'acao-e-reacao-o-que-mudou');
+  assert.strictEqual(slugify('  --Olá--  '), 'ola');
+
+  // 6. o manifesto declara tudo que este script escreve fora de blog/
+  const escritos = [...src().matchAll(/path\.join\(ROOT,\s*((?:'[^']+'\s*,?\s*)+)\)/g)]
+    .map((m) => m[1].match(/'([^']+)'/g).map((x) => x.slice(1, -1)).join('/'))
+    .filter((rel) => !rel.startsWith('blog') && /\.(html|xml)$/.test(rel));
+  const declarados = MANIFESTO;
+  for (const rel of new Set(escritos)) {
+    assert.ok(declarados.includes(rel), `"${rel}" é escrito aqui e não está no manifesto — vai subir velho`);
+  }
+
+  // 7. tempo de leitura nunca é zero (post curto ainda leva 1 min)
+  assert.strictEqual(tempoDeLeitura('uma palavra'), 1);
+
+  console.log('[generate-blog] self-test OK — 7 casos');
+}
+
+function src() { return fs.readFileSync(__filename, 'utf8'); }
+
+if (process.argv.includes('--self-test')) selfTest();
+else main();

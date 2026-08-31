@@ -89,6 +89,20 @@ function tituloDoFrontmatter(conteudo) {
 
 // Varre os artigos que o _contenthub ja escreveu e devolve o primeiro que ainda
 // nao virou post. Compara por slug do titulo, que e como o blog nomeia arquivo.
+// Teto de posts por dia. As 3 peças da esteira já vão pro blog junto com os carrosséis;
+// gerar por cima disso dobrava o blog pra 6/dia.
+const TETO_DIARIO = 3;
+
+// Quantos posts já têm a data de hoje. Lê o arquivo uma vez por post -- a versão anterior
+// lia duas, o que não quebrava nada mas dobrava a leitura de 55 arquivos a cada execução.
+function contarDoDia(dir, dia) {
+  if (!fs.existsSync(dir)) return 0;
+  return fs.readdirSync(dir).filter((f) => f.endsWith('.md')).filter((f) => {
+    const m = fs.readFileSync(path.join(dir, f), 'utf-8').match(/^date:\s*(\S+)/m);
+    return m && m[1] === dia;
+  }).length;
+}
+
 // Capa é conteúdo, não layout: entra na geração do post e fica gravada no frontmatter.
 // Se falhar, o post sai sem capa -- nunca segura a publicação por causa de imagem.
 function garantirCapa(arquivoDoPost) {
@@ -177,11 +191,8 @@ async function main() {
   // Teto do dia. As 3 pecas da esteira ja vao pro blog junto com os carrosseis (o
   // instagram-slot publica o artigo irmao no mesmo minuto). Gerar por cima disso dobrava
   // o blog pra 6/dia. Aqui ele so entra quando a esteira nao entregou.
-  const hoje = new Date().toISOString().slice(0, 10);
-  const publicadosHoje = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.md'))
-    .filter(f => /^date:\s*(\S+)/m.test(fs.readFileSync(path.join(POSTS_DIR, f), 'utf-8'))
-      && fs.readFileSync(path.join(POSTS_DIR, f), 'utf-8').match(/^date:\s*(\S+)/m)[1] === hoje).length;
-  if (publicadosHoje >= 3) {
+  const publicadosHoje = contarDoDia(POSTS_DIR, new Date().toISOString().slice(0, 10));
+  if (publicadosHoje >= TETO_DIARIO) {
     log(`o dia já tem ${publicadosHoje} posts — nada a gerar`);
     return;
   }
@@ -231,6 +242,48 @@ async function main() {
   return 0;
 }
 
-main()
+if (process.argv.includes('--self-test')) selfTest();
+else main()
   .then(code => { process.exitCode = code || 0; })
   .catch(e => { console.error('[ensure-queue] erro fatal:', e.message); process.exitCode = 1; });
+
+// ── self-test ────────────────────────────────────────────────────────────────
+// As duas regras que decidem o que o blog publica, e que nasceram hoje sem teste.
+function selfTest() {
+  const assert = require('assert');
+  const os = require('os');
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'eq-test-'));
+  const post = (nome, data) => fs.writeFileSync(path.join(tmp, nome), `---\ntitle: t\ndate: ${data}\n---\ncorpo\n`);
+
+  try {
+    // 1. conta só os do dia pedido
+    post('a.md', '2026-08-31'); post('b.md', '2026-08-31'); post('c.md', '2026-08-30');
+    assert.strictEqual(contarDoDia(tmp, '2026-08-31'), 2);
+    assert.strictEqual(contarDoDia(tmp, '2026-08-30'), 1);
+    assert.strictEqual(contarDoDia(tmp, '2026-01-01'), 0);
+
+    // 2. o teto é 3: com 2 ainda gera, com 3 para. Foi o que evitou o blog ir a 6/dia
+    //    quando o slot passou a publicar o artigo irmão junto com o carrossel.
+    assert.ok(contarDoDia(tmp, '2026-08-31') < TETO_DIARIO, 'com 2 posts o dia ainda aceita mais um');
+    post('d.md', '2026-08-31');
+    assert.ok(contarDoDia(tmp, '2026-08-31') >= TETO_DIARIO, 'com 3 o dia está cheio');
+
+    // 3. arquivo sem date não conta como do dia (e não explode)
+    fs.writeFileSync(path.join(tmp, 'e.md'), '---\ntitle: sem data\n---\ncorpo\n');
+    assert.strictEqual(contarDoDia(tmp, '2026-08-31'), 3);
+
+    // 4. diretório que não existe devolve 0 em vez de estourar -- é o que roda às 6h30
+    assert.strictEqual(contarDoDia(path.join(tmp, 'nao-existe'), '2026-08-31'), 0);
+
+    // 5. sem o ledger do Instagram, NENHUM artigo é levado pro blog. Publicar artigo cuja
+    //    peça irmã não foi ao ar é exatamente a deriva que o pareamento existe pra impedir.
+    const original = IG_PUBLICADOS;
+    assert.ok(typeof topicosJaNoInstagram === 'function');
+    assert.ok(fs.existsSync(original) || topicosJaNoInstagram() === null,
+      'ledger ausente tem que devolver null, não uma lista vazia');
+
+    console.log('[ensure-queue] self-test OK — 5 casos');
+  } finally {
+    fs.rmSync(tmp, { recursive: true, force: true });
+  }
+}

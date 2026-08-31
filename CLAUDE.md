@@ -15,7 +15,8 @@ isso vai na primeira resposta da sessão, antes da tarefa que foi pedida.
 ## Antes de commitar
 
 ```bash
-node lint-rapido.js     # ~2s
+node lint-rapido.js                              # ~2s
+C:\Users\thall\Documents\Squads100\testes.cmd   # os 10 suites
 ```
 
 Pega os três defeitos que já custaram tempo aqui: caractere de controle no código,

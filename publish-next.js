@@ -35,6 +35,17 @@ function rollbackUncommittedPublication({ queuePath, raw, postPath, publicationP
   return run('git', ['restore', '--staged', '--', ...publicationPaths]);
 }
 
+// O que entra no `git add` de uma publicação. Isolado porque é a regra que mais quebrou:
+// primeiro a home ficou de fora, depois a página da Máquina, as duas subindo velhas
+// enquanto o blog subia certo.
+function lerManifesto() {
+  try { return JSON.parse(fs.readFileSync(path.join(ROOT, '.gerados.json'), 'utf-8')); } catch { return []; }
+}
+
+function caminhosDaPublicacao({ postRelative, queueRelative, filaRastreada, gerados }) {
+  return [postRelative, ...(filaRastreada ? [queueRelative] : []), 'blog/', ...(gerados || [])];
+}
+
 function main() {
   fs.mkdirSync(QUEUE_DIR, { recursive: true });
   fs.mkdirSync(POSTS_DIR, { recursive: true });
@@ -103,9 +114,7 @@ function main() {
   // O que o generate-blog escreveu fora de blog/ vem do manifesto que ele mesmo grava.
   // Manter a lista aqui à mão já custou dois bugs: primeiro a home, depois a página da
   // Máquina, as duas commitadas velhas enquanto o blog subia certo.
-  let gerados = [];
-  try { gerados = JSON.parse(fs.readFileSync(path.join(ROOT, '.gerados.json'), 'utf-8')); } catch {}
-  const publicationPaths = [postRelative, ...(filaRastreada ? [queueRelative] : []), 'blog/', ...gerados];
+  const publicationPaths = caminhosDaPublicacao({ postRelative, queueRelative, filaRastreada, gerados: lerManifesto() });
   const add = run('git', ['add', '--', ...publicationPaths]);
   if (!add.ok) {
     const rollback = rollbackUncommittedPublication({ queuePath, raw, postPath, publicationPaths });
@@ -129,8 +138,40 @@ function main() {
 }
 
 try {
-  process.exitCode = main() || 0;
+  if (process.argv.includes('--self-test')) selfTest();
+  else process.exitCode = main() || 0;
 } catch (e) {
   console.error('[publish-next] erro fatal:', e.message);
   process.exitCode = 1;
+}
+
+// ── self-test ────────────────────────────────────────────────────────────────
+function selfTest() {
+  const assert = require('assert');
+  const gerados = ['index.html', 'maquina-de-distribuicao/index.html', 'feed.xml'];
+
+  // 1. tudo que o gerador escreveu entra no commit -- a falha de 30 e 31/08
+  const c = caminhosDaPublicacao({ postRelative: 'content/posts/x.md', queueRelative: 'content/queue/x.md', filaRastreada: true, gerados });
+  for (const g of gerados) assert.ok(c.includes(g), `${g} tem que entrar no commit`);
+  assert.ok(c.includes('blog/'), 'as páginas do blog sempre entram');
+  assert.ok(c.includes('content/posts/x.md'), 'o post publicado entra');
+
+  // 2. fila que o git nunca viu NÃO entra: pathspec de arquivo não rastreado derruba o
+  //    `git add` inteiro, e em 29/08 isso travou o blog num laço de 4 dias
+  const semFila = caminhosDaPublicacao({ postRelative: 'content/posts/x.md', queueRelative: 'content/queue/x.md', filaRastreada: false, gerados });
+  assert.ok(!semFila.includes('content/queue/x.md'), 'fila não rastreada não pode entrar no git add');
+
+  // 3. manifesto vazio ou ilegível não quebra a publicação -- ela sai sem as páginas
+  //    injetadas, que é ruim, mas publicar é mais importante que publicar completo
+  assert.deepStrictEqual(
+    caminhosDaPublicacao({ postRelative: 'p.md', queueRelative: 'q.md', filaRastreada: false, gerados: undefined }),
+    ['p.md', 'blog/']);
+
+  // 4. o manifesto real do repositório tem as 4 páginas que o gerador escreve
+  const real = lerManifesto();
+  for (const esperado of ['index.html', 'maquina-de-distribuicao/index.html', 'ficha-de-apuracao/index.html', 'trabalhe-comigo/index.html']) {
+    assert.ok(real.includes(esperado), `o manifesto do repo perdeu ${esperado}`);
+  }
+
+  console.log('[publish-next] self-test OK — 4 casos');
 }
