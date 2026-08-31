@@ -3,6 +3,7 @@ title: Freelancer, agência grande ou fazer sozinho: como escolher pro seu momen
 date: 2026-08-24
 summary: As três formas de construir seu site servem a momentos diferentes do negócio; veja como identificar qual é a certa pro seu agora, com perguntas práticas pra decidir.
 tema: Site & copy
+image: /assets/posts/freelancer-agencia-grande-ou-fazer-sozinho-como-escolher-pro-seu-momen.webp
 ---
 
 Toda vez que alguém me pergunta se deveria contratar uma agência, um freelancer ou simplesmente montar o site sozinho no Canva, a resposta certa quase nunca é uma das três de forma absoluta. É: depende do momento do seu negócio. Cada opção resolve um problema real, numa fase real. O erro que vejo mais gente cometer não é escolher uma opção ruim, é escolher a opção certa na fase errada.

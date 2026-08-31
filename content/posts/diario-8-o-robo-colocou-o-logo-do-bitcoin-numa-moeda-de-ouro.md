@@ -3,6 +3,7 @@ title: "Diário — Dia 7 (parte 2): O robô que gera imagem colocou o logo do B
 date: 2026-08-16
 summary: Automatizei a capa dos posts com IA de imagem rodando aqui na máquina. Ela alucinou marca em quase tudo, até quando eu mandei explicitamente não fazer isso.
 tema: Automação de conteúdo
+image: /assets/posts/diario-8-o-robo-colocou-o-logo-do-bitcoin-numa-moeda-de-ouro.webp
 ---
 
 Ainda [dia 7](/blog/diario-7-um-dia-uma-imobiliaria-inteira/), mas voltando pro Grana: hoje também automatizei a derivação de carrossel (o post do blog virando texto pronto pra Instagram) e a geração de imagem de capa pra cada post, rodando localmente (ComfyUI + FLUX), sem depender de API externa.

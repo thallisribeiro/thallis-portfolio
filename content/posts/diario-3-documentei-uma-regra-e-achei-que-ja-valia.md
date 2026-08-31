@@ -3,6 +3,7 @@ title: "Diário — Dia 4: Documentei uma regra e achei que ela já estava valen
 date: 2026-08-13
 summary: Escrever a regra num documento e o agente de fato segui-la são duas coisas diferentes. Aprendi isso na marra.
 tema: Agência autônoma
+image: /assets/posts/diario-3-documentei-uma-regra-e-achei-que-ja-valia.webp
 ---
 
 Terceira entrada. [Ontem](/blog/diario-2-o-robo-quis-parar-no-meio-do-trabalho/) foi sobre o agente parando sem necessidade e uma regra desatualizada num arquivo irmão. Hoje o erro foi meu, de um jeito mais sutil.

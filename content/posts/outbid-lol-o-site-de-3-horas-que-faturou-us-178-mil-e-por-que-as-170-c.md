@@ -3,6 +3,7 @@ title: "Outbid.lol: o site de 3 horas que faturou US$ 178 mil, e por que as 170 
 date: 2026-08-30
 summary: Um alemão construiu numa noite de quarta, cozinhando o jantar, um site que faz uma coisa só: você paga pra ficar em primeiro numa lista. Em 77 horas ele reportou 178 mil dólares. Apareceram mais de 170 cópias em semanas. Quase nenhuma repetiu o resultado, e o motivo não está no código.
 tema: Produto e distribuição
+image: /assets/posts/outbid-lol-o-site-de-3-horas-que-faturou-us-178-mil-e-por-que-as-170-c.webp
 ---
 
 Jonathan Wilke descreve assim o que ele fez:

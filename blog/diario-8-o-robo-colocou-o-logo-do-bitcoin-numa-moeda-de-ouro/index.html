@@ -9,9 +9,7 @@
 <meta property="og:title" content="Diário — Dia 7 (parte 2): O robô que gera imagem colocou o logo do Bitcoin numa moeda de ouro — Blog ThallisRibeiro">
 <meta property="og:description" content="Automatizei a capa dos posts com IA de imagem rodando aqui na máquina. Ela alucinou marca em quase tudo, até quando eu mandei explicitamente não fazer isso.">
 <meta property="og:url" content="https://thallisribeiro.com.br/blog/diario-8-o-robo-colocou-o-logo-do-bitcoin-numa-moeda-de-ouro/">
-<meta property="og:image" content="https://thallisribeiro.com.br/assets/og-default.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+<meta property="og:image" content="/assets/posts/diario-8-o-robo-colocou-o-logo-do-bitcoin-numa-moeda-de-ouro.webp">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://thallisribeiro.com.br/blog/diario-8-o-robo-colocou-o-logo-do-bitcoin-numa-moeda-de-ouro/">
 <link rel="alternate" type="application/rss+xml" title="Blog ThallisRibeiro" href="https://thallisribeiro.com.br/feed.xml">
@@ -29,7 +27,7 @@
   "datePublished": "2026-08-16",
   "dateModified": "2026-08-16",
   "mainEntityOfPage": "https://thallisribeiro.com.br/blog/diario-8-o-robo-colocou-o-logo-do-bitcoin-numa-moeda-de-ouro/",
-  "image": "https://thallisribeiro.com.br/assets/og-default.png",
+  "image": "/assets/posts/diario-8-o-robo-colocou-o-logo-do-bitcoin-numa-moeda-de-ouro.webp",
   "author": {
     "@id": "https://thallisribeiro.com.br/#person"
   },
@@ -105,7 +103,7 @@
       <a class="blog-back" href="/blog/">← Todo o blog</a>
       <h1 class="blog-title">Diário — Dia 7 (parte 2): O robô que gera imagem colocou o logo do Bitcoin numa moeda de ouro</h1>
       <p class="blog-byline">Por Thallis Ribeiro · 16/08/2026 · 1 min de leitura · <a class="tema-pill" href="/blog/tema/automacao-de-conteudo/">Automação de conteúdo</a></p>
-      
+      <figure class="blog-hero-img"><img src="/assets/posts/diario-8-o-robo-colocou-o-logo-do-bitcoin-numa-moeda-de-ouro.webp" alt="" loading="eager"><figcaption><p class="capa-credito">Foto de <a href="https://www.magnific.com/free-photo/anthropomorphic-robot-performing-regular-human-job-future_94214686.htm" target="_blank" rel="noopener">magnific</a> no Freepik</p></figcaption></figure>
       <div class="blog-article"><p>Ainda <a href="/blog/diario-7-um-dia-uma-imobiliaria-inteira/" target="_blank" rel="noopener">dia 7</a>, mas voltando pro Grana: hoje também automatizei a derivação de carrossel (o post do blog virando texto pronto pra Instagram) e a geração de imagem de capa pra cada post, rodando localmente (ComfyUI + FLUX), sem depender de API externa.</p><h2>O bug engraçado</h2><p>Os primeiros prompts eram livres, quase poéticos — "uma moeda dourada girando no vazio", esse tipo de coisa. O resultado: a IA colocava o logo do Bitcoin numa moeda que não tinha nada a ver com criptomoeda. Em outra geração, um relógio de bolso saiu com o nome de uma marca inventada gravado no mostrador. Mandei instrução negativa explícita — "sem logo, sem marca, sem texto" — e ela alucinou de novo.</p><h2>O que resolveu de verdade</h2><p>Não foi insistir na instrução negativa. Foi trocar o <em>sujeito</em> da imagem. Uma moeda genérica é uma superfície óbvia pra estampar algo — o modelo "quer" completar aquele espaço vazio com um símbolo reconhecível. Troquei pra objetos sem superfície rotulável natural: uma esfera partida lisa, uma lâmpada nua. O problema sumiu, consistentemente, sem precisar repetir a instrução negativa toda vez.</p><p>Reescrevi os prompts num template fixo: sujeito único, composição definida, tipo de lente/câmera, luz de borda, fundo preto puro. Resultado muito mais consistente que o texto livre de antes.</p><h2>A lição que fica</h2><p>"Não faça X" nem sempre funciona com modelo generativo — às vezes o jeito de evitar um comportamento indesejado não é proibir, é remover a oportunidade estrutural que convida esse comportamento a aparecer. Vale tanto pra imagem quanto, eu ia descobrir depois, pra outras partes do sistema.</p></div>
       
       <div class="share-bar">

@@ -11,8 +11,12 @@
 //   1. `image:` já no frontmatter  -> respeita, não mexe
 //   2. imagem irmã do content-hub  -> a esteira já gerou uma imagem dirigida pra essa
 //      mesma pauta (o visual.md escolhe a cena). É a melhor que existe e é local.
-//   3. nada                        -> post sem capa. Capa errada custa mais que capa
-//      nenhuma: ver o comentário sobre o Openverse no fim deste arquivo.
+//   3. FLUX local (ComfyUI)        -> gera a capa na hora, de graça, sem enviar nada pra
+//      fora. Só com --gerar (post novo): o acervo antigo não vale 50 gerações de uma vez.
+//   4. banco Magnific/Freepik      -> foto editorial de verdade, com a chave que já
+//      existe no .env do Squads100. É a fonte do acervo antigo.
+//   5. nada                        -> post sem capa. Capa errada custa mais que capa
+//      nenhuma: ver o comentário sobre o Openverse mais abaixo.
 //
 // Uso:
 //   node capa-do-post.js content/posts/<slug>.md          uma
@@ -139,8 +143,13 @@ function doContentHub(slug) {
 // As imagens da esteira são 896x1152 (retrato, pra carrossel). Cortar o centro-alto
 // preserva o sujeito: o visual.md posiciona o assunto na parte de cima do quadro.
 function recortar(entrada, saida) {
+  // `force_original_aspect_ratio=increase` cobre o quadro nas DUAS orientações. A versão
+  // anterior escalava só pela largura, então foto mais larga que 16:9 virava 1200x673 e o
+  // crop de 675 estourava a altura -- ffmpeg falhava e o post ficava sem capa em silêncio.
+  // Foi o que aconteceu com 7 dos 53 posts.
   const r = spawnSync('ffmpeg', ['-y', '-i', entrada,
-    '-vf', `scale=${LARGURA}:-1:flags=lanczos,crop=${LARGURA}:${ALTURA}:0:'min(ih-${ALTURA},ih*0.18)'`,
+    '-vf', `scale=${LARGURA}:${ALTURA}:force_original_aspect_ratio=increase:flags=lanczos,`
+         + `crop=${LARGURA}:${ALTURA}:(iw-${LARGURA})/2:'min(ih-${ALTURA},ih*0.18)'`,
     '-frames:v', '1', saida], { encoding: 'utf8' });
   return r.status === 0 && fs.existsSync(saida);
 }
@@ -170,31 +179,113 @@ async function capaDe(arquivo) {
     return { slug, estado: 'esteira', origem: path.basename(local) };
   }
 
-  const doUnsplash = await viaUnsplash(post.meta, slug, saida);
-  if (doUnsplash) { gravarImagem(arquivo, post, publico); return { slug, estado: 'unsplash', autor: doUnsplash }; }
+  // --gerar só nos posts novos: gerar é melhor (imagem exclusiva, nada de foto que
+  // outros dez sites usam), mas 50 gerações de uma vez pro acervo antigo não se paga.
+  if (process.argv.includes('--gerar')) {
+    const flux = await viaFlux(post.meta, saida);
+    if (flux) { gravarImagem(arquivo, post, publico); return { slug, estado: 'flux local' }; }
+  }
 
-  return { slug, estado: 'sem capa' };
+  const stock = await viaMagnific(post.meta, slug, saida);
+  if (stock) { gravarImagem(arquivo, post, publico); return { slug, estado: 'magnific', autor: stock.autor, query: stock.query }; }
+
+  return { slug, estado: 'sem capa', termos: palavrasDe(post.meta) };
 }
 
-// Só roda se UNSPLASH_ACCESS_KEY existir no .env: buscar-imagem.js já trata a API inteira
-// (inclusive o endpoint de download, que é obrigatório pelas diretrizes, não opcional).
-async function viaUnsplash(meta, slug, saida) {
-  if (!fs.existsSync(path.join(ROOT, '.env')) ||
-      !/UNSPLASH_ACCESS_KEY=\S/.test(fs.readFileSync(path.join(ROOT, '.env'), 'utf8'))) return null;
+// ── FLUX local, via ComfyUI ──────────────────────────────────────────────────
+// Zero custo e imagem exclusiva. Exige o ComfyUI no ar (`cd ~/ComfyUI && python main.py
+// --port 8188`); fora do ar, devolve null em silêncio e a próxima fonte assume -- capa
+// nunca pode segurar publicação.
+const COMFY = 'http://127.0.0.1:8188';
+
+async function comfyVivo() {
+  try {
+    const c = new AbortController();
+    const t = setTimeout(() => c.abort(), 1500);
+    const r = await fetch(`${COMFY}/system_stats`, { signal: c.signal });
+    clearTimeout(t);
+    return r.ok;
+  } catch { return null; }
+}
+
+async function viaFlux(meta, saida) {
+  if (!await comfyVivo()) return null;
+  const gerador = 'C:\\Users\\thall\\Documents\\Squads100\\squads\\grana-leads-ig\\edit-engine\\generate_images_local.py';
+  if (!fs.existsSync(gerador)) return null;
+  const termos = palavrasDe(meta);
+  // Prompt de foto, não de ilustração: a capa vive ao lado de texto, então precisa de
+  // assunto concreto e terço inferior calmo, igual à regra do visual.md do carrossel.
+  const prompt = `editorial photograph, ${termos.join(', ') || meta.tema}, real scene, natural light, `
+    + 'single dominant subject in the upper half, calm and simple lower third, high contrast, '
+    + 'no text, no letters, no numbers, no readable interface';
+  const tmpDir = path.join(DESTINO, '.flux');
+  fs.mkdirSync(tmpDir, { recursive: true });
+  const manifesto = path.join(tmpDir, 'manifesto.json');
+  fs.writeFileSync(manifesto, JSON.stringify([{ name: 'capa', prompt }]));
+  // 1216x688 é 16:9 em múltiplo de 16, que é o que o FLUX exige.
+  const r = spawnSync('python', [gerador, manifesto, tmpDir, '1216', '688'], { encoding: 'utf8', timeout: 6 * 60 * 1000 });
+  const gerada = path.join(tmpDir, 'capa.png');
+  if (r.status !== 0 || !fs.existsSync(gerada)) return null;
+  const ok = recortar(gerada, saida);
+  try { fs.unlinkSync(gerada); fs.unlinkSync(manifesto); } catch {}
+  return ok || null;
+}
+
+// ── banco Magnific/Freepik ───────────────────────────────────────────────────
+// A chave já existe no .env do Squads100 e responde direto na API de stock, então isto
+// funciona sem MCP e sem sessão aberta: o agendador das 06:00 usa igual.
+function chaveMagnific() {
+  try {
+    const env = fs.readFileSync('C:\\Users\\thall\\Documents\\Squads100\\.env', 'utf8');
+    const m = env.match(/^MAGNIFIC_API_KEY=(\S+)/m);
+    return m ? m[1] : null;
+  } catch { return null; }
+}
+
+async function viaMagnific(meta, slug, saida) {
+  const chave = chaveMagnific();
+  if (!chave) return null;
   const termos = palavrasDe(meta);
   if (!termos.length) return null;
-  const r = spawnSync(process.execPath, [path.join(ROOT, 'buscar-imagem.js'), termos.join(' ')], { encoding: 'utf8' });
-  let achado; try { achado = JSON.parse(r.stdout); } catch { return null; }
-  if (!achado || !achado.url) return null;
+  const cab = { 'x-freepik-api-key': chave };
+
+  // Mesma escada do Openverse: 3 termos, 2, 1. Query longa volta vazia.
+  let escolhido = null, usada = '';
+  for (let n = termos.length; n >= 1 && !escolhido; n--) {
+    const q = encodeURIComponent(termos.slice(0, n).join(' '));
+    const url = `https://api.freepik.com/v1/resources?term=${q}&limit=10`
+      + '&filters%5Bcontent_type%5D%5Bphoto%5D=1'
+      + '&filters%5Blicense%5D%5Bfreemium%5D=1'
+      + '&filters%5Borientation%5D%5Blandscape%5D=1';
+    try {
+      const r = await fetch(url, { headers: cab });
+      if (!r.ok) continue;
+      const d = await r.json();
+      if (d.data && d.data.length) { escolhido = d.data[0]; usada = termos.slice(0, n).join(' '); }
+    } catch { /* próxima volta */ }
+  }
+  if (!escolhido) return null;
+
+  let arquivo;
+  try {
+    const r = await fetch(`https://api.freepik.com/v1/resources/${escolhido.id}/download`, { headers: cab });
+    if (!r.ok) return null;
+    arquivo = (await r.json()).data;
+  } catch { return null; }
+  if (!arquivo || !arquivo.url) return null;
+
   const tmp = path.join(DESTINO, `.${slug}.tmp`);
-  if (!await baixar(achado.url, tmp)) return null;
+  if (!await baixar(arquivo.url, tmp)) return null;
   const ok = recortar(tmp, saida);
-  fs.unlinkSync(tmp);
+  try { fs.unlinkSync(tmp); } catch {}
   if (!ok) return null;
+
+  const autor = (escolhido.author && escolhido.author.name) || 'Freepik';
   fs.writeFileSync(path.join(DESTINO, `${slug}.json`),
-    JSON.stringify({ autor: achado.fotografo, fonte: achado.url_unsplash, banco: 'Unsplash' }, null, 2) + '\n');
-  return achado.fotografo;
+    JSON.stringify({ autor, fonte: escolhido.url || '', banco: 'Freepik' }, null, 2) + '\n');
+  return { autor, query: usada };
 }
+
 
 // ── self-test ────────────────────────────────────────────────────────────────
 function selfTest() {

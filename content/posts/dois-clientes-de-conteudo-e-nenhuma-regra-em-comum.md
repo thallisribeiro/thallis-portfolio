@@ -3,6 +3,7 @@ title: "Descobri que meus dois clientes de conteúdo não tinham nenhuma regra e
 date: 2026-08-21
 tema: Agência autônoma
 summary: Grana e Wil, dois squads de conteúdo ativos, cada um com seu próprio padrão de qualidade. E nenhum princípio compartilhado escrito em lugar nenhum.
+image: /assets/posts/dois-clientes-de-conteudo-e-nenhuma-regra-em-comum.webp
 ---
 
 Mais uma peça do que ficou de fora do [diário principal](/blog/diario-12-contratei-sete-funcionarios-no-mesmo-dia/): o squad `thallis-cultura` nasceu de um buraco específico que só ficou visível quando parei pra olhar de fora.

@@ -3,6 +3,7 @@ title: "O checklist técnico de SEO que apliquei no meu próprio site"
 date: 2026-08-21
 tema: Site & copy
 summary: Depois de auditar a copy, fiz a mesma coisa com o SEO técnico. Descobri que a home não tinha nenhum Open Graph configurado.
+image: /assets/posts/o-checklist-tecnico-de-seo-que-apliquei-no-meu-site.webp
 ---
 
 Depois de [auditar a copy do meu site](/blog/raio-x-da-copy-do-meu-site/), fiz a mesma coisa com a parte técnica de SEO. A régua: pesquisar prática atual, comparar com o que o blog do Grana já faz, aplicar o que estava faltando aqui.

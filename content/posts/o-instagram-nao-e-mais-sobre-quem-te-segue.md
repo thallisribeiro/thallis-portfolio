@@ -3,6 +3,7 @@ title: O Instagram não é mais sobre quem te segue
 date: 2026-08-29
 summary: A mudança recente no algoritmo de descoberta do Instagram derruba a vantagem de quem já tinha audiência grande.
 tema: Mercado
+image: /assets/posts/o-instagram-nao-e-mais-sobre-quem-te-segue.webp
 ---
 
 Mais da metade do que aparece no feed hoje vem de conta que a pessoa nem segue. Isso é a melhor notícia da década pra negócio pequeno.

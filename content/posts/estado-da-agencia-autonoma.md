@@ -3,6 +3,7 @@ title: Como está a agência autônoma que eu opero com IA (números reais, sem 
 date: 2026-08-21
 summary: 23 squads de agentes catalogados. Só 7 já rodaram de verdade pelo menos uma vez. Mostro os dois números, não só o bonito.
 tema: Agência autônoma
+image: /assets/posts/estado-da-agencia-autonoma.webp
 ---
 
 Por trás dos sites que eu entrego (o meu, o Grana, o Eunoimóvel) tem um sistema que eu venho construindo: uma agência operada por squads de agentes de IA — cada squad é um pipeline de agentes especializados fazendo um trabalho específico (escrever post, analisar anúncio, revisar conteúdo, montar site).

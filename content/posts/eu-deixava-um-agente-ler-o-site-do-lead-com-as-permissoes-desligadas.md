@@ -3,6 +3,7 @@ title: Eu deixava um agente ler o site do lead com as permissões desligadas
 date: 2026-08-28
 summary: O pipeline baixava o HTML do site de um estranho e mandava direto pra um Claude rodando com --dangerously-skip-permissions. Ninguém me atacou. Eu só percebi antes.
 tema: Agência autônoma
+image: /assets/posts/eu-deixava-um-agente-ler-o-site-do-lead-com-as-permissoes-desligadas.webp
 ---
 
 Uma das partes do meu sistema de prospecção funciona assim: antes do primeiro disparo frio, ele gera uma prévia de site pro lead. Se a empresa não tem site, monta a partir de um template da categoria. Se tem site, o caminho é mais interessante — ele baixa o HTML do site atual e pede pro Claude fazer um redesign em cima daquilo, pra mensagem chegar com um "olha como ficaria" em vez de um "oi, quer um site?".

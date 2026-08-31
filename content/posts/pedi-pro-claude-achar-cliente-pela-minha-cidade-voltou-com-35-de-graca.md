@@ -3,6 +3,7 @@ title: Pedi pro Claude achar cliente pela minha cidade. Voltou com 35, de graça
 date: 2026-08-22
 summary: Rodei um agente de prospecção do início ao fim numa cidade real e ele voltou com 35 leads qualificados, com fato verificável em cada um, sem pagar nenhuma ferramenta de lead-gen.
 tema: Agência autônoma
+image: /assets/posts/pedi-pro-claude-achar-cliente-pela-minha-cidade-voltou-com-35-de-graca.webp
 ---
 
 Era a primeira vez que eu rodava esse agente de prospecção do início ao fim, numa cidade real de verdade, sem saber se ia dar em algo. Escolhi Eunápolis. O trabalho dele: pesquisar negócios locais que se beneficiariam de um site melhor, sem lista comprada, sem raspagem de dado ilegal, só pesquisa real.

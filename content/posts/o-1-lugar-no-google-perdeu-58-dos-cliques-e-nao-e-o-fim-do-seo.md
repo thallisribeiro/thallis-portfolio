@@ -3,6 +3,7 @@ title: O 1º lugar no Google perdeu 58% dos cliques (e não é o fim do SEO)
 date: 2026-08-25
 summary: Dados da Ahrefs mostram queda real de cliques por causa do AI Overviews. A posição 1 sofre mais, mas 63% das empresas ainda relatam ganho de tráfego.
 tema: Site & copy
+image: /assets/posts/o-1-lugar-no-google-perdeu-58-dos-cliques-e-nao-e-o-fim-do-seo.webp
 ---
 
 Ranquear em primeiro lugar no Google deixou de significar o que significava há dois anos. Segundo a Ahrefs (dezembro de 2025), a posição 1 perdeu 58% dos cliques orgânicos. A posição 5 perdeu 32,6%. A posição 10, 19,4%. Quanto mais alto o site estava, mais sentiu a queda.

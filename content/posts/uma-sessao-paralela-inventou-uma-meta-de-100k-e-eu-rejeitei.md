@@ -3,6 +3,7 @@ title: "Uma sessão paralela minha inventou uma meta de R$100k e eu rejeitei na 
 date: 2026-08-20
 tema: Agência autônoma
 summary: "Um mockup de planejamento trimestral apareceu com número bonito e nenhum mecanismo real por trás. Foi o gatilho pra criar um squad só pra auditar antes de propor."
+image: /assets/posts/uma-sessao-paralela-inventou-uma-meta-de-100k-e-eu-rejeitei.webp
 ---
 
 Complemento da [entrada sobre os 7 squads criados no mesmo dia](/blog/diario-12-contratei-sete-funcionarios-no-mesmo-dia/): um deles, o `thallis-diretoria`, nasceu de um incidente específico que vale contar separado.

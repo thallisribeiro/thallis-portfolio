@@ -3,6 +3,7 @@ title: Prospectei Eunápolis inteira em 28 ciclos. Sei a diferença entre satura
 date: 2026-08-24
 summary: No 6º ciclo achei que a cidade tinha acabado. No seguinte vieram 23 leads. A saturação de verdade só chegou no 28º, e o sinal não foi o número.
 tema: Agência autônoma
+image: /assets/posts/prospectei-eunapolis-inteira-em-28-ciclos-sei-a-diferenca-entre-satura.webp
 ---
 
 Já contei aqui que pedi pro Claude achar clientes na minha cidade e ele voltou com uma lista. O que eu não contei é o que acontece quando você repete isso 28 vezes na mesma cidade.

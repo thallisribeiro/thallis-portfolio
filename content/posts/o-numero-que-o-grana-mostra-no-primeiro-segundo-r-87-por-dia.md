@@ -3,6 +3,7 @@ title: O número que o Grana mostra no primeiro segundo: R$87 por dia
 date: 2026-08-23
 summary: A maioria só vê o orçamento no extrato, no fim do mês. Construí no Grana um cálculo que mostra o custo de sobrevivência diário assim que o app abre.
 tema: Produto
+image: /assets/posts/o-numero-que-o-grana-mostra-no-primeiro-segundo-r-87-por-dia.webp
 ---
 
 A maioria das pessoas nunca calculou quanto custa, por dia, só pra sobreviver: sem luxo, sem gasto variável, só o que é fixo dividido pelos dias do mês. Não é sobre fazer orçamento. É sobre um número que quase ninguém nunca viu de frente.

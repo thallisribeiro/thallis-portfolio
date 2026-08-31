@@ -3,6 +3,7 @@ title: Por que documento todo erro em público, de propósito
 date: 2026-08-24
 summary: Mostro o bug antes do print bonito, de propósito, porque é assim que se constrói confiança calculável com quem pensa em me contratar.
 tema: Agência autônoma
+image: /assets/posts/por-que-documento-todo-erro-em-publico-de-proposito.webp
 ---
 
 Quase todo mundo que mostra o trabalho on-line mostra só o resultado: o antes e depois bonito, o print do cliente feliz. Eu decidi fazer diferente: documento todo erro em público, de propósito, não só os acertos. É mais estranho do que parece, e é exatamente por isso que funciona.

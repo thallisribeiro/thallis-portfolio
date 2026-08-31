@@ -3,6 +3,7 @@ title: "Diário — Dia 1: Contratei meu primeiro funcionário, e ele é um rob�
 date: 2026-08-10
 summary: O dia em que criei o primeiro squad de agentes de IA. É o começo de tudo que virou essa agência autônoma.
 tema: Agência autônoma
+image: /assets/posts/diario-1-contratei-meu-primeiro-funcionario-e-ele-e-um-robo.webp
 ---
 
 Diário de bordo: a agência onde todo funcionário é uma IA. Esta é a primeira entrada.

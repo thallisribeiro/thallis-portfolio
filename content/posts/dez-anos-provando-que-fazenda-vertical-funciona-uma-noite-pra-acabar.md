@@ -3,6 +3,7 @@ title: Dez anos provando que fazenda vertical funciona. Uma noite pra acabar.
 date: 2026-08-31
 summary: A 80 Acres Farms vendia alface em mais de 18 mil mercados americanos e negociava a aquisição que pagaria a continuidade da operação. Na noite de domingo, o comprador desistiu. Na segunda de manhã, a empresa fechou tudo.
 tema: Mercado
+image: /assets/posts/dez-anos-provando-que-fazenda-vertical-funciona-uma-noite-pra-acabar.webp
 ---
 
 A 80 Acres Farms encerrou todas as operações na segunda-feira, 3 de agosto de 2026. Na noite anterior, domingo, o comprador que negociava a aquisição da empresa desistiu.

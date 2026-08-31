@@ -3,6 +3,7 @@ title: Tirei a autorização manual do bot do Telegram: agora ele só avisa
 date: 2026-08-22
 summary: Troquei "posso fazer isso?" por "fiz isso" na ponte de automação da agência, e isso expõe o real teste da palavra "autônoma".
 tema: Agência autônoma
+image: /assets/posts/tirei-a-autorizacao-manual-do-bot-do-telegram-agora-ele-so-avisa.webp
 ---
 
 Tenho um bot no Telegram que serve de ponte entre mim e os squads de agentes que rodam a agência. Até pouco tempo, o fluxo era: o agente decidia uma ação, mandava mensagem perguntando se podia executar, eu respondia sim ou não. Mudei isso. Agora ele executa e manda relatório do que fez — não pedido do que vai fazer.

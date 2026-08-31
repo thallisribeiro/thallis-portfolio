@@ -3,6 +3,7 @@ title: Simplifiquei o painel que eu uso pra rodar minha agência de IA
 date: 2026-08-21
 summary: O painel tinha 11 seções empilhadas numa página só e um alerta importante que carregava mas nunca aparecia na tela. Refiz a hierarquia inteira.
 tema: Agência autônoma
+image: /assets/posts/simplifiquei-o-painel-que-uso-pra-rodar-a-agencia.webp
 ---
 
 Eu tenho um painel interno ("Sala do CEO") que resume o estado da minha agência de agentes todo dia. Semana passada percebi um problema clássico: ele tinha virado uma bagunça de informação — 11 seções diferentes empilhadas numa página só, sem nenhuma hierarquia de urgência.

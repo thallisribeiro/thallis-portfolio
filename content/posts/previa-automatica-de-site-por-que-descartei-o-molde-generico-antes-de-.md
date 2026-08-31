@@ -3,6 +3,7 @@ title: Prévia automática de site: por que descartei o molde genérico antes de
 date: 2026-08-24
 summary: Decidi que a prévia que o lead recebe usa template por categoria de negócio, não um molde único. A decisão saiu de uma spec, não do código.
 tema: Agência autônoma
+image: /assets/posts/previa-automatica-de-site-por-que-descartei-o-molde-generico-antes-de-.webp
 ---
 
 Essa semana escrevi a spec de uma feature nova pra prospecção: gerar uma prévia automática de site pro lead antes mesmo do primeiro contato dar em algo. Dois cenários — o negócio que não tem site nenhum, e o que tem um site velho pedindo redesign. A ideia é simples: em vez de dizer "posso fazer um site pra você", mostrar o site já meio pronto, com o nome e a cara do negócio da pessoa.

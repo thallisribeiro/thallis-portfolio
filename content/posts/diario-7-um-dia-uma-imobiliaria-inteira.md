@@ -3,6 +3,7 @@ title: "Diário — Dia 7: Um dia, uma imobiliária inteira"
 date: 2026-08-16
 summary: Identidade visual, controle de acesso por região, busca, autenticação, favoritos e SEO técnico. Tudo no mesmo dia, no Eunoimóvel.
 tema: Produto
+image: /assets/posts/diario-7-um-dia-uma-imobiliaria-inteira.webp
 ---
 
 Sétima entrada. Se o [dia anterior](/blog/diario-6-no-mesmo-dia-comecei-a-reconstruir-uma-imobiliaria-inteira/) foi tirar o Eunoimóvel do zero e colocar uma URL no ar, hoje foi transformar aquele esqueleto em site de verdade.

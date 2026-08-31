@@ -3,6 +3,7 @@ title: Produto viral não é produto replicável: a lição dos 170 clones
 date: 2026-08-30
 summary: Um site feito em 3 horas faturou US$ 178 mil em 77 horas, segundo o autor. Mais de 170 pessoas copiaram e quase nenhuma repetiu o resultado. Se o valor estivesse no código, todas teriam faturado o mesmo. A pergunta certa antes de copiar qualquer produto é outra.
 tema: Produto e distribuição
+image: /assets/posts/produto-viral-nao-e-produto-replicavel-a-licao-dos-170-clones.webp
 ---
 
 Um site construído em cerca de 3 horas faturou 178 mil dólares em 77 horas, segundo o próprio autor.

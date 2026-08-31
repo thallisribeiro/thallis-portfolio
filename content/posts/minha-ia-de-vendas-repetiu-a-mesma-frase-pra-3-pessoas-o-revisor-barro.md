@@ -3,6 +3,7 @@ title: Minha IA de vendas repetiu a mesma frase pra 3 pessoas. O revisor barrou 
 date: 2026-08-23
 summary: Um agente de vendas caiu num atalho e repetiu a mesma abertura em 3 mensagens diferentes. Outro agente, cujo único trabalho é revisar, travou tudo antes de qualquer lead ver.
 tema: Agência autônoma
+image: /assets/posts/minha-ia-de-vendas-repetiu-a-mesma-frase-pra-3-pessoas-o-revisor-barro.webp
 ---
 
 Antes de qualquer mensagem de venda sair pra um lead de verdade na minha operação, ela passa por outro agente. O trabalho dele é só um: ler cada mensagem antes de qualquer pessoa ver, e barrar o que não presta.

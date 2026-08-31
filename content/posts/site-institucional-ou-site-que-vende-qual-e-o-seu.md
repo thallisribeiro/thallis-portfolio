@@ -3,6 +3,7 @@ title: Site institucional ou site que vende: qual é o seu?
 date: 2026-08-27
 summary: A diferença entre um site institucional e um site que vende é estrutural, não estética, e a maioria dos pequenos negócios só tem o primeiro.
 tema: Site & copy
+image: /assets/posts/site-institucional-ou-site-que-vende-qual-e-o-seu.webp
 ---
 
 Seu site é um cartão de visita ou um vendedor? A pergunta parece boba até você notar que a resposta muda o motivo de existir do próprio site. Confundir as duas coisas é o erro mais comum entre pequenos negócios: acham que ter um site bonito já resolve, sem perceber que bonito e que vende são categorias diferentes, e que dá pra ter as duas coisas ao mesmo tempo ou nenhuma das duas.
