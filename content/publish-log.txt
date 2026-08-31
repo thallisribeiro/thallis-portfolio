@@ -100,3 +100,5 @@
 [2026-08-31T02:36:26.054Z] [ensure-queue] gerando post — modo: real
 [2026-08-31T02:37:13.517Z] [ensure-queue] sem imagem pra este post (sem chave configurada ou nada encontrado) — seguindo sem imagem
 [2026-08-31T02:37:16.233Z] [ensure-queue] preparado pra publicar: "A IA que escreve não pode ser a mesma que aprova" (modo real)
+[2026-08-31T09:30:01.519Z] [ensure-queue] fila já tem 1 post(s) — nada a gerar
+[2026-08-31T10:00:05.066Z] publicado: /blog/a-ia-que-escreve-nao-pode-ser-a-mesma-que-aprova/ — "A IA que escreve não pode ser a mesma que aprova"

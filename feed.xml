@@ -5,6 +5,13 @@
   <description>O que eu vou construindo, testando e aprendendo sobre site, conteúdo e automação com IA.</description>
   <language>pt-BR</language>
   <item>
+    <title>A Ford achou que IA sozinha garantia qualidade. Precisou de mais de 350 veteranos.</title>
+    <link>https://thallisribeiro.com.br/blog/a-ford-achou-que-ia-sozinha-garantia-qualidade-precisou-de-mais-de-350/</link>
+    <guid>https://thallisribeiro.com.br/blog/a-ford-achou-que-ia-sozinha-garantia-qualidade-precisou-de-mais-de-350/</guid>
+    <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+    <description>A Ford apostou que inteligência artificial mais requisitos de projeto ajustados produziriam carro de alta qualidade. Não produziram. A história de como a montadora admitiu o erro em público, trouxe de volta os engenheiros experientes e voltou ao topo de um ranking que não vencia desde 2010.</description>
+  </item>
+  <item>
     <title>A IA que escreve não pode ser a mesma que aprova</title>
     <link>https://thallisribeiro.com.br/blog/a-ia-que-escreve-nao-pode-ser-a-mesma-que-aprova/</link>
     <guid>https://thallisribeiro.com.br/blog/a-ia-que-escreve-nao-pode-ser-a-mesma-que-aprova/</guid>
@@ -136,12 +143,5 @@
     <guid>https://thallisribeiro.com.br/blog/por-que-documento-todo-erro-em-publico-de-proposito/</guid>
     <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
     <description>Mostro o bug antes do print bonito, de propósito, porque é assim que se constrói confiança calculável com quem pensa em me contratar.</description>
-  </item>
-  <item>
-    <title>Prévia automática de site: por que descartei o molde genérico antes de escrever uma linha de código</title>
-    <link>https://thallisribeiro.com.br/blog/previa-automatica-de-site-por-que-descartei-o-molde-generico-antes-de-/</link>
-    <guid>https://thallisribeiro.com.br/blog/previa-automatica-de-site-por-que-descartei-o-molde-generico-antes-de-/</guid>
-    <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
-    <description>Decidi que a prévia que o lead recebe usa template por categoria de negócio, não um molde único. A decisão saiu de uma spec, não do código.</description>
   </item>
 </channel></rss>
