@@ -1,5 +1,6 @@
 ---
 title: A IA que escreve não pode ser a mesma que aprova
+date: 2026-08-31
 summary: Separei quem escreve de quem julga na minha máquina de conteúdo, e o publicador agora se recusa a postar qualquer coisa sem um APPROVED explícito.
 tema: Agência autônoma
 ---

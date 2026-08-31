@@ -5,6 +5,13 @@
   <description>O que eu vou construindo, testando e aprendendo sobre site, conteúdo e automação com IA.</description>
   <language>pt-BR</language>
   <item>
+    <title>A IA que escreve não pode ser a mesma que aprova</title>
+    <link>https://thallisribeiro.com.br/blog/a-ia-que-escreve-nao-pode-ser-a-mesma-que-aprova/</link>
+    <guid>https://thallisribeiro.com.br/blog/a-ia-que-escreve-nao-pode-ser-a-mesma-que-aprova/</guid>
+    <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Separei quem escreve de quem julga na minha máquina de conteúdo, e o publicador agora se recusa a postar qualquer coisa sem um APPROVED explícito.</description>
+  </item>
+  <item>
     <title>Clonar um SaaS com IA ficou fácil. O difícil é saber o que não clonar</title>
     <link>https://thallisribeiro.com.br/blog/clonar-um-saas-com-ia-ficou-facil-o-dificil-e-saber-o-que-nao-clonar/</link>
     <guid>https://thallisribeiro.com.br/blog/clonar-um-saas-com-ia-ficou-facil-o-dificil-e-saber-o-que-nao-clonar/</guid>
@@ -136,12 +143,5 @@
     <guid>https://thallisribeiro.com.br/blog/previa-automatica-de-site-por-que-descartei-o-molde-generico-antes-de-/</guid>
     <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
     <description>Decidi que a prévia que o lead recebe usa template por categoria de negócio, não um molde único. A decisão saiu de uma spec, não do código.</description>
-  </item>
-  <item>
-    <title>Prospectei Eunápolis inteira em 28 ciclos. Sei a diferença entre saturação falsa e real porque errei a primeira</title>
-    <link>https://thallisribeiro.com.br/blog/prospectei-eunapolis-inteira-em-28-ciclos-sei-a-diferenca-entre-satura/</link>
-    <guid>https://thallisribeiro.com.br/blog/prospectei-eunapolis-inteira-em-28-ciclos-sei-a-diferenca-entre-satura/</guid>
-    <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
-    <description>No 6º ciclo achei que a cidade tinha acabado. No seguinte vieram 23 leads. A saturação de verdade só chegou no 28º, e o sinal não foi o número.</description>
   </item>
 </channel></rss>
