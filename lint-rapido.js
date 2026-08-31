@@ -71,6 +71,28 @@ function checarControle() {
   return achados;
 }
 
+// Barra invertida colada num TAB nunca é intencional: é uma sequência de escape que virou
+// tabulação ao atravessar uma string mal escapada. O caminho "..\testes.cmd" vira
+// "..\<TAB>estes.cmd", some em todo grep porque TAB é caractere legítimo, e o comando
+// deixa de existir sem nenhum erro. Aconteceu três vezes em 31/08.
+//
+// O par é montado por código de caractere de propósito: escrevê-lo como literal aqui é
+// exatamente o que produz o defeito que esta regra procura.
+const BARRA_TAB = String.fromCharCode(92, 9);
+
+function checarEscapeMastigado() {
+  const achados = [];
+  for (const f of fontes()) {
+    let t; try { t = fs.readFileSync(f, 'utf8'); } catch { continue; }
+    t.split('\n').forEach((linha, i) => {
+      if (linha.includes(BARRA_TAB)) {
+        achados.push(`${path.relative(ROOT, f)}:${i + 1} — barra invertida seguida de TAB (escape mastigado)`);
+      }
+    });
+  }
+  return achados;
+}
+
 // O gerador declara o que escreve fora de blog/. Se ele escreve num alvo que não está no
 // manifesto, esse arquivo sobe velho para sempre e ninguém percebe.
 function checarManifesto() {
@@ -113,12 +135,21 @@ function selfTest() {
   assert.strictEqual(achaControle('const s = "história";'), null);
   // 4. o proprio arquivo passa
   assert.strictEqual(achaControle(fs.readFileSync(__filename, 'utf8')), null);
-  console.log('[lint-rapido] self-test OK — 4 casos');
+
+  // 5. barra invertida colada em TAB e escape mastigado
+  const B = String.fromCharCode(92), T = String.fromCharCode(9);
+  assert.ok(('call "%RAIZ%..' + B + T + 'estes.cmd"').includes(BARRA_TAB));
+  // 6. TAB sozinho e alinhamento normal de codigo
+  assert.ok(!('const a = 1;' + T + '// comentario alinhado').includes(BARRA_TAB));
+  // 7. caminho do Windows com barras normais nao e falso positivo
+  assert.ok(!('C:' + B + 'Users' + B + 'thall' + B + 'testes.cmd').includes(BARRA_TAB));
+
+  console.log('[lint-rapido] self-test OK — 7 casos');
 }
 
 function main() {
   if (process.argv.includes('--self-test')) return selfTest();
-  const achados = [...checarControle(), ...checarManifesto(), ...checarSintaxe()];
+  const achados = [...checarControle(), ...checarEscapeMastigado(), ...checarManifesto(), ...checarSintaxe()];
   if (!achados.length) {
     console.log('[lint-rapido] ok — sem caractere de controle, manifesto completo, sintaxe válida');
     return;
