@@ -102,3 +102,7 @@
 [2026-08-31T02:37:16.233Z] [ensure-queue] preparado pra publicar: "A IA que escreve não pode ser a mesma que aprova" (modo real)
 [2026-08-31T09:30:01.519Z] [ensure-queue] fila já tem 1 post(s) — nada a gerar
 [2026-08-31T10:00:05.066Z] publicado: /blog/a-ia-que-escreve-nao-pode-ser-a-mesma-que-aprova/ — "A IA que escreve não pode ser a mesma que aprova"
+[2026-08-31T14:30:01.704Z] [ensure-queue] gerando post — modo: real
+[2026-08-31T14:30:45.082Z] [ensure-queue] sem imagem pra este post (sem chave configurada ou nada encontrado) — seguindo sem imagem
+[2026-08-31T14:30:47.617Z] [ensure-queue] preparado pra publicar: "Testei gerar capa com FLUX local. Um commit depois, voltei pro banco." (modo real)
+[2026-08-31T14:52:51.698Z] [ensure-queue] fila já tem 1 post(s) — nada a gerar

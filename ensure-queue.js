@@ -269,6 +269,18 @@ async function main() {
   // e um artigo, e o artigo ja sai reangulado pra intencao de busca. Ele so nunca
   // era transportado ate aqui -- em 2026-08-28 havia 8 artigos escritos e parados.
   // Entra antes de tudo: ja esta pronto, nao custa chamada de modelo.
+  // Teto do dia. As 3 pecas da esteira ja vao pro blog junto com os carrosseis (o
+  // instagram-slot publica o artigo irmao no mesmo minuto). Gerar por cima disso dobrava
+  // o blog pra 6/dia. Aqui ele so entra quando a esteira nao entregou.
+  const hoje = new Date().toISOString().slice(0, 10);
+  const publicadosHoje = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.md'))
+    .filter(f => /^date:\s*(\S+)/m.test(fs.readFileSync(path.join(POSTS_DIR, f), 'utf-8'))
+      && fs.readFileSync(path.join(POSTS_DIR, f), 'utf-8').match(/^date:\s*(\S+)/m)[1] === hoje).length;
+  if (publicadosHoje >= 3) {
+    log(`o dia já tem ${publicadosHoje} posts — nada a gerar`);
+    return;
+  }
+
   const doContentHub = proximoArtigoDoContentHub();
   if (doContentHub) {
     const destino = path.join(QUEUE_DIR, doContentHub.slug + '.md');
