@@ -97,7 +97,10 @@ function main() {
   // num laço: o publish falhava sempre, e o ensure-queue saía cedo por ver a fila cheia,
   // sem nunca chegar na linha que commitaria o arquivo.
   const filaRastreada = run('git', ['ls-files', '--', queueRelative]).stdout.length > 0;
-  const publicationPaths = [postRelative, ...(filaRastreada ? [queueRelative] : []), 'blog/', 'feed.xml', 'sitemap.xml'];
+  // A home e a pagina da ficha tambem sao ESCRITAS pelo generate-blog (ultimas ideias,
+  // numeros da prova, bloco de captura). Ficavam fora do commit, entao a home ficava
+  // permanentemente um post atras do blog -- e a home e a pagina mais vista da casa.
+  const publicationPaths = [postRelative, ...(filaRastreada ? [queueRelative] : []), 'blog/', 'feed.xml', 'sitemap.xml', 'index.html', 'ficha-de-apuracao/index.html'];
   const add = run('git', ['add', '--', ...publicationPaths]);
   if (!add.ok) {
     const rollback = rollbackUncommittedPublication({ queuePath, raw, postPath, publicationPaths });

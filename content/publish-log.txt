@@ -93,3 +93,7 @@
 [2026-08-30T15:00:02.229Z] 1 commit(s) local(is) aguardando push — tentando novamente
 [2026-08-30T15:00:04.914Z] push pendente concluído
 [2026-08-30T15:00:07.909Z] publicado: /blog/clonar-um-saas-com-ia-ficou-facil-o-dificil-e-saber-o-que-nao-clonar/ — "Clonar um SaaS com IA ficou fácil. O difícil é saber o que não clonar"
+[2026-08-30T20:30:02.161Z] [ensure-queue] artigo do content-hub aproveitado: Produto viral não é produto replicável: a lição dos 170 clones
+[2026-08-30T21:00:02.044Z] 1 commit(s) local(is) aguardando push — tentando novamente
+[2026-08-30T21:00:04.339Z] push pendente concluído
+[2026-08-30T21:00:06.972Z] publicado: /blog/produto-viral-nao-e-produto-replicavel-a-licao-dos-170-clones/ — "Produto viral não é produto replicável: a lição dos 170 clones"
