@@ -7,15 +7,13 @@
 // vezes, lado a lado consigo mesmo -- a mesma informação ocupando o dobro do espaço e
 // entregando zero. Miniatura existe pra dar o que o texto não dá.
 //
-// Ordem das fontes, da melhor pra pior:
-//   1. `image:` já no frontmatter  -> respeita, não mexe
-//   2. imagem irmã do content-hub  -> a esteira já gerou uma imagem dirigida pra essa
-//      mesma pauta (o visual.md escolhe a cena). É a melhor que existe e é local.
-//   3. FLUX local (ComfyUI)        -> gera a capa na hora, de graça, sem enviar nada pra
-//      fora. Só com --gerar (post novo): o acervo antigo não vale 50 gerações de uma vez.
-//   4. banco Magnific/Freepik      -> foto editorial de verdade, com a chave que já
-//      existe no .env do Squads100. É a fonte do acervo antigo.
-//   5. nada                        -> post sem capa. Capa errada custa mais que capa
+// Uma fonte só, por decisão do Thallis em 31/08 ("o banco tá ótimo, não precisa gerar
+// nada"): o banco Magnific/Freepik. Antes havia FLUX local e reaproveitamento da imagem
+// da esteira; os dois saíram. Uma fonte não tem como divergir da outra.
+//
+//   1. `image:` já no frontmatter -> respeita, não mexe
+//   2. banco Magnific/Freepik     -> foto editorial, com a chave que já está no .env
+//   3. nada                       -> post sem capa. Capa errada custa mais que capa
 //      nenhuma: ver o comentário sobre o Openverse mais abaixo.
 //
 // Uso:
@@ -30,7 +28,6 @@ const { spawnSync } = require('child_process');
 const ROOT = __dirname;
 const POSTS = path.join(ROOT, 'content', 'posts');
 const DESTINO = path.join(ROOT, 'assets', 'posts');
-const GERADO_IA = 'C:\\Users\\thall\\Documents\\Squads100\\_contenthub\\_clientes\\thallisribeiro\\assets\\gerado-ia';
 
 // 1200x675: 16:9 no tamanho que o card (600x338) e o og:image usam sem esticar.
 const LARGURA = 1200, ALTURA = 675;
@@ -108,23 +105,6 @@ function palavrasDe(post) {
   return termos;
 }
 
-// ── fonte 2: a imagem que a esteira já gerou pra essa pauta ──────────────────
-function doContentHub(slug) {
-  if (!fs.existsSync(GERADO_IA)) return null;
-  const alvo = normalizar(slug).replace(/\s+/g, '-');
-  const arquivos = fs.readdirSync(GERADO_IA).filter((f) => /\.(jpe?g|png|webp)$/i.test(f));
-  // Casa por prefixo comum longo: o nome do arquivo costuma ser o assunto, não o slug
-  // inteiro ("80-acres-farms.jpg" para "dez-anos-provando-que-...").
-  let melhor = null, melhorNota = 0;
-  for (const f of arquivos) {
-    const base = normalizar(path.parse(f).name).replace(/\s+/g, '-');
-    const pedacos = base.split('-').filter((p) => p.length >= 4);
-    const nota = pedacos.filter((p) => alvo.includes(p)).length;
-    if (nota > melhorNota) { melhorNota = nota; melhor = path.join(GERADO_IA, f); }
-  }
-  return melhorNota >= 2 ? melhor : null;
-}
-
 // ── por que não existe fonte 3 ──────────────────────────────────────────────
 // Tentei o Openverse (banco com licença aberta, sem chave de API) em 31/08. Pedindo a
 // capa do post sobre a Ford, ele devolveu o still de vídeo de uma pessoa real
@@ -173,62 +153,10 @@ async function capaDe(arquivo) {
   const saida = path.join(DESTINO, `${slug}.webp`);
   const publico = `/assets/posts/${slug}.webp`;
 
-  const local = doContentHub(slug);
-  if (local && recortar(local, saida)) {
-    gravarImagem(arquivo, post, publico);
-    return { slug, estado: 'esteira', origem: path.basename(local) };
-  }
-
-  // --gerar só nos posts novos: gerar é melhor (imagem exclusiva, nada de foto que
-  // outros dez sites usam), mas 50 gerações de uma vez pro acervo antigo não se paga.
-  if (process.argv.includes('--gerar')) {
-    const flux = await viaFlux(post.meta, saida);
-    if (flux) { gravarImagem(arquivo, post, publico); return { slug, estado: 'flux local' }; }
-  }
-
   const stock = await viaMagnific(post.meta, slug, saida);
   if (stock) { gravarImagem(arquivo, post, publico); return { slug, estado: 'magnific', autor: stock.autor, query: stock.query }; }
 
   return { slug, estado: 'sem capa', termos: palavrasDe(post.meta) };
-}
-
-// ── FLUX local, via ComfyUI ──────────────────────────────────────────────────
-// Zero custo e imagem exclusiva. Exige o ComfyUI no ar (`cd ~/ComfyUI && python main.py
-// --port 8188`); fora do ar, devolve null em silêncio e a próxima fonte assume -- capa
-// nunca pode segurar publicação.
-const COMFY = 'http://127.0.0.1:8188';
-
-async function comfyVivo() {
-  try {
-    const c = new AbortController();
-    const t = setTimeout(() => c.abort(), 1500);
-    const r = await fetch(`${COMFY}/system_stats`, { signal: c.signal });
-    clearTimeout(t);
-    return r.ok;
-  } catch { return null; }
-}
-
-async function viaFlux(meta, saida) {
-  if (!await comfyVivo()) return null;
-  const gerador = 'C:\\Users\\thall\\Documents\\Squads100\\squads\\grana-leads-ig\\edit-engine\\generate_images_local.py';
-  if (!fs.existsSync(gerador)) return null;
-  const termos = palavrasDe(meta);
-  // Prompt de foto, não de ilustração: a capa vive ao lado de texto, então precisa de
-  // assunto concreto e terço inferior calmo, igual à regra do visual.md do carrossel.
-  const prompt = `editorial photograph, ${termos.join(', ') || meta.tema}, real scene, natural light, `
-    + 'single dominant subject in the upper half, calm and simple lower third, high contrast, '
-    + 'no text, no letters, no numbers, no readable interface';
-  const tmpDir = path.join(DESTINO, '.flux');
-  fs.mkdirSync(tmpDir, { recursive: true });
-  const manifesto = path.join(tmpDir, 'manifesto.json');
-  fs.writeFileSync(manifesto, JSON.stringify([{ name: 'capa', prompt }]));
-  // 1216x688 é 16:9 em múltiplo de 16, que é o que o FLUX exige.
-  const r = spawnSync('python', [gerador, manifesto, tmpDir, '1216', '688'], { encoding: 'utf8', timeout: 6 * 60 * 1000 });
-  const gerada = path.join(tmpDir, 'capa.png');
-  if (r.status !== 0 || !fs.existsSync(gerada)) return null;
-  const ok = recortar(gerada, saida);
-  try { fs.unlinkSync(gerada); fs.unlinkSync(manifesto); } catch {}
-  return ok || null;
 }
 
 // ── banco Magnific/Freepik ───────────────────────────────────────────────────

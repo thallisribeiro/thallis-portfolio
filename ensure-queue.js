@@ -111,10 +111,7 @@ function tituloDoFrontmatter(conteudo) {
 // Capa é conteúdo, não layout: entra na geração do post e fica gravada no frontmatter.
 // Se falhar, o post sai sem capa -- nunca segura a publicação por causa de imagem.
 function garantirCapa(arquivoDoPost) {
-  // --gerar: post novo tenta o FLUX local primeiro (imagem exclusiva, custo zero) e só
-  // cai no banco se o ComfyUI não estiver no ar. O acervo antigo roda sem --gerar,
-  // porque 50 gerações de uma vez não se pagam.
-  const r = runCommand(ROOT, process.execPath, ['capa-do-post.js', path.relative(ROOT, arquivoDoPost), '--gerar']);
+  const r = runCommand(ROOT, process.execPath, ['capa-do-post.js', path.relative(ROOT, arquivoDoPost)]);
   log(r.ok ? `capa: ${(r.stdout || '').trim().split('\n').pop()}` : `[aviso] capa falhou (post segue sem imagem): ${failureDetail(r)}`);
 }
 
