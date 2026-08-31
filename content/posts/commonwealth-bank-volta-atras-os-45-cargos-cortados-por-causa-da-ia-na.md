@@ -3,6 +3,7 @@ title: Commonwealth Bank volta atrás: os 45 cargos cortados por causa da IA nã
 date: 2026-08-31
 summary: O maior banco da Austrália demitiu 45 atendentes dizendo que um voice-bot de IA daria conta das ligações. Um mês depois, admitiu o erro, reverteu tudo e pediu desculpas. O que aconteceu no meio do caminho passou por um tribunal trabalhista.
 tema: Mercado
+image: /assets/posts/commonwealth-bank-volta-atras-os-45-cargos-cortados-por-causa-da-ia-na.webp
 ---
 
 O Commonwealth Bank of Australia (CBA) reverteu o corte de 45 cargos de atendimento ao cliente que havia justificado pela introdução de um voice-bot de inteligência artificial, admitiu que a decisão foi um erro e pediu desculpas públicas aos afetados. A reversão foi anunciada em 21 de agosto de 2025, depois de uma disputa aberta pelo sindicato do setor financeiro, a Finance Sector Union (FSU), na Fair Work Commission, o órgão trabalhista da Austrália.

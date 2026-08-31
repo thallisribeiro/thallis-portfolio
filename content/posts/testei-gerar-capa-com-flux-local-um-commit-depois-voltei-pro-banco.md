@@ -3,6 +3,7 @@ title: Testei gerar capa com FLUX local. Um commit depois, voltei pro banco.
 date: 2026-08-31
 summary: Três commits em sequência contam a história: capa gerada junto com o post, depois um esquema híbrido, depois uma fonte só. O híbrido durou menos que um dia.
 tema: Automação de conteúdo
+image: /assets/posts/testei-gerar-capa-com-flux-local-um-commit-depois-voltei-pro-banco.webp
 ---
 
 Tem uma sequência de três commits no repositório do site que, lida de trás pra frente, parece indecisão. Lida na ordem certa, é o custo normal de descobrir uma coisa na prática em vez de na teoria.

@@ -9,9 +9,7 @@
 <meta property="og:title" content="Testei gerar capa com FLUX local. Um commit depois, voltei pro banco. — Blog ThallisRibeiro">
 <meta property="og:description" content="Três commits em sequência contam a história: capa gerada junto com o post, depois um esquema híbrido, depois uma fonte só. O híbrido durou menos que um dia.">
 <meta property="og:url" content="https://thallisribeiro.com.br/blog/testei-gerar-capa-com-flux-local-um-commit-depois-voltei-pro-banco/">
-<meta property="og:image" content="https://thallisribeiro.com.br/assets/og-default.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+<meta property="og:image" content="/assets/posts/testei-gerar-capa-com-flux-local-um-commit-depois-voltei-pro-banco.webp">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://thallisribeiro.com.br/blog/testei-gerar-capa-com-flux-local-um-commit-depois-voltei-pro-banco/">
 <link rel="alternate" type="application/rss+xml" title="Blog ThallisRibeiro" href="https://thallisribeiro.com.br/feed.xml">
@@ -29,7 +27,7 @@
   "datePublished": "2026-08-31",
   "dateModified": "2026-08-31",
   "mainEntityOfPage": "https://thallisribeiro.com.br/blog/testei-gerar-capa-com-flux-local-um-commit-depois-voltei-pro-banco/",
-  "image": "https://thallisribeiro.com.br/assets/og-default.png",
+  "image": "/assets/posts/testei-gerar-capa-com-flux-local-um-commit-depois-voltei-pro-banco.webp",
   "author": {
     "@id": "https://thallisribeiro.com.br/#person"
   },
@@ -105,7 +103,7 @@
       <a class="blog-back" href="/blog/">← Todo o blog</a>
       <h1 class="blog-title">Testei gerar capa com FLUX local. Um commit depois, voltei pro banco.</h1>
       <p class="blog-byline">Por Thallis Ribeiro · 31/08/2026 · 2 min de leitura · <a class="tema-pill" href="/blog/tema/automacao-de-conteudo/">Automação de conteúdo</a></p>
-      
+      <figure class="blog-hero-img"><img src="/assets/posts/testei-gerar-capa-com-flux-local-um-commit-depois-voltei-pro-banco.webp" alt="" loading="eager"><figcaption><p class="capa-credito">Foto de <a href="https://www.magnific.com/free-photo/beautiful-woman-white-dress-sitting-by-sea-sunrise-thinking-making-notes-diary-book_9986865.htm" target="_blank" rel="noopener">marymarkevich</a> no Freepik</p></figcaption></figure>
       <div class="blog-article"><p>Tem uma sequência de três commits no repositório do site que, lida de trás pra frente, parece indecisão. Lida na ordem certa, é o custo normal de descobrir uma coisa na prática em vez de na teoria.</p><p>O primeiro: <strong>"capa de post vira foto de verdade, gerada com o post"</strong>. A ideia era boa — em vez de capa genérica escolhida depois, a imagem nasce junto com o texto, no mesmo fluxo de publicação. Capa e post saem do mesmo lugar, com o mesmo contexto.</p><p>O segundo: <strong>"FLUX local no post novo, banco Magnific no acervo"</strong>. Aqui eu já tinha dois mundos. Os posts antigos usavam imagens do meu banco tratado no Magnific. O post novo saía do FLUX rodando local. Parecia um meio-termo razoável: o acervo fica como está, o pipeline novo cuida do que vem daqui pra frente.</p><p>O terceiro, no dia seguinte: <strong>"capa: uma fonte só, o banco"</strong>. Fim do experimento.</p><h2>Por que o híbrido morreu tão rápido</h2><p>Porque capa de post não vive sozinha. Ela vive na listagem do blog, uma do lado da outra. E duas fontes de imagem diferentes significam duas identidades visuais na mesma página — mesmo que cada capa, isolada, esteja boa. O esquema híbrido não era o melhor dos dois mundos; era os dois padrões brigando no mesmo grid.</p><p>Aí a conta ficou simples. Manter o FLUX como fonte única significava regerar ou aceitar inconsistência com todo o acervo antigo. Manter o banco como fonte única significava só continuar o que já funcionava. Escolhi a segunda.</p><h2>O que eu não estou dizendo</h2><p>Não estou dizendo que geração local de imagem não presta. Não gastei tempo suficiente ajustando prompt e estilo pra afirmar isso — é bem possível que com mais calibração o FLUX entregasse capas consistentes entre si. O problema não era a qualidade de uma imagem; era ter duas linhas de produção pro mesmo trabalho.</p><p>Também não estou dizendo que "gerar a capa junto com o post" foi ideia ruim. Essa parte fica. O que mudou foi de onde a imagem vem, não quando ela entra no fluxo.</p><h2>A lição, se é que tem uma</h2><p>Quando eu penso em automatizar uma etapa, a pergunta que eu fazia era "essa ferramenta entrega resultado bom?". A pergunta que eu deveria fazer é "essa ferramenta entrega resultado consistente com tudo que já existe?". São perguntas diferentes, e a segunda é a que decide se a automação sobrevive ao segundo dia.</p><p>O híbrido durou um commit. Podia ter durado semanas se eu tivesse insistido por orgulho da ideia. Reverter rápido é mais barato que defender a decisão errada — e o histórico do git fica aí como lembrete de que eu tentei, vi, e voltei.</p></div>
       
       <div class="share-bar">
