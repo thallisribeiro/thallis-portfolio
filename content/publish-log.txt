@@ -106,3 +106,7 @@
 [2026-08-31T14:30:45.082Z] [ensure-queue] sem imagem pra este post (sem chave configurada ou nada encontrado) — seguindo sem imagem
 [2026-08-31T14:30:47.617Z] [ensure-queue] preparado pra publicar: "Testei gerar capa com FLUX local. Um commit depois, voltei pro banco." (modo real)
 [2026-08-31T14:52:51.698Z] [ensure-queue] fila já tem 1 post(s) — nada a gerar
+[2026-08-31T15:00:04.907Z] publicado: /blog/testei-gerar-capa-com-flux-local-um-commit-depois-voltei-pro-banco/ — "Testei gerar capa com FLUX local. Um commit depois, voltei pro banco."
+[2026-08-31T15:14:45.239Z] [ensure-queue] o dia já tem 4 posts — nada a gerar
+[2026-08-31T15:15:17.487Z] [ensure-queue] o dia já tem 4 posts — nada a gerar
+[2026-08-31T15:15:52.928Z] [ensure-queue] o dia já tem 4 posts — nada a gerar
