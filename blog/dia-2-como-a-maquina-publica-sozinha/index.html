@@ -9,9 +9,7 @@
 <meta property="og:title" content="Dia 2. Como a máquina publica sozinha no Instagram — Blog ThallisRibeiro">
 <meta property="og:description" content="A promessa do Dia 1 era publicar isso amanhã. Não esperei: o pipeline de publicação automática do Instagram ficou pronto ainda hoje, com 2 bugs reais achados e corrigidos ao vivo.">
 <meta property="og:url" content="https://thallisribeiro.com.br/blog/dia-2-como-a-maquina-publica-sozinha/">
-<meta property="og:image" content="https://thallisribeiro.com.br/assets/og-default.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+<meta property="og:image" content="/assets/posts/dia-2-como-a-maquina-publica-sozinha.webp">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://thallisribeiro.com.br/blog/dia-2-como-a-maquina-publica-sozinha/">
 <link rel="alternate" type="application/rss+xml" title="Blog ThallisRibeiro" href="https://thallisribeiro.com.br/feed.xml">
@@ -29,7 +27,7 @@
   "datePublished": "2026-08-22",
   "dateModified": "2026-08-22",
   "mainEntityOfPage": "https://thallisribeiro.com.br/blog/dia-2-como-a-maquina-publica-sozinha/",
-  "image": "https://thallisribeiro.com.br/assets/og-default.png",
+  "image": "/assets/posts/dia-2-como-a-maquina-publica-sozinha.webp",
   "author": {
     "@id": "https://thallisribeiro.com.br/#person"
   },
@@ -105,7 +103,7 @@
       <a class="blog-back" href="/blog/">← Todo o blog</a>
       <h1 class="blog-title">Dia 2. Como a máquina publica sozinha no Instagram</h1>
       <p class="blog-byline">Por Thallis Ribeiro · 22/08/2026 · 2 min de leitura · <a class="tema-pill" href="/blog/tema/agencia-autonoma/">Agência autônoma</a></p>
-      
+      <figure class="blog-hero-img"><img src="/assets/posts/dia-2-como-a-maquina-publica-sozinha.webp" alt="" loading="eager"><figcaption><p class="capa-credito">Foto de <a href="https://www.magnific.com/free-photo/smiling-man-using-mobile-phone-drinking-coffee-outdoors_7811687.htm" target="_blank" rel="noopener">drobotdean</a> no Freepik</p></figcaption></figure>
       <div class="blog-article"><p>O Dia 1 fechou com uma promessa: "amanhã, como a máquina publica sozinha". Não deu pra esperar até amanhã. O pipeline ficou pronto ainda hoje, e a aposta pede transparência em tempo real, não calendário arredondado. Então aqui está, no mesmo dia.</p><h2>O que faltava</h2><p>Eu já tinha o publicador do Instagram escrito, mas com um buraco deliberado: o modo "revisão" (gera o post, espera eu aprovar) funcionava, o modo "auto" (publica sozinho, sem ninguém olhar antes) só existia como aviso recusando rodar. Documentado ≠ funcionando, e esse pedaço não funcionava.</p><h2>O que construí</h2><p>Implementei o modo auto de verdade: ele varre o conteúdo já pronto (carrossel + legenda) em ordem, pega o próximo que ainda não foi ao ar, publica e marca como feito. Registrei uma tarefa no agendador do Windows rodando 3 vezes por dia, mesmo horário que já uso pro blog. Depois, testei com token e conta reais, sem fingir.</p><aside class="leia-tambem"><span class="leia-rotulo">Leia também</span><a href="/blog/diario-4-o-robo-escreve-mas-quem-publica-sou-eu/" data-ev="article_clicked" data-ev-local="no-meio">Diário — Dia 5: O robô escreve, mas quem aperta publicar sou eu</a></aside><h2>Os 2 bugs que só apareceram testando de verdade</h2><p>Documentar isso sem filtro significa admitir que "implementei" não é o mesmo que "funcionou de primeira".</p><p>Bug 1: o token novo que gerei fala com um endereço diferente do que o script assumia. Achei porque a chamada real voltou com erro de sessão inválida, não porque eu previ isso lendo documentação.</p><p>Bug 2: o tipo de conteúdo "carrossel" nessa versão da API do Instagram tem um nome diferente do que eu tinha escrito no código, herdado de uma versão mais antiga. A chamada real voltou dizendo "tipo de mídia desconhecido" — de novo, só apareceu rodando, não lendo.</p><p>Corrigi os dois, rodei de novo, e o container de publicação ficou pronto. Zero atalho: testei com imagem real, conta real, chave de acesso real, até o ponto exato antes de publicar de verdade.</p><h2>O que isso significa a partir de agora</h2><p>Ninguém mais abre o painel do Instagram pra subir post um por um. A fila de conteúdo já pronta avança sozinha, no horário certo, sem toque nenhum meu. Se a fila secar, o sistema avisa. Se falhar, tenta de novo no próximo horário. Aprovar deixou de ser um passo, porque não existe mais aprovação: o critério de qualidade já foi aplicado antes, na hora de criar o conteúdo.</p><p>Amanhã: uma conta real de quanto cada peça de conteúdo custa pra existir, do texto ao render da imagem — e se isso é sustentável rodando todo dia por 30 dias.</p></div>
       
       <div class="share-bar">
@@ -161,7 +159,7 @@
   <a class="blog-card-link" href="/blog/diario-4-o-robo-escreve-mas-quem-publica-sou-eu/">Ler →</a>
 </article>
 <article class="blog-card">
-  
+  <a href="/blog/automatizei-a-publicacao-da-serie-de-30-dias-e-ela-ja-e-o-teste-do-pro/" class="blog-card-thumb" tabindex="-1" aria-hidden="true"><img src="/assets/posts/automatizei-a-publicacao-da-serie-de-30-dias-e-ela-ja-e-o-teste-do-pro.webp" alt="" width="600" height="338" loading="lazy" decoding="async"></a>
   <div class="blog-card-meta">
     <span class="blog-card-date">22/08/2026 · 2 min de leitura</span>
     <a class="tema-pill" href="/blog/tema/automacao-de-conteudo/">Automação de conteúdo</a>
@@ -171,7 +169,7 @@
   <a class="blog-card-link" href="/blog/automatizei-a-publicacao-da-serie-de-30-dias-e-ela-ja-e-o-teste-do-pro/">Ler →</a>
 </article>
 <article class="blog-card">
-  
+  <a href="/blog/a-ia-que-escreve-nao-pode-ser-a-mesma-que-aprova/" class="blog-card-thumb" tabindex="-1" aria-hidden="true"><img src="/assets/posts/a-ia-que-escreve-nao-pode-ser-a-mesma-que-aprova.webp" alt="" width="600" height="338" loading="lazy" decoding="async"></a>
   <div class="blog-card-meta">
     <span class="blog-card-date">31/08/2026 · 2 min de leitura</span>
     <a class="tema-pill" href="/blog/tema/agencia-autonoma/">Agência autônoma</a>

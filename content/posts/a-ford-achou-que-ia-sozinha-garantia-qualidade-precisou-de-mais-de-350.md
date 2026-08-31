@@ -3,6 +3,7 @@ title: A Ford achou que IA sozinha garantia qualidade. Precisou de mais de 350 v
 date: 2026-08-31
 summary: A Ford apostou que inteligência artificial mais requisitos de projeto ajustados produziriam carro de alta qualidade. Não produziram. A história de como a montadora admitiu o erro em público, trouxe de volta os engenheiros experientes e voltou ao topo de um ranking que não vencia desde 2010.
 tema: Mercado
+image: /assets/posts/a-ford-achou-que-ia-sozinha-garantia-qualidade-precisou-de-mais-de-350.webp
 ---
 
 A Ford voltou ao 1º lugar entre as marcas de massa no J.D. Power U.S. Initial Quality Study de 2026, o principal ranking de qualidade de carros novos dos Estados Unidos. Primeira vez desde 2010. E o executivo responsável explicou a virada admitindo um erro: a empresa achou que inteligência artificial bastava.

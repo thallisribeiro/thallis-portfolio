@@ -3,6 +3,7 @@ title: A IA que escreve não pode ser a mesma que aprova
 date: 2026-08-31
 summary: Separei quem escreve de quem julga na minha máquina de conteúdo, e o publicador agora se recusa a postar qualquer coisa sem um APPROVED explícito.
 tema: Agência autônoma
+image: /assets/posts/a-ia-que-escreve-nao-pode-ser-a-mesma-que-aprova.webp
 ---
 
 Minha máquina de conteúdo tinha um defeito de arquitetura que demorei pra enxergar porque ele não quebra nada: o mesmo agente que escrevia a peça era, na prática, quem decidia que ela estava boa. Existia uma etapa chamada de "triagem", mas ela funcionava como um passe-adiante. O texto entrava, a triagem carimbava, o texto seguia. Nunca vi essa etapa segurar nada de verdade.

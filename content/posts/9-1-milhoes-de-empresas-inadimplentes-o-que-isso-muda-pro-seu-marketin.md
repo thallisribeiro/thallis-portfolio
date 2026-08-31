@@ -3,6 +3,7 @@ title: 9,1 milhões de empresas inadimplentes: o que isso muda pro seu marketing
 date: 2026-08-27
 summary: Com o Brasil batendo recorde histórico de inadimplência empresarial, gastar mal em marketing dói mais do que nunca.
 tema: Mercado
+image: /assets/posts/9-1-milhoes-de-empresas-inadimplentes-o-que-isso-muda-pro-seu-marketin.webp
 ---
 
 O Brasil bateu recorde histórico: 9,1 milhões de empresas inadimplentes, sendo 8,5 milhões pequenos negócios, com mais de R$210 bilhões em dívida, segundo dados da Serasa Experian e do Banco Central de 2026.

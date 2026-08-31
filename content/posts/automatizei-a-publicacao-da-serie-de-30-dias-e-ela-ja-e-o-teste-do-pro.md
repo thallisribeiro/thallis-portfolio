@@ -3,6 +3,7 @@ title: Automatizei a publicação da série de 30 dias, e ela virou o teste do p
 date: 2026-08-22
 summary: Publiquei o Dia 2 da série de 30 dias direto por um pipeline automático de Instagram, ainda sem saber se aguenta os outros 28 dias.
 tema: Automação de conteúdo
+image: /assets/posts/automatizei-a-publicacao-da-serie-de-30-dias-e-ela-ja-e-o-teste-do-pro.webp
 ---
 
 Comecei uma série de 30 dias e, no segundo dia, já troquei o "postar na mão" por um pipeline automático de publicação no Instagram.

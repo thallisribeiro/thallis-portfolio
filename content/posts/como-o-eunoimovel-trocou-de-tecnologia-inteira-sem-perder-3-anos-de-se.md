@@ -3,6 +3,7 @@ title: Como o Eunoimóvel trocou de tecnologia inteira sem perder 3 anos de SEO
 date: 2026-08-23
 summary: Reconstruir o site de uma imobiliária do zero quase apagou 3 anos de posição no Google. O que evitou o estrago foi mapear cada URL antes de publicar.
 tema: Site & copy
+image: /assets/posts/como-o-eunoimovel-trocou-de-tecnologia-inteira-sem-perder-3-anos-de-se.webp
 ---
 
 O Eunoimóvel tinha 3 anos de posições conquistadas no Google para termos como "imóveis em Trancoso" e "casas em Arraial d'Ajuda", tráfego real, não vaidade. O problema: o site rodava numa tecnologia antiga, difícil de evoluir, e a decisão certa era reconstruir do zero. Reconstruir do zero costuma custar SEO, porque toda vez que uma URL muda, o Google perde o histórico daquela página, mesmo que o conteúdo continue bom.

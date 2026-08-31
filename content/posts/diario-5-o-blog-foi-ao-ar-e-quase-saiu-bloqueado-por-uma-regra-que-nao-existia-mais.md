@@ -3,6 +3,7 @@ title: "Diário — Dia 6: O blog foi ao ar e quase saiu bloqueado por uma regra
 date: 2026-08-15
 summary: "O blog do Grana estreou hoje. No mesmo dia, quase travei todos os posts atrás de uma exigência de SEO que o Google já tinha matado meses antes."
 tema: Automação de conteúdo
+image: /assets/posts/diario-5-o-blog-foi-ao-ar-e-quase-saiu-bloqueado-por-uma-regra-que-nao-existia-mais.webp
 ---
 
 Quinta entrada. Hoje foi o dia em que o blog do Grana saiu do papel — e o primeiro dia em que uma pesquisa rápida me salvou de um erro caro.

@@ -3,6 +3,7 @@ title: 5 ferramentas de IA grátis que fazem o trabalho de um funcionário
 date: 2026-08-25
 summary: Cinco ferramentas de inteligência artificial gratuitas para começar, que já resolvem boa parte do trabalho de escrever, criar post, editar vídeo e tratar foto de produto.
 tema: Automação de conteúdo
+image: /assets/posts/5-ferramentas-de-ia-gratis-que-fazem-o-trabalho-de-um-funcionario.webp
 ---
 
 A maioria dos pequenos negócios nem sabe que essas ferramentas existem. Ou sabe, mas nunca testou de verdade. Nenhuma delas custa nada pra começar, e juntas cobrem boa parte do que normalmente você pagaria um funcionário pra fazer.

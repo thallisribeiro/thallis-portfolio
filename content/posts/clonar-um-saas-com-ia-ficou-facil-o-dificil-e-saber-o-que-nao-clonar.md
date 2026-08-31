@@ -3,6 +3,7 @@ title: Clonar um SaaS com IA ficou fácil. O difícil é saber o que não clonar
 date: 2026-08-30
 summary: Existe um método pra mandar uma IA copiar um produto que já fatura. Ele funciona, mas otimiza a coisa errada. O que eu mudaria: a pergunta que o agente responde, e quem tem a palavra final sobre o que foi construído.
 tema: Engenharia reversa de produto
+image: /assets/posts/clonar-um-saas-com-ia-ficou-facil-o-dificil-e-saber-o-que-nao-clonar.webp
 ---
 
 Achei hoje um produto que só faz uma coisa: uma lista onde você paga pra ficar em primeiro lugar. Pagou mais que quem está no topo, você assume o topo. Não tem mais nenhuma função.

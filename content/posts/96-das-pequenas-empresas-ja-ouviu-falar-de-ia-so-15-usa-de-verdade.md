@@ -3,6 +3,7 @@ title: 96% das pequenas empresas já ouviu falar de IA. Só 15% usa de verdade
 date: 2026-08-24
 summary: Sebrae e Cetic.br mostram um Brasil onde quase todo pequeno negócio conhece IA generativa, mas só 1 em 7 usa com frequência. O gap não é de informação.
 tema: Mercado
+image: /assets/posts/96-das-pequenas-empresas-ja-ouviu-falar-de-ia-so-15-usa-de-verdade.webp
 ---
 
 Segundo o Sebrae, cruzado com dados do Cetic.br (pesquisa TIC Empresas 2025), quase todo micro e pequeno empresário brasileiro já ouviu falar de alguma ferramenta de IA generativa. O problema é o que vem depois: apenas 1 em cada 7 usa com frequência. A adoção real passou de 10% pra 15% em um ano, um crescimento de fato, mas ainda uma fração pequena do que já é conhecido.

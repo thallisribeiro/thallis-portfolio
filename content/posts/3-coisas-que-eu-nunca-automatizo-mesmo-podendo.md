@@ -3,6 +3,7 @@ title: 3 coisas que eu nunca automatizo, mesmo podendo
 date: 2026-08-25
 summary: Ter a tecnologia pra automatizar não é a mesma coisa que dever automatizar: três limites que eu mantenho de propósito no estúdio.
 tema: Agência autônoma
+image: /assets/posts/3-coisas-que-eu-nunca-automatizo-mesmo-podendo.webp
 ---
 
 Ter a tecnologia pra fazer uma coisa não é a mesma coisa que dever fazer. Rodando um estúdio sozinho com squads de IA, aprendi a distinguir onde vale deixar o robô decidir e onde o custo de um erro é alto demais pra isso. Não é uma lista de limitações técnicas, é uma lista de decisões deliberadas.

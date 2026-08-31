@@ -3,6 +3,7 @@ title: 3 desculpas que atrasam o lançamento do seu site (e nenhuma é boa o bas
 date: 2026-08-24
 summary: As três desculpas mais comuns pra adiar o lançamento de um site custam mais caro do que parecem, porque cada semana esperando é um cliente indo pro concorrente que já está no ar.
 tema: Site & copy
+image: /assets/posts/3-desculpas-que-atrasam-o-lancamento-do-seu-site-e-nenhuma-e-boa-o-bas.webp
 ---
 
 Toda semana esperando pra lançar o site é uma semana de cliente indo pro concorrente que já está no ar. E quase todo mundo que adia o lançamento tem uma razão que parece válida na hora. O problema não é a desculpa em si, é que ela nunca acaba: sempre tem mais um ajuste depois dela.

@@ -3,6 +3,7 @@ title: A régua de 20 parâmetros que eu uso pra avaliar qualquer copy
 date: 2026-08-22
 summary: A mesma lista que usei pra auditar o meu próprio site, agora como checklist pra você rodar no seu.
 tema: Site & copy
+image: /assets/posts/a-regua-de-20-parametros-que-uso-pra-avaliar-qualquer-copy.webp
 ---
 
 Quando auditei meu próprio site, usei uma lista fixa de 20 parâmetros — os mesmos critérios que aplico em qualquer landing page antes de mexer numa linha de texto. Aqui está a lista, pra você rodar no seu.

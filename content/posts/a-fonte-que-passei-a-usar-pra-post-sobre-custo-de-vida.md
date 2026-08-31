@@ -3,6 +3,7 @@ title: "A fonte de dado que passei a usar pra qualquer post sobre custo de vida"
 date: 2026-08-16
 tema: Automação de conteúdo
 summary: Pesquisa privada de custo de vida muda de número todo ano e não tem edição fixa pra citar. Achei uma fonte oficial melhor, e ela virou padrão.
+image: /assets/posts/a-fonte-que-passei-a-usar-pra-post-sobre-custo-de-vida.webp
 ---
 
 Nota rápida de bastidor do squad do Grana, do mesmo período do [sprint de automação de capa](/blog/diario-8-o-robo-colocou-o-logo-do-bitcoin-numa-moeda-de-ouro/).

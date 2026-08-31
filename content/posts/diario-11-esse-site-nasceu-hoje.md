@@ -3,6 +3,7 @@ title: "Diário — Dia 11: Esse site que você está lendo agora nasceu hoje"
 date: 2026-08-20
 summary: thallisribeiro.com.br saiu do zero, construído pelo primeiro squad da casa dedicado a fazer site pra outras pessoas. Começando por mim mesmo.
 tema: Site & copy
+image: /assets/posts/diario-11-esse-site-nasceu-hoje.webp
 ---
 
 Décima primeira entrada. Onze dias depois do [primeiro squad](/blog/diario-1-contratei-meu-primeiro-funcionario-e-ele-e-um-robo/), criei um squad novo — o `webdesigner` — e o primeiro trabalho dele foi este site.

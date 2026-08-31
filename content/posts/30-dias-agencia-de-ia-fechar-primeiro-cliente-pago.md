@@ -3,6 +3,7 @@ title: "30 dias pra minha agência de IA fechar o primeiro cliente pago"
 date: 2026-08-22
 summary: Montei uma agência de marketing onde nenhum funcionário é humano. Os agentes pesquisam, criam, produzem e organizam sozinhos. Dei 30 dias pra ela fechar o primeiro cliente pago, e documentei cada dia aqui.
 tema: Agência autônoma
+image: /assets/posts/30-dias-agencia-de-ia-fechar-primeiro-cliente-pago.webp
 ---
 
 Dia 1. A aposta é simples de descrever e difícil de cumprir: montei uma agência de marketing onde nenhum funcionário é humano, e dei 30 dias pra ela fechar o primeiro cliente pago.

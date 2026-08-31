@@ -3,6 +3,7 @@ title: "Dia 2. Como a máquina publica sozinha no Instagram"
 date: 2026-08-22
 tema: Agência autônoma
 summary: "A promessa do Dia 1 era publicar isso amanhã. Não esperei: o pipeline de publicação automática do Instagram ficou pronto ainda hoje, com 2 bugs reais achados e corrigidos ao vivo."
+image: /assets/posts/dia-2-como-a-maquina-publica-sozinha.webp
 ---
 
 O Dia 1 fechou com uma promessa: "amanhã, como a máquina publica sozinha". Não deu pra esperar até amanhã. O pipeline ficou pronto ainda hoje, e a aposta pede transparência em tempo real, não calendário arredondado. Então aqui está, no mesmo dia.
