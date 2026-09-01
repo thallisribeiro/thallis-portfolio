@@ -377,6 +377,9 @@ details.pergunta .resposta p:last-child { margin-bottom: 0; }
 .unidade-corpo dd { margin: 0; color: var(--tinta-suave); }
 .unidade-corpo .acao-unidade { margin-top: auto; }
 .marcador-pendente { font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: 13px; color: #6A4B0F; background: rgba(212, 175, 55, .18); padding: 1px 6px; border-radius: var(--raio); }
+/* No rodapé o fundo é marsala: o marrom do marcador cai para 1,1:1 e some.
+   Sobre fundo escuro o marcador usa dourado claro (7,1:1). */
+.rodape .marcador-pendente, .faixa-marsala .marcador-pendente { color: #F3D98A; }
 
 /* ---------- prova social ---------- */
 .avaliacoes-area { min-height: 220px; }
