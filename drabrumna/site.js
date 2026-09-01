@@ -160,6 +160,23 @@
     });
   })();
 
+
+  /* Mede quantas visitantes têm o movimento reduzido ligado: responde com dado
+     real a pergunta "vale gastar energia em animação?". Nenhum dado pessoal —
+     só um booleano de configuração, uma vez por sessão, após consentimento. */
+  function medirAmbiente() {
+    try {
+      if (sessionStorage.getItem('ambiente-medido') === '1') return;
+      sessionStorage.setItem('ambiente-medido', '1');
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'ambiente',
+        movimento_reduzido: !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches),
+        scroll_timeline: !!(window.CSS && CSS.supports && CSS.supports('animation-timeline: view()'))
+      });
+    } catch (e) {}
+  }
+
   /* ---------------------------------------------------------------- */
   /* 4. Consentimento LGPD — analytics só depois do aceite             */
   /* ---------------------------------------------------------------- */
@@ -169,7 +186,7 @@
     var guardado = null;
     try { guardado = localStorage.getItem('consentimento-analytics'); } catch (e) {}
 
-    if (guardado === 'sim') { window.CONSENTIMENTO_ANALYTICS = true; faixa.hidden = true; return; }
+    if (guardado === 'sim') { window.CONSENTIMENTO_ANALYTICS = true; faixa.hidden = true; medirAmbiente(); return; }
     if (guardado === 'nao') { window.CONSENTIMENTO_ANALYTICS = false; faixa.hidden = true; return; }
     faixa.hidden = false;
 
@@ -178,6 +195,7 @@
       if (!botao) return;
       var aceito = botao.getAttribute('data-consentimento') === 'aceitar';
       window.CONSENTIMENTO_ANALYTICS = aceito;
+      if (aceito) medirAmbiente();
       try { localStorage.setItem('consentimento-analytics', aceito ? 'sim' : 'nao'); } catch (e) {}
       faixa.hidden = true;
     });
