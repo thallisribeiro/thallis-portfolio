@@ -817,3 +817,162 @@ body { padding-bottom: 76px; }
 /* --- polimento tipográfico que veio junto do CSS moderno --- */
 h1, h2, .chamada { text-wrap: balance; }
 p, li { text-wrap: pretty; }
+
+
+/* =========================================================================
+   EFEITOS
+   =========================================================================
+   Cinco coisas, não vinte. Minimalista premium não é efeito fraco espalhado:
+   é efeito caro concentrado em dois momentos — a abertura e as tecnologias —
+   com o resto da página em silêncio.
+
+   As mesmas travas do bloco de movimento valem aqui: nada esconde conteúdo
+   fora de @supports + prefers-reduced-motion, e o estado inicial opaco só
+   existe dentro dessas condições.
+   ========================================================================= */
+
+/* ---------- 1. Grão ----------
+   O que mais rende por linha de código. Bege chapado vira papel. É um SVG
+   embutido, então não custa requisição, e fica atrás de tudo com
+   pointer-events desligado para nunca interceptar clique. */
+.faixa-bege, .topo-pagina, .hero { position: relative; }
+.faixa-bege::before, .topo-pagina::before, .hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23g)' opacity='.055'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}
+.faixa-bege > *, .topo-pagina > *, .hero > * { position: relative; z-index: 1; }
+
+/* ---------- 2. Sombra em camadas ----------
+   Uma sombra só lê como caixa flutuando. Três, cada uma mais aberta e mais
+   fraca, leem como objeto pousado. */
+.cartao, .unidade, .post, .faq-indice {
+  box-shadow:
+    0 1px 1px rgba(43, 35, 32, .03),
+    0 4px 8px rgba(43, 35, 32, .03),
+    0 12px 24px rgba(43, 35, 32, .035);
+}
+
+/* ---------- 3. Sublinhado que cresce ----------
+   Só em link dentro de texto corrido: em botão e em rótulo seria ruído. */
+main p a:not(.botao):not(.link-seta),
+main li a:not(.botao):not(.link-seta),
+.rodape li a {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  transition: background-size .28s cubic-bezier(.22, .61, .36, 1);
+  padding-bottom: 2px;
+}
+main p a:not(.botao):not(.link-seta):hover,
+main li a:not(.botao):not(.link-seta):hover,
+main p a:not(.botao):not(.link-seta):focus-visible,
+.rodape li a:hover,
+.rodape li a:focus-visible { background-size: 100% 1px; }
+
+/* ---------- 4. Botão com preenchimento que sobe ----------
+   Substitui a troca seca de cor de fundo. O preenchimento é um pseudo com
+   transform, então roda na GPU e não repinta o botão inteiro. */
+.botao { position: relative; overflow: hidden; isolation: isolate; }
+.botao::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--marsala-fundo);
+  transform: translateY(101%);
+  transition: transform .32s cubic-bezier(.22, .61, .36, 1);
+}
+.botao:hover::before, .botao:focus-visible::before { transform: translateY(0); }
+.botao-vazado::before { background: var(--marsala); }
+.botao-dourado::before { background: #E4C158; }
+
+/* ---------- 5. Tecnologias: o aparelho fica preso ----------
+   A referência que o próprio briefing cita (Ramon Tardin) é o equipamento em
+   destaque. Aqui ele para enquanto o texto passa ao lado, sem prender a
+   rolagem da página e sem exigir texto novo. */
+@media (min-width: 861px) {
+  .tecnologia { align-items: start; }
+  .tecnologia-figura {
+    position: sticky;
+    top: calc(var(--e8) + 40px);
+  }
+}
+
+/* ---------- Entrada do hero: a sequência ----------
+   Sem isto a página inteira aparece de uma vez, que é o que faz um site
+   parecer montado em vez de autoral. A ordem é régua, título, chamada, ação —
+   a mesma ordem em que a pessoa lê. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+
+    @keyframes subir-mascara {
+      from { transform: translateY(105%); }
+      to   { transform: translateY(0); }
+    }
+    @keyframes surgir {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: none; }
+    }
+    @keyframes abrir-foto {
+      from { clip-path: inset(0 0 100% 0); }
+      to   { clip-path: inset(0 0 0 0); }
+    }
+    /* Ken Burns: escala contínua quase imperceptível. O olho não vê o
+       movimento, vê que a foto "está viva". */
+    @keyframes respirar {
+      from { transform: scale(1.06); }
+      to   { transform: scale(1.11); }
+    }
+
+    /* A régua do hero abre a sequência, então sai da timeline de scroll. */
+    .anim .hero .regua::before, .anim .hero .regua::after {
+      animation: desenhar-regua .55s cubic-bezier(.22, .61, .36, 1) .05s both;
+      animation-timeline: auto;
+      animation-range: normal;
+    }
+    .anim .hero .regua i {
+      animation: surgir-losango .4s cubic-bezier(.22, .61, .36, 1) .3s both;
+      animation-timeline: auto;
+      animation-range: normal;
+    }
+
+    /* Cada linha do h1 sobe de dentro da própria máscara. O JS é que divide
+       as linhas; sem ele a classe não existe e nada aqui se aplica. */
+    .h1-dividido .linha { display: block; overflow: hidden; }
+    .anim .h1-dividido .linha > span {
+      display: block;
+      animation: subir-mascara .7s cubic-bezier(.22, .61, .36, 1) both;
+      animation-delay: calc(.18s + var(--i, 0) * .07s);
+    }
+
+    .anim .hero-texto .chamada { animation: surgir .6s ease .48s both; }
+    .anim .hero-texto .grupo-botoes { animation: surgir .6s ease .6s both; }
+
+    .anim .hero-figura {
+      animation: abrir-foto .85s cubic-bezier(.22, .61, .36, 1) both;
+      animation-timeline: auto;
+      animation-range: normal;
+    }
+    /* A foto do hero troca o parallax de scroll pelo Ken Burns: os dois na
+       mesma propriedade brigariam, e o Ken Burns diz mais numa primeira
+       dobra que quase não rola. */
+    .hero-figura img {
+      animation: respirar 22s ease-in-out infinite alternate;
+      animation-timeline: auto;
+      animation-range: normal;
+      animation-range: normal;
+    }
+  }
+}
+
+/* A marca d'água tipográfica foi testada e removida: dava peso gráfico a uma
+   credencial que ainda está marcada como pendente de conferência documental,
+   e criava uma exceção de contraste que eu teria de defender. */

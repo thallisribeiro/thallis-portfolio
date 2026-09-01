@@ -20,7 +20,11 @@
 <!-- Fontes na mesma origem: sem preconnect nem folha de terceiro no caminho crítico. -->
 <link rel="preload" href="../fontes/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../fontes/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../estilo.css?v=bfbe27ef">
+<!-- A sequência de entrada do hero só existe se houver JavaScript. Sem esta
+     classe o conteúdo renderiza normal e opaco: entrada por tempo com
+     fill:both deixaria o hero em branco se a animação não rodasse. -->
+<script>document.documentElement.classList.add('anim')</script>
+<link rel="stylesheet" href="../estilo.css?v=b6d46266">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237C1E2D'/%3E%3Cpath d='M32 20l6 12-6 12-6-12z' fill='%23D4AF37'/%3E%3C/svg%3E">
 <!-- Dados estruturados Physician/MedicalBusiness ficam retidos: o briefing exige
      CRM e RQE confirmados antes de declarar qualificação profissional em schema.
@@ -261,7 +265,7 @@
   </div>
 </dialog>
 
-<script src="../dados.js?v=bfbe27ef"></script>
-<script src="../site.js?v=8782cb41" defer></script>
+<script src="../dados.js?v=b6d46266"></script>
+<script src="../site.js?v=e131a519" defer></script>
 </body>
 </html>

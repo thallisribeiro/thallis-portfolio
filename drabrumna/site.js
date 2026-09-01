@@ -291,4 +291,82 @@
       try { sessionStorage.setItem('previa-oculta', '1'); } catch (e) {}
     });
   })();
+
+  /* ---------------------------------------------------------------- */
+  /* 8. Título do hero dividido em linhas                              */
+  /*                                                                   */
+  /*    Cada linha sobe de dentro da própria máscara. Não dá para fazer */
+  /*    só em CSS: onde a linha quebra depende da largura, então é o    */
+  /*    layout já calculado que diz onde cortar.                        */
+  /*                                                                   */
+  /*    Construído para falhar em segurança: a classe que ativa a       */
+  /*    animação só é adicionada DEPOIS de a divisão dar certo. Se este */
+  /*    bloco não rodar, o título continua lá, opaco e legível — que é  */
+  /*    o defeito clássico de efeito de texto em site.                  */
+  /* ---------------------------------------------------------------- */
+  (function dividirTitulo() {
+    var h1 = document.querySelector('.hero-texto h1');
+    if (!h1) return;
+
+    // Quem pediu menos movimento não recebe nem a marcação extra.
+    var querMovimento = !window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!querMovimento) return;
+
+    var textoOriginal = h1.textContent;
+
+    function dividir() {
+      h1.classList.remove('h1-dividido');
+      h1.textContent = textoOriginal;
+
+      // Cada palavra vira um span para o navegador informar em que altura ela
+      // ficou; palavras com o mesmo topo formam uma linha.
+      var palavras = textoOriginal.split(/\s+/).filter(Boolean);
+      if (palavras.length < 2) return;
+
+      h1.textContent = '';
+      var marcas = palavras.map(function (p, i) {
+        var m = document.createElement('span');
+        m.textContent = p + (i < palavras.length - 1 ? ' ' : '');
+        h1.appendChild(m);
+        return m;
+      });
+
+      var linhas = [];
+      var topoAtual = null;
+      marcas.forEach(function (m) {
+        var topo = Math.round(m.offsetTop);
+        if (topoAtual === null || topo !== topoAtual) { linhas.push([]); topoAtual = topo; }
+        linhas[linhas.length - 1].push(m.textContent);
+      });
+
+      if (!linhas.length) { h1.textContent = textoOriginal; return; }
+
+      h1.textContent = '';
+      linhas.forEach(function (palavrasDaLinha, i) {
+        var linha = document.createElement('span');
+        linha.className = 'linha';
+        var dentro = document.createElement('span');
+        dentro.style.setProperty('--i', String(i));
+        // Sem o espaço final o textContent do h1 vira "Rejuvenescimentoíntimo":
+        // invisível na tela, mas é o que o leitor de tela e o buscador leem.
+        var texto = palavrasDaLinha.join('');
+        dentro.textContent = (i === linhas.length - 1) ? texto.replace(/s+$/, '') : texto;
+        linha.appendChild(dentro);
+        h1.appendChild(linha);
+      });
+      h1.classList.add('h1-dividido');
+    }
+
+    // As fontes mudam a quebra de linha: dividir antes de elas carregarem
+    // produziria linhas erradas.
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(dividir);
+    else dividir();
+
+    var timer;
+    window.addEventListener('resize', function () {
+      clearTimeout(timer);
+      timer = setTimeout(dividir, 200);
+    });
+  })();
+
 })();
