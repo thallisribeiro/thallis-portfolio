@@ -117,3 +117,6 @@
 [2026-09-01T10:00:01.828Z] fila vazia — nada publicado neste horário
 [2026-09-01T14:30:01.555Z] [ensure-queue] nada pareado da esteira neste horário — sem post. O blog publica o que a esteira apurou, não o que eu fiz hoje.
 [2026-09-01T15:00:01.573Z] fila vazia — nada publicado neste horário
+[2026-09-01T20:30:01.906Z] [ensure-queue] artigo do content-hub aproveitado (par do carrossel 2026-09-01): Relay.app fechou: o que aconteceu com a rival do Zapier e por que o fundador foi para o Google
+[2026-09-01T20:30:06.768Z] [ensure-queue] capa: [capa-do-post] magnific: 1
+[2026-09-01T21:00:05.493Z] publicado: /blog/relay-app-fechou-o-que-aconteceu-com-a-rival-do-zapier-e-por-que-o-fun/ — "Relay.app fechou: o que aconteceu com a rival do Zapier e por que o fundador foi para o Google"
