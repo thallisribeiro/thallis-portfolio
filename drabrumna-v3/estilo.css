@@ -671,3 +671,149 @@ body { padding-bottom: 76px; }
   padding: var(--e3) var(--e4); font-size: 15px; color: var(--tinta);
 }
 .previa-wpp .acoes { display: flex; justify-content: flex-end; margin-top: var(--e5); }
+
+/* =========================================================================
+   Movimento
+   =========================================================================
+   Tudo aqui é CSS nativo: scroll-driven animations e View Transitions. Nenhuma
+   biblioteca, nenhum JavaScript, nenhum byte a mais no caminho crítico.
+
+   Três travas, nessa ordem:
+   1. Todo o bloco vive dentro de @supports. Navegador sem suporte não vê
+      nenhuma regra daqui e mostra a página estática completa.
+   2. Tudo dentro de prefers-reduced-motion: no-preference. Quem pediu menos
+      movimento recebe a página parada, não uma versão degradada.
+   3. O estado inicial escondido (opacity: 0) só existe DENTRO dessas duas
+      condições. Fora delas o conteúdo nunca fica invisível — o erro clássico
+      de reveal no scroll é justamente esse, e some com o conteúdo quando o
+      script falha ou o suporte não existe.
+   ========================================================================= */
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+
+    /* Regra que este bloco aprendeu na marra: só elemento MAIS BAIXO que a
+       viewport pode receber reveal por scroll. Num bloco mais alto que a tela,
+       a fase  nunca se completa e o elemento fica preso no estado
+       inicial — invisível de verdade, mesmo com a página parada no topo.
+       Por isso aqui só entram títulos, parágrafos, cartões e itens de lista;
+       nunca o contêiner que os agrupa. */
+
+    @keyframes revelar {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    /* A faixa termina em : quando o elemento acabou de entrar,
+       a revelação acabou. Qualquer coisa já visível no carregamento está em
+       100% e portanto opaca. */
+    main section .olho,
+    main section > .container > h1,
+    main section > .container > h2,
+    main section > .container > .chamada,
+    main section > .container > .grupo-botoes,
+    .grade > *,
+    .bloco-cabeca,
+    .lista-itens > li,
+    .autoridade li,
+    .tecnologia h2,
+    .tecnologia p,
+    .tecnologia ul,
+    .tecnologia-figura,
+    .faq-indice,
+    .unidade {
+      animation: revelar linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 100%;
+    }
+
+    /* Cascata: dentro de uma grade, cada cartão termina um pouco depois do
+       anterior. O atraso vem da posição, não de delay em segundos — com
+       timeline de scroll, delay em tempo não existe. */
+    .grade > *:nth-child(2) { animation-range: entry 0% entry 115%; }
+    .grade > *:nth-child(3) { animation-range: entry 0% entry 130%; }
+    .grade > *:nth-child(4) { animation-range: entry 0% entry 145%; }
+    .autoridade li:nth-child(even) { animation-range: entry 0% entry 120%; }
+
+    /* --- a régua dourada se desenha do centro para fora --- */
+    @keyframes desenhar-regua {
+      from { transform: scaleX(0); opacity: 0; }
+      to   { transform: scaleX(1); opacity: 1; }
+    }
+    .regua::before, .regua::after {
+      transform-origin: center;
+      animation: desenhar-regua linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 100%;
+    }
+    @keyframes surgir-losango {
+      from { transform: rotate(45deg) scale(0); }
+      to   { transform: rotate(45deg) scale(1); }
+    }
+    .regua i {
+      animation: surgir-losango linear both;
+      animation-timeline: view();
+      animation-range: entry 10% entry 100%;
+    }
+
+    /* --- parallax do hero: a imagem afunda devagar enquanto a página sobe.
+           Só transform, então roda na GPU e não força layout. --- */
+    @keyframes afundar {
+      from { transform: translateY(0) scale(1.06); }
+      to   { transform: translateY(3%) scale(1); }
+    }
+    .hero-figura img {
+      animation: afundar linear both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+
+    /* --- barra de progresso de leitura, presa ao rodapé do cabeçalho --- */
+    @keyframes progresso { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    .cabecalho::after {
+      content: "";
+      position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
+      background: linear-gradient(90deg, var(--marsala), var(--dourado));
+      transform-origin: 0 50%;
+      animation: progresso linear both;
+      animation-timeline: scroll(root block);
+    }
+
+    /* --- o cabeçalho ganha sombra só depois que a página rola --- */
+    @keyframes assentar-cabecalho {
+      from { box-shadow: 0 0 0 rgba(43, 35, 32, 0); }
+      to   { box-shadow: 0 2px 14px rgba(43, 35, 32, .10); }
+    }
+    .cabecalho {
+      animation: assentar-cabecalho linear both;
+      animation-timeline: scroll(root block);
+      animation-range: 0 120px;
+    }
+  }
+}
+
+/* --- View Transitions entre páginas ---
+   O site é multipágina estático, que é exatamente o caso que a API
+   cross-document resolve: a navegação deixa de piscar em branco e a marca
+   permanece fixa enquanto o conteúdo troca. Sem roteador, sem JavaScript. */
+@view-transition { navigation: auto; }
+
+/* A marca e o cabeçalho atravessam a transição em vez de refazer. */
+.cabecalho { view-transition-name: cabecalho; }
+.rodape { view-transition-name: rodape; }
+
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root) { animation: sair-pagina .22s ease both; }
+  ::view-transition-new(root) { animation: entrar-pagina .28s ease both; }
+  @keyframes sair-pagina { to { opacity: 0; transform: translateY(-6px); } }
+  @keyframes entrar-pagina { from { opacity: 0; transform: translateY(8px); } }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) { animation: none !important; }
+}
+
+/* --- polimento tipográfico que veio junto do CSS moderno --- */
+h1, h2, .chamada { text-wrap: balance; }
+p, li { text-wrap: pretty; }
