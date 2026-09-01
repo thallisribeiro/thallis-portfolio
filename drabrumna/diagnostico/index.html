@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Diagnóstico de animação</title>
+<style>
+  /* Página autônoma de diagnóstico: descobre POR QUE as animações do site não
+     aparecem numa máquina específica. Não usa o CSS do site de propósito. */
+  body { font-family: system-ui, sans-serif; background: #FAF8F5; color: #2B2320; margin: 0; padding: 24px; line-height: 1.6; }
+  h1 { color: #7C1E2D; font-size: 22px; }
+  .item { background: #fff; border: 1px solid #B8A496; border-radius: 4px; padding: 14px 16px; margin-bottom: 10px; max-width: 640px; }
+  .item b { display: inline-block; min-width: 44px; }
+  .sim { color: #1a7a3a; font-weight: 700; }
+  .nao { color: #a11212; font-weight: 700; }
+  .quadrados { display: flex; gap: 24px; margin: 18px 0; }
+  .q { width: 72px; height: 72px; border-radius: 6px; display: grid; place-items: center; color: #fff; font-size: 11px; text-align: center; }
+  #q1 { background: #7C1E2D; animation: pulsar 1.2s ease-in-out infinite alternate; }
+  #q2 { background: #B8A496; }
+  @keyframes pulsar { from { transform: scale(1); } to { transform: scale(1.25); } }
+  /* O segundo quadrado usa EXATAMENTE as mesmas guardas do hero do site. */
+  @media (prefers-reduced-motion: no-preference) {
+    .anim #q2 { background: #7C1E2D; animation: pulsar 1.2s ease-in-out infinite alternate; }
+  }
+  .veredito { font-size: 17px; font-weight: 600; margin-top: 18px; max-width: 640px; }
+</style>
+<script>document.documentElement.classList.add('anim')</script>
+</head>
+<body>
+  <h1>Diagnóstico de animação — me mande um print desta tela</h1>
+
+  <div class="quadrados">
+    <div class="q" id="q1">TESTE 1<br>sempre anima</div>
+    <div class="q" id="q2">TESTE 2<br>guardas do site</div>
+  </div>
+
+  <div class="item">JavaScript rodando: <span id="r-js" class="nao">NÃO</span></div>
+  <div class="item">Sistema pede menos movimento (prefers-reduced-motion): <span id="r-prm">…</span></div>
+  <div class="item">Suporte a animação por rolagem (scroll-timeline): <span id="r-st">…</span></div>
+  <div class="item">Suporte a transição entre páginas (View Transitions): <span id="r-vt">…</span></div>
+  <div class="item">Navegador: <span id="r-ua">…</span></div>
+
+  <p class="veredito" id="veredito">Se o TESTE 1 não está pulsando, nem esta página anima — problema de navegador ou de sistema.</p>
+
+  <script>
+    (function () {
+      var el = function (id) { return document.getElementById(id) }
+      var marcar = function (id, sim, textoSim, textoNao) {
+        var e = el(id)
+        e.textContent = sim ? (textoSim || 'SIM') : (textoNao || 'NÃO')
+        e.className = sim ? 'sim' : 'nao'
+        return sim
+      }
+      marcar('r-js', true)
+      var prm = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      // aqui SIM é o problema, então as cores invertem
+      var e = el('r-prm'); e.textContent = prm ? 'SIM — é isto que desliga as animações do site' : 'NÃO'
+      e.className = prm ? 'nao' : 'sim'
+      marcar('r-st', CSS.supports('animation-timeline: view()'))
+      marcar('r-vt', 'startViewTransition' in document)
+      el('r-ua').textContent = navigator.userAgent
+      el('r-ua').className = ''
+
+      var v = el('veredito')
+      if (prm) {
+        v.textContent = 'Encontrado: seu sistema está pedindo menos movimento, e o site respeita isso. No Windows: Configurações > Acessibilidade > Efeitos visuais > ligar "Efeitos de animação". Depois recarregue o site.'
+      } else if (!CSS.supports('animation-timeline: view()')) {
+        v.textContent = 'Seu navegador não tem animação por rolagem: os reveals de scroll não aparecem, mas a entrada do hero agora roda mesmo assim. Se o TESTE 2 pulsa, o hero deve animar.'
+      } else {
+        v.textContent = 'Tudo habilitado por aqui. Se os dois quadrados pulsam e mesmo assim o hero não anima, o problema é outro — me mande o print que eu investigo.'
+      }
+    })()
+  </script>
+</body>
+</html>

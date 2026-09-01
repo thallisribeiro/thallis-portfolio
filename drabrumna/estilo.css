@@ -981,8 +981,9 @@ main p a:not(.botao):not(.link-seta):focus-visible,
    Sem isto a página inteira aparece de uma vez, que é o que faz um site
    parecer montado em vez de autoral. A ordem é régua, título, chamada, ação —
    a mesma ordem em que a pessoa lê. */
+/* Sem @supports de scroll-timeline aqui de propósito: a entrada é por tempo e
+   roda em qualquer navegador. Só o movimento reduzido a desliga. */
 @media (prefers-reduced-motion: no-preference) {
-  @supports (animation-timeline: view()) {
 
     @keyframes subir-mascara {
       from { transform: translateY(105%); }
@@ -1072,7 +1073,6 @@ main p a:not(.botao):not(.link-seta):focus-visible,
       animation-timeline: auto, auto;
       animation-range: normal;
     }
-  }
 }
 
 /* A marca d'água tipográfica foi testada e removida: dava peso gráfico a uma
