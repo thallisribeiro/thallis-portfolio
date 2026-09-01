@@ -554,6 +554,74 @@ details.pergunta .resposta p:last-child { margin-bottom: 0; }
    marsala e derruba para 4,47:1, abaixo de AA — por isso aqui não leva fundo. */
 .rodape .marcador-pendente, .faixa-marsala .marcador-pendente { color: var(--dourado); background: none; padding-left: 0; padding-right: 0; }
 
+/* ---------- perguntas reais: a assinatura da página ----------
+   O site inteiro é cartão, borda e grade. Esta faixa é o único lugar sem
+   nenhum dos três: só a pergunta, grande, em Playfair, com um fio dourado
+   entre uma e outra. O contraste com o resto é o ponto — é o único momento
+   em que a página baixa a voz.
+
+   A escolha veio do próprio briefing, que diz que as pacientes chegam com
+   "dúvidas que têm vergonha de perguntar em consulta". Se é isso que define
+   o consultório dela, é isso que merece o maior tipo da página. */
+.perguntas-reais { background: var(--bege); }
+
+.lista-perguntas {
+  list-style: none;
+  margin: var(--e6) 0 var(--e7);
+  padding: 0;
+}
+.lista-perguntas li {
+  max-width: none;
+  border-top: 1px solid rgba(212, 175, 55, .45);
+}
+.lista-perguntas li:last-child { border-bottom: 1px solid rgba(212, 175, 55, .45); }
+
+.lista-perguntas a {
+  display: block;
+  padding: clamp(16px, 2.2vw, 24px) 0;
+  padding-right: var(--e6);
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.8vw, 32px);
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--marsala);
+  text-decoration: none;
+  max-width: 30ch;
+  position: relative;
+  transition: color .2s ease, padding-left .2s ease;
+}
+.lista-perguntas a:hover,
+.lista-perguntas a:focus-visible {
+  color: var(--marsala-fundo);
+  padding-left: var(--e3);
+}
+/* O losango da marca reaparece como marcador de leitura, só no item ativo:
+   nenhum ícone novo entra no sistema. */
+.lista-perguntas a::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 50%;
+  width: 6px; height: 6px;
+  background: var(--dourado);
+  transform: translateY(-50%) rotate(45deg) scale(0);
+  transition: transform .2s ease;
+}
+.lista-perguntas a:hover::before,
+.lista-perguntas a:focus-visible::before { transform: translateY(-50%) rotate(45deg) scale(1); }
+
+.perguntas-reais .chamada { max-width: 54ch; }
+
+/* Linha de apoio do CTA: responde o que acontece depois do clique. */
+.gatilho-cta {
+  display: block;
+  margin-top: var(--e2);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--tinta-suave);
+  max-width: 40ch;
+}
+.faixa-marsala .gatilho-cta { color: rgba(246, 238, 233, .82); }
+
 /* ---------- prova social ---------- */
 .avaliacoes-area { min-height: 220px; }
 .avaliacoes-alternativa { border: var(--borda); border-radius: var(--raio); background: #fff; padding: var(--e6); text-align: center; }
@@ -721,6 +789,7 @@ body { padding-bottom: 76px; }
     .tecnologia ul,
     .tecnologia-figura,
     .faq-indice,
+    .lista-perguntas li,
     .unidade {
       animation: revelar linear both;
       animation-timeline: view();

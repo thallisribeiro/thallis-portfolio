@@ -20,7 +20,7 @@
 <!-- Fontes na mesma origem: sem preconnect nem folha de terceiro no caminho crítico. -->
 <link rel="preload" href="fontes/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fontes/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="estilo.css?v=bfbe27ef">
+<link rel="stylesheet" href="estilo.css?v=0db4bdc1">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237C1E2D'/%3E%3Cpath d='M32 20l6 12-6 12-6-12z' fill='%23D4AF37'/%3E%3C/svg%3E">
 <!-- Physician sem campo de registro profissional: CRM e RQE só entram depois
      de confirmação documental. Sem medicalSpecialty, porque o briefing proíbe
@@ -114,10 +114,11 @@
       <div class="hero-texto">
         <h1 id="t-rejuvenescimento-intimo-e-corporal-avali">Rejuvenescimento íntimo e corporal, avaliado caso a caso</h1>
         <div class="regua"><i></i></div>
-        <p class="chamada">Medicina estética dedicada à saúde íntima feminina e ao cuidado do corpo, com tecnologia atual e um plano construído a partir da anatomia, da história e das expectativas de cada mulher. Atendimento em Florianópolis e São Paulo.</p>
+        <p class="chamada">Secura, desconforto, flacidez depois de emagrecer, mudanças que vieram com o parto ou com a idade. São queixas comuns, e ter uma delas não é motivo para constrangimento. A avaliação começa pela escuta, e o plano é feito a partir do seu caso. Atendimento em Florianópolis e São Paulo.</p>
         <div class="grupo-botoes">
           <div>
             <a class="botao" href="#" data-wpp="florianopolis">Agendar consulta</a>
+            <small class="gatilho-cta">Conversa direta com a equipe da clínica. Você não precisa explicar nada por mensagem.</small>
             <small class="aviso-wpp"></small>
           </div>
           <a class="botao botao-vazado" href="tratamentos/">Ver tratamentos</a>
@@ -141,19 +142,19 @@
 
       <div class="grade grade-3 espaco-topo">
         <article class="cartao cartao-destaque">
-          <p class="cartao-ordem">Área principal</p>
+          <p class="cartao-ordem">Saúde e conforto íntimo</p>
           <h3>Rejuvenescimento íntimo</h3>
           <p>Saúde íntima feminina, clareamento, preenchimento, bioestimulador vulvar, flacidez íntima, cuidado após emagrecimento e Fotona íntimo.</p>
           <a class="link-seta" href="tratamentos/#rejuvenescimento-intimo">Ver tratamentos</a>
         </article>
         <article class="cartao">
-          <p class="cartao-ordem">Segunda área</p>
+          <p class="cartao-ordem">Firmeza e contorno do corpo</p>
           <h3>Procedimentos corporais</h3>
           <p>Harmonização e firmeza de glúteos, flacidez corporal, Protocolo Bumbum V e tecnologias aplicadas ao corpo.</p>
           <a class="link-seta" href="tratamentos/#procedimentos-corporais">Ver tratamentos</a>
         </article>
         <article class="cartao">
-          <p class="cartao-ordem">Terceira área</p>
+          <p class="cartao-ordem">Rosto e qualidade da pele</p>
           <h3>Procedimentos faciais</h3>
           <p>Rejuvenescimento facial, bioestímulo de colágeno, preenchimento e tecnologias de lifting não cirúrgico.</p>
           <a class="link-seta" href="tratamentos/#procedimentos-faciais">Ver tratamentos</a>
@@ -309,12 +310,33 @@
     </div>
   </section>
 
+  <!-- Perguntas reais, tiradas da própria central de dúvidas. Entram aqui,
+       antes do CTA, porque é onde a dúvida vira hesitação. -->
+  <section class="perguntas-reais" aria-labelledby="t-perguntas-reais">
+    <div class="container">
+      <p class="olho">O que chega ao consultório</p>
+      <h2 id="t-perguntas-reais">Perguntas que ninguém faz em voz alta</h2>
+      <div class="regua"><i></i></div>
+      <ul class="lista-perguntas">
+        <li><a href="duvidas-frequentes/#estetica-intima-doi">Estética íntima dói?</a></li>
+        <li><a href="duvidas-frequentes/#quem-pode-fazer-estetica-intima">Estética íntima é feita apenas por ginecologista?</a></li>
+        <li><a href="duvidas-frequentes/#pele-flacida-apos-emagrecer">Como tratar a pele flácida depois de emagrecer?</a></li>
+        <li><a href="duvidas-frequentes/#quantos-filhos-tratamento-intimo">Depois de quantos filhos vale a pena considerar tratamento íntimo?</a></li>
+        <li><a href="duvidas-frequentes/#vida-sexual-recuperacao">Tratamento íntimo interfere na vida sexual durante a recuperação?</a></li>
+      </ul>
+      <p class="chamada">Nenhuma dessas perguntas é boba, e todas já foram feitas. As respostas estão na central de dúvidas, escritas para serem lidas em casa, sem pressa.</p>
+      <div class="grupo-botoes">
+        <a class="botao botao-vazado" href="duvidas-frequentes/">Ler as dúvidas frequentes</a>
+      </div>
+    </div>
+  </section>
+
   <!-- 6.7 CTA FINAL -->
   <section class="faixa-marsala" aria-labelledby="t-vamos-conversar-sobre-o-seu-caso">
     <div class="container container-leitura centro">
       <h2 id="t-vamos-conversar-sobre-o-seu-caso">Vamos conversar sobre o seu caso</h2>
       <div class="regua regua-centro"><i></i></div>
-      <p class="chamada">Na consulta, a avaliação individual define o que faz sentido para você — e também o que não faz. O primeiro contato é pelo WhatsApp da clínica de Florianópolis.</p>
+      <p class="chamada">Na consulta, a avaliação individual define o que faz sentido para você — e também o que não faz. O primeiro contato é pelo WhatsApp da clínica de Florianópolis, e serve só para marcar: nada precisa ser detalhado por mensagem.</p>
       <div class="grupo-botoes centralizar-botoes" >
         <div>
             <a class="botao botao-dourado" href="#" data-wpp="florianopolis">Agendar consulta</a>
@@ -395,7 +417,7 @@
   </div>
 </dialog>
 
-<script src="dados.js?v=bfbe27ef"></script>
+<script src="dados.js?v=0db4bdc1"></script>
 <script src="site.js?v=8782cb41" defer></script>
 </body>
 </html>
