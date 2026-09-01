@@ -700,7 +700,7 @@ body { padding-bottom: 76px; }
        nunca o contêiner que os agrupa. */
 
     @keyframes revelar {
-      from { opacity: 0; transform: translateY(16px); }
+      from { opacity: 0; transform: translateY(30px) scale(.985); }
       to   { opacity: 1; transform: none; }
     }
 
@@ -724,16 +724,16 @@ body { padding-bottom: 76px; }
     .unidade {
       animation: revelar linear both;
       animation-timeline: view();
-      animation-range: entry 0% entry 100%;
+      animation-range: entry 0% cover 28%;
     }
 
     /* Cascata: dentro de uma grade, cada cartão termina um pouco depois do
        anterior. O atraso vem da posição, não de delay em segundos — com
        timeline de scroll, delay em tempo não existe. */
-    .grade > *:nth-child(2) { animation-range: entry 0% entry 115%; }
-    .grade > *:nth-child(3) { animation-range: entry 0% entry 130%; }
-    .grade > *:nth-child(4) { animation-range: entry 0% entry 145%; }
-    .autoridade li:nth-child(even) { animation-range: entry 0% entry 120%; }
+    .grade > *:nth-child(2) { animation-range: entry 0% cover 36%; }
+    .grade > *:nth-child(3) { animation-range: entry 0% cover 44%; }
+    .grade > *:nth-child(4) { animation-range: entry 0% cover 52%; }
+    .autoridade li:nth-child(even) { animation-range: entry 0% cover 38%; }
 
     /* --- a régua dourada se desenha do centro para fora --- */
     @keyframes desenhar-regua {
@@ -744,7 +744,7 @@ body { padding-bottom: 76px; }
       transform-origin: center;
       animation: desenhar-regua linear both;
       animation-timeline: view();
-      animation-range: entry 0% entry 100%;
+      animation-range: entry 0% cover 30%;
     }
     @keyframes surgir-losango {
       from { transform: rotate(45deg) scale(0); }
@@ -753,14 +753,14 @@ body { padding-bottom: 76px; }
     .regua i {
       animation: surgir-losango linear both;
       animation-timeline: view();
-      animation-range: entry 10% entry 100%;
+      animation-range: entry 10% cover 34%;
     }
 
     /* --- parallax do hero: a imagem afunda devagar enquanto a página sobe.
            Só transform, então roda na GPU e não força layout. --- */
     @keyframes afundar {
-      from { transform: translateY(0) scale(1.06); }
-      to   { transform: translateY(3%) scale(1); }
+      from { transform: translateY(-2%) scale(1.12); }
+      to   { transform: translateY(6%) scale(1); }
     }
     .hero-figura img {
       animation: afundar linear both;
@@ -772,7 +772,7 @@ body { padding-bottom: 76px; }
     @keyframes progresso { from { transform: scaleX(0); } to { transform: scaleX(1); } }
     .cabecalho::after {
       content: "";
-      position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
+      position: absolute; left: 0; right: 0; bottom: -1px; height: 3px;
       background: linear-gradient(90deg, var(--marsala), var(--dourado));
       transform-origin: 0 50%;
       animation: progresso linear both;
