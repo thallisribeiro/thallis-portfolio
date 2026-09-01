@@ -1,7 +1,0 @@
-# Prévia hospedada em subpasta: índice bloqueado de propósito.
-# Ao publicar em [DOMINIO_FINAL], mover este arquivo para a raiz do domínio,
-# trocar Disallow por Allow e remover as metatags noindex das páginas.
-User-agent: *
-Disallow: /
-
-Sitemap: https://[DOMINIO_FINAL]/sitemap.xml

@@ -1,4 +1,0 @@
-# URL temporária: índice bloqueado de propósito.
-# Desmarque "Bloquear o site nas buscas" no painel ao entrar no domínio definitivo.
-User-agent: *
-Disallow: /
