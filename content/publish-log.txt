@@ -115,3 +115,5 @@
 [2026-08-31T23:21:33.741Z] [ensure-queue] o dia já tem 5 posts — nada a gerar
 [2026-09-01T09:30:01.540Z] [ensure-queue] nada pareado da esteira neste horário — sem post. O blog publica o que a esteira apurou, não o que eu fiz hoje.
 [2026-09-01T10:00:01.828Z] fila vazia — nada publicado neste horário
+[2026-09-01T14:30:01.555Z] [ensure-queue] nada pareado da esteira neste horário — sem post. O blog publica o que a esteira apurou, não o que eu fiz hoje.
+[2026-09-01T15:00:01.573Z] fila vazia — nada publicado neste horário
