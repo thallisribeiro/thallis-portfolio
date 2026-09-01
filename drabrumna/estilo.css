@@ -411,11 +411,12 @@ section { padding: var(--respiro) 0; }
   inset: 0;
   z-index: 0;
 }
+.hero-figura picture { display: contents; }
 .hero-figura img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 62% 40%;
+  object-position: 50% 50%;
 }
 /* Scrim: escuro firme sob o texto, transparente sobre a foto. */
 .hero-figura::after {
@@ -468,7 +469,6 @@ section { padding: var(--respiro) 0; }
   }
   /* No celular o interesse da foto (o espelho) fica à direita; o scrim sobe
      de baixo, onde o texto está. */
-  .hero-figura img { object-position: 68% 40%; }
   .hero-figura::after {
     background: linear-gradient(180deg,
       rgba(58, 13, 21, .18) 0%,
@@ -1032,13 +1032,44 @@ main p a:not(.botao):not(.link-seta):focus-visible,
       animation-timeline: auto;
       animation-range: normal;
     }
+    /* O véu da abertura só existe aqui dentro: navegador sem suporte ou com
+       movimento reduzido nunca cria o overlay. Ele nasce transparente e a
+       animação o traz a 1 e dissolve — a capa nunca fica coberta sem animação
+       rodando. */
+    .anim .hero-figura::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: var(--marsala-fundo);
+      opacity: 0;
+      pointer-events: none;
+    }
+    /* O véu se dissolve primeiro: a página abre coberta de marsala e a seda
+       aparece por trás do texto que está subindo. */
+    @keyframes dissolver-veu {
+      from { opacity: 1; }
+      to   { opacity: 0; }
+    }
+    .anim .hero-figura::before {
+      animation: dissolver-veu 1.5s cubic-bezier(.22, .61, .36, 1) .15s both;
+      animation-timeline: auto;
+      animation-range: normal;
+    }
+    /* Câmera assentando: um dolly curto que termina onde o Ken Burns começa,
+       na mesma escala, para não haver salto entre as duas. */
+    @keyframes assentar-camera {
+      from { transform: scale(1.16); }
+      to   { transform: scale(1.06); }
+    }
     /* A foto do hero troca o parallax de scroll pelo Ken Burns: os dois na
        mesma propriedade brigariam, e o Ken Burns diz mais numa primeira
        dobra que quase não rola. */
-    .hero-figura img {
-      animation: respirar 22s ease-in-out infinite alternate;
-      animation-timeline: auto;
-      animation-range: normal;
+    .anim .hero-figura img {
+      animation:
+        assentar-camera 2s cubic-bezier(.16, 1, .3, 1) both,
+        respirar 26s ease-in-out 2s infinite alternate;
+      animation-timeline: auto, auto;
       animation-range: normal;
     }
   }
