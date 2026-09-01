@@ -39,6 +39,8 @@
   <div class="item">Sistema pede menos movimento (prefers-reduced-motion): <span id="r-prm">…</span></div>
   <div class="item">Suporte a animação por rolagem (scroll-timeline): <span id="r-st">…</span></div>
   <div class="item">Suporte a transição entre páginas (View Transitions): <span id="r-vt">…</span></div>
+  <div class="item">Build desta página: <span id="r-build">01/09/2026, 17:36:47 · css 893b9090</span></div>
+  <div class="item">Endereço aberto: <span id="r-url">…</span></div>
   <div class="item">Navegador: <span id="r-ua">…</span></div>
 
   <p class="veredito" id="veredito">Se o TESTE 1 não está pulsando, nem esta página anima — problema de navegador ou de sistema.</p>
@@ -61,6 +63,8 @@
       marcar('r-vt', 'startViewTransition' in document)
       el('r-ua').textContent = navigator.userAgent
       el('r-ua').className = ''
+      el('r-url').textContent = location.href
+      el('r-url').className = ''
 
       var v = el('veredito')
       if (prm) {
