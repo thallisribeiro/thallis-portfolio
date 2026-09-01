@@ -1,8 +1,8 @@
 ---
-title: "Relay.app fechou: o que aconteceu com a rival do Zapier e por que o fundador foi para o Google"
+title: Relay.app fechou: o que aconteceu com a rival do Zapier e por que o fundador foi para o Google
 date: 2026-09-01
+summary: A Relay.app anunciou o encerramento em 16 de julho de 2026, apagou as contas gratuitas em 15 de agosto e apaga as contas pagas em 14 de setembro. Um mês depois do aviso, o fundador Jacob Bank apareceu como VP de Produto do Google Chrome, levando parte da equipe. Não foi aquisição: o Google não comprou o produto nem a marca.
 tema: Mercado
-summary: "A Relay.app anunciou o encerramento em 16 de julho de 2026, apagou as contas gratuitas em 15 de agosto e apaga as contas pagas em 14 de setembro. Um mês depois do aviso, o fundador Jacob Bank apareceu como VP de Produto do Google Chrome, levando parte da equipe. Não foi aquisição: o Google não comprou o produto nem a marca."
 image: /assets/posts/relay-app-fechou-o-que-aconteceu-com-a-rival-do-zapier-e-por-que-o-fun.webp
 ---
 
