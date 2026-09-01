@@ -369,4 +369,90 @@
     });
   })();
 
+
+  /* ---------------------------------------------------------------- */
+  /* 9. Reveal por rolagem onde não há scroll-driven animations       */
+  /*    (iOS/Safari, principalmente — a maioria das pacientes).        */
+  /*    O IntersectionObserver faz o papel da timeline: mesma cena,    */
+  /*    outro motor. A classe io-reveal só entra depois de o observer  */
+  /*    montar; sem ela o CSS não esconde nada.                        */
+  /* ---------------------------------------------------------------- */
+  (function revealSemTimeline() {
+    var reduz = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduz) return;
+    if (window.CSS && CSS.supports && CSS.supports('animation-timeline: view()')) return;
+    if (!('IntersectionObserver' in window)) return;
+
+    var SELETORES = [
+      'main section .olho',
+      'main section > .container > h1',
+      'main section > .container > h2',
+      'main section > .container > .chamada',
+      'main section > .container > .grupo-botoes',
+      '.grade > *',
+      '.bloco-cabeca',
+      '.lista-itens > li',
+      '.autoridade li',
+      '.tecnologia h2', '.tecnologia p', '.tecnologia ul', '.tecnologia-figura',
+      '.faq-indice', '.unidade',
+      'main .regua'
+    ].join(', ');
+
+    try {
+      var alvos = Array.prototype.slice.call(document.querySelectorAll(SELETORES))
+        // o hero tem entrada própria por tempo
+        .filter(function (el) { return !el.closest('.hero'); });
+      if (!alvos.length) return;
+
+      var observador = new IntersectionObserver(function (entradas) {
+        entradas.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          e.target.classList.add('entrou');
+          observador.unobserve(e.target);
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+
+      alvos.forEach(function (el, i) {
+        // cascata dentro de grades: o atraso vem da posição entre irmaos
+        var pai = el.parentElement;
+        if (pai && (pai.classList.contains('grade') || pai.classList.contains('autoridade'))) {
+          var irmaos = Array.prototype.indexOf.call(pai.children, el);
+          el.style.transitionDelay = Math.min(irmaos * 90, 360) + 'ms';
+        }
+        observador.observe(el);
+      });
+
+      // só agora o CSS pode esconder o estado inicial
+      document.documentElement.classList.add('io-reveal');
+
+      // o que já está na tela no carregamento entra imediatamente
+      requestAnimationFrame(function () {
+        alvos.forEach(function (el) {
+          var r = el.getBoundingClientRect();
+          if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('entrou');
+        });
+      });
+
+      // barra de progresso e sombra do cabeçalho, sem timeline
+      var cab = document.querySelector('.cabecalho');
+      if (cab) {
+        var marcado = false;
+        var atualizar = function () {
+          marcado = false;
+          var total = document.documentElement.scrollHeight - window.innerHeight;
+          var p = total > 0 ? Math.min(window.scrollY / total, 1) : 0;
+          cab.style.setProperty('--progresso', String(p));
+          cab.classList.toggle('rolou', window.scrollY > 120);
+        };
+        window.addEventListener('scroll', function () {
+          if (!marcado) { marcado = true; requestAnimationFrame(atualizar); }
+        }, { passive: true });
+        atualizar();
+      }
+    } catch (erro) {
+      // qualquer falha: sem classe, página estática e completa
+      document.documentElement.classList.remove('io-reveal');
+    }
+  })();
+
 })();

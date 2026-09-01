@@ -1078,3 +1078,57 @@ main p a:not(.botao):not(.link-seta):focus-visible,
 /* A marca d'água tipográfica foi testada e removida: dava peso gráfico a uma
    credencial que ainda está marcada como pendente de conferência documental,
    e criava uma exceção de contraste que eu teria de defender. */
+
+
+/* ---------- Reveal sem scroll-timeline (iOS/Safari) ----------
+   Espelha a cena dos reveals de rolagem usando transição + classe .entrou
+   colocada pelo IntersectionObserver. O estado escondido só existe sob
+   html.io-reveal, que só existe se o observer montou — a mesma regra de nunca
+   esconder conteúdo sem motor que o revele. */
+@media (prefers-reduced-motion: no-preference) {
+  html.io-reveal main section .olho,
+  html.io-reveal main section > .container > h1,
+  html.io-reveal main section > .container > h2,
+  html.io-reveal main section > .container > .chamada,
+  html.io-reveal main section > .container > .grupo-botoes,
+  html.io-reveal .grade > *,
+  html.io-reveal .bloco-cabeca,
+  html.io-reveal .lista-itens > li,
+  html.io-reveal .autoridade li,
+  html.io-reveal .tecnologia h2,
+  html.io-reveal .tecnologia p,
+  html.io-reveal .tecnologia ul,
+  html.io-reveal .tecnologia-figura,
+  html.io-reveal .faq-indice,
+  html.io-reveal .unidade {
+    opacity: 0;
+    transform: translateY(30px) scale(.985);
+    transition: opacity .65s cubic-bezier(.22, .61, .36, 1), transform .65s cubic-bezier(.22, .61, .36, 1);
+  }
+  html.io-reveal .hero * { opacity: revert; transform: revert; transition: revert; }
+  html.io-reveal .entrou {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* régua se desenhando */
+  html.io-reveal main .regua:not(.entrou)::before,
+  html.io-reveal main .regua:not(.entrou)::after { transform: scaleX(0); }
+  html.io-reveal main .regua:not(.entrou) i { transform: rotate(45deg) scale(0); }
+  html.io-reveal main .regua::before,
+  html.io-reveal main .regua::after { transition: transform .7s cubic-bezier(.22, .61, .36, 1); transform-origin: center; }
+  html.io-reveal main .regua i { transition: transform .5s cubic-bezier(.22, .61, .36, 1) .15s; }
+  html.io-reveal .hero .regua::before,
+  html.io-reveal .hero .regua::after,
+  html.io-reveal .hero .regua i { transition: none; transform: revert; }
+
+  /* barra de progresso e sombra do cabeçalho pelo mesmo caminho */
+  html.io-reveal .cabecalho::after {
+    content: "";
+    position: absolute; left: 0; right: 0; bottom: -1px; height: 3px;
+    background: linear-gradient(90deg, var(--marsala), var(--dourado));
+    transform-origin: 0 50%;
+    transform: scaleX(var(--progresso, 0));
+  }
+  html.io-reveal .cabecalho.rolou { box-shadow: 0 2px 14px rgba(43, 35, 32, .10); }
+}
