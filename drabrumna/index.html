@@ -24,7 +24,7 @@
      classe o conteúdo renderiza normal e opaco: entrada por tempo com
      fill:both deixaria o hero em branco se a animação não rodasse. -->
 <script>document.documentElement.classList.add('anim')</script>
-<link rel="stylesheet" href="estilo.css?v=b6d46266">
+<link rel="stylesheet" href="estilo.css?v=14e9b3d7">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237C1E2D'/%3E%3Cpath d='M32 20l6 12-6 12-6-12z' fill='%23D4AF37'/%3E%3C/svg%3E">
 <!-- Physician sem campo de registro profissional: CRM e RQE só entram depois
      de confirmação documental. Sem medicalSpecialty, porque o briefing proíbe
@@ -114,25 +114,27 @@
        Foto na capa nesta entrega; o componente aceita <video> no lugar do <img>
        sem deixar player nem espaço vazio agora. Sem carrossel automático. -->
   <section class="hero" aria-labelledby="t-rejuvenescimento-intimo-e-corporal-avali">
-    <div class="hero-grade">
-      <div class="hero-texto">
-        <h1 id="t-rejuvenescimento-intimo-e-corporal-avali">Rejuvenescimento íntimo e corporal, avaliado caso a caso</h1>
-        <div class="regua"><i></i></div>
-        <p class="chamada">Medicina estética dedicada à saúde íntima feminina e ao cuidado do corpo, com tecnologia atual e um plano construído a partir da anatomia, da história e das expectativas de cada mulher. Atendimento em Florianópolis e São Paulo.</p>
-        <div class="grupo-botoes">
-          <div>
-            <a class="botao" href="#" data-wpp="florianopolis">Agendar consulta</a>
-            <small class="aviso-wpp"></small>
-          </div>
-          <a class="botao botao-vazado" href="tratamentos/">Ver tratamentos</a>
+    <!-- Capa em dimensão de vídeo, como o briefing pede ("foto na capa ao invés
+         do videozinho. depois eu faço um vídeo"). Quando o vídeo chegar, entra
+         aqui no lugar do <img>, com muted + autoplay + loop + playsinline, sem
+         mudar mais nada.
+         PENDENTE: a imagem atual é a recepção do IMV, provisória até a foto ou
+         o vídeo profissional da pasta de materiais. -->
+    <figure class="hero-figura">
+      <img src="assets/clinica-imv-florianopolis.webp" alt="" width="1002" height="545" fetchpriority="high">
+    </figure>
+    <div class="hero-texto">
+      <h1 id="t-rejuvenescimento-intimo-e-corporal-avali">Rejuvenescimento íntimo e corporal, avaliado caso a caso</h1>
+      <div class="regua"><i></i></div>
+      <p class="chamada">Medicina estética dedicada à saúde íntima feminina e ao cuidado do corpo, com tecnologia atual e um plano construído a partir da anatomia, da história e das expectativas de cada mulher. Atendimento em Florianópolis e São Paulo.</p>
+      <div class="grupo-botoes">
+        <div>
+          <a class="botao botao-dourado" href="#" data-wpp="florianopolis">Agendar consulta</a>
+          <small class="aviso-wpp"></small>
         </div>
+        <a class="botao botao-vazado" href="tratamentos/">Ver tratamentos</a>
       </div>
-      <figure class="hero-figura">
-        <!-- PENDENTE: foto de capa profissional da pasta de materiais. A imagem atual
-             foi extraída do próprio PDF do briefing e serve só como prova de layout. -->
-        <img src="assets/dra-brumna-hero.webp" alt="Dra. Brumna Valdivieso, médica, em frente à clínica onde atende em São Paulo" width="420" height="635" fetchpriority="high">
-        <figcaption class="hero-credencial">Médica · Mestrado em Rejuvenescimento Íntimo pela Universidade do Porto</figcaption>
-      </figure>
+      <p class="hero-credencial">Médica · Mestrado em Rejuvenescimento Íntimo pela Universidade do Porto</p>
     </div>
   </section>
 
@@ -396,7 +398,7 @@
   </div>
 </dialog>
 
-<script src="dados.js?v=b6d46266"></script>
+<script src="dados.js?v=14e9b3d7"></script>
 <script src="site.js?v=e131a519" defer></script>
 </body>
 </html>
