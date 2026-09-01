@@ -1,51 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Gerado para a estrutura definitiva. Trocar [DOMINIO_FINAL] e mover para a raiz. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://[DOMINIO_FINAL]/</loc>
+    <loc>https://thallisribeiro.com.br/drabrumna-v3/</loc>
     <lastmod>2026-09-01</lastmod>
   </url>
   <url>
-    <loc>https://[DOMINIO_FINAL]/tratamentos/</loc>
+    <loc>https://thallisribeiro.com.br/drabrumna-v3/tratamentos/</loc>
     <lastmod>2026-09-01</lastmod>
   </url>
   <url>
-    <loc>https://[DOMINIO_FINAL]/tecnologias/</loc>
+    <loc>https://thallisribeiro.com.br/drabrumna-v3/tecnologias/</loc>
     <lastmod>2026-09-01</lastmod>
   </url>
   <url>
-    <loc>https://[DOMINIO_FINAL]/ninfoplastia/</loc>
+    <loc>https://thallisribeiro.com.br/drabrumna-v3/ninfoplastia/</loc>
     <lastmod>2026-09-01</lastmod>
   </url>
   <url>
-    <loc>https://[DOMINIO_FINAL]/sobre-a-dra-brumna/</loc>
+    <loc>https://thallisribeiro.com.br/drabrumna-v3/sobre-a-dra-brumna/</loc>
     <lastmod>2026-09-01</lastmod>
   </url>
   <url>
-    <loc>https://[DOMINIO_FINAL]/duvidas-frequentes/</loc>
+    <loc>https://thallisribeiro.com.br/drabrumna-v3/contato/</loc>
     <lastmod>2026-09-01</lastmod>
   </url>
   <url>
-    <loc>https://[DOMINIO_FINAL]/blog/</loc>
+    <loc>https://thallisribeiro.com.br/drabrumna-v3/blog/</loc>
     <lastmod>2026-09-01</lastmod>
   </url>
   <url>
-    <loc>https://[DOMINIO_FINAL]/contato/</loc>
+    <loc>https://thallisribeiro.com.br/drabrumna-v3/politica-de-privacidade/</loc>
     <lastmod>2026-09-01</lastmod>
   </url>
   <url>
-    <loc>https://[DOMINIO_FINAL]/politica-de-privacidade/</loc>
+    <loc>https://thallisribeiro.com.br/drabrumna-v3/politica-de-cookies/</loc>
     <lastmod>2026-09-01</lastmod>
-    <priority>0.2</priority>
   </url>
   <url>
-    <loc>https://[DOMINIO_FINAL]/politica-de-cookies/</loc>
+    <loc>https://thallisribeiro.com.br/drabrumna-v3/termos-de-uso/</loc>
     <lastmod>2026-09-01</lastmod>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://[DOMINIO_FINAL]/termos-de-uso/</loc>
-    <lastmod>2026-09-01</lastmod>
-    <priority>0.2</priority>
   </url>
 </urlset>

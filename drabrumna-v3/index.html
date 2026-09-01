@@ -17,9 +17,9 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Dra. Brumna Valdivieso">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Fontes na mesma origem: sem preconnect nem folha de terceiro no caminho crítico. -->
+<link rel="preload" href="fontes/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fontes/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="estilo.css">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237C1E2D'/%3E%3Cpath d='M32 20l6 12-6 12-6-12z' fill='%23D4AF37'/%3E%3C/svg%3E">
 <!-- Physician sem campo de registro profissional: CRM e RQE só entram depois
@@ -109,13 +109,12 @@
   <!-- 6.1 HERO — direção estética inspirada na primeira dobra da Shafer Clinic.
        Foto na capa nesta entrega; o componente aceita <video> no lugar do <img>
        sem deixar player nem espaço vazio agora. Sem carrossel automático. -->
-  <section class="hero">
+  <section class="hero" aria-labelledby="t-rejuvenescimento-intimo-e-corporal-avali">
     <div class="hero-grade">
       <div class="hero-texto">
-        <p class="olho">Florianópolis · São Paulo</p>
-        <h1>Rejuvenescimento íntimo e corporal, avaliado caso a caso</h1>
+        <h1 id="t-rejuvenescimento-intimo-e-corporal-avali">Rejuvenescimento íntimo e corporal, avaliado caso a caso</h1>
         <div class="regua"><i></i></div>
-        <p class="chamada">Medicina estética dedicada à saúde íntima feminina e ao cuidado do corpo, com tecnologia atual e um plano construído a partir da anatomia, da história e das expectativas de cada mulher.</p>
+        <p class="chamada">Medicina estética dedicada à saúde íntima feminina e ao cuidado do corpo, com tecnologia atual e um plano construído a partir da anatomia, da história e das expectativas de cada mulher. Atendimento em Florianópolis e São Paulo.</p>
         <div class="grupo-botoes">
           <div>
             <a class="botao" href="#" data-wpp="florianopolis">Agendar consulta</a>
@@ -134,13 +133,13 @@
   </section>
 
   <!-- 6.2 ESPECIALIDADES, TRATAMENTOS E TECNOLOGIAS -->
-  <section>
+  <section aria-labelledby="t-onde-a-dra-brumna-concentra-a-atuacao">
     <div class="container">
       <p class="olho">Áreas de cuidado</p>
-      <h2>Onde a Dra. Brumna concentra a atuação</h2>
+      <h2 id="t-onde-a-dra-brumna-concentra-a-atuacao">Onde a Dra. Brumna concentra a atuação</h2>
       <p class="chamada">Três áreas, com prioridade clara para o rejuvenescimento íntimo. Cada uma reúne tratamentos próprios, e as tecnologias aparecem em seguida, como ferramenta.</p>
 
-      <div class="grade grade-3" style="margin-top:40px">
+      <div class="grade grade-3 espaco-topo">
         <article class="cartao cartao-destaque">
           <p class="cartao-ordem">Área principal</p>
           <h3>Rejuvenescimento íntimo</h3>
@@ -163,13 +162,13 @@
     </div>
   </section>
 
-  <section class="faixa-bege">
+  <section class="faixa-bege" aria-labelledby="t-equipamentos-utilizados-no-consultorio">
     <div class="container">
       <p class="olho">Tecnologias</p>
-      <h2>Equipamentos utilizados no consultório</h2>
+      <h2 id="t-equipamentos-utilizados-no-consultorio">Equipamentos utilizados no consultório</h2>
       <p class="chamada">A escolha da tecnologia vem depois da avaliação, nunca antes dela.</p>
 
-      <div class="grade grade-2" style="margin-top:40px">
+      <div class="grade grade-2 espaco-topo">
         <article class="cartao">
           <h3>Laser Fotona StarWalker MaQX</h3>
           <p>Plataforma de laser com protocolos distintos para a área íntima e para o rosto.</p>
@@ -198,7 +197,7 @@
   </section>
 
   <!-- 6.3 POR QUE DRA. BRUMNA — mini bio -->
-  <section>
+  <section aria-labelledby="t-conhecimento-medico-tecnologia-e-escuta-">
     <div class="container">
       <div class="duo">
         <div class="duo-figura">
@@ -206,7 +205,7 @@
         </div>
         <div>
           <p class="olho">Por que Dra. Brumna?</p>
-          <h2>Conhecimento médico, tecnologia e escuta individual</h2>
+          <h2 id="t-conhecimento-medico-tecnologia-e-escuta-">Conhecimento médico, tecnologia e escuta individual</h2>
           <div class="regua"><i></i></div>
           <p>Médica formada pela Universidade de Ribeirão Preto, com mestrado em Rejuvenescimento Íntimo pela Universidade do Porto, em Portugal. A atuação clínica se divide entre Florianópolis, São Paulo e Porto.</p>
           <p>Além do consultório, atua na formação de outros profissionais como professora de pós-graduação e coordenadora de cursos e fellows voltados ao rejuvenescimento íntimo e aos procedimentos corporais.</p>
@@ -218,10 +217,10 @@
   </section>
 
   <!-- 6.4 AUTORIDADE — credenciais apresentadas em bloco próprio -->
-  <section class="faixa-marsala">
+  <section class="faixa-marsala" aria-labelledby="t-formacao-docencia-e-atuacao-internaciona">
     <div class="container">
       <p class="olho">Trajetória profissional</p>
-      <h2>Formação, docência e atuação internacional</h2>
+      <h2 id="t-formacao-docencia-e-atuacao-internaciona">Formação, docência e atuação internacional</h2>
       <div class="regua"><i></i></div>
       <p class="chamada">Todos os itens abaixo vêm do material fornecido pela própria médica e aguardam conferência documental antes da publicação definitiva.</p>
       <ul class="autoridade">
@@ -255,11 +254,11 @@
 
   <!-- 6.5 LOCAIS DE ATENDIMENTO — Florianópolis com prioridade de conversão.
        Porto aparece só na biografia, não como agenda. -->
-  <section>
+  <section aria-labelledby="t-florianopolis-e-sao-paulo">
     <div class="container">
       <p class="olho">Locais de atendimento</p>
-      <h2>Florianópolis e São Paulo</h2>
-      <div class="grade grade-2" style="margin-top:36px">
+      <h2 id="t-florianopolis-e-sao-paulo">Florianópolis e São Paulo</h2>
+      <div class="grade grade-2 espaco-topo">
         <article class="unidade">
           <img src="assets/clinica-imv-florianopolis.webp" alt="Recepção do IMV — Instituto Medicina de Vanguarda, em Florianópolis" width="1002" height="545" loading="lazy">
           <div class="unidade-corpo">
@@ -296,27 +295,27 @@
   </section>
 
   <!-- 6.6 DEPOIMENTOS — só avaliações reais do Google, via integração aprovada -->
-  <section class="faixa-bege">
+  <section class="faixa-bege" aria-labelledby="t-avaliacoes-de-pacientes">
     <div class="container">
       <p class="olho">Prova social</p>
-      <h2>Avaliações de pacientes</h2>
+      <h2 id="t-avaliacoes-de-pacientes">Avaliações de pacientes</h2>
       <p class="chamada">Esta área carrega as avaliações reais publicadas no perfil do Google. Nenhum depoimento é escrito ou selecionado manualmente.</p>
-      <div class="avaliacoes-area" style="margin-top:36px" data-estado="sem-fonte">
+      <div class="avaliacoes-area espaco-topo-medio"  data-estado="sem-fonte">
         <div class="avaliacoes-alternativa">
           <h3>Integração ainda não conectada</h3>
-          <p class="chamada" style="margin:0 auto">Falta confirmar o perfil de origem <span class="marcador-pendente">[URL_GOOGLE_REVIEWS_OU_PLACE_ID]</span> e a ferramenta de exibição. Assim que o perfil for informado, as avaliações reais aparecem aqui com nota, data e link para a origem. Este bloco também é o estado de fallback caso o widget não carregue.</p>
+          <p class="chamada">Falta confirmar o perfil de origem <span class="marcador-pendente">[URL_GOOGLE_REVIEWS_OU_PLACE_ID]</span> e a ferramenta de exibição. Assim que o perfil for informado, as avaliações reais aparecem aqui com nota, data e link para a origem. Este bloco também é o estado de fallback caso o widget não carregue.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- 6.7 CTA FINAL -->
-  <section class="faixa-marsala">
-    <div class="container container-leitura" style="text-align:center">
-      <h2>Vamos conversar sobre o seu caso</h2>
+  <section class="faixa-marsala" aria-labelledby="t-vamos-conversar-sobre-o-seu-caso">
+    <div class="container container-leitura centro">
+      <h2 id="t-vamos-conversar-sobre-o-seu-caso">Vamos conversar sobre o seu caso</h2>
       <div class="regua regua-centro"><i></i></div>
-      <p class="chamada" style="margin:0 auto">Na consulta, a avaliação individual define o que faz sentido para você — e também o que não faz. O primeiro contato é pelo WhatsApp da clínica de Florianópolis.</p>
-      <div class="grupo-botoes" style="justify-content:center">
+      <p class="chamada">Na consulta, a avaliação individual define o que faz sentido para você — e também o que não faz. O primeiro contato é pelo WhatsApp da clínica de Florianópolis.</p>
+      <div class="grupo-botoes centralizar-botoes" >
         <div>
             <a class="botao botao-dourado" href="#" data-wpp="florianopolis">Agendar consulta</a>
             <small class="aviso-wpp"></small>
@@ -335,10 +334,10 @@
       <span class="marca-nome">Dra. Brumna Valdivieso</span>
       <span class="marca-linha">Ninfoplastia · Estética Íntima · Corporal</span>
     </div>
-        <p style="margin-top:16px">Rejuvenescimento íntimo, procedimentos corporais e faciais, com avaliação individualizada. Atendimento em Florianópolis e São Paulo.</p>
+        <p class="espaco-topo-curto">Rejuvenescimento íntimo, procedimentos corporais e faciais, com avaliação individualizada. Atendimento em Florianópolis e São Paulo.</p>
       </div>
       <div>
-        <h4>Navegação</h4>
+        <h2>Navegação</h2>
         <ul>
           <li><a href="tratamentos/">Tratamentos</a></li>
           <li><a href="tecnologias/">Tecnologias</a></li>
@@ -350,12 +349,12 @@
         </ul>
       </div>
       <div>
-        <h4>Informações</h4>
+        <h2>Informações</h2>
         <ul>
           <li><a href="politica-de-privacidade/">Política de Privacidade</a></li>
           <li><a href="politica-de-cookies/">Política de Cookies</a></li>
           <li><a href="termos-de-uso/">Termos de Uso</a></li>
-          <li>Contato: <span data-campo="email">[EMAIL_DE_CONTATO]</span></li>
+          <li>Contato: <span data-campo="email" class="marcador-pendente">[EMAIL_DE_CONTATO]</span></li>
         </ul>
       </div>
     </div>
@@ -364,9 +363,9 @@
       <p class="identificacao-medica">
         <strong>Dra. Brumna Valdivieso</strong><br>
         Médica<br>
-        CRM/SC <span data-campo="crm-brumna">[CRM_DRA_BRUMNA]</span><br>
+        CRM/SC <span data-campo="crm-brumna" class="marcador-pendente">[CRM_DRA_BRUMNA]</span><br>
         Diretor Técnico: Dr. Thiago Nassif<br>
-        CRM/SC <span data-campo="crm-nassif">[CRM_DR_THIAGO_NASSIF]</span> (RQE) <span data-campo="rqe-nassif">[RQE_DR_THIAGO_NASSIF]</span>
+        CRM/SC <span data-campo="crm-nassif" class="marcador-pendente">[CRM_DR_THIAGO_NASSIF]</span> (RQE) <span data-campo="rqe-nassif" class="marcador-pendente">[RQE_DR_THIAGO_NASSIF]</span>
       </p>
       <p class="rodape-aviso">As informações deste site têm caráter educativo e informativo e não substituem a avaliação médica individual. A indicação de qualquer procedimento depende de consulta presencial. Resultados variam conforme as características de cada paciente.</p>
     </div>

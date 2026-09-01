@@ -17,9 +17,9 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Dra. Brumna Valdivieso">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Fontes na mesma origem: sem preconnect nem folha de terceiro no caminho crítico. -->
+<link rel="preload" href="../fontes/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fontes/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../estilo.css">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237C1E2D'/%3E%3Cpath d='M32 20l6 12-6 12-6-12z' fill='%23D4AF37'/%3E%3C/svg%3E">
 <!-- Dados estruturados Physician/MedicalBusiness ficam retidos: o briefing exige
@@ -89,7 +89,7 @@
 </div>
 
 <main id="conteudo">
-  <section class="topo-pagina">
+  <section class="topo-pagina" aria-labelledby="t-tecnologias">
     <div class="container">
       <nav class="trilha" aria-label="Trilha de navegação">
         <ol>
@@ -97,24 +97,23 @@
           <li aria-current="page">Tecnologias</li>
         </ol>
       </nav>
-      <p class="olho">Tecnologias</p>
-      <h1>Tecnologias</h1>
+      <h1 id="t-tecnologias">Tecnologias</h1>
       <div class="regua"><i></i></div>
       <p class="chamada">Os equipamentos utilizados no consultório e o que cada um se propõe a fazer. A tecnologia é ferramenta: a indicação continua sendo médica e individual.</p>
     </div>
   </section>
-  <section>
+  <section aria-labelledby="t-laser-fotona-starwalker-maqx">
     <div class="container">
-      <p class="miudo" style="margin-bottom:32px"><span class="estado-revisao">Conteúdo clínico em revisão médica</span><br>As aplicações listadas reproduzem o material do briefing e as fontes técnicas dos fabricantes, sem extrapolação. Nenhuma delas é indicação individual.</p>
+      <p class="miudo espaco-base-curto" ><span class="estado-revisao">Conteúdo clínico em revisão médica</span><br>As aplicações listadas reproduzem o material do briefing e as fontes técnicas dos fabricantes, sem extrapolação. Nenhuma delas é indicação individual.</p>
 
       <article class="tecnologia" id="fotona-starwalker-maqx">
         <div class="tecnologia-figura">
           <!-- PENDENTE: foto oficial do aparelho, recortada em fundo transparente.
                Não republicar imagem de fabricante sem verificar direito de uso. -->
-          <div class="reservado" style="border:0;background:none">Foto do aparelho<small>Laser Fotona StarWalker MaQX — recorte em fundo infinito, aguardando material licenciado</small></div>
+          <div class="reservado figura-limpa" >Foto do aparelho<small>Laser Fotona StarWalker MaQX — recorte em fundo infinito, aguardando material licenciado</small></div>
         </div>
         <div>
-          <h2>Laser Fotona StarWalker MaQX</h2>
+          <h2 id="t-laser-fotona-starwalker-maqx">Laser Fotona StarWalker MaQX</h2>
           <p>Plataforma de laser com protocolos distintos para a área íntima e para o rosto. O equipamento é um só; as aplicações clínicas abaixo são separadas de propósito.</p>
           <h3>Aplicações descritas no briefing</h3>
           <ul>
@@ -135,7 +134,7 @@
         <div class="tecnologia-figura">
           <!-- PENDENTE: foto oficial do aparelho, recortada em fundo transparente.
                Não republicar imagem de fabricante sem verificar direito de uso. -->
-          <div class="reservado" style="border:0;background:none">Foto do aparelho<small>Morpheus8 — recorte em fundo infinito, aguardando material licenciado</small></div>
+          <div class="reservado figura-limpa" >Foto do aparelho<small>Morpheus8 — recorte em fundo infinito, aguardando material licenciado</small></div>
         </div>
         <div>
           <h2>Morpheus8</h2>
@@ -158,7 +157,7 @@
         <div class="tecnologia-figura">
           <!-- PENDENTE: foto oficial do aparelho, recortada em fundo transparente.
                Não republicar imagem de fabricante sem verificar direito de uso. -->
-          <div class="reservado" style="border:0;background:none">Foto do aparelho<small>Ignite RF — recorte em fundo infinito, aguardando material licenciado</small></div>
+          <div class="reservado figura-limpa" >Foto do aparelho<small>Ignite RF — recorte em fundo infinito, aguardando material licenciado</small></div>
         </div>
         <div>
           <h2>Ignite RF</h2>
@@ -183,7 +182,7 @@
         <div class="tecnologia-figura">
           <!-- PENDENTE: foto oficial do aparelho, recortada em fundo transparente.
                Não republicar imagem de fabricante sem verificar direito de uso. -->
-          <div class="reservado" style="border:0;background:none">Foto do aparelho<small>Liftera 2 — recorte em fundo infinito, aguardando material licenciado</small></div>
+          <div class="reservado figura-limpa" >Foto do aparelho<small>Liftera 2 — recorte em fundo infinito, aguardando material licenciado</small></div>
         </div>
         <div>
           <h2>Liftera 2</h2>
@@ -205,12 +204,12 @@
       </article>
     </div>
   </section>
-  <section class="faixa-marsala">
-    <div class="container container-leitura" style="text-align:center">
-      <h2>Agende uma avaliação</h2>
+  <section class="faixa-marsala" aria-labelledby="t-agende-uma-avaliacao">
+    <div class="container container-leitura centro">
+      <h2 id="t-agende-uma-avaliacao">Agende uma avaliação</h2>
       <div class="regua regua-centro"><i></i></div>
-      <p class="chamada" style="margin:0 auto">Cada caso começa pela escuta e por uma avaliação individual. A conversa inicial é feita pelo WhatsApp da clínica.</p>
-      <div class="grupo-botoes" style="justify-content:center">
+      <p class="chamada">Cada caso começa pela escuta e por uma avaliação individual. A conversa inicial é feita pelo WhatsApp da clínica.</p>
+      <div class="grupo-botoes centralizar-botoes" >
         <div>
             <a class="botao botao-dourado" href="#" data-wpp="florianopolis">Agendar em Florianópolis</a>
             <small class="aviso-wpp"></small>
@@ -233,10 +232,10 @@
       <span class="marca-nome">Dra. Brumna Valdivieso</span>
       <span class="marca-linha">Ninfoplastia · Estética Íntima · Corporal</span>
     </div>
-        <p style="margin-top:16px">Rejuvenescimento íntimo, procedimentos corporais e faciais, com avaliação individualizada. Atendimento em Florianópolis e São Paulo.</p>
+        <p class="espaco-topo-curto">Rejuvenescimento íntimo, procedimentos corporais e faciais, com avaliação individualizada. Atendimento em Florianópolis e São Paulo.</p>
       </div>
       <div>
-        <h4>Navegação</h4>
+        <h2>Navegação</h2>
         <ul>
           <li><a href="../tratamentos/">Tratamentos</a></li>
           <li><a href="../tecnologias/">Tecnologias</a></li>
@@ -248,12 +247,12 @@
         </ul>
       </div>
       <div>
-        <h4>Informações</h4>
+        <h2>Informações</h2>
         <ul>
           <li><a href="../politica-de-privacidade/">Política de Privacidade</a></li>
           <li><a href="../politica-de-cookies/">Política de Cookies</a></li>
           <li><a href="../termos-de-uso/">Termos de Uso</a></li>
-          <li>Contato: <span data-campo="email">[EMAIL_DE_CONTATO]</span></li>
+          <li>Contato: <span data-campo="email" class="marcador-pendente">[EMAIL_DE_CONTATO]</span></li>
         </ul>
       </div>
     </div>
@@ -262,9 +261,9 @@
       <p class="identificacao-medica">
         <strong>Dra. Brumna Valdivieso</strong><br>
         Médica<br>
-        CRM/SC <span data-campo="crm-brumna">[CRM_DRA_BRUMNA]</span><br>
+        CRM/SC <span data-campo="crm-brumna" class="marcador-pendente">[CRM_DRA_BRUMNA]</span><br>
         Diretor Técnico: Dr. Thiago Nassif<br>
-        CRM/SC <span data-campo="crm-nassif">[CRM_DR_THIAGO_NASSIF]</span> (RQE) <span data-campo="rqe-nassif">[RQE_DR_THIAGO_NASSIF]</span>
+        CRM/SC <span data-campo="crm-nassif" class="marcador-pendente">[CRM_DR_THIAGO_NASSIF]</span> (RQE) <span data-campo="rqe-nassif" class="marcador-pendente">[RQE_DR_THIAGO_NASSIF]</span>
       </p>
       <p class="rodape-aviso">As informações deste site têm caráter educativo e informativo e não substituem a avaliação médica individual. A indicação de qualquer procedimento depende de consulta presencial. Resultados variam conforme as características de cada paciente.</p>
     </div>

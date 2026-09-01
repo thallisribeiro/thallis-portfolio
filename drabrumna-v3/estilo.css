@@ -1,3 +1,132 @@
+/* Fontes auto-hospedadas: tira fonts.googleapis.com e fonts.gstatic.com do
+   caminho crítico e do site. Nenhuma requisição a terceiro, o que também
+   simplifica a política de cookies de um site de consultório médico.
+
+   São fontes variáveis: os pesos 400/500/600/700 saem do MESMO arquivo, então
+   cada família tem só um woff2 por subconjunto. O navegador baixa latin-ext
+   apenas se a página usar um caractere daquele intervalo. */
+
+/* latin-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fontes/montserrat-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fontes/montserrat-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fontes/montserrat-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fontes/montserrat-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fontes/montserrat-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fontes/montserrat-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fontes/playfair-display-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fontes/playfair-display-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fontes/playfair-display-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fontes/playfair-display-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fontes/playfair-display-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fontes/playfair-display-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
 /* =========================================================================
    Dra. Brumna Valdivieso — design system
    Identidade definida na reunião de 28/08/2026 (página 2 do briefing).
@@ -83,6 +212,17 @@ h1 { font-size: clamp(32px, 5vw, 56px); font-weight: 700; letter-spacing: -.005e
 h2 { font-size: clamp(24px, 2.9vw, 30px); font-weight: 500; }
 h3 { font-size: clamp(18px, 1.8vw, 21px); font-weight: 600; }
 h4 { font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; }
+/* Rótulo de bloco pelo contexto, não pela tag: assim o rodapé, o índice da FAQ
+   e as notas usam o nível de heading correto sem perder a aparência. */
+.rodape h2, .faq-indice h2, .notas-validacao h2 {
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: .18em; text-transform: uppercase; line-height: 1.4;
+}
+/* O h2 global é marsala. No rodapé o fundo também é marsala: sem esta linha o
+   rótulo fica em 1,17:1, invisível. */
+.rodape h2 { color: var(--dourado); }
+.faq-indice h2, .notas-validacao h2 { color: var(--marsala); }
+.cartao h2 { font-size: clamp(18px, 1.8vw, 21px); font-weight: 600; }
 
 p { margin: 0 0 1.1em; }
 p, li { max-width: var(--leitura); }
@@ -104,6 +244,9 @@ section { padding: var(--respiro) 0; }
 .faixa-marsala .olho { color: var(--dourado); }
 .faixa-marsala .chamada, .faixa-marsala p { color: rgba(246, 238, 233, .88); }
 .faixa-marsala a { color: var(--dourado); }
+/* Sem isto o a:hover global vira #6A1926 sobre #6A1926 — 1,2:1, invisível. Hoje
+   não há link solto em faixa marsala, mas o blog vai criar. */
+.faixa-marsala a:hover, .faixa-marsala .link-seta:hover { color: #E4C158; }
 
 /* ---------- ornamento (losango dourado do manual da marca) ---------- */
 .regua { display: flex; align-items: center; gap: var(--e3); margin: var(--e4) 0 var(--e5); max-width: 200px; }
@@ -133,7 +276,9 @@ section { padding: var(--respiro) 0; }
   color: var(--marsala);
 }
 .marca-linha {
-  display: block; font-size: 9px; font-weight: 600; letter-spacing: .17em;
+  /* Era 9px: abaixo do piso de legibilidade para texto funcional, e ainda em
+     caixa alta com entreletra larga. */
+  display: block; font-size: 11px; font-weight: 600; letter-spacing: .1em;
   text-transform: uppercase; color: var(--rotulo); margin-top: 4px;
 }
 .cabecalho-acoes { display: flex; align-items: center; gap: var(--e3); flex: none; }
@@ -210,7 +355,9 @@ section { padding: var(--respiro) 0; }
 .link-seta {
   font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
   color: var(--rotulo); text-decoration: none;
-  display: inline-flex; align-items: center; gap: var(--e2);
+  /* min-height 32px: a WCAG 2.2 AA 2.5.8 pede 24px para alvo isolado, e este
+     é uma chamada de ação, não um link embutido em frase. */
+  display: inline-flex; align-items: center; gap: var(--e2); min-height: 32px;
 }
 .link-seta::after { content: "\2192"; transition: transform .2s ease; }
 .link-seta:hover { color: var(--marsala); }
@@ -218,6 +365,29 @@ section { padding: var(--respiro) 0; }
 .faixa-marsala .link-seta { color: var(--dourado); }
 
 .grupo-botoes { display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--e3); margin-top: var(--e6); }
+
+/* Utilitários de espaço, para o HTML não carregar style="" inline. */
+.espaco-topo { margin-top: var(--e7); }
+.espaco-topo-curto { margin-top: var(--e4); }
+.espaco-topo-medio { margin-top: var(--e6); }
+.espaco-base { margin-bottom: var(--e7); }
+.espaco-base-curto { margin-bottom: var(--e6); }
+.sem-margem { margin: 0; }
+.sem-margem-base { margin-bottom: 0; }
+.centralizar-botoes { justify-content: center; }
+.figura-limpa { border: 0; background: none; }
+.bloco-estreito { max-width: 760px; }
+.espaco-topo-largo { margin-top: var(--e8); }
+.sem-topo { padding-top: 0; }
+.centro { text-align: center; }
+.centro .chamada { margin-left: auto; margin-right: auto; }
+
+/* Nome da clínica no cartão de unidade: sub-rótulo, não título. */
+.unidade-nome {
+  font-family: var(--sans); font-size: 15px; font-weight: 600;
+  color: var(--tinta); margin: 0 0 var(--e2); text-transform: none; letter-spacing: 0;
+}
+.unidade-corpo h2 { font-size: clamp(20px, 2.4vw, 26px); margin-bottom: .15em; }
 .grupo-botoes > div { display: flex; flex-direction: column; }
 
 /* ---------- hero ---------- */
@@ -267,7 +437,7 @@ section { padding: var(--respiro) 0; }
 .reservado {
   display: grid; place-items: center; text-align: center; gap: var(--e2);
   min-height: 240px; padding: var(--e5);
-  background: repeating-linear-gradient(135deg, var(--bege) 0 10px, #F7F2EC 10px 20px);
+  background: var(--bege);
   border: 1px dashed var(--taupe); border-radius: var(--raio);
   color: var(--tinta-suave); font-size: 12px; font-weight: 600;
   letter-spacing: .13em; text-transform: uppercase;
@@ -317,7 +487,7 @@ section { padding: var(--respiro) 0; }
 .lista-itens .resumo { grid-column: 1; font-size: 15px; color: var(--tinta-suave); margin: 0; }
 .lista-itens .acao { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
 .selo {
-  display: inline-block; font-size: 10.5px; font-weight: 600; letter-spacing: .12em;
+  display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .12em;
   text-transform: uppercase; color: var(--rotulo);
   border: 1px solid rgba(212, 175, 55, .55); border-radius: var(--raio);
   padding: 3px 8px; margin-bottom: var(--e2);
@@ -341,6 +511,7 @@ section { padding: var(--respiro) 0; }
 .faq-indice { border: var(--borda); border-radius: var(--raio); background: #fff; padding: var(--e5); margin-bottom: var(--e7); }
 .faq-indice ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--e2) var(--e5); }
 .faq-indice li { max-width: none; }
+.faq-indice a { display: inline-flex; align-items: center; min-height: 24px; }
 
 .grupo-faq { margin-bottom: var(--e8); scroll-margin-top: 96px; }
 .grupo-faq > h2 { margin-bottom: var(--e1); }
@@ -360,7 +531,7 @@ details.pergunta[open] summary { color: var(--marsala); }
 details.pergunta .resposta { padding: 0 40px var(--e5) 0; color: var(--tinta-suave); font-size: 15.5px; }
 details.pergunta .resposta p:last-child { margin-bottom: 0; }
 .estado-revisao {
-  display: inline-block; font-size: 10.5px; font-weight: 600; letter-spacing: .12em;
+  display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .12em;
   text-transform: uppercase; color: var(--marsala); background: rgba(184, 164, 150, .3);
   border-radius: var(--raio); padding: 3px 8px; margin-bottom: var(--e3);
 }
@@ -391,7 +562,7 @@ details.pergunta .resposta p:last-child { margin-bottom: 0; }
 .post { border: var(--borda); border-radius: var(--raio); background: #fff; overflow: hidden; display: flex; flex-direction: column; }
 .post > .reservado { aspect-ratio: 16 / 10; min-height: 0; border: 0; border-bottom: var(--borda); }
 .post-corpo { padding: var(--e5); display: flex; flex-direction: column; gap: var(--e1); flex: 1; }
-.post-corpo .categoria { font-size: 10.5px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--rotulo); }
+.post-corpo .categoria { font-size: 11px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--rotulo); }
 .post-corpo h3 { font-size: 20px; margin-bottom: .3em; }
 .post-corpo p { font-size: 14.5px; color: var(--tinta-suave); }
 .post-corpo .link-seta { margin-top: auto; }
@@ -402,7 +573,7 @@ details.pergunta .resposta p:last-child { margin-bottom: 0; }
 .trilha ol { list-style: none; display: flex; flex-wrap: wrap; gap: var(--e2); margin: 0; padding: 0; }
 .trilha li { max-width: none; }
 .trilha li + li::before { content: "\00B7"; margin-right: var(--e2); }
-.trilha a { color: var(--tinta-suave); }
+.trilha a { color: var(--tinta-suave); display: inline-flex; align-items: center; min-height: 24px; }
 .trilha a:hover { color: var(--marsala); }
 
 /* ---------- notas de validação ---------- */
@@ -421,6 +592,7 @@ details.pergunta .resposta p:last-child { margin-bottom: 0; }
 .rodape h4 { color: var(--dourado); margin-bottom: var(--e4); }
 .rodape ul { list-style: none; margin: 0; padding: 0; }
 .rodape li { margin-bottom: var(--e2); max-width: none; }
+.rodape li a { display: inline-flex; align-items: center; min-height: 24px; }
 .rodape-topo { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: var(--e7); padding: var(--e8) 0 var(--e6); }
 .rodape .marca-nome { color: #fff; }
 .rodape .marca-linha { color: var(--dourado); }
@@ -434,8 +606,8 @@ details.pergunta .resposta p:last-child { margin-bottom: 0; }
 .consentimento {
   position: fixed; left: var(--e4); right: var(--e4); bottom: var(--e4); z-index: 70;
   max-width: 720px; margin: 0 auto;
-  background: #fff; border: 1px solid var(--marsala); border-radius: var(--raio);
-  box-shadow: 0 14px 40px rgba(43, 35, 32, .18);
+  background: #fff; border: 2px solid var(--marsala); border-radius: var(--raio);
+  box-shadow: 0 4px 12px rgba(43, 35, 32, .18);
   padding: var(--e5); display: flex; flex-wrap: wrap; gap: var(--e4); align-items: center;
 }
 .consentimento[hidden] { display: none; }
@@ -448,9 +620,22 @@ details.pergunta .resposta p:last-child { margin-bottom: 0; }
 .previa a { color: var(--dourado); }
 .previa button { position: absolute; right: var(--e3); top: 50%; transform: translateY(-50%); background: none; border: 0; color: var(--tinta-clara); font-size: 20px; line-height: 1; cursor: pointer; padding: var(--e1) var(--e2); min-height: 32px; }
 
+/* Movimento reduzido: zerar TODA transição também mata o retorno de estado
+   (hover de botão, abertura do acordeão) e deixa quem pediu menos movimento sem
+   feedback nenhum. Aqui saem a animação decorativa e o deslocamento; a
+   transição de cor fica, porque ela é informação e não movimento. */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
   html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  .link-seta::after { transition: none !important; }
+  .link-seta:hover::after { transform: none !important; }
+}
+
+@media (max-width: 640px) {
+  .marca-linha { font-size: 11px; letter-spacing: .02em; }
 }
 
 /* ---------- botão flutuante de agendamento ----------
@@ -460,11 +645,11 @@ details.pergunta .resposta p:last-child { margin-bottom: 0; }
 .wpp-flutuante {
   position: fixed; right: 18px; bottom: 18px; z-index: 55;
   display: inline-flex; align-items: center; gap: var(--e2);
-  background: var(--marsala); color: #fff; border: 1px solid var(--marsala);
-  padding: 13px 20px; min-height: 48px; border-radius: 40px; cursor: pointer;
+  background: var(--marsala); color: #fff; border: 0;
+  padding: 14px 21px; min-height: 48px; border-radius: 40px; cursor: pointer;
   font-family: var(--sans); font-size: 13px; font-weight: 600;
   letter-spacing: .08em; text-transform: uppercase; text-decoration: none;
-  box-shadow: 0 10px 26px rgba(43, 35, 32, .26);
+  box-shadow: 0 6px 18px rgba(43, 35, 32, .28);
 }
 .wpp-flutuante:hover { background: var(--marsala-fundo); color: #fff; }
 .wpp-flutuante[hidden] { display: none; }

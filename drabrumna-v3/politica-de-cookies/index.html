@@ -17,9 +17,9 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Dra. Brumna Valdivieso">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Fontes na mesma origem: sem preconnect nem folha de terceiro no caminho crítico. -->
+<link rel="preload" href="../fontes/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fontes/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../estilo.css">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237C1E2D'/%3E%3Cpath d='M32 20l6 12-6 12-6-12z' fill='%23D4AF37'/%3E%3C/svg%3E">
 <!-- Dados estruturados Physician/MedicalBusiness ficam retidos: o briefing exige
@@ -89,7 +89,7 @@
 </div>
 
 <main id="conteudo">
-  <section class="topo-pagina">
+  <section class="topo-pagina" aria-labelledby="t-politica-de-cookies">
     <div class="container">
       <nav class="trilha" aria-label="Trilha de navegação">
         <ol>
@@ -98,18 +98,18 @@
         </ol>
       </nav>
       <p class="olho">Informações legais</p>
-      <h1>Política de Cookies</h1>
+      <h1 id="t-politica-de-cookies">Política de Cookies</h1>
       <div class="regua"><i></i></div>
       <p class="chamada">Quais cookies este site utiliza, para quê, e como recusar.</p>
     </div>
   </section>
-  <section>
+  <section aria-labelledby="t-cookies-necessarios">
     <div class="container container-leitura">
-      <div class="cartao" style="margin-bottom:40px">
+      <div class="cartao espaco-base" >
         <h3>Documento em elaboração</h3>
-        <p style="margin:0">Este texto é uma minuta de trabalho e precisa de revisão jurídica antes da publicação. Os campos entre colchetes dependem de informação da cliente.</p>
+        <p class="sem-margem">Este texto é uma minuta de trabalho e precisa de revisão jurídica antes da publicação. Os campos entre colchetes dependem de informação da cliente.</p>
       </div>
-      <h2>Cookies necessários</h2>
+      <h2 id="t-cookies-necessarios">Cookies necessários</h2>
       <p>Guardam preferências básicas de funcionamento, como a escolha registrada no aviso de consentimento. Não identificam você e não podem ser desativados sem prejudicar o funcionamento do site.</p>
       <h2>Cookies de medição de audiência</h2>
       <p>Ajudam a entender quais páginas são mais acessadas e como as pessoas navegam. Só são ativados depois do aceite no aviso exibido na primeira visita.</p>
@@ -118,7 +118,7 @@
       <h2>Cookies de terceiros</h2>
       <p>Se o widget de avaliações do Google for ativado, ele poderá definir cookies próprios. Essa seção precisa ser completada quando a ferramenta for escolhida.</p>
       <div class="regua"><i></i></div>
-      <p class="miudo">Responsável pelo tratamento de dados: <span data-campo="responsavel-privacidade">[DADOS_DO_RESPONSAVEL_PELA_PRIVACIDADE]</span> · Contato: <span data-campo="email">[EMAIL_DE_CONTATO]</span> · Domínio: <span data-campo="dominio-final">[DOMINIO_FINAL]</span></p>
+      <p class="miudo">Responsável pelo tratamento de dados: <span data-campo="responsavel-privacidade" class="marcador-pendente">[DADOS_DO_RESPONSAVEL_PELA_PRIVACIDADE]</span> · Contato: <span data-campo="email" class="marcador-pendente">[EMAIL_DE_CONTATO]</span> · Domínio: <span data-campo="dominio-final" class="marcador-pendente">[DOMINIO_FINAL]</span></p>
     </div>
   </section>
 
@@ -132,10 +132,10 @@
       <span class="marca-nome">Dra. Brumna Valdivieso</span>
       <span class="marca-linha">Ninfoplastia · Estética Íntima · Corporal</span>
     </div>
-        <p style="margin-top:16px">Rejuvenescimento íntimo, procedimentos corporais e faciais, com avaliação individualizada. Atendimento em Florianópolis e São Paulo.</p>
+        <p class="espaco-topo-curto">Rejuvenescimento íntimo, procedimentos corporais e faciais, com avaliação individualizada. Atendimento em Florianópolis e São Paulo.</p>
       </div>
       <div>
-        <h4>Navegação</h4>
+        <h2>Navegação</h2>
         <ul>
           <li><a href="../tratamentos/">Tratamentos</a></li>
           <li><a href="../tecnologias/">Tecnologias</a></li>
@@ -147,12 +147,12 @@
         </ul>
       </div>
       <div>
-        <h4>Informações</h4>
+        <h2>Informações</h2>
         <ul>
           <li><a href="../politica-de-privacidade/">Política de Privacidade</a></li>
           <li><a href="../politica-de-cookies/">Política de Cookies</a></li>
           <li><a href="../termos-de-uso/">Termos de Uso</a></li>
-          <li>Contato: <span data-campo="email">[EMAIL_DE_CONTATO]</span></li>
+          <li>Contato: <span data-campo="email" class="marcador-pendente">[EMAIL_DE_CONTATO]</span></li>
         </ul>
       </div>
     </div>
@@ -161,9 +161,9 @@
       <p class="identificacao-medica">
         <strong>Dra. Brumna Valdivieso</strong><br>
         Médica<br>
-        CRM/SC <span data-campo="crm-brumna">[CRM_DRA_BRUMNA]</span><br>
+        CRM/SC <span data-campo="crm-brumna" class="marcador-pendente">[CRM_DRA_BRUMNA]</span><br>
         Diretor Técnico: Dr. Thiago Nassif<br>
-        CRM/SC <span data-campo="crm-nassif">[CRM_DR_THIAGO_NASSIF]</span> (RQE) <span data-campo="rqe-nassif">[RQE_DR_THIAGO_NASSIF]</span>
+        CRM/SC <span data-campo="crm-nassif" class="marcador-pendente">[CRM_DR_THIAGO_NASSIF]</span> (RQE) <span data-campo="rqe-nassif" class="marcador-pendente">[RQE_DR_THIAGO_NASSIF]</span>
       </p>
       <p class="rodape-aviso">As informações deste site têm caráter educativo e informativo e não substituem a avaliação médica individual. A indicação de qualquer procedimento depende de consulta presencial. Resultados variam conforme as características de cada paciente.</p>
     </div>
