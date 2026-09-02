@@ -66,12 +66,13 @@
 
 <main id="conteudo">
 
-  <section class="hero-tese">
-    <div class="tese-inner">
+  <section class="hero-tese hero-site7">
+    <div class="tese-inner hero-site7-grade">
+     <div class="hero-site7-copy">
       <p class="tese-kicker">Site profissional</p>
       <h1 class="tese-h1">
         <span class="tese-linha tese-linha-fria">Seu site no ar em 7 dias.</span>
-        <span class="tese-linha tese-linha-quente">A partir de R$ 397, domínio incluso.</span>
+        <span class="tese-linha tese-linha-quente">A partir de R$&nbsp;397, domínio incluso.</span>
       </h1>
       <p class="tese-sub">Design, textos, versão de celular, otimizado pro Google e publicado no seu domínio. Primeira versão em 48 horas pra você ver e ajustar. Você não precisa saber nada de site — só do seu negócio.</p>
       <div class="tese-ctas">
@@ -79,6 +80,45 @@
         <a class="btn btn-ghost btn-lg" href="#exemplos" data-ev="site7_examples_clicked" data-ev-local="hero">Ver sites que entreguei</a>
       </div>
       <p class="nota-canal">Você será direcionado ao WhatsApp. Quem responde sou eu.</p>
+     </div>
+     <!-- O site se montando sozinho: janela de navegador em que nav, título, foto, cards e
+          botão de WhatsApp entram um a um, a URL é digitada, o carimbo "no ar" fecha o
+          ciclo e a linha do tempo Dia 1 → Dia 7 corre embaixo. Só CSS; com
+          prefers-reduced-motion mostra o estado final parado. -->
+     <div class="lab" aria-hidden="true">
+      <div class="lab-janela">
+        <div class="lab-barra">
+          <span class="lab-luz"></span><span class="lab-luz"></span><span class="lab-luz"></span>
+          <span class="lab-url"><span class="lab-url-https">https://</span><span class="lab-url-texto">seunegocio.com.br</span><span class="lab-cursor"></span></span>
+        </div>
+        <div class="lab-tela">
+          <div class="lab-nav b b1"><i class="lab-logo"></i><i></i><i></i><i></i><i class="lab-nav-cta"></i></div>
+          <div class="lab-hero">
+            <div class="lab-texto">
+              <div class="lab-linha b b2 l1"></div>
+              <div class="lab-linha b b3 l2"></div>
+              <div class="lab-linha b b4 l3"></div>
+              <div class="lab-linha b b4 l4"></div>
+              <div class="lab-btn b b5"></div>
+            </div>
+            <div class="lab-foto b b6"></div>
+          </div>
+          <div class="lab-cards">
+            <div class="lab-card b b7"><i></i><i></i></div>
+            <div class="lab-card b b8"><i></i><i></i></div>
+            <div class="lab-card b b9"><i></i><i></i></div>
+          </div>
+          <div class="lab-zap b b10"></div>
+        </div>
+        <div class="lab-carimbo b b11">No ar<i></i></div>
+      </div>
+      <div class="lab-tempo">
+        <div class="lab-passo p1"><b>Dia 1</b>briefing</div>
+        <div class="lab-passo p2"><b>Dia 2</b>primeira versão</div>
+        <div class="lab-passo p3"><b>Dia 7</b>no ar</div>
+        <div class="lab-progresso"><i></i></div>
+      </div>
+     </div>
     </div>
   </section>
 
