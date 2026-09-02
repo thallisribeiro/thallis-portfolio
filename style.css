@@ -2152,6 +2152,24 @@ body::after {
 }
 .proj-shot:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 .proj-corpo { min-width: 0; }
-@media (min-width: 860px) {
-  .proj { grid-template-columns: 300px minmax(0, 1fr); column-gap: clamp(28px, 3.5vw, 40px); align-items: start; }
+/* Nove produtos: grade de dois em telas largas, cartão vertical (miniatura em cima).
+   A prosa longa de antes virava parede com essa quantidade — cada card ficou com um
+   parágrafo e o link. O aprofundamento mora na página do próprio produto. */
+.proj { align-content: start; }
+.proj-resumo { margin: 0; font-size: 16px; line-height: 1.65; color: var(--muted); }
+.proj-link { display: inline-block; margin-top: 14px; font-size: 14px; font-weight: 600; color: var(--primary); text-decoration: none; }
+.proj-link:hover, .proj-link:focus-visible { text-decoration: underline; }
+.proj-estado-venda { color: var(--background); background: var(--primary); border-color: var(--primary); }
+.proj-estado-pausa { opacity: .7; }
+@media (min-width: 900px) {
+  .construindo { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(28px, 3.5vw, 40px); }
 }
+.obra-link-inerte { color: var(--muted); cursor: default; }
+
+/* Subtítulo que separa cliente de produto meu dentro da mesma seção (02/09). */
+.grupo-titulo {
+  font-family: var(--font-body); font-size: 12.5px; font-weight: 600;
+  letter-spacing: .13em; text-transform: uppercase; color: var(--muted);
+  margin: clamp(24px, 4vw, 34px) 0 10px;
+}
+.saidas + .grupo-titulo { margin-top: clamp(30px, 5vw, 44px); }
