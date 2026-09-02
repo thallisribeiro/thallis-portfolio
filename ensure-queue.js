@@ -113,10 +113,20 @@ function garantirCapa(arquivoDoPost) {
 function proximoArtigoDoContentHub() {
   if (!fs.existsSync(CONTENTHUB_SAIDA)) return null;
 
+  // Duas chaves de deduplicação, e a ordem importa:
+  //   peca:  o id da peça-mãe (2026-09-01/2026-09-01-b), gravado no frontmatter na hora
+  //          de publicar. Sobrevive a retítulo — em 01/09 a peça B foi refeita à tarde,
+  //          o artigo ganhou outro título, e a comparação por slug deixou a MESMA
+  //          apuração entrar duas vezes no blog no mesmo dia.
+  //   slug:  fallback pros posts publicados antes de o campo peca existir.
   const publicados = new Set();
+  const pecasPublicadas = new Set();
   for (const arq of fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.md'))) {
-    const titulo = tituloDoFrontmatter(fs.readFileSync(path.join(POSTS_DIR, arq), 'utf-8'));
+    const md = fs.readFileSync(path.join(POSTS_DIR, arq), 'utf-8');
+    const titulo = tituloDoFrontmatter(md);
     if (titulo) publicados.add(slugificar(titulo));
+    const p = md.match(/^peca:\s*(\S+)/m);
+    if (p) pecasPublicadas.add(p[1]);
   }
 
   const noInstagram = topicosJaNoInstagram();
@@ -136,8 +146,10 @@ function proximoArtigoDoContentHub() {
       const titulo = tituloDoFrontmatter(conteudo);
       if (!titulo) continue;
       const slug = slugificar(titulo);
+      const peca = `${dia}/${topico}`;
+      if (pecasPublicadas.has(peca)) continue;
       if (publicados.has(slug)) continue;
-      candidatos.push({ dia, titulo, slug, conteudo });
+      candidatos.push({ dia, peca, titulo, slug, conteudo });
     }
   }
 
@@ -200,7 +212,10 @@ async function main() {
   const doContentHub = proximoArtigoDoContentHub();
   if (doContentHub) {
     const destino = path.join(QUEUE_DIR, doContentHub.slug + '.md');
-    fs.writeFileSync(destino, doContentHub.conteudo);
+    // O id da peça entra no frontmatter AQUI, na hora do transporte: é ele que impede a
+    // mesma peça de voltar com outro título.
+    const comPeca = doContentHub.conteudo.replace(/^---\n/, `---\npeca: ${doContentHub.peca}\n`);
+    fs.writeFileSync(destino, comPeca);
     log(`artigo do content-hub aproveitado (par do carrossel ${doContentHub.dia}): ${doContentHub.titulo}`);
     garantirCapa(destino);
     // A assinatura é runCommand(cwd, cmd, args). Estava chamada como
