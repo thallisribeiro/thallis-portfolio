@@ -122,3 +122,4 @@
 [2026-09-01T21:00:05.493Z] publicado: /blog/relay-app-fechou-o-que-aconteceu-com-a-rival-do-zapier-e-por-que-o-fun/ — "Relay.app fechou: o que aconteceu com a rival do Zapier e por que o fundador foi para o Google"
 [2026-09-02T09:30:01.536Z] [ensure-queue] nada pareado da esteira neste horário — sem post. O blog publica o que a esteira apurou, não o que eu fiz hoje.
 [2026-09-02T10:10:02.300Z] fila vazia — nada publicado neste horário
+[2026-09-02T14:30:01.931Z] [ensure-queue] nada pareado da esteira neste horário — sem post. O blog publica o que a esteira apurou, não o que eu fiz hoje.
