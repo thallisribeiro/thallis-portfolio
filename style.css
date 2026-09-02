@@ -1974,3 +1974,8 @@ body::after {
 .oferta-grade > * { min-width: 0; }
 .oferta-grade .preco-valor { white-space: normal; text-align: right; max-width: 62%; }
 .oferta-grade .preco-item { max-width: 38%; }
+
+/* exemplo ainda em produção: mesmo card, sem link e sem o deslocamento de hover */
+.saida-producao .saida-link { cursor: default; }
+.saida-producao .saida-link:hover { padding-left: 0; }
+.saida-producao .saida-acao { color: var(--muted); }
