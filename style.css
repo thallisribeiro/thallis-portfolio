@@ -2129,3 +2129,9 @@ body::after {
   .lab-cards { gap: 8px; }
   .lab-card { height: 48px; padding: 8px; }
 }
+
+/* 02/09: a landing /site-em-7-dias/ nao tem menu ("nada la em cima pra ninguem desviar da
+   ideia"): so a marca e o botao de preco, em qualquer largura. */
+.nav-landing .nav-actions .btn-nav { display: inline-flex; }
+@media (max-width: 780px) { .nav-landing .btn-nav { padding: 9px 14px; font-size: 13px; } }
+.nav-landing .logo-wrap { cursor: default; }
