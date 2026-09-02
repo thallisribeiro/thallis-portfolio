@@ -1968,3 +1968,9 @@ body::after {
 .saida-extras { display: flex; gap: 14px; padding: 0 0 14px 2px; margin-top: -10px; font-size: .95rem; }
 .saida-extras a { color: var(--accent, #25D366); text-decoration: none; }
 .saida-extras a:hover, .saida-extras a:focus-visible { text-decoration: underline; }
+/* 02/09: a tabela de extras dentro da coluna de entrega estourava a grade no celular
+   (coluna a 496px numa tela de 390): item de grade tem min-width:auto, e .preco-valor
+   nao quebrava linha. Coluna encolhe e valor quebra. */
+.oferta-grade > * { min-width: 0; }
+.oferta-grade .preco-valor { white-space: normal; text-align: right; max-width: 62%; }
+.oferta-grade .preco-item { max-width: 38%; }
