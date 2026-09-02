@@ -326,6 +326,53 @@ function ctaDoPost(post) {
   </aside>`;
 }
 
+// "Publicado hoje" na página da Máquina: as últimas 3 peças que saíram de verdade, com o
+// link do Instagram (ledger do publicador, em Squads100) e o artigo par (post do blog com
+// `peca:` no frontmatter, ou o mais recente do mesmo dia como fallback). É a prova que se
+// atualiza sozinha — a página vende "publica sozinho" mostrando o que publicou sozinho.
+const LEDGER_IG = process.env.LEDGER_INSTAGRAM
+  || path.join(process.env.USERPROFILE || 'C:\\Users\\thall', 'Documents', 'Squads100', '_opensquad', '_memory', 'instagram-publicados.json');
+
+function blocoHoje(posts) {
+  let ledger = [];
+  try { ledger = JSON.parse(fs.readFileSync(LEDGER_IG, 'utf-8')); } catch { return '        <!-- sem ledger nesta máquina -->'; }
+  const ultimas = ledger
+    .filter((r) => r.permalink && !/#reel$/.test(String(r.aprovacaoId || '')))
+    .sort((a, b) => String(b.publicadoEm).localeCompare(String(a.publicadoEm)))
+    .slice(0, 3);
+  if (!ultimas.length) return '        <!-- ledger vazio -->';
+  const reels = new Map(ledger.filter((r) => /#reel$/.test(String(r.aprovacaoId || ''))).map((r) => [String(r.aprovacaoId).replace(/#reel$/, ''), r.permalink]));
+  return ultimas.map((r) => {
+    const [, diaPeca, id] = String(r.aprovacaoId).split('/');
+    // Casa o post do blog com a peça: pelo `peca:` do frontmatter (posts novos) ou pelo
+    // título do artigo.md que a esteira promoveu (posts anteriores ao campo). Fallback por
+    // data NÃO serve: três peças no mesmo dia viravam três links pro mesmo artigo.
+    let artigo = posts.find((p) => p.peca === `${diaPeca}/${id}`);
+    if (!artigo) {
+      try {
+        const md = fs.readFileSync(path.join(path.dirname(LEDGER_IG), '..', '..', '_contenthub', '_clientes', 'thallisribeiro', 'saida', diaPeca, id, 'artigo', 'artigo.md'), 'utf-8');
+        const t = (md.match(/^title:\s*(.+)$/m) || [])[1];
+        if (t) artigo = posts.find((p) => slugify(p.title) === slugify(t.trim()));
+      } catch { /* peça sem artigo promovido: sem link de artigo */ }
+    }
+    const quando = new Date(r.publicadoEm).toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit', timeZone: 'America/Sao_Paulo' });
+    const reel = reels.get(r.aprovacaoId);
+    // links irmãos FORA do <a> principal — âncora dentro de âncora é HTML inválido e o
+    // navegador quebra o aninhamento em silêncio
+    const extras = [
+      reel ? `<a href="${esc(reel)}" target="_blank" rel="noopener">Reel →</a>` : '',
+      artigo ? `<a href="/blog/${esc(artigo.slug)}/">artigo →</a>` : '',
+    ].filter(Boolean).join(' · ');
+    return `        <li class="saida">
+          <a class="saida-link" href="${esc(r.permalink)}" target="_blank" rel="noopener" data-ev="distribution_example_clicked" data-ev-local="hoje-ig">
+            <span class="saida-canal">${quando} · Instagram</span>
+            <span class="saida-desc">${artigo ? esc(artigo.title) : 'Carrossel publicado pela esteira.'}</span>
+            <span class="saida-acao">Ver o carrossel →</span>
+          </a>${extras ? `\n          <div class="saida-extras">${extras}</div>` : ''}
+        </li>`;
+  }).join('\n');
+}
+
 function temaPill(tema) {
   return tema ? `<a class="tema-pill" href="/blog/tema/${slugify(tema)}/">${esc(tema)}</a>` : '';
 }
@@ -448,6 +495,7 @@ function main() {
     return {
       slug, title: meta.title, date: meta.date, summary: meta.summary || '',
       image: meta.image || '', imageCredit: meta.image_credit || '', tema: meta.tema || '',
+      peca: meta.peca || '',
       cta: (meta.cta || '').trim().toLowerCase(),
       readingTime: tempoDeLeitura(body), html: mdToHtml(body),
     };
@@ -708,8 +756,19 @@ ${rssItems}
         let d = fs.readFileSync(PROD, 'utf-8');
         const a2 = d.indexOf(iniP), b2 = d.indexOf(fimP);
         if (a2 !== -1 && b2 > a2) {
-          fs.writeFileSync(PROD, d.slice(0, a2) + bloco + d.slice(b2 + fimP.length));
+          d = d.slice(0, a2) + bloco + d.slice(b2 + fimP.length);
         }
+        // Prova VIVA da oferta (02/09): o que a máquina publicou nas últimas 24h, com link
+        // pro post real no Instagram e pro artigo par. Lido do ledger do publicador — o
+        // mesmo arquivo que o slot escreve — então a página não pode prometer o que não
+        // saiu. Sem ledger (outra máquina, outro dono) o bloco fica vazio e a página
+        // continua válida.
+        const iniH = '<!-- HOJE_INICIO -->', fimH = '<!-- HOJE_FIM -->';
+        const a3 = d.indexOf(iniH), b3 = d.indexOf(fimH);
+        if (a3 !== -1 && b3 > a3) {
+          d = d.slice(0, a3) + `${iniH}\n${blocoHoje(posts)}\n        ${fimH}` + d.slice(b3 + fimH.length);
+        }
+        fs.writeFileSync(PROD, d);
       }
       console.log(`[gerado] prova: ${posts.length} posts em ${dias} dias`);
     } else {

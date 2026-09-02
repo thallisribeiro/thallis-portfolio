@@ -1956,3 +1956,15 @@ body::after {
 /* Card sem capa não reserva a coluna da miniatura: até 31/08 os posts sem imagem
    deixavam um retângulo vazio do tamanho da foto que não existia. */
 .blog-card-thumb:empty { display: none; }
+
+/* ── Oferta da Máquina (02/09): preço ao lado da entrega, prova viva acima ── */
+.oferta-grade { display: grid; gap: clamp(28px, 4vw, 56px); margin-top: clamp(32px, 5vw, 56px); align-items: start; }
+@media (min-width: 900px) { .oferta-grade { grid-template-columns: minmax(0, 1.25fr) minmax(300px, 1fr); } }
+.oferta-preco { border: 1px solid var(--line); border-radius: 16px; padding: clamp(24px, 3vw, 36px); background: var(--surface, rgba(255,255,255,.02)); }
+.oferta-valor { font-family: 'Space Grotesk', sans-serif; font-weight: 800; font-size: clamp(44px, 6vw, 64px); line-height: 1; letter-spacing: -.02em; margin: 0 0 6px; }
+.oferta-moeda { font-size: .42em; vertical-align: top; margin-right: 6px; font-weight: 700; }
+.oferta-periodo { font-size: .36em; color: var(--muted); font-weight: 500; margin-left: 4px; }
+.oferta-btn { width: 100%; justify-content: center; margin-top: 22px; }
+.saida-extras { display: flex; gap: 14px; padding: 0 0 14px 2px; margin-top: -10px; font-size: .95rem; }
+.saida-extras a { color: var(--accent, #25D366); text-decoration: none; }
+.saida-extras a:hover, .saida-extras a:focus-visible { text-decoration: underline; }
