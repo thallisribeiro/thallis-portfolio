@@ -12,7 +12,7 @@ const SITE_URL = 'https://thallisribeiro.com.br';
 // Mesma propriedade GA4 da home (index.html). Até 2026-08-28 as páginas de post
 // eram geradas sem tracking nenhum: 50 posts publicados sem medir uma visita.
 const GA_ID = 'G-247F9N1WQE';
-const WA_LINK = 'https://wa.me/5573999865198?text=Oi%20ThallisRibeiro%2C%20vi%20um%20post%20do%20seu%20blog%20e%20quero%20conversar%20sobre%20um%20projeto';
+const WA_LINK = 'https://wa.me/5573988899345?text=Oi%20ThallisRibeiro%2C%20vi%20um%20post%20do%20seu%20blog%20e%20quero%20conversar%20sobre%20um%20projeto';
 
 // ── Frontmatter + markdown mínimo (headers, bold, itálico, links, listas, citação, código) ──
 function parseFrontmatter(raw) {
