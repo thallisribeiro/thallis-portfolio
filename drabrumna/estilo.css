@@ -304,10 +304,13 @@ section { padding: var(--respiro) 0; }
   width: 100%; height: 100%; max-width: none; max-height: none;
   border: 0; margin: 0;
   background: var(--marsala-fundo); color: var(--tinta-clara);
-  display: flex; flex-direction: column;
   padding: var(--e5);
   overflow-y: auto;
 }
+/* O layout só vale com o menu ABERTO. `display: flex` no proprio <dialog> vence o
+   `display: none` que o navegador da a dialog fechado, e o painel cobria a pagina inteira
+   desde o carregamento -- era o "bugou tudo e ta so no menu" de 02/09. */
+.painel-menu[open] { display: flex; flex-direction: column; }
 .painel-topo { display: flex; align-items: center; justify-content: space-between; gap: var(--e5); max-width: 1320px; width: 100%; margin: 0 auto; }
 .painel-topo .marca-nome { color: #fff; }
 .painel-topo .marca-linha { color: var(--dourado); }
