@@ -181,13 +181,13 @@ ${jsonLdBlock}
       <a href="/#sobre">Sobre</a>
       <a href="/ficha-de-apuracao/">Ficha de apuração</a>
       <a href="/trabalhe-comigo/">Trabalhe comigo</a>
-      <a class="nav-so-mobile" href="/maquina-de-distribuicao/" data-ev="distribution_product_clicked" data-ev-local="nav-mobile">Máquina de Distribuição</a>
+      <a class="nav-so-mobile" href="/site-em-7-dias/" data-ev="site7_cta_clicked" data-ev-local="nav-mobile">Site em 7 dias</a>
     </nav>
     <div class="nav-actions">
       <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
         <span></span><span></span><span></span>
       </button>
-      <a class="btn btn-primary btn-nav" href="/maquina-de-distribuicao/" data-ev="distribution_product_clicked" data-ev-local="nav">Máquina de Distribuição</a>
+      <a class="btn btn-primary btn-nav" href="/site-em-7-dias/" data-ev="site7_cta_clicked" data-ev-local="nav">Site em 7 dias</a>
     </div>
   </div>
 </header>
@@ -741,11 +741,16 @@ ${rssItems}
     const iniP = '<!-- PROVA_INICIO -->', fimP = '<!-- PROVA_FIM -->';
     const a1 = h.indexOf(iniP), b1 = h.indexOf(fimP);
     if (a1 !== -1 && b1 > a1) {
+      // "3 sites em produção" era escrito à mão e envelheceu no dia em que a home passou a
+      // listar nove produtos meus e três de cliente (02/09). Conta os cards da própria
+      // página: o número só muda quando a lista muda, que é o comportamento certo.
+      const meus = (h.match(/<article class="proj">/g) || []).length;
+      const deCliente = (h.match(/<article class="obra/g) || []).length;
       const bloco = `${iniP}
         <div class="prova-item"><span class="prova-num">${posts.length}</span><span class="prova-rot">posts publicados</span></div>
         <div class="prova-item"><span class="prova-num">${dias}</span><span class="prova-rot">dias no ar</span></div>
-        <div class="prova-item"><span class="prova-num">${temaCounts.length}</span><span class="prova-rot">temas</span></div>
-        <div class="prova-item"><span class="prova-num">3</span><span class="prova-rot">sites em produção</span></div>
+        <div class="prova-item"><span class="prova-num">${meus}</span><span class="prova-rot">produtos meus</span></div>
+        <div class="prova-item"><span class="prova-num">${deCliente}</span><span class="prova-rot">sites de cliente</span></div>
         ${fimP}`;
       h = h.slice(0, a1) + bloco + h.slice(b1 + fimP.length);
       fs.writeFileSync(HOME_P, h);
