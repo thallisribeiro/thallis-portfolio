@@ -83,7 +83,7 @@ const DEFAULT_OG_IMAGE = `${SITE_URL}/assets/og-default.png`;
 
 // Tudo que este script escreve FORA de blog/. Uma lista só, lida pela escrita do
 // manifesto e pelo self-test -- duas listas divergem, e já divergiram três vezes.
-const MANIFESTO = ['index.html', 'maquina-de-distribuicao/index.html', 'ficha-de-apuracao/index.html',
+const MANIFESTO = ['index.html', 'maquina-de-distribuicao/index.html', 'site-em-7-dias/index.html', 'ficha-de-apuracao/index.html',
   'trabalhe-comigo/index.html', 'feed.xml', 'sitemap.xml'];
 
 // ── Ícones inline (SVG monocromático via currentColor — zero dependência externa) ──
@@ -721,6 +721,7 @@ ${rssItems}
     { loc: `${SITE_URL}/`, lastmod: posts[0]?.date },
     { loc: `${SITE_URL}/blog/`, lastmod: posts[0]?.date },
     { loc: `${SITE_URL}/maquina-de-distribuicao/` },
+    { loc: `${SITE_URL}/site-em-7-dias/` },
     { loc: `${SITE_URL}/trabalhe-comigo/` },
     { loc: `${SITE_URL}/ficha-de-apuracao/` },
     ...posts.map(p => ({ loc: `${SITE_URL}/blog/${p.slug}/`, lastmod: p.date })),
