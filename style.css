@@ -1979,3 +1979,31 @@ body::after {
 .saida-producao .saida-link { cursor: default; }
 .saida-producao .saida-link:hover { padding-left: 0; }
 .saida-producao .saida-acao { color: var(--muted); }
+
+/* ---------- 02/09: miniaturas dos sites entregues + card de preço no celular ----------
+   Thallis: "coloca uma pequena screenshot dos sites (e não só o nome)" e "Hospedagem +
+   domínio ... tá quebrando linha". Mobile-first: no celular a miniatura vai em cima do
+   texto e a tabela de preço empilha item/valor; a partir de 780px a miniatura vira coluna. */
+.saida-thumb {
+  /* height: auto derruba o atributo height="400" (dica de apresentação), senão a
+     miniatura sai em pé e a proporção 16/10 nunca entra. */
+  display: block; width: 100%; height: auto; max-width: 420px; aspect-ratio: 16 / 10; object-fit: cover; object-position: top;
+  border-radius: 10px; border: 1px solid var(--line); background: #0b0f14; margin-bottom: 4px;
+}
+.saida-producao .saida-thumb { opacity: .85; }
+@media (min-width: 780px) {
+  .saida-link { grid-template-columns: 220px 1fr auto; column-gap: 28px; align-items: start; }
+  .saida-thumb { grid-column: 1; grid-row: 1 / span 3; max-width: none; margin: 0; }
+  .saida-canal { grid-column: 2; grid-row: 1; }
+  .saida-desc { grid-column: 2; grid-row: 2; }
+  .saida-acao { grid-column: 3; grid-row: 1; text-align: right; }
+}
+.oferta-rotulo { margin: 0 0 2px; font-size: .95rem; color: var(--muted); font-weight: 500; letter-spacing: .01em; }
+.preco-valor-texto { white-space: normal; text-align: right; max-width: 60%; }
+@media (max-width: 560px) {
+  /* nowrap: coluna + wrap com altura automática dimensiona o rótulo no mínimo e ele quebra ("Primeira / versão") */
+  .preco-lista li { flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 4px; }
+  /* .oferta-grade .preco-item { max-width: 38% } (regra de desktop) é o que quebrava "Primeira / versão" */
+  .oferta-grade .preco-lista .preco-item { max-width: none; }
+  .oferta-grade .preco-lista .preco-valor, .preco-lista .preco-valor { text-align: left; max-width: none; white-space: normal; }
+}
