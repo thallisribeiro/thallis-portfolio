@@ -606,23 +606,47 @@ function main() {
   fs.writeFileSync(path.join(OUT_DIR, 'index.html'), indexHtml);
   console.log(`[gerado] /blog/ (${posts.length} post${posts.length===1?'':'s'})`);
 
-  // Páginas por tema
+  // Páginas por tema. Os temas grandes ganham introdução EVERGREEN: post de notícia
+  // decai, mas a página que enquadra o tema acumula — é ela que tem chance de rankear
+  // por consulta de fundo ("automação de conteúdo com IA") enquanto os posts pegam a
+  // cauda longa da notícia da semana. O texto é estável de propósito: hub que muda toda
+  // semana é só um índice com outro nome. (Radar de 01/09: "blog só produz notícia, e
+  // notícia decai".)
+  const HUBS = {
+    'Agência autônoma': {
+      title: 'Agência autônoma: automatizar prospecção, entrega e conteúdo com IA',
+      lead: 'Dá pra uma pessoa operar uma agência inteira com agentes de IA? Eu testo isso na prática — prospecção, produção e publicação rodando sozinhas — e escrevo o que funciona e o que quebra, com número no meio do texto.',
+    },
+    'Site & copy': {
+      title: 'Site e copy: o que faz página converter (testado, não teorizado)',
+      lead: 'Headline, prova, estrutura, CTA: cada mudança que eu faço em site — meu ou de cliente — vira registro aqui, com o antes, o depois e o motivo. Errado também entra, porque é onde mais se aprende.',
+    },
+    'Mercado': {
+      title: 'Mercado de IA: o que as empresas estão fazendo de verdade',
+      lead: 'Demissões revertidas, ferramentas descontinuadas, regras que mudam: apuração das histórias reais por trás das manchetes de IA — com fonte nomeada e o que cada caso ensina pra quem constrói.',
+    },
+    'Automação de conteúdo': {
+      title: 'Automação de conteúdo: a máquina que publica este blog',
+      lead: 'Este blog é publicado por uma esteira de agentes que apura, escreve, valida e posta 3x por dia. Aqui eu documento como ela funciona por dentro — os acertos, os defeitos e os números.',
+    },
+  };
   for (const { tema, slug } of temaCounts) {
     const postsFiltrados = posts.filter(p => p.tema === tema);
     const temaDir = path.join(OUT_DIR, 'tema', slug);
     fs.mkdirSync(temaDir, { recursive: true });
+    const hub = HUBS[tema];
     const html = paginaDeLista({
       postsFiltrados,
       temaAtual: slug,
       urlPath: `/blog/tema/${slug}/`,
-      title: `${tema} — Blog ThallisRibeiro`,
-      description: `Posts do blog sobre ${tema}.`,
-      heading: tema,
-      lead: `${postsFiltrados.length} post${postsFiltrados.length === 1 ? '' : 's'} sobre ${tema}.`,
+      title: hub ? `${hub.title} — Thallis Ribeiro` : `${tema} — Blog ThallisRibeiro`,
+      description: hub ? hub.lead : `Posts do blog sobre ${tema}.`,
+      heading: hub ? hub.title.split(':')[0] : tema,
+      lead: hub ? hub.lead : `${postsFiltrados.length} post${postsFiltrados.length === 1 ? '' : 's'} sobre ${tema}.`,
     });
     fs.writeFileSync(path.join(temaDir, 'index.html'), html);
   }
-  console.log(`[gerado] ${temaCounts.length} página(s) de tema`);
+  console.log(`[gerado] ${temaCounts.length} página(s) de tema (${Object.keys(HUBS).length} com introdução evergreen)`);
 
   // RSS
   const rssItems = posts.slice(0, 20).map(p => `  <item>
