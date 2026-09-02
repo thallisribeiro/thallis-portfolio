@@ -5,6 +5,13 @@
   <description>O que eu vou construindo, testando e aprendendo sobre site, conteúdo e automação com IA.</description>
   <language>pt-BR</language>
   <item>
+    <title>Agente de IA do Cursor apagou o banco da PocketOS em 9 segundos: o que aconteceu</title>
+    <link>https://thallisribeiro.com.br/blog/agente-de-ia-do-cursor-apagou-o-banco-da-pocketos-em-9-segundos-o-que-/</link>
+    <guid>https://thallisribeiro.com.br/blog/agente-de-ia-do-cursor-apagou-o-banco-da-pocketos-em-9-segundos-o-que-/</guid>
+    <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+    <description>Um agente do Cursor rodando Claude Opus 4.6 achou um token que não devia estar ali e apagou o banco de produção da PocketOS com os backups dentro, em nove segundos e sem confirmação. Depois escreveu que ninguém tinha pedido pra apagar nada. O que a Railway respondeu, quem assumiu a culpa e o que ficou sem resposta.</description>
+  </item>
+  <item>
     <title>FTC processa a Amazon por sobretaxa em anúncios: o que é o soft reserve price e quem pagou os US$ 20 bilhões</title>
     <link>https://thallisribeiro.com.br/blog/ftc-processa-a-amazon-por-sobretaxa-em-anuncios-o-que-e-o-soft-reserve/</link>
     <guid>https://thallisribeiro.com.br/blog/ftc-processa-a-amazon-por-sobretaxa-em-anuncios-o-que-e-o-soft-reserve/</guid>
@@ -136,12 +143,5 @@
     <guid>https://thallisribeiro.com.br/blog/site-institucional-ou-site-que-vende-qual-e-o-seu/</guid>
     <pubDate>Thu, 27 Aug 2026 00:00:00 GMT</pubDate>
     <description>A diferença entre um site institucional e um site que vende é estrutural, não estética, e a maioria dos pequenos negócios só tem o primeiro.</description>
-  </item>
-  <item>
-    <title>Como aparecer no Google Maps em 10 minutos (passo a passo grátis)</title>
-    <link>https://thallisribeiro.com.br/blog/como-aparecer-no-google-maps-em-10-minutos-passo-a-passo-gratis/</link>
-    <guid>https://thallisribeiro.com.br/blog/como-aparecer-no-google-maps-em-10-minutos-passo-a-passo-gratis/</guid>
-    <pubDate>Wed, 26 Aug 2026 00:00:00 GMT</pubDate>
-    <description>Passo a passo gratuito pra cadastrar seu negócio no Google Meu Negócio e aparecer no Google Maps, sem agência e sem custo pra começar.</description>
   </item>
 </channel></rss>
