@@ -16,49 +16,22 @@
   (function menu() {
     var abrir = document.querySelector('.abrir-menu');
     var painel = document.getElementById('painel-menu');
-    if (!abrir || !painel) return;
-
+    if (!abrir || !painel || !painel.showModal) return;
     var fechar = painel.querySelector('.fechar-menu');
-    var focoAnterior = null;
-    var focaveis = 'a[href], button:not([disabled]), input, select, [tabindex]:not([tabindex="-1"])';
-
-    function abrirPainel() {
-      focoAnterior = document.activeElement;
-      painel.hidden = false;
+    // <dialog> modal: foco inicial, Escape, trava de foco e retorno do foco ao
+    // botão são do navegador. Só a trava de rolagem e o aria-expanded são nossos.
+    abrir.addEventListener('click', function () {
+      painel.showModal();
       document.documentElement.classList.add('trava-rolagem');
       abrir.setAttribute('aria-expanded', 'true');
-      // O elemento acabou de sair de hidden: sem forçar o recálculo de layout,
-      // o foco é ignorado porque o painel ainda está como display:none.
-      void painel.offsetHeight;
-      (fechar || painel.querySelector(focaveis)).focus();
-      document.addEventListener('keydown', aoTeclar, true);
-    }
-
-    function fecharPainel() {
-      painel.hidden = true;
+    });
+    if (fechar) fechar.addEventListener('click', function () { painel.close(); });
+    painel.addEventListener('click', function (evento) {
+      if (evento.target.closest('a')) painel.close();
+    });
+    painel.addEventListener('close', function () {
       document.documentElement.classList.remove('trava-rolagem');
       abrir.setAttribute('aria-expanded', 'false');
-      document.removeEventListener('keydown', aoTeclar, true);
-      if (focoAnterior && focoAnterior.focus) focoAnterior.focus();
-    }
-
-    function aoTeclar(evento) {
-      if (evento.key === 'Escape') { evento.preventDefault(); fecharPainel(); return; }
-      if (evento.key !== 'Tab') return;
-      var lista = Array.prototype.filter.call(painel.querySelectorAll(focaveis), function (el) {
-        return el.offsetParent !== null;
-      });
-      if (!lista.length) return;
-      var primeiro = lista[0];
-      var ultimo = lista[lista.length - 1];
-      if (evento.shiftKey && document.activeElement === primeiro) { evento.preventDefault(); ultimo.focus(); }
-      else if (!evento.shiftKey && document.activeElement === ultimo) { evento.preventDefault(); primeiro.focus(); }
-    }
-
-    abrir.addEventListener('click', abrirPainel);
-    if (fechar) fechar.addEventListener('click', fecharPainel);
-    painel.addEventListener('click', function (evento) {
-      if (evento.target.closest('a')) fecharPainel();
     });
   })();
 
@@ -389,16 +362,13 @@
 
 
   /* ---------------------------------------------------------------- */
-  /* 9. Reveal por rolagem onde não há scroll-driven animations       */
-  /*    (iOS/Safari, principalmente — a maioria das pacientes).        */
-  /*    O IntersectionObserver faz o papel da timeline: mesma cena,    */
-  /*    outro motor. A classe io-reveal só entra depois de o observer  */
-  /*    montar; sem ela o CSS não esconde nada.                        */
+  /* 9. Reveal por rolagem: um motor só, IntersectionObserver.         */
+  /*    A classe io-reveal só entra depois de o observer montar;       */
+  /*    sem ela o CSS não esconde nada.                                */
   /* ---------------------------------------------------------------- */
-  (function revealSemTimeline() {
+  (function revealPorRolagem() {
     var reduz = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduz) return;
-    if (window.CSS && CSS.supports && CSS.supports('animation-timeline: view()')) return;
     if (!('IntersectionObserver' in window)) return;
 
     var SELETORES = [
