@@ -2135,3 +2135,23 @@ body::after {
 .nav-landing .nav-actions .btn-nav { display: inline-flex; }
 @media (max-width: 780px) { .nav-landing .btn-nav { padding: 9px 14px; font-size: 13px; } }
 .nav-landing .logo-wrap { cursor: default; }
+
+/* ---------- CARDS DE PROJETO COM MINIATURA (02/09) ----------
+   Thallis pediu o portfólio atualizado com os produtos novos (Troca de Plantão,
+   PeopleAds, LicitaCerta, Legend of the Golden Dragon). São sete cards agora: sem
+   imagem, a seção virava sete blocos de prosa iguais. Mobile-first: miniatura em cima;
+   a partir de 860px vira coluna à esquerda do texto. */
+.proj { display: grid; gap: 18px; }
+.proj-shot { display: block; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); background: #0b0f14; line-height: 0; }
+.proj-shot img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+@media (prefers-reduced-motion: no-preference) {
+  .proj-shot { transition: border-color .2s ease, transform .2s ease; }
+}
+@media (hover: hover) {
+  .proj-shot:hover { border-color: rgba(232,163,61,.45); transform: translateY(-2px); }
+}
+.proj-shot:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+.proj-corpo { min-width: 0; }
+@media (min-width: 860px) {
+  .proj { grid-template-columns: 300px minmax(0, 1fr); column-gap: clamp(28px, 3.5vw, 40px); align-items: start; }
+}
