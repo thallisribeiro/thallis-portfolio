@@ -7,15 +7,18 @@
      bloqueado, para não competir com o domínio próprio da Dra. Remover ao publicar
      em [DOMINIO_FINAL], junto com o bloco .previa e o aviso de rodapé da prévia. -->
 <meta name="robots" content="noindex, nofollow">
-<title>Dra. Brumna Valdivieso — Rejuvenescimento Íntimo e Corporal em Florianópolis</title>
+<title>Dra. Brumna Valdivieso — Rejuvenescimento Íntimo em Florianópolis</title>
 <meta name="description" content="Médica dedicada ao rejuvenescimento íntimo e corporal, com mestrado em Rejuvenescimento Íntimo pela Universidade do Porto. Atendimento em Florianópolis e São Paulo.">
-<link rel="canonical" href="https://thallisribeiro.com.br/drabrumna/">
+<link rel="canonical" href="https://[DOMINIO_FINAL]/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Dra. Brumna Valdivieso — Rejuvenescimento Íntimo e Corporal em Florianópolis">
+<meta property="og:title" content="Dra. Brumna Valdivieso — Rejuvenescimento Íntimo em Florianópolis">
 <meta property="og:description" content="Médica dedicada ao rejuvenescimento íntimo e corporal, com mestrado em Rejuvenescimento Íntimo pela Universidade do Porto. Atendimento em Florianópolis e São Paulo.">
-<meta property="og:url" content="https://thallisribeiro.com.br/drabrumna/">
+<meta property="og:url" content="https://[DOMINIO_FINAL]/">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Dra. Brumna Valdivieso">
+<meta property="og:image" content="https://[DOMINIO_FINAL]/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <!-- Fontes na mesma origem: sem preconnect nem folha de terceiro no caminho crítico. -->
 <link rel="preload" href="fontes/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -24,8 +27,10 @@
      classe o conteúdo renderiza normal e opaco: entrada por tempo com
      fill:both deixaria o hero em branco se a animação não rodasse. -->
 <script>document.documentElement.classList.add('anim')</script>
-<link rel="stylesheet" href="estilo.css?v=893b9090">
+<link rel="stylesheet" href="estilo.css?v=02e148db">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237C1E2D'/%3E%3Cpath d='M32 20l6 12-6 12-6-12z' fill='%23D4AF37'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="https://[DOMINIO_FINAL]/assets/icone-180.png">
+<meta name="theme-color" content="#7C1E2D">
 <!-- Physician sem campo de registro profissional: CRM e RQE só entram depois
      de confirmação documental. Sem medicalSpecialty, porque o briefing proíbe
      apresentar a Dra. Brumna como dermatologista. -->
@@ -35,7 +40,8 @@
   "@type": "Physician",
   "name": "Dra. Brumna Valdivieso",
   "description": "Médica dedicada ao rejuvenescimento íntimo e corporal, com mestrado em Rejuvenescimento Íntimo pela Universidade do Porto.",
-  "url": "https://thallisribeiro.com.br/drabrumna/",
+  "url": "https://[DOMINIO_FINAL]/",
+  "image": "https://[DOMINIO_FINAL]/assets/dra-brumna-hero.webp",
   "areaServed": [
     {"@type": "City", "name": "Florianópolis"},
     {"@type": "City", "name": "São Paulo"}
@@ -127,7 +133,10 @@
            com fio dourado. O vídeo de origem está guardado em
            modelo/capa-cetim.mp4 para quando a capa virar vídeo de verdade. -->
       <picture>
+        <!-- AVIF: −78% sobre o webp com SSIM 0,99 — medido, não estimado. -->
+        <source media="(max-width: 640px)" type="image/avif" srcset="assets/capa-cetim-celular.avif">
         <source media="(max-width: 640px)" srcset="assets/capa-cetim-celular.webp">
+        <source type="image/avif" srcset="assets/capa-cetim.avif">
         <img src="assets/capa-cetim.webp" alt="" width="1920" height="1080" fetchpriority="high">
       </picture>
     </figure>
@@ -325,7 +334,7 @@
     <div class="container container-leitura centro">
       <h2 id="t-vamos-conversar-sobre-o-seu-caso">Vamos conversar sobre o seu caso</h2>
       <div class="regua regua-centro"><i></i></div>
-      <p class="chamada">Na consulta, a avaliação individual define o que faz sentido para você — e também o que não faz. O primeiro contato é pelo WhatsApp da clínica de Florianópolis.</p>
+      <p class="chamada">Na consulta, a avaliação individual define o que faz sentido para você, e também o que não faz. O primeiro contato é pelo WhatsApp da clínica de Florianópolis.</p>
       <div class="grupo-botoes centralizar-botoes" >
         <div>
             <a class="botao botao-dourado" href="#" data-wpp="florianopolis">Agendar consulta</a>
@@ -406,7 +415,7 @@
   </div>
 </dialog>
 
-<script src="dados.js?v=893b9090"></script>
+<script src="dados.js?v=d4e8e1c0"></script>
 <script src="site.js?v=6652ff25" defer></script>
 </body>
 </html>

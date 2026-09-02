@@ -26,6 +26,7 @@ itens que o PDF de briefing pede e que ainda não estão entregues.
 | B4 | **Acesso à pasta de fotos do Drive** — a conta usada aqui vê os metadados mas não lista o conteúdo | Página 15 | Todos os espaços reservados |
 | B5 | **Foto de capa profissional** — a imagem atual foi extraída do próprio PDF e é de baixa resolução | Página 5 | Hero da home |
 | B6 | **Foto da Clínica Fakiani** | Páginas 5 e 12 | Home e Contato |
+| B8 | **@ do Instagram da Dra.** — o site não tem nenhum link de rede social; para este público o Instagram é a checagem de confiança antes do WhatsApp | — | Rodapé, página Sobre e schema |
 | B7 | **Fotos da Dra. no palco da Fotona, ministrando curso e na Universidade do Porto** | Página 9 | Página Sobre |
 
 ## C. Depende de terceiros (3 itens)
@@ -40,8 +41,10 @@ itens que o PDF de briefing pede e que ainda não estão entregues.
 
 | # | O que falta | Onde o briefing pede | Situação |
 | --- | --- | --- | --- |
-| D1 | **Camada de edição do blog** — o briefing pede que a própria Dra. publique foto e texto sem programador. É a maior lacuna: nenhuma das três versões entrega. Listagem, categoria, post e busca já estão estruturados; falta escolher o CMS. Recomendação: Decap CMS, gratuito, baseado em git, roda no próprio GitHub Pages; exige um intermediário de OAuth. Estimativa: meio dia | Página 13 | Página de blog |
+| D1 | ~~Camada de edição do blog~~ — **ENTREGUE**: painel Payload no ar no VPS (login e senha próprios da Dra., blog e FAQ editáveis, site estático regerado a cada publicação). Falta só o subdomínio/DNS do item C3 para acessar o /admin | Página 13 | Fechado em 01/09/2026 |
 | D2 | **Completar as 100 perguntas** — o briefing lista 46 e pede 100. Faltam 54, que dependem de pesquisa de intenção e passam pela mesma aprovação médica de A4. A página não promete 100 enquanto não houver | Páginas 10 e 11 | Página de dúvidas |
+| D3 | **Ativar a medição de cliques** — os eventos (clique no WhatsApp, por unidade) e o consentimento LGPD já estão prontos no site; falta o coletor. Bloqueado até existir domínio com TLS (coletor self-host sem https é barrado pelo navegador). Opções: GTM+GA4 (conta Google) ou Umami no próprio VPS | — | Ligar na virada do domínio |
+| D4 | **Destino do backup fora do VPS** — o backup diário funciona, mas mora no mesmo disco do site; falta decidir para onde espelhar (Drive? esta máquina?) | — | Decisão sua |
 
 ---
 
@@ -67,8 +70,4 @@ fechados e verificados por medição:
 
 ## Resumo
 
-**18 pendências.** Nenhuma é de construção: 16 são dados ou material que precisam
-chegar, e 2 são decisões. Assim que A1 a A3 e B1 a B3 forem respondidos, o site sai
-da prévia e vai para o ar no domínio definitivo — o resto pode entrar depois, sem
-travar a publicação, com uma exceção: **D1, o blog editável, é requisito explícito
-do briefing e continua em aberto.**
+**19 pendências, 1 já fechada (D1).** Nenhuma é de construção: 16 são dados ou material que precisam chegar, e 3 são decisões (D2, D3, D4). O blog editável — requisito explícito do briefing — está ENTREGUE via painel Payload; falta só o subdomínio/DNS (C3) para a Dra. acessar. Assim que A1 a A3 e B1 a B3 forem respondidos, o site sai da prévia e vai para o ar no domínio definitivo.
