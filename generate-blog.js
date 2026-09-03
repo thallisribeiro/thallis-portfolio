@@ -753,6 +753,14 @@ ${rssItems}
         <div class="prova-item"><span class="prova-num">${deCliente}</span><span class="prova-rot">sites de cliente</span></div>
         ${fimP}`;
       h = h.slice(0, a1) + bloco + h.slice(b1 + fimP.length);
+
+      // O mesmo número aparece na manchete ("9 produtos meus estão no ar"). Escrito à mão
+      // ele vence no dia em que um produto entra ou sai, e manchete vencida é mentira na
+      // primeira linha da página. Mesma marca, mesma contagem.
+      const iniN = '<!--N_PRODUTOS_INICIO-->', fimN = '<!--N_PRODUTOS_FIM-->';
+      const a4 = h.indexOf(iniN), b4 = h.indexOf(fimN);
+      if (a4 !== -1 && b4 > a4) h = h.slice(0, a4) + iniN + meus + h.slice(b4);
+
       fs.writeFileSync(HOME_P, h);
 
       // Mesma prova na pagina do produto. La ela pesa mais: e a pagina que
