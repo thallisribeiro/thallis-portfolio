@@ -23,7 +23,11 @@
     });
   });
 
-  if (typeof gtag === 'function' && document.body.querySelector('.hero-tese')) {
+  // home_view e da HOME, nao de toda pagina que usa o bloco de hero. As paginas de cidade
+  // (03/09) reusam .hero-tese e passaram a contar como visita a home, sujando a unica
+  // metrica que diz quanta gente chega na porta principal. Quem tem data-page-ev proprio
+  // ja se identifica sozinho logo abaixo.
+  if (typeof gtag === 'function' && document.body.querySelector('.hero-tese') && !document.body.dataset.pageEv) {
     gtag('event', 'home_view');
   }
 

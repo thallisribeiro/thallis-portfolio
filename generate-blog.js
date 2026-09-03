@@ -730,14 +730,23 @@ ${rssItems}
   console.log(`[gerado] ${CIDADES.length} página(s) de cidade em /site-em-7-dias/`);
 
   // Sitemap
+  //
+  // `lastmod` da página estática sai do mtime do arquivo, não de uma data escrita à mão:
+  // é a data em que ela mudou de verdade, e continua verdadeira sem ninguém manter. Sem
+  // isso, as 8 páginas de cidade entravam no sitemap sem lastmod nenhum — justamente as
+  // páginas novas, que são as que mais precisam do sinal de "isto acabou de existir".
+  const modificadoEm = (rel) => {
+    try { return new Date(fs.statSync(path.join(ROOT, rel)).mtime).toISOString().slice(0, 10); }
+    catch { return undefined; }
+  };
   const urls = [
     { loc: `${SITE_URL}/`, lastmod: posts[0]?.date },
     { loc: `${SITE_URL}/blog/`, lastmod: posts[0]?.date },
-    { loc: `${SITE_URL}/maquina-de-distribuicao/` },
-    { loc: `${SITE_URL}/site-em-7-dias/` },
-    ...CIDADES.map((c) => ({ loc: `${SITE_URL}/site-em-7-dias/${c.slug}/` })),
-    { loc: `${SITE_URL}/trabalhe-comigo/` },
-    { loc: `${SITE_URL}/ficha-de-apuracao/` },
+    { loc: `${SITE_URL}/maquina-de-distribuicao/`, lastmod: modificadoEm('maquina-de-distribuicao/index.html') },
+    { loc: `${SITE_URL}/site-em-7-dias/`, lastmod: modificadoEm('site-em-7-dias/index.html') },
+    ...CIDADES.map((c) => ({ loc: `${SITE_URL}/site-em-7-dias/${c.slug}/`, lastmod: modificadoEm(`site-em-7-dias/${c.slug}/index.html`) })),
+    { loc: `${SITE_URL}/trabalhe-comigo/`, lastmod: modificadoEm('trabalhe-comigo/index.html') },
+    { loc: `${SITE_URL}/ficha-de-apuracao/`, lastmod: modificadoEm('ficha-de-apuracao/index.html') },
     ...posts.map(p => ({ loc: `${SITE_URL}/blog/${p.slug}/`, lastmod: p.date })),
     ...temaCounts.map(t => ({ loc: `${SITE_URL}/blog/tema/${t.slug}/`, lastmod: posts[0]?.date })),
   ];
