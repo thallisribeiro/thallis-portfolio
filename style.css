@@ -2173,3 +2173,15 @@ body::after {
   margin: clamp(24px, 4vw, 34px) 0 10px;
 }
 .saidas + .grupo-titulo { margin-top: clamp(30px, 5vw, 44px); }
+
+/* Link dentro do lead da seção herdava o azul padrão do navegador (03/09, páginas de cidade). */
+.secao-lead a { color: var(--primary); text-decoration: none; }
+.secao-lead a:hover, .secao-lead a:focus-visible { text-decoration: underline; }
+
+/* Lista de cidades atendidas na oferta: navegação honesta e caminho pro Google achar as páginas. */
+.cidades { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 0; padding: 0; }
+.cidades a {
+  display: inline-block; padding: 9px 15px; border: 1px solid var(--line); border-radius: 999px;
+  color: var(--text); text-decoration: none; font-size: 14px; transition: border-color .18s ease, color .18s ease;
+}
+.cidades a:hover, .cidades a:focus-visible { border-color: var(--primary); color: var(--primary); }

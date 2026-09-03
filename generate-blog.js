@@ -4,6 +4,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { CIDADES, pagina: paginaLocal } = require('./paginas-locais.js');
 
 const ROOT = __dirname;
 const POSTS_DIR = path.join(ROOT, 'content', 'posts');
@@ -84,7 +85,8 @@ const DEFAULT_OG_IMAGE = `${SITE_URL}/assets/og-default.png`;
 // Tudo que este script escreve FORA de blog/. Uma lista só, lida pela escrita do
 // manifesto e pelo self-test -- duas listas divergem, e já divergiram três vezes.
 const MANIFESTO = ['index.html', 'maquina-de-distribuicao/index.html', 'site-em-7-dias/index.html', 'ficha-de-apuracao/index.html',
-  'trabalhe-comigo/index.html', 'feed.xml', 'sitemap.xml'];
+  'trabalhe-comigo/index.html', 'feed.xml', 'sitemap.xml',
+  ...CIDADES.map((c) => `site-em-7-dias/${c.slug}/index.html`)];
 
 // ── Ícones inline (SVG monocromático via currentColor — zero dependência externa) ──
 const ICONS = {
@@ -716,12 +718,24 @@ ${rssItems}
   fs.writeFileSync(path.join(ROOT, 'feed.xml'), rss);
   console.log(`[gerado] feed.xml (${posts.length ? Math.min(posts.length, 20) : 0} itens)`);
 
+  // Páginas de cidade da oferta. Quem digita "criação de site em <cidade>" quer contratar
+  // hoje — é o único canal da casa que pega intenção de compra em vez de gente rolando o
+  // feed. Cada uma leva a oferta inteira, nunca o nome trocado: página fina é doorway page,
+  // e o Google pune em vez de mandar tráfego. Ver paginas-locais.js.
+  for (const cidade of CIDADES) {
+    const dir = path.join(ROOT, 'site-em-7-dias', cidade.slug);
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, 'index.html'), paginaLocal(cidade), 'utf8');
+  }
+  console.log(`[gerado] ${CIDADES.length} página(s) de cidade em /site-em-7-dias/`);
+
   // Sitemap
   const urls = [
     { loc: `${SITE_URL}/`, lastmod: posts[0]?.date },
     { loc: `${SITE_URL}/blog/`, lastmod: posts[0]?.date },
     { loc: `${SITE_URL}/maquina-de-distribuicao/` },
     { loc: `${SITE_URL}/site-em-7-dias/` },
+    ...CIDADES.map((c) => ({ loc: `${SITE_URL}/site-em-7-dias/${c.slug}/` })),
     { loc: `${SITE_URL}/trabalhe-comigo/` },
     { loc: `${SITE_URL}/ficha-de-apuracao/` },
     ...posts.map(p => ({ loc: `${SITE_URL}/blog/${p.slug}/`, lastmod: p.date })),
