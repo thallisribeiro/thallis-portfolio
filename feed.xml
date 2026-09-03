@@ -5,6 +5,13 @@
   <description>O que eu vou construindo, testando e aprendendo sobre site, conteúdo e automação com IA.</description>
   <language>pt-BR</language>
   <item>
+    <title>O que causou a queda do GitHub em 17 de agosto de 2026, e por que o Copilot voltou quase 4h30 depois</title>
+    <link>https://thallisribeiro.com.br/blog/o-que-causou-a-queda-do-github-em-17-de-agosto-de-2026-e-por-que-o-cop/</link>
+    <guid>https://thallisribeiro.com.br/blog/o-que-causou-a-queda-do-github-em-17-de-agosto-de-2026-e-por-que-o-cop/</guid>
+    <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+    <description>Uma política de autoescala que observava a peça errada deixou o GitHub degradado por 7 horas e 47 minutos. Na recuperação, um bug latente de retry no Visual Studio Code multiplicou por cerca de 10 o tráfego que chegava ao serviço de token do Copilot, e esse serviço só se restabeleceu quase 4 horas e 30 minutos depois dos demais.</description>
+  </item>
+  <item>
     <title>Agente de IA do Cursor apagou o banco da PocketOS em 9 segundos: o que aconteceu</title>
     <link>https://thallisribeiro.com.br/blog/agente-de-ia-do-cursor-apagou-o-banco-da-pocketos-em-9-segundos-o-que-/</link>
     <guid>https://thallisribeiro.com.br/blog/agente-de-ia-do-cursor-apagou-o-banco-da-pocketos-em-9-segundos-o-que-/</guid>
@@ -136,12 +143,5 @@
     <guid>https://thallisribeiro.com.br/blog/9-1-milhoes-de-empresas-inadimplentes-o-que-isso-muda-pro-seu-marketin/</guid>
     <pubDate>Thu, 27 Aug 2026 00:00:00 GMT</pubDate>
     <description>Com o Brasil batendo recorde histórico de inadimplência empresarial, gastar mal em marketing dói mais do que nunca.</description>
-  </item>
-  <item>
-    <title>Site institucional ou site que vende: qual é o seu?</title>
-    <link>https://thallisribeiro.com.br/blog/site-institucional-ou-site-que-vende-qual-e-o-seu/</link>
-    <guid>https://thallisribeiro.com.br/blog/site-institucional-ou-site-que-vende-qual-e-o-seu/</guid>
-    <pubDate>Thu, 27 Aug 2026 00:00:00 GMT</pubDate>
-    <description>A diferença entre um site institucional e um site que vende é estrutural, não estética, e a maioria dos pequenos negócios só tem o primeiro.</description>
   </item>
 </channel></rss>

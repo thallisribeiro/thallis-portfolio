@@ -125,3 +125,6 @@
 [2026-09-02T14:30:01.931Z] [ensure-queue] nada pareado da esteira neste horário — sem post. O blog publica o que a esteira apurou, não o que eu fiz hoje.
 [2026-09-02T15:10:02.059Z] fila vazia — nada publicado neste horário
 [2026-09-02T20:30:01.623Z] [ensure-queue] nada pareado da esteira neste horário — sem post. O blog publica o que a esteira apurou, não o que eu fiz hoje.
+[2026-09-02T21:10:02.073Z] fila vazia — nada publicado neste horário
+[2026-09-03T09:30:01.543Z] [ensure-queue] nada pareado da esteira neste horário — sem post. O blog publica o que a esteira apurou, não o que eu fiz hoje.
+[2026-09-03T10:10:02.063Z] fila vazia — nada publicado neste horário
