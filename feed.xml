@@ -5,6 +5,13 @@
   <description>O que eu vou construindo, testando e aprendendo sobre site, conteúdo e automação com IA.</description>
   <language>pt-BR</language>
   <item>
+    <title>MEDVi e a carta da FDA: o que o perfil do New York Times deixou de fora</title>
+    <link>https://thallisribeiro.com.br/blog/medvi-e-a-carta-da-fda-o-que-o-perfil-do-new-york-times-deixou-de-fora/</link>
+    <guid>https://thallisribeiro.com.br/blog/medvi-e-a-carta-da-fda-o-que-o-perfil-do-new-york-times-deixou-de-fora/</guid>
+    <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+    <description>A FDA emitiu uma carta de advertência à MEDVi em 20 de fevereiro de 2026. Seis semanas depois, o New York Times publicou um perfil da empresa como o futuro dos negócios com IA, sem citar a carta, a ação coletiva ou as investigações que já estavam publicadas havia quase um ano. Nada disso foi descoberto depois.</description>
+  </item>
+  <item>
     <title>Microsoft cancelou o Claude Code dos próprios engenheiros: o que aconteceu e por quê</title>
     <link>https://thallisribeiro.com.br/blog/microsoft-cancelou-o-claude-code-dos-proprios-engenheiros-o-que-aconte/</link>
     <guid>https://thallisribeiro.com.br/blog/microsoft-cancelou-o-claude-code-dos-proprios-engenheiros-o-que-aconte/</guid>
@@ -136,12 +143,5 @@
     <guid>https://thallisribeiro.com.br/blog/eu-deixava-um-agente-ler-o-site-do-lead-com-as-permissoes-desligadas/</guid>
     <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
     <description>O pipeline baixava o HTML do site de um estranho e mandava direto pra um Claude rodando com --dangerously-skip-permissions. Ninguém me atacou. Eu só percebi antes.</description>
-  </item>
-  <item>
-    <title>Tirei o "como funciona" do fim da página e coloquei no começo</title>
-    <link>https://thallisribeiro.com.br/blog/tirei-o-como-funciona-do-fim-da-pagina-e-coloquei-no-comeco/</link>
-    <guid>https://thallisribeiro.com.br/blog/tirei-o-como-funciona-do-fim-da-pagina-e-coloquei-no-comeco/</guid>
-    <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
-    <description>Uma mudança pequena no site da agência: o motor do Thallis.lab saiu de baixo pra virar topo de funil. Ainda não tenho número pra dizer se acertei.</description>
   </item>
 </channel></rss>
