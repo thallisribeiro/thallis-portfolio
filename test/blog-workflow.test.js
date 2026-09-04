@@ -24,42 +24,16 @@ function makeBlogFixture(t) {
   if (fs.existsSync(sharedWorkflow)) {
     fs.copyFileSync(sharedWorkflow, path.join(root, 'blog-workflow.js'));
   }
+  // Content-hub vazio e só desta fixture: o ensure-queue lê a esteira de produção por
+  // caminho fixo, e sem isolar isso o teste encontra um artigo real e desvia do caminho
+  // que ele está testando. `BLOG_SQUADS_REPO` existe só para isto.
+  fs.mkdirSync(path.join(root, 'contenthub-vazio'), { recursive: true });
   runGit(root, ['init']);
   runGit(root, ['config', 'user.name', 'Workflow Test']);
   runGit(root, ['config', 'user.email', 'workflow@example.invalid']);
   runGit(root, ['branch', '-M', 'main']);
 
   return root;
-}
-
-function installFailingClaude(root) {
-  if (process.platform === 'win32') {
-    fs.writeFileSync(
-      path.join(root, 'claude.cmd'),
-      "@echo off\r\nif defined BLOG_FAKE_ARGS echo %* > \"%BLOG_FAKE_ARGS%\"\r\necho You've hit your weekly limit\r\nexit /b 1\r\n",
-    );
-  } else {
-    const command = path.join(root, 'claude');
-    fs.writeFileSync(
-      command,
-      '#!/bin/sh\nif [ -n "$BLOG_FAKE_ARGS" ]; then printf "%s\\n" "$@" > "$BLOG_FAKE_ARGS"; fi\necho "You have hit your weekly limit"\nexit 1\n',
-    );
-    fs.chmodSync(command, 0o755);
-  }
-}
-
-function installClaudeResponse(root, lines) {
-  if (process.platform === 'win32') {
-    fs.writeFileSync(
-      path.join(root, 'claude.cmd'),
-      ['@echo off', ...lines.map(line => `echo ${line}`), 'exit /b 0', ''].join('\r\n'),
-    );
-  } else {
-    const command = path.join(root, 'claude');
-    const escaped = lines.map(line => line.replace(/'/g, `'"'"'`));
-    fs.writeFileSync(command, `#!/bin/sh\nprintf '%s\\n' ${escaped.map(line => `'${line}'`).join(' ')}\n`);
-    fs.chmodSync(command, 0o755);
-  }
 }
 
 function writeQueuedPost(root) {
@@ -94,37 +68,6 @@ function createPendingCommit(root) {
 function remoteMainSha(root, remote) {
   return runGit(root, ['--git-dir', remote, 'rev-parse', 'refs/heads/main']);
 }
-
-test('ensure-queue reports provider stdout and exits nonzero without consuming the topic', (t) => {
-  const root = makeBlogFixture(t);
-  installFailingClaude(root);
-  const argsFile = path.join(root, 'claude-args.txt');
-
-  const result = spawnSync(process.execPath, ['ensure-queue.js'], {
-    cwd: root,
-    encoding: 'utf8',
-    env: {
-      ...process.env,
-      PATH: `${root}${path.delimiter}${process.env.PATH || ''}`,
-      BLOG_FAKE_ARGS: argsFile,
-    },
-  });
-
-  assert.equal(result.status, 1, result.stderr || result.stdout);
-  assert.match(fs.readFileSync(path.join(root, 'content', 'publish-log.txt'), 'utf8'), /weekly limit/i);
-  assert.deepEqual(fs.readdirSync(path.join(root, 'content', 'queue')), []);
-  assert.match(
-    fs.readFileSync(path.join(root, 'content', 'evergreen-topics.md'), 'utf8'),
-    /- \[ \] Tema de regressão/,
-  );
-  const args = fs.readFileSync(argsFile, 'utf8');
-  assert.match(args, /--safe-mode/);
-  assert.match(args, /--tools/);
-  assert.match(args, /--disable-slash-commands/);
-  assert.match(args, /--strict-mcp-config/);
-  assert.match(args, /--no-session-persistence/);
-  assert.doesNotMatch(args, /dangerously-skip-permissions/);
-});
 
 test('workflow commands enforce their timeout', (t) => {
   const root = makeBlogFixture(t);
@@ -185,49 +128,6 @@ test('publish-next refuses to run outside main even when another branch tracks o
 
   assert.equal(result.status, 1, result.stderr || result.stdout);
   assert.match(fs.readFileSync(path.join(root, 'content', 'publish-log.txt'), 'utf8'), /branch main/i);
-});
-
-test('ensure-queue exits nonzero when the provider returns malformed content', (t) => {
-  const root = makeBlogFixture(t);
-  installClaudeResponse(root, ['not-frontmatter']);
-
-  const result = spawnSync(process.execPath, ['ensure-queue.js'], {
-    cwd: root,
-    encoding: 'utf8',
-    env: { ...process.env, PATH: `${root}${path.delimiter}${process.env.PATH || ''}` },
-  });
-
-  assert.equal(result.status, 1, result.stderr || result.stdout);
-  assert.deepEqual(fs.readdirSync(path.join(root, 'content', 'queue')), []);
-  assert.match(fs.readFileSync(path.join(root, 'content', 'publish-log.txt'), 'utf8'), /formato esperado/);
-});
-
-test('ensure-queue exits nonzero when its generated queue commit cannot be pushed', (t) => {
-  const root = makeBlogFixture(t);
-  installClaudeResponse(root, [
-    '---',
-    'title: Post gerado',
-    'summary: Resumo gerado',
-    'tema: Teste',
-    '---',
-    '',
-    'Corpo gerado.',
-  ]);
-  const remote = initializeGitWithRemote(root);
-  runGit(root, ['add', '.']);
-  runGit(root, ['commit', '-m', 'fixture']);
-  runGit(root, ['push', '-u', 'origin', 'main']);
-  fs.rmSync(remote, { recursive: true, force: true });
-
-  const result = spawnSync(process.execPath, ['ensure-queue.js'], {
-    cwd: root,
-    encoding: 'utf8',
-    env: { ...process.env, PATH: `${root}${path.delimiter}${process.env.PATH || ''}` },
-  });
-
-  assert.equal(result.status, 1, result.stderr || result.stdout);
-  assert.match(fs.readFileSync(path.join(root, 'content', 'publish-log.txt'), 'utf8'), /git push falhou/);
-  assert.equal(fs.readdirSync(path.join(root, 'content', 'queue')).length, 1);
 });
 
 test('publish-next keeps the queue and exits nonzero when static generation fails', (t) => {

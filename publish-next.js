@@ -38,8 +38,16 @@ function rollbackUncommittedPublication({ queuePath, raw, postPath, publicationP
 // O que entra no `git add` de uma publicação. Isolado porque é a regra que mais quebrou:
 // primeiro a home ficou de fora, depois a página da Máquina, as duas subindo velhas
 // enquanto o blog subia certo.
+// Sem manifesto, cair em lista VAZIA é a pior saída possível: o post entra no commit e o
+// feed e o sitemap ficam de fora calados — o blog publica e o RSS envelhece, sem erro em
+// lugar nenhum. Melhor cair nos gerados de sempre, filtrados por existirem em disco (git
+// add de caminho inexistente falha e derrubaria a publicação inteira).
+const GERADOS_PADRAO = ['index.html', 'feed.xml', 'sitemap.xml'];
+
 function lerManifesto() {
-  try { return JSON.parse(fs.readFileSync(path.join(ROOT, '.gerados.json'), 'utf-8')); } catch { return []; }
+  try { return JSON.parse(fs.readFileSync(path.join(ROOT, '.gerados.json'), 'utf-8')); } catch {
+    return GERADOS_PADRAO.filter((f) => fs.existsSync(path.join(ROOT, f)));
+  }
 }
 
 function caminhosDaPublicacao({ postRelative, queueRelative, filaRastreada, gerados }) {

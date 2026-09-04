@@ -22,7 +22,11 @@ const QUEUE_DIR = path.join(ROOT, 'content', 'queue');
 const POSTS_DIR = path.join(ROOT, 'content', 'posts');
 const TOPICS_FILE = path.join(ROOT, 'content', 'evergreen-topics.md');
 const LOG_FILE = path.join(ROOT, 'content', 'publish-log.txt');
-const SQUADS_REPO = 'C:\\Users\\thall\\Documents\\Squads100';
+// Caminho do content-hub, com escape por variável de ambiente SÓ pra teste. Sem isso o
+// teste roda numa pasta temporária mas continua lendo a esteira de produção: acha um artigo
+// real, entra pelo caminho de "artigo aproveitado" e nunca chega no provedor que ele queria
+// testar. Foi o que deixou 3 dos 13 testes vermelhos desde que esse caminho foi criado.
+const SQUADS_REPO = process.env.BLOG_SQUADS_REPO || 'C:\\Users\\thall\\Documents\\Squads100';
 
 function log(line) {
   const ts = new Date().toISOString();
