@@ -1123,3 +1123,5 @@ main p a:not(.botao):not(.link-seta):focus-visible,
 .bloco-figura img, .figura-pagina img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; object-position: 50% 30%; border-radius: var(--raio); display: block; }
 .bloco-figura .reservado, .figura-pagina .reservado { aspect-ratio: 16 / 9; min-height: 0; }
 .figura-pagina { margin: 0 0 var(--e6); }
+/* Fotos soltas numa grade (página Sobre): mesma proporção, mesma altura. */
+.grade > img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 20%; border-radius: var(--raio); display: block; }
