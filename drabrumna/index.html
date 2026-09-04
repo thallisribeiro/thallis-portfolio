@@ -27,7 +27,7 @@
      classe o conteúdo renderiza normal e opaco: entrada por tempo com
      fill:both deixaria o hero em branco se a animação não rodasse. -->
 <script>document.documentElement.classList.add('anim')</script>
-<link rel="stylesheet" href="/drabrumna/estilo.css?v=44da0284">
+<link rel="stylesheet" href="/drabrumna/estilo.css?v=d21e3951">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237C1E2D'/%3E%3Cpath d='M32 20l6 12-6 12-6-12z' fill='%23D4AF37'/%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="https://thallisribeiro.com.br/drabrumna/assets/icone-180.png">
 <meta name="theme-color" content="#7C1E2D">
@@ -76,7 +76,7 @@
   <div class="cabecalho-interno">
     <a class="marca" href="/drabrumna/">
       <span class="marca-nome">Dra. Brumna Valdivieso</span>
-      <span class="marca-linha">Ninfoplastia · Estética Íntima · Corporal</span>
+      <span class="marca-linha">Ninfoplastia · Rejuvenescimento Íntimo · Corporal</span>
     </a>
     <div class="cabecalho-acoes">
       <a class="botao botao-vazado botao-pequeno" href="/drabrumna/contato/">Agendar consulta</a>
@@ -91,7 +91,7 @@
   <div class="painel-topo">
     <div class="marca">
       <span class="marca-nome">Dra. Brumna Valdivieso</span>
-      <span class="marca-linha">Ninfoplastia · Estética Íntima · Corporal</span>
+      <span class="marca-linha">Ninfoplastia · Rejuvenescimento Íntimo · Corporal</span>
     </div>
     <button class="fechar-menu" type="button">Fechar</button>
   </div>
@@ -127,6 +127,7 @@
          PENDENTE: a imagem atual é a recepção do IMV, provisória até a foto ou
          o vídeo profissional da pasta de materiais. -->
     <figure class="hero-figura">
+      <video class="hero-video" muted loop playsinline autoplay preload="metadata" poster="/drabrumna/media/hero-paisagem-poster-800x450.webp" aria-hidden="true" data-paisagem="/drabrumna/media/hero-paisagem.mp4" data-retrato="/drabrumna/media/hero-retrato.mp4"></video>
       <!-- Capa: cetim creme, frame do vídeo "Beige Satin Fabric" de Mikhail
            Nilov (Pexels, licença livre para uso comercial). É a mesma
            linguagem da prancha de marca da página 2 do briefing — seda creme
@@ -141,41 +142,39 @@
       </picture>
     </figure>
     <div class="hero-texto">
-      <h1 id="t-rejuvenescimento-intimo-e-corporal-avali">Rejuvenescimento íntimo e corporal, avaliado caso a caso</h1>
+      <!-- Ajustes v1.0 (PDF p2): título curto em traço fino, sem chamada e sem
+           botões (o botão flutuante já fica na mesma tela), só a credencial. -->
+      <h1 id="t-rejuvenescimento-intimo-e-corporal-avali">Tecnologia avançada. Olhar médico.</h1>
       <div class="regua"><i></i></div>
-      <p class="chamada">Medicina estética dedicada à saúde íntima feminina e ao cuidado do corpo, com tecnologia atual e um plano construído a partir da anatomia, da história e das expectativas de cada mulher. Atendimento em Florianópolis e São Paulo.</p>
-      <div class="grupo-botoes">
-        <div>
-          <a class="botao botao-dourado" href="#" data-wpp="florianopolis">Agendar consulta</a>
-          <small class="aviso-wpp"></small>
-        </div>
-        <a class="botao botao-vazado" href="/drabrumna/tratamentos/">Ver tratamentos</a>
-      </div>
-      <p class="hero-credencial">Médica · Mestrado em Rejuvenescimento Íntimo pela Universidade do Porto</p>
+      <p class="hero-credencial">Médica · Mestre em Rejuvenescimento Íntimo</p>
     </div>
   </section>
 
   <!-- 6.2 ESPECIALIDADES, TRATAMENTOS E TECNOLOGIAS -->
   <section aria-labelledby="t-onde-a-dra-brumna-concentra-a-atuacao">
     <div class="container">
-      <p class="olho">Áreas de cuidado</p>
-      <h2 id="t-onde-a-dra-brumna-concentra-a-atuacao">Onde a Dra. Brumna concentra a atuação</h2>
-      <p class="chamada">Três áreas, com prioridade clara para o rejuvenescimento íntimo. Cada uma reúne tratamentos próprios, e as tecnologias aparecem em seguida, como ferramenta.</p>
+      <!-- Ajustes v1.0 (PDF p3-4): texto novo da cliente, verbatim, com foto por área. -->
+      <h2 id="t-onde-a-dra-brumna-concentra-a-atuacao">Áreas de atuação</h2>
+      <div class="regua"><i></i></div>
+      <p class="chamada">Uma abordagem médica individualizada, que integra conhecimento, tecnologia e planejamento para realizar tratamentos íntimos, corporais e faciais de cada mulher.</p>
 
-      <div class="grade grade-3 espaco-topo">
-        <article class="cartao cartao-destaque">
-          <h3>Rejuvenescimento íntimo</h3>
-          <p>Saúde íntima feminina, clareamento, preenchimento, bioestimulador vulvar, flacidez íntima, cuidado após emagrecimento e Fotona íntimo.</p>
+      <div class="grade grade-3 areas espaco-topo">
+        <article class="cartao area cartao-destaque">
+          <figure class="area-figura"><img src="/drabrumna/media/area-intimo-800x1200.webp" width="800" height="1200" alt="Dra. Brumna Valdivieso apresenta imagem de anatomia íntima em um tablet" loading="lazy" sizes="(max-width: 600px) 100vw, 400px"></figure>
+          <h3>Rejuvenescimento Íntimo</h3>
+          <p>Ninfoplastia, Bioestimulador, Fotona Íntimo, Preenchimento íntimo, clareamento íntimo, tratamentos para Lubrificação e dor</p>
           <a class="link-seta" href="/drabrumna/tratamentos/#rejuvenescimento-intimo">Ver tratamentos</a>
         </article>
-        <article class="cartao">
-          <h3>Procedimentos corporais</h3>
-          <p>Harmonização e firmeza de glúteos, flacidez corporal, Protocolo Bumbum V e tecnologias aplicadas ao corpo.</p>
+        <article class="cartao area">
+          <figure class="area-figura"><img src="/drabrumna/media/area-corporal-800x1422.webp" width="800" height="1422" alt="Dra. Brumna Valdivieso com paciente durante avaliação corporal no consultório" loading="lazy" sizes="(max-width: 600px) 100vw, 400px"></figure>
+          <h3>Procedimentos Corporais</h3>
+          <p>Protocolo bumbum V, Harmonização e firmeza de Glúteos, tratamento de celulite, Tratamento para flacidez corporal, Bioestímulo de colágeno, Tecnologias Ignite, Morpheus8, Liftera2</p>
           <a class="link-seta" href="/drabrumna/tratamentos/#procedimentos-corporais">Ver tratamentos</a>
         </article>
-        <article class="cartao">
-          <h3>Procedimentos faciais</h3>
-          <p>Rejuvenescimento facial, bioestímulo de colágeno, preenchimento e tecnologias de lifting não cirúrgico.</p>
+        <article class="cartao area">
+          <figure class="area-figura"><img src="/drabrumna/media/area-facial-800x1200.webp" width="800" height="1200" alt="Dra. Brumna Valdivieso atendendo paciente em avaliação facial" loading="lazy" sizes="(max-width: 600px) 100vw, 400px"></figure>
+          <h3>Procedimentos Faciais</h3>
+          <p>Rejuvenescimento Facial, Bioestímulo de colágeno, Lifting não Cirúrgico, Liftera2, Morpheus8, Fotona, Tratamentos para poros, manchas e cicatrizes</p>
           <a class="link-seta" href="/drabrumna/tratamentos/#procedimentos-faciais">Ver tratamentos</a>
         </article>
       </div>
@@ -184,34 +183,41 @@
 
   <section class="faixa-bege" aria-labelledby="t-equipamentos-utilizados-no-consultorio">
     <div class="container">
-      <p class="olho">Tecnologias</p>
-      <h2 id="t-equipamentos-utilizados-no-consultorio">Equipamentos utilizados no consultório</h2>
-      <p class="chamada">A escolha da tecnologia vem depois da avaliação, nunca antes dela.</p>
+      <!-- Ajustes v1.0 (PDF p5): carrossel no desenho de ramontardin.com.br#tecnologias —
+           aparelho em pé, nome, uma frase, "Saiba mais"; 3 por tela, 2 no tablet, 1 no celular. -->
+      <h2 id="t-equipamentos-utilizados-no-consultorio" class="titulo-caixa-alta centro">Tecnologias</h2>
+      <div class="regua regua-centro"><i></i></div>
 
-      <div class="grade grade-2 espaco-topo">
-        <article class="cartao">
-          <h3>Laser Fotona StarWalker MaQX</h3>
-          <p>Plataforma de laser com protocolos distintos para a área íntima e para o rosto.</p>
-          <a class="link-seta" href="/drabrumna/tecnologias/#fotona-starwalker-maqx">Detalhes</a>
-        </article>
-        <article class="cartao">
-          <h3>Morpheus8</h3>
-          <p>Radiofrequência microagulhada voltada à flacidez dérmica profunda e ao contorno corporal.</p>
-          <a class="link-seta" href="/drabrumna/tecnologias/#morpheus8">Detalhes</a>
-        </article>
-        <article class="cartao">
-          <h3>Ignite RF</h3>
-          <p>Retração cutânea e estímulo de colágeno para flacidez corporal e facial.</p>
-          <a class="link-seta" href="/drabrumna/tecnologias/#ignite-rf">Detalhes</a>
-        </article>
-        <article class="cartao">
-          <h3>Liftera 2</h3>
-          <p>Ultrassom microfocado para lifting facial não cirúrgico e contorno mandibular.</p>
-          <a class="link-seta" href="/drabrumna/tecnologias/#liftera-2">Detalhes</a>
-        </article>
-      </div>
-      <div class="grupo-botoes">
-        <a class="botao botao-vazado" href="/drabrumna/tecnologias/">Conhecer as tecnologias</a>
+      <div class="carrossel carrossel-tecnologias" data-carrossel="tecnologias" aria-roledescription="carrossel" aria-label="Tecnologias">
+        <button class="carrossel-seta carrossel-anterior" type="button" aria-label="Anterior"></button>
+        <ul class="carrossel-trilho">
+          <li class="carrossel-item tecnologia-card">
+            <figure class="tecnologia-card-figura"><img src="/drabrumna/media/aparelho-fotona-800x800.webp" width="800" height="800" alt="Laser Fotona StarWalker MaQX" loading="lazy" sizes="(max-width: 600px) 100vw, 380px"></figure>
+            <h3>Fotona StarWalker MaQX</h3>
+            <p>Laser com protocolos para a área íntima e o rosto.</p>
+            <a class="botao botao-vazado botao-pequeno" href="/drabrumna/tecnologias/#fotona-starwalker-maqx">Saiba mais</a>
+          </li>
+          <li class="carrossel-item tecnologia-card">
+            <figure class="tecnologia-card-figura"><img src="/drabrumna/media/aparelho-morpheus8-800x800.webp" width="800" height="800" alt="Morpheus8" loading="lazy" sizes="(max-width: 600px) 100vw, 380px"></figure>
+            <h3>Morpheus8</h3>
+            <p>Radiofrequência microagulhada para flacidez e contorno.</p>
+            <a class="botao botao-vazado botao-pequeno" href="/drabrumna/tecnologias/#morpheus8">Saiba mais</a>
+          </li>
+          <li class="carrossel-item tecnologia-card">
+            <figure class="tecnologia-card-figura"><img src="/drabrumna/media/aparelho-ignite.webp" width="779" height="1350" alt="Ignite RF" loading="lazy" sizes="(max-width: 600px) 100vw, 380px"></figure>
+            <h3>Ignite RF</h3>
+            <p>Retração cutânea e estímulo de colágeno.</p>
+            <a class="botao botao-vazado botao-pequeno" href="/drabrumna/tecnologias/#ignite-rf">Saiba mais</a>
+          </li>
+          <li class="carrossel-item tecnologia-card">
+            <figure class="tecnologia-card-figura"><img src="/drabrumna/media/aparelho-liftera-800x1000.webp" width="800" height="1000" alt="Liftera 2" loading="lazy" sizes="(max-width: 600px) 100vw, 380px"></figure>
+            <h3>Liftera 2</h3>
+            <p>Ultrassom microfocado para lifting não cirúrgico.</p>
+            <a class="botao botao-vazado botao-pequeno" href="/drabrumna/tecnologias/#liftera-2">Saiba mais</a>
+          </li>
+        </ul>
+        <button class="carrossel-seta carrossel-proxima" type="button" aria-label="Próxima"></button>
+        <div class="carrossel-pontos"></div>
       </div>
     </div>
   </section>
@@ -221,15 +227,17 @@
     <div class="container">
       <div class="duo">
         <div class="duo-figura">
-          <img src="/drabrumna/assets/dra-brumna-hero.webp" alt="Retrato da Dra. Brumna Valdivieso" width="420" height="635" loading="lazy">
+          <img src="/drabrumna/media/sobre-800x1200.webp" width="800" height="1200" alt="Dra. Brumna Valdivieso ao lado do laser Fotona no consultório" loading="lazy" sizes="(max-width: 900px) 100vw, 480px">
         </div>
         <div>
+          <!-- Ajustes v1.0 (PDF p6): texto da cliente, verbatim. -->
           <p class="olho">Por que Dra. Brumna?</p>
-          <h2 id="t-conhecimento-medico-tecnologia-e-escuta-">Conhecimento médico, tecnologia e escuta individual</h2>
+          <h2 id="t-conhecimento-medico-tecnologia-e-escuta-">Conhecimento médico, tecnologia e um olhar atento para cada mulher.</h2>
           <div class="regua"><i></i></div>
-          <p>Médica formada pela Universidade de Ribeirão Preto, com mestrado em Rejuvenescimento Íntimo pela Universidade do Porto, em Portugal. A atuação clínica se divide entre Florianópolis, São Paulo e Porto.</p>
-          <p>Além do consultório, atua na formação de outros profissionais como professora de pós-graduação e coordenadora de cursos e fellows voltados ao rejuvenescimento íntimo e aos procedimentos corporais.</p>
-          <p>A abordagem parte de um princípio simples: procedimentos estéticos devem respeitar a anatomia, a história e as características de cada mulher, buscando resultados naturais e coerentes com aquilo que ela deseja para si.</p>
+          <p>A Dra. Brumna Valdivieso une conhecimento médico, experiência acadêmica e tecnologia para oferecer uma abordagem individualizada em rejuvenescimento íntimo e procedimentos corporais.</p>
+          <p>Com mestrado internacional, atuação como professora e palestrante, sua prática é guiada pela escuta atenta, pelo planejamento cuidadoso e pelo respeito à individualidade de cada mulher. Antes de indicar qualquer tratamento, busca compreender sua história, suas necessidades e seus objetivos para, juntas, definirem o melhor caminho.</p>
+          <p>Acredita em uma medicina que valoriza resultados naturais, segurança, qualidade de vida e, acima de tudo, a liberdade de cada mulher se sentir bem consigo mesma e ser quem quiser ser.</p>
+          <p class="credenciais">Mestrado pela Universidade do Porto · Professora de pós-graduação · Palestrante internacional · Speaker Fotona</p>
           <a class="link-seta" href="/drabrumna/sobre-a-dra-brumna/">Conhecer a trajetória</a>
         </div>
       </div>
@@ -243,6 +251,20 @@
       <h2 id="t-formacao-docencia-e-atuacao-internaciona">Formação, docência e atuação internacional</h2>
       <div class="regua"><i></i></div>
       <p class="chamada">Todos os itens abaixo vêm do material fornecido pela própria médica e aguardam conferência documental antes da publicação definitiva.</p>
+      <!-- Ajustes v1.0 (PDF p7): carrossel de fotos da jornada (IMCAS, palco Fotona,
+           Universidade do Porto). O gerador monta a partir do painel; sem foto, some. -->
+      <div class="carrossel carrossel-trajetoria" data-carrossel="trajetoria" aria-roledescription="carrossel">
+        <button class="carrossel-seta carrossel-anterior" type="button" aria-label="Anterior"></button>
+        <ul class="carrossel-trilho">
+          <li class="carrossel-item"><figure class="carrossel-foto"><img src="/drabrumna/media/jornada-imcas-800x1200.webp" width="800" height="1200" alt="Dra. Brumna Valdivieso no IMCAS World Congress, em Paris" loading="lazy" sizes="(max-width: 600px) 100vw, 400px"><figcaption>IMCAS World Congress, Paris</figcaption></figure></li>
+          <li class="carrossel-item"><figure class="carrossel-foto"><img src="/drabrumna/media/jornada-fotona-palco-800x1200.webp" width="800" height="1200" alt="Dra. Brumna Valdivieso palestrando em evento da Fotona" loading="lazy" sizes="(max-width: 600px) 100vw, 400px"><figcaption>Palestra em evento Fotona</figcaption></figure></li>
+          <li class="carrossel-item"><figure class="carrossel-foto"><img src="/drabrumna/media/jornada-fotona-palestra.webp" width="605" height="807" alt="Dra. Brumna Valdivieso no palco durante palestra da Fotona" loading="lazy" sizes="(max-width: 600px) 100vw, 400px"><figcaption>Speaker Fotona</figcaption></figure></li>
+          <li class="carrossel-item"><figure class="carrossel-foto"><img src="/drabrumna/media/jornada-porto.webp" width="605" height="807" alt="Dra. Brumna Valdivieso na Faculdade de Medicina da Universidade do Porto" loading="lazy" sizes="(max-width: 600px) 100vw, 400px"><figcaption>Universidade do Porto</figcaption></figure></li>
+          <li class="carrossel-item"><figure class="carrossel-foto"><img src="/drabrumna/media/jornada-fotona-tapete-800x1200.webp" width="800" height="1200" alt="Dra. Brumna Valdivieso em evento da Fotona" loading="lazy" sizes="(max-width: 600px) 100vw, 400px"><figcaption>Evento Fotona</figcaption></figure></li>
+        </ul>
+        <button class="carrossel-seta carrossel-proxima" type="button" aria-label="Próxima"></button>
+        <div class="carrossel-pontos"></div>
+      </div>
       <ul class="autoridade">
         <li>
           <h3>Mestrado na Universidade do Porto</h3>
@@ -296,7 +318,7 @@
         </article>
         <article class="unidade">
           <!-- PENDENTE: foto real da Clínica Fakiani -->
-          <div class="reservado" data-foto="fakiani">Foto da Clínica Fakiani<small>Aguardando material da pasta de fotos</small></div>
+          <img src="/drabrumna/media/fakiani-800x1200.webp" width="800" height="1200" alt="Dra. Brumna Valdivieso em frente à Clínica Fakiani, em São Paulo" loading="lazy" sizes="(max-width: 900px) 100vw, 640px">
           <div class="unidade-corpo">
             <p class="cidade">São Paulo · SP</p>
             <h3>Clínica Fakiani</h3>
@@ -317,13 +339,15 @@
   <!-- 6.6 DEPOIMENTOS — só avaliações reais do Google, via integração aprovada -->
   <section class="faixa-bege" aria-labelledby="t-avaliacoes-de-pacientes">
     <div class="container">
-      <p class="olho">Prova social</p>
-      <h2 id="t-avaliacoes-de-pacientes">Avaliações de pacientes</h2>
-      <p class="chamada">Esta área carrega as avaliações reais publicadas no perfil do Google. Nenhum depoimento é escrito ou selecionado manualmente.</p>
-      <div class="avaliacoes-area espaco-topo-medio"  data-estado="sem-fonte">
-        <div class="avaliacoes-alternativa">
-          <h3>Integração ainda não conectada</h3>
-          <p class="chamada">Falta confirmar o perfil de origem <span class="marcador-pendente">[URL_GOOGLE_REVIEWS_OU_PLACE_ID]</span> e a ferramenta de exibição. Assim que o perfil for informado, as avaliações reais aparecem aqui com nota, data e link para a origem. Este bloco também é o estado de fallback caso o widget não carregue.</p>
+      <!-- Ajustes v1.0 (PDF p9): sem o rótulo "Prova social"; só a integração com o
+           perfil do Google. O gerador preenche: com chave do Places, as avaliações
+           reais (nota, autor, data, texto, link); sem chave, o link para o perfil. -->
+      <h2 id="t-avaliacoes-de-pacientes" class="centro">Avaliações no Google</h2>
+      <div class="regua regua-centro"><i></i></div>
+      <div class="avaliacoes-area espaco-topo-medio">
+        <div class="avaliacoes-alternativa centro">
+          <p class="chamada">As avaliações são as publicadas pelas pacientes no perfil da Dra. no Google.</p>
+          <p><a class="botao botao-vazado" href="https://www.google.com/search?kgmid=/g/11xlzk9c2w&amp;q=Dra+Brumna+Valdivieso" target="_blank" rel="noopener">Ver avaliações no Google</a></p>
         </div>
       </div>
     </div>
@@ -331,10 +355,26 @@
 
   <!-- 6.7 CTA FINAL -->
   <section class="faixa-marsala" aria-labelledby="t-vamos-conversar-sobre-o-seu-caso">
+    <!-- Ajustes v1.0 (PDF p10): carrossel de atendimento acima do convite; copy da cliente. -->
+    <div class="container">
+      <div class="carrossel carrossel-atendimento" data-carrossel="atendimento" aria-roledescription="carrossel">
+        <button class="carrossel-seta carrossel-anterior" type="button" aria-label="Anterior"></button>
+        <ul class="carrossel-trilho">
+          <li class="carrossel-item"><figure class="carrossel-foto"><img src="/drabrumna/media/atend-face-800x1200.webp" width="800" height="1200" alt="Dra. Brumna Valdivieso em avaliação facial de paciente" loading="lazy" sizes="(max-width: 600px) 100vw, 400px"></figure></li>
+          <li class="carrossel-item"><figure class="carrossel-foto"><img src="/drabrumna/media/atend-abdomen-800x1200.webp" width="800" height="1200" alt="Dra. Brumna Valdivieso em procedimento corporal" loading="lazy" sizes="(max-width: 600px) 100vw, 400px"></figure></li>
+          <li class="carrossel-item"><figure class="carrossel-foto"><img src="/drabrumna/media/atend-gluteo-800x600.webp" width="800" height="600" alt="Dra. Brumna Valdivieso com paciente em atendimento corporal" loading="lazy" sizes="(max-width: 600px) 100vw, 400px"></figure></li>
+          <li class="carrossel-item"><figure class="carrossel-foto"><img src="/drabrumna/media/atend-avaliacao.webp" width="643" height="1143" alt="Dra. Brumna Valdivieso com paciente durante avaliação" loading="lazy" sizes="(max-width: 600px) 100vw, 400px"></figure></li>
+          <li class="carrossel-item"><figure class="carrossel-foto"><img src="/drabrumna/media/atend-gluteo-2.webp" width="643" height="1143" alt="Dra. Brumna Valdivieso com paciente em atendimento corporal" loading="lazy" sizes="(max-width: 600px) 100vw, 400px"></figure></li>
+        </ul>
+        <button class="carrossel-seta carrossel-proxima" type="button" aria-label="Próxima"></button>
+        <div class="carrossel-pontos"></div>
+      </div>
+    </div>
     <div class="container container-leitura centro">
-      <h2 id="t-vamos-conversar-sobre-o-seu-caso">Vamos conversar sobre o seu caso</h2>
+      <h2 id="t-vamos-conversar-sobre-o-seu-caso">Vamos conversar?</h2>
       <div class="regua regua-centro"><i></i></div>
-      <p class="chamada">Na consulta, a avaliação individual define o que faz sentido para você, e também o que não faz. O primeiro contato é pelo WhatsApp da clínica de Florianópolis.</p>
+      <p class="chamada">Seu cuidado começa quando você se permite olhar para si com mais atenção.</p>
+      <p>Cada mulher tem uma história. Seu tratamento também deve ter. O primeiro passo para cuidar de você começa com uma conversa.</p>
       <div class="grupo-botoes centralizar-botoes" >
         <div>
             <a class="botao botao-dourado" href="#" data-wpp="florianopolis">Agendar consulta</a>
@@ -352,7 +392,7 @@
       <div>
         <div class="marca">
       <span class="marca-nome">Dra. Brumna Valdivieso</span>
-      <span class="marca-linha">Ninfoplastia · Estética Íntima · Corporal</span>
+      <span class="marca-linha">Ninfoplastia · Rejuvenescimento Íntimo · Corporal</span>
     </div>
         <p class="espaco-topo-curto">Rejuvenescimento íntimo, procedimentos corporais e faciais, com avaliação individualizada. Atendimento em Florianópolis e São Paulo.</p>
       </div>
@@ -416,6 +456,6 @@
 </dialog>
 
 <script src="/drabrumna/dados.js?v=d4e8e1c0"></script>
-<script src="/drabrumna/site.js?v=685de10b" defer></script>
+<script src="/drabrumna/site.js?v=cdb4678b" defer></script>
 </body>
 </html>

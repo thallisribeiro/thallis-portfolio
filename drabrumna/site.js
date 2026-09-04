@@ -443,4 +443,68 @@
     }
   })();
 
+  /* ---------------------------------------------------------------- */
+  /* 10. Carrosséis (tecnologias, trajetória, atendimento).            */
+  /*     O scroll-snap do CSS faz o trabalho; setas e pontos só        */
+  /*     ajudam. Sem JS o trilho continua rolável com o dedo.          */
+  /* ---------------------------------------------------------------- */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-carrossel]'), function (c) {
+    var trilho = c.querySelector('.carrossel-trilho');
+    if (!trilho) return;
+    var itens = Array.prototype.slice.call(trilho.children);
+    var pontos = c.querySelector('.carrossel-pontos');
+    var anterior = c.querySelector('.carrossel-anterior');
+    var proxima = c.querySelector('.carrossel-proxima');
+    if (!itens.length) return;
+
+    function passo() { return itens.length > 1 ? itens[1].offsetLeft - itens[0].offsetLeft : trilho.clientWidth; }
+    function indice() { return Math.round(trilho.scrollLeft / Math.max(passo(), 1)); }
+    function ir(i) {
+      var ultimo = itens.length - 1;
+      if (i < 0) i = ultimo;
+      if (i > ultimo) i = 0;
+      trilho.scrollTo({ left: i * passo(), behavior: 'smooth' });
+    }
+    if (anterior) anterior.addEventListener('click', function () { ir(indice() - 1); });
+    if (proxima) proxima.addEventListener('click', function () { ir(indice() + 1); });
+
+    if (pontos) {
+      itens.forEach(function (_, i) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('aria-label', 'Ir para o item ' + (i + 1) + ' de ' + itens.length);
+        b.addEventListener('click', function () { ir(i); });
+        pontos.appendChild(b);
+      });
+      var marcar = function () {
+        var i = indice();
+        Array.prototype.forEach.call(pontos.children, function (b, j) {
+          if (j === i) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current');
+        });
+      };
+      trilho.addEventListener('scroll', function () { window.requestAnimationFrame(marcar); }, { passive: true });
+      marcar();
+    }
+  });
+
+  /* ---------------------------------------------------------------- */
+  /* 11. Vídeo do hero: escolhe a versão pela proporção da tela        */
+  /*     (3:4 no celular em pé, horizontal no resto). Sem JS, ou com   */
+  /*     movimento reduzido, fica a imagem de capa.                    */
+  /* ---------------------------------------------------------------- */
+  (function videoHero() {
+    var video = document.querySelector('.hero-figura video');
+    if (!video) return;
+    var reduz = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduz) return;
+    var retrato = video.getAttribute('data-retrato');
+    var paisagem = video.getAttribute('data-paisagem');
+    var emPe = window.matchMedia && window.matchMedia('(max-aspect-ratio: 1/1)').matches;
+    var escolhido = (emPe && retrato) || paisagem || retrato;
+    if (!escolhido) return;
+    video.src = escolhido;
+    var tocar = video.play();
+    if (tocar && tocar.catch) tocar.catch(function () { video.removeAttribute('src'); });
+  })();
+
 })();

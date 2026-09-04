@@ -23,18 +23,19 @@ itens que o PDF de briefing pede e que ainda não estão entregues.
 | B1 | **WhatsApp de Florianópolis** | Páginas 5 e 12 | Todos os CTAs, como `[WHATSAPP_FLORIANOPOLIS]` |
 | B2 | **WhatsApp de São Paulo** | Página 12 | CTAs da unidade de SP |
 | B3 | **Endereços do IMV e da Clínica Fakiani** | Página 12 | Home e Contato |
-| B4 | **Acesso à pasta de fotos do Drive** — a conta usada aqui vê os metadados mas não lista o conteúdo | Página 15 | Todos os espaços reservados |
-| B5 | **Foto de capa profissional** — a imagem atual foi extraída do próprio PDF e é de baixa resolução | Página 5 | Hero da home |
-| B6 | **Foto da Clínica Fakiani** | Páginas 5 e 12 | Home e Contato |
+| B3b | **WhatsApp de Florianópolis** — chegou no PDF de ajustes (48 99972-0826) e está cadastrado no painel; falta só o de São Paulo (B2) | — | Fechado em 04/09/2026 |
+| B4 | ~~Acesso à pasta de fotos do Drive~~ — **RESOLVIDO em 04/09/2026**: pasta pública lida por completo (85 itens); vídeo do hero, fotos das áreas, dos 4 aparelhos, da jornada, de atendimento e da Clínica Fakiani já estão no painel e no site | Página 15 | Fechado |
+| B5 | ~~Foto de capa profissional~~ — **substituída pelo vídeo do hero** (3:4 no celular, horizontal no desktop), vindo do Drive | Página 5 | Fechado em 04/09/2026 |
+| B6 | ~~Foto da Clínica Fakiani~~ — entrou (fachada, do Drive) | Páginas 5 e 12 | Fechado em 04/09/2026 |
 | B8 | **@ do Instagram da Dra.** — o site não tem nenhum link de rede social; para este público o Instagram é a checagem de confiança antes do WhatsApp | — | Rodapé, página Sobre e schema |
-| B7 | **Fotos da Dra. no palco da Fotona, ministrando curso e na Universidade do Porto** | Página 9 | Página Sobre |
+| B7 | ~~Fotos da Dra. no palco da Fotona, ministrando curso e na Universidade do Porto~~ — viraram o carrossel da trajetória na home (5 fotos) | Página 9 | Fechado em 04/09/2026 |
 
 ## C. Depende de terceiros (3 itens)
 
 | # | O que falta | Onde o briefing pede | Onde está bloqueando |
 | --- | --- | --- | --- |
-| C1 | **Perfil do Google para as avaliações** — o link ou o Place ID do perfil onde estão as avaliações reais | Página 5 | Seção de depoimentos |
-| C2 | **Fotos dos aparelhos em fundo infinito** — o briefing manda pegar no site dos fabricantes. Antes de republicar, é preciso confirmar direito de uso com Fotona, Skintec e Entera | Página 7 | Página de tecnologias, 4 espaços |
+| C1 | **Chave da Google Places API** — o perfil já foi identificado (kgmid /g/11xlzk9c2w, "Dra Brumna Valdivieso"); a integração está pronta no gerador e hoje mostra o link "Ver avaliações no Google". Com a chave no servidor (`GOOGLE_PLACES_KEY`), nota e avaliações reais entram sozinhas | Página 5 | Seção de avaliações |
+| C2 | ~~Fotos dos aparelhos em fundo infinito~~ — as 4 vieram do Drive da cliente (Fotona, Morpheus8, Ignite RF, Liftera 2) | Página 7 | Fechado em 04/09/2026 |
 | C3 | **Domínio final e hospedagem** — enquanto o site estiver em subpasta, o índice fica bloqueado de propósito | Página 14 | Metatags `robots`, `canonical`, `sitemap.xml` |
 
 ## D. Depende de decisão do Thallis (2 itens)
@@ -70,4 +71,4 @@ fechados e verificados por medição:
 
 ## Resumo
 
-**19 pendências, 1 já fechada (D1).** Nenhuma é de construção: 16 são dados ou material que precisam chegar, e 3 são decisões (D2, D3, D4). O blog editável — requisito explícito do briefing — está ENTREGUE via painel Payload; falta só o subdomínio/DNS (C3) para a Dra. acessar. Assim que A1 a A3 e B1 a B3 forem respondidos, o site sai da prévia e vai para o ar no domínio definitivo.
+**19 pendências, 8 fechadas em 04/09/2026 (B4–B7, C2, D1, WhatsApp de Florianópolis e vídeo do hero).** Nenhuma é de construção: 16 são dados ou material que precisam chegar, e 3 são decisões (D2, D3, D4). O blog editável — requisito explícito do briefing — está ENTREGUE via painel Payload; falta só o subdomínio/DNS (C3) para a Dra. acessar. Assim que A1 a A3 e B1 a B3 forem respondidos, o site sai da prévia e vai para o ar no domínio definitivo.

@@ -1023,3 +1023,95 @@ main p a:not(.botao):not(.link-seta):focus-visible,
   }
   html.io-reveal .cabecalho.rolou { box-shadow: 0 2px 14px rgba(43, 35, 32, .10); }
 }
+
+/* =========================================================================
+   Ajustes v1.0 — PDF da cliente (04/09/2026)
+   ========================================================================= */
+
+/* Traços mais finos pedidos: Montserrat 300 e Playfair 400 (subsets latin). */
+@font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300; font-display: swap; src: url(fontes/montserrat-latin-ext-300.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300; font-display: swap; src: url(fontes/montserrat-latin-300.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 400; font-display: swap; src: url(fontes/playfair-display-latin-ext-400.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 400; font-display: swap; src: url(fontes/playfair-display-latin-400.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+/* Marca (PDF p2): título +15%, linha −40% em traço fino, e as duas com a
+   mesma largura — o grid dá a largura do título e text-align-last espalha a
+   linha até as bordas. */
+.marca { display: inline-grid; justify-items: stretch; }
+.marca-nome { font-size: clamp(18.4px, 2.53vw, 24.2px); }
+.marca-linha {
+  font-size: 7px; font-weight: 300; letter-spacing: .12em; margin-top: 3px;
+  text-align: justify; text-align-last: justify; white-space: nowrap;
+}
+
+/* Hero (PDF p2): título curto, traço fino, menor. */
+.hero-texto h1 { font-weight: 400; font-size: clamp(30px, 4.4vw, 56px); letter-spacing: .01em; max-width: 16ch; }
+.hero-figura video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero-figura:has(video[src]) picture { display: none; }
+
+/* Áreas de atuação com foto (PDF p3-4). */
+.area { display: flex; flex-direction: column; }
+.area-figura { margin: 0 0 var(--e4); aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--raio); }
+.area-figura img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.area-figura .reservado { aspect-ratio: 4 / 5; min-height: 0; height: 100%; }
+.areas .cartao p { font-size: 14px; }
+.credenciais { font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--marsala); margin-bottom: var(--e4); }
+.titulo-caixa-alta { text-transform: uppercase; letter-spacing: .12em; }
+.centro { text-align: center; }
+.regua-centro { margin-left: auto; margin-right: auto; }
+
+/* Carrossel nativo: scroll-snap faz o trabalho; setas e pontos só ajudam. */
+.carrossel { position: relative; --por-tela: 3; margin-top: var(--e5); }
+.carrossel-trilho {
+  list-style: none; margin: 0; padding: 4px 0;
+  display: grid; grid-auto-flow: column;
+  grid-auto-columns: calc((100% - (var(--por-tela) - 1) * var(--e4)) / var(--por-tela));
+  gap: var(--e4); overflow-x: auto; scroll-snap-type: x mandatory;
+  scrollbar-width: none; -webkit-overflow-scrolling: touch;
+}
+.carrossel-trilho::-webkit-scrollbar { display: none; }
+.carrossel-item { scroll-snap-align: start; min-width: 0; }
+@media (max-width: 900px) { .carrossel { --por-tela: 2; } }
+@media (max-width: 600px) { .carrossel { --por-tela: 1; } }
+.carrossel-seta {
+  position: absolute; top: 38%; z-index: 2; width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid rgba(124, 30, 45, .35); background: rgba(250, 248, 245, .92);
+  color: var(--marsala); cursor: pointer; display: grid; place-items: center; padding: 0;
+}
+.carrossel-seta::before { content: ""; width: 10px; height: 10px; border-left: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); margin-left: 4px; }
+.carrossel-proxima::before { transform: rotate(-135deg); margin-left: -4px; }
+.carrossel-anterior { left: -6px; }
+.carrossel-proxima { right: -6px; }
+.carrossel-seta:hover { border-color: var(--marsala); }
+.carrossel-pontos { display: flex; justify-content: center; gap: 8px; margin-top: var(--e4); }
+.carrossel-pontos button { width: 8px; height: 8px; border-radius: 50%; border: 0; background: rgba(124, 30, 45, .25); padding: 0; cursor: pointer; }
+.carrossel-pontos button[aria-current="true"] { background: var(--marsala); }
+.faixa-marsala .carrossel-seta { background: rgba(58, 13, 21, .75); color: var(--dourado); border-color: rgba(212, 175, 55, .5); }
+.faixa-marsala .carrossel-pontos button { background: rgba(246, 238, 233, .35); }
+.faixa-marsala .carrossel-pontos button[aria-current="true"] { background: var(--dourado); }
+
+/* Cards de tecnologia (PDF p5, desenho de ramontardin.com.br). */
+.tecnologia-card { text-align: center; display: flex; flex-direction: column; align-items: center; gap: var(--e2); }
+.tecnologia-card-figura { margin: 0; width: 100%; aspect-ratio: 4 / 5; display: grid; place-items: center; }
+.tecnologia-card-figura img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; transition: transform .6s ease; }
+.tecnologia-card-figura .reservado { width: 100%; height: 100%; min-height: 0; }
+@media (prefers-reduced-motion: no-preference) { .tecnologia-card:hover .tecnologia-card-figura img { transform: translateY(-8px); } }
+.tecnologia-card h3 { font-family: var(--serif); text-transform: uppercase; letter-spacing: .08em; font-size: 17px; margin: var(--e2) 0 0; }
+.tecnologia-card p { font-size: 14px; color: var(--tinta-suave); margin: 0 0 var(--e3); }
+
+/* Fotos em carrossel (jornada e atendimento). */
+.carrossel-foto { margin: 0; }
+.carrossel-foto img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--raio); display: block; }
+.carrossel-foto figcaption { font-size: 13px; margin-top: var(--e2); opacity: .85; }
+.carrossel-atendimento { margin-top: 0; margin-bottom: var(--e6); }
+.carrossel-trajetoria { margin-bottom: var(--e6); }
+
+/* Avaliações do Google (PDF p9). */
+.avaliacoes-cabeca { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--e3) var(--e5); }
+.avaliacoes-nota { font-family: var(--serif); font-size: 44px; color: var(--marsala); line-height: 1; }
+.estrelas { color: #D9A600; letter-spacing: 2px; font-size: 18px; }
+.avaliacoes-grade { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--e4); margin-top: var(--e5); }
+.avaliacao { background: #fff; border: var(--borda); border-radius: var(--raio); padding: var(--e4); }
+.avaliacao p { font-size: 15px; margin-bottom: var(--e3); }
+.avaliacao .autor { font-weight: 600; font-size: 14px; margin: 0; }
+.avaliacao .quando { font-size: 12px; color: var(--tinta-suave); margin: 0; }
