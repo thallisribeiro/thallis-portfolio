@@ -5,6 +5,13 @@
   <description>O que eu vou construindo, testando e aprendendo sobre site, conteúdo e automação com IA.</description>
   <language>pt-BR</language>
   <item>
+    <title>Estudar com IA piora o desempenho na hora da prova? O que diz o preprint de Carnegie Mellon e Oxford</title>
+    <link>https://thallisribeiro.com.br/blog/estudar-com-ia-piora-o-desempenho-na-hora-da-prova-o-que-diz-o-preprin/</link>
+    <guid>https://thallisribeiro.com.br/blog/estudar-com-ia-piora-o-desempenho-na-hora-da-prova-o-que-diz-o-preprin/</guid>
+    <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    <description>Três experimentos randomizados com 1.222 pessoas recrutadas no Prolific tiraram a IA na hora do teste. No primeiro deles, quem treinou com o assistente acertou 57% e quem treinou sem apoio nenhum acertou 73%. O trabalho está no arXiv, é preprint e não passou por revisão por pares.</description>
+  </item>
+  <item>
     <title>O curl acabou com o bug bounty: o que aconteceu com o programa que pagou mais de 100 mil dólares</title>
     <link>https://thallisribeiro.com.br/blog/o-curl-acabou-com-o-bug-bounty-o-que-aconteceu-com-o-programa-que-pago/</link>
     <guid>https://thallisribeiro.com.br/blog/o-curl-acabou-com-o-bug-bounty-o-que-aconteceu-com-o-programa-que-pago/</guid>
@@ -136,12 +143,5 @@
     <guid>https://thallisribeiro.com.br/blog/produto-viral-nao-e-produto-replicavel-a-licao-dos-170-clones/</guid>
     <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
     <description>Um site feito em 3 horas faturou US$ 178 mil em 77 horas, segundo o autor. Mais de 170 pessoas copiaram e quase nenhuma repetiu o resultado. Se o valor estivesse no código, todas teriam faturado o mesmo. A pergunta certa antes de copiar qualquer produto é outra.</description>
-  </item>
-  <item>
-    <title>Quanto tempo realmente demora criar um site com IA</title>
-    <link>https://thallisribeiro.com.br/blog/quanto-tempo-realmente-demora-criar-um-site-com-ia/</link>
-    <guid>https://thallisribeiro.com.br/blog/quanto-tempo-realmente-demora-criar-um-site-com-ia/</guid>
-    <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
-    <description>A resposta padrão de 'meses' para criar um site deixou de ser verdade quando a IA elimina o tempo morto entre etapas, sem pular segurança ou revisão.</description>
   </item>
 </channel></rss>
