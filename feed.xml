@@ -5,6 +5,13 @@
   <description>O que eu vou construindo, testando e aprendendo sobre site, conteúdo e automação com IA.</description>
   <language>pt-BR</language>
   <item>
+    <title>O curl acabou com o bug bounty: o que aconteceu com o programa que pagou mais de 100 mil dólares</title>
+    <link>https://thallisribeiro.com.br/blog/o-curl-acabou-com-o-bug-bounty-o-que-aconteceu-com-o-programa-que-pago/</link>
+    <guid>https://thallisribeiro.com.br/blog/o-curl-acabou-com-o-bug-bounty-o-que-aconteceu-com-o-programa-que-pago/</guid>
+    <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    <description>Menos de um relatório de falha em vinte era real, e o curl encerrou o programa que pagava por eles. O mantenedor Daniel Stenberg citou lixo gerado por IA, humanos reportando pior do que nunca e o desgaste mental da equipe. Meses depois, o volume de relatórios continuou chegando.</description>
+  </item>
+  <item>
     <title>MEDVi e a carta da FDA: o que o perfil do New York Times deixou de fora</title>
     <link>https://thallisribeiro.com.br/blog/medvi-e-a-carta-da-fda-o-que-o-perfil-do-new-york-times-deixou-de-fora/</link>
     <guid>https://thallisribeiro.com.br/blog/medvi-e-a-carta-da-fda-o-que-o-perfil-do-new-york-times-deixou-de-fora/</guid>
@@ -136,12 +143,5 @@
     <guid>https://thallisribeiro.com.br/blog/o-instagram-nao-e-mais-sobre-quem-te-segue/</guid>
     <pubDate>Sat, 29 Aug 2026 00:00:00 GMT</pubDate>
     <description>A mudança recente no algoritmo de descoberta do Instagram derruba a vantagem de quem já tinha audiência grande.</description>
-  </item>
-  <item>
-    <title>Eu deixava um agente ler o site do lead com as permissões desligadas</title>
-    <link>https://thallisribeiro.com.br/blog/eu-deixava-um-agente-ler-o-site-do-lead-com-as-permissoes-desligadas/</link>
-    <guid>https://thallisribeiro.com.br/blog/eu-deixava-um-agente-ler-o-site-do-lead-com-as-permissoes-desligadas/</guid>
-    <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
-    <description>O pipeline baixava o HTML do site de um estranho e mandava direto pra um Claude rodando com --dangerously-skip-permissions. Ninguém me atacou. Eu só percebi antes.</description>
   </item>
 </channel></rss>
