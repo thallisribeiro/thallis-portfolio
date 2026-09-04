@@ -66,7 +66,17 @@ function retryPendingPush(root, log) {
   if (Number(ahead.stdout) === 0) return { ok: true, pushed: false };
 
   log(`${ahead.stdout} commit(s) local(is) aguardando push — tentando novamente`);
-  const push = runCommand(root, 'git', ['push']);
+  let push = runCommand(root, 'git', ['push']);
+  // Rejeição por remoto que andou: o slot do Instagram (publicarArtigoIrmao) e o
+  // BlogPublish escrevem no MESMO repo em horários coladinhos, e em 03/09 às 21h10 o push
+  // voltou com "cannot lock ref ... is at X but expected Y". Repetir o mesmo push falha de
+  // novo pra sempre; quem resolve é `pull --rebase` antes de tentar. O slot já fazia isso,
+  // este caminho não — mesma corrida, dois arquivos, um só corrigido.
+  for (let tentativa = 1; tentativa <= 2 && !push.ok && /reject|lock|fetch first|non-fast-forward/i.test(failureDetail(push)); tentativa++) {
+    log(`push rejeitado (tentativa ${tentativa}) — pull --rebase e tento de novo`);
+    runCommand(root, 'git', ['pull', '--rebase', 'origin', 'main']);
+    push = runCommand(root, 'git', ['push']);
+  }
   if (!push.ok) return { ok: false, reason: `retry de git push falhou: ${failureDetail(push)}` };
   log('push pendente concluído');
   return { ok: true, pushed: true };
