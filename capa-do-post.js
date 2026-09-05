@@ -11,14 +11,18 @@
 // nada"): o banco Magnific/Freepik. Antes havia FLUX local e reaproveitamento da imagem
 // da esteira; os dois saíram. Uma fonte não tem como divergir da outra.
 //
-//   1. `image:` já no frontmatter -> respeita, não mexe
-//   2. banco Magnific/Freepik     -> foto editorial, com a chave que já está no .env
-//   3. nada                       -> post sem capa. Capa errada custa mais que capa
+//   1. `image:` já no frontmatter -> respeita, não mexe (salvo `--carrossel`, abaixo)
+//   2. capa do carrossel irmão     -> a foto que a esteira já escolheu pra peça (Thallis,
+//      05/09/2026: "usa a mesma do carrossel pra facilitar"). Recorte do topo do slide 1,
+//      que é a foto sem o texto. Peça vem do `peca:` do frontmatter ou do slug do título.
+//   3. banco Magnific/Freepik     -> foto editorial, só pra post sem peça na esteira
+//   4. nada                       -> post sem capa. Capa errada custa mais que capa
 //      nenhuma: ver o comentário sobre o Openverse mais abaixo.
 //
 // Uso:
 //   node capa-do-post.js content/posts/<slug>.md          uma
 //   node capa-do-post.js --todos                          todas as que faltam
+//   node capa-do-post.js --todos --carrossel              refaz pela capa do carrossel quem tem peça
 //   node capa-do-post.js --self-test
 
 const fs = require('fs');
@@ -31,6 +35,7 @@ const DESTINO = path.join(ROOT, 'assets', 'posts');
 
 // 1200x675: 16:9 no tamanho que o card (600x338) e o og:image usam sem esticar.
 const LARGURA = 1200, ALTURA = 675;
+const SAIDA_ESTEIRA = 'C:\\Users\\thall\\Documents\\Squads100\\_contenthub\\_clientes\\thallisribeiro\\saida';
 
 // ── frontmatter ──────────────────────────────────────────────────────────────
 function lerPost(arquivo) {
@@ -122,16 +127,69 @@ function palavrasDe(post) {
 // ── recorte 16:9 ─────────────────────────────────────────────────────────────
 // As imagens da esteira são 896x1152 (retrato, pra carrossel). Cortar o centro-alto
 // preserva o sujeito: o visual.md posiciona o assunto na parte de cima do quadro.
-function recortar(entrada, saida) {
+// `topo` = fração da altura onde o recorte começa. Foto de banco: 0.18 (tira céu/margem).
+// Slide de carrossel (4:5, texto embaixo): 0, pra ficar só a foto e nenhuma letra cortada.
+function recortar(entrada, saida, topo = 0.18) {
   // `force_original_aspect_ratio=increase` cobre o quadro nas DUAS orientações. A versão
   // anterior escalava só pela largura, então foto mais larga que 16:9 virava 1200x673 e o
   // crop de 675 estourava a altura -- ffmpeg falhava e o post ficava sem capa em silêncio.
   // Foi o que aconteceu com 7 dos 53 posts.
   const r = spawnSync('ffmpeg', ['-y', '-i', entrada,
     '-vf', `scale=${LARGURA}:${ALTURA}:force_original_aspect_ratio=increase:flags=lanczos,`
-         + `crop=${LARGURA}:${ALTURA}:(iw-${LARGURA})/2:'min(ih-${ALTURA},ih*0.18)'`,
+         + `crop=${LARGURA}:${ALTURA}:(iw-${LARGURA})/2:'min(ih-${ALTURA},ih*${topo})'`,
     '-frames:v', '1', saida], { encoding: 'utf8' });
   return r.status === 0 && fs.existsSync(saida);
+}
+
+// Mesmo slug que o ensure-queue usa pra nomear o post: é como se acha a peça de um post
+// publicado antes de existir o campo `peca:`.
+function slugificar(texto) {
+  return String(texto).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 70);
+}
+
+let indiceDePecas = null;
+function pecaDoPost(meta, slug, saida = SAIDA_ESTEIRA) {
+  if (meta.peca && fs.existsSync(path.join(saida, meta.peca, 'carrossel', 'slide-01.png'))) return meta.peca;
+  if (!fs.existsSync(saida)) return null;
+  if (!indiceDePecas) {
+    indiceDePecas = new Map();
+    for (const dia of fs.readdirSync(saida).filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d))) {
+      for (const id of fs.readdirSync(path.join(saida, dia))) {
+        const art = path.join(saida, dia, id, 'artigo', 'artigo.md');
+        if (!fs.existsSync(art) || !fs.existsSync(path.join(saida, dia, id, 'carrossel', 'slide-01.png'))) continue;
+        const t = fs.readFileSync(art, 'utf8').match(/^title:\s*"?(.+?)"?\s*$/m);
+        if (t) indiceDePecas.set(slugificar(t[1]), `${dia}/${id}`);
+      }
+    }
+  }
+  return indiceDePecas.get(slug) || indiceDePecas.get(slugificar(meta.title || '')) || null;
+}
+
+// A foto ORIGINAL da capa (roteiro.json, slides[0].imagem: URL do banco ou arquivo local)
+// vem primeiro. O slide montado é o plano B: nele a foto está sob o scrim escuro e com
+// texto por cima, e em peça de capa escura vira um retângulo preto no índice do blog.
+async function fotoDaCapa(peca, tmp) {
+  try {
+    const r = JSON.parse(fs.readFileSync(path.join(SAIDA_ESTEIRA, peca, 'carrossel', 'roteiro.json'), 'utf8'));
+    const img = String(((r.slides || [])[0] || {}).imagem || '');
+    if (/^https?:\/\//.test(img)) return (await baixar(img, tmp)) ? { arquivo: tmp, topo: 0.18 } : null;
+    if (img && fs.existsSync(img)) return { arquivo: img, topo: 0.18 };
+  } catch { /* sem roteiro legível */ }
+  return null;
+}
+
+async function viaCarrossel(meta, slug, saida) {
+  const peca = pecaDoPost(meta, slug);
+  if (!peca) return null;
+  const tmp = path.join(DESTINO, `.${slug}.capa.tmp`);
+  const foto = (await fotoDaCapa(peca, tmp)) || { arquivo: path.join(SAIDA_ESTEIRA, peca, 'carrossel', 'slide-01.png'), topo: 0 };
+  const ok = recortar(foto.arquivo, saida, foto.topo);
+  try { fs.unlinkSync(tmp); } catch {}
+  if (!ok) return null;
+  // Crédito de banco não vale mais pra esta capa: a foto é da própria peça.
+  try { fs.unlinkSync(path.join(DESTINO, `${slug}.json`)); } catch {}
+  return { peca };
 }
 
 async function baixar(url, destino) {
@@ -147,11 +205,16 @@ async function capaDe(arquivo) {
   const post = lerPost(arquivo);
   if (!post) return { slug: path.parse(arquivo).name, estado: 'sem frontmatter' };
   const slug = path.parse(arquivo).name;
-  if (post.meta.image) return { slug, estado: 'já tinha' };
+  const refazer = process.argv.includes('--carrossel');
+  if (post.meta.image && !refazer) return { slug, estado: 'já tinha' };
 
   fs.mkdirSync(DESTINO, { recursive: true });
   const saida = path.join(DESTINO, `${slug}.webp`);
   const publico = `/assets/posts/${slug}.webp`;
+
+  const daPeca = await viaCarrossel(post.meta, slug, saida);
+  if (daPeca) { gravarImagem(arquivo, post, publico); return { slug, estado: 'carrossel', origem: daPeca.peca }; }
+  if (post.meta.image) return { slug, estado: 'já tinha' };
 
   const stock = await viaMagnific(post.meta, slug, saida);
   if (stock) { gravarImagem(arquivo, post, publico); return { slug, estado: 'magnific', autor: stock.autor, query: stock.query }; }
@@ -230,7 +293,18 @@ function selfTest() {
   assert.ok(!palavrasDe({ title: 'que com por para uma robo' }).includes('que'));
   // 6. acento não quebra o casamento
   assert.ok(palavrasDe({ title: 'A automação da agência' }).includes('automation'));
-  console.log('[capa-do-post] self-test OK — 6 casos');
+  assert.strictEqual(slugificar('Uma IA demitiu um funcionário em San Francisco: o que aconteceu na Andon Market'), 'uma-ia-demitiu-um-funcionario-em-san-francisco-o-que-aconteceu-na-ando', 'slug igual ao do ensure-queue');
+  const tmp = fs.mkdtempSync(path.join(require('os').tmpdir(), 'capa-'));
+  fs.mkdirSync(path.join(tmp, '2026-09-04', 'x', 'carrossel'), { recursive: true });
+  fs.mkdirSync(path.join(tmp, '2026-09-04', 'x', 'artigo'), { recursive: true });
+  fs.writeFileSync(path.join(tmp, '2026-09-04', 'x', 'carrossel', 'slide-01.png'), '');
+  fs.writeFileSync(path.join(tmp, '2026-09-04', 'x', 'artigo', 'artigo.md'), '---\ntitle: "Título da Peça"\n---\n');
+  indiceDePecas = null;
+  assert.strictEqual(pecaDoPost({ peca: '2026-09-04/x' }, 'qualquer', tmp), '2026-09-04/x', 'peca: do frontmatter vale primeiro');
+  assert.strictEqual(pecaDoPost({}, 'titulo-da-peca', tmp), '2026-09-04/x', 'sem peca:, casa pelo slug do título do artigo');
+  assert.strictEqual(pecaDoPost({ title: 'Outra coisa' }, 'outra-coisa', tmp), null, 'post sem peça na esteira não inventa capa');
+  indiceDePecas = null;
+  console.log('[capa-do-post] self-test OK — 10 casos');
 }
 
 async function main() {

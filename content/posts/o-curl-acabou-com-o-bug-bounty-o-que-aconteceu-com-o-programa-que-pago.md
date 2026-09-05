@@ -4,6 +4,7 @@ date: 2026-09-04
 summary: Menos de um relatório de falha em vinte era real, e o curl encerrou o programa que pagava por eles. O mantenedor Daniel Stenberg citou lixo gerado por IA, humanos reportando pior do que nunca e o desgaste mental da equipe. Meses depois, o volume de relatórios continuou chegando.
 tema: Mercado
 peca: 2026-09-04/2026-09-04-a
+image: /assets/posts/o-curl-acabou-com-o-bug-bounty-o-que-aconteceu-com-o-programa-que-pago.webp
 ---
 
 O projeto curl encerrou seu programa de bug bounty em 31 de janeiro de 2026, e desde então não paga mais nenhuma recompensa em dinheiro por relatório de vulnerabilidade, "não importa a gravidade". O anúncio saiu cinco dias antes, em 26 de janeiro, num post do mantenedor do projeto, Daniel Stenberg, no blog daniel.haxx.se.

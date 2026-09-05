@@ -50,8 +50,15 @@ function lerManifesto() {
   }
 }
 
-function caminhosDaPublicacao({ postRelative, queueRelative, filaRastreada, gerados }) {
-  return [postRelative, ...(filaRastreada ? [queueRelative] : []), 'blog/', ...(gerados || [])];
+// `capas`: a imagem do post (assets/posts/<slug>.webp e o .json de crédito) só entra se
+// existir no disco. Até 05/09 ficava fora do commit: o post subia com `image:` apontando
+// pra um arquivo que só existia nesta máquina, e o blog no ar mostrava capa quebrada.
+function caminhosDaPublicacao({ postRelative, queueRelative, filaRastreada, gerados, capas }) {
+  return [postRelative, ...(filaRastreada ? [queueRelative] : []), ...(capas || []), 'blog/', ...(gerados || [])];
+}
+
+function capasDoPost(slug) {
+  return ['webp', 'json'].map((e) => `assets/posts/${slug}.${e}`).filter((f) => fs.existsSync(path.join(ROOT, f)));
 }
 
 function main() {
@@ -122,7 +129,7 @@ function main() {
   // O que o generate-blog escreveu fora de blog/ vem do manifesto que ele mesmo grava.
   // Manter a lista aqui à mão já custou dois bugs: primeiro a home, depois a página da
   // Máquina, as duas commitadas velhas enquanto o blog subia certo.
-  const publicationPaths = caminhosDaPublicacao({ postRelative, queueRelative, filaRastreada, gerados: lerManifesto() });
+  const publicationPaths = caminhosDaPublicacao({ postRelative, queueRelative, filaRastreada, gerados: lerManifesto(), capas: capasDoPost(slug) });
   const add = run('git', ['add', '--', ...publicationPaths]);
   if (!add.ok) {
     const rollback = rollbackUncommittedPublication({ queuePath, raw, postPath, publicationPaths });
@@ -162,6 +169,8 @@ function selfTest() {
   const c = caminhosDaPublicacao({ postRelative: 'content/posts/x.md', queueRelative: 'content/queue/x.md', filaRastreada: true, gerados });
   for (const g of gerados) assert.ok(c.includes(g), `${g} tem que entrar no commit`);
   assert.ok(c.includes('blog/'), 'as páginas do blog sempre entram');
+  const cc = caminhosDaPublicacao({ postRelative: 'content/posts/x.md', queueRelative: 'q', filaRastreada: false, gerados: [], capas: ['assets/posts/x.webp'] });
+  assert.ok(cc.includes('assets/posts/x.webp'), 'a capa do post entra no commit');
   assert.ok(c.includes('content/posts/x.md'), 'o post publicado entra');
 
   // 2. fila que o git nunca viu NÃO entra: pathspec de arquivo não rastreado derruba o
