@@ -144,3 +144,7 @@
 [2026-09-04T10:10:02.002Z] fila vazia — nada publicado neste horário
 [2026-09-04T14:30:02.192Z] [ensure-queue] nada pareado da esteira neste horário — sem post. O blog publica o que a esteira apurou, não o que eu fiz hoje.
 [2026-09-04T15:10:01.816Z] fila vazia — nada publicado neste horário
+[2026-09-04T20:30:02.149Z] [ensure-queue] o dia já tem 3 posts — nada a gerar
+[2026-09-04T21:10:01.796Z] fila vazia — nada publicado neste horário
+[2026-09-05T09:30:02.391Z] [ensure-queue] nada pareado da esteira neste horário — sem post. O blog publica o que a esteira apurou, não o que eu fiz hoje.
+[2026-09-05T10:10:01.677Z] fila vazia — nada publicado neste horário
