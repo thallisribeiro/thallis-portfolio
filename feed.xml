@@ -5,6 +5,13 @@
   <description>O que eu vou construindo, testando e aprendendo sobre site, conteúdo e automação com IA.</description>
   <language>pt-BR</language>
   <item>
+    <title>CODEMM comprou R$ 33,5 milhões em verdura sem registrar o peso: entenda o caso</title>
+    <link>https://thallisribeiro.com.br/blog/codemm-comprou-r-33-5-milhoes-em-verdura-sem-registrar-o-peso-entenda-/</link>
+    <guid>https://thallisribeiro.com.br/blog/codemm-comprou-r-33-5-milhoes-em-verdura-sem-registrar-o-peso-entenda-/</guid>
+    <pubDate>Sun, 06 Sep 2026 00:00:00 GMT</pubDate>
+    <description>Um consórcio de municípios mineiros fechou uma compra de R$ 33,5 milhões em verdura pelo PNCP com o item cadastrado como 1 unidade, sem peso nem volume. O que os dados abertos confirmam — e o que eles não mostram.</description>
+  </item>
+  <item>
     <title>Joinville gastou R$ 13 milhões em papel toalha? O que os dados do PNCP mostram</title>
     <link>https://thallisribeiro.com.br/blog/joinville-gastou-r-13-milhoes-em-papel-toalha-o-que-os-dados-do-pncp-m/</link>
     <guid>https://thallisribeiro.com.br/blog/joinville-gastou-r-13-milhoes-em-papel-toalha-o-que-os-dados-do-pncp-m/</guid>
@@ -136,12 +143,5 @@
     <guid>https://thallisribeiro.com.br/blog/dez-anos-provando-que-fazenda-vertical-funciona-uma-noite-pra-acabar/</guid>
     <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
     <description>A 80 Acres Farms vendia alface em mais de 18 mil mercados americanos e negociava a aquisição que pagaria a continuidade da operação. Na noite de domingo, o comprador desistiu. Na segunda de manhã, a empresa fechou tudo.</description>
-  </item>
-  <item>
-    <title>Testei gerar capa com FLUX local. Um commit depois, voltei pro banco.</title>
-    <link>https://thallisribeiro.com.br/blog/testei-gerar-capa-com-flux-local-um-commit-depois-voltei-pro-banco/</link>
-    <guid>https://thallisribeiro.com.br/blog/testei-gerar-capa-com-flux-local-um-commit-depois-voltei-pro-banco/</guid>
-    <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
-    <description>Três commits em sequência contam a história: capa gerada junto com o post, depois um esquema híbrido, depois uma fonte só. O híbrido durou menos que um dia.</description>
   </item>
 </channel></rss>
