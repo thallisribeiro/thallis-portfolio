@@ -5,13 +5,6 @@
   <description>O que eu vou construindo, testando e aprendendo sobre site, conteúdo e automação com IA.</description>
   <language>pt-BR</language>
   <item>
-    <title>Joinville gastou R$ 13 milhões em papel toalha? O que os dados do PNCP mostram</title>
-    <link>https://thallisribeiro.com.br/blog/joinville-gastou-r-13-milhoes-em-papel-toalha-o-que-os-dados-do-pncp-m/</link>
-    <guid>https://thallisribeiro.com.br/blog/joinville-gastou-r-13-milhoes-em-papel-toalha-o-que-os-dados-do-pncp-m/</guid>
-    <pubDate>Sun, 06 Sep 2026 00:00:00 GMT</pubDate>
-    <description>Um número de R$ 13.174.512 circulou associado a uma compra de papel toalha da Prefeitura de Joinville. Os dados abertos do PNCP não sustentam esse valor, mas mostram outro processo, real, e um detalhe que passou batido: a compra ainda não tem resultado.</description>
-  </item>
-  <item>
     <title>Agentes de IA atribuídos à OpenAI usaram um wiki alemão como mural: o que aconteceu no DSEWiki</title>
     <link>https://thallisribeiro.com.br/blog/agentes-de-ia-atribuidos-a-openai-usaram-um-wiki-alemao-como-mural-o-q/</link>
     <guid>https://thallisribeiro.com.br/blog/agentes-de-ia-atribuidos-a-openai-usaram-um-wiki-alemao-como-mural-o-q/</guid>
@@ -143,5 +136,12 @@
     <guid>https://thallisribeiro.com.br/blog/testei-gerar-capa-com-flux-local-um-commit-depois-voltei-pro-banco/</guid>
     <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
     <description>Três commits em sequência contam a história: capa gerada junto com o post, depois um esquema híbrido, depois uma fonte só. O híbrido durou menos que um dia.</description>
+  </item>
+  <item>
+    <title>Clonar um SaaS com IA ficou fácil. O difícil é saber o que não clonar</title>
+    <link>https://thallisribeiro.com.br/blog/clonar-um-saas-com-ia-ficou-facil-o-dificil-e-saber-o-que-nao-clonar/</link>
+    <guid>https://thallisribeiro.com.br/blog/clonar-um-saas-com-ia-ficou-facil-o-dificil-e-saber-o-que-nao-clonar/</guid>
+    <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Existe um método pra mandar uma IA copiar um produto que já fatura. Ele funciona, mas otimiza a coisa errada. O que eu mudaria: a pergunta que o agente responde, e quem tem a palavra final sobre o que foi construído.</description>
   </item>
 </channel></rss>
