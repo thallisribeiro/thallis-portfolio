@@ -28,6 +28,18 @@ const LOG_FILE = path.join(ROOT, 'content', 'publish-log.txt');
 // testar. Foi o que deixou 3 dos 13 testes vermelhos desde que esse caminho foi criado.
 const SQUADS_REPO = process.env.BLOG_SQUADS_REPO || 'C:\\Users\\thall\\Documents\\Squads100';
 
+// 07/09/2026: Thallis pausou 100% do thallisribeiro (social) mas quer manter só o blog rodando
+// (os posts indexam no Google mesmo sem o carrossel irmão sair). O pareamento abaixo trava
+// nisso de propósito -- sem essa válvula, o blog fica mudo pra sempre enquanto o Instagram
+// estiver pausado, porque nenhum tópico nunca entra em topicosJaNoInstagram(). content/
+// blog-sozinho.json {"ativo":true} destrava; ausente ou {"ativo":false} preserva o
+// comportamento de sempre (pareamento obrigatório).
+const BLOG_SOZINHO_FLAG = path.join(ROOT, 'content', 'blog-sozinho.json');
+function blogSozinhoAtivo() {
+  const cfg = readJson(BLOG_SOZINHO_FLAG, null);
+  return !!(cfg && cfg.ativo);
+}
+
 function log(line) {
   const ts = new Date().toISOString();
   const msg = `[${ts}] [ensure-queue] ${line}`;
@@ -133,8 +145,9 @@ function proximoArtigoDoContentHub() {
     if (p) pecasPublicadas.add(p[1]);
   }
 
-  const noInstagram = topicosJaNoInstagram();
-  if (!noInstagram) return null;
+  const sozinho = blogSozinhoAtivo();
+  const noInstagram = sozinho ? null : topicosJaNoInstagram();
+  if (!sozinho && !noInstagram) return null;
 
   const candidatos = [];
   for (const dia of fs.readdirSync(CONTENTHUB_SAIDA)) {
@@ -142,8 +155,9 @@ function proximoArtigoDoContentHub() {
     if (!fs.statSync(dirDia).isDirectory()) continue;
     for (const topico of fs.readdirSync(dirDia)) {
       // O par é a regra: artigo só vai pro blog depois que o carrossel do mesmo
-      // tópico foi ao ar. Um assunto, os dois canais, o mesmo dia.
-      if (!noInstagram.has(`${dia}/${topico}`)) continue;
+      // tópico foi ao ar. Um assunto, os dois canais, o mesmo dia. Suspensa quando
+      // blog-sozinho.json diz que o Instagram tá pausado por decisão, não por atraso.
+      if (!sozinho && !noInstagram.has(`${dia}/${topico}`)) continue;
       const artigo = path.join(dirDia, topico, 'artigo', 'artigo.md');
       if (!fs.existsSync(artigo)) continue;
       const conteudo = fs.readFileSync(artigo, 'utf-8').replace(/\r\n/g, '\n');
@@ -301,7 +315,22 @@ function selfTest() {
     assert.ok(fs.existsSync(original) || topicosJaNoInstagram() === null,
       'ledger ausente tem que devolver null, não uma lista vazia');
 
-    console.log('[ensure-queue] self-test OK — 5 casos');
+    // 6. blog-sozinho.json liga/desliga o pareamento. Sem o arquivo, ausente ou
+    //    {ativo:false}: comportamento de sempre (obrigatório). Com {ativo:true}: destravado.
+    const flagAntes = fs.existsSync(BLOG_SOZINHO_FLAG) ? fs.readFileSync(BLOG_SOZINHO_FLAG, 'utf-8') : null;
+    try {
+      fs.rmSync(BLOG_SOZINHO_FLAG, { force: true });
+      assert.strictEqual(blogSozinhoAtivo(), false, 'sem o arquivo, pareamento continua obrigatório');
+      fs.writeFileSync(BLOG_SOZINHO_FLAG, JSON.stringify({ ativo: false }));
+      assert.strictEqual(blogSozinhoAtivo(), false, 'ativo:false continua obrigatório');
+      fs.writeFileSync(BLOG_SOZINHO_FLAG, JSON.stringify({ ativo: true, desde: '2026-09-07' }));
+      assert.strictEqual(blogSozinhoAtivo(), true, 'ativo:true destrava o pareamento');
+    } finally {
+      if (flagAntes === null) fs.rmSync(BLOG_SOZINHO_FLAG, { force: true });
+      else fs.writeFileSync(BLOG_SOZINHO_FLAG, flagAntes);
+    }
+
+    console.log('[ensure-queue] self-test OK — 6 casos');
   } finally {
     fs.rmSync(tmp, { recursive: true, force: true });
   }
