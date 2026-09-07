@@ -5,6 +5,13 @@
   <description>O que eu vou construindo, testando e aprendendo sobre site, conteúdo e automação com IA.</description>
   <language>pt-BR</language>
   <item>
+    <title>Seu negócio existe há anos e não aparece no Google Maps? A causa quase nunca é a que você imagina</title>
+    <link>https://thallisribeiro.com.br/blog/como-aparecer-no-google-maps/</link>
+    <guid>https://thallisribeiro.com.br/blog/como-aparecer-no-google-maps/</guid>
+    <pubDate>Mon, 07 Sep 2026 00:00:00 GMT</pubDate>
+    <description>Não aparecer no mapa do Google raramente é falta de sorte ou concorrência forte — na maioria dos casos é um Perfil da Empresa mal preenchido, categoria errada ou zero avaliação recente. O passo a passo real de como o Google decide quem aparece.</description>
+  </item>
+  <item>
     <title>Agentes de IA atribuídos à OpenAI usaram um wiki alemão como mural: o que aconteceu no DSEWiki</title>
     <link>https://thallisribeiro.com.br/blog/agentes-de-ia-atribuidos-a-openai-usaram-um-wiki-alemao-como-mural-o-q/</link>
     <guid>https://thallisribeiro.com.br/blog/agentes-de-ia-atribuidos-a-openai-usaram-um-wiki-alemao-como-mural-o-q/</guid>
@@ -136,12 +143,5 @@
     <guid>https://thallisribeiro.com.br/blog/testei-gerar-capa-com-flux-local-um-commit-depois-voltei-pro-banco/</guid>
     <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
     <description>Três commits em sequência contam a história: capa gerada junto com o post, depois um esquema híbrido, depois uma fonte só. O híbrido durou menos que um dia.</description>
-  </item>
-  <item>
-    <title>Clonar um SaaS com IA ficou fácil. O difícil é saber o que não clonar</title>
-    <link>https://thallisribeiro.com.br/blog/clonar-um-saas-com-ia-ficou-facil-o-dificil-e-saber-o-que-nao-clonar/</link>
-    <guid>https://thallisribeiro.com.br/blog/clonar-um-saas-com-ia-ficou-facil-o-dificil-e-saber-o-que-nao-clonar/</guid>
-    <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
-    <description>Existe um método pra mandar uma IA copiar um produto que já fatura. Ele funciona, mas otimiza a coisa errada. O que eu mudaria: a pergunta que o agente responde, e quem tem a palavra final sobre o que foi construído.</description>
   </item>
 </channel></rss>
