@@ -1,7 +1,7 @@
 ---
 title: Pedi pra IA fazer meu trabalho e descobri que ela faz metade dele muito bem, e a outra metade nem deveria tentar
 date: 2026-09-07
-summary: "IA pra fazer trabalho" virou busca comum, mas a pergunta certa não é "ela faz ou não faz" — é "qual parte do trabalho ela já faz sozinha, qual parte só faz se alguém revisar, e qual parte ainda depende inteiramente de uma pessoa decidir". A divisão real, sem promessa vazia.
+summary: IA pra fazer trabalho" virou busca comum, mas a pergunta certa não é "ela faz ou não faz" — é "qual parte do trabalho ela já faz sozinha, qual parte só faz se alguém revisar, e qual parte ainda depende inteiramente de uma pessoa decidir". A divisão real, sem promessa vazia.
 tema: Produto
 ---
 

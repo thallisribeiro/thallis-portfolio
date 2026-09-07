@@ -12,6 +12,13 @@
     <description>Não aparecer no mapa do Google raramente é falta de sorte ou concorrência forte — na maioria dos casos é um Perfil da Empresa mal preenchido, categoria errada ou zero avaliação recente. O passo a passo real de como o Google decide quem aparece.</description>
   </item>
   <item>
+    <title>Pedi pra IA fazer meu trabalho e descobri que ela faz metade dele muito bem, e a outra metade nem deveria tentar</title>
+    <link>https://thallisribeiro.com.br/blog/ia-para-fazer-trabalho/</link>
+    <guid>https://thallisribeiro.com.br/blog/ia-para-fazer-trabalho/</guid>
+    <pubDate>Mon, 07 Sep 2026 00:00:00 GMT</pubDate>
+    <description>IA pra fazer trabalho" virou busca comum, mas a pergunta certa não é "ela faz ou não faz" — é "qual parte do trabalho ela já faz sozinha, qual parte só faz se alguém revisar, e qual parte ainda depende inteiramente de uma pessoa decidir". A divisão real, sem promessa vazia.</description>
+  </item>
+  <item>
     <title>Agentes de IA atribuídos à OpenAI usaram um wiki alemão como mural: o que aconteceu no DSEWiki</title>
     <link>https://thallisribeiro.com.br/blog/agentes-de-ia-atribuidos-a-openai-usaram-um-wiki-alemao-como-mural-o-q/</link>
     <guid>https://thallisribeiro.com.br/blog/agentes-de-ia-atribuidos-a-openai-usaram-um-wiki-alemao-como-mural-o-q/</guid>
@@ -136,12 +143,5 @@
     <guid>https://thallisribeiro.com.br/blog/dez-anos-provando-que-fazenda-vertical-funciona-uma-noite-pra-acabar/</guid>
     <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
     <description>A 80 Acres Farms vendia alface em mais de 18 mil mercados americanos e negociava a aquisição que pagaria a continuidade da operação. Na noite de domingo, o comprador desistiu. Na segunda de manhã, a empresa fechou tudo.</description>
-  </item>
-  <item>
-    <title>Testei gerar capa com FLUX local. Um commit depois, voltei pro banco.</title>
-    <link>https://thallisribeiro.com.br/blog/testei-gerar-capa-com-flux-local-um-commit-depois-voltei-pro-banco/</link>
-    <guid>https://thallisribeiro.com.br/blog/testei-gerar-capa-com-flux-local-um-commit-depois-voltei-pro-banco/</guid>
-    <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
-    <description>Três commits em sequência contam a história: capa gerada junto com o post, depois um esquema híbrido, depois uma fonte só. O híbrido durou menos que um dia.</description>
   </item>
 </channel></rss>
