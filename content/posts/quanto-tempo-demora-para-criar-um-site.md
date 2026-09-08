@@ -1,6 +1,6 @@
 ---
 title: Perguntei em quantas agências quanto tempo demora um site, e a resposta variou de 3 dias a 4 meses — pro mesmo pedido
-date: 2026-09-07
+date: 2026-09-08
 summary: O prazo pra criar um site não depende só de "tamanho do projeto" — depende de quem já tem o conteúdo pronto, quantas rodadas de ajuste o cliente pede e se o site é template ou sob medida. Prazo real por tipo de projeto, e por que a resposta muda tanto de agência pra agência.
 tema: Site & copy
 ---
