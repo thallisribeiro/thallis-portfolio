@@ -148,3 +148,21 @@
 [2026-09-04T21:10:01.796Z] fila vazia — nada publicado neste horário
 [2026-09-05T09:30:02.391Z] [ensure-queue] nada pareado da esteira neste horário — sem post. O blog publica o que a esteira apurou, não o que eu fiz hoje.
 [2026-09-05T10:10:01.677Z] fila vazia — nada publicado neste horário
+[2026-09-07T14:30:02.441Z] [ensure-queue] 1 commit(s) local(is) aguardando push — tentando novamente
+[2026-09-07T14:30:05.364Z] [ensure-queue] push pendente concluído
+[2026-09-07T14:30:05.486Z] [ensure-queue] fila com 3 arquivo(s) fora do git — versionando pra destravar o publish
+[2026-09-07T14:30:05.635Z] [ensure-queue] fila já tem 3 post(s) — nada a gerar
+[2026-09-07T15:10:02.279Z] 1 commit(s) local(is) aguardando push — tentando novamente
+[2026-09-07T15:10:04.862Z] push pendente concluído
+[2026-09-07T15:10:10.228Z] publicado: /blog/como-aparecer-no-google-maps/ — "Seu negócio existe há anos e não aparece no Google Maps? A causa quase nunca é a que você imagina"
+[2026-09-07T20:30:02.323Z] [ensure-queue] fila já tem 2 post(s) — nada a gerar
+[2026-09-07T21:10:07.569Z] publicado: /blog/ia-para-fazer-trabalho/ — "Pedi pra IA fazer meu trabalho e descobri que ela faz metade dele muito bem, e a outra metade nem deveria tentar"
+[2026-09-08T09:30:02.372Z] [ensure-queue] fila já tem 1 post(s) — nada a gerar
+[2026-09-08T10:10:07.292Z] publicado: /blog/quanto-tempo-demora-para-criar-um-site/ — "Perguntei em quantas agências quanto tempo demora um site, e a resposta variou de 3 dias a 4 meses — pro mesmo pedido"
+[2026-09-08T15:10:01.543Z] fila vazia — nada publicado neste horário
+[2026-09-08T16:10:54.830Z] [ensure-queue] artigo do content-hub aproveitado (par do carrossel _vetados): Ford contratou 350 engenheiros veteranos para consertar o que a IA não resolveu
+[2026-09-08T16:10:55.362Z] [ensure-queue] capa: [capa-do-post] carrossel: 1
+[2026-09-08T16:13:03.686Z] [ensure-queue] 1 commit(s) local(is) aguardando push — tentando novamente
+[2026-09-08T16:13:06.545Z] [ensure-queue] push pendente concluído
+[2026-09-08T16:13:06.587Z] [ensure-queue] artigo do content-hub aproveitado (par do carrossel 2026-08-29): Construí o Grana sem investidor e sem sócio: por que isso importa pra quem me contrata
+[2026-09-08T16:13:09.214Z] [ensure-queue] capa: [capa-do-post] magnific: 1

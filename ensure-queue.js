@@ -151,6 +151,11 @@ function proximoArtigoDoContentHub() {
 
   const candidatos = [];
   for (const dia of fs.readdirSync(CONTENTHUB_SAIDA)) {
+    // Pasta com "_" na frente não é dia: é depósito interno da esteira. `_vetados` guarda o que o
+    // gate editorial REPROVOU, e como "_" ordena antes de "2026-...", a peça vetada ganhava a fila
+    // do blog do artigo bom do dia. Em 08/09/2026 o blog ia publicar "_vetados/2026-08-31-c-ford-
+    // repetida" — reprovada E marcada como repetida — tendo três artigos aprovados de hoje parados.
+    if (dia.startsWith('_')) continue;
     const dirDia = path.join(CONTENTHUB_SAIDA, dia);
     if (!fs.statSync(dirDia).isDirectory()) continue;
     for (const topico of fs.readdirSync(dirDia)) {
@@ -330,7 +335,31 @@ function selfTest() {
       else fs.writeFileSync(BLOG_SOZINHO_FLAG, flagAntes);
     }
 
-    console.log('[ensure-queue] self-test OK — 6 casos');
+    // 7. pasta interna da esteira não é dia. `_vetados` guarda o que o gate editorial REPROVOU,
+    //    e "_" ordena antes de "2026-...": em 08/09/2026 a peça vetada (e marcada como repetida)
+    //    ganhou a fila do blog de três artigos aprovados do dia.
+    const saida = fs.mkdtempSync(path.join(os.tmpdir(), 'eq-saida-'));
+    try {
+      const artigo = (dia, topico, titulo) => {
+        const dir = path.join(saida, dia, topico, 'artigo');
+        fs.mkdirSync(dir, { recursive: true });
+        fs.writeFileSync(path.join(dir, 'artigo.md'), `---
+title: "${titulo}"
+date: ${dia.startsWith('_') ? '2026-08-31' : dia}
+---
+corpo
+`);
+      };
+      artigo('_vetados', '2026-08-31-c-ford-repetida', 'Vetada');
+      artigo('2026-09-08', '2026-09-08-a', 'Boa de hoje');
+      const dias = fs.readdirSync(saida).filter((d) => !d.startsWith('_'));
+      assert.deepStrictEqual(dias, ['2026-09-08'], 'a varredura pula pasta que começa com _');
+      assert.ok(fs.existsSync(path.join(saida, '_vetados')), 'a pasta continua lá: só não é candidata');
+    } finally {
+      fs.rmSync(saida, { recursive: true, force: true });
+    }
+
+    console.log('[ensure-queue] self-test OK — 7 casos');
   } finally {
     fs.rmSync(tmp, { recursive: true, force: true });
   }
