@@ -1,9 +1,8 @@
 ---
-peca: 2026-08-29/case-real
-title: "Construí o Grana sem investidor e sem sócio: por que isso importa pra quem me contrata"
-date: 2026-08-29
+title: Construí o Grana sem investidor e sem sócio: por que isso importa pra quem me contrata
+date: 2026-09-08
+summary: O suagrana.app está no ar com clientes pagantes, construído sozinho, sem investidor e sem sócio: o primeiro risco que assumi foi o meu.
 tema: Produto
-summary: "O suagrana.app está no ar com clientes pagantes, construído sozinho, sem investidor e sem sócio: o primeiro risco que assumi foi o meu."
 image: /assets/posts/construi-o-grana-sem-investidor-e-sem-socio-por-que-isso-importa-pra-q.webp
 ---
 
