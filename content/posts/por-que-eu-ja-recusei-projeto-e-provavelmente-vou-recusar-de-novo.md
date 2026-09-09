@@ -1,9 +1,8 @@
 ---
-peca: 2026-08-29/evergreen
-title: "Por que eu já recusei projeto (e provavelmente vou recusar de novo)"
-date: 2026-08-29
+title: Por que eu já recusei projeto (e provavelmente vou recusar de novo)
+date: 2026-09-09
+summary: Prefiro dizer não na hora certa a prometer um prazo que não cabe e entregar rápido e errado meses depois.
 tema: Agência autônoma
-summary: "Prefiro dizer não na hora certa a prometer um prazo que não cabe e entregar rápido e errado meses depois."
 image: /assets/posts/por-que-eu-ja-recusei-projeto-e-provavelmente-vou-recusar-de-novo.webp
 ---
 
