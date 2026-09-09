@@ -1,9 +1,8 @@
 ---
-peca: 2026-08-29/noticias
-title: "A ANPD abriu 19 processos em junho: o que isso muda pro site do seu negócio"
-date: 2026-08-29
+title: A ANPD abriu 19 processos em junho: o que isso muda pro site do seu negócio
+date: 2026-09-09
+summary: Com a Lei nº 15.352/2026, a ANPD virou agência reguladora plena e já abriu 19 processos sancionadores só em junho, agora também mirando pequenas empresas.
 tema: Mercado
-summary: "Com a Lei nº 15.352/2026, a ANPD virou agência reguladora plena e já abriu 19 processos sancionadores só em junho, agora também mirando pequenas empresas."
 image: /assets/posts/a-anpd-abriu-19-processos-em-junho-o-que-isso-muda-pro-site-do-seu-neg.webp
 ---
 
