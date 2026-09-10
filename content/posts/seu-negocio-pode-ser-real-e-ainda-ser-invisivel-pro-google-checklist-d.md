@@ -1,9 +1,8 @@
 ---
-peca: 2026-08-29/topo-funil
-title: "Seu negócio pode ser real e ainda ser invisível pro Google: checklist de SEO local"
-date: 2026-08-29
+title: Seu negócio pode ser real e ainda ser invisível pro Google: checklist de SEO local
+date: 2026-09-10
+summary: Ter CNPJ, loja física e clientes satisfeitos não significa que a busca sabe que seu negócio existe: veja o checklist básico de SEO local.
 tema: Site & copy
-summary: "Ter CNPJ, loja física e clientes satisfeitos não significa que a busca sabe que seu negócio existe: veja o checklist básico de SEO local."
 image: /assets/posts/seu-negocio-pode-ser-real-e-ainda-ser-invisivel-pro-google-checklist-d.webp
 ---
 
