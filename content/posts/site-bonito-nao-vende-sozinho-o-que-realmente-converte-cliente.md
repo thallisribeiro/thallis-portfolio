@@ -1,9 +1,8 @@
 ---
-peca: 2026-08-30/contrarian
-title: "Site bonito não vende sozinho (o que realmente converte cliente)"
-date: 2026-08-30
+title: Site bonito não vende sozinho (o que realmente converte cliente)
+date: 2026-09-10
+summary: Design bonito sem função é decoração cara: o que converte de verdade é prova social, CTA claro e velocidade, não estética pura.
 tema: Site & copy
-summary: "Design bonito sem função é decoração cara: o que converte de verdade é prova social, CTA claro e velocidade, não estética pura."
 image: /assets/posts/site-bonito-nao-vende-sozinho-o-que-realmente-converte-cliente.webp
 ---
 
