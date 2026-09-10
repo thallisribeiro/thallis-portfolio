@@ -1,9 +1,8 @@
 ---
-peca: 2026-08-30/mistakes
-title: "4 erros no Instagram que afastam cliente sem você perceber"
-date: 2026-08-30
+title: 4 erros no Instagram que afastam cliente sem você perceber
+date: 2026-09-10
+summary: Quatro erros comuns de perfil de pequeno negócio no Instagram, nenhum relacionado a talento pra fotografia, que fazem o cliente desistir antes de comprar.
 tema: Redes sociais
-summary: "Quatro erros comuns de perfil de pequeno negócio no Instagram, nenhum relacionado a talento pra fotografia, que fazem o cliente desistir antes de comprar."
 image: /assets/posts/4-erros-no-instagram-que-afastam-cliente-sem-voce-perceber.webp
 ---
 
