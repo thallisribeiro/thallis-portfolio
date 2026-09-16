@@ -1125,3 +1125,9 @@ main p a:not(.botao):not(.link-seta):focus-visible,
 .figura-pagina { margin: 0 0 var(--e6); }
 /* Fotos soltas numa grade (página Sobre): mesma proporção, mesma altura. */
 .grade > img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 20%; border-radius: var(--raio); display: block; }
+
+/* Ajustes da cliente (16/09): textos de apoio ocupando menos espaço. */
+.areas-intro { font-size: 15.5px; max-width: 48ch; margin-bottom: var(--e3); }
+.cta-final .chamada { font-size: 16.5px; margin-bottom: var(--e2); }
+.cta-final p:not(.chamada):not(.aviso-wpp) { font-size: 14.5px; margin-bottom: var(--e4); }
+.cta-final .regua { margin-top: var(--e2); margin-bottom: var(--e3); }
