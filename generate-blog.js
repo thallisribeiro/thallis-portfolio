@@ -181,15 +181,13 @@ ${jsonLdBlock}
       <a href="/blog/">Blog</a>
       <a href="/#projetos">Produtos</a>
       <a href="/#sobre">Sobre</a>
-      <a href="/ficha-de-apuracao/">Ficha de apuração</a>
-      <a href="/trabalhe-comigo/">Trabalhe comigo</a>
-      <a class="nav-so-mobile" href="/site-em-7-dias/" data-ev="site7_cta_clicked" data-ev-local="nav-mobile">Site em 7 dias</a>
+      <a class="nav-so-mobile" href="/#preco" data-ev="site7_cta_clicked" data-ev-local="nav-mobile">Site em 7 dias</a>
     </nav>
     <div class="nav-actions">
       <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
         <span></span><span></span><span></span>
       </button>
-      <a class="btn btn-primary btn-nav" href="/site-em-7-dias/" data-ev="site7_cta_clicked" data-ev-local="nav">Site em 7 dias</a>
+      <a class="btn btn-primary btn-nav" href="/#preco" data-ev="site7_cta_clicked" data-ev-local="nav">Site em 7 dias</a>
     </div>
   </div>
 </header>
@@ -275,8 +273,8 @@ const CTAS = {
   distribuicao: {
     frase: '<span class="fria">Construir ficou barato.</span> <span class="quente">Distribuir virou o gargalo.</span>',
     texto: 'Estou construindo um sistema que transforma uma apuração só em publicação em vários canais. É ele que publica este blog.',
-    rotulo: 'Conhecer a Máquina de Distribuição',
-    href: '/maquina-de-distribuicao/',
+    rotulo: 'Quero meu site em 7 dias',
+    href: '/#preco',
     evento: 'distribution_product_clicked',
     externo: false,
   },
@@ -284,7 +282,7 @@ const CTAS = {
     frase: '<span class="quente">Prefere que eu faça?</span>',
     texto: 'Pego poucos projetos por vez: site, landing page, produto, automação e sistema de distribuição.',
     rotulo: 'Trabalhar comigo',
-    href: '/trabalhe-comigo/',
+    href: '/#preco',
     evento: 'work_with_me_clicked',
     externo: false,
   },
@@ -302,7 +300,7 @@ function ctaDoIndice() {
   return `<aside class="cta-tese">
     <p class="cta-tese-frase"><span class="fria">Construir ficou barato.</span> <span class="quente">Distribuir virou o gargalo.</span></p>
     <p class="cta-tese-texto">Este blog é a saída de uma esteira que apura, checa e publica sozinha. Estou transformando isso em produto e escrevendo o processo aqui enquanto acontece.</p>
-    <a class="btn btn-primary btn-lg" href="/maquina-de-distribuicao/" data-ev="distribution_product_clicked" data-ev-local="indice-blog">Conhecer a Máquina de Distribuição</a>
+    <a class="btn btn-primary btn-lg" href="/#preco" data-ev="site7_cta_clicked" data-ev-local="indice-blog">Quero meu site em 7 dias</a>
     ${blocoCaptura('indice-blog')}
     <p class="cta-tese-seguir">Ou me acompanhe em
       <a href="https://www.linkedin.com/in/thallisribeiro/" target="_blank" rel="noopener" data-ev="social_clicked" data-ev-local="linkedin">LinkedIn</a>,
@@ -742,11 +740,7 @@ ${rssItems}
   const urls = [
     { loc: `${SITE_URL}/`, lastmod: posts[0]?.date },
     { loc: `${SITE_URL}/blog/`, lastmod: posts[0]?.date },
-    { loc: `${SITE_URL}/maquina-de-distribuicao/`, lastmod: modificadoEm('maquina-de-distribuicao/index.html') },
-    { loc: `${SITE_URL}/site-em-7-dias/`, lastmod: modificadoEm('site-em-7-dias/index.html') },
     ...CIDADES.map((c) => ({ loc: `${SITE_URL}/site-em-7-dias/${c.slug}/`, lastmod: modificadoEm(`site-em-7-dias/${c.slug}/index.html`) })),
-    { loc: `${SITE_URL}/trabalhe-comigo/`, lastmod: modificadoEm('trabalhe-comigo/index.html') },
-    { loc: `${SITE_URL}/ficha-de-apuracao/`, lastmod: modificadoEm('ficha-de-apuracao/index.html') },
     ...posts.map(p => ({ loc: `${SITE_URL}/blog/${p.slug}/`, lastmod: p.date })),
     ...temaCounts.map(t => ({ loc: `${SITE_URL}/blog/tema/${t.slug}/`, lastmod: posts[0]?.date })),
   ];

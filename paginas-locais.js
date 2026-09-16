@@ -202,7 +202,7 @@ function pagina(cidade) {
       <ul class="saidas">
 ${(cidade.prova || []).map(cardExemplo).join('\n')}
       </ul>
-      <p class="secao-lead"><a href="/site-em-7-dias/">Ver a oferta completa e todos os exemplos →</a></p>
+      <p class="secao-lead"><a href="/">Ver a oferta completa e todos os exemplos →</a></p>
     </div>
   </section>
 
@@ -251,7 +251,7 @@ ${(cidade.prova || []).map(cardExemplo).join('\n')}
 <footer class="footer">
   <span>Thallis Ribeiro · ${new Date().getFullYear()}</span>
   <a href="/">Início</a>
-  <a href="/site-em-7-dias/">A oferta</a>
+  <a href="/">A oferta</a>
   <a href="/blog/">Blog</a>
 </footer>
 

@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Thallis Ribeiro — uma pessoa só, dez produtos no ar</title>
-<meta name="description" content="Dez produtos meus e três sites de cliente, todos no ar pra você abrir e usar. Escrevo aqui o que aprendi construindo cada um. Site profissional a partir de R$ 397.">
+<title>Site profissional em 7 dias a partir de R$ 397 — Thallis Ribeiro</title>
+<meta name="description" content="Site do seu negócio no ar em até 7 dias, a partir de R$ 397, com domínio incluso. Primeira versão em 48 horas. Veja os sites que entreguei pra clientes e os produtos que construí.">
 <link rel="canonical" href="https://thallisribeiro.com.br/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Thallis Ribeiro — uma pessoa só, dez produtos no ar">
-<meta property="og:description" content="Dez produtos meus e três sites de cliente, todos no ar. E o site do seu negócio em 7 dias, a partir de R$ 397.">
+<meta property="og:title" content="Site profissional em 7 dias a partir de R$ 397 — Thallis Ribeiro">
+<meta property="og:description" content="Primeira versão em 48 horas, no ar em até 7 dias, domínio incluso. Sites de cliente e produtos meus, todos no ar pra você abrir.">
 <meta property="og:url" content="https://thallisribeiro.com.br/">
 <meta property="og:image" content="https://thallisribeiro.com.br/assets/og-default.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Thallis Ribeiro — produtos e sites no ar">
+<meta property="og:image:alt" content="Thallis Ribeiro — site profissional em 7 dias">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" type="application/rss+xml" title="Blog ThallisRibeiro" href="https://thallisribeiro.com.br/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,7 +38,7 @@
       "@id": "https://thallisribeiro.com.br/#website",
       "url": "https://thallisribeiro.com.br/",
       "name": "Thallis Ribeiro",
-      "description": "Produtos e sites construídos por Thallis Ribeiro, todos no ar.",
+      "description": "Site profissional em 7 dias, a partir de R$ 397. Sites de cliente e produtos construídos por Thallis Ribeiro, todos no ar.",
       "inLanguage": "pt-BR",
       "publisher": { "@id": "https://thallisribeiro.com.br/#person" }
     },
@@ -47,93 +47,373 @@
       "@id": "https://thallisribeiro.com.br/#person",
       "name": "Thallis Ribeiro",
       "url": "https://thallisribeiro.com.br/",
-      "jobTitle": "Construtor de produtos digitais e sistemas de distribuição",
-      "description": "Constrói produtos digitais, automações e sistemas de distribuição com IA, e documenta os experimentos em público.",
+      "jobTitle": "Construtor de sites e produtos digitais",
+      "description": "Faz sites profissionais em 7 dias e constrói produtos digitais próprios, todos publicados.",
       "alumniOf": [
         { "@type": "CollegeOrUniversity", "name": "Universidade Federal de Viçosa (UFV)" },
         { "@type": "CollegeOrUniversity", "name": "Fundação Getulio Vargas (FGV)" }
       ],
-      "founder": { "@type": "Organization", "name": "Grana", "url": "https://suagrana.app" },
       "sameAs": ["https://instagram.com/thallis.lab", "https://www.linkedin.com/in/thallisribeiro/"]
+    },
+    {
+      "@type": "Service",
+      "name": "Site profissional em 7 dias",
+      "serviceType": "Criação de site",
+      "provider": { "@id": "https://thallisribeiro.com.br/#person" },
+      "areaServed": "BR",
+      "offers": { "@type": "Offer", "price": "397", "priceCurrency": "BRL", "url": "https://thallisribeiro.com.br/#preco" },
+      "description": "Site profissional no ar em até 7 dias a partir de R$ 397, com design, textos, responsivo, otimização para Google e publicação no domínio do cliente."
     }
   ]
 }
 </script>
 </head>
-<body>
-
+<body data-page-ev="site7_page_viewed">
 <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-
-<header class="nav">
+<!-- Sem menu de propósito (Thallis, 02/09: "não deve ter nada no menu lá em cima pra
+     ninguém desviar da ideia da landing"): só a marca e o botão de preço. Desde 16/09 a
+     oferta É a home; o site vende uma coisa só. -->
+<header class="nav nav-landing">
   <div class="nav-inner">
-    <a class="logo-wrap" href="/" style="text-decoration:none;color:inherit">
+    <span class="logo-wrap">
       <span class="logo-bars" aria-hidden="true"><i></i><i></i><i></i></span>
       <span class="logo">Thallis Ribeiro</span>
-    </a>
-    <nav class="nav-links" id="nav-links" aria-label="Seções">
-      <a href="/blog/">Blog</a>
-      <a href="#projetos">Produtos</a>
-      <a href="#sobre">Sobre</a>
-      <a href="/ficha-de-apuracao/">Ficha de apuração</a>
-      <a href="/trabalhe-comigo/">Trabalhe comigo</a>
-      <a class="nav-so-mobile" href="/site-em-7-dias/" data-ev="site7_cta_clicked" data-ev-local="nav-mobile">Site em 7 dias</a>
-    </nav>
+    </span>
     <div class="nav-actions">
-      <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
-        <span></span><span></span><span></span>
-      </button>
-      <a class="btn btn-primary btn-nav" href="/site-em-7-dias/" data-ev="site7_cta_clicked" data-ev-local="nav">Site em 7 dias</a>
+      <a class="btn btn-primary btn-nav" href="#preco">A partir de R$ 397</a>
     </div>
   </div>
 </header>
 
 <main id="conteudo">
 
-  <!-- ============ HERO / TESE ============ -->
-  <section class="hero-tese">
-    <div class="tese-inner">
+<!-- ============ HERO ============ -->
+<section class="hero-tese hero-site7">
+  <div class="tese-inner hero-site7-grade">
+    <div class="hero-site7-copy">
+      <p class="tese-kicker">Site profissional</p>
       <h1 class="tese-h1">
-        <span class="tese-linha tese-linha-fria">Sou uma pessoa só.</span>
-        <!-- O número sai contado dos cards da própria página (generate-blog.js), como a
-             prova logo abaixo: manchete com número escrito à mão vence e vira mentira. -->
-        <span class="tese-linha tese-linha-quente"><!--N_PRODUTOS_INICIO-->10<!--N_PRODUTOS_FIM--> produtos meus estão no ar.</span>
+        <span class="tese-linha tese-linha-fria">Seu site no ar em 7 dias.</span>
+        <span class="tese-linha tese-linha-quente">A partir de R$&nbsp;397, domínio incluso.</span>
       </h1>
-      <p class="tese-sub">Você abre e usa todos eles agora, e os três sites que fiz para clientes também. Aqui embaixo estão eles e o que eu aprendi construindo cada um.</p>
+      <p class="tese-sub">Design, textos, versão de celular, otimizado pro Google e publicado no seu domínio. Primeira versão em 48 horas pra você ver e ajustar. Você não precisa saber nada de site: manda o que o negócio faz e eu faço o resto.</p>
       <div class="tese-ctas">
-        <a class="btn btn-primary btn-lg" href="/site-em-7-dias/" data-ev="site7_cta_clicked" data-ev-local="hero-home">Quero um site em 7 dias</a>
-        <a class="btn btn-ghost btn-lg" href="#projetos" data-ev="hero_projects_cta">Ver o que eu construí</a>
+        <a class="btn btn-primary btn-lg" href="https://wa.me/5573988899345?text=Quero%20meu%20site%20em%207%20dias%20por%20397%20%5Bsite%5D" target="_blank" rel="noopener" data-ev="site7_cta_clicked" data-ev-local="hero">Quero meu site em 7 dias</a>
+        <a class="btn btn-ghost btn-lg" href="#trabalhos" data-ev="site7_examples_clicked" data-ev-local="hero">Ver sites que entreguei</a>
       </div>
-      <p class="gatilho">A partir de R$ 397, domínio .com.br incluso e primeira versão em 48 horas.</p>
-      <div class="prova" aria-label="Números do site, contados do próprio blog">
-        <!-- PROVA_INICIO -->
-        <div class="prova-item"><span class="prova-num">78</span><span class="prova-rot">posts publicados</span></div>
-        <div class="prova-item"><span class="prova-num">31</span><span class="prova-rot">dias no ar</span></div>
-        <div class="prova-item"><span class="prova-num">10</span><span class="prova-rot">produtos meus</span></div>
-        <div class="prova-item"><span class="prova-num">3</span><span class="prova-rot">sites de cliente</span></div>
-        <!-- PROVA_FIM -->
+      <p class="nota-canal">Você será direcionado ao WhatsApp. Quem responde sou eu.</p>
+    </div>
+    <!-- O site se montando sozinho: só CSS; com prefers-reduced-motion mostra o estado final parado. -->
+    <div class="lab" aria-hidden="true">
+      <div class="lab-janela">
+        <div class="lab-barra">
+          <span class="lab-luz"></span><span class="lab-luz"></span><span class="lab-luz"></span>
+          <span class="lab-url"><span class="lab-url-https">https://</span><span class="lab-url-texto">seunegocio.com.br</span><span class="lab-cursor"></span></span>
+        </div>
+        <div class="lab-tela">
+          <div class="lab-nav b b1"><i class="lab-logo"></i><i></i><i></i><i></i><i class="lab-nav-cta"></i></div>
+          <div class="lab-hero">
+            <div class="lab-texto">
+              <div class="lab-linha b b2 l1"></div>
+              <div class="lab-linha b b3 l2"></div>
+              <div class="lab-linha b b4 l3"></div>
+              <div class="lab-linha b b4 l4"></div>
+              <div class="lab-btn b b5"></div>
+            </div>
+            <div class="lab-foto b b6"></div>
+          </div>
+          <div class="lab-cards">
+            <div class="lab-card b b7"><i></i><i></i></div>
+            <div class="lab-card b b8"><i></i><i></i></div>
+            <div class="lab-card b b9"><i></i><i></i></div>
+          </div>
+          <div class="lab-zap b b10"></div>
+        </div>
+        <div class="lab-carimbo b b11">No ar<i></i></div>
+      </div>
+      <div class="lab-tempo">
+        <div class="lab-passo p1"><b>Dia 1</b>briefing</div>
+        <div class="lab-passo p2"><b>Dia 2</b>primeira versão</div>
+        <div class="lab-passo p3"><b>Dia 7</b>no ar</div>
+        <div class="lab-progresso"><i></i></div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ============ A TESE, CURTA ============ -->
-  <section class="section section-linha" id="tese">
-    <div class="section-inner section-narrow">
-      <div class="tese-corpo">
-        <p>Um projeto que levava um trimestre hoje sai numa tarde. Escrever código deixou de ser a parte difícil.</p>
-        <p>O que ninguém barateou foi o depois. <strong>Seu produto existe e continua invisível.</strong> Achar quem se importa custa hoje exatamente o que custava antes.</p>
-        <p>É aí que eu trabalho. Tudo que eu testo, dá certo ou não dá, vira post aqui com os números no meio do texto.</p>
+<!-- ============ PROVA (contada pelo gerador do blog, entre marcadores) ============ -->
+<section class="section section-linha" id="prova">
+  <div class="section-inner">
+    <div class="prova" aria-label="Números do site, contados das próprias páginas">
+      <!-- PROVA_INICIO -->
+      <div class="prova-item"><span class="prova-num">78</span><span class="prova-rot">posts publicados</span></div>
+      <div class="prova-item"><span class="prova-num">31</span><span class="prova-rot">dias no ar</span></div>
+      <div class="prova-item"><span class="prova-num">8</span><span class="prova-rot">produtos meus</span></div>
+      <div class="prova-item"><span class="prova-num">3</span><span class="prova-rot">sites de cliente</span></div>
+      <!-- PROVA_FIM -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMO FUNCIONA ============ -->
+<section class="section section-linha" id="como">
+  <div class="section-inner">
+    <div class="secao-topo"><h2 class="secao-titulo">Como funciona</h2></div>
+    <ol class="ciclo">
+      <li>Você me diz o que o negócio faz</li>
+      <li>Manda 3 sites que gosta</li>
+      <li>Em 48h vê a primeira versão no ar</li>
+      <li>Pede os ajustes</li>
+      <li>Em até 7 dias está publicado</li>
+      <li>Aprende a editar em 15 minutos</li>
+    </ol>
+    <p class="ciclo-remate">Sem reunião de briefing de duas horas. Sem "vou te mandar um orçamento". O preço é este e o prazo é este.</p>
+  </div>
+</section>
+
+<!-- ============ SITES PRA CLIENTES ============ -->
+<section class="section section-linha" id="trabalhos">
+  <div class="section-inner">
+    <div class="secao-topo">
+      <h2 class="secao-titulo">Sites que fiz pra clientes</h2>
+      <span class="secao-estado">no ar, de verdade</span>
+    </div>
+    <p class="secao-lead">Clique e navegue. Nenhum é mockup: são negócios reais, com cliente de verdade usando.</p>
+    <div class="obras">
+      <article class="obra">
+        <div class="obra-texto">
+          <p class="obra-cat">Imobiliária · Eunápolis, BA</p>
+          <h3 class="obra-nome">Eunoimóvel</h3>
+          <p class="obra-desc">Refiz o site inteiro sem perder uma URL antiga sequer, pra não jogar fora anos de posição no Google. Busca de imóveis, painel pro corretor e publicação sem depender de mim.</p>
+          <a class="obra-link" href="https://eunoimovel.com.br" target="_blank" rel="noopener" data-ev="cliente_clicked" data-ev-local="eunoimovel">eunoimovel.com.br →</a>
+        </div>
+        <a class="obra-shot" href="https://eunoimovel.com.br" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" data-ev="cliente_clicked" data-ev-local="eunoimovel-shot">
+          <img src="assets/eunoimovel-case.webp" alt="Página inicial do Eunoimóvel, site de imobiliária" width="1200" height="844" loading="lazy" decoding="async">
+        </a>
+      </article>
+      <article class="obra obra-invertida">
+        <div class="obra-texto">
+          <p class="obra-cat">Cirurgião plástico · Florianópolis e Eunápolis</p>
+          <h3 class="obra-nome">Dr. Daniel Gazzola</h3>
+          <p class="obra-desc">Site do consultório feito pra uma coisa só: quem chega procurando o profissional sai com a avaliação marcada. O formulário cai direto no CRM dele, e a página é estática pra abrir rápido no celular da paciente.</p>
+          <a class="obra-link" href="https://drdanielgazzola.com.br" target="_blank" rel="noopener" data-ev="cliente_clicked" data-ev-local="drdaniel">drdanielgazzola.com.br →</a>
+        </div>
+        <a class="obra-shot" href="https://drdanielgazzola.com.br" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" data-ev="cliente_clicked" data-ev-local="drdaniel-shot">
+          <img src="assets/dr-daniel-case.webp" alt="Página inicial do site do Dr. Daniel Gazzola" width="1200" height="844" loading="lazy" decoding="async">
+        </a>
+      </article>
+      <article class="obra">
+        <div class="obra-texto">
+          <p class="obra-cat">Saúde íntima e estética · Florianópolis</p>
+          <h3 class="obra-nome">Dra. Brumna Valdivieso</h3>
+          <p class="obra-desc">Onze páginas, blog e painel próprio pra ela publicar sozinha: cada post regenera o site estático, então a página da paciente não depende de nenhum servidor pra ficar de pé.</p>
+          <span class="obra-link obra-link-inerte">Em produção · no ar em breve</span>
+        </div>
+        <div class="obra-shot">
+          <img src="assets/brumna-case.jpg" alt="Página inicial do site da Dra. Brumna Valdivieso" width="1200" height="844" loading="lazy" decoding="async">
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PREÇO ============ -->
+<section class="section section-linha" id="preco">
+  <div class="section-inner">
+    <div class="secao-topo"><h2 class="secao-titulo">O que está incluso nos R$ 397</h2></div>
+    <div class="oferta-grade">
+      <div class="oferta-entrega">
+        <ul class="lista-marcada">
+          <li><strong>Até 5 páginas</strong> (início, sobre, serviços, contato e mais uma) — ou uma página única de conversão, se for pra anúncio</li>
+          <li><strong>Textos escritos</strong> a partir do que você me contar; você revisa, eu ajusto</li>
+          <li><strong>Funciona no celular</strong> — é onde 8 em cada 10 clientes vão abrir</li>
+          <li><strong>Botão de WhatsApp</strong> em toda página, e formulário de contato que chega no seu e-mail</li>
+          <li><strong>Google:</strong> títulos, descrições e velocidade prontos pra indexar; cadastro no Perfil de Empresa do Google se você ainda não tiver</li>
+          <li><strong>Domínio .com.br incluso</strong>, registrado no seu nome — é seu, não meu</li>
+          <li><strong>Você aprende a editar</strong> textos e fotos em 15 minutos, sem depender de mim</li>
+        </ul>
+        <h3 class="coluna-titulo" style="margin-top:28px">Precisa de mais? Preço fechado também</h3>
+        <ul class="preco-lista">
+          <li><span class="preco-item">Página extra (além das 5)</span><span class="preco-valor">R$ 60 cada</span></li>
+          <li><span class="preco-item">Blog pronto pra publicar</span><span class="preco-valor">R$ 150</span></li>
+          <li><span class="preco-item">Loja virtual, login, sistema, 10+ páginas</span><span class="preco-valor preco-valor-texto">outro projeto · preço em 24h</span></li>
+        </ul>
+      </div>
+      <div class="oferta-preco">
+        <p class="oferta-rotulo">a partir de</p>
+        <p class="oferta-valor"><span class="oferta-moeda">R$</span>397</p>
+        <p class="preco-nota" style="margin-top:-6px">Domínio .com.br incluso. Hospedagem R$ 29/mês a partir do segundo mês, cancela quando quiser. Extras com preço fechado ao lado.</p>
+        <ul class="preco-lista">
+          <li><span class="preco-item">Primeira versão</span><span class="preco-valor">em 48 horas</span></li>
+          <li><span class="preco-item">Entrega</span><span class="preco-valor">em até 7 dias</span></li>
+          <li><span class="preco-item">Pagamento</span><span class="preco-valor preco-valor-texto">metade pra começar, metade na entrega</span></li>
+          <li><span class="preco-item">Hospedagem + domínio</span><span class="preco-valor preco-valor-texto">R$ 29/mês · 1º mês grátis</span></li>
+        </ul>
+        <a class="btn btn-primary btn-lg oferta-btn" href="https://wa.me/5573988899345?text=Quero%20meu%20site%20em%207%20dias%20por%20397%20%5Bsite%5D" target="_blank" rel="noopener" data-ev="site7_cta_clicked" data-ev-local="preco">Quero meu site em 7 dias</a>
+        <p class="preco-nota">Se em 48 horas a primeira versão não te agradar, você não paga a segunda metade e fica com o que viu. Sem discussão.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ============ ÚLTIMAS IDEIAS ============ -->
-  <section class="section" id="ideias">
-    <div class="section-inner">
-      <div class="secao-topo">
-        <h2 class="secao-titulo">Últimas ideias</h2>
-        <a class="secao-link" href="/blog/">Todo o blog →</a>
+<!-- ============ PRODUTOS MEUS ============ -->
+<section class="section section-linha" id="projetos">
+  <div class="section-inner">
+    <div class="secao-topo">
+      <h2 class="secao-titulo">Produtos que construí pra mim</h2>
+      <span class="secao-estado">mesmo processo, mesma mão</span>
+    </div>
+    <p class="secao-lead">Antes de fazer site pra você, eu faço pra mim. Tudo aqui eu decidi, construí e publiquei; o que está no ar dá pra abrir e usar agora.</p>
+    <div class="construindo">
+      <article class="proj">
+        <a class="proj-shot" href="https://licitacerta.com.br/" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="licitacerta" aria-label="Abrir LicitaCerta">
+          <img src="/assets/sites/licitacerta.jpg" alt="" width="640" height="400" loading="lazy" decoding="async">
+        </a>
+        <div class="proj-corpo">
+          <div class="proj-cabeca"><h3>LicitaCerta</h3><span class="proj-estado">no ar</span></div>
+          <p class="proj-resumo">Você digita o CNPJ, ele lê o seu ramo na Receita e varre o portal nacional de licitações todo dia; o que bate com o que a sua empresa vende chega no WhatsApp. Assinantes pagantes desde setembro.</p>
+          <a class="proj-link" href="https://licitacerta.com.br/" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="licitacerta-link">licitacerta.com.br →</a>
+        </div>
+      </article>
+      <article class="proj">
+        <a class="proj-shot" href="https://teafeta.com.br" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="teafeta" aria-label="Abrir TeAfeta">
+          <img src="/assets/sites/teafeta.jpg" alt="" width="640" height="400" loading="lazy" decoding="async">
+        </a>
+        <div class="proj-corpo">
+          <div class="proj-cabeca"><h3>TeAfeta</h3><span class="proj-estado">no ar</span></div>
+          <p class="proj-resumo">Lê a Câmara e o Diário Oficial todo dia e separa a regra que afeta alguém do ruído de processo. A mesma apuração vira alerta pra quem foi afetado e página de busca pra quem procura.</p>
+          <a class="proj-link" href="https://teafeta.com.br" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="teafeta-link">teafeta.com.br →</a>
+        </div>
+      </article>
+      <article class="proj">
+        <a class="proj-shot" href="https://peopleads.app" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="peopleads" aria-label="Abrir PeopleAds">
+          <img src="/assets/sites/peopleads.jpg" alt="" width="640" height="400" loading="lazy" decoding="async">
+        </a>
+        <div class="proj-corpo">
+          <div class="proj-cabeca"><h3>PeopleAds</h3><span class="proj-estado">no ar</span></div>
+          <p class="proj-resumo">Marca quer anúncio que não pareça anúncio, e quem grava esse vídeo é gente com 500 a 10 mil seguidores. O creator cria perfil de graça, a marca assina e manda proposta direto.</p>
+          <a class="proj-link" href="https://peopleads.app" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="peopleads-link">peopleads.app →</a>
+        </div>
+      </article>
+      <article class="proj">
+        <a class="proj-shot" href="https://trocaplantao.72-61-134-210.nip.io" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="trocaplantao" aria-label="Abrir Troca de Plantão">
+          <img src="/assets/sites/trocaplantao.jpg" alt="" width="640" height="400" loading="lazy" decoding="async">
+        </a>
+        <div class="proj-corpo">
+          <div class="proj-cabeca"><h3>Troca de Plantão</h3><span class="proj-estado">no ar</span></div>
+          <p class="proj-resumo">Plantão vago vira quarenta mensagens num grupo de WhatsApp. Aqui você publica uma vez e sai um link: quem tem a especialidade e está na cidade se candidata, conversa e confirma.</p>
+          <a class="proj-link" href="https://trocaplantao.72-61-134-210.nip.io" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="trocaplantao-link">Abrir o Troca de Plantão →</a>
+        </div>
+      </article>
+      <article class="proj">
+        <a class="proj-shot" href="https://suagrana.app" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="grana" aria-label="Abrir Grana">
+          <img src="/assets/sites/grana.jpg" alt="" width="640" height="400" loading="lazy" decoding="async">
+        </a>
+        <div class="proj-corpo">
+          <div class="proj-cabeca"><h3>Grana</h3><span class="proj-estado">no ar</span></div>
+          <p class="proj-resumo">App de finanças que abre respondendo uma pergunta só: quanto custa o seu dia. Fiz do primeiro cálculo até a assinatura ativa.</p>
+          <a class="proj-link" href="https://suagrana.app" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="grana-link">suagrana.app →</a>
+        </div>
+      </article>
+      <article class="proj">
+        <a class="proj-shot" href="https://mindraft.com.br" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="mindraft" aria-label="Abrir Mindraft">
+          <img src="/assets/sites/mindraft.jpg" alt="" width="640" height="400" loading="lazy" decoding="async">
+        </a>
+        <div class="proj-corpo">
+          <div class="proj-cabeca"><h3>Mindraft</h3><span class="proj-estado proj-estado-pausa">pausado</span></div>
+          <p class="proj-resumo">Transforma rascunho em estrutura de projeto. Está no ar com conta e plano; parei o desenvolvimento por decisão minha, pra concentrar em outra coisa antes de voltar nele.</p>
+          <a class="proj-link" href="https://mindraft.com.br" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="mindraft-link">mindraft.com.br →</a>
+        </div>
+      </article>
+      <article class="proj">
+        <a class="proj-shot" href="https://lgd.72-61-134-210.nip.io" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="lgd" aria-label="Abrir Legend of the Golden Dragon">
+          <img src="/assets/sites/lgd.jpg" alt="" width="640" height="400" loading="lazy" decoding="async">
+        </a>
+        <div class="proj-corpo">
+          <div class="proj-cabeca"><h3>Legend of the Golden Dragon</h3><span class="proj-estado">no ar</span></div>
+          <p class="proj-resumo">Remake em navegador de um jogo de turnos diários de 2002, com luta, evolução e PvP assíncrono. Feito pra provar que dá pra entregar um jogo inteiro com o mesmo processo de um site.</p>
+          <a class="proj-link" href="https://lgd.72-61-134-210.nip.io" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="lgd-link">Jogar agora →</a>
+        </div>
+      </article>
+      <article class="proj">
+        <a class="proj-shot" href="https://pokedaily.fun" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="pokedaily" aria-label="Abrir Pokédaily">
+          <img src="/assets/sites/pokedaily.jpg" alt="" width="640" height="400" loading="lazy" decoding="async">
+        </a>
+        <div class="proj-corpo">
+          <div class="proj-cabeca"><h3>Pokédaily</h3><span class="proj-estado">no ar</span></div>
+          <p class="proj-resumo">RPG diário de texto no navegador, pra jogar com amigos: explorações limitadas por dia, encontro, batalha, captura e time, e tudo volta no próximo dia.</p>
+          <a class="proj-link" href="https://pokedaily.fun" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="pokedaily-link">Jogar agora →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRA QUEM É ============ -->
+<section class="section section-linha" id="para-quem">
+  <div class="section-inner">
+    <div class="secao-topo"><h2 class="secao-titulo">Pra quem é</h2></div>
+    <div class="duas-colunas">
+      <div class="coluna">
+        <h3 class="coluna-titulo coluna-sim">É pra você se</h3>
+        <ul class="lista-marcada">
+          <li>seu negócio ainda só existe no Instagram ou no boca a boca</li>
+          <li>seu site atual te dá vergonha ou não abre no celular</li>
+          <li>você vai anunciar e precisa de uma página que converta</li>
+          <li>você quer preço fechado e prazo fechado, não orçamento</li>
+        </ul>
       </div>
-      <!-- ULTIMAS_IDEIAS_INICIO -->
+      <div class="coluna">
+        <h3 class="coluna-titulo coluna-nao">Não é pra você se</h3>
+        <ul class="lista-marcada lista-nao">
+          <li>você precisa de loja virtual com carrinho e pagamento</li>
+          <li>você precisa de sistema, área de login ou integração</li>
+          <li>você quer 20 páginas — aí é outro projeto, e eu te digo o preço</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CIDADES (caminho do Google pras páginas locais) ============ -->
+<section class="section section-linha" id="cidades">
+  <div class="section-inner">
+    <div class="secao-topo"><h2 class="secao-titulo">Onde eu atendo</h2></div>
+    <p class="secao-lead">Moro em Eunápolis e atendo a Costa do Descobrimento e o extremo sul da Bahia. O processo é o mesmo em qualquer uma: tudo por WhatsApp, primeira versão em 48 horas.</p>
+    <ul class="cidades">
+      <li><a href="/site-em-7-dias/eunapolis/">Eunápolis</a></li>
+      <li><a href="/site-em-7-dias/porto-seguro/">Porto Seguro</a></li>
+      <li><a href="/site-em-7-dias/arraial-d-ajuda/">Arraial d'Ajuda</a></li>
+      <li><a href="/site-em-7-dias/trancoso/">Trancoso</a></li>
+      <li><a href="/site-em-7-dias/santa-cruz-cabralia/">Santa Cruz Cabrália</a></li>
+      <li><a href="/site-em-7-dias/itabela/">Itabela</a></li>
+      <li><a href="/site-em-7-dias/teixeira-de-freitas/">Teixeira de Freitas</a></li>
+      <li><a href="/site-em-7-dias/itamaraju/">Itamaraju</a></li>
+    </ul>
+    <p class="secao-lead" style="margin-top:18px">Não está na lista? Também faço — o site é entregue no seu domínio, de onde você estiver.</p>
+  </div>
+</section>
+
+<!-- ============ SOBRE ============ -->
+<section class="section section-linha" id="sobre">
+  <div class="section-inner section-narrow">
+    <div class="secao-topo"><h2 class="secao-titulo">Quem faz</h2></div>
+    <img class="retrato" src="/assets/thallis.webp" alt="Thallis Ribeiro" width="440" height="440" loading="lazy" decoding="async">
+    <div class="sobre-corpo">
+      <p>Sou o Thallis. Formado em Administração pela UFV, MBA em Gestão Financeira pela FGV. Passei os últimos anos construindo produto meu e site de cliente — tudo que está nesta página fui eu que fiz e publiquei.</p>
+      <p>Faço poucos sites por vez, porque cada um começa entendendo o negócio antes de escrever qualquer linha. É por isso que o preço é fechado e o prazo é fechado: não tem orçamento, tem entrega.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ O QUE ESCREVO (injetado pelo gerador do blog) ============ -->
+<section class="section section-linha" id="ideias">
+  <div class="section-inner">
+    <div class="secao-topo">
+      <h2 class="secao-titulo">O que escrevo</h2>
+      <a class="secao-link" href="/blog/">Todo o blog →</a>
+    </div>
+    <!-- ULTIMAS_IDEIAS_INICIO -->
       <ul class="ideias-lista">
         <li class="ideia">
           <a class="ideia-link" href="/blog/erros-no-instagram-que-afastam-cliente-sem-voce-perceber/" data-ev="article_clicked" data-ev-local="erros-no-instagram-que-afastam-cliente-sem-voce-perceber">
@@ -177,254 +457,29 @@
         </li>
       </ul>
       <!-- ULTIMAS_IDEIAS_FIM -->
+  </div>
+</section>
+
+<!-- ============ FIM ============ -->
+<section class="section section-dfy" id="fim">
+  <div class="section-inner section-narrow">
+    <h2 class="dfy-titulo">Primeira versão em 48 horas</h2>
+    <p class="dfy-texto">O botão abre o WhatsApp com a mensagem pronta. Eu respondo com três perguntas sobre o seu negócio e começo. Em dois dias você está olhando o seu site no ar.</p>
+    <div class="tese-ctas">
+      <a class="btn btn-primary btn-lg" href="https://wa.me/5573988899345?text=Quero%20meu%20site%20em%207%20dias%20por%20397%20%5Bsite%5D" target="_blank" rel="noopener" data-ev="site7_cta_clicked" data-ev-local="fim">Quero meu site em 7 dias</a>
     </div>
-  </section>
-
-  <!-- ============ O QUE ESTOU CONSTRUINDO ============ -->
-  <section class="section section-linha" id="projetos">
-    <div class="section-inner">
-      <div class="secao-topo">
-        <h2 class="secao-titulo">Produtos</h2>
-        <a class="secao-link" href="#trabalhos">Sites que fiz pra clientes →</a>
-      </div>
-      <p class="secao-lead">Tudo aqui é meu: eu decidi, construí e publiquei. O que está no ar dá pra abrir e usar agora.</p>
-
-      <div class="construindo">
-
-        <article class="proj">
-          <a class="proj-shot" href="/site-em-7-dias/" data-ev="produto_clicked" data-ev-local="site7" aria-label="Abrir Site em 7 dias">
-            <img src="/assets/sites/site7.jpg" alt="" width="640" height="400" loading="lazy" decoding="async">
-          </a>
-          <div class="proj-corpo">
-            <div class="proj-cabeca">
-              <h3>Site em 7 dias</h3>
-              <span class="proj-estado proj-estado-venda">à venda</span>
-            </div>
-            <p class="proj-resumo">Site profissional pra quem tem negócio e não tem site: até cinco páginas, textos escritos, domínio .com.br incluso e primeira versão em 48 horas pra você ajustar. A partir de R$ 397, preço e prazo fechados antes de começar.</p>
-            <a class="proj-link" href="/site-em-7-dias/" data-ev="produto_clicked" data-ev-local="site7-link">Ver a oferta →</a>
-          </div>
-        </article>
-
-        <article class="proj">
-          <a class="proj-shot" href="/maquina-de-distribuicao/" data-ev="produto_clicked" data-ev-local="maquina" aria-label="Abrir Máquina de Distribuição">
-            <img src="/assets/sites/maquina.jpg" alt="" width="640" height="400" loading="lazy" decoding="async">
-          </a>
-          <div class="proj-corpo">
-            <div class="proj-cabeca">
-              <h3>Máquina de Distribuição</h3>
-              <span class="proj-estado proj-estado-obra">em construção</span>
-            </div>
-            <p class="proj-resumo">Uma esteira que entra com notícia e sai com peça pronta pro blog, pro Instagram e pro vídeo, três vezes por dia. A checagem de fato virou código: mesmo texto, mesmo veredito, sempre. O modelo opina sobre o que é bom; ele não decide o que é verdade.</p>
-            <a class="proj-link" href="/maquina-de-distribuicao/" data-ev="produto_clicked" data-ev-local="maquina-link">Como funciona por dentro →</a>
-          </div>
-        </article>
-
-        <article class="proj">
-          <a class="proj-shot" href="https://teafeta.com.br" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="teafeta" aria-label="Abrir TeAfeta">
-            <img src="/assets/sites/teafeta.jpg" alt="" width="640" height="400" loading="lazy" decoding="async">
-          </a>
-          <div class="proj-corpo">
-            <div class="proj-cabeca">
-              <h3>TeAfeta</h3>
-              <span class="proj-estado proj-estado-obra">em construção</span>
-            </div>
-            <p class="proj-resumo">Lê a Câmara e o Diário Oficial todo dia e separa a regra que afeta alguém do ruído de processo. A mesma apuração vira duas coisas: alerta pra quem foi afetado e página de busca pra quem procura o assunto no Google.</p>
-            <a class="proj-link" href="https://teafeta.com.br" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="teafeta-link">teafeta.com.br →</a>
-          </div>
-        </article>
-
-        <article class="proj">
-          <a class="proj-shot" href="https://licitacerta.com.br/" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="licitacerta" aria-label="Abrir LicitaCerta">
-            <img src="/assets/sites/licitacerta.jpg" alt="" width="640" height="400" loading="lazy" decoding="async">
-          </a>
-          <div class="proj-corpo">
-            <div class="proj-cabeca">
-              <h3>LicitaCerta</h3>
-              <span class="proj-estado">no ar</span>
-            </div>
-            <p class="proj-resumo">Você digita o CNPJ, ele lê o seu ramo na Receita e varre o portal nacional de licitações três vezes por dia; o que bate com o que a sua empresa vende chega no WhatsApp. Achado no caminho: 82 itens entre 368 mil tinham quantidade digitada errada e sozinhos inflavam o total de R$ 31,4 bilhões para R$ 5 trilhões.</p>
-            <a class="proj-link" href="https://licitacerta.com.br/" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="licitacerta-link">Abrir o LicitaCerta →</a>
-          </div>
-        </article>
-
-        <article class="proj">
-          <a class="proj-shot" href="https://trocaplantao.72-61-134-210.nip.io" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="trocaplantao" aria-label="Abrir Troca de Plantão">
-            <img src="/assets/sites/trocaplantao.jpg" alt="" width="640" height="400" loading="lazy" decoding="async">
-          </a>
-          <div class="proj-corpo">
-            <div class="proj-cabeca">
-              <h3>Troca de Plantão</h3>
-              <span class="proj-estado">no ar</span>
-            </div>
-            <p class="proj-resumo">Plantão vago vira quarenta mensagens num grupo de WhatsApp. Aqui você publica uma vez e sai um link: quem tem a especialidade e está na cidade se candidata, conversa e confirma dentro do app. A confirmação tem dois passos, porque troca de plantão é acordo entre duas pessoas.</p>
-            <a class="proj-link" href="https://trocaplantao.72-61-134-210.nip.io" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="trocaplantao-link">Abrir o Troca de Plantão →</a>
-          </div>
-        </article>
-
-        <article class="proj">
-          <a class="proj-shot" href="https://peopleads.app" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="peopleads" aria-label="Abrir PeopleAds">
-            <img src="/assets/sites/peopleads.jpg" alt="" width="640" height="400" loading="lazy" decoding="async">
-          </a>
-          <div class="proj-corpo">
-            <div class="proj-cabeca">
-              <h3>PeopleAds</h3>
-              <span class="proj-estado">no ar</span>
-            </div>
-            <p class="proj-resumo">Marca quer anúncio que não pareça anúncio, e quem grava esse vídeo é gente com 500 a 10 mil seguidores. O creator cria perfil de graça, a marca assina e manda proposta direta, e o pagamento passa por dentro sem nenhuma taxa — taxa sobre transação é o motivo número um de fecharem por fora.</p>
-            <a class="proj-link" href="https://peopleads.app" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="peopleads-link">peopleads.app →</a>
-          </div>
-        </article>
-
-        <article class="proj">
-          <a class="proj-shot" href="https://lgd.72-61-134-210.nip.io" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="lgd" aria-label="Abrir Legend of the Golden Dragon">
-            <img src="/assets/sites/lgd.jpg" alt="" width="640" height="400" loading="lazy" decoding="async">
-          </a>
-          <div class="proj-corpo">
-            <div class="proj-cabeca">
-              <h3>Legend of the Golden Dragon</h3>
-              <span class="proj-estado">no ar</span>
-            </div>
-            <p class="proj-resumo">Remake em navegador de um jogo de turnos diários de 2002, com luta, evolução e PvP assíncrono. A primeira versão publicada não podia ser terminada: refiz a curva com um simulador jogando contra as fórmulas reais, e o Dragão saiu de 99 dias para 15.</p>
-            <a class="proj-link" href="https://lgd.72-61-134-210.nip.io" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="lgd-link">Jogar agora →</a>
-          </div>
-        </article>
-
-        <article class="proj">
-          <a class="proj-shot" href="https://pokedaily.fun" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="pokedaily" aria-label="Abrir Pokédaily">
-            <img src="/assets/sites/pokedaily.jpg" alt="" width="640" height="400" loading="lazy" decoding="async">
-          </a>
-          <div class="proj-corpo">
-            <div class="proj-cabeca">
-              <h3>Pokédaily</h3>
-              <span class="proj-estado">no ar</span>
-            </div>
-            <p class="proj-resumo">RPG diário de texto no navegador, pra jogar com amigos: explorações limitadas por dia, encontro, batalha, captura e time, e tudo volta no próximo New Day. Mesma base do Golden Dragon, de propósito: o padrão já roda em produção, e cada sprint fecha com testes, simulador de balanço e um robô que joga sozinho do cadastro ao ginásio.</p>
-            <a class="proj-link" href="https://pokedaily.fun" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="pokedaily-link">Jogar agora →</a>
-          </div>
-        </article>
-        <article class="proj">
-          <a class="proj-shot" href="https://mindraft.com.br" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="mindraft" aria-label="Abrir Mindraft">
-            <img src="/assets/sites/mindraft.jpg" alt="" width="640" height="400" loading="lazy" decoding="async">
-          </a>
-          <div class="proj-corpo">
-            <div class="proj-cabeca">
-              <h3>Mindraft</h3>
-              <span class="proj-estado proj-estado-pausa">pausado</span>
-            </div>
-            <p class="proj-resumo">Transforma rascunho em estrutura de projeto. Está no ar com conta e plano; parei o desenvolvimento por decisão minha, pra concentrar em distribuição antes de voltar nele.</p>
-            <a class="proj-link" href="https://mindraft.com.br" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="mindraft-link">mindraft.com.br →</a>
-          </div>
-        </article>
-
-        <article class="proj">
-          <a class="proj-shot" href="https://suagrana.app" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="grana" aria-label="Abrir Grana">
-            <img src="/assets/sites/grana.jpg" alt="" width="640" height="400" loading="lazy" decoding="async">
-          </a>
-          <div class="proj-corpo">
-            <div class="proj-cabeca">
-              <h3>Grana</h3>
-              <span class="proj-estado">no ar</span>
-            </div>
-            <p class="proj-resumo">App de finanças que abre respondendo uma pergunta só: quanto custa o seu dia. Fiz do primeiro cálculo até a assinatura ativa.</p>
-            <a class="proj-link" href="https://suagrana.app" target="_blank" rel="noopener" data-ev="produto_clicked" data-ev-local="grana-link">suagrana.app →</a>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ============ SELECTED WORK ============ -->
-  <section class="section section-linha" id="trabalhos">
-    <div class="section-inner">
-      <div class="secao-topo">
-        <h2 class="secao-titulo">Sites que fiz pra clientes</h2>
-        <a class="secao-link" href="/site-em-7-dias/">Quero um assim →</a>
-      </div>
-      <p class="secao-lead">Negócio de verdade, cliente de verdade, no ar. Nada aqui é mockup.</p>
-
-      <div class="obras">
-
-        <article class="obra">
-          <div class="obra-texto">
-            <p class="obra-cat">Imobiliária · Eunápolis, BA</p>
-            <h3 class="obra-nome">Eunoimóvel</h3>
-            <p class="obra-desc">Refiz o site inteiro em Payload e Next.js sem perder uma URL antiga sequer, pra não jogar fora anos de posição no Google. Busca de imóveis, painel pro corretor e publicação sem depender de mim.</p>
-            <a class="obra-link" href="https://eunoimovel.com.br" target="_blank" rel="noopener" data-ev="cliente_clicked" data-ev-local="eunoimovel">eunoimovel.com.br →</a>
-          </div>
-          <a class="obra-shot" href="https://eunoimovel.com.br" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" data-ev="cliente_clicked" data-ev-local="eunoimovel-shot">
-            <img src="assets/eunoimovel-case.webp" alt="Página inicial do Eunoimóvel, site de imobiliária" width="1200" height="844" loading="lazy" decoding="async">
-          </a>
-        </article>
-
-        <article class="obra obra-invertida">
-          <div class="obra-texto">
-            <p class="obra-cat">Cirurgião plástico · Florianópolis e Eunápolis</p>
-            <h3 class="obra-nome">Dr. Daniel Gazzola</h3>
-            <p class="obra-desc">Site do consultório feito pra uma coisa só: quem chega procurando o profissional sai com a avaliação marcada. O formulário cai direto no CRM dele, e a página é estática pra abrir rápido no celular da paciente.</p>
-            <a class="obra-link" href="https://drdanielgazzola.com.br" target="_blank" rel="noopener" data-ev="cliente_clicked" data-ev-local="drdaniel">drdanielgazzola.com.br →</a>
-          </div>
-          <a class="obra-shot" href="https://drdanielgazzola.com.br" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" data-ev="cliente_clicked" data-ev-local="drdaniel-shot">
-            <img src="assets/dr-daniel-case.webp" alt="Página inicial do site do Dr. Daniel Gazzola" width="1200" height="844" loading="lazy" decoding="async">
-          </a>
-        </article>
-
-        <article class="obra">
-          <div class="obra-texto">
-            <p class="obra-cat">Saúde íntima e estética · Florianópolis</p>
-            <h3 class="obra-nome">Dra. Brumna Valdivieso</h3>
-            <p class="obra-desc">Onze páginas, blog e painel próprio pra ela publicar sozinha: cada post regenera o site estático, então a página da paciente não depende de nenhum servidor de aplicação pra ficar de pé.</p>
-            <span class="obra-link obra-link-inerte">Em produção · no ar em breve</span>
-          </div>
-          <div class="obra-shot">
-            <img src="assets/brumna-case.jpg" alt="Página inicial do site da Dra. Brumna Valdivieso" width="1200" height="844" loading="lazy" decoding="async">
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ SOBRE ============ -->
-  <section class="section" id="sobre">
-    <div class="section-inner section-narrow">
-      <div class="secao-topo">
-        <h2 class="secao-titulo">Sobre</h2>
-      </div>
-      <img class="retrato" src="/assets/thallis.webp" alt="Thallis Ribeiro" width="440" height="440" loading="lazy" decoding="async">
-      <div class="sobre-corpo">
-        <p>Sou o Thallis. Formado em Administração pela UFV, MBA em Gestão Financeira pela FGV, fundador do <a href="https://suagrana.app" target="_blank" rel="noopener">Grana</a>.</p>
-        <p>Passei os últimos anos construindo, produto meu e de cliente. Aí a construção deixou de ser a parte difícil, e ficou claro que eu vinha resolvendo o problema mais fácil dos dois.</p>
-        <p>Hoje eu testo a outra metade quase todo dia: como uma coisa que existe chega em quem deveria ver. O que funciona e o que não funciona vira post aqui, com número e com erro no meio.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ DONE FOR YOU ============ -->
-  <section class="section section-dfy" id="trabalhe">
-    <div class="section-inner section-narrow">
-      <h2 class="dfy-titulo">Prefere que eu faça?</h2>
-      <p class="dfy-texto">Pego poucos projetos por vez, porque cada um começa entendendo o negócio antes de escrever qualquer linha. Site, produto, automação e sistema de distribuição. A partir de R$ 397.</p>
-      <a class="btn btn-primary btn-lg" href="/trabalhe-comigo/" data-ev="work_with_me_clicked" data-ev-local="secao-dfy">Trabalhar comigo</a>
-    </div>
-  </section>
+    <p class="nota-canal">Você será direcionado ao WhatsApp. Quem responde sou eu, não um robô.</p>
+  </div>
+</section>
 
 </main>
 
 <footer class="footer">
   <span>Thallis Ribeiro © 2026</span>
   <a class="footer-social" href="/blog/">Blog</a>
-  <a class="footer-social" href="/feed.xml"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11a9 9 0 019 9M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1.5" fill="currentColor" stroke="none"/></svg>RSS</a>
-  <a class="footer-social" href="https://instagram.com/thallis.lab" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@thallis.lab</a>
-  <a class="footer-social" href="https://www.linkedin.com/in/thallisribeiro/" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.4 20.4h-3.5v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2 2 0 110-4.1 2 2 0 010 4.1zM7.1 20.4H3.6V9h3.5v11.4z"/></svg>LinkedIn</a>
+  <a class="footer-social" href="https://instagram.com/thallis.lab" target="_blank" rel="noopener">@thallis.lab</a>
+  <a class="footer-social" href="https://www.linkedin.com/in/thallisribeiro/" target="_blank" rel="noopener">LinkedIn</a>
 </footer>
-
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
-<script src="assets/main.js" defer></script>
-<script src="assets/fundo.js" defer></script>
-<script src="assets/movimento.js" defer></script>
+<script src="/assets/main.js" defer></script>
 </body>
 </html>

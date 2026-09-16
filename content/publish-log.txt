@@ -166,3 +166,52 @@
 [2026-09-08T16:13:06.545Z] [ensure-queue] push pendente concluído
 [2026-09-08T16:13:06.587Z] [ensure-queue] artigo do content-hub aproveitado (par do carrossel 2026-08-29): Construí o Grana sem investidor e sem sócio: por que isso importa pra quem me contrata
 [2026-09-08T16:13:09.214Z] [ensure-queue] capa: [capa-do-post] magnific: 1
+[2026-09-08T20:30:01.807Z] [ensure-queue] 2 commit(s) local(is) aguardando push — tentando novamente
+[2026-09-08T20:30:04.532Z] [ensure-queue] push pendente concluído
+[2026-09-08T20:30:04.573Z] [ensure-queue] fila já tem 1 post(s) — nada a gerar
+[2026-09-08T21:10:07.537Z] publicado: /blog/construi-o-grana-sem-investidor-e-sem-socio-por-que-isso-importa-pra-q/ — "Construí o Grana sem investidor e sem sócio: por que isso importa pra quem me contrata"
+[2026-09-09T14:30:02.178Z] [ensure-queue] artigo do content-hub aproveitado (par do carrossel 2026-08-29): Por que eu já recusei projeto (e provavelmente vou recusar de novo)
+[2026-09-09T14:30:07.151Z] [ensure-queue] capa: [capa-do-post] magnific: 1
+[2026-09-09T15:10:02.041Z] 1 commit(s) local(is) aguardando push — tentando novamente
+[2026-09-09T15:10:04.607Z] push pendente concluído
+[2026-09-09T15:10:08.994Z] publicado: /blog/por-que-eu-ja-recusei-projeto-e-provavelmente-vou-recusar-de-novo/ — "Por que eu já recusei projeto (e provavelmente vou recusar de novo)"
+[2026-09-09T20:30:02.248Z] [ensure-queue] artigo do content-hub aproveitado (par do carrossel 2026-08-29): A ANPD abriu 19 processos em junho: o que isso muda pro site do seu negócio
+[2026-09-09T20:30:07.797Z] [ensure-queue] capa: [capa-do-post] magnific: 1
+[2026-09-09T21:10:02.037Z] 1 commit(s) local(is) aguardando push — tentando novamente
+[2026-09-09T21:10:04.574Z] push pendente concluído
+[2026-09-09T21:10:09.001Z] publicado: /blog/a-anpd-abriu-19-processos-em-junho-o-que-isso-muda-pro-site-do-seu-neg/ — "A ANPD abriu 19 processos em junho: o que isso muda pro site do seu negócio"
+[2026-09-10T09:30:03.179Z] [ensure-queue] artigo do content-hub aproveitado (par do carrossel 2026-08-29): Seu negócio pode ser real e ainda ser invisível pro Google: checklist de SEO local
+[2026-09-10T09:30:08.815Z] [ensure-queue] capa: [capa-do-post] magnific: 1
+[2026-09-10T10:10:02.411Z] 1 commit(s) local(is) aguardando push — tentando novamente
+[2026-09-10T10:10:05.211Z] push pendente concluído
+[2026-09-10T10:10:11.749Z] publicado: /blog/seu-negocio-pode-ser-real-e-ainda-ser-invisivel-pro-google-checklist-d/ — "Seu negócio pode ser real e ainda ser invisível pro Google: checklist de SEO local"
+[2026-09-10T14:30:02.269Z] [ensure-queue] artigo do content-hub aproveitado (par do carrossel 2026-08-30): Site bonito não vende sozinho (o que realmente converte cliente)
+[2026-09-10T14:30:07.336Z] [ensure-queue] capa: [capa-do-post] magnific: 1
+[2026-09-10T15:10:02.061Z] 1 commit(s) local(is) aguardando push — tentando novamente
+[2026-09-10T15:10:04.644Z] push pendente concluído
+[2026-09-10T15:10:09.311Z] publicado: /blog/site-bonito-nao-vende-sozinho-o-que-realmente-converte-cliente/ — "Site bonito não vende sozinho (o que realmente converte cliente)"
+[2026-09-10T20:30:03.116Z] [ensure-queue] artigo do content-hub aproveitado (par do carrossel 2026-08-30): 4 erros no Instagram que afastam cliente sem você perceber
+[2026-09-10T20:30:09.364Z] [ensure-queue] capa: [capa-do-post] magnific: 1
+[2026-09-10T21:10:02.120Z] 1 commit(s) local(is) aguardando push — tentando novamente
+[2026-09-10T21:10:04.602Z] push pendente concluído
+[2026-09-10T21:10:09.527Z] publicado: /blog/erros-no-instagram-que-afastam-cliente-sem-voce-perceber/ — "4 erros no Instagram que afastam cliente sem você perceber"
+[2026-09-11T09:30:02.503Z] [ensure-queue] nada pareado da esteira neste horário — sem post. O blog publica o que a esteira apurou, não o que eu fiz hoje.
+[2026-09-11T10:10:02.132Z] fila vazia — nada publicado neste horário
+[2026-09-11T14:30:02.233Z] [ensure-queue] nada pareado da esteira neste horário — sem post. O blog publica o que a esteira apurou, não o que eu fiz hoje.
+[2026-09-11T15:10:02.082Z] fila vazia — nada publicado neste horário
+[2026-09-11T20:30:02.945Z] [ensure-queue] nada pareado da esteira neste horário — sem post. O blog publica o que a esteira apurou, não o que eu fiz hoje.
+[2026-09-11T21:10:02.174Z] fila vazia — nada publicado neste horário
+[2026-09-12T09:30:02.586Z] [ensure-queue] nada pareado da esteira neste horário — sem post. O blog publica o que a esteira apurou, não o que eu fiz hoje.
+[2026-09-12T10:10:02.256Z] fila vazia — nada publicado neste horário
+[2026-09-12T14:30:02.748Z] [ensure-queue] nada pareado da esteira neste horário — sem post. O blog publica o que a esteira apurou, não o que eu fiz hoje.
+[2026-09-12T15:10:02.089Z] fila vazia — nada publicado neste horário
+[2026-09-12T20:30:02.589Z] [ensure-queue] nada pareado da esteira neste horário — sem post. O blog publica o que a esteira apurou, não o que eu fiz hoje.
+[2026-09-12T21:10:02.082Z] fila vazia — nada publicado neste horário
+[2026-09-13T09:30:02.627Z] [ensure-queue] nada pareado da esteira neste horário — sem post. O blog publica o que a esteira apurou, não o que eu fiz hoje.
+[2026-09-13T10:10:02.100Z] fila vazia — nada publicado neste horário
+[2026-09-13T14:30:01.904Z] [ensure-queue] nada pareado da esteira neste horário — sem post. O blog publica o que a esteira apurou, não o que eu fiz hoje.
+[2026-09-13T15:10:01.357Z] fila vazia — nada publicado neste horário
+[2026-09-13T20:30:01.961Z] [ensure-queue] nada pareado da esteira neste horário — sem post. O blog publica o que a esteira apurou, não o que eu fiz hoje.
+[2026-09-13T21:10:01.412Z] fila vazia — nada publicado neste horário
+[2026-09-14T09:30:01.850Z] [ensure-queue] nada pareado da esteira neste horário — sem post. O blog publica o que a esteira apurou, não o que eu fiz hoje.
+[2026-09-14T10:10:01.438Z] fila vazia — nada publicado neste horário
