@@ -80,7 +80,7 @@ const GA_ID = 'G-247F9N1WQE';
 function esc(s) { return String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
 
 function zap(cidade) {
-  const texto = encodeURIComponent(`Quero um site pro meu negócio em ${cidade.nome}. Vi a página de R$ 397 em 7 dias.`);
+  const texto = encodeURIComponent(`Quero um site pro meu negócio em ${cidade.nome}. Vi a página de R$ 997 em 7 dias.`);
   return `https://wa.me/${WHATSAPP}?text=${texto}`;
 }
 
@@ -99,8 +99,8 @@ function cardExemplo(chave) {
 
 function pagina(cidade) {
   const nome = cidade.nome;
-  const titulo = `Criação de site em ${nome} — R$ 397, no ar em 7 dias`;
-  const descricao = `Site profissional para o seu negócio em ${nome} (${cidade.uf}) a partir de R$ 397, com domínio .com.br incluso e primeira versão em 48 horas. Preço e prazo fechados antes de começar.`;
+  const titulo = `Criação de site em ${nome} — R$ 997, no ar em 7 dias`;
+  const descricao = `Site profissional para o seu negócio em ${nome} (${cidade.uf}) a partir de R$ 997, com domínio .com.br incluso e primeira versão em 48 horas. Preço e prazo fechados antes de começar.`;
   const url = `${SITE}/site-em-7-dias/${cidade.slug}/`;
   const link = zap(cidade);
 
@@ -138,7 +138,7 @@ function pagina(cidade) {
   "serviceType": "Criação de site",
   "provider": { "@type": "Person", "name": "Thallis Ribeiro", "url": "${SITE}/" },
   "areaServed": { "@type": "City", "name": "${esc(nome)}", "containedInPlace": { "@type": "State", "name": "${cidade.uf}" } },
-  "offers": { "@type": "Offer", "price": "397", "priceCurrency": "BRL", "url": "${url}" },
+  "offers": { "@type": "Offer", "price": "997", "priceCurrency": "BRL", "url": "${url}" },
   "description": "${esc(descricao)}"
 }
 </script>
@@ -154,7 +154,7 @@ function pagina(cidade) {
       <span class="logo">Thallis Ribeiro</span>
     </span>
     <div class="nav-actions">
-      <a class="btn btn-primary btn-nav" href="#preco">A partir de R$ 397</a>
+      <a class="btn btn-primary btn-nav" href="#preco">A partir de R$ 997</a>
     </div>
   </div>
 </header>
@@ -166,7 +166,7 @@ function pagina(cidade) {
       <p class="tese-kicker">Site profissional · ${esc(nome)}, ${cidade.uf}</p>
       <h1 class="tese-h1">
         <span class="tese-linha tese-linha-fria">Seu site no ar em 7 dias.</span>
-        <span class="tese-linha tese-linha-quente">A partir de R$&nbsp;397, domínio incluso.</span>
+        <span class="tese-linha tese-linha-quente">A partir de R$&nbsp;997, domínio incluso.</span>
       </h1>
       <p class="tese-sub">${esc(cidade.relacao)} Design, textos, versão de celular, otimizado pro Google e publicado no seu domínio. Primeira versão em 48 horas pra você ver e ajustar.</p>
       <div class="tese-ctas">
@@ -223,8 +223,8 @@ ${(cidade.prova || []).map(cardExemplo).join('\n')}
         </div>
         <div class="oferta-preco">
           <p class="oferta-rotulo">a partir de</p>
-          <p class="oferta-valor"><span class="oferta-moeda">R$</span>397</p>
-          <p class="preco-nota" style="margin-top:-6px">Domínio .com.br incluso. Hospedagem R$ 29/mês a partir do segundo mês, cancela quando quiser.</p>
+          <p class="oferta-valor"><span class="oferta-moeda">R$</span>997</p>
+          <p class="preco-nota" style="margin-top:-6px">Hospedagem + domínio .com.br grátis no primeiro ano.</p>
           <ul class="preco-lista">
             <li><span class="preco-item">Primeira versão</span><span class="preco-valor">em 48 horas</span></li>
             <li><span class="preco-item">Entrega</span><span class="preco-valor">em até 7 dias</span></li>

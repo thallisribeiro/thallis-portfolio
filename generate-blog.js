@@ -803,8 +803,7 @@ ${rssItems}
       }
       console.log(`[gerado] prova: ${posts.length} posts em ${dias} dias`);
     } else {
-      console.error('[erro] index.html sem marcadores de prova');
-      process.exitCode = 1;
+      // 17/09/2026: o Thallis tirou a faixa de números da home de propósito. Sem marcador, não há o que contar.
     }
   }
 
