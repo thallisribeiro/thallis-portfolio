@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bit: o financeiro da sua empresa em dia, só mandando mensagem</title>
+<meta name="description" content="Mande uma mensagem, um áudio ou a foto do recibo. O Bit lança, classifica e te mostra quanto entrou, saiu e sobrou. Grátis pra testar, sem cartão.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0F766E">
+<meta property="og:title" content="Bit: o financeiro da sua empresa em dia, só mandando mensagem">
+<meta property="og:description" content="Você não usa um sistema financeiro. Você conversa com ele. Grátis pra testar, sem cartão.">
+<meta property="og:image" content="https://bit.macrobit.com.br/opengraph-image?d17459a60c8e590f">
+<meta property="og:locale" content="pt_BR">
+<link rel="icon" href="bit.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B1F24; --ink2:#34474D; --muted:#52656A; --line:#E3E8E6;
+  --bg:#FAFAF7; --card:#FFFFFF; --mint:#E8F6F4; --mint2:#D3EFEB;
+  --teal:#1E9DA0; --teal-d:#0F766E; --teal-dd:#0A5A54;
+  --amber:#F2A93B; --amber-l:#FFF3DF; --coral:#E0662E;
+  --r:18px; --sombra:0 1px 2px rgba(11,31,36,.06),0 12px 32px -12px rgba(11,31,36,.18);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink2);font:500 1.0625rem/1.6 Manrope,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{color:var(--ink);margin:0;font-weight:800;letter-spacing:-.025em;line-height:1.1}
+h2{font-size:clamp(1.75rem,1.15rem + 2.3vw,2.7rem)}
+h3{font-size:1.15rem;letter-spacing:-.01em;line-height:1.3}
+p{margin:0}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.olho{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-d)}
+.secao{padding:88px 0}
+.cab{max-width:720px;margin:0 auto 48px;text-align:center}
+.cab p{margin-top:16px;font-size:1.125rem;color:var(--muted)}
+.cab .olho{margin-bottom:14px}
+
+/* botões */
+.btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border-radius:14px;background:var(--teal-d);color:#fff;font-weight:800;font-size:1.0625rem;text-decoration:none;box-shadow:0 1px 0 rgba(255,255,255,.25) inset,0 10px 24px -8px rgba(15,118,110,.6);transition:transform .15s,background .15s,box-shadow .15s}
+.btn:hover{background:var(--teal-dd);transform:translateY(-1px);box-shadow:0 1px 0 rgba(255,255,255,.25) inset,0 14px 28px -8px rgba(15,118,110,.7)}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.dor :focus-visible,footer :focus-visible{outline-color:var(--amber)}
+.btn .i{transition:transform .15s}
+.btn:hover .i{transform:translateX(3px)}
+.micro{margin-top:14px;font-size:.875rem;color:var(--muted)}
+.micro b{color:var(--ink2);font-weight:700}
+
+/* topo */
+.topo{padding:14px 0;position:relative;z-index:5}
+.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.marca{display:flex;align-items:center;gap:10px;min-height:44px;text-decoration:none;color:var(--ink);font-weight:800;font-size:1.25rem;letter-spacing:-.02em}
+.marca img{width:36px;height:36px}
+.marca small{font-size:.75rem;font-weight:600;color:var(--muted);letter-spacing:0}
+.btn-topo{min-height:44px;padding:0 18px;font-size:.9375rem;border-radius:12px;box-shadow:none}
+
+/* hero */
+/* brilho e pontilhado atrás do topo + hero, sem emenda entre os dois */
+body::before{content:"";position:absolute;top:0;left:0;right:0;height:1100px;background:radial-gradient(640px 560px at 82% 18%,rgba(30,157,160,.17),transparent 70%),radial-gradient(rgba(11,31,36,.07) 1px,transparent 1px) 0 0/22px 22px;-webkit-mask-image:linear-gradient(180deg,#000 40%,transparent);mask-image:linear-gradient(180deg,#000 40%,transparent);pointer-events:none;z-index:-1}
+.hero{position:relative;padding:28px 0 72px}
+.hero .wrap{position:relative;z-index:1;display:grid;gap:48px;align-items:center}
+.selo-topo{display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 6px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:.8125rem;font-weight:700;color:var(--ink2);box-shadow:0 1px 2px rgba(11,31,36,.05)}
+.selo-topo span{background:var(--mint);color:var(--teal-d);padding:3px 9px;border-radius:999px}
+.hero h1{margin-top:20px;font-size:clamp(2.15rem,1.3rem + 3.6vw,3.85rem);line-height:1.04;letter-spacing:-.035em}
+.grifo{color:var(--teal-d);position:relative;white-space:nowrap}
+.grifo svg{position:absolute;left:0;right:0;bottom:-.14em;width:100%;height:.32em;overflow:visible}
+.grifo path{fill:none;stroke:var(--amber);stroke-width:5;stroke-linecap:round}
+.hero .sub{margin-top:22px;font-size:clamp(1.0625rem,1rem + .35vw,1.25rem);max-width:560px}
+.hero .sub q{quotes:"“" "”";color:var(--ink);font-weight:700}
+.acao{margin-top:30px}
+.provas{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:28px;padding-top:22px;border-top:1px solid var(--line);font-size:.875rem;font-weight:600;color:var(--ink2)}
+.provas div{display:flex;align-items:center;gap:8px}
+.provas .i{width:18px;height:18px;color:var(--teal-d)}
+
+/* celular + chat */
+.palco{position:relative;display:flex;justify-content:center}
+.cel{position:relative;width:min(340px,100%);border-radius:44px;background:var(--ink);padding:11px;box-shadow:0 40px 80px -30px rgba(11,31,36,.45),0 0 0 1px rgba(255,255,255,.06) inset}
+.tela{border-radius:34px;overflow:hidden;background:#EEF3F2}
+.tela-cab{display:flex;align-items:center;gap:10px;padding:18px 18px 12px;background:#fff;border-bottom:1px solid var(--line)}
+.tela-cab img{width:36px;height:36px}
+.tela-cab b{display:block;color:var(--ink);font-size:.95rem;line-height:1.2}
+.tela-cab small{font-size:.75rem;color:var(--teal-d);font-weight:600}
+#chat{display:flex;flex-direction:column;justify-content:flex-end;gap:10px;min-height:500px;padding:16px 12px}
+.msg{max-width:84%;padding:10px 13px;border-radius:16px;font-size:.875rem;line-height:1.45;color:var(--ink)}
+.msg.eu{align-self:flex-end;background:var(--teal-d);color:#fff;border-bottom-right-radius:5px}
+.msg.bit{align-self:flex-start;background:#fff;border-bottom-left-radius:5px;box-shadow:0 1px 1px rgba(11,31,36,.06)}
+.msg.bit b{color:var(--teal-d)}
+.msg .rot{display:block;margin-top:6px;font-size:.72rem;font-weight:700;color:var(--muted)}
+.msg .tag{display:table;margin-top:6px;padding:2px 8px;border-radius:6px;background:var(--mint);color:var(--teal-d);font-size:.72rem;font-weight:700}
+.audio{display:flex;align-items:center;gap:8px}
+.audio .play{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.2);display:grid;place-items:center}
+.audio .play::before{content:"";border-left:8px solid #fff;border-top:5px solid transparent;border-bottom:5px solid transparent;margin-left:2px}
+.onda{display:flex;align-items:center;gap:2px;height:20px}
+.onda i{width:3px;border-radius:2px;background:rgba(255,255,255,.75)}
+.msg.eu .rot{color:#fff;font-weight:600;font-style:italic}
+.digitando{display:none;align-self:flex-start;gap:4px;padding:12px 14px;background:#fff;border-radius:16px;border-bottom-left-radius:5px}
+.digitando i{width:7px;height:7px;border-radius:50%;background:#9FB0B4;animation:pula 1s infinite}
+.digitando i:nth-child(2){animation-delay:.15s}.digitando i:nth-child(3){animation-delay:.3s}
+@keyframes pula{0%,60%,100%{transform:none;opacity:.5}30%{transform:translateY(-4px);opacity:1}}
+#chat.anim .msg{display:none}
+#chat.anim .msg.show{display:block;animation:entra .35s cubic-bezier(.2,.8,.2,1)}
+#chat.anim .digitando.show{display:flex}
+@keyframes entra{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
+.tela-pe{display:flex;justify-content:space-around;padding:10px 8px 14px;background:#fff;border-top:1px solid var(--line);font-size:.65rem;font-weight:600;color:var(--muted)}
+.tela-pe span{display:flex;flex-direction:column;align-items:center;gap:3px}
+.tela-pe .meio{color:var(--teal-d);margin-top:-8px}
+.tela-pe .meio img{width:30px;height:30px}
+.tela-pe .i{width:18px;height:18px}
+.flutua{position:absolute;display:none;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;background:#fff;box-shadow:var(--sombra);font-size:.8125rem;font-weight:700;color:var(--ink)}
+.flutua small{display:block;font-size:.72rem;font-weight:600;color:var(--muted)}
+.flutua .bola{width:34px;height:34px;border-radius:10px;display:grid;place-items:center}
+.f1{bottom:-3%;left:-4%}.f1 .bola{background:var(--mint);color:var(--teal-d)}
+.f2{top:1.5%;right:-8%}.f2 .bola{background:var(--amber-l);color:#B86E00}
+.f2 b{font-size:1.05rem}
+
+/* dor */
+.dor{background:var(--ink);color:#C9D6D4}
+.dor h2{color:#fff}
+.dor .olho{color:var(--amber)}
+.dor .cab p{color:#A7B8B6}
+.dores{display:grid;gap:12px;max-width:820px;margin:0 auto}
+.dores li{display:flex;gap:14px;align-items:flex-start;padding:18px 20px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:#E6EEEC;font-weight:600}
+.dores li .i{color:var(--coral);margin-top:3px}
+ul{list-style:none;margin:0;padding:0}
+.virada{max-width:820px;margin:40px auto 0;padding:28px;border-radius:var(--r);background:linear-gradient(135deg,rgba(30,157,160,.22),rgba(30,157,160,.06));border:1px solid rgba(30,157,160,.35);display:flex;gap:20px;align-items:center}
+.virada img{width:64px;height:64px;flex-shrink:0}
+.virada p{color:#E6EEEC;font-size:1.0625rem}
+.virada strong{color:#fff}
+
+/* como funciona */
+.passos{display:grid;gap:18px;counter-reset:p}
+.passo{position:relative;padding:28px;border-radius:var(--r);background:var(--card);border:1px solid var(--line);box-shadow:0 1px 2px rgba(11,31,36,.04)}
+.passo .n{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:11px;background:var(--teal-d);color:#fff;font-weight:800;margin-bottom:18px}
+.passo p{margin-top:8px;color:var(--muted);font-size:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chips span{display:inline-flex;align-items:center;gap:6px;padding:7px 11px;border-radius:10px;background:var(--mint);color:var(--teal-dd);font-size:.8125rem;font-weight:700}
+.chips .i{width:16px;height:16px}
+.lanc{margin-top:18px;display:grid;gap:8px}
+.lanc div{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:var(--bg);border:1px solid var(--line);font-size:.8125rem;font-weight:700;color:var(--ink)}
+.lanc em{font-style:normal;font-size:.72rem;padding:2px 8px;border-radius:6px;background:var(--mint);color:var(--teal-d);white-space:nowrap}
+.alerta{margin-top:18px;padding:12px 14px;border-radius:12px;background:var(--amber-l);border:1px solid #F6D9A6;font-size:.8125rem;font-weight:600;color:#6B4A0F;display:flex;gap:10px}
+.alerta img{width:26px;height:26px;flex-shrink:0}
+
+/* resultado */
+.resultado{background:linear-gradient(180deg,var(--mint) 0%,var(--bg) 100%)}
+.res{display:grid;gap:40px;align-items:center}
+.rel{padding:26px;border-radius:24px;background:var(--card);box-shadow:var(--sombra);max-width:460px;width:100%;margin:0 auto}
+.rel-cab{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.rel-cab b{color:var(--ink);font-size:1.05rem}
+.rel-cab small{color:var(--muted);font-size:.8rem;font-weight:600}
+.rosca{position:relative;width:190px;height:190px;margin:22px auto;border-radius:50%;background:conic-gradient(#0F766E 0 41.43%,#1E9DA0 0 65.43%,#5CC3BF 0 77.77%,#F2A93B 0 86.78%,#94D6D1 0 92.29%,#BFE6E2 0 96.52%,#DCE6E4 0 100%)}
+.rosca::after{content:"";position:absolute;inset:30px;border-radius:50%;background:#fff}
+.rosca div{position:absolute;inset:0;display:grid;place-content:center;text-align:center;z-index:1}
+.rosca small{font-size:.75rem;font-weight:600;color:var(--muted)}
+.rosca b{color:var(--ink);font-size:1.3rem;letter-spacing:-.02em}
+.cats li{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:10px;font-size:.875rem;font-weight:600;color:var(--ink2)}
+.cats li b{white-space:nowrap;margin-left:auto;color:var(--ink);font-variant-numeric:tabular-nums}
+.cats i{width:10px;height:10px;border-radius:3px;flex-shrink:0}
+.cats .dest{background:var(--amber-l);outline:1px solid #F6D9A6}
+.cats .dest span::after{content:"você tirou pra você";display:block;width:max-content;margin:3px 0 0;font-size:.68rem;font-weight:800;color:#8A5A00;background:#fff;padding:2px 6px;border-radius:5px}
+.ganhos{display:grid;gap:22px}
+.ganho{display:flex;gap:16px}
+.ganho .bola{width:44px;height:44px;border-radius:13px;background:var(--card);border:1px solid var(--line);display:grid;place-items:center;color:var(--teal-d);flex-shrink:0}
+.ganho p{margin-top:4px;color:var(--muted);font-size:1rem}
+.res h2{margin-bottom:28px}
+
+/* comparativo */
+.comp{max-width:900px;margin:0 auto;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:var(--card);box-shadow:0 1px 2px rgba(11,31,36,.04)}
+.comp-l{display:grid;grid-template-columns:1fr 1fr}
+.comp-l>div{padding:16px 20px;display:flex;gap:12px;align-items:flex-start;font-size:.9375rem;border-top:1px solid var(--line)}
+.comp-l>div:first-child{color:var(--muted);font-weight:600}
+.comp-l>div:last-child{background:#F4FBFA;color:var(--ink);font-weight:700;border-left:1px solid var(--line)}
+.comp-l .i{width:18px;height:18px;margin-top:3px}
+.comp-l>div:first-child .i{color:#B8C4C7}
+.comp-l>div:last-child .i{color:var(--teal-d)}
+.comp-t>div{border-top:0;padding:18px 20px;font-size:.8rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.comp-t>div:last-child{background:var(--teal-d);color:#fff;display:flex;align-items:center;gap:8px}
+.comp-t img{width:22px;height:22px}
+
+/* oferta */
+.oferta{background:var(--ink);position:relative;overflow:hidden}
+.oferta::before{content:"";position:absolute;left:50%;top:-240px;width:900px;height:600px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(30,157,160,.35),transparent);pointer-events:none}
+.oferta .cab h2{color:#fff}
+.oferta .cab p{color:#A7B8B6}
+.oferta .olho{color:var(--amber)}
+.plano{position:relative;max-width:520px;margin:0 auto;padding:36px 32px;border-radius:26px;background:var(--card);box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.promo{display:inline-block;padding:5px 11px;border-radius:999px;background:var(--amber-l);color:#8A5A00;font-size:.75rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.de{margin-top:18px;color:var(--muted);font-weight:600;font-size:.9375rem}
+.preco{display:flex;align-items:flex-end;gap:8px;margin-top:2px}
+.preco b{color:var(--ink);font-size:3.4rem;line-height:1;letter-spacing:-.04em}
+.preco b small{font-size:1.4rem;letter-spacing:0;margin-right:4px}
+.preco span{color:var(--muted);font-weight:700;margin-bottom:8px}
+.dia{margin-top:8px;font-size:.9375rem;color:var(--teal-d);font-weight:700}
+.inclui{margin:24px 0 28px;display:grid;gap:12px;padding-top:24px;border-top:1px solid var(--line)}
+.inclui li{display:flex;gap:12px;font-size:.9375rem;color:var(--ink2);font-weight:600}
+.inclui .i{color:var(--teal-d);margin-top:2px}
+.plano .btn{width:100%}
+.plano .micro{text-align:center}
+.garantia{display:flex;gap:14px;align-items:center;margin-top:24px;padding:16px;border-radius:14px;background:var(--mint)}
+.garantia .i{width:30px;height:30px;color:var(--teal-d)}
+.garantia p{font-size:.875rem;color:var(--ink2)}
+.garantia b{color:var(--ink)}
+
+/* confiança */
+.confia{display:grid;gap:16px}
+.confia>div{padding:24px;border-radius:var(--r);background:var(--card);border:1px solid var(--line)}
+.confia .bola{width:44px;height:44px;border-radius:13px;background:var(--mint);display:grid;place-items:center;color:var(--teal-d);margin-bottom:16px}
+.confia p{margin-top:8px;color:var(--muted);font-size:.9375rem}
+.confia .destaque{background:var(--teal-d);border-color:transparent}
+.confia .destaque p{color:#D5EFEC}
+.confia .destaque .num{color:#fff;font-size:2.6rem;margin-bottom:6px}
+.confia .destaque b{color:#fff}
+.confia .num{color:var(--ink);font-size:2rem;font-weight:800;letter-spacing:-.03em;line-height:1}
+
+/* faq */
+.faq{max-width:760px;margin:0 auto;display:grid;gap:10px}
+details{border-radius:14px;background:var(--card);border:1px solid var(--line);transition:border-color .2s}
+details[open]{border-color:var(--mint2);box-shadow:0 1px 2px rgba(11,31,36,.04)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:14px 20px;font-weight:700;color:var(--ink)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";width:10px;height:10px;border-right:2.5px solid var(--teal-d);border-bottom:2.5px solid var(--teal-d);transform:rotate(45deg) translateY(-3px);transition:transform .2s;flex-shrink:0}
+details[open] summary::after{transform:rotate(-135deg) translateY(-3px)}
+details p{padding:0 20px 20px;color:var(--muted);font-size:1rem}
+
+/* final */
+.final{text-align:center;padding-bottom:96px}
+.final img{width:120px;height:120px;margin:0 auto 20px}
+.final h2{max-width:680px;margin:0 auto}
+.final p.sub{margin:18px auto 30px;max-width:540px;font-size:1.125rem;color:var(--muted)}
+
+/* rodapé */
+footer{background:var(--ink);color:#8FA3A1;padding:40px 0 48px;font-size:.8125rem;text-align:center}
+footer .marca{justify-content:center;color:#fff;margin-bottom:16px}
+footer p{margin-top:6px}
+footer a{color:#CFE0DD;text-decoration:underline;text-underline-offset:3px}
+footer nav{display:flex;justify-content:center;gap:4px 18px;flex-wrap:wrap;margin-top:12px}
+footer nav a{display:inline-flex;align-items:center;min-height:44px}
+.credito{margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);color:#8FA3A1}
+
+/* barra fixa mobile */
+#barra-cta{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;align-items:center;gap:12px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid var(--line);transform:translateY(110%);visibility:hidden;transition:transform .25s,visibility 0s .25s}
+#barra-cta.on{transform:none;visibility:visible;transition:transform .25s}
+#barra-cta p{font-size:.8rem;line-height:1.3;color:var(--muted);font-weight:600}
+#barra-cta p b{display:block;color:var(--ink);font-size:.95rem}
+#barra-cta .btn{flex-shrink:0;margin-left:auto;min-height:48px;padding:0 20px;font-size:.9375rem;box-shadow:none}
+
+/* entrada ao rolar */
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+
+@media (min-width:720px){
+  .passos{grid-template-columns:repeat(3,1fr)}
+  .confia{grid-template-columns:repeat(2,1fr)}
+  .dores{grid-template-columns:1fr 1fr}
+  .dores li:last-child{grid-column:1/-1}
+}
+@media (min-width:900px){
+  /* topo fixo no desktop: sem barra de CTA, é o único botão entre o hero e o preço */
+  .topo{position:sticky;top:0;transition:background .2s,box-shadow .2s}
+  .topo.rolou{background:rgba(250,250,247,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+  .hero{padding:48px 0 104px}
+  .hero .wrap{grid-template-columns:1.1fr .9fr;gap:40px}
+  .flutua{display:flex}
+  .res{grid-template-columns:1fr 1fr;gap:64px}
+  .confia{grid-template-columns:repeat(4,1fr)}
+  .secao{padding:112px 0}
+  #barra-cta{display:none}
+}
+@media (max-width:899px){
+  html{scroll-padding-bottom:90px}
+  .rel{order:1}
+}
+@media (max-width:719px){
+  /* no celular cada linha vira um par: o jeito de sempre em cima, o Bit embaixo */
+  .comp-t{display:none}
+  .comp-l{grid-template-columns:1fr}
+  .comp-l>div:first-child{padding:16px 18px 8px}
+  .comp-l>div:last-child{border-top:0;border-left:0;padding:10px 18px 16px}
+  .comp-t+.comp-l>div:first-child{border-top:0}
+  .virada{flex-direction:column;align-items:flex-start;padding:22px}
+  .plano{padding:28px 22px}
+  footer{padding-bottom:100px}
+}
+@media (max-width:400px){
+  .selo-topo{display:none}
+  .hero h1{margin-top:4px}
+  .plano .btn{padding:0 16px;font-size:1rem}
+  .provas{gap:8px 16px;font-size:.8125rem}
+  .hero .sub{margin-top:18px}
+  .acao{margin-top:24px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-msg" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v5"/></symbol>
+  <symbol id="i-cam" viewBox="0 0 24 24"><path d="M3 8a2 2 0 0 1 2-2h2l2-2h6l2 2h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="4"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></symbol>
+  <symbol id="i-ok" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-seta" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></symbol>
+  <symbol id="i-cad" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+  <symbol id="i-esc" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-sup" viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-6h3zM3 19a2 2 0 0 0 2 2h1v-6H3z"/></symbol>
+  <symbol id="i-gente" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-estrela" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></symbol>
+  <symbol id="i-graf" viewBox="0 0 24 24"><path d="M21.2 15.9A10 10 0 1 1 8 2.8"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></symbol>
+  <symbol id="i-sobe" viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-8M14 7h7v7"/></symbol>
+  <symbol id="i-casa" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+  <symbol id="i-disp" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></symbol>
+  <symbol id="i-perg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></symbol>
+</svg>
+
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="#topo" aria-label="Bit, início"><img src="bit.png" alt="" width="36" height="36"><span>Bit <small>da Macrobit</small></span></a>
+    <a class="btn btn-topo" data-cta href="https://bit.macrobit.com.br/comecar">Testar grátis</a>
+  </div>
+</header>
+
+<main id="topo">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="selo-topo"><span>IA</span> Assistente financeiro da Macrobit</span>
+      <h1>O financeiro da sua empresa em dia, <span class="grifo">só mandando<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8c40-5 90-7 194-3"/></svg></span> mensagem.</h1>
+      <p class="sub">Escreva <q>paguei R$ 1.280 no Atacadão</q>, mande um áudio ou a foto do recibo. O Bit lança, classifica e te mostra quanto entrou, quanto saiu e quanto sobrou. Sem planilha.</p>
+      <div class="acao">
+        <a class="btn" data-cta href="https://bit.macrobit.com.br/comecar">Testar o Bit grátis <svg class="i"><use href="#i-seta"/></svg></a>
+        <p class="micro"><b>Sem cartão de crédito.</b> Direto no navegador, sem instalar nada. Depois, R$ 39,90/mês, sem fidelidade.</p>
+      </div>
+      <div class="provas">
+        <div><svg class="i"><use href="#i-estrela"/></svg>Macrobit: 10/10 no Reclame Aqui desde 2016</div>
+        <div><svg class="i"><use href="#i-gente"/></svg>+40 mil clientes Macrobit</div>
+        <div><svg class="i"><use href="#i-esc"/></svg>7 dias de garantia</div>
+      </div>
+    </div>
+
+    <div class="palco">
+      <div class="cel">
+        <div class="tela">
+          <div class="tela-cab"><img src="bit.png" alt="" width="36" height="36"><div><b>Bit</b><small>Seu assistente financeiro</small></div></div>
+          <div id="chat" role="img" aria-label="Exemplo de conversa: você conta um pagamento, manda um áudio e pergunta como está o caixa; o Bit lança tudo e responde que sobraram 10 mil reais no mês.">
+            <div class="msg eu">Paguei R$ 1.280 no Atacadão, compra de mercadoria</div>
+            <div class="msg bit">Pronto! Lancei como <b>compra de mercadoria</b> ✅<span class="tag">−R$ 1.280 · hoje</span></div>
+            <div class="msg eu"><div class="audio"><span class="play"></span><span class="onda"><i style="height:6px"></i><i style="height:12px"></i><i style="height:18px"></i><i style="height:10px"></i><i style="height:15px"></i><i style="height:7px"></i><i style="height:13px"></i><i style="height:19px"></i><i style="height:9px"></i><i style="height:14px"></i><i style="height:6px"></i><i style="height:11px"></i><i style="height:16px"></i><i style="height:8px"></i></span><span>0:06</span></div><span class="rot">“Recebi R$ 3.400 no Pix do cliente”</span></div>
+            <div class="msg bit">Anotado: <b>receita de venda</b> 👍<span class="tag">+R$ 3.400 · hoje</span></div>
+            <div class="msg eu">E como tá meu caixa esse mês?</div>
+            <div class="msg bit">Entrou <b>R$ 40 mil</b>, saiu <b>R$ 30 mil</b>. Sobrou <b>R$ 10 mil</b> no caixa. Quer ver pra onde foi?</div>
+            <div class="digitando" aria-hidden="true"><i></i><i></i><i></i></div>
+          </div>
+          <div class="tela-pe" aria-hidden="true"><span><svg class="i"><use href="#i-casa"/></svg>Hoje</span><span><svg class="i"><use href="#i-graf"/></svg>Relatórios</span><span class="meio"><img src="bit.png" alt="" width="30" height="30">Bit</span><span><svg class="i"><use href="#i-sobe"/></svg>Movimento</span><span><svg class="i"><use href="#i-msg"/></svg>Mais</span></div>
+        </div>
+      </div>
+      <div class="flutua f1" aria-hidden="true"><span class="bola"><svg class="i"><use href="#i-ok"/></svg></span><div>Classificado sozinho<small>Compra de mercadoria</small></div></div>
+      <div class="flutua f2" aria-hidden="true"><span class="bola"><svg class="i"><use href="#i-sobe"/></svg></span><div><small>Sobrou no mês</small><b>R$ 10.000</b></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="secao dor">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Parece com você?</span>
+      <h2>O mês acaba e a pergunta é sempre a mesma: “teve lucro ou não?”</h2>
+    </div>
+    <ul class="dores rv">
+      <li><svg class="i"><use href="#i-x"/></svg>A conta da empresa e a sua estão misturadas no mesmo app do banco.</li>
+      <li><svg class="i"><use href="#i-x"/></svg>Recibo no bolso, nota no WhatsApp e Pix que você nem lembra de quem era.</li>
+      <li><svg class="i"><use href="#i-x"/></svg>A planilha que você começou em janeiro parou em fevereiro.</li>
+      <li><svg class="i"><use href="#i-x"/></svg>Entra dinheiro o mês todo, mas no fim quase não sobra.</li>
+      <li><svg class="i"><use href="#i-x"/></svg>Você só descobre o problema quando o dinheiro já faltou.</li>
+    </ul>
+    <div class="virada rv">
+      <img src="bit.png" alt="" width="64" height="64" loading="lazy">
+      <p><strong>Não é falta de disciplina.</strong> Sistema financeiro foi feito pra contador: cheio de campo, categoria e tela. O Bit foi feito pra quem passa o dia atendendo cliente. Você conta o que aconteceu, ele faz o resto.</p>
+    </div>
+  </div>
+</section>
+
+<section class="secao">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Como funciona</span>
+      <h2>Três passos. Nenhum deles é abrir planilha.</h2>
+      <p>Você conversa com o Bit como falaria com um assistente financeiro. Ele entende, organiza e mantém tudo atualizado.</p>
+    </div>
+    <div class="passos">
+      <article class="passo rv">
+        <span class="n">1</span>
+        <h3>Conte do seu jeito</h3>
+        <p>Escreva, grave um áudio ou tire foto, até no meio do atendimento.</p>
+        <div class="chips">
+          <span><svg class="i"><use href="#i-msg"/></svg>Mensagem</span>
+          <span><svg class="i"><use href="#i-mic"/></svg>Áudio</span>
+          <span><svg class="i"><use href="#i-cam"/></svg>Foto do recibo</span>
+          <span><svg class="i"><use href="#i-doc"/></svg>Extrato do banco</span>
+          <span><svg class="i"><use href="#i-card"/></svg>Fatura do cartão</span>
+        </div>
+      </article>
+      <article class="passo rv">
+        <span class="n">2</span>
+        <h3>O Bit organiza</h3>
+        <p>Ele entende o que aconteceu e lança no lugar certo. Você não escolhe categoria.</p>
+        <div class="lanc">
+          <div>Atacadão · R$ 1.280 <em>Mercadoria</em></div>
+          <div>Pix do cliente · R$ 3.400 <em>Venda</em></div>
+          <div>Taxa da maquininha · R$ 96 <em>Taxas</em></div>
+        </div>
+      </article>
+      <article class="passo rv">
+        <span class="n">3</span>
+        <h3>Você entende o negócio</h3>
+        <p>Números organizados, relatórios claros e a ajuda do Bit pra entender o que merece atenção.</p>
+        <div class="alerta"><img src="bit-pensando.png" alt="" width="26" height="26" loading="lazy"><span><b>“Quanto tirei pra mim esse mês?”</b><br>R$ 6.850, 9% das saídas do mês.</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="secao resultado">
+  <div class="wrap res">
+    <div class="rel rv" role="img" aria-label="Relatório de exemplo: saídas do mês por categoria, total de 75.987 reais. Fornecedores 31.480, folha 18.240, impostos 9.375, retiradas pessoais 6.850, aluguel 4.185, taxas da maquininha 3.215, marketing 2.642.">
+      <div class="rel-cab"><b>Pra onde foi o dinheiro</b><small>saídas do mês</small></div>
+      <div class="rosca"><div><small>Total</small><b>R$ 75.987</b></div></div>
+      <ul class="cats">
+        <li><i style="background:#0F766E"></i><span>Fornecedores</span><b>R$ 31.480</b></li>
+        <li><i style="background:#1E9DA0"></i><span>Folha de pagamento</span><b>R$ 18.240</b></li>
+        <li><i style="background:#5CC3BF"></i><span>Impostos</span><b>R$ 9.375</b></li>
+        <li class="dest"><i style="background:#F2A93B"></i><span>Retiradas pessoais</span><b>R$ 6.850</b></li>
+        <li><i style="background:#94D6D1"></i><span>Aluguel</span><b>R$ 4.185</b></li>
+        <li><i style="background:#BFE6E2"></i><span>Taxas da maquininha</span><b>R$ 3.215</b></li>
+        <li><i style="background:#DCE6E4"></i><span>Marketing</span><b>R$ 2.642</b></li>
+      </ul>
+    </div>
+    <div>
+      <span class="olho rv">O que você ganha</span>
+      <h2 class="rv">Pra onde foi o dinheiro? Agora você sabe.</h2>
+      <div class="ganhos">
+        <div class="ganho rv"><span class="bola"><svg class="i"><use href="#i-graf"/></svg></span><div><h3>Clareza sem fazer conta</h3><p>Quanto entrou, quanto saiu, quanto sobrou e o que merece sua atenção.</p></div></div>
+        <div class="ganho rv"><span class="bola"><svg class="i"><use href="#i-gente"/></svg></span><div><h3>Separe empresa e vida pessoal</h3><p>O Bit ajuda a separar o que é do negócio e o que você tirou pra você. Chega de misturar as contas.</p></div></div>
+        <div class="ganho rv"><span class="bola"><svg class="i"><use href="#i-perg"/></svg></span><div><h3>Pergunte em português</h3><p>“Quanto gastei com fornecedor esse mês?” O Bit analisa seus números e responde.</p></div></div>
+        <div class="ganho rv"><span class="bola"><svg class="i"><use href="#i-disp"/></svg></span><div><h3>Onde você estiver</h3><p>No navegador do celular, tablet ou computador, sem baixar nada. Comece no celular, continue no computador.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="secao">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Por que não uma planilha?</span>
+      <h2>Nem planilha, nem sistema complicado, nem IA que esquece.</h2>
+    </div>
+    <div class="comp rv">
+      <div class="comp-l comp-t"><div>Do jeito de sempre</div><div><img src="bit.png" alt="" width="22" height="22" loading="lazy">Com o Bit</div></div>
+      <div class="comp-l"><div><svg class="i"><use href="#i-x"/></svg>Digita cada lançamento na planilha</div><div><svg class="i"><use href="#i-ok"/></svg>Manda mensagem, áudio ou foto</div></div>
+      <div class="comp-l"><div><svg class="i"><use href="#i-x"/></svg>Escolhe categoria, conta e centro de custo</div><div><svg class="i"><use href="#i-ok"/></svg>O Bit classifica sozinho</div></div>
+      <div class="comp-l"><div><svg class="i"><use href="#i-x"/></svg>Precisa entender de finanças</div><div><svg class="i"><use href="#i-ok"/></svg>Não precisa: ele faz o trabalho pesado</div></div>
+      <div class="comp-l"><div><svg class="i"><use href="#i-x"/></svg>IA comum esquece tudo e às vezes inventa número</div><div><svg class="i"><use href="#i-ok"/></svg>IA ligada a um sistema de gestão de verdade, com histórico</div></div>
+      <div class="comp-l"><div><svg class="i"><use href="#i-x"/></svg>Baixa o extrato e digita linha por linha</div><div><svg class="i"><use href="#i-ok"/></svg>Manda o extrato e o Bit lança, sem senha de banco</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="secao oferta" id="preco">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Preço</span>
+      <h2>Teste de graça. Se gostar, custa menos que um lanche.</h2>
+      <p>Veja o Bit funcionando com os seus números antes de decidir assinar.</p>
+    </div>
+    <div class="plano rv">
+      <span class="promo">Promoção de lançamento</span>
+      <p class="de">de <s>R$ 69,90</s> por</p>
+      <div class="preco"><b><small>R$</small>39,90</b><span>/mês</span></div>
+      <p class="dia">Cerca de R$ 1,33 por dia. Sem fidelidade.</p>
+      <ul class="inclui">
+        <li><svg class="i"><use href="#i-ok"/></svg>Lançamentos por mensagem, áudio, foto, extrato e fatura</li>
+        <li><svg class="i"><use href="#i-ok"/></svg>Relatórios de entrada, saída e sobra do mês</li>
+        <li><svg class="i"><use href="#i-ok"/></svg>Ajuda pra separar empresa e vida pessoal</li>
+        <li><svg class="i"><use href="#i-ok"/></svg>Celular, tablet e computador, ou instale como aplicativo</li>
+        <li><svg class="i"><use href="#i-ok"/></svg>Suporte de gente de verdade no WhatsApp e no e-mail</li>
+      </ul>
+      <a class="btn" data-cta href="https://bit.macrobit.com.br/comecar">Começar meu teste grátis <svg class="i"><use href="#i-seta"/></svg></a>
+      <p class="micro"><b>Não pede cartão pra testar.</b> Cancela quando quiser.</p>
+      <div class="garantia"><svg class="i"><use href="#i-esc"/></svg><p><b>7 dias de garantia.</b> Além do teste grátis, você ainda tem 7 dias de garantia depois de assinar.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="secao">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Segurança</span>
+      <h2>Nenhum outro cliente enxerga seus números.</h2>
+    </div>
+    <div class="confia">
+      <div class="rv"><span class="bola"><svg class="i"><use href="#i-cad"/></svg></span><h3>Sem senha de banco</h3><p>Você não conecta banco nem passa senha pra ninguém. Manda o extrato ou digita.</p></div>
+      <div class="rv"><span class="bola"><svg class="i"><use href="#i-esc"/></svg></span><h3>Criptografia e LGPD</h3><p>Servidores protegidos e dados isolados por empresa: nenhum outro cliente enxerga seus números.</p></div>
+      <div class="rv"><span class="bola"><svg class="i"><use href="#i-sup"/></svg></span><h3>Gente de verdade</h3><p>Time de suporte no WhatsApp e no e-mail pra tirar dúvida e te ensinar a usar.</p></div>
+      <div class="rv destaque"><p class="num">+40 mil</p><p>clientes já compraram produtos da Macrobit. Nota <b>10/10 no Reclame Aqui</b> desde 2016.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="secao" style="padding-top:0">
+  <div class="wrap">
+    <div class="cab rv">
+      <span class="olho">Perguntas frequentes</span>
+      <h2>Ainda com dúvida?</h2>
+    </div>
+    <div class="faq rv">
+      <details><summary>Preciso entender de finanças pra usar?</summary><p>Não. O Bit foi feito justamente pra simplificar. Você conversa normalmente e ele faz o trabalho pesado por você.</p></details>
+      <details><summary>É grátis pra testar? E depois, quanto custa?</summary><p>O teste é grátis e sem cartão de crédito. Se decidir continuar, custa R$ 39,90 por mês na promoção de lançamento, sem fidelidade e com 7 dias de garantia.</p></details>
+      <details><summary>Preciso conectar minha conta do banco?</summary><p>Não. Você não conecta banco nem passa senha de banco pra ninguém. É só mandar o extrato ou a fatura pro Bit, ou digitar do seu jeito.</p></details>
+      <details><summary>Meus dados estão seguros?</summary><p>Estão. Suas informações ficam em servidores protegidos, com criptografia, e são isoladas por empresa: nenhum outro cliente enxerga os seus números. A Macrobit segue a LGPD.</p></details>
+      <details><summary>Qual a diferença do Bit pra uma IA comum, tipo o ChatGPT?</summary><p>Uma IA comum é boa de papo, mas não tem memória nem um sistema por trás, então se perde e às vezes inventa número. O Bit é uma IA ligada a um sistema de gestão de verdade, com os seus dados organizados e um método próprio da Macrobit. Ele lembra, mantém o histórico e trabalha em cima de dados reais.</p></details>
+      <details><summary>Preciso instalar alguma coisa?</summary><p>Não. Funciona no navegador do celular, do tablet ou do computador. Se quiser, dá pra instalar como aplicativo.</p></details>
+      <details><summary>E se eu precisar de ajuda de gente de verdade?</summary><p>Tem um time de suporte de verdade te atendendo pelo e-mail suporte@macrobit.com.br e pelo WhatsApp, pra tirar dúvida, resolver problema ou te ensinar a usar.</p></details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div id="fim">
+<section class="secao final" style="padding-top:0">
+  <div class="wrap rv">
+    <img src="bit-pensando.png" alt="" width="120" height="120" loading="lazy">
+    <h2>Ainda pensando? O teste é grátis e não pede cartão.</h2>
+    <p class="sub">Mande a primeira mensagem e veja o Bit organizando o financeiro da sua empresa.</p>
+    <a class="btn" data-cta href="https://bit.macrobit.com.br/comecar">Testar o Bit grátis <svg class="i"><use href="#i-seta"/></svg></a>
+    <p class="micro">Depois, R$ 39,90/mês · sem fidelidade · 7 dias de garantia</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="marca" href="#topo" aria-label="Bit, voltar ao início"><img src="bit.png" alt="" width="36" height="36">Bit</a>
+    <p>MACRO BIT GESTÃO E CONSULTORIA LTDA - ME · CNPJ 55.121.718/0001-28</p>
+    <p>Suporte: <a href="mailto:suporte@macrobit.com.br">suporte@macrobit.com.br</a></p>
+    <nav aria-label="Rodapé">
+      <a href="https://wa.me/5522981526045">WhatsApp (22) 98152-6045</a>
+      <a href="https://bit.macrobit.com.br/termos">Termos</a>
+      <a href="https://bit.macrobit.com.br/privacidade">Privacidade</a>
+    </nav>
+    <p class="credito">Proposta de redesign por <a href="https://thallisribeiro.com.br">Thallis Ribeiro</a></p>
+  </div>
+</footer>
+</div>
+
+<div id="barra-cta">
+  <p><b>Teste grátis</b>sem cartão · R$ 39,90/mês</p>
+  <a class="btn" data-cta href="https://bit.macrobit.com.br/comecar">Testar grátis</a>
+</div>
+
+<script>
+document.documentElement.classList.add('js');
+
+// Repassa UTM/fbclid do anúncio pro cadastro, senão a atribuição morre nesta página.
+var q = location.search.slice(1);
+if (q) document.querySelectorAll('[data-cta]').forEach(function (a) {
+  a.href += (a.href.indexOf('?') < 0 ? '?' : '&') + q;
+});
+
+var calmo = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Chat: sem JS ou com movimento reduzido, as mensagens já estão todas visíveis.
+var chat = document.getElementById('chat');
+if (!calmo) {
+  var msgs = chat.querySelectorAll('.msg'), dig = chat.querySelector('.digitando'), t = 500;
+  var roda = function () {
+    msgs.forEach(function (m) {
+      var doBit = m.classList.contains('bit');
+      if (doBit) { setTimeout(function () { dig.classList.add('show'); }, t); t += 900; }
+      setTimeout(function () { dig.classList.remove('show'); m.classList.add('show'); }, t);
+      t += doBit ? 1300 : 800;
+    });
+  };
+  chat.classList.add('anim');
+  // No celular o chat fica abaixo da dobra: só começa quando aparece.
+  if ('IntersectionObserver' in window) {
+    var vc = new IntersectionObserver(function (es) {
+      if (es[0].isIntersecting) { vc.disconnect(); roda(); }
+    }, { threshold: .25 });
+    vc.observe(chat);
+  } else roda();
+}
+
+var topo = document.querySelector('.topo');
+addEventListener('scroll', function () { topo.classList.toggle('rolou', scrollY > 8); }, { passive: true });
+
+// Entrada das seções ao rolar.
+var rv = document.querySelectorAll('.rv');
+if (calmo || !('IntersectionObserver' in window)) rv.forEach(function (el) { el.classList.add('in'); });
+else {
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -8% 0px' });
+  rv.forEach(function (el) { io.observe(el); });
+}
+
+// Barra fixa do mobile: aparece depois do botão do topo e some no CTA final.
+var barra = document.getElementById('barra-cta'), passou = false, noFim = false;
+function barraUpd() { barra.classList.toggle('on', passou && !noFim); }
+if ('IntersectionObserver' in window) {
+  new IntersectionObserver(function (es) {
+    passou = !es[0].isIntersecting && es[0].boundingClientRect.top < 0; barraUpd();
+  }).observe(document.querySelector('.hero .acao'));
+  new IntersectionObserver(function (es) { noFim = es[0].isIntersecting; barraUpd(); })
+    .observe(document.getElementById('fim'));
+}
+</script>
+</body>
+</html>
