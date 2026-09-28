@@ -89,11 +89,9 @@ body::before{content:"";position:absolute;top:0;left:0;right:0;height:1100px;bac
 .msg.eu{align-self:flex-end;background:var(--teal-d);color:#fff;border-bottom-right-radius:5px}
 .msg.bit{align-self:flex-start;background:#fff;border-bottom-left-radius:5px;box-shadow:0 1px 1px rgba(11,31,36,.06)}
 .msg.bit b{color:var(--teal-d)}
-.msg .rot{display:block;margin-top:6px;font-size:.72rem;font-weight:700;color:var(--muted)}
 .msg .tag{display:table;margin-top:6px;padding:2px 8px;border-radius:6px;background:var(--mint);color:var(--teal-d);font-size:.72rem;font-weight:700}
-.msg.eu .rot{color:#fff;font-weight:600;font-style:italic}
-.msg .falado{display:flex;align-items:center;gap:4px;font-style:normal;opacity:.85}
-.msg .falado .i{width:13px;height:13px}
+.msg .falado{display:flex;align-items:center;gap:4px;margin-top:6px;font-size:.72rem;font-weight:600;color:#fff}
+.msg .falado .i{width:13px;height:13px;opacity:.85}
 .digitando{display:none;align-self:flex-start;gap:4px;padding:12px 14px;background:#fff;border-radius:16px;border-bottom-left-radius:5px}
 .digitando i{width:7px;height:7px;border-radius:50%;background:#9FB0B4;animation:pula 1s infinite}
 .digitando i:nth-child(2){animation-delay:.15s}.digitando i:nth-child(3){animation-delay:.3s}
@@ -335,7 +333,7 @@ footer nav a{display:inline-flex;align-items:center;min-height:44px}
       <p class="sub">Escreva <q>paguei R$ 1.280 no Atacadão</q>, fale no microfone ou mande a foto do recibo. O Bit lança, classifica e te mostra quanto entrou, quanto saiu e quanto sobrou. Sem planilha.</p>
       <div class="acao">
         <a class="btn" data-cta href="https://bit.macrobit.com.br/comecar">Testar o Bit grátis <svg class="i"><use href="#i-seta"/></svg></a>
-        <p class="micro"><b>Sem cartão de crédito.</b> Direto no navegador, sem instalar nada. Depois, R$ 39,90/mês, sem fidelidade.</p>
+        <p class="micro"><b>Sem cartão de crédito.</b> Você testa numa empresa de exemplo, direto no navegador. Depois, R$ 39,90/mês, sem fidelidade.</p>
       </div>
       <div class="provas">
         <div><svg class="i"><use href="#i-estrela"/></svg>Macrobit: 10/10 no Reclame Aqui desde 2016</div>
@@ -348,10 +346,10 @@ footer nav a{display:inline-flex;align-items:center;min-height:44px}
       <div class="cel">
         <div class="tela">
           <div class="tela-cab"><img src="bit.png" alt="" width="36" height="36"><div><b>Bit</b><small>Seu assistente financeiro</small></div></div>
-          <div id="chat" role="img" aria-label="Exemplo de conversa: você conta um pagamento, fala outro no microfone e pergunta como está o caixa; o Bit lança tudo e responde que sobraram 10 mil reais no mês.">
+          <div id="chat" role="img" aria-label="Exemplo de conversa: você conta um pagamento, fala um recebimento no microfone e pergunta como está o caixa; o Bit organiza tudo e responde que sobraram 10 mil reais no mês.">
             <div class="msg eu">Paguei R$ 1.280 no Atacadão, compra de mercadoria</div>
-            <div class="msg bit">Pronto! Lancei como <b>compra de mercadoria</b> ✅<span class="tag">−R$ 1.280 · hoje</span></div>
-            <div class="msg eu">Recebi R$ 3.400 no Pix do cliente<span class="rot falado"><svg class="i" aria-hidden="true"><use href="#i-mic"/></svg>falado no microfone</span></div>
+            <div class="msg bit">Perfeito! Organizei como <b>compra de mercadoria</b> ✅<span class="tag">−R$ 1.280 · hoje</span></div>
+            <div class="msg eu">Recebi R$ 3.400 no Pix do cliente<span class="falado"><svg class="i" aria-hidden="true"><use href="#i-mic"/></svg>falado no microfone</span></div>
             <div class="msg bit">Anotado: <b>receita de venda</b> 👍<span class="tag">+R$ 3.400 · hoje</span></div>
             <div class="msg eu">E como tá meu caixa esse mês?</div>
             <div class="msg bit">Entrou <b>R$ 40 mil</b>, saiu <b>R$ 30 mil</b>. Sobrou <b>R$ 10 mil</b> no caixa. Quer ver pra onde foi?</div>
@@ -537,7 +535,7 @@ footer nav a{display:inline-flex;align-items:center;min-height:44px}
   <div class="wrap rv">
     <img src="bit-pensando.png" alt="" width="120" height="120" loading="lazy">
     <h2>Ainda pensando? O teste é grátis e não pede cartão.</h2>
-    <p class="sub">Veja o Bit organizando o financeiro de uma empresa de exemplo. Gostou, assina e ele passa a cuidar da sua.</p>
+    <p class="sub">Veja o Bit organizando o financeiro de uma empresa de exemplo. Gostou? Assina e ele passa a cuidar da sua.</p>
     <a class="btn" data-cta href="https://bit.macrobit.com.br/comecar">Testar o Bit grátis <svg class="i"><use href="#i-seta"/></svg></a>
     <p class="micro">Depois, R$ 39,90/mês · sem fidelidade · 7 dias de garantia</p>
   </div>
