@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Bit: o financeiro da sua empresa em dia, só mandando mensagem</title>
-<meta name="description" content="Mande uma mensagem, um áudio ou a foto do recibo. O Bit lança, classifica e te mostra quanto entrou, saiu e sobrou. Grátis pra testar, sem cartão.">
+<meta name="description" content="Escreva, fale ou mande a foto do recibo. O Bit lança, classifica e te mostra quanto entrou, saiu e sobrou. Grátis pra testar, sem cartão.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0F766E">
 <meta property="og:title" content="Bit: o financeiro da sua empresa em dia, só mandando mensagem">
@@ -91,12 +91,9 @@ body::before{content:"";position:absolute;top:0;left:0;right:0;height:1100px;bac
 .msg.bit b{color:var(--teal-d)}
 .msg .rot{display:block;margin-top:6px;font-size:.72rem;font-weight:700;color:var(--muted)}
 .msg .tag{display:table;margin-top:6px;padding:2px 8px;border-radius:6px;background:var(--mint);color:var(--teal-d);font-size:.72rem;font-weight:700}
-.audio{display:flex;align-items:center;gap:8px}
-.audio .play{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.2);display:grid;place-items:center}
-.audio .play::before{content:"";border-left:8px solid #fff;border-top:5px solid transparent;border-bottom:5px solid transparent;margin-left:2px}
-.onda{display:flex;align-items:center;gap:2px;height:20px}
-.onda i{width:3px;border-radius:2px;background:rgba(255,255,255,.75)}
 .msg.eu .rot{color:#fff;font-weight:600;font-style:italic}
+.msg .falado{display:flex;align-items:center;gap:4px;font-style:normal;opacity:.85}
+.msg .falado .i{width:13px;height:13px}
 .digitando{display:none;align-self:flex-start;gap:4px;padding:12px 14px;background:#fff;border-radius:16px;border-bottom-left-radius:5px}
 .digitando i{width:7px;height:7px;border-radius:50%;background:#9FB0B4;animation:pula 1s infinite}
 .digitando i:nth-child(2){animation-delay:.15s}.digitando i:nth-child(3){animation-delay:.3s}
@@ -335,7 +332,7 @@ footer nav a{display:inline-flex;align-items:center;min-height:44px}
     <div>
       <span class="selo-topo"><span>IA</span> Assistente financeiro da Macrobit</span>
       <h1>O financeiro da sua empresa em dia, <span class="grifo">só mandando<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8c40-5 90-7 194-3"/></svg></span> mensagem.</h1>
-      <p class="sub">Escreva <q>paguei R$ 1.280 no Atacadão</q>, mande um áudio ou a foto do recibo. O Bit lança, classifica e te mostra quanto entrou, quanto saiu e quanto sobrou. Sem planilha.</p>
+      <p class="sub">Escreva <q>paguei R$ 1.280 no Atacadão</q>, fale no microfone ou mande a foto do recibo. O Bit lança, classifica e te mostra quanto entrou, quanto saiu e quanto sobrou. Sem planilha.</p>
       <div class="acao">
         <a class="btn" data-cta href="https://bit.macrobit.com.br/comecar">Testar o Bit grátis <svg class="i"><use href="#i-seta"/></svg></a>
         <p class="micro"><b>Sem cartão de crédito.</b> Direto no navegador, sem instalar nada. Depois, R$ 39,90/mês, sem fidelidade.</p>
@@ -351,10 +348,10 @@ footer nav a{display:inline-flex;align-items:center;min-height:44px}
       <div class="cel">
         <div class="tela">
           <div class="tela-cab"><img src="bit.png" alt="" width="36" height="36"><div><b>Bit</b><small>Seu assistente financeiro</small></div></div>
-          <div id="chat" role="img" aria-label="Exemplo de conversa: você conta um pagamento, manda um áudio e pergunta como está o caixa; o Bit lança tudo e responde que sobraram 10 mil reais no mês.">
+          <div id="chat" role="img" aria-label="Exemplo de conversa: você conta um pagamento, fala outro no microfone e pergunta como está o caixa; o Bit lança tudo e responde que sobraram 10 mil reais no mês.">
             <div class="msg eu">Paguei R$ 1.280 no Atacadão, compra de mercadoria</div>
             <div class="msg bit">Pronto! Lancei como <b>compra de mercadoria</b> ✅<span class="tag">−R$ 1.280 · hoje</span></div>
-            <div class="msg eu"><div class="audio"><span class="play"></span><span class="onda"><i style="height:6px"></i><i style="height:12px"></i><i style="height:18px"></i><i style="height:10px"></i><i style="height:15px"></i><i style="height:7px"></i><i style="height:13px"></i><i style="height:19px"></i><i style="height:9px"></i><i style="height:14px"></i><i style="height:6px"></i><i style="height:11px"></i><i style="height:16px"></i><i style="height:8px"></i></span><span>0:06</span></div><span class="rot">“Recebi R$ 3.400 no Pix do cliente”</span></div>
+            <div class="msg eu">Recebi R$ 3.400 no Pix do cliente<span class="rot falado"><svg class="i" aria-hidden="true"><use href="#i-mic"/></svg>falado no microfone</span></div>
             <div class="msg bit">Anotado: <b>receita de venda</b> 👍<span class="tag">+R$ 3.400 · hoje</span></div>
             <div class="msg eu">E como tá meu caixa esse mês?</div>
             <div class="msg bit">Entrou <b>R$ 40 mil</b>, saiu <b>R$ 30 mil</b>. Sobrou <b>R$ 10 mil</b> no caixa. Quer ver pra onde foi?</div>
@@ -400,10 +397,10 @@ footer nav a{display:inline-flex;align-items:center;min-height:44px}
       <article class="passo rv">
         <span class="n">1</span>
         <h3>Conte do seu jeito</h3>
-        <p>Escreva, grave um áudio ou tire foto, até no meio do atendimento.</p>
+        <p>Escreva, fale no microfone ou tire foto, até no meio do atendimento.</p>
         <div class="chips">
           <span><svg class="i"><use href="#i-msg"/></svg>Mensagem</span>
-          <span><svg class="i"><use href="#i-mic"/></svg>Áudio</span>
+          <span><svg class="i"><use href="#i-mic"/></svg>Voz</span>
           <span><svg class="i"><use href="#i-cam"/></svg>Foto do recibo</span>
           <span><svg class="i"><use href="#i-doc"/></svg>Extrato do banco</span>
           <span><svg class="i"><use href="#i-card"/></svg>Fatura do cartão</span>
@@ -465,7 +462,7 @@ footer nav a{display:inline-flex;align-items:center;min-height:44px}
     </div>
     <div class="comp rv">
       <div class="comp-l comp-t"><div>Do jeito de sempre</div><div><img src="bit.png" alt="" width="22" height="22" loading="lazy">Com o Bit</div></div>
-      <div class="comp-l"><div><svg class="i"><use href="#i-x"/></svg>Digita cada lançamento na planilha</div><div><svg class="i"><use href="#i-ok"/></svg>Manda mensagem, áudio ou foto</div></div>
+      <div class="comp-l"><div><svg class="i"><use href="#i-x"/></svg>Digita cada lançamento na planilha</div><div><svg class="i"><use href="#i-ok"/></svg>Escreve, fala ou manda foto</div></div>
       <div class="comp-l"><div><svg class="i"><use href="#i-x"/></svg>Escolhe categoria, conta e centro de custo</div><div><svg class="i"><use href="#i-ok"/></svg>O Bit classifica sozinho</div></div>
       <div class="comp-l"><div><svg class="i"><use href="#i-x"/></svg>Precisa entender de finanças</div><div><svg class="i"><use href="#i-ok"/></svg>Não precisa: ele faz o trabalho pesado</div></div>
       <div class="comp-l"><div><svg class="i"><use href="#i-x"/></svg>IA comum esquece tudo e às vezes inventa número</div><div><svg class="i"><use href="#i-ok"/></svg>IA ligada a um sistema de gestão de verdade, com histórico</div></div>
@@ -479,7 +476,7 @@ footer nav a{display:inline-flex;align-items:center;min-height:44px}
     <div class="cab rv">
       <span class="olho">Preço</span>
       <h2>Teste de graça. Se gostar, custa menos que um lanche.</h2>
-      <p>Veja o Bit funcionando com os seus números antes de decidir assinar.</p>
+      <p>Veja o Bit funcionando numa empresa de exemplo antes de decidir assinar.</p>
     </div>
     <div class="plano rv">
       <span class="promo">Promoção de lançamento</span>
@@ -487,7 +484,7 @@ footer nav a{display:inline-flex;align-items:center;min-height:44px}
       <div class="preco"><b><small>R$</small>39,90</b><span>/mês</span></div>
       <p class="dia">Cerca de R$ 1,33 por dia. Sem fidelidade.</p>
       <ul class="inclui">
-        <li><svg class="i"><use href="#i-ok"/></svg>Lançamentos por mensagem, áudio, foto, extrato e fatura</li>
+        <li><svg class="i"><use href="#i-ok"/></svg>Lançamentos por mensagem, voz, foto, extrato e fatura</li>
         <li><svg class="i"><use href="#i-ok"/></svg>Relatórios de entrada, saída e sobra do mês</li>
         <li><svg class="i"><use href="#i-ok"/></svg>Ajuda pra separar empresa e vida pessoal</li>
         <li><svg class="i"><use href="#i-ok"/></svg>Celular, tablet e computador, ou instale como aplicativo</li>
@@ -523,7 +520,7 @@ footer nav a{display:inline-flex;align-items:center;min-height:44px}
     </div>
     <div class="faq rv">
       <details><summary>Preciso entender de finanças pra usar?</summary><p>Não. O Bit foi feito justamente pra simplificar. Você conversa normalmente e ele faz o trabalho pesado por você.</p></details>
-      <details><summary>É grátis pra testar? E depois, quanto custa?</summary><p>O teste é grátis e sem cartão de crédito. Se decidir continuar, custa R$ 39,90 por mês na promoção de lançamento, sem fidelidade e com 7 dias de garantia.</p></details>
+      <details><summary>É grátis pra testar? E depois, quanto custa?</summary><p>O teste é grátis e sem cartão de crédito: você vê o Bit funcionando numa empresa de exemplo. Se decidir continuar, custa R$ 39,90 por mês na promoção de lançamento, sem fidelidade e com 7 dias de garantia.</p></details>
       <details><summary>Preciso conectar minha conta do banco?</summary><p>Não. Você não conecta banco nem passa senha de banco pra ninguém. É só mandar o extrato ou a fatura pro Bit, ou digitar do seu jeito.</p></details>
       <details><summary>Meus dados estão seguros?</summary><p>Estão. Suas informações ficam em servidores protegidos, com criptografia, e são isoladas por empresa: nenhum outro cliente enxerga os seus números. A Macrobit segue a LGPD.</p></details>
       <details><summary>Qual a diferença do Bit pra uma IA comum, tipo o ChatGPT?</summary><p>Uma IA comum é boa de papo, mas não tem memória nem um sistema por trás, então se perde e às vezes inventa número. O Bit é uma IA ligada a um sistema de gestão de verdade, com os seus dados organizados e um método próprio da Macrobit. Ele lembra, mantém o histórico e trabalha em cima de dados reais.</p></details>
@@ -540,7 +537,7 @@ footer nav a{display:inline-flex;align-items:center;min-height:44px}
   <div class="wrap rv">
     <img src="bit-pensando.png" alt="" width="120" height="120" loading="lazy">
     <h2>Ainda pensando? O teste é grátis e não pede cartão.</h2>
-    <p class="sub">Mande a primeira mensagem e veja o Bit organizando o financeiro da sua empresa.</p>
+    <p class="sub">Veja o Bit organizando o financeiro de uma empresa de exemplo. Gostou, assina e ele passa a cuidar da sua.</p>
     <a class="btn" data-cta href="https://bit.macrobit.com.br/comecar">Testar o Bit grátis <svg class="i"><use href="#i-seta"/></svg></a>
     <p class="micro">Depois, R$ 39,90/mês · sem fidelidade · 7 dias de garantia</p>
   </div>
