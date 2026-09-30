@@ -20,6 +20,8 @@
   --field: #ffffff;
   --erro: #b3261e;
   --green-paper: #12804a;
+  --foco: #101214;      /* anel de foco: 3:1 ou mais sobre o saguão */
+  --campo: #80868c;     /* borda de campo e opção: 3:1 ou mais sobre o campo e o saguão */
   --shadow: 0 22px 44px -26px rgb(16 18 20 / 0.5);
   --display: "Archivo", "Arial Narrow", sans-serif;
   --body: "Archivo", "Segoe UI", system-ui, sans-serif;
@@ -40,13 +42,15 @@
     --board-edge: #30363c;
     --field: #16191c;
     --erro: #ff8a80;
+    --foco: #ffb000;
+    --campo: #6b737b;
     --shadow: 0 22px 44px -26px rgb(0 0 0 / 0.85);
     color-scheme: dark;
   }
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; caret-color: var(--amber); scrollbar-color: var(--ink-2) var(--hall); }
+html { -webkit-text-size-adjust: 100%; caret-color: var(--ink); scrollbar-color: var(--ink-2) var(--hall); }
 body {
   margin: 0;
   background: var(--hall) url("terrazzo.svg") 0 0 / 480px 480px;
@@ -58,7 +62,8 @@ body {
 a { color: inherit; text-underline-offset: 0.22em; text-decoration-thickness: 1px; }
 img, svg { display: block; max-width: 100%; }
 button, input, textarea { font: inherit; color: inherit; }
-:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; border-radius: 4px; }
+:focus-visible { outline: 3px solid var(--foco); outline-offset: 3px; border-radius: 4px; }
+.final :focus-visible, .rodape :focus-visible { outline-color: var(--amber); }
 [tabindex="-1"]:focus { outline: none; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .wrap { width: 100%; max-width: 1180px; margin-inline: auto; padding-inline: var(--gutter); }
@@ -146,7 +151,6 @@ button, input, textarea { font: inherit; color: inherit; }
 }
 .flap .folha { z-index: 2; }
 .flap-rows.amber { color: var(--amber); }
-.flap-rows.green { color: var(--green); }
 .board-static { margin: 0; font: 700 clamp(1.4rem, 5cqi, 3.2rem)/1.1 var(--mono); font-stretch: 75%; text-transform: uppercase; }
 
 /* Cartão de embarque em papel térmico */
