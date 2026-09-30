@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BrandMyRide · Ninguém pula este anúncio</title>
+<meta name="description" content="Tablet no encosto dos carros de app de Porto Seguro, Arraial e Trancoso. 20 vagas de 15 segundos na temporada 26/27. Check-in sem pagar nada até 15/11.">
+<link rel="canonical" href="https://thallisribeiro.com.br/brandmyride/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://thallisribeiro.com.br/brandmyride/">
+<meta property="og:title" content="Ninguém pula este anúncio.">
+<meta property="og:description" content="Tua marca no tablet do banco de trás dos carros de app de Porto Seguro. 20 vagas. Check-in até 15/11, sem pagar nada.">
+<meta property="og:image" content="https://thallisribeiro.com.br/brandmyride/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Painel de aeroporto com a frase Ninguém pula este anúncio.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@thallisribeiro">
+<meta name="theme-color" content="#111316">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111316'/%3E%3Crect x='5' y='5' width='22' height='22' rx='3' fill='%231f2226'/%3E%3Crect x='5' y='15.5' width='22' height='1.5' fill='%23111316'/%3E%3Ctext x='16' y='23.5' font-family='monospace' font-size='18' font-weight='700' text-anchor='middle' fill='%23ffb000'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Martian+Mono:wdth,wght@75..112.5,400..800&display=swap">
+<link rel="stylesheet" href="assets/base.css">
+<style>
+/* topo */
+.topo { position: sticky; top: 0; z-index: 20; background: var(--hall); border-bottom: 1px solid var(--line); }
+.topo-in { display: flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 64px; }
+.logo { display: inline-flex; align-items: center; gap: 8px; font: 850 1.3rem/1 var(--display); font-stretch: 70%; text-decoration: none; }
+.logo .icon { width: 1.4em; height: 1.4em; }
+.topo-dir { display: flex; align-items: center; gap: 18px; }
+.relogio { display: inline-flex; align-items: center; gap: 7px; font: 600 0.76rem/1 var(--mono); font-stretch: 80%; letter-spacing: 0.06em; color: var(--ink-2); font-variant-numeric: tabular-nums; text-transform: uppercase; }
+.relogio .icon { width: 1.3em; height: 1.3em; }
+.btn-sm { min-height: 42px; padding: 0 1.05em; font-size: 0.88rem; }
+@media (max-width: 560px) { .relogio .rot { display: none; } }
+
+/* herói */
+.heroi { display: grid; gap: clamp(24px, 3.4vw, 40px); padding-block: clamp(18px, 3.4vw, 44px) clamp(16px, 3vw, 40px); }
+.marca-bloco { margin-top: clamp(12px, 2.4cqi, 24px); padding-top: clamp(10px, 1.8cqi, 18px); border-top: 1px solid var(--board-edge); display: grid; gap: clamp(8px, 1.2cqi, 12px); }
+.marca-rot { display: flex; justify-content: space-between; gap: 10px; color: var(--board-label); font: 600 clamp(9px, 1.5cqi, 12px)/1.2 var(--mono); font-stretch: 80%; letter-spacing: 0.1em; text-transform: uppercase; }
+.marca-rot .livre { color: var(--green); }
+/* Espaço reservado pra duas linhas estreitas: nome longo não empurra o campo de baixo. */
+.heroi [data-painel="marca"] { min-height: 13cqi; align-content: start; }
+@media (max-width: 640px) { .heroi [data-painel="marca"] { min-height: 19cqi; } }
+.heroi-baixo { display: grid; gap: 30px; }
+@media (min-width: 900px) { .heroi-baixo { grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr); gap: clamp(36px, 5vw, 80px); } }
+.lead { margin: 0; font-size: clamp(1.14rem, 1.6vw, 1.36rem); line-height: 1.5; max-width: 40ch; text-wrap: pretty; }
+.lead b { font-weight: 750; }
+.checkin { display: grid; gap: 14px; align-content: start; }
+.campo { display: grid; gap: 8px; }
+.campo label { font: 700 0.72rem/1 var(--mono); font-stretch: 80%; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2); }
+.campo input {
+  width: 100%; min-height: 58px; padding: 0 16px;
+  border: 2px solid var(--line); border-radius: 10px;
+  background: var(--field); color: var(--ink);
+  font: 650 1.15rem/1 var(--body);
+  transition: border-color 160ms;
+}
+.campo input::placeholder { color: var(--ink-2); font-weight: 500; }
+.campo input:hover { border-color: var(--ink-2); }
+.cta-linha { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }
+@media (max-width: 560px) { .heroi .cta-linha .btn, .final .cta-linha .btn { width: 100%; } .topo-dir { gap: 12px; } }
+.micro { margin: 0; font: 500 0.8rem/1.5 var(--mono); font-stretch: 85%; letter-spacing: 0.02em; color: var(--ink-2); }
+.contagem { display: grid; gap: 8px; margin-top: 10px; }
+.contagem .board { max-width: 400px; padding: 10px 12px; }
+.contagem-rot { display: flex; align-items: center; gap: 8px; font: 700 0.7rem/1 var(--mono); font-stretch: 80%; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2); }
+
+/* seções */
+.secao { padding-block: clamp(72px, 10vw, 136px); }
+.secao h2 { font-size: clamp(2.4rem, 6.4vw, 4.8rem); max-width: 16ch; }
+.texto { display: grid; gap: 18px; max-width: 62ch; margin-top: clamp(22px, 3vw, 32px); font-size: 1.14rem; }
+.texto p { margin: 0; text-wrap: pretty; }
+
+.compara-board { margin-top: clamp(32px, 5vw, 56px); padding: 0; overflow-x: auto; }
+.compara { width: 100%; min-width: 540px; border-collapse: collapse; font: 600 clamp(0.8rem, 1.35vw, 0.98rem)/1.35 var(--mono); font-stretch: 80%; text-transform: uppercase; letter-spacing: 0.02em; }
+.compara th, .compara td { padding: 15px clamp(14px, 2.2vw, 24px); text-align: left; vertical-align: top; border-bottom: 1px solid var(--board-edge); }
+.compara tr:last-child > * { border-bottom: 0; }
+.compara thead th { color: var(--board-label); font-size: 0.72em; letter-spacing: 0.12em; }
+.compara tbody th { color: var(--board-label); font-weight: 600; width: 22%; }
+.compara td.feed { color: #8f969d; }
+.compara td.bom { color: var(--flap-ink); }
+@media (max-width: 640px) {
+  .compara { min-width: 0; }
+  .compara thead { display: none; }
+  .compara tr { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 6px 14px; padding: 14px 16px; border-bottom: 1px solid var(--board-edge); }
+  .compara tr:last-child { border-bottom: 0; }
+  .compara th, .compara td { padding: 0; border: 0; }
+  .compara tbody th { grid-column: 1 / -1; width: auto; }
+  .compara td::before { content: attr(data-rot); display: block; margin-bottom: 3px; font-size: 0.62rem; letter-spacing: 0.12em; color: var(--board-label); }
+}
+
+.rota { --p: 0; list-style: none; margin: clamp(40px, 6vw, 72px) 0 0; padding: 0; position: relative; display: grid; gap: 34px; }
+.rota::before { content: ""; position: absolute; background: var(--line); }
+.parada { position: relative; display: grid; gap: 6px; align-content: start; }
+.parada .pino { width: 22px; height: 22px; border-radius: 50%; border: 3px solid var(--ink-2); background: var(--hall-2); transition: background 200ms, border-color 200ms; }
+.parada.passou .pino { background: var(--ink); border-color: var(--ink); }
+.parada strong { font: 850 1.5rem/1.05 var(--display); font-stretch: 72%; }
+.parada .icon { width: 1.5em; height: 1.5em; color: var(--ink-2); }
+.parada p { margin: 0; color: var(--ink-2); max-width: 30ch; }
+.parada.passou p { color: var(--ink); }
+.carro {
+  position: absolute; z-index: 2;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 10px; border-radius: 8px;
+  background: var(--amber); color: var(--amber-ink);
+  font: 800 0.72rem/1 var(--mono); font-stretch: 80%; letter-spacing: 0.06em; text-transform: uppercase;
+  white-space: nowrap; box-shadow: 0 8px 16px -10px rgb(0 0 0 / 0.5);
+}
+.carro .icon { width: 1.5em; height: 1.5em; }
+.carro { transition: left 420ms var(--ease), top 420ms var(--ease); }
+.carro .rot { max-width: 18ch; overflow: hidden; text-overflow: ellipsis; }
+@media (min-width: 820px) {
+  .rota { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; padding-top: 64px; }
+  .rota::before { left: 11px; width: 75%; top: 74px; height: 3px; }
+  .parada { gap: 12px; padding-right: 28px; }
+  .carro { top: 6px; left: calc(var(--p) * 75%); }
+}
+@media (max-width: 819.98px) {
+  .rota { padding-left: 44px; }
+  .rota::before { left: 9px; top: 6px; bottom: 6px; width: 3px; }
+  .parada .pino { position: absolute; left: -44px; top: 2px; }
+  .carro { left: -4px; top: calc(var(--p) * (100% - 40px)); padding: 6px; }
+  .carro .rot { display: none; }
+}
+.virada { margin: clamp(48px, 7vw, 88px) 0 0; font-size: clamp(1.8rem, 4.2vw, 3.2rem); max-width: 22ch; color: var(--ink-2); }
+.virada em { font-style: normal; color: var(--ink); }
+
+.vaga-grid { display: grid; gap: clamp(40px, 6vw, 80px); align-items: center; }
+@media (min-width: 900px) { .vaga-grid { grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); } }
+.assento { margin: 0; display: grid; justify-items: center; }
+.encosto {
+  width: min(100%, 470px); aspect-ratio: 1.16;
+  display: grid; place-items: center; padding: 12% 8% 14%;
+  border-radius: 38% 38% 24% 24% / 32% 32% 20% 20%;
+  background: #2b2e32;
+  box-shadow: var(--shadow);
+}
+.hastes { display: flex; justify-content: center; gap: 34%; width: min(100%, 470px); height: 46px; }
+.hastes i { width: 11px; border-radius: 0 0 4px 4px; background: var(--ink-2); }
+.assento figcaption { margin-top: 14px; font: 500 0.74rem/1.4 var(--mono); color: var(--ink-2); text-align: center; }
+.tablet { container-type: inline-size; width: 100%; aspect-ratio: 16 / 10; padding: 3.4%; border-radius: 16px; background: #0a0b0c; }
+.tela {
+  position: relative; height: 100%; overflow: hidden;
+  border-radius: 7px; background: #121417; color: #f3f3ef;
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: 1fr auto auto;
+  column-gap: 5cqi; padding: 9cqi 6cqi 0;
+}
+.tela-tag { position: absolute; top: 3.2cqi; left: 6cqi; padding: 1cqi 2.2cqi; border: 1px solid rgb(255 255 255 / 0.28); border-radius: 99px; font: 700 max(8px, 2.4cqi)/1 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: rgb(255 255 255 / 0.72); }
+.tela-marca { grid-column: 1; align-self: end; margin: 0; font: 850 12.5cqi/0.88 var(--display); font-stretch: 64%; color: var(--amber); text-transform: uppercase; overflow-wrap: break-word; }
+.tela-oferta { grid-column: 1; margin: 2.6cqi 0 0; font: 500 max(9px, 3.9cqi)/1.3 var(--body); color: rgb(255 255 255 / 0.86); }
+.tela-qr { grid-column: 2; grid-row: 1 / 3; align-self: center; width: 25cqi; height: 25cqi; padding: 1.8cqi; border-radius: 1.6cqi; background: #fff; }
+.tela-barra { grid-column: 1 / -1; display: flex; align-items: center; gap: 3cqi; padding: 4cqi 0 4.4cqi; font: 700 max(8px, 2.8cqi)/1 var(--mono); font-variant-numeric: tabular-nums; color: rgb(255 255 255 / 0.8); }
+.tela-barra .prog { flex: 1; height: max(3px, 0.9cqi); border-radius: 9px; overflow: hidden; background: rgb(255 255 255 / 0.2); }
+.tela-barra .prog i { display: block; height: 100%; background: #fff; transform: scaleX(0); transform-origin: 0 50%; transition: transform 1s linear; }
+.ficha { margin: clamp(26px, 3.4vw, 36px) 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); border-top: 1px solid var(--line); }
+.ficha div { display: grid; gap: 5px; align-content: start; padding: 16px 18px 16px 0; border-bottom: 1px solid var(--line); }
+.ficha dt { font: 600 0.72rem/1.2 var(--mono); font-stretch: 80%; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2); }
+.ficha dd { margin: 0; font-weight: 600; }
+.ficha dd .num { font-size: 1.3rem; font-weight: 700; }
+.vagas-board { margin-top: clamp(48px, 7vw, 88px); }
+.vagas { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(4px, 0.7cqi, 7px); }
+@media (min-width: 760px) { .vagas { grid-template-columns: repeat(10, minmax(0, 1fr)); } }
+.vagas li { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: 1fr 1fr; align-items: center; gap: 12px 6px; padding: 10px 9px; border-radius: 4px; background: var(--flap); font: 700 0.82rem/1 var(--mono); font-stretch: 80%; font-variant-numeric: tabular-nums; color: var(--flap-ink); }
+.vagas li::after { content: ""; position: absolute; left: 0; right: 0; top: calc(50% - 1px); height: 2px; background: var(--board); }
+.vagas .t { justify-self: end; color: var(--board-label); font-weight: 500; font-size: 0.7rem; }
+.vagas .s { grid-column: 1 / -1; color: var(--green); font-size: 0.62rem; letter-spacing: 0.08em; }
+
+.embarque .pass { margin-top: clamp(32px, 5vw, 56px); }
+.pass-top .rot-marca { display: inline-flex; align-items: center; gap: 0.6em; }
+.bagagem { border-top: 1px dashed rgb(44 47 51 / 0.32); padding-top: 18px; }
+.bag-t { margin: 0 0 12px; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.72; }
+.bagagem ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 11px; font: 600 1rem/1.35 var(--body); }
+.bagagem li { display: flex; gap: 12px; align-items: flex-start; }
+.bagagem .icon { margin-top: 1px; }
+.bag-t2 { margin-top: 16px; }
+.talvez { opacity: 0.72; }
+.pass-stub { transition: transform 420ms var(--ease); transform-origin: 0 0; }
+.pass:hover .pass-stub { transform: rotate(1.4deg) translate(3px, 4px); }
+.tarifa { margin: clamp(24px, 3vw, 32px) 0 0; max-width: 60ch; font-size: 1.14rem; }
+.tarifa b { font-weight: 750; }
+
+.prova-board { margin-top: clamp(32px, 5vw, 56px); overflow-x: auto; }
+.prova { width: 100%; min-width: 480px; border-collapse: collapse; font: 600 clamp(0.8rem, 1.35vw, 0.98rem)/1.35 var(--mono); font-stretch: 80%; text-transform: uppercase; letter-spacing: 0.02em; }
+.prova th, .prova td { padding: 15px clamp(12px, 2vw, 20px); text-align: left; border-top: 1px solid var(--board-edge); }
+.prova th { font-weight: 700; }
+.prova td.ano { color: var(--board-label); }
+.prova td.ok { color: var(--green); }
+@media (max-width: 640px) {
+  .prova { min-width: 0; }
+  .prova tr { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 14px; padding: 14px 16px; border-top: 1px solid var(--board-edge); }
+  .prova th, .prova td { padding: 0; border: 0; }
+  .prova th { grid-column: 1 / -1; }
+}
+
+.regras-grid { display: grid; gap: 30px; }
+@media (min-width: 900px) { .regras-grid { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); align-items: start; } }
+.regras { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.regras li { display: grid; gap: 4px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.regras strong { font: 850 1.3rem/1.15 var(--display); font-stretch: 74%; }
+.regras span { color: var(--ink-2); }
+
+.faq { margin-top: clamp(28px, 4vw, 44px); border-top: 1px solid var(--line); max-width: 860px; }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 18px; padding: 20px 0; font: 800 1.2rem/1.25 var(--display); font-stretch: 82%; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary .icon { transition: transform 240ms var(--ease); }
+.faq details[open] summary .icon { transform: rotate(45deg); }
+.faq summary:hover { color: var(--ink-2); }
+.faq p { margin: 0 0 22px; max-width: 64ch; color: var(--ink-2); }
+
+.final { background: var(--board); color: var(--flap-ink); padding-block: clamp(80px, 11vw, 150px); border-top: 1px solid var(--board-edge); }
+.final .board { box-shadow: 0 0 0 1px var(--board-edge); }
+.final .contagem { margin-top: 30px; }
+.final .contagem-rot { color: var(--board-label); }
+.final-t { margin: 0; font-size: clamp(2rem, 5vw, 3.8rem); max-width: 20ch; }
+.final .cta-linha { margin-top: 30px; }
+.final .micro { color: var(--board-label); }
+.quem { margin: 44px 0 0; max-width: 58ch; color: var(--board-label); }
+.quem a { color: var(--flap-ink); }
+
+.rodape { padding-block: 28px 40px; background: var(--board); color: var(--board-label); border-top: 1px solid var(--board-edge); font: 500 0.74rem/1.6 var(--mono); font-stretch: 85%; }
+.rodape .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
+.rodape a { color: var(--flap-ink); }
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-247F9N1WQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-247F9N1WQE');
+</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-pouso" viewBox="0 0 24 24"><path transform="rotate(135 12 12)" d="M12 2c1 0 1.5 1 1.5 2.5V9l7.5 4.5V15l-7.5-2.5V18l2.5 2v1.5l-4-1-4 1V20l2.5-2v-5.5L3 15v-1.5L10.5 9V4.5C10.5 3 11 2 12 2z"/></symbol>
+  <symbol id="i-seta" viewBox="0 0 24 24"><path d="M4 12h15"/><path d="M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-relogio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-qr" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="6" height="6" rx="1"/><rect x="14.5" y="3.5" width="6" height="6" rx="1"/><rect x="3.5" y="14.5" width="6" height="6" rx="1"/><path d="M14.5 14.5h2v2h-2zM18.5 18.5h2v2h-2zM14.5 20.5h2M20.5 14.5v2"/></symbol>
+  <symbol id="i-carro" viewBox="0 0 24 24"><path d="M5 12l1.8-4.6A2 2 0 0 1 8.7 6h6.6a2 2 0 0 1 1.9 1.4L19 12"/><rect x="3.5" y="12" width="17" height="5" rx="1.5"/><path d="M6.5 17v2M17.5 17v2M7.5 14.5h.01M16.5 14.5h.01"/></symbol>
+  <symbol id="i-balsa" viewBox="0 0 24 24"><path d="M2.5 19c1.6 1.1 3.2 1.1 4.8 0s3.2-1.1 4.8 0 3.2 1.1 4.8 0 3.2-1.1 4.6 0"/><path d="M4.5 15.5h15l-1.6-4H6.1z"/><path d="M9 11.5v-3h6v3"/></symbol>
+  <symbol id="i-palmeira" viewBox="0 0 24 24"><path d="M12 21c.4-4.5.1-8.4-1-11.5"/><path d="M11 9.5C9.5 7 7 6.2 4 7c2.4.2 4.3 1.3 5.4 3.2"/><path d="M11 9.5c1.8-2.4 4.4-3 7.2-1.8-2.4 0-4.4.8-5.8 2.5"/><path d="M11 9.5c-.3-2.8-2-4.8-4.8-5.5 1.7 1.2 2.8 2.9 3 5"/><path d="M11 9.5c1.4-2.6 3.6-3.8 6.5-3.5"/><path d="M7 21h10"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9.5v5l4-2.5z"/></symbol>
+  <symbol id="i-grafico" viewBox="0 0 24 24"><path d="M4 4v16h16"/><path d="M8.5 16v-4M12.5 16V8M16.5 16v-6"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13.5" r="3.2"/></symbol>
+  <symbol id="i-pincel" viewBox="0 0 24 24"><path d="M4 20l1-4 11-11 3 3L8 19z"/><path d="M14 7l3 3"/></symbol>
+  <symbol id="i-mais" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="qr-tela" viewBox="0 0 21 21" shape-rendering="crispEdges"><path fill="#111" d="M0 0h7v7H0zM14 0h7v7h-7zM0 14h7v7H0z"/><path fill="#fff" d="M1 1h5v5H1zM15 1h5v5h-5zM1 15h5v5H1z"/><path fill="#111" d="M2 2h3v3H2zM16 2h3v3h-3zM2 16h3v3H2zM8 0h1v2H8zM10 1h2v1h-2zM9 3h1v2H9zM11 4h2v2h-2zM8 6h2v1H8zM12 7h1v2h-1zM0 8h2v1H0zM3 8h2v2H3zM6 9h2v1H6zM9 8h2v2H9zM14 8h1v1h-1zM16 8h3v1h-3zM20 9h1v2h-1zM1 11h2v1H1zM4 11h1v2H4zM7 11h3v1H7zM11 10h2v2h-2zM15 10h2v2h-2zM18 11h1v2h-1zM8 13h1v2H8zM10 13h3v1h-3zM14 13h2v1h-2zM17 14h2v2h-2zM9 15h2v2H9zM12 15h1v3h-1zM14 16h2v1h-2zM19 17h2v1h-2zM8 18h2v1H8zM11 19h2v2h-2zM14 18h1v3h-1zM16 19h3v1h-3zM20 19h1v2h-1z"/></symbol>
+</svg>
+
+<header class="topo">
+  <div class="wrap topo-in">
+    <a class="logo" href="#"><svg class="icon"><use href="#i-pouso"/></svg>BrandMyRide</a>
+    <div class="topo-dir">
+      <span class="relogio" aria-label="Horário em Porto Seguro"><svg class="icon"><use href="#i-relogio"/></svg><span class="rot">Porto Seguro</span> <span data-relogio>--:--</span></span>
+      <a class="btn btn-sm" href="reservar/" data-checkin>Check-in</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="heroi wrap" aria-labelledby="titulo">
+    <h1 id="titulo" class="sr">Ninguém pula este anúncio.</h1>
+    <div class="board board-hero">
+      <div class="board-head">
+        <span><svg class="icon"><use href="#i-pouso"/></svg>Chegadas · Porto Seguro</span>
+        <span>Temporada 26/27</span>
+      </div>
+      <div class="flap-rows" data-painel="hero" aria-hidden="true"><p class="board-static">Ninguém pula este anúncio.</p></div>
+      <div class="marca-bloco" aria-hidden="true">
+        <div class="marca-rot"><span>Tua marca · banco de trás · 15 s</span><span class="livre">Livre</span></div>
+        <div class="flap-rows amber" data-painel="marca"></div>
+      </div>
+    </div>
+
+    <div class="heroi-baixo">
+      <p class="lead">É um tablet no encosto dos carros de app de Porto Seguro, Arraial e Trancoso. Tua marca a meio metro do rosto de quem acabou de desembarcar de férias, <b>a corrida inteira. Sem skip, sem adblock, sem algoritmo.</b></p>
+      <div class="checkin">
+        <div class="campo">
+          <label for="marca">Digita tua marca e vê ela no painel</label>
+          <input id="marca" type="text" maxlength="30" autocomplete="organization" placeholder="Nome da tua marca" spellcheck="false">
+        </div>
+        <div class="cta-linha">
+          <a class="btn" href="reservar/" data-checkin>Fazer check-in da minha marca <svg class="icon"><use href="#i-seta"/></svg></a>
+        </div>
+        <p class="micro">60 segundos. Não cobra nada. São só 20 vagas.</p>
+        <div class="contagem">
+          <span class="contagem-rot"><svg class="icon"><use href="#i-relogio"/></svg>Check-in fecha 15/11 às 23:59 em</span>
+          <div class="board"><div class="flap-rows" data-painel="contagem" aria-hidden="true"></div></div>
+          <span class="sr" data-contagem-texto></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" aria-labelledby="t-polegar">
+    <div class="wrap">
+      <h2 id="t-polegar" class="display">Hoje teu anúncio briga com um polegar.</h2>
+      <div class="texto">
+        <p>Você paga pra alguém rolar o dedo. Torce pro “pular anúncio” demorar. Vê o CPM subir e o rastreio piorar a cada atualização de sistema.</p>
+        <p>No banco de trás de um carro em Porto Seguro não tem dedo, não tem pular, não tem aba nova. Tem uma tela acesa a meio metro do rosto e um turista com a cabeça em modo férias.</p>
+      </div>
+      <div class="board compara-board">
+        <table class="compara">
+          <thead><tr><th scope="col"><span class="sr">Critério</span></th><th scope="col">No feed</th><th scope="col">No banco de trás</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Pular</th><td class="feed" data-rot="No feed">Um toque</td><td class="bom" data-rot="No banco de trás">Não tem botão</td></tr>
+            <tr><th scope="row">Adblock</th><td class="feed" data-rot="No feed">Some pra quem usa</td><td class="bom" data-rot="No banco de trás">Não existe</td></tr>
+            <tr><th scope="row">Algoritmo</th><td class="feed" data-rot="No feed">Decide quem vê</td><td class="bom" data-rot="No banco de trás">Sentou, viu</td></tr>
+            <tr><th scope="row">Tempo</th><td class="feed" data-rot="No feed">Uma rolada de dedo</td><td class="bom" data-rot="No banco de trás">A corrida inteira</td></tr>
+            <tr><th scope="row">Medição</th><td class="feed" data-rot="No feed">Rastreio cada vez pior</td><td class="bom" data-rot="No banco de trás">QR só teu, scan contado</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao faixa" aria-labelledby="t-corrida">
+    <div class="wrap">
+      <h2 id="t-corrida" class="display">Pensa na corrida.</h2>
+      <div class="texto"><p>Um turista desce no aeroporto de Porto Seguro e pede um carro pra Trancoso. Ele ainda não conhece nenhuma marca da cidade.</p></div>
+      <ol class="rota">
+        <li class="carro" aria-hidden="true"><svg class="icon"><use href="#i-carro"/></svg><span class="rot" data-marca-curta>Tua marca</span></li>
+        <li class="parada"><span class="pino"></span><svg class="icon"><use href="#i-pouso"/></svg><strong>Aeroporto</strong><p>Ele senta atrás. A tela acende na frente dele.</p></li>
+        <li class="parada"><span class="pino"></span><svg class="icon"><use href="#i-balsa"/></svg><strong>Balsa</strong><p>Fila e travessia. O carro para. A tela continua.</p></li>
+        <li class="parada"><span class="pino"></span><svg class="icon"><use href="#i-carro"/></svg><strong>Arraial d’Ajuda</strong><p>Tua marca já passou na frente dele. E vai passar de novo.</p></li>
+        <li class="parada"><span class="pino"></span><svg class="icon"><use href="#i-palmeira"/></svg><strong>Trancoso</strong><p>Ele escaneia teu QR pra pegar o desconto. O scan cai no teu relatório.</p></li>
+      </ol>
+      <p class="virada display">O encosto do banco da frente é o outdoor mais ignorado do verão baiano. Ninguém vende ele no sul da Bahia. <em>Ainda.</em></p>
+    </div>
+  </section>
+
+  <section class="secao" aria-labelledby="t-vaga">
+    <div class="wrap">
+      <div class="vaga-grid">
+        <figure class="assento">
+          <div class="encosto">
+            <div class="tablet">
+              <div class="tela">
+                <span class="tela-tag">exemplo</span>
+                <p class="tela-marca" data-marca>Tua marca</p>
+                <p class="tela-oferta">Escaneie e ganhe 10% no primeiro pedido.</p>
+                <svg class="tela-qr" aria-hidden="true"><use href="#qr-tela"/></svg>
+                <div class="tela-barra"><span>VAGA 07/20</span><span class="prog"><i></i></span><span data-seg>0:15</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="hastes" aria-hidden="true"><i></i><i></i></div>
+          <figcaption>Exemplo com a marca que você digitou. Sem som.</figcaption>
+        </figure>
+        <div>
+          <h2 id="t-vaga" class="display">15 segundos, duas vezes a cada 10 minutos.</h2>
+          <dl class="ficha">
+            <div><dt>Loop</dt><dd><span class="num">5:00</span></dd></div>
+            <div><dt>Vagas</dt><dd><span class="num">20 × 0:15</span></dd></div>
+            <div><dt>Som</dt><dd>Nenhum. Só imagem e legenda.</dd></div>
+            <div><dt>Tela</dt><dd>Virada pro banco de trás, fora da visão do motorista.</dd></div>
+            <div><dt>Medição</dt><dd>QR só teu, com contador de scans.</dd></div>
+            <div><dt>Temporada</dt><dd>Dezembro a fevereiro: réveillon, férias e carnaval.</dd></div>
+          </dl>
+        </div>
+      </div>
+      <div class="board vagas-board">
+        <div class="board-head"><span><svg class="icon"><use href="#i-play"/></svg>Vagas do loop · temporada 26/27</span><span>20 livres</span></div>
+        <ol class="vagas" data-vagas></ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao embarque faixa" aria-labelledby="t-embarque">
+    <div class="wrap">
+      <h2 id="t-embarque" class="display">O que vem no teu embarque.</h2>
+      <article class="pass" aria-label="Cartão de embarque com o que tua marca leva">
+        <div class="pass-main">
+          <div class="pass-top"><span class="rot-marca"><svg class="icon"><use href="#i-pouso"/></svg>BrandMyRide · cartão de embarque</span><span class="num">BPS</span></div>
+          <dl class="pass-fields">
+            <div class="wide"><dt>Passageiro</dt><dd><span class="marca-p" data-marca>Tua marca</span></dd></div>
+            <div><dt>De</dt><dd>Tua timeline</dd></div>
+            <div><dt>Para</dt><dd>Banco de trás</dd></div>
+            <div><dt>Embarque</dt><dd class="num">01 DEZ 2026</dd></div>
+            <div><dt>Volta</dt><dd class="num">FEV 2027</dd></div>
+            <div><dt>Assento</dt><dd>Vaga de 15 s</dd></div>
+            <div><dt>Tarifa</dt><dd>Você diz</dd></div>
+          </dl>
+          <div class="bagagem">
+            <p class="bag-t">Bagagem inclusa</p>
+            <ul>
+              <li><svg class="icon"><use href="#i-play"/></svg>15 segundos no loop, de dezembro a fevereiro</li>
+              <li><svg class="icon"><use href="#i-qr"/></svg>QR code só teu, com contador de scans</li>
+            </ul>
+            <p class="bag-t bag-t2">A confirmar antes de cobrar</p>
+            <ul class="talvez">
+              <li><svg class="icon"><use href="#i-grafico"/></svg>Relatório todo mês: horas de tela, exibições e scans</li>
+              <li><svg class="icon"><use href="#i-camera"/></svg>Fotos e vídeo da tua marca rodando, prontos pra postar</li>
+              <li><svg class="icon"><use href="#i-pincel"/></svg>Arte de 15 segundos feita pela gente, se você não tiver</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pass-stub">
+          <dl>
+            <div><dt>Portão</dt><dd>Check-in</dd></div>
+            <div><dt>Fecha</dt><dd class="num">15 NOV 23:59</dd></div>
+            <div><dt>Vagas</dt><dd class="num">20</dd></div>
+          </dl>
+          <div class="barcode" data-barcode></div>
+        </div>
+      </article>
+      <p class="tarifa"><b>Tarifa? Você diz.</b> Ainda não tem tabela. No check-in você fala quanto isso vale pra tua marca. Com as respostas eu fecho o preço e te mando antes de cobrar qualquer coisa.</p>
+    </div>
+  </section>
+
+  <section class="secao" aria-labelledby="t-prova">
+    <div class="wrap">
+      <h2 id="t-prova" class="display">Isso já decolou lá fora.</h2>
+      <div class="texto"><p>Nos EUA, a Octopus colocou tablets em carros de Uber e Lyft e foi comprada pela T-Mobile em 2022. No Brasil, já tem mídia em carro de app nas capitais. No sul da Bahia, ninguém faz.</p></div>
+      <div class="board prova-board">
+        <div class="board-head"><span><svg class="icon"><use href="#i-pouso"/></svg>Onde já decolou</span><span>Status</span></div>
+        <table class="prova">
+          <tr><th scope="row">EUA · Uber e Lyft</th><td class="ano">2022</td><td>Comprada pela T-Mobile</td></tr>
+          <tr><th scope="row">Capitais do Brasil</th><td class="ano">Hoje</td><td class="ok">Operando</td></tr>
+          <tr><th scope="row">Sul da Bahia</th><td class="ano">2026</td><td class="ok">Check-in aberto</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao faixa" aria-labelledby="t-regras">
+    <div class="wrap regras-grid">
+      <h2 id="t-regras" class="display">Regras do voo.</h2>
+      <ul class="regras">
+        <li><strong>20 vagas, nenhuma a mais.</strong><span>O loop tem 5 minutos. A 21ª marca não cabe sem piorar a vez de todo mundo.</span></li>
+        <li><strong>Check-in até 15/11, 23:59.</strong><span>Depois disso o painel fecha.</span></li>
+        <li><strong>10 check-ins fazem o voo decolar.</strong><span>Com 10 marcas, os tablets vão pra rua em dezembro.</span></li>
+        <li><strong>Voo cancelado, ninguém paga.</strong><span>Se não fechar 10 marcas, ninguém paga nada e eu conto aqui no X o que deu errado.</span></li>
+        <li><strong>Sem propaganda política.</strong><span>Ela é proibida em carro de app.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="secao" aria-labelledby="t-faq">
+    <div class="wrap">
+      <h2 id="t-faq" class="display">Balcão de informações.</h2>
+      <div class="faq">
+        <details><summary>O turista olha pra tela ou pro celular?<svg class="icon"><use href="#i-mais"/></svg></summary><p>Muita gente olha o celular, e tudo bem. É por isso que cada marca tem um QR com oferta: quem se interessa escaneia, e você vê o número. Não vendo atenção imaginária.</p></details>
+        <details><summary>Tem som?<svg class="icon"><use href="#i-mais"/></svg></summary><p>Não. Motorista que escuta o mesmo loop 10 horas por dia desliga o tablet no segundo dia. É só imagem e legenda.</p></details>
+        <details><summary>E se o motorista desligar o tablet?<svg class="icon"><use href="#i-mais"/></svg></summary><p>O motorista ganha por hora de tablet ligado, e o sistema registra quando a tela ficou acesa. Desligado, ele não ganha.</p></details>
+        <details><summary>Quanto custa?<svg class="icon"><use href="#i-mais"/></svg></summary><p>Você diz no check-in quanto faria sentido pagar. Com as respostas eu fecho uma tarifa e te mando antes de cobrar qualquer coisa.</p></details>
+        <details><summary>É da Uber ou da 99?<svg class="icon"><use href="#i-mais"/></svg></summary><p>Não. É um projeto independente, nos carros de motoristas parceiros que rodam nesses apps. Não tem vínculo com as empresas.</p></details>
+        <details><summary>Quando começa?<svg class="icon"><use href="#i-mais"/></svg></summary><p>Em dezembro de 2026, se 10 marcas fizerem check-in até 15/11.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final" aria-labelledby="t-final">
+    <div class="wrap">
+      <h2 id="t-final" class="display final-t">Imagina abrir o X em janeiro e ver tua marca rodando num carro em Trancoso.</h2>
+      <div class="cta-linha">
+        <a class="btn" href="reservar/" data-checkin>Fazer check-in da minha marca <svg class="icon"><use href="#i-seta"/></svg></a>
+      </div>
+      <p class="micro" style="margin-top:14px">60 segundos. Não cobra nada.</p>
+      <div class="contagem">
+        <span class="contagem-rot"><svg class="icon"><use href="#i-relogio"/></svg>Check-in fecha 15/11 às 23:59 em</span>
+        <div class="board"><div class="flap-rows" data-painel="contagem-final" aria-hidden="true"></div></div>
+      </div>
+      <p class="quem">Quem tá por trás: Thallis Ribeiro, que coloca site de negócio no ar em até 7 dias e está construindo o BrandMyRide em público no <a href="https://x.com/thallisribeiro">@thallisribeiro</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="wrap">
+    <span>BrandMyRide · Porto Seguro, BA · por <a href="https://x.com/thallisribeiro">@thallisribeiro</a></span>
+    <span>Sem vínculo com Uber ou 99.</span>
+  </div>
+</footer>
+
+<script src="assets/flap.js"></script>
+<script>
+(function () {
+  const { Painel, codigoBarras, quebra } = window.BMR;
+  const estreito = matchMedia('(max-width: 640px)');
+  const guarda = (k, v) => { try { sessionStorage.setItem(k, v); } catch (e) {} };
+  const le = k => { try { return sessionStorage.getItem(k) || ''; } catch (e) { return ''; } };
+
+  // De onde a pessoa veio, pra cair na planilha junto com o check-in
+  if (!le('bmr_origem')) {
+    const q = new URLSearchParams(location.search);
+    const utm = ['utm_source', 'utm_medium', 'utm_campaign'].map(k => q.get(k)).filter(Boolean).join(' / ');
+    let ref = '';
+    try { ref = document.referrer ? new URL(document.referrer).hostname : ''; } catch (e) {}
+    if (ref === location.hostname) ref = '';
+    guarda('bmr_origem', [utm, ref].filter(Boolean).join(' · ') || 'direto');
+  }
+
+  // Headline no painel
+  const hero = Painel(document.querySelector('[data-painel="hero"]'));
+  const escreveHero = inst => hero.escreve(
+    estreito.matches ? [' NINGUÉM', ' PULA ESTE', ' ANÚNCIO.'] : [' NINGUÉM PULA', ' ESTE ANÚNCIO.'],
+    { cols: estreito.matches ? 11 : 15, atraso: 200, escalonado: 30, instantaneo: inst }
+  );
+  escreveHero(false);
+
+  // Marca do visitante: painel, tablet, cartão, carro da rota e links de check-in
+  const campo = document.getElementById('marca');
+  const linhaMarca = Painel(document.querySelector('[data-painel="marca"]'));
+  let marca = le('bmr_marca');
+  campo.value = marca;
+  function aplicaMarca(inst) {
+    const m = marca.trim();
+    const padrao = estreito.matches ? 'SUA MARCA' : 'SUA MARCA AQUI';
+    // Nome maior que a linha: primeiro estreita as palhetas, depois quebra em mais linhas.
+    const base = estreito.matches ? 11 : 15;
+    const teto = estreito.matches ? 15 : 22;
+    const texto = m || padrao;
+    const cols = Math.min(teto, Math.max(base, texto.length + 2));
+    linhaMarca.escreve(quebra(texto, cols - 1).map(l => ' ' + l), { cols, escalonado: 16, instantaneo: inst, atraso: inst ? 0 : 60 });
+    document.querySelectorAll('[data-marca]').forEach(el => { el.textContent = m || 'Tua marca'; });
+    document.querySelectorAll('[data-marca-curta]').forEach(el => { el.textContent = m || 'Tua marca'; });
+    codigoBarras(document.querySelector('[data-barcode]'), m);
+    const q = new URLSearchParams();
+    if (m) q.set('marca', m);
+    document.querySelectorAll('[data-checkin]').forEach(a => { a.href = 'reservar/' + (q.toString() ? '?' + q : ''); });
+  }
+  aplicaMarca(false);
+  let espera;
+  campo.addEventListener('input', () => {
+    clearTimeout(espera);
+    espera = setTimeout(() => { marca = campo.value; guarda('bmr_marca', marca); aplicaMarca(false); }, 140);
+  });
+  campo.addEventListener('keydown', e => { if (e.key === 'Enter') document.querySelector('.heroi [data-checkin].btn:not(.btn-sm)').click(); });
+  estreito.addEventListener('change', () => { escreveHero(true); aplicaMarca(true); });
+  document.querySelectorAll('[data-checkin]').forEach(a => a.addEventListener('click', () => {
+    if (window.gtag) gtag('event', 'checkin_inicio', { marca_digitada: !!marca.trim() });
+  }));
+
+  // Contagem até o fechamento do check-in
+  const PRAZO = Date.parse('2026-11-15T23:59:00-03:00');
+  const contagem = Painel(document.querySelector('[data-painel="contagem"]'));
+  const contagemFinal = Painel(document.querySelector('[data-painel="contagem-final"]'));
+  let finalVisto = false;
+  const contagemTexto = document.querySelector('[data-contagem-texto]');
+  function tique(inst) {
+    const ms = Math.max(0, PRAZO - Date.now());
+    const d = Math.floor(ms / 864e5), h = Math.floor(ms % 864e5 / 36e5), m = Math.floor(ms % 36e5 / 6e4);
+    const dois = n => String(n).padStart(2, '0');
+    const txt = [ms ? dois(d) + 'D ' + dois(h) + 'H ' + dois(m) + 'M' : 'ENCERRADO'];
+    contagem.escreve(txt, { cols: 11, escalonado: 45, instantaneo: inst, atraso: 900 });
+    if (finalVisto) contagemFinal.escreve(txt, { cols: 11, escalonado: 45 });
+    contagemTexto.textContent = ms ? d + ' dias, ' + h + ' horas e ' + m + ' minutos' : 'Check-in encerrado';
+  }
+  tique(false);
+  setInterval(() => tique(false), 20000);
+
+  // Relógio de Porto Seguro
+  const relogio = document.querySelector('[data-relogio]');
+  const formato = new Intl.DateTimeFormat('pt-BR', { timeZone: 'America/Bahia', hour: '2-digit', minute: '2-digit' });
+  const hora = () => { relogio.textContent = formato.format(new Date()); };
+  hora();
+  setInterval(hora, 15000);
+
+  // Carro andando na rota conforme a rolagem
+  const rota = document.querySelector('.rota');
+  const paradas = rota.querySelectorAll('.parada');
+  let pedido = false;
+  function andar() {
+    pedido = false;
+    const r = rota.getBoundingClientRect();
+    const vh = innerHeight;
+    const p = Math.min(1, Math.max(0, (0.8 * vh - r.top) / (0.4 * vh + r.height)));
+    const n = paradas.length - 1;
+    const k = Math.min(n, Math.floor(p * n + 0.001));
+    rota.style.setProperty('--p', (k / n).toFixed(3)); // o carro anda de parada em parada
+    paradas.forEach((el, i) => el.classList.toggle('passou', i <= k));
+  }
+  addEventListener('scroll', () => { if (!pedido) { pedido = true; requestAnimationFrame(andar); } }, { passive: true });
+  addEventListener('resize', andar);
+  andar();
+
+  // Tela do tablet: a vaga de 15 s correndo
+  const seg = document.querySelector('[data-seg]');
+  const barra = document.querySelector('.tela .prog i');
+  let s = 15;
+  setInterval(() => {
+    s = s === 0 ? 15 : s - 1;
+    seg.textContent = '0:' + String(s).padStart(2, '0');
+    barra.style.transition = s === 15 ? 'none' : '';
+    barra.style.transform = 'scaleX(' + ((15 - s) / 15) + ')';
+  }, 1000);
+
+  // As 20 vagas
+  const vagas = document.querySelector('[data-vagas]');
+  for (let i = 0; i < 20; i++) {
+    const t = i * 15;
+    const li = document.createElement('li');
+    li.innerHTML = '<span>' + String(i + 1).padStart(2, '0') + '</span><span class="t">' + Math.floor(t / 60) + ':' + String(t % 60).padStart(2, '0') + '</span><span class="s">LIVRE</span>';
+    vagas.append(li);
+  }
+
+  // A contagem do fim vira quando aparece
+  new IntersectionObserver((entradas, obs) => {
+    if (entradas[0].isIntersecting) { finalVisto = true; tique(false); obs.disconnect(); }
+  }, { threshold: 0.4 }).observe(document.querySelector('.final .board'));
+})();
+</script>
+</body>
+</html>

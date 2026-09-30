@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Check-in · BrandMyRide</title>
+<meta name="description" content="Faça o check-in da tua marca no BrandMyRide: 20 vagas de 15 segundos nos tablets dos carros de app de Porto Seguro. Não cobra nada.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://thallisribeiro.com.br/brandmyride/reservar/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Check-in da tua marca · BrandMyRide">
+<meta property="og:description" content="20 vagas de 15 segundos nos tablets dos carros de app de Porto Seguro. Check-in até 15/11, sem pagar nada.">
+<meta property="og:image" content="https://thallisribeiro.com.br/brandmyride/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#111316">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111316'/%3E%3Crect x='5' y='5' width='22' height='22' rx='3' fill='%231f2226'/%3E%3Crect x='5' y='15.5' width='22' height='1.5' fill='%23111316'/%3E%3Ctext x='16' y='23.5' font-family='monospace' font-size='18' font-weight='700' text-anchor='middle' fill='%23ffb000'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Martian+Mono:wdth,wght@75..112.5,400..800&display=swap">
+<link rel="stylesheet" href="../assets/base.css">
+<style>
+body { min-height: 100svh; display: flex; flex-direction: column; }
+.topo { border-bottom: 1px solid var(--line); }
+.topo-in { display: flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 60px; }
+.logo { display: inline-flex; align-items: center; gap: 8px; font: 850 1.25rem/1 var(--display); font-stretch: 70%; text-decoration: none; }
+.logo .icon { width: 1.4em; height: 1.4em; }
+.topo-dir { display: flex; align-items: center; gap: 18px; }
+.etapa { font: 700 0.74rem/1 var(--mono); font-stretch: 80%; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.sair { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-2); text-decoration: none; font-weight: 600; }
+.sair:hover { color: var(--ink); }
+
+.cabine { width: 100%; max-width: 800px; margin-inline: auto; padding: 18px var(--gutter) 0; display: grid; gap: 14px; }
+.cabine .board { padding: 10px 12px; }
+.trilho { display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); gap: 4px; }
+.trilho i { height: 5px; border-radius: 2px; background: var(--line); transition: background-color 220ms; }
+.trilho i.feito { background: var(--ink); }
+.trilho i.agora { background: var(--amber); }
+
+.palco { flex: 1; width: 100%; max-width: 800px; margin-inline: auto; padding: clamp(28px, 6vh, 72px) var(--gutter) 64px; }
+.passo { display: grid; gap: 20px; }
+.passo.entra { animation: entra 340ms var(--ease) both; }
+.passo.volta { animation: volta 340ms var(--ease) both; }
+@keyframes entra { from { clip-path: inset(0 0 100% 0); transform: translateY(-12px); } to { clip-path: inset(0 0 0 0); transform: none; } }
+@keyframes volta { from { clip-path: inset(100% 0 0 0); transform: translateY(12px); } to { clip-path: inset(0 0 0 0); transform: none; } }
+.passo h1, .sucesso h1 { font-size: clamp(2rem, 6.4vw, 3.5rem); max-width: 18ch; }
+.ajuda { margin: -4px 0 0; max-width: 52ch; color: var(--ink-2); font-size: 1.08rem; text-wrap: pretty; }
+.entrada {
+  width: 100%; padding: 12px 2px;
+  border: 0; border-bottom: 3px solid var(--line); border-radius: 0;
+  background: transparent; color: var(--ink);
+  font: 700 clamp(1.35rem, 3.6vw, 2rem)/1.2 var(--body);
+  transition: border-color 160ms;
+}
+.entrada::placeholder { color: var(--ink-2); opacity: 0.55; }
+.entrada:focus-visible { outline: none; border-radius: 0; border-bottom-color: var(--amber); }
+.opcoes { display: grid; gap: 10px; margin: 0; padding: 0; border: 0; min-width: 0; }
+.opcao {
+  position: relative;
+  display: grid; grid-template-columns: 32px minmax(0, 1fr); align-items: center; gap: 14px;
+  min-height: 62px; padding: 12px 16px;
+  border: 2px solid var(--line); border-radius: 12px;
+  background: var(--field); cursor: pointer;
+  font: 650 1.08rem/1.3 var(--body);
+  transition: border-color 140ms, background-color 140ms, color 140ms, transform 160ms var(--ease);
+}
+.opcao:hover { border-color: var(--ink-2); }
+.opcao:active { transform: scale(0.99); }
+.opcao input { position: absolute; opacity: 0; pointer-events: none; }
+.opcao .tecla { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 6px; background: var(--board); color: var(--flap-ink); font: 700 0.8rem/1 var(--mono); }
+.opcao:has(input:checked) { border-color: var(--ink); background: var(--ink); color: var(--hall); }
+.opcao:has(input:checked) .tecla { background: var(--amber); color: var(--amber-ink); }
+.opcao:has(input:focus-visible) { outline: 3px solid var(--amber); outline-offset: 3px; }
+.erro { margin: 0; min-height: 1.4em; color: var(--erro); font-weight: 650; }
+.erro:empty { min-height: 0; }
+.acoes { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }
+.dica { font: 500 0.8rem/1.4 var(--mono); font-stretch: 85%; color: var(--ink-2); }
+.voltar { justify-self: start; display: inline-flex; align-items: center; gap: 8px; padding: 8px 0; border: 0; background: none; color: var(--ink-2); font-weight: 600; cursor: pointer; }
+.voltar:hover { color: var(--ink); }
+.pote { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.pass { position: relative; }
+.pass .status.ok { color: var(--green-paper); }
+.pass.imprime { animation: imprime 1.1s steps(11, end) both; }
+@keyframes imprime { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
+.carimbo {
+  position: absolute; top: 18px; right: 18px;
+  padding: 8px 14px; border: 3px solid var(--green-paper); border-radius: 8px;
+  color: var(--green-paper); background: rgb(248 249 247 / 0.85);
+  font: 800 clamp(0.8rem, 1.8vw, 1.05rem)/1 var(--mono); font-stretch: 80%; letter-spacing: 0.08em; text-transform: uppercase;
+  transform: rotate(-8deg); pointer-events: none;
+  animation: carimba 380ms 1.15s var(--ease) both;
+}
+@keyframes carimba { from { opacity: 0; transform: rotate(-8deg) scale(1.7); } to { opacity: 1; transform: rotate(-8deg) scale(1); } }
+.sucesso { display: grid; gap: 22px; }
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-247F9N1WQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-247F9N1WQE');
+</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-pouso" viewBox="0 0 24 24"><path transform="rotate(135 12 12)" d="M12 2c1 0 1.5 1 1.5 2.5V9l7.5 4.5V15l-7.5-2.5V18l2.5 2v1.5l-4-1-4 1V20l2.5-2v-5.5L3 15v-1.5L10.5 9V4.5C10.5 3 11 2 12 2z"/></symbol>
+  <symbol id="i-seta" viewBox="0 0 24 24"><path d="M4 12h15"/><path d="M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-voltar" viewBox="0 0 24 24"><path d="M20 12H5"/><path d="M11 6l-6 6 6 6"/></symbol>
+  <symbol id="i-fechar" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+</svg>
+
+<header class="topo">
+  <div class="wrap topo-in">
+    <a class="logo" href="../"><svg class="icon"><use href="#i-pouso"/></svg>BrandMyRide</a>
+    <div class="topo-dir">
+      <span class="etapa" data-etapa aria-live="polite"></span>
+      <a class="sair" href="../"><svg class="icon"><use href="#i-fechar"/></svg>Sair</a>
+    </div>
+  </div>
+</header>
+
+<div class="cabine" aria-hidden="true">
+  <div class="board"><div class="flap-rows amber" data-painel="marca"></div></div>
+  <div class="trilho" data-trilho></div>
+</div>
+
+<main class="palco" id="palco">
+  <!-- data-endpoint: URL /exec da implantação do Apps Script (backend/Code.gs) -->
+  <form class="passo" id="passo" novalidate data-endpoint="">
+    <h1 class="display" id="pergunta" tabindex="-1"></h1>
+    <p class="ajuda" id="ajuda"></p>
+    <div id="resposta"></div>
+    <p class="erro" id="erro" role="alert"></p>
+    <div class="acoes">
+      <button class="btn" type="submit" id="seguir"><span id="seguir-t">Continuar</span><svg class="icon"><use href="#i-seta"/></svg></button>
+      <span class="dica" id="dica"></span>
+    </div>
+    <button class="voltar" type="button" id="voltar"><svg class="icon"><use href="#i-voltar"/></svg>Voltar</button>
+    <div class="pote" aria-hidden="true"><label>Deixe em branco <input id="hp" tabindex="-1" autocomplete="off"></label></div>
+  </form>
+</main>
+
+<script src="../assets/flap.js"></script>
+<script>
+(function () {
+  const PASSOS = [
+    { id: 'marca', tipo: 'text', titulo: () => 'Qual marca vai desembarcar em Porto Seguro?', ajuda: 'O nome que vai aparecer no tablet.', ph: 'Nome da marca', max: 30, auto: 'organization', obrig: true },
+    { id: 'site', tipo: 'text', titulo: d => 'Onde a gente conhece a ' + d.marca + '?', ajuda: 'Site ou @. Se não tiver, pode pular.', ph: 'site.com.br ou @marca', max: 120, auto: 'url', obrig: false },
+    { id: 'segmento', tipo: 'escolha', titulo: d => 'O que a ' + d.marca + ' vende?', opcoes: ['App ou SaaS pra consumidor', 'SaaS pra empresa (B2B)', 'Produto físico ou e-commerce', 'Turismo, bar ou restaurante', 'Outra coisa'] },
+    { id: 'publico', tipo: 'escolha', titulo: () => 'Quem você quer que veja?', opcoes: ['Turista chegando de férias', 'Morador da região', 'Os dois'] },
+    { id: 'objetivo', tipo: 'escolha', titulo: () => 'O que seria vitória pra você?', opcoes: ['Download ou cadastro pelo QR', 'Venda com cupom', 'Marca na cabeça do turista', 'Foto da minha marca num carro na Bahia pra postar'] },
+    { id: 'faixa', tipo: 'escolha', titulo: () => 'Quanto faria sentido pagar por mês, na temporada?', ajuda: 'Não é compromisso. É o que vai definir a tarifa.', opcoes: ['Até R$ 300', 'R$ 300 a R$ 700', 'R$ 700 a R$ 1.500', 'Mais de R$ 1.500'] },
+    { id: 'nome', tipo: 'text', titulo: () => 'E o teu nome?', ph: 'Nome', max: 60, auto: 'name', obrig: true },
+    { id: 'whatsapp', tipo: 'tel', titulo: d => primeiro(d.nome) + ', qual teu WhatsApp?', ajuda: 'É por lá que eu te chamo pra fechar.', ph: '(73) 99999-9999', max: 20, auto: 'tel', obrig: true },
+    { id: 'email', tipo: 'email', titulo: () => 'E um e-mail, se quiser.', ajuda: 'Pra receber o resultado de 15/11. Pode pular.', ph: 'voce@marca.com', max: 120, auto: 'email', obrig: false },
+    { id: 'confere', tipo: 'revisao', titulo: () => 'Confere teu cartão de embarque.', ajuda: 'Tudo certo? Confirma e tua marca entra na lista do voo de dezembro.' },
+  ];
+
+  const $ = s => document.querySelector(s);
+  const form = $('#passo');
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const primeiro = n => String(n || '').trim().split(/\s+/)[0] || '';
+  const digitos = v => String(v || '').replace(/\D/g, '');
+  const CHAVE = 'bmr_checkin';
+  const le = (store, k) => { try { return window[store].getItem(k) || ''; } catch (e) { return ''; } };
+
+  let dados = {};
+  try { dados = JSON.parse(le('localStorage', CHAVE) || '{}'); } catch (e) { dados = {}; }
+  const daURL = new URLSearchParams(location.search).get('marca');
+  if (daURL) dados.marca = daURL.slice(0, 30); // a marca que veio da landing é a intenção mais recente
+  if (!dados.marca && le('sessionStorage', 'bmr_marca')) dados.marca = le('sessionStorage', 'bmr_marca').slice(0, 30);
+  const salva = () => { try { localStorage.setItem(CHAVE, JSON.stringify(dados)); } catch (e) {} };
+
+  let i = PASSOS.findIndex(p => p.tipo !== 'revisao' && dados[p.id] === undefined);
+  if (i < 0) i = PASSOS.length - 1;
+  if (i === 1 && daURL) i = 0; // chegou da landing com a marca: confirma antes
+
+  // Painel com a marca no topo e trilho de progresso
+  const painel = window.BMR.Painel($('[data-painel="marca"]'));
+  const estreito = matchMedia('(max-width: 560px)');
+  const toque = matchMedia('(pointer: coarse)').matches;
+  const escreveMarca = inst => {
+    const texto = dados.marca || 'CHECK-IN';
+    const cols = Math.min(estreito.matches ? 16 : 22, Math.max(estreito.matches ? 12 : 16, texto.length + 2));
+    painel.escreve(window.BMR.quebra(texto, cols - 1).map(l => ' ' + l), { cols, escalonado: 16, instantaneo: inst });
+  };
+  escreveMarca(false);
+  estreito.addEventListener('change', () => escreveMarca(true));
+  const trilho = $('[data-trilho]');
+  trilho.style.setProperty('--n', PASSOS.length);
+  trilho.innerHTML = PASSOS.map(() => '<i></i>').join('');
+  function progresso(atual) {
+    [...trilho.children].forEach((t, k) => { t.className = k < atual ? 'feito' : k === atual ? 'agora' : ''; });
+    $('[data-etapa]').textContent = atual < PASSOS.length ? 'Etapa ' + String(atual + 1).padStart(2, '0') + '/' + PASSOS.length : 'Check-in feito';
+  }
+
+  function mascara(v) {
+    const d = digitos(v).slice(0, 13);
+    if (d.length > 11) return '+' + d;
+    if (d.length > 6) return '(' + d.slice(0, 2) + ') ' + d.slice(2, d.length - 4) + '-' + d.slice(-4);
+    if (d.length > 2) return '(' + d.slice(0, 2) + ') ' + d.slice(2);
+    return d;
+  }
+
+  function cartao(d, confirmado) {
+    return '<article class="pass' + (confirmado ? ' imprime' : '') + '" aria-label="Cartão de embarque da ' + esc(d.marca) + '">' +
+      '<div class="pass-main">' +
+        '<div class="pass-top"><span style="display:inline-flex;align-items:center;gap:.6em"><svg class="icon"><use href="#i-pouso"/></svg>BrandMyRide · cartão de embarque</span><span class="num">BPS</span></div>' +
+        '<dl class="pass-fields">' +
+          '<div class="wide"><dt>Passageiro</dt><dd><span class="marca-p">' + esc(d.marca) + '</span></dd></div>' +
+          '<div><dt>Responsável</dt><dd>' + esc(d.nome) + '</dd></div>' +
+          '<div><dt>Vende</dt><dd>' + esc(d.segmento) + '</dd></div>' +
+          '<div><dt>Quer alcançar</dt><dd>' + esc(d.publico) + '</dd></div>' +
+          '<div><dt>Vitória</dt><dd>' + esc(d.objetivo) + '</dd></div>' +
+          '<div class="wide"><dt>Tarifa</dt><dd>' + esc(d.faixa).replace(/R\$ /g, 'R$\u00a0') + '\u00a0/\u00a0mês</dd></div>' +
+          '<div><dt>WhatsApp</dt><dd class="num">' + esc(d.whatsapp) + '</dd></div>' +
+          (d.email ? '<div><dt>E-mail</dt><dd>' + esc(d.email) + '</dd></div>' : '') +
+          (d.site ? '<div><dt>Site ou @</dt><dd>' + esc(d.site) + '</dd></div>' : '') +
+        '</dl>' +
+      '</div>' +
+      '<div class="pass-stub"><dl>' +
+        '<div><dt>Embarque</dt><dd class="num">01 DEZ 2026</dd></div>' +
+        '<div><dt>Assento</dt><dd>Vaga de 15 s</dd></div>' +
+        '<div><dt>Status</dt><dd class="status' + (confirmado ? ' ok' : '') + '">' + (confirmado ? 'Confirmado' : 'A confirmar') + '</dd></div>' +
+      '</dl><div class="barcode" data-barcode></div></div>' +
+      (confirmado ? '<span class="carimbo">Check-in confirmado</span>' : '') +
+    '</article>';
+  }
+
+  function valor(p) {
+    if (p.tipo === 'escolha') { const r = form.querySelector('input[name="' + p.id + '"]:checked'); return r ? r.value : ''; }
+    const e = $('#entrada');
+    return e ? e.value.trim() : '';
+  }
+
+  function valida(p, v) {
+    if (!v) return p.obrig === false ? '' : (p.tipo === 'escolha' ? 'Escolhe uma opção pra seguir.' : 'Responde essa pra seguir.');
+    if (p.id === 'marca' && v.length < 2) return 'Nome curto demais pra ir no tablet.';
+    if (p.tipo === 'tel' && digitos(v).length < 10) return 'Confere o número: faltou o DDD ou algum dígito.';
+    if (p.tipo === 'email' && !$('#entrada').checkValidity()) return 'Esse e-mail não parece certo.';
+    return '';
+  }
+
+  function rotuloBotao() {
+    const p = PASSOS[i];
+    const vazio = p.tipo !== 'escolha' && p.tipo !== 'revisao' && !valor(p);
+    $('#seguir-t').textContent = p.tipo === 'revisao' ? 'Confirmar check-in' : (vazio && p.obrig === false ? 'Pular' : 'Continuar');
+  }
+
+  function render(sentido) {
+    const p = PASSOS[i];
+    progresso(i);
+    $('#erro').textContent = '';
+    $('#pergunta').textContent = p.titulo(dados);
+    $('#ajuda').textContent = p.ajuda || '';
+    $('#ajuda').hidden = !p.ajuda;
+    $('#voltar').hidden = i === 0;
+    const resp = $('#resposta');
+    if (p.tipo === 'escolha') {
+      resp.innerHTML = '<fieldset class="opcoes"><legend class="sr">' + esc(p.titulo(dados)) + '</legend>' +
+        p.opcoes.map((o, k) => '<label class="opcao"><input type="radio" name="' + p.id + '" value="' + esc(o) + '"' + (dados[p.id] === o ? ' checked' : '') + '><span class="tecla">' + (k + 1) + '</span><span>' + esc(o) + '</span></label>').join('') +
+        '</fieldset>';
+      $('#dica').textContent = toque ? 'Toca numa opção' : 'Clica numa opção ou usa as teclas 1 a ' + p.opcoes.length;
+    } else if (p.tipo === 'revisao') {
+      resp.innerHTML = cartao(dados, false);
+      window.BMR.codigoBarras(resp.querySelector('[data-barcode]'), dados.marca);
+      $('#dica').textContent = 'Não cobra nada. Fecha em 15/11.';
+    } else {
+      resp.innerHTML = '<label class="sr" for="entrada">' + esc(p.titulo(dados)) + '</label>' +
+        '<input class="entrada" id="entrada" type="' + (p.tipo === 'text' ? 'text' : p.tipo) + '" maxlength="' + p.max + '" autocomplete="' + p.auto + '" placeholder="' + esc(p.ph) + '"' +
+        (p.tipo === 'tel' ? ' inputmode="tel"' : '') + (p.tipo === 'email' ? ' inputmode="email"' : '') + ' spellcheck="false" value="' + esc(dados[p.id] || '') + '">';
+      const e = $('#entrada');
+      e.addEventListener('input', () => {
+        if (p.tipo === 'tel') { e.value = mascara(e.value); }
+        rotuloBotao();
+      });
+      $('#dica').textContent = toque ? '' : 'ou aperta Enter';
+    }
+    rotuloBotao();
+    form.classList.remove('entra', 'volta');
+    void form.offsetWidth;
+    if (sentido) form.classList.add(sentido === 'tras' ? 'volta' : 'entra');
+    const foco = p.tipo === 'escolha' ? (form.querySelector('input:checked') || form.querySelector('.opcoes input')) : p.tipo === 'revisao' ? $('#pergunta') : $('#entrada');
+    if (foco && (sentido || matchMedia('(pointer: fine)').matches)) foco.focus({ preventScroll: true });
+  }
+
+  function avanca() {
+    const p = PASSOS[i];
+    if (p.tipo === 'revisao') return envia();
+    const v = valor(p);
+    const erro = valida(p, v);
+    if (erro) { $('#erro').textContent = erro; return; }
+    dados[p.id] = v;
+    salva();
+    if (p.id === 'marca') escreveMarca(false);
+    i++;
+    render('frente');
+  }
+
+  form.addEventListener('submit', e => { e.preventDefault(); avanca(); });
+  $('#voltar').addEventListener('click', () => { if (i > 0) { i--; render('tras'); } });
+
+  // Escolha: toque avança; teclas 1 a N escolhem e avançam
+  let escolhendo;
+  form.addEventListener('click', e => {
+    const op = e.target.closest('.opcao');
+    if (!op || e.detail === 0) return; // detail 0 = clique vindo do teclado
+    clearTimeout(escolhendo);
+    escolhendo = setTimeout(avanca, 220);
+  });
+  document.addEventListener('keydown', e => {
+    const p = PASSOS[i];
+    if (!p || e.altKey || e.ctrlKey || e.metaKey) return;
+    if (p.tipo === 'escolha' && /^[1-9]$/.test(e.key)) {
+      const r = form.querySelectorAll('.opcoes input')[Number(e.key) - 1];
+      if (r) { r.checked = true; r.focus({ preventScroll: true }); clearTimeout(escolhendo); escolhendo = setTimeout(avanca, 220); }
+    } else if (p.tipo === 'escolha' && e.key === 'Enter' && !e.target.closest('button, a')) {
+      e.preventDefault();
+      avanca();
+    }
+  });
+
+  function origem() {
+    const q = new URLSearchParams(location.search);
+    const utm = ['utm_source', 'utm_medium', 'utm_campaign'].map(k => q.get(k)).filter(Boolean).join(' / ');
+    return le('sessionStorage', 'bmr_origem') || utm || 'direto';
+  }
+
+  async function envia() {
+    const btn = $('#seguir');
+    btn.disabled = true;
+    $('#seguir-t').textContent = 'Emitindo cartão…';
+    $('#erro').textContent = '';
+    try {
+      const endpoint = form.dataset.endpoint;
+      if (!endpoint) throw new Error('sem endpoint');
+      const corpo = Object.assign({}, dados, { origem: origem(), hp: $('#hp').value });
+      const r = await fetch(endpoint, { method: 'POST', body: JSON.stringify(corpo) });
+      const j = await r.json();
+      if (!j.ok) throw new Error(j.erro || 'recusado');
+      if (window.gtag) gtag('event', 'checkin_ok', { faixa: dados.faixa, segmento: dados.segmento });
+      const feito = Object.assign({}, dados);
+      try { localStorage.removeItem(CHAVE); } catch (e) {}
+      sucesso(feito);
+    } catch (err) {
+      btn.disabled = false;
+      $('#seguir-t').textContent = 'Tentar de novo';
+      $('#erro').textContent = 'Não consegui registrar teu check-in. Tenta de novo em alguns segundos ou me chama no X: @thallisribeiro.';
+    }
+  }
+
+  function sucesso(d) {
+    progresso(PASSOS.length);
+    [...trilho.children].forEach(t => { t.className = 'feito'; });
+    const texto = 'Fiz check-in da ' + d.marca + ' no BrandMyRide: tablet no banco de trás dos carros de app de Porto Seguro na temporada. São 20 vagas e fecha 15/11. Ideia do @thallisribeiro\nhttps://thallisribeiro.com.br/brandmyride/';
+    $('#palco').innerHTML =
+      '<section class="sucesso">' +
+        '<h1 class="display" tabindex="-1" id="feito">Check-in feito, ' + esc(primeiro(d.nome)) + '.</h1>' +
+        '<p class="ajuda">A ' + esc(d.marca) + ' está na lista do voo de dezembro. Até 15/11 eu te chamo no WhatsApp com o resultado: com 10 marcas, a gente fecha tarifa e arte. Sem 10, ninguém paga nada.</p>' +
+        cartao(d, true) +
+        '<div class="acoes">' +
+          '<a class="btn" href="https://twitter.com/intent/tweet?text=' + encodeURIComponent(texto) + '" target="_blank" rel="noopener">Postar no X<svg class="icon"><use href="#i-seta"/></svg></a>' +
+          '<a class="btn btn-ghost" href="../">Voltar pro saguão</a>' +
+        '</div>' +
+      '</section>';
+    window.BMR.codigoBarras(document.querySelector('[data-barcode]'), d.marca);
+    $('#feito').focus({ preventScroll: true });
+    scrollTo({ top: 0 });
+  }
+
+  render(null);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+/* BrandMyRide: saguão de chegada. Painel split-flap preto num saguão claro.
+   Amarelo de sinalização só para ação e para a marca do visitante; verde só para status. */
+:root {
+  --hall: #edefed;
+  --hall-2: #e1e4e2;
+  --ink: #101214;
+  --ink-2: #4c535a;
+  --line: #c6cbc9;
+  --board: #111316;
+  --board-edge: #2b3036;
+  --board-label: #9ba2a9;
+  --flap: #1f2226;
+  --flap-2: #191c1f;
+  --flap-ink: #f3f3ef;
+  --amber: #ffb000;
+  --amber-ink: #1a1400;
+  --green: #25c46e;
+  --paper: #f8f9f7;
+  --thermal: #2c2f33;
+  --field: #ffffff;
+  --erro: #b3261e;
+  --green-paper: #12804a;
+  --shadow: 0 22px 44px -26px rgb(16 18 20 / 0.5);
+  --display: "Archivo", "Arial Narrow", sans-serif;
+  --body: "Archivo", "Segoe UI", system-ui, sans-serif;
+  --mono: "Martian Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --r: 14px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --hall: #0d0f11;
+    --hall-2: #16191c;
+    --ink: #eceeec;
+    --ink-2: #a3aab1;
+    --line: #2b3035;
+    --board: #07080a;
+    --board-edge: #30363c;
+    --field: #16191c;
+    --erro: #ff8a80;
+    --shadow: 0 22px 44px -26px rgb(0 0 0 / 0.85);
+    color-scheme: dark;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; caret-color: var(--amber); scrollbar-color: var(--ink-2) var(--hall); }
+body {
+  margin: 0;
+  background: var(--hall) url("terrazzo.svg") 0 0 / 480px 480px;
+  color: var(--ink);
+  font: 400 1.0625rem/1.55 var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--amber); color: var(--amber-ink); }
+a { color: inherit; text-underline-offset: 0.22em; text-decoration-thickness: 1px; }
+img, svg { display: block; max-width: 100%; }
+button, input, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; border-radius: 4px; }
+[tabindex="-1"]:focus { outline: none; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.wrap { width: 100%; max-width: 1180px; margin-inline: auto; padding-inline: var(--gutter); }
+.faixa { background: var(--hall-2) url("terrazzo.svg") 240px 120px / 480px 480px; }
+.icon { width: 1.2em; height: 1.2em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.num { font-family: var(--mono); font-stretch: 80%; font-variant-numeric: tabular-nums; }
+
+.display {
+  font-family: var(--display);
+  font-stretch: 68%;
+  font-weight: 850;
+  line-height: 0.96;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  margin: 0;
+}
+
+/* Botão de sinalização: o amarelo é a ação */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.65em;
+  min-height: 56px; padding: 0 1.5em;
+  background: var(--amber); color: var(--amber-ink);
+  font: 850 1.05rem/1 var(--display); font-stretch: 78%; letter-spacing: 0.02em; text-transform: uppercase;
+  border: 0; border-radius: 10px; cursor: pointer; text-decoration: none; white-space: nowrap;
+  box-shadow: 0 12px 22px -14px rgb(0 0 0 / 0.45);
+  transition: transform 180ms var(--ease), box-shadow 180ms var(--ease), filter 180ms;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 16px 26px -14px rgb(0 0 0 / 0.5); }
+.btn:active { transform: translateY(1px); filter: brightness(0.96); }
+.btn .icon { transition: transform 220ms var(--ease); }
+.btn:hover .icon { transform: translateX(4px); }
+.btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: none; }
+.btn-ghost {
+  background: transparent; color: var(--ink);
+  box-shadow: inset 0 0 0 2px var(--line);
+}
+.btn-ghost:hover { box-shadow: inset 0 0 0 2px var(--ink); }
+
+/* Painel split-flap */
+.board {
+  --cols: 12;
+  container-type: inline-size;
+  background: var(--board);
+  border-radius: var(--r);
+  padding: clamp(10px, 2vw, 22px);
+  box-shadow: var(--shadow);
+  color: var(--flap-ink);
+}
+.board-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding-bottom: clamp(8px, 1.4vw, 14px);
+  color: var(--board-label);
+  font: 600 clamp(9px, 1.5cqi, 12px)/1.2 var(--mono); font-stretch: 80%;
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+.board-head .icon { width: 1.4em; height: 1.4em; }
+.board-head span { display: inline-flex; align-items: center; gap: 0.6em; }
+.flap-rows { display: grid; gap: clamp(3px, 0.7cqi, 7px); }
+.flap-row { display: grid; grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); gap: clamp(2px, 0.45cqi, 5px); }
+.flap {
+  position: relative;
+  aspect-ratio: 0.7;
+  perspective: 320px;
+  font: 700 calc(100cqi / var(--cols) * 0.74)/1 var(--mono); font-stretch: 75%;
+  color: inherit;
+}
+.flap-t, .flap-b {
+  position: absolute; left: 0; right: 0; height: 50%;
+  overflow: hidden;
+  background: var(--flap);
+  backface-visibility: hidden;
+}
+.flap-t { top: 0; border-radius: 3px 3px 0 0; transform-origin: 50% 100%; }
+.flap-b { bottom: 0; border-radius: 0 0 3px 3px; transform-origin: 50% 0; background: var(--flap-2); }
+.flap-t b, .flap-b b {
+  position: absolute; left: 0; right: 0; height: 200%;
+  display: grid; place-items: center;
+  font-weight: inherit;
+}
+.flap-t b { top: 0; }
+.flap-b b { bottom: 0; }
+.flap::after {
+  content: ""; position: absolute; left: 0; right: 0; top: calc(50% - 1px); height: 2px;
+  background: var(--board); z-index: 3;
+}
+.flap .folha { z-index: 2; }
+.flap-rows.amber { color: var(--amber); }
+.flap-rows.green { color: var(--green); }
+.board-static { margin: 0; font: 700 clamp(1.4rem, 5cqi, 3.2rem)/1.1 var(--mono); font-stretch: 75%; text-transform: uppercase; }
+
+/* Cartão de embarque em papel térmico */
+/* Papel térmico: canto quase reto, sombra de contato, picote com meia-lua cortada nas pontas */
+.pass {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(170px, 0.34fr);
+  color: var(--thermal);
+  border-radius: 3px;
+  filter: drop-shadow(0 0 0.6px rgb(16 18 20 / 0.45)) drop-shadow(0 1px 1px rgb(16 18 20 / 0.1));
+  font-family: var(--mono); font-stretch: 85%;
+}
+.pass-main, .pass-stub {
+  --furo: radial-gradient(circle at var(--fx1) var(--fy1), #0000 9px, #000 9.5px), radial-gradient(circle at var(--fx2) var(--fy2), #0000 9px, #000 9.5px);
+  -webkit-mask-image: var(--furo); mask-image: var(--furo);
+  -webkit-mask-composite: source-in; mask-composite: intersect;
+}
+.pass-main { --fx1: 100%; --fy1: 0%; --fx2: 100%; --fy2: 100%; background: var(--paper); border-radius: 3px 0 0 3px; padding: clamp(18px, 3vw, 30px); display: grid; gap: 18px; min-width: 0; }
+.pass-stub {
+  --fx1: 0%; --fy1: 0%; --fx2: 0%; --fy2: 100%;
+  position: relative;
+  border-radius: 0 3px 3px 0;
+  padding: clamp(18px, 3vw, 30px) clamp(16px, 2.4vw, 24px);
+  display: grid; align-content: space-between; gap: 18px;
+  background: radial-gradient(circle, rgb(44 47 51 / 0.45) 1.3px, transparent 1.7px) 0 12px / 3px 9px repeat-y, var(--paper);
+}
+.pass-top {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700;
+}
+.pass-top .icon { width: 1.3em; height: 1.3em; }
+.pass-fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px 22px; margin: 0; }
+.pass-fields div { min-width: 0; }
+.pass-fields dt, .pass-stub dt { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.72; }
+.pass-fields dd, .pass-stub dd { margin: 3px 0 0; font-size: 0.98rem; font-weight: 700; text-transform: uppercase; overflow-wrap: anywhere; }
+.pass-fields .wide { grid-column: 1 / -1; }
+.pass .marca-p {
+  display: inline; padding: 0 0.25em;
+  background: var(--amber); color: var(--amber-ink);
+  box-decoration-break: clone; -webkit-box-decoration-break: clone;
+}
+.pass-stub dl { margin: 0; display: grid; gap: 12px; }
+.barcode { height: 54px; width: 100%; color: var(--thermal); }
+.barcode svg { width: 100%; height: 100%; fill: currentColor; }
+@media (max-width: 640px) {
+  .pass { grid-template-columns: 1fr; }
+  .pass-main { --fx1: 0%; --fy1: 100%; --fx2: 100%; --fy2: 100%; border-radius: 3px 3px 0 0; }
+  .pass-stub { --fx1: 0%; --fy1: 0%; --fx2: 100%; --fy2: 0%; border-radius: 0 0 3px 3px; background: radial-gradient(circle, rgb(44 47 51 / 0.45) 1.3px, transparent 1.7px) 12px 0 / 9px 3px repeat-x, var(--paper); }
+}
+
+@media (prefers-color-scheme: dark) {
+  .board { box-shadow: 0 0 0 1px var(--board-edge); }
+  body, .faixa { background-image: url("terrazzo-noite.svg"); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 1ms !important; animation-duration: 1ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+}
