@@ -562,7 +562,7 @@
   // Painel principal: vira de recado em recado, como painel de aeroporto
   const quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;
   // As palhetas só começam a virar com as fontes prontas: o texto pinta primeiro, a animação vem depois.
-  const pronto = document.fonts.ready;
+  const pronto = document.fonts.ready.then(() => new Promise(ok => requestAnimationFrame(() => setTimeout(ok))));
   let pausado = false;
   const botaoPausa = document.querySelector('[data-pausa]');
   botaoPausa.addEventListener('click', () => {
@@ -640,6 +640,9 @@
   const TOTAL = 20;
   const contagem = Painel(document.querySelector('[data-painel="contagem"]'));
   const contagemFinal = Painel(document.querySelector('[data-painel="contagem-final"]'));
+  // Células vazias já no primeiro quadro: o painel não cresce depois e nada pula.
+  contagem.escreve([''], { cols: 11, instantaneo: true });
+  contagemFinal.escreve([''], { cols: 11, instantaneo: true });
   const contagemTexto = document.querySelector('[data-contagem-texto]');
   const vagasEl = document.querySelector('[data-vagas]');
   const totalEl = document.querySelector('[data-vagas-total]');
