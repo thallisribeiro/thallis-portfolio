@@ -40,6 +40,22 @@
 .marca-bloco { margin-top: clamp(12px, 2.4cqi, 24px); padding-top: clamp(10px, 1.8cqi, 18px); border-top: 1px solid var(--board-edge); display: grid; gap: clamp(8px, 1.2cqi, 12px); }
 .marca-rot { display: flex; justify-content: space-between; gap: 10px; color: var(--board-label); font: 600 clamp(9px, 1.5cqi, 12px)/1.2 var(--mono); font-stretch: 80%; letter-spacing: 0.1em; text-transform: uppercase; }
 .marca-rot .livre { color: var(--green); }
+.marca-rot .reservada { color: var(--red); }
+/* faixa de chegadas: quem já fez check-in, rodando como letreiro de aeroporto */
+.faixa-info { display: flex; background: var(--board); border-top: 1px solid var(--board-edge); }
+.faixa-info-janela { flex: 1; min-width: 0; overflow: hidden; }
+.faixa-info-trilho { display: flex; width: max-content; animation: corre 50s linear infinite; }
+.faixa-info:hover .faixa-info-trilho, .pausado .faixa-info-trilho { animation-play-state: paused; }
+.faixa-pausa { flex: none; display: grid; place-items: center; width: 40px; border: 0; border-left: 1px solid var(--board-edge); background: none; color: var(--board-label); cursor: pointer; }
+.faixa-pausa:hover, .faixa-pausa[aria-pressed="true"] { color: var(--amber); }
+.faixa-pausa:focus-visible { outline: 2px solid var(--amber); outline-offset: -4px; }
+.faixa-info ul { display: flex; gap: 34px; margin: 0; padding: 9px 17px; list-style: none; font: 600 0.72rem/1 var(--mono); font-stretch: 80%; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
+.faixa-info li { display: inline-flex; align-items: center; gap: 8px; color: var(--board-label); }
+.faixa-info .icon { width: 1.3em; height: 1.3em; }
+.faixa-info b { font-weight: 700; color: var(--flap-ink); }
+.faixa-info b.ok { color: var(--green); }
+@keyframes corre { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .faixa-info-trilho { animation: none; } .faixa-pausa { display: none; } }
 /* Espaço reservado pra duas linhas estreitas: nome longo não empurra o campo de baixo. */
 .heroi [data-painel="marca"] { min-height: 13cqi; align-content: start; }
 @media (max-width: 640px) { .heroi [data-painel="marca"] { min-height: 19cqi; } }
@@ -159,14 +175,19 @@
 .ficha dd { margin: 0; font-weight: 600; }
 .ficha dd .num { font-size: 1.3rem; font-weight: 700; }
 .vagas-board { margin-top: clamp(48px, 7vw, 88px); }
-.vagas { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(4px, 0.7cqi, 7px); }
+.vagas { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(4px, 0.7cqi, 7px); }
 @media (min-width: 760px) { .vagas { grid-template-columns: repeat(10, minmax(0, 1fr)); } }
 .vagas li { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; gap: 5px; padding: 9px 8px; border-radius: 4px; background: var(--flap); font: 700 0.82rem/1 var(--mono); font-stretch: 80%; font-variant-numeric: tabular-nums; color: var(--flap-ink); }
 .vagas .s { font-size: 0.6rem; letter-spacing: 0.08em; color: var(--board-label); }
-.vagas .m { min-height: 1em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 0.68rem; color: var(--flap-ink); }
+.vagas .m { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; min-height: 2.3em; overflow: hidden; overflow-wrap: anywhere; font-size: 0.68rem; line-height: 1.15; color: var(--flap-ink); }
+@media (max-width: 640px) { .vagas-board .extra { display: none; } }
 .vagas li.livre .s { color: var(--green); }
 .vagas li.tomada { background: #3a1c1e; }
 .vagas li.tomada .s { color: var(--red); }
+.vagas li.tomada { animation: ocupa 520ms cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: calc(var(--i) * 90ms + 150ms); animation-play-state: paused; }
+.vagas.visto li.tomada { animation-play-state: running; }
+@keyframes ocupa { from { background: var(--flap); transform: perspective(300px) rotateX(-80deg); } 55% { transform: perspective(300px) rotateX(12deg); } to { background: #3a1c1e; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .vagas li.tomada { animation: none; } }
 .conta-board { margin-top: clamp(32px, 5vw, 56px); padding: 0; overflow-x: auto; }
 .conta { width: 100%; border-collapse: collapse; font: 600 clamp(0.8rem, 1.35vw, 0.98rem)/1.35 var(--mono); font-stretch: 80%; font-variant-numeric: tabular-nums; text-transform: uppercase; letter-spacing: 0.02em; }
 .conta th, .conta td { padding: 15px clamp(12px, 2vw, 22px); text-align: left; border-bottom: 1px solid var(--board-edge); color: #9aa1a8; }
@@ -262,6 +283,7 @@
   <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13.5" r="3.2"/></symbol>
   <symbol id="i-pincel" viewBox="0 0 24 24"><path d="M4 20l1-4 11-11 3 3L8 19z"/><path d="M14 7l3 3"/></symbol>
   <symbol id="i-mais" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-pausa" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></symbol>
   <symbol id="qr-tela" viewBox="0 0 21 21" shape-rendering="crispEdges"><path fill="#111" d="M0 0h7v7H0zM14 0h7v7h-7zM0 14h7v7H0z"/><path fill="#fff" d="M1 1h5v5H1zM15 1h5v5h-5zM1 15h5v5H1z"/><path fill="#111" d="M2 2h3v3H2zM16 2h3v3h-3zM2 16h3v3H2zM8 0h1v2H8zM10 1h2v1h-2zM9 3h1v2H9zM11 4h2v2h-2zM8 6h2v1H8zM12 7h1v2h-1zM0 8h2v1H0zM3 8h2v2H3zM6 9h2v1H6zM9 8h2v2H9zM14 8h1v1h-1zM16 8h3v1h-3zM20 9h1v2h-1zM1 11h2v1H1zM4 11h1v2H4zM7 11h3v1H7zM11 10h2v2h-2zM15 10h2v2h-2zM18 11h1v2h-1zM8 13h1v2H8zM10 13h3v1h-3zM14 13h2v1h-2zM17 14h2v2h-2zM9 15h2v2H9zM12 15h1v3h-1zM14 16h2v1h-2zM19 17h2v1h-2zM8 18h2v1H8zM11 19h2v2h-2zM14 18h1v3h-1zM16 19h3v1h-3zM20 19h1v2h-1z"/></symbol>
 </svg>
 
@@ -272,6 +294,10 @@
       <span class="relogio" aria-label="Horário em Porto Seguro"><svg class="icon"><use href="#i-relogio"/></svg><span class="rot">Porto Seguro</span> <span data-relogio>--:--</span></span>
       <a class="btn btn-sm" href="reservar/" data-checkin>Check-in</a>
     </div>
+  </div>
+  <div class="faixa-info">
+    <div class="faixa-info-janela" role="marquee" aria-label="Últimos check-ins"><div class="faixa-info-trilho" data-ticker><ul><li><svg class="icon"><use href="#i-play"/></svg><b class="ok">20 vagas founder</b> · R$ 300/mês, 3 telas</li></ul></div></div>
+    <button class="faixa-pausa" type="button" aria-pressed="false" aria-label="Pausar animações" data-pausa><svg class="icon"><use href="#i-pausa"/></svg></button>
   </div>
 </header>
 
@@ -285,7 +311,7 @@
       </div>
       <div class="flap-rows" data-painel="hero" aria-hidden="true"><p class="board-static">Ninguém pula este anúncio.</p></div>
       <div class="marca-bloco" aria-hidden="true">
-        <div class="marca-rot"><span>Tua marca · banco de trás · 15 s</span><span class="livre">Livre</span></div>
+        <div class="marca-rot"><span data-marca-rot>Tua marca · banco de trás · 15 s</span><span class="livre" data-marca-status>Livre</span></div>
         <div class="flap-rows amber" data-painel="marca"></div>
       </div>
     </div>
@@ -378,7 +404,7 @@
         </div>
       </div>
       <div class="board vagas-board">
-        <div class="board-head"><span><svg class="icon"><use href="#i-play"/></svg>Vagas founder · R$ 300/mês, 3 telas</span><span data-vagas-total>20 vagas</span></div>
+        <div class="board-head"><span><svg class="icon"><use href="#i-play"/></svg>Vagas founder<span class="extra"> · R$ 300/mês, 3 telas</span></span><span data-vagas-total>20 vagas</span></div>
         <ol class="vagas" data-vagas></ol>
       </div>
     </div>
@@ -527,28 +553,52 @@
     guarda('bmr_origem', [utm, ref].filter(Boolean).join(' · ') || 'direto');
   }
 
-  // Headline no painel
+  // Painel principal: vira de recado em recado, como painel de aeroporto
+  const quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let pausado = false;
+  const botaoPausa = document.querySelector('[data-pausa]');
+  botaoPausa.addEventListener('click', () => {
+    pausado = !pausado;
+    botaoPausa.setAttribute('aria-pressed', pausado);
+    document.documentElement.classList.toggle('pausado', pausado);
+  });
+  let reservadas = []; // marcas que já fizeram check-in
+  let ocupadas = 0;
   const hero = Painel(document.querySelector('[data-painel="hero"]'));
-  const escreveHero = inst => hero.escreve(
-    estreito.matches ? [' NINGUÉM', ' PULA ESTE', ' ANÚNCIO.'] : [' NINGUÉM PULA', ' ESTE ANÚNCIO.'],
-    { cols: estreito.matches ? 11 : 15, atraso: 200, escalonado: 30, instantaneo: inst }
-  );
+  function recados() {
+    const lista = estreito.matches
+      ? [[' NINGUÉM', ' PULA ESTE', ' ANÚNCIO.'], [' 20 VAGAS', ' FOUNDER', ''], [' R$ 300', ' POR MÊS', ' 3 TELAS'], [' 2X POR', ' CORRIDA', '']]
+      : [[' NINGUÉM PULA', ' ESTE ANÚNCIO.'], [' 20 VAGAS', ' FOUNDER'], [' R$ 300/MÊS', ' EM 3 TELAS'], [' 2X POR', ' CORRIDA']];
+    const n = ocupadas;
+    if (n) lista.push(estreito.matches ? [' ' + n + ' MARCAS', ' JÁ', ' RESERVARAM'] : [' ' + n + ' MARCAS', ' JÁ RESERVARAM']);
+    return lista;
+  }
+  let recado = 0;
+  const escreveHero = inst => { const r = recados(); hero.escreve(r[recado % r.length], { cols: estreito.matches ? 11 : 15, atraso: inst ? 0 : 200, escalonado: 30, instantaneo: inst }); };
   escreveHero(false);
+  if (!quieto) setInterval(() => { if (pausado) return; recado++; escreveHero(false); }, 6500);
 
   // Marca do visitante: painel, tablet, cartão, carro da rota e links de check-in
   const campo = document.getElementById('marca');
   const linhaMarca = Painel(document.querySelector('[data-painel="marca"]'));
   let marca = le('bmr_marca');
   campo.value = marca;
-  function aplicaMarca(inst) {
-    const m = marca.trim();
-    const padrao = estreito.matches ? 'SUA MARCA' : 'SUA MARCA AQUI';
-    // Nome maior que a linha: primeiro estreita as palhetas, depois quebra em mais linhas.
+  const statusMarca = document.querySelector('[data-marca-status]');
+  const rotMarca = document.querySelector('[data-marca-rot]');
+  const padrao = () => estreito.matches ? 'SUA MARCA' : 'SUA MARCA AQUI';
+  // Nome maior que a linha: primeiro estreita as palhetas, depois quebra em mais linhas.
+  function mostraNaLinha(texto, vaga, inst) {
     const base = estreito.matches ? 11 : 15;
     const teto = estreito.matches ? 15 : 22;
-    const texto = m || padrao;
     const cols = Math.min(teto, Math.max(base, texto.length + 2));
     linhaMarca.escreve(quebra(texto, cols - 1).map(l => ' ' + l), { cols, escalonado: 16, instantaneo: inst, atraso: inst ? 0 : 60 });
+    statusMarca.textContent = vaga ? 'Reservada' : 'Livre';
+    statusMarca.className = vaga ? 'reservada' : 'livre';
+    rotMarca.textContent = (vaga ? 'Vaga ' + String(vaga).padStart(2, '0') : 'Tua marca') + ' · banco de trás · 15 s';
+  }
+  function aplicaMarca(inst) {
+    const m = marca.trim();
+    mostraNaLinha(m || padrao(), 0, inst);
     document.querySelectorAll('[data-marca]').forEach(el => { el.textContent = m || 'Tua marca'; });
     document.querySelectorAll('[data-marca-curta]').forEach(el => { el.textContent = m || 'Tua marca'; });
     codigoBarras(document.querySelector('[data-barcode]'), m);
@@ -564,6 +614,13 @@
   });
   campo.addEventListener('keydown', e => { if (e.key === 'Enter') document.querySelector('.heroi [data-checkin].btn:not(.btn-sm)').click(); });
   estreito.addEventListener('change', () => { escreveHero(true); aplicaMarca(true); });
+  let giro = -1;
+  if (!quieto) setInterval(() => {
+    if (pausado || marca.trim() || !reservadas.length) return;
+    giro = (giro + 1) % (reservadas.length + 1);
+    const r = reservadas[giro];
+    mostraNaLinha(r ? r.marca : padrao(), r ? r.vaga : 0, false);
+  }, 3200);
   document.querySelectorAll('[data-checkin]').forEach(a => a.addEventListener('click', () => {
     if (window.gtag) gtag('event', 'checkin_inicio', { marca_digitada: !!marca.trim() });
   }));
@@ -584,6 +641,7 @@
       const v = lista ? lista[i] : undefined;
       const li = document.createElement('li');
       li.className = !lista ? '' : v ? 'tomada' : 'livre';
+      li.style.setProperty('--i', i);
       const n = document.createElement('span');
       n.textContent = String(i + 1).padStart(2, '0');
       const st = document.createElement('span');
@@ -601,17 +659,50 @@
     contagem.escreve([livresTxt], { cols: 11, escalonado: 45, instantaneo: inst, atraso: 600 });
     if (finalVisto) contagemFinal.escreve([livresTxt], { cols: 11, escalonado: 45 });
   }
-  desenhaVagas(null);
-  fetch(ENDPOINT).then(r => r.json()).then(j => {
-    if (!j || !Array.isArray(j.vagas)) throw new Error('sem vagas');
-    const tomadas = Math.min(TOTAL, j.reservadas || j.vagas.length);
+  // Última leitura da planilha (30/09). Pinta na hora; a leitura ao vivo substitui quando chega.
+  const FIXAS = ['Nodify Softwares', 'Lobbix+', 'Rm2.online', 'Real Oficial', 'Talkbud', 'Autosfy', 'Olho no Prato', 'Trainer AI', 'AraraHQ', 'certfique', 'Olympicesportes'];
+  function montaFaixa(livres) {
+    const trilho = document.querySelector('[data-ticker]');
+    const lista = document.createElement('ul');
+    const item = (icone, forte, fraco, ok) => {
+      const li = document.createElement('li');
+      li.innerHTML = '<svg class="icon"><use href="#' + icone + '"/></svg>';
+      const b = document.createElement('b');
+      b.textContent = forte;
+      if (ok) b.className = 'ok';
+      li.append(b, document.createTextNode(fraco));
+      lista.append(li);
+    };
+    reservadas.forEach(r => item('i-pouso', r.marca, ' fez check-in'));
+    item('i-play', livres + ' vagas founder livres', ' · R$ 300/mês, 3 telas', true);
+    const copia = lista.cloneNode(true);
+    copia.setAttribute('aria-hidden', 'true');
+    trilho.replaceChildren(lista, copia);
+    trilho.style.animationDuration = (lista.children.length * 4.5) + 's';
+  }
+  let ultima = '';
+  function aplicaReservas(vagas, total) {
+    const chave = JSON.stringify([vagas, total]);
+    if (chave === ultima) return;
+    ultima = chave;
+    const tomadas = Math.min(TOTAL, total);
     const livres = TOTAL - tomadas;
-    desenhaVagas(Array.from({ length: TOTAL }, (_, i) => i < tomadas ? (j.vagas[i] || {}) : null));
+    ocupadas = tomadas;
+    reservadas = vagas.slice(0, tomadas).map((v, i) => ({ marca: v && v.marca, vaga: i + 1 })).filter(r => r.marca);
+    desenhaVagas(Array.from({ length: TOTAL }, (_, i) => i < tomadas ? (vagas[i] || {}) : null));
     livresTxt = livres ? ' ' + String(livres).padStart(2, '0') + ' LIVRES' : ' ESGOTADO';
     totalEl.textContent = tomadas + ' reservadas · ' + livres + ' livres';
     contagemTexto.textContent = livres + ' de 20 vagas founder livres';
     tique(false);
-  }).catch(() => { totalEl.textContent = '20 vagas'; });
+    montaFaixa(livres);
+  }
+  aplicaReservas(FIXAS.map(m => ({ marca: m })), FIXAS.length);
+  fetch(ENDPOINT).then(r => r.json()).then(j => {
+    if (j && Array.isArray(j.vagas)) aplicaReservas(j.vagas, j.reservadas || j.vagas.length);
+  }).catch(() => {});
+  new IntersectionObserver((es, o) => {
+    if (es.some(e => e.isIntersecting)) { vagasEl.classList.add('visto'); o.disconnect(); }
+  }, { threshold: 0.4 }).observe(vagasEl);
 
   // Relógio de Porto Seguro
   const relogio = document.querySelector('[data-relogio]');

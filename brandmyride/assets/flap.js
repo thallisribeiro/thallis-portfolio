@@ -1,7 +1,7 @@
 /* Painel split-flap do BrandMyRide.
    Cada palheta gira pela roda de caracteres até parar na letra certa, como no saguão. */
 (function () {
-  const RODA = ' ABCDEFGHIJKLMNOPQRSTUVWXYZÁÂÃÉÊÍÓÔÕÚÇ0123456789.,:;!?-/@&+%';
+  const RODA = ' ABCDEFGHIJKLMNOPQRSTUVWXYZÁÂÃÉÊÍÓÔÕÚÇ0123456789.,:;!?-/@&+%$';
   const MEIA = 58;      // ms de cada meia palheta
   const MAX_PASSOS = 9; // teto de voltas por palheta, pra animação não arrastar
   const quieto = matchMedia('(prefers-reduced-motion: reduce)');
