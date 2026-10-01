@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>BrandMyRide · Ninguém pula este anúncio</title>
-<meta name="description" content="Tablet no encosto dos carros de app de Porto Seguro, Arraial e Trancoso. 20 vagas de 15 segundos na temporada 26/27. Check-in sem pagar nada até 15/11.">
+<meta name="description" content="Tablet no encosto dos carros de app de Porto Seguro, rodando o ano todo. Plano Founder: R$ 300/mês por 3 telas, só 20 vagas. Check-in sem pagar nada agora.">
 <link rel="canonical" href="https://thallisribeiro.com.br/brandmyride/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:url" content="https://thallisribeiro.com.br/brandmyride/">
 <meta property="og:title" content="Ninguém pula este anúncio.">
-<meta property="og:description" content="Tua marca no tablet do banco de trás dos carros de app de Porto Seguro. 20 vagas. Check-in até 15/11, sem pagar nada.">
+<meta property="og:description" content="Tua marca no tablet do banco de trás dos carros de app de Porto Seguro. Plano Founder: R$ 300/mês, 3 telas, só 20 vagas.">
 <meta property="og:image" content="https://thallisribeiro.com.br/brandmyride/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -161,10 +161,26 @@
 .vagas-board { margin-top: clamp(48px, 7vw, 88px); }
 .vagas { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(4px, 0.7cqi, 7px); }
 @media (min-width: 760px) { .vagas { grid-template-columns: repeat(10, minmax(0, 1fr)); } }
-.vagas li { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: 1fr 1fr; align-items: center; gap: 12px 6px; padding: 10px 9px; border-radius: 4px; background: var(--flap); font: 700 0.82rem/1 var(--mono); font-stretch: 80%; font-variant-numeric: tabular-nums; color: var(--flap-ink); }
-.vagas li::after { content: ""; position: absolute; left: 0; right: 0; top: calc(50% - 1px); height: 2px; background: var(--board); }
-.vagas .t { justify-self: end; color: var(--board-label); font-weight: 500; font-size: 0.7rem; }
-.vagas .s { grid-column: 1 / -1; color: var(--green); font-size: 0.62rem; letter-spacing: 0.08em; }
+.vagas li { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; gap: 5px; padding: 9px 8px; border-radius: 4px; background: var(--flap); font: 700 0.82rem/1 var(--mono); font-stretch: 80%; font-variant-numeric: tabular-nums; color: var(--flap-ink); }
+.vagas .s { font-size: 0.6rem; letter-spacing: 0.08em; color: var(--board-label); }
+.vagas .m { min-height: 1em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 0.68rem; color: var(--flap-ink); }
+.vagas li.livre .s { color: var(--green); }
+.vagas li.tomada { background: #3a1c1e; }
+.vagas li.tomada .s { color: var(--red); }
+.conta-board { margin-top: clamp(32px, 5vw, 56px); padding: 0; overflow-x: auto; }
+.conta { width: 100%; border-collapse: collapse; font: 600 clamp(0.8rem, 1.35vw, 0.98rem)/1.35 var(--mono); font-stretch: 80%; font-variant-numeric: tabular-nums; text-transform: uppercase; letter-spacing: 0.02em; }
+.conta th, .conta td { padding: 15px clamp(12px, 2vw, 22px); text-align: left; border-bottom: 1px solid var(--board-edge); color: #9aa1a8; }
+.conta tr:last-child > * { border-bottom: 0; }
+.conta thead th { color: var(--board-label); font-size: 0.72em; letter-spacing: 0.12em; }
+.conta tr.destaque > * { color: var(--flap-ink); font-weight: 700; }
+@media (max-width: 640px) {
+  .conta thead { display: none; }
+  .conta tr { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px 12px; padding: 14px 16px; border-bottom: 1px solid var(--board-edge); }
+  .conta tr:last-child { border-bottom: 0; }
+  .conta th, .conta td { padding: 0; border: 0; }
+  .conta tbody th { grid-column: 1 / -1; }
+  .conta td::before { content: attr(data-rot); display: block; margin-bottom: 3px; font-size: 0.6rem; letter-spacing: 0.12em; color: var(--board-label); }
+}
 
 .embarque .pass { margin-top: clamp(32px, 5vw, 56px); }
 .pass-top .rot-marca { display: inline-flex; align-items: center; gap: 0.6em; }
@@ -265,7 +281,7 @@
     <div class="board board-hero">
       <div class="board-head">
         <span><svg class="icon"><use href="#i-pouso"/></svg>Chegadas · Porto Seguro</span>
-        <span>Temporada 26/27</span>
+        <span>20 vagas founder</span>
       </div>
       <div class="flap-rows" data-painel="hero" aria-hidden="true"><p class="board-static">Ninguém pula este anúncio.</p></div>
       <div class="marca-bloco" aria-hidden="true">
@@ -275,7 +291,7 @@
     </div>
 
     <div class="heroi-baixo">
-      <p class="lead">É um tablet no encosto dos carros de app de Porto Seguro, Arraial e Trancoso. Tua marca a meio metro do rosto de quem acabou de desembarcar de férias, <b>a corrida inteira. Sem skip, sem adblock, sem algoritmo.</b></p>
+      <p class="lead">Tablet no encosto dos Ubers de Porto Seguro, rodando a tua marca pra quem senta atrás. A meio metro do rosto, <b>a corrida inteira. Sem skip, sem adblock, sem algoritmo.</b></p>
       <div class="checkin">
         <div class="campo">
           <label for="marca">Digita tua marca e vê ela no painel</label>
@@ -284,9 +300,9 @@
         <div class="cta-linha">
           <a class="btn" href="reservar/" data-checkin>Fazer check-in da minha marca <svg class="icon"><use href="#i-seta"/></svg></a>
         </div>
-        <p class="micro">60 segundos. Não cobra nada. São só 20 vagas.</p>
+        <p class="micro">Plano Founder: R$ 300/mês, 3 telas. O check-in não cobra nada.</p>
         <div class="contagem">
-          <span class="contagem-rot"><svg class="icon"><use href="#i-relogio"/></svg>Check-in fecha 15/11 às 23:59 em</span>
+          <span class="contagem-rot"><svg class="icon"><use href="#i-play"/></svg>Vagas founder livres agora</span>
           <div class="board"><div class="flap-rows" data-painel="contagem" aria-hidden="true"></div></div>
           <span class="sr" data-contagem-texto></span>
         </div>
@@ -357,18 +373,36 @@
             <div><dt>Som</dt><dd>Nenhum. Só imagem e legenda.</dd></div>
             <div><dt>Tela</dt><dd>Virada pro banco de trás, fora da visão do motorista.</dd></div>
             <div><dt>Medição</dt><dd>QR só teu, com contador de scans.</dd></div>
-            <div><dt>Temporada</dt><dd>Dezembro a fevereiro: réveillon, férias e carnaval.</dd></div>
+            <div><dt>Quando</dt><dd>O ano todo. Começa com 3 Ubers em Porto Seguro.</dd></div>
           </dl>
         </div>
       </div>
       <div class="board vagas-board">
-        <div class="board-head"><span><svg class="icon"><use href="#i-play"/></svg>Vagas do loop · temporada 26/27</span><span>20 livres</span></div>
+        <div class="board-head"><span><svg class="icon"><use href="#i-play"/></svg>Vagas founder · R$ 300/mês, 3 telas</span><span data-vagas-total>20 vagas</span></div>
         <ol class="vagas" data-vagas></ol>
       </div>
     </div>
   </section>
 
-  <section class="secao embarque faixa" aria-labelledby="t-embarque">
+  <section class="secao faixa" aria-labelledby="t-conta">
+    <div class="wrap">
+      <h2 id="t-conta" class="display">A conta do anunciante.</h2>
+      <div class="texto"><p>Cada tela faz umas 30 corridas por dia, com 1,7 passageiro em média. Numa corrida de 10 minutos, tua marca aparece 2 vezes. Dá umas <b>1.500 pessoas e 3.000 impressões por mês, por tela</b>.</p></div>
+      <div class="board conta-board">
+        <table class="conta">
+          <thead><tr><th scope="col">Plano</th><th scope="col">Por mês</th><th scope="col">Telas</th><th scope="col">Pessoas/mês</th><th scope="col">Impressões/mês</th><th scope="col">CPM</th></tr></thead>
+          <tbody>
+            <tr class="destaque"><th scope="row">Founder · 20 vagas</th><td data-rot="Por mês">R$ 300</td><td data-rot="Telas">3</td><td data-rot="Pessoas/mês">~4.600</td><td data-rot="Impressões/mês">~9.200</td><td data-rot="CPM">~R$ 33</td></tr>
+            <tr><th scope="row">1 tela</th><td data-rot="Por mês">R$ 150</td><td data-rot="Telas">1</td><td data-rot="Pessoas/mês">~1.500</td><td data-rot="Impressões/mês">~3.000</td><td data-rot="CPM">~R$ 49</td></tr>
+            <tr><th scope="row">5 telas</th><td data-rot="Por mês">R$ 550</td><td data-rot="Telas">5</td><td data-rot="Pessoas/mês">~7.600</td><td data-rot="Impressões/mês">~15.300</td><td data-rot="CPM">~R$ 36</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tarifa">Depois das 20 vagas founder: <b>R$ 150 pela primeira tela e R$ 100 por tela extra.</b> Cada tela tem só 20 vagas, então tua marca sempre aparece 2 vezes por corrida. Tudo estimativa até os tablets rodarem; o relatório do mês mostra exibição e scan de verdade.</p>
+    </div>
+  </section>
+
+  <section class="secao embarque" aria-labelledby="t-embarque">
     <div class="wrap">
       <h2 id="t-embarque" class="display">O que vem no teu embarque.</h2>
       <article class="pass" aria-label="Cartão de embarque com o que tua marca leva">
@@ -378,15 +412,15 @@
             <div class="wide"><dt>Passageiro</dt><dd><span class="marca-p" data-marca>Tua marca</span></dd></div>
             <div><dt>De</dt><dd>Tua timeline</dd></div>
             <div><dt>Para</dt><dd>Banco de trás</dd></div>
-            <div><dt>Embarque</dt><dd class="num">01 DEZ 2026</dd></div>
-            <div><dt>Volta</dt><dd class="num">FEV 2027</dd></div>
+            <div><dt>Plano</dt><dd>Founder</dd></div>
+            <div><dt>Telas</dt><dd class="num">3</dd></div>
             <div><dt>Assento</dt><dd>Vaga de 15 s</dd></div>
-            <div><dt>Tarifa</dt><dd>Você diz</dd></div>
+            <div><dt>Tarifa</dt><dd class="num">R$ 300/mês</dd></div>
           </dl>
           <div class="bagagem">
             <p class="bag-t">Bagagem inclusa</p>
             <ul>
-              <li><svg class="icon"><use href="#i-play"/></svg>15 segundos no loop, de dezembro a fevereiro</li>
+              <li><svg class="icon"><use href="#i-play"/></svg>15 segundos no loop de 3 telas, 2 vezes por corrida, o ano todo</li>
               <li><svg class="icon"><use href="#i-qr"/></svg>QR code só teu, com contador de scans</li>
             </ul>
             <p class="bag-t bag-t2">A confirmar antes de cobrar</p>
@@ -400,13 +434,13 @@
         <div class="pass-stub">
           <dl>
             <div><dt>Portão</dt><dd>Check-in</dd></div>
-            <div><dt>Fecha</dt><dd class="num">15 NOV 23:59</dd></div>
+            <div><dt>Vigência</dt><dd>Ano todo</dd></div>
             <div><dt>Vagas</dt><dd class="num">20</dd></div>
           </dl>
           <div class="barcode" data-barcode></div>
         </div>
       </article>
-      <p class="tarifa"><b>Tarifa? Você diz.</b> Ainda não tem tabela. No check-in você fala quanto isso vale pra tua marca. Com as respostas eu fecho o preço e te mando antes de cobrar qualquer coisa.</p>
+      <p class="tarifa">O check-in não cobra nada. Eu te chamo no WhatsApp pra fechar e combinar a arte.</p>
     </div>
   </section>
 
@@ -429,10 +463,10 @@
     <div class="wrap regras-grid">
       <h2 id="t-regras" class="display">Regras do voo.</h2>
       <ul class="regras">
-        <li><strong>20 vagas, nenhuma a mais.</strong><span>O loop tem 5 minutos. A 21ª marca não cabe sem piorar a vez de todo mundo.</span></li>
-        <li><strong>Check-in até 15/11, 23:59.</strong><span>Depois disso o painel fecha.</span></li>
-        <li><strong>10 check-ins fazem o voo decolar.</strong><span>Com 10 marcas, os tablets vão pra rua em dezembro.</span></li>
-        <li><strong>Voo cancelado, ninguém paga.</strong><span>Se não fechar 10 marcas, ninguém paga nada e eu conto aqui no X o que deu errado.</span></li>
+        <li><strong>20 vagas founder, nenhuma a mais.</strong><span>Cada tela tem 20 vagas de 15 s. Os 20 founders enchem as 3 primeiras telas.</span></li>
+        <li><strong>Founder paga R$ 300/mês e aparece em 3 telas.</strong><span>Depois das 20 vagas, é R$ 150 pela primeira tela e R$ 100 por tela extra.</span></li>
+        <li><strong>2 vezes por corrida, sempre.</strong><span>Nunca mais de 20 marcas por tela, então tua marca não perde espaço quando a frota cresce.</span></li>
+        <li><strong>Check-in não cobra nada.</strong><span>Eu te chamo no WhatsApp pra fechar. Quem reservou já aparece em vermelho no painel de vagas.</span></li>
         <li><strong>Sem propaganda política.</strong><span>Ela é proibida em carro de app.</span></li>
       </ul>
     </div>
@@ -445,22 +479,22 @@
         <details><summary>O turista olha pra tela ou pro celular?<svg class="icon"><use href="#i-mais"/></svg></summary><p>Muita gente olha o celular, e tudo bem. É por isso que cada marca tem um QR com oferta: quem se interessa escaneia, e você vê o número. Não vendo atenção imaginária.</p></details>
         <details><summary>Tem som?<svg class="icon"><use href="#i-mais"/></svg></summary><p>Não. Motorista que escuta o mesmo loop 10 horas por dia desliga o tablet no segundo dia. É só imagem e legenda.</p></details>
         <details><summary>E se o motorista desligar o tablet?<svg class="icon"><use href="#i-mais"/></svg></summary><p>O motorista ganha por hora de tablet ligado, e o sistema registra quando a tela ficou acesa. Desligado, ele não ganha.</p></details>
-        <details><summary>Quanto custa?<svg class="icon"><use href="#i-mais"/></svg></summary><p>Você diz no check-in quanto faria sentido pagar. Com as respostas eu fecho uma tarifa e te mando antes de cobrar qualquer coisa.</p></details>
+        <details><summary>Quanto custa?<svg class="icon"><use href="#i-mais"/></svg></summary><p>Founder: R$ 300 por mês pra aparecer em 3 telas, só pras 20 primeiras marcas. Depois, R$ 150 pela primeira tela e R$ 100 por tela extra.</p></details>
         <details><summary>É da Uber ou da 99?<svg class="icon"><use href="#i-mais"/></svg></summary><p>Não. É um projeto independente, nos carros de motoristas parceiros que rodam nesses apps. Não tem vínculo com as empresas.</p></details>
-        <details><summary>Quando começa?<svg class="icon"><use href="#i-mais"/></svg></summary><p>Em dezembro de 2026, se 10 marcas fizerem check-in até 15/11.</p></details>
+        <details><summary>Quando começa?<svg class="icon"><use href="#i-mais"/></svg></summary><p>Começa com 3 Ubers em Porto Seguro e roda o ano todo. Cada tela nova abre mais 20 vagas.</p></details>
       </div>
     </div>
   </section>
 
   <section class="final" aria-labelledby="t-final">
     <div class="wrap">
-      <h2 id="t-final" class="display final-t">Imagina abrir o X em janeiro e ver tua marca rodando num carro em Trancoso.</h2>
+      <h2 id="t-final" class="display final-t">Imagina abrir o X e ver tua marca rodando num carro em Trancoso.</h2>
       <div class="cta-linha">
         <a class="btn" href="reservar/" data-checkin>Fazer check-in da minha marca <svg class="icon"><use href="#i-seta"/></svg></a>
       </div>
       <p class="micro" style="margin-top:14px">60 segundos. Não cobra nada.</p>
       <div class="contagem">
-        <span class="contagem-rot"><svg class="icon"><use href="#i-relogio"/></svg>Check-in fecha 15/11 às 23:59 em</span>
+        <span class="contagem-rot"><svg class="icon"><use href="#i-play"/></svg>Vagas founder livres agora</span>
         <div class="board"><div class="flap-rows" data-painel="contagem-final" aria-hidden="true"></div></div>
       </div>
       <p class="quem">Quem tá por trás: Thallis Ribeiro, criador do LicitaCerta, o radar de licitações no WhatsApp que já tem assinante pagando, e também do TeAfeta, do PeopleAds e do Grana. Administrador pela UFV, MBA em Gestão Financeira pela FGV. O BrandMyRide é o próximo, construído em público no <a href="https://x.com/thallisribeiro">@thallisribeiro</a>.</p>
@@ -534,23 +568,50 @@
     if (window.gtag) gtag('event', 'checkin_inicio', { marca_digitada: !!marca.trim() });
   }));
 
-  // Contagem até o fechamento do check-in
-  const PRAZO = Date.parse('2026-11-15T23:59:00-03:00');
+  // Vagas founder: o painel lê as reservas da planilha. O nome da marca só aparece depois de aprovado no CRM.
+  const ENDPOINT = 'https://script.google.com/macros/s/AKfycbzFZF0TiJ2dsRhFk8ViX7uBbAaOhL4kN3lpqiyuGkKzGFMwCLERYJWrjrJo1fOB6mQc/exec';
+  const TOTAL = 20;
   const contagem = Painel(document.querySelector('[data-painel="contagem"]'));
   const contagemFinal = Painel(document.querySelector('[data-painel="contagem-final"]'));
-  let finalVisto = false;
   const contagemTexto = document.querySelector('[data-contagem-texto]');
-  function tique(inst) {
-    const ms = Math.max(0, PRAZO - Date.now());
-    const d = Math.floor(ms / 864e5), h = Math.floor(ms % 864e5 / 36e5), m = Math.floor(ms % 36e5 / 6e4);
-    const dois = n => String(n).padStart(2, '0');
-    const txt = [ms ? dois(d) + 'D ' + dois(h) + 'H ' + dois(m) + 'M' : 'ENCERRADO'];
-    contagem.escreve(txt, { cols: 11, escalonado: 45, instantaneo: inst, atraso: 900 });
-    if (finalVisto) contagemFinal.escreve(txt, { cols: 11, escalonado: 45 });
-    contagemTexto.textContent = ms ? d + ' dias, ' + h + ' horas e ' + m + ' minutos' : 'Check-in encerrado';
+  const vagasEl = document.querySelector('[data-vagas]');
+  const totalEl = document.querySelector('[data-vagas-total]');
+  let finalVisto = false;
+  let livresTxt = null;
+  function desenhaVagas(lista) {
+    vagasEl.textContent = '';
+    for (let i = 0; i < TOTAL; i++) {
+      const v = lista ? lista[i] : undefined;
+      const li = document.createElement('li');
+      li.className = !lista ? '' : v ? 'tomada' : 'livre';
+      const n = document.createElement('span');
+      n.textContent = String(i + 1).padStart(2, '0');
+      const st = document.createElement('span');
+      st.className = 's';
+      st.textContent = !lista ? '···' : v ? 'RESERVADA' : 'LIVRE';
+      const mk = document.createElement('span');
+      mk.className = 'm';
+      mk.textContent = v && v.marca ? v.marca : '';
+      li.append(n, st, mk);
+      vagasEl.append(li);
+    }
   }
-  tique(false);
-  setInterval(() => tique(false), 20000);
+  function tique(inst) {
+    if (livresTxt == null) return;
+    contagem.escreve([livresTxt], { cols: 11, escalonado: 45, instantaneo: inst, atraso: 600 });
+    if (finalVisto) contagemFinal.escreve([livresTxt], { cols: 11, escalonado: 45 });
+  }
+  desenhaVagas(null);
+  fetch(ENDPOINT).then(r => r.json()).then(j => {
+    if (!j || !Array.isArray(j.vagas)) throw new Error('sem vagas');
+    const tomadas = Math.min(TOTAL, j.reservadas || j.vagas.length);
+    const livres = TOTAL - tomadas;
+    desenhaVagas(Array.from({ length: TOTAL }, (_, i) => i < tomadas ? (j.vagas[i] || {}) : null));
+    livresTxt = livres ? ' ' + String(livres).padStart(2, '0') + ' LIVRES' : ' ESGOTADO';
+    totalEl.textContent = tomadas + ' reservadas · ' + livres + ' livres';
+    contagemTexto.textContent = livres + ' de 20 vagas founder livres';
+    tique(false);
+  }).catch(() => { totalEl.textContent = '20 vagas'; });
 
   // Relógio de Porto Seguro
   const relogio = document.querySelector('[data-relogio]');
@@ -588,14 +649,6 @@
     barra.style.transform = 'scaleX(' + ((15 - s) / 15) + ')';
   }, 1000);
 
-  // As 20 vagas
-  const vagas = document.querySelector('[data-vagas]');
-  for (let i = 0; i < 20; i++) {
-    const t = i * 15;
-    const li = document.createElement('li');
-    li.innerHTML = '<span>' + String(i + 1).padStart(2, '0') + '</span><span class="t">' + Math.floor(t / 60) + ':' + String(t % 60).padStart(2, '0') + '</span><span class="s">LIVRE</span>';
-    vagas.append(li);
-  }
 
   // A contagem do fim vira quando aparece
   new IntersectionObserver((entradas, obs) => {

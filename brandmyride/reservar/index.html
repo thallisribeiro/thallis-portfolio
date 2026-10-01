@@ -9,7 +9,7 @@
 <link rel="canonical" href="https://thallisribeiro.com.br/brandmyride/reservar/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Check-in da tua marca · BrandMyRide">
-<meta property="og:description" content="20 vagas de 15 segundos nos tablets dos carros de app de Porto Seguro. Check-in até 15/11, sem pagar nada.">
+<meta property="og:description" content="Plano Founder: R$ 300/mês pra tua marca rodar em 3 tablets dos carros de app de Porto Seguro. Só 20 vagas. Check-in sem pagar nada.">
 <meta property="og:image" content="https://thallisribeiro.com.br/brandmyride/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#111316">
@@ -150,11 +150,12 @@ body { min-height: 100svh; display: flex; flex-direction: column; }
     { id: 'segmento', tipo: 'escolha', titulo: d => 'O que a ' + d.marca + ' vende?', opcoes: ['App ou SaaS pra consumidor', 'SaaS pra empresa (B2B)', 'Produto físico ou e-commerce', 'Turismo, bar ou restaurante', 'Outra coisa'] },
     { id: 'publico', tipo: 'escolha', titulo: () => 'Quem você quer que veja?', opcoes: ['Turista chegando de férias', 'Morador da região', 'Os dois'] },
     { id: 'objetivo', tipo: 'escolha', titulo: () => 'O que seria vitória pra você?', opcoes: ['Download ou cadastro pelo QR', 'Venda com cupom', 'Marca na cabeça do turista', 'Foto da minha marca num carro na Bahia pra postar'] },
-    { id: 'faixa', tipo: 'escolha', titulo: () => 'Quanto faria sentido pagar por mês, na temporada?', ajuda: 'Não é compromisso. É o que vai definir a tarifa.', opcoes: ['Até R$ 300', 'R$ 300 a R$ 700', 'R$ 700 a R$ 1.500', 'Mais de R$ 1.500'] },
+    { id: 'faixa', tipo: 'escolha', titulo: () => 'Qual plano?', ajuda: 'Founder tem só 20 vagas. Ninguém paga nada agora.', opcoes: ['Founder: R$ 300/mês, 3 telas', '1 tela: R$ 150/mês', 'Mais telas: R$ 150 + R$ 100 por tela extra'] },
+    { id: 'painel', tipo: 'escolha', titulo: d => 'Pode mostrar a ' + d.marca + ' no painel de vagas?', ajuda: 'O painel da página mostra quem já reservou. Se preferir, aparece só "reservada".', opcoes: ['Pode mostrar', 'Prefiro só "reservada"'] },
     { id: 'nome', tipo: 'text', titulo: () => 'E o teu nome?', ph: 'Nome', max: 60, auto: 'name', obrig: true },
     { id: 'whatsapp', tipo: 'tel', titulo: d => primeiro(d.nome) + ', qual teu WhatsApp?', ajuda: 'É por lá que eu te chamo pra fechar.', ph: '(73) 99999-9999', max: 20, auto: 'tel', obrig: true },
-    { id: 'email', tipo: 'email', titulo: () => 'E um e-mail, se quiser.', ajuda: 'Pra receber o resultado de 15/11. Pode pular.', ph: 'voce@marca.com', max: 120, auto: 'email', obrig: false },
-    { id: 'confere', tipo: 'revisao', titulo: () => 'Confere teu cartão de embarque.', ajuda: 'Tudo certo? Confirma e tua marca entra na lista do voo de dezembro.' },
+    { id: 'email', tipo: 'email', titulo: () => 'E um e-mail, se quiser.', ajuda: 'Pra receber a proposta e o relatório. Pode pular.', ph: 'voce@marca.com', max: 120, auto: 'email', obrig: false },
+    { id: 'confere', tipo: 'revisao', titulo: () => 'Confere teu cartão de embarque.', ajuda: 'Tudo certo? Confirma e tua marca ocupa uma vaga no painel.' },
   ];
 
   const $ = s => document.querySelector(s);
@@ -213,14 +214,14 @@ body { min-height: 100svh; display: flex; flex-direction: column; }
           '<div><dt>Vende</dt><dd>' + esc(d.segmento) + '</dd></div>' +
           '<div><dt>Quer alcançar</dt><dd>' + esc(d.publico) + '</dd></div>' +
           '<div><dt>Vitória</dt><dd>' + esc(d.objetivo) + '</dd></div>' +
-          '<div class="wide"><dt>Tarifa</dt><dd>' + esc(d.faixa).replace(/R\$ /g, 'R$\u00a0') + '\u00a0/\u00a0mês</dd></div>' +
+          '<div class="wide"><dt>Plano</dt><dd>' + esc(d.faixa).replace(/R\$ /g, 'R$\u00a0') + '</dd></div>' +
           '<div><dt>WhatsApp</dt><dd class="num">' + esc(d.whatsapp) + '</dd></div>' +
           (d.email ? '<div><dt>E-mail</dt><dd>' + esc(d.email) + '</dd></div>' : '') +
           (d.site ? '<div><dt>Site ou @</dt><dd>' + esc(d.site) + '</dd></div>' : '') +
         '</dl>' +
       '</div>' +
       '<div class="pass-stub"><dl>' +
-        '<div><dt>Embarque</dt><dd class="num">01 DEZ 2026</dd></div>' +
+        '<div><dt>Vigência</dt><dd>Ano todo</dd></div>' +
         '<div><dt>Assento</dt><dd>Vaga de 15 s</dd></div>' +
         '<div><dt>Status</dt><dd class="status' + (confirmado ? ' ok' : '') + '">' + (confirmado ? 'Confirmado' : 'A confirmar') + '</dd></div>' +
       '</dl><div class="barcode" data-barcode></div></div>' +
@@ -265,7 +266,7 @@ body { min-height: 100svh; display: flex; flex-direction: column; }
     } else if (p.tipo === 'revisao') {
       resp.innerHTML = cartao(dados, false);
       window.BMR.codigoBarras(resp.querySelector('[data-barcode]'), dados.marca);
-      $('#dica').textContent = 'Não cobra nada. Fecha em 15/11.';
+      $('#dica').textContent = 'Não cobra nada agora.';
     } else {
       resp.innerHTML = '<label class="sr" for="entrada">' + esc(p.titulo(dados)) + '</label>' +
         '<input class="entrada" id="entrada" type="' + (p.tipo === 'text' ? 'text' : p.tipo) + '" maxlength="' + p.max + '" autocomplete="' + p.auto + '" placeholder="' + esc(p.ph) + '"' +
@@ -353,11 +354,11 @@ body { min-height: 100svh; display: flex; flex-direction: column; }
   function sucesso(d) {
     progresso(PASSOS.length);
     [...trilho.children].forEach(t => { t.className = 'feito'; });
-    const texto = 'Fiz check-in da ' + d.marca + ' no BrandMyRide: tablet no banco de trás dos carros de app de Porto Seguro na temporada. São 20 vagas e fecha 15/11. Ideia do @thallisribeiro\nhttps://thallisribeiro.com.br/brandmyride/';
+    const texto = 'Fiz check-in da ' + d.marca + ' no BrandMyRide: tablet no banco de trás dos carros de app de Porto Seguro. Só 20 vagas de founder. Ideia do @thallisribeiro\nhttps://thallisribeiro.com.br/brandmyride/';
     $('#palco').innerHTML =
       '<section class="sucesso">' +
         '<h1 class="display" tabindex="-1" id="feito">Check-in feito, ' + esc(primeiro(d.nome)) + '.</h1>' +
-        '<p class="ajuda">A ' + esc(d.marca) + ' está na lista do voo de dezembro. Até 15/11 eu te chamo no WhatsApp com o resultado: com 10 marcas, a gente fecha tarifa e arte. Sem 10, ninguém paga nada.</p>' +
+        '<p class="ajuda">A ' + esc(d.marca) + ' já ocupa uma vaga no painel. Eu te chamo no WhatsApp pra fechar e combinar a arte. O check-in não cobra nada.</p>' +
         cartao(d, true) +
         '<div class="acoes">' +
           '<a class="btn" href="https://twitter.com/intent/tweet?text=' + encodeURIComponent(texto) + '" target="_blank" rel="noopener">Postar no X<svg class="icon"><use href="#i-seta"/></svg></a>' +
