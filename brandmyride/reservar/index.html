@@ -75,6 +75,9 @@ body { min-height: 100svh; display: flex; flex-direction: column; }
 .dica { font: 500 0.8rem/1.4 var(--mono); font-stretch: 85%; color: var(--ink-2); }
 .voltar { justify-self: start; display: inline-flex; align-items: center; gap: 8px; padding: 8px 0; border: 0; background: none; color: var(--ink-2); font-weight: 600; cursor: pointer; }
 .voltar:hover { color: var(--ink); }
+.voltar[hidden] { display: none; }
+/* Revisão: o cartão é alto no celular, então o botão de confirmar fica preso no rodapé da tela. */
+.passo:has(.pass) .acoes { position: sticky; bottom: 0; z-index: 1; padding: 12px 0 max(12px, env(safe-area-inset-bottom)); background: var(--hall); border-top: 1px solid var(--line); }
 .pote { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
 .pass { position: relative; }
@@ -297,6 +300,7 @@ body { min-height: 100svh; display: flex; flex-direction: column; }
   }
 
   function avanca() {
+    clearTimeout(escolhendo); // toque + Continuar não pula duas etapas
     const p = PASSOS[i];
     if (p.tipo === 'revisao') return envia();
     const v = valor(p);
