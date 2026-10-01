@@ -98,6 +98,8 @@ button, input, textarea { font: inherit; color: inherit; }
   box-shadow: 0 12px 22px -14px rgb(0 0 0 / 0.45);
   transition: transform 180ms var(--ease), box-shadow 180ms var(--ease), filter 180ms;
 }
+/* Até 380px o rótulo quebra em duas linhas em vez de empurrar a página pro lado. */
+@media (max-width: 380px) { .btn { white-space: normal; text-align: center; line-height: 1.15; padding: 10px 1em; font-size: 1rem; } }
 .btn:hover { transform: translateY(-2px); box-shadow: 0 16px 26px -14px rgb(0 0 0 / 0.5); }
 .btn:active { transform: translateY(1px); filter: brightness(0.96); }
 .btn .icon { transition: transform 220ms var(--ease); }
