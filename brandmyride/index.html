@@ -784,6 +784,7 @@
     totalEl.textContent = tomadas + ' reservadas · ' + livres + ' livres';
     contagemTexto.textContent = livres + ' de 20 vagas founder livres';
     document.querySelectorAll('[data-ocupadas]').forEach(el => { el.textContent = tomadas; });
+    guarda('bmr_livres', String(livres)); // o check-in mostra quantas vagas founder sobram
     tique(false);
     montaFaixa(livres);
     montaEmbarque(vagas.slice(0, tomadas), livres);

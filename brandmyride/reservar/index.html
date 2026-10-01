@@ -148,13 +148,17 @@ body { min-height: 100svh; display: flex; flex-direction: column; }
 <script src="../assets/flap.js"></script>
 <script>
 (function () {
+  // Vagas founder livres, vindas do painel do saguão nesta aba (vazio se a pessoa caiu direto aqui).
+  let livres = '';
+  try { livres = sessionStorage.getItem('bmr_livres') || ''; } catch (e) {}
+  const restam = +livres > 0 ? (livres === '1' ? ' Resta 1 livre.' : ' Restam ' + livres + ' livres.') : '';
   const PASSOS = [
     { id: 'marca', tipo: 'text', titulo: () => 'Qual marca vai desembarcar em Porto Seguro?', ajuda: 'O nome que vai aparecer no tablet.', ph: 'Nome da marca', max: 30, auto: 'organization', obrig: true },
     { id: 'site', tipo: 'text', titulo: d => 'Onde a gente conhece a ' + d.marca + '?', ajuda: 'Site ou @. Se não tiver, pode pular.', ph: 'site.com.br ou @marca', max: 120, auto: 'url', obrig: false },
     { id: 'segmento', tipo: 'escolha', titulo: d => 'O que a ' + d.marca + ' vende?', opcoes: ['App ou SaaS pra consumidor', 'SaaS pra empresa (B2B)', 'Produto físico ou e-commerce', 'Turismo, bar ou restaurante', 'Outra coisa'] },
     { id: 'publico', tipo: 'escolha', titulo: () => 'Quem você quer que veja?', opcoes: ['Turista chegando de férias', 'Morador da região', 'Os dois'] },
     { id: 'objetivo', tipo: 'escolha', titulo: () => 'O que seria vitória pra você?', opcoes: ['Download ou cadastro pelo QR', 'Venda com cupom', 'Marca na cabeça do turista', 'Foto da minha marca num carro na Bahia pra postar'] },
-    { id: 'faixa', tipo: 'escolha', titulo: () => 'Qual plano?', ajuda: 'Founder tem só 20 vagas. 1 tela e mais telas abrem depois delas. Ninguém paga nada agora.', opcoes: ['Founder: R$ 300/mês, 3 telas', '1 tela: R$ 150/mês', 'Mais telas: R$ 150 + R$ 100 por tela extra'] },
+    { id: 'faixa', tipo: 'escolha', titulo: () => 'Qual plano?', ajuda: 'Founder tem só 20 vagas.' + restam + ' 1 tela e mais telas abrem depois delas. Ninguém paga nada agora.', opcoes: ['Founder: R$ 300/mês, 3 telas', '1 tela: R$ 150/mês', 'Mais telas: R$ 150 + R$ 100 por tela extra'] },
     { id: 'painel', tipo: 'escolha', titulo: d => 'Pode mostrar a ' + d.marca + ' no painel de vagas?', ajuda: 'O painel da página mostra quem já reservou. Se preferir, aparece só "reservada".', opcoes: ['Pode mostrar', 'Prefiro só "reservada"'] },
     { id: 'nome', tipo: 'text', titulo: () => 'E o teu nome?', ph: 'Nome', max: 60, auto: 'name', obrig: true },
     { id: 'whatsapp', tipo: 'tel', titulo: d => primeiro(d.nome) + ', qual teu WhatsApp?', ajuda: 'É por lá que eu te chamo pra fechar.', ph: '(73) 99999-9999', max: 20, auto: 'tel', obrig: true },
