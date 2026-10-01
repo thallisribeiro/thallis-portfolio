@@ -252,6 +252,19 @@
 .final-t { margin: 0; font-size: clamp(2rem, 5vw, 3.8rem); max-width: 20ch; }
 .final .cta-linha { margin-top: 30px; }
 .final .micro { color: var(--board-label); }
+/* lista de embarque: quem já fez check-in, do lado do último CTA */
+.final-grid { display: grid; gap: 56px; }
+@media (min-width: 900px) { .final-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 0.82fr); align-items: start; gap: clamp(40px, 6vw, 96px); } }
+.embarque-lista { list-style: none; margin: 0; padding: 0; font: 700 0.8rem/1.2 var(--mono); font-stretch: 80%; letter-spacing: 0.04em; text-transform: uppercase; }
+.embarque-lista li { display: grid; grid-template-columns: 3.4em minmax(0, 1fr) auto; gap: 12px; align-items: baseline; padding: 10px 2px; border-top: 1px solid var(--board-edge); animation: embarca 420ms cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: calc(var(--i) * 70ms); animation-play-state: paused; }
+.embarque.visto li { animation-play-state: running; }
+@keyframes embarca { from { opacity: 0; transform: translateY(6px); } }
+@media (prefers-reduced-motion: reduce) { .embarque-lista li { animation: none; } }
+.embarque-lista .n { color: var(--board-label); font-variant-numeric: tabular-nums; }
+.embarque-lista .m { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--flap-ink); }
+.embarque-lista .s { font-size: 0.66rem; letter-spacing: 0.08em; color: var(--red); }
+.embarque-lista .livre .s { color: var(--green); }
+.embarque-lista .livre a { color: var(--amber); text-decoration: underline; text-underline-offset: 3px; }
 .quem { margin: 44px 0 0; max-width: 58ch; color: var(--board-label); }
 .quem a { color: var(--flap-ink); }
 
@@ -517,7 +530,8 @@
   </section>
 
   <section class="final" aria-labelledby="t-final">
-    <div class="wrap">
+    <div class="wrap final-grid">
+      <div class="final-texto">
       <h2 id="t-final" class="display final-t">Imagina abrir o X e ver tua marca rodando num carro em Trancoso.</h2>
       <div class="cta-linha">
         <a class="btn" href="reservar/" data-checkin>Fazer check-in da minha marca <svg class="icon"><use href="#i-seta"/></svg></a>
@@ -528,6 +542,11 @@
         <div class="board"><div class="flap-rows" data-painel="contagem-final" aria-hidden="true"></div></div>
       </div>
       <p class="quem">Quem tá por trás: Thallis Ribeiro, criador do LicitaCerta, o radar de licitações no WhatsApp que já tem assinante pagando, e também do TeAfeta, do PeopleAds e do Grana. Administrador pela UFV, MBA em Gestão Financeira pela FGV. O BrandMyRide é o próximo, construído em público no <a href="https://x.com/thallisribeiro">@thallisribeiro</a>.</p>
+      </div>
+      <div class="board embarque">
+        <div class="board-head"><h3 class="sr">Quem já fez check-in</h3><span aria-hidden="true"><svg class="icon"><use href="#i-pouso"/></svg>Já fizeram check-in</span><span data-embarque-total></span></div>
+        <ol class="embarque-lista" data-embarque></ol>
+      </div>
     </div>
   </section>
 </main>
@@ -692,6 +711,32 @@
     trilho.replaceChildren(lista, copia);
     trilho.style.animationDuration = (lista.children.length * 4.5) + 's';
   }
+  const embarqueEl = document.querySelector('[data-embarque]');
+  function montaEmbarque(lista, livres) {
+    const linha = (n, marca, status, classe, i) => {
+      const li = document.createElement('li');
+      if (classe) li.className = classe;
+      li.style.setProperty('--i', i);
+      const a = document.createElement('span'); a.className = 'n'; a.textContent = n;
+      const b = document.createElement('span'); b.className = 'm'; b.append(marca);
+      const c = document.createElement('span'); c.className = 's'; c.textContent = status;
+      li.append(a, b, c);
+      return li;
+    };
+    const itens = lista.map((v, i) => linha(String(i + 1).padStart(2, '0'), (v && v.marca) || 'Marca reservada', 'Reservada', '', i));
+    if (livres) {
+      const convite = document.createElement('a');
+      const m = marca.trim();
+      convite.href = 'reservar/' + (m ? '?marca=' + encodeURIComponent(m) : '');
+      convite.dataset.checkin = '';
+      convite.textContent = 'Tua marca aqui';
+      convite.addEventListener('click', () => { if (window.gtag) gtag('event', 'checkin_inicio', { marca_digitada: !!marca.trim(), origem: 'lista' }); });
+      const de = String(lista.length + 1).padStart(2, '0');
+      itens.push(linha(livres > 1 ? de + '–20' : de, convite, livres > 1 ? livres + ' livres' : 'Livre', 'livre', lista.length));
+    }
+    embarqueEl.replaceChildren(...itens);
+    document.querySelector('[data-embarque-total]').textContent = lista.length + ' de 20';
+  }
   let ultima = '';
   function aplicaReservas(vagas, total) {
     const chave = JSON.stringify([vagas, total]);
@@ -707,6 +752,7 @@
     contagemTexto.textContent = livres + ' de 20 vagas founder livres';
     tique(false);
     montaFaixa(livres);
+    montaEmbarque(vagas.slice(0, tomadas), livres);
   }
   aplicaReservas(FIXAS.map(m => ({ marca: m })), FIXAS.length);
   // A leitura ao vivo vem depois do load: a primeira pintura não espera a planilha.
@@ -756,7 +802,7 @@
 
   // A contagem do fim vira quando aparece
   new IntersectionObserver((entradas, obs) => {
-    if (entradas[0].isIntersecting) { finalVisto = true; tique(false); obs.disconnect(); }
+    if (entradas[0].isIntersecting) { finalVisto = true; tique(false); document.querySelector('.embarque').classList.add('visto'); obs.disconnect(); }
   }, { threshold: 0.4 }).observe(document.querySelector('.final .board'));
 })();
 </script>

@@ -253,8 +253,10 @@ body { min-height: 100svh; display: flex; flex-direction: column; }
     $('#seguir-t').textContent = p.tipo === 'revisao' ? 'Confirmar check-in' : (vazio && p.obrig === false ? 'Pular' : 'Continuar');
   }
 
+  let maiorPasso = -1;
   function render(sentido) {
     const p = PASSOS[i];
+    if (i > maiorPasso) { maiorPasso = i; if (window.gtag) gtag('event', 'checkin_passo', { passo: p.id, numero: i + 1 }); }
     progresso(i);
     $('#erro').textContent = '';
     $('#pergunta').textContent = p.titulo(dados);
