@@ -63,6 +63,9 @@
 .lead { margin: 0; font-family: "Archivo Texto", "Segoe UI", system-ui, sans-serif; font-size: clamp(1.14rem, 1.6vw, 1.36rem); line-height: 1.5; max-width: 40ch; text-wrap: pretty; }
 .lead b { font-weight: 750; }
 .checkin { display: grid; gap: 14px; align-content: start; }
+@media (max-width: 899.98px) { .heroi-baixo .checkin { order: -1; } }
+.pass-cta { margin-top: 28px; }
+.vagas .m a { color: var(--amber); text-decoration: underline; text-underline-offset: 2px; }
 .campo { display: grid; gap: 8px; }
 .campo label { font: 700 0.72rem/1 var(--mono); font-stretch: 80%; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2); }
 .campo input {
@@ -75,7 +78,7 @@
 .campo input::placeholder { color: var(--ink-2); font-weight: 500; }
 .campo input:hover { border-color: var(--ink-2); }
 .cta-linha { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }
-@media (max-width: 560px) { .heroi .cta-linha .btn, .final .cta-linha .btn { width: 100%; } .topo-dir { gap: 12px; } }
+@media (max-width: 560px) { .heroi .cta-linha .btn, .final .cta-linha .btn, .pass-cta .btn { width: 100%; } .topo-dir { gap: 12px; } }
 .micro { margin: 0; font: 500 0.8rem/1.5 var(--mono); font-stretch: 85%; letter-spacing: 0.02em; color: var(--ink-2); }
 .contagem { display: grid; gap: 8px; margin-top: 10px; }
 .contagem .board { max-width: 400px; padding: 10px 12px; }
@@ -334,7 +337,7 @@
     </div>
 
     <div class="heroi-baixo">
-      <p class="lead">Tablet no encosto dos Ubers de Porto Seguro, rodando a tua marca pra quem senta atrás. A meio metro do rosto, <b>a corrida inteira. Sem skip, sem adblock, sem algoritmo.</b></p>
+      <p class="lead">Tablet no encosto dos Ubers de Porto Seguro, rodando a tua marca pra quem senta atrás. A tela fica acesa a corrida inteira, a meio metro do rosto. <b>Sem skip, sem adblock, sem algoritmo.</b></p>
       <div class="checkin">
         <div class="campo">
           <label for="marca">Digita tua marca e vê ela no painel</label>
@@ -343,7 +346,7 @@
         <div class="cta-linha">
           <a class="btn" href="reservar/" data-checkin>Fazer check-in da minha marca <svg class="icon"><use href="#i-seta"/></svg></a>
         </div>
-        <p class="micro">Plano Founder: R$ 300/mês, 3 telas. O check-in não cobra nada.</p>
+        <p class="micro">Plano Founder: R$ 300/mês, tua marca em 3 telas (3 carros). <span data-ocupadas>11</span> marcas já fizeram check-in. O check-in não cobra nada.</p>
         <div class="contagem">
           <span class="contagem-rot"><svg class="icon"><use href="#i-play"/></svg>Vagas founder livres agora</span>
           <div class="board"><div class="flap-rows" data-painel="contagem" aria-hidden="true"></div></div>
@@ -367,7 +370,7 @@
             <tr><th scope="row">Pular</th><td class="feed" data-rot="No feed">Um toque</td><td class="bom" data-rot="No banco de trás">Não tem botão</td></tr>
             <tr><th scope="row">Adblock</th><td class="feed" data-rot="No feed">Some pra quem usa</td><td class="bom" data-rot="No banco de trás">Não existe</td></tr>
             <tr><th scope="row">Algoritmo</th><td class="feed" data-rot="No feed">Decide quem vê</td><td class="bom" data-rot="No banco de trás">Sentou, viu</td></tr>
-            <tr><th scope="row">Tempo</th><td class="feed" data-rot="No feed">Uma rolada de dedo</td><td class="bom" data-rot="No banco de trás">A corrida inteira</td></tr>
+            <tr><th scope="row">Tempo</th><td class="feed" data-rot="No feed">Uma rolada de dedo</td><td class="bom" data-rot="No banco de trás">15 s inteiros, 2x a cada 10 min</td></tr>
             <tr><th scope="row">Medição</th><td class="feed" data-rot="No feed">Rastreio cada vez pior</td><td class="bom" data-rot="No banco de trás">QR só teu, scan contado</td></tr>
           </tbody>
         </table>
@@ -384,7 +387,7 @@
         <li class="parada"><span class="pino"></span><svg class="icon"><use href="#i-pouso"/></svg><strong>Aeroporto</strong><p>Ele senta atrás. A tela acende na frente dele.</p></li>
         <li class="parada"><span class="pino"></span><svg class="icon"><use href="#i-balsa"/></svg><strong>Balsa</strong><p>Fila e travessia. O carro para. A tela continua.</p></li>
         <li class="parada"><span class="pino"></span><svg class="icon"><use href="#i-carro"/></svg><strong>Arraial d’Ajuda</strong><p>Tua marca já passou na frente dele. E vai passar de novo.</p></li>
-        <li class="parada"><span class="pino"></span><svg class="icon"><use href="#i-palmeira"/></svg><strong>Trancoso</strong><p>Ele escaneia teu QR pra pegar o desconto. O scan cai no teu relatório.</p></li>
+        <li class="parada"><span class="pino"></span><svg class="icon"><use href="#i-palmeira"/></svg><strong>Trancoso</strong><p>Ele escaneia teu QR pra pegar o desconto. O scan cai no teu contador.</p></li>
       </ol>
       <p class="virada display">O encosto do banco da frente é o outdoor mais ignorado do verão baiano. Ninguém vende ele no sul da Bahia. <em>Ainda.</em></p>
     </div>
@@ -399,7 +402,7 @@
               <div class="tela">
                 <span class="tela-tag">exemplo</span>
                 <p class="tela-marca" data-marca>Tua marca</p>
-                <p class="tela-oferta">Escaneie e ganhe 10% no primeiro pedido.</p>
+                <p class="tela-oferta">Escaneie e ganhe 30 dias grátis.</p>
                 <svg class="tela-qr" aria-hidden="true"><use href="#qr-tela"/></svg>
                 <div class="tela-barra"><span>VAGA 07/20</span><span class="prog"><i></i></span><span data-seg>0:15</span></div>
               </div>
@@ -441,7 +444,7 @@
           </tbody>
         </table>
       </div>
-      <p class="tarifa">Depois das 20 vagas founder: <b>R$ 150 pela primeira tela e R$ 100 por tela extra.</b> Cada tela tem só 20 vagas, então tua marca sempre aparece 2 vezes por corrida. Tudo estimativa até os tablets rodarem; o relatório do mês mostra exibição e scan de verdade.</p>
+      <p class="tarifa">Depois das 20 vagas founder: <b>R$ 150 pela primeira tela e R$ 100 por tela extra.</b> Cada tela tem só 20 vagas, então tua marca sempre aparece 2 vezes a cada 10 minutos de corrida. Tudo estimativa até os tablets rodarem. O que dá pra medir desde o primeiro dia são os scans do teu QR.</p>
     </div>
   </section>
 
@@ -463,7 +466,7 @@
           <div class="bagagem">
             <p class="bag-t">Bagagem inclusa</p>
             <ul>
-              <li><svg class="icon"><use href="#i-play"/></svg>15 segundos no loop de 3 telas, 2 vezes por corrida, o ano todo</li>
+              <li><svg class="icon"><use href="#i-play"/></svg>15 segundos no loop de 3 telas, 2 vezes a cada 10 minutos, o ano todo</li>
               <li><svg class="icon"><use href="#i-qr"/></svg>QR code só teu, com contador de scans</li>
             </ul>
             <p class="bag-t bag-t2">A confirmar antes de cobrar</p>
@@ -477,12 +480,15 @@
         <div class="pass-stub">
           <dl>
             <div><dt>Portão</dt><dd>Check-in</dd></div>
-            <div><dt>Vigência</dt><dd>Ano todo</dd></div>
+            <div><dt>Roda</dt><dd>O ano todo</dd></div>
             <div><dt>Vagas</dt><dd class="num">20</dd></div>
           </dl>
           <div class="barcode" data-barcode></div>
         </div>
       </article>
+      <div class="cta-linha pass-cta">
+        <a class="btn" href="reservar/" data-checkin>Fazer check-in da minha marca <svg class="icon"><use href="#i-seta"/></svg></a>
+      </div>
       <p class="tarifa">O check-in não cobra nada. Eu te chamo no WhatsApp pra fechar e combinar a arte.</p>
     </div>
   </section>
@@ -508,7 +514,7 @@
       <ul class="regras">
         <li><strong>20 vagas founder, nenhuma a mais.</strong><span>Cada tela tem 20 vagas de 15 s. Os 20 founders enchem as 3 primeiras telas.</span></li>
         <li><strong>Founder paga R$ 300/mês e aparece em 3 telas.</strong><span>Depois das 20 vagas, é R$ 150 pela primeira tela e R$ 100 por tela extra.</span></li>
-        <li><strong>2 vezes por corrida, sempre.</strong><span>Nunca mais de 20 marcas por tela, então tua marca não perde espaço quando a frota cresce.</span></li>
+        <li><strong>2 vezes a cada 10 minutos, sempre.</strong><span>Nunca mais de 20 marcas por tela, então tua marca não perde espaço quando a frota cresce.</span></li>
         <li><strong>Check-in não cobra nada.</strong><span>Eu te chamo no WhatsApp pra fechar. Quem reservou já aparece em vermelho no painel de vagas.</span></li>
         <li><strong>Sem propaganda política.</strong><span>Ela é proibida em carro de app.</span></li>
       </ul>
@@ -519,10 +525,12 @@
     <div class="wrap">
       <h2 id="t-faq" class="display">Balcão de informações.</h2>
       <div class="faq">
+        <details><summary>Meu SaaS é B2B. Faz sentido?<svg class="icon"><use href="#i-mais"/></svg></summary><p>Faz mais sentido pra quem vende pro turista ou pro consumidor final: app, e-commerce, turismo, restaurante. Se o teu SaaS é B2B, o ganho é presença: tua marca rodando num carro de app na Bahia, com um QR só teu que conta cada scan.</p></details>
         <details><summary>O turista olha pra tela ou pro celular?<svg class="icon"><use href="#i-mais"/></svg></summary><p>Muita gente olha o celular, e tudo bem. É por isso que cada marca tem um QR com oferta: quem se interessa escaneia, e você vê o número. Não vendo atenção imaginária.</p></details>
         <details><summary>Tem som?<svg class="icon"><use href="#i-mais"/></svg></summary><p>Não. Motorista que escuta o mesmo loop 10 horas por dia desliga o tablet no segundo dia. É só imagem e legenda.</p></details>
-        <details><summary>E se o motorista desligar o tablet?<svg class="icon"><use href="#i-mais"/></svg></summary><p>O motorista ganha por hora de tablet ligado, e o sistema registra quando a tela ficou acesa. Desligado, ele não ganha.</p></details>
+        <details><summary>E se o motorista desligar o tablet?<svg class="icon"><use href="#i-mais"/></svg></summary><p>O motorista ganha por hora de tablet ligado. Desligado, ele não ganha.</p></details>
         <details><summary>Quanto custa?<svg class="icon"><use href="#i-mais"/></svg></summary><p>Founder: R$ 300 por mês pra aparecer em 3 telas, só pras 20 primeiras marcas. Depois, R$ 150 pela primeira tela e R$ 100 por tela extra.</p></details>
+        <details><summary>Quando eu pago?<svg class="icon"><use href="#i-mais"/></svg></summary><p>Só depois de fechar comigo no WhatsApp. O check-in reserva a vaga e não cobra nada.</p></details>
         <details><summary>É da Uber ou da 99?<svg class="icon"><use href="#i-mais"/></svg></summary><p>Não. É um projeto independente, nos carros de motoristas parceiros que rodam nesses apps. Não tem vínculo com as empresas.</p></details>
         <details><summary>Quando começa?<svg class="icon"><use href="#i-mais"/></svg></summary><p>Começa com 3 Ubers em Porto Seguro e roda o ano todo. Cada tela nova abre mais 20 vagas.</p></details>
       </div>
@@ -591,18 +599,22 @@
   let ocupadas = 0;
   const hero = Painel(document.querySelector('[data-painel="hero"]'));
   function recados() {
-    const lista = estreito.matches
-      ? [[' NINGUÉM', ' PULA ESTE', ' ANÚNCIO.'], [' 20 VAGAS', ' FOUNDER', ''], [' R$ 300', ' POR MÊS', ' 3 TELAS'], [' 2X POR', ' CORRIDA', '']]
-      : [[' NINGUÉM PULA', ' ESTE ANÚNCIO.'], [' 20 VAGAS', ' FOUNDER'], [' R$ 300/MÊS', ' EM 3 TELAS'], [' 2X POR', ' CORRIDA']];
-    const n = ocupadas;
-    if (n) lista.push(estreito.matches ? [' ' + n + ' MARCAS', ' JÁ', ' RESERVARAM'] : [' ' + n + ' MARCAS', ' JÁ RESERVARAM']);
+    const e = estreito.matches;
+    const livres = 20 - ocupadas; // TOTAL só é declarado mais abaixo
+    const lista = [e ? [' NINGUÉM', ' PULA ESTE', ' ANÚNCIO.'] : [' NINGUÉM PULA', ' ESTE ANÚNCIO.']];
+    if (ocupadas) lista.push(e ? [' ' + ocupadas + ' MARCAS', ' JÁ', ' RESERVARAM'] : [' ' + ocupadas + ' MARCAS JÁ', ' RESERVARAM']);
+    lista.push(livres
+      ? (e ? [' ' + livres + ' VAGAS', ' FOUNDER', ' LIVRES'] : [' ' + livres + ' VAGAS', ' FOUNDER LIVRES'])
+      : (e ? [' VAGAS', ' FOUNDER', ' ESGOTADAS'] : [' VAGAS FOUNDER', ' ESGOTADAS']));
+    lista.push(e ? [' R$ 300', ' POR MÊS', ' 3 CARROS'] : [' R$ 300/MÊS', ' EM 3 CARROS']);
+    lista.push(e ? [' 2X A CADA', ' 10 MIN', ''] : [' 2X A CADA', ' 10 MINUTOS']);
     return lista;
   }
   let recado = 0;
   const escreveHero = inst => { const r = recados(); hero.escreve(r[recado % r.length], { cols: estreito.matches ? 11 : 15, atraso: inst ? 0 : 200, escalonado: 30, instantaneo: inst }); };
   hero.escreve(recados()[0].map(() => ''), { cols: estreito.matches ? 11 : 15, instantaneo: true });
   pronto.then(() => escreveHero(false));
-  if (!quieto) setInterval(() => { if (pausado) return; recado++; escreveHero(false); }, 6500);
+  if (!quieto) setInterval(() => { if (pausado) return; recado++; escreveHero(false); }, 5000);
 
   // Marca do visitante: painel, tablet, cartão, carro da rota e links de check-in
   const campo = document.getElementById('marca');
@@ -653,7 +665,7 @@
     if (window.gtag) gtag('event', 'checkin_inicio', { marca_digitada: !!marca.trim() });
   }));
 
-  // Vagas founder: o painel lê as reservas da planilha. O nome da marca só aparece depois de aprovado no CRM.
+  // Vagas founder: o painel lê as reservas da planilha. A marca aparece assim que o check-in cai, a não ser que a pessoa tenha pedido só "reservada".
   const ENDPOINT = 'https://script.google.com/macros/s/AKfycbzFZF0TiJ2dsRhFk8ViX7uBbAaOhL4kN3lpqiyuGkKzGFMwCLERYJWrjrJo1fOB6mQc/exec';
   const TOTAL = 20;
   const contagem = Painel(document.querySelector('[data-painel="contagem"]'));
@@ -668,6 +680,7 @@
   let livresTxt = null;
   function desenhaVagas(lista) {
     vagasEl.textContent = '';
+    let convidou = false;
     for (let i = 0; i < TOTAL; i++) {
       const v = lista ? lista[i] : undefined;
       const li = document.createElement('li');
@@ -680,7 +693,8 @@
       st.textContent = !lista ? '···' : v ? 'RESERVADA' : 'LIVRE';
       const mk = document.createElement('span');
       mk.className = 'm';
-      mk.textContent = v && v.marca ? v.marca : '';
+      if (v && v.marca) mk.textContent = v.marca;
+      else if (lista && !v && !convidou) { convidou = true; mk.append(linkCheckin('painel')); }
       li.append(n, st, mk);
       vagasEl.append(li);
     }
@@ -713,6 +727,15 @@
     trilho.style.animationDuration = (lista.children.length * 4.5) + 's';
   }
   const embarqueEl = document.querySelector('[data-embarque]');
+  function linkCheckin(origem) {
+    const a = document.createElement('a');
+    const m = marca.trim();
+    a.href = 'reservar/' + (m ? '?marca=' + encodeURIComponent(m) : '');
+    a.dataset.checkin = '';
+    a.textContent = 'Tua marca aqui';
+    a.addEventListener('click', () => { if (window.gtag) gtag('event', 'checkin_inicio', { marca_digitada: !!marca.trim(), origem }); });
+    return a;
+  }
   function montaEmbarque(lista, livres) {
     const linha = (n, marca, status, classe, i) => {
       const li = document.createElement('li');
@@ -726,12 +749,7 @@
     };
     const itens = lista.map((v, i) => linha(String(i + 1).padStart(2, '0'), (v && v.marca) || 'Marca reservada', 'Reservada', '', i));
     if (livres) {
-      const convite = document.createElement('a');
-      const m = marca.trim();
-      convite.href = 'reservar/' + (m ? '?marca=' + encodeURIComponent(m) : '');
-      convite.dataset.checkin = '';
-      convite.textContent = 'Tua marca aqui';
-      convite.addEventListener('click', () => { if (window.gtag) gtag('event', 'checkin_inicio', { marca_digitada: !!marca.trim(), origem: 'lista' }); });
+      const convite = linkCheckin('lista');
       const de = String(lista.length + 1).padStart(2, '0');
       itens.push(linha(livres > 1 ? de + '–20' : de, convite, livres > 1 ? livres + ' livres' : 'Livre', 'livre', lista.length));
     }
@@ -764,6 +782,7 @@
     livresTxt = livres ? ' ' + String(livres).padStart(2, '0') + ' LIVRES' : ' ESGOTADO';
     totalEl.textContent = tomadas + ' reservadas · ' + livres + ' livres';
     contagemTexto.textContent = livres + ' de 20 vagas founder livres';
+    document.querySelectorAll('[data-ocupadas]').forEach(el => { el.textContent = tomadas; });
     tique(false);
     montaFaixa(livres);
     montaEmbarque(vagas.slice(0, tomadas), livres);
