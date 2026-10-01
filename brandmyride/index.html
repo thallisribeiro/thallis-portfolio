@@ -641,13 +641,14 @@
   });
   campo.addEventListener('keydown', e => { if (e.key === 'Enter') document.querySelector('.heroi [data-checkin].btn:not(.btn-sm)').click(); });
   estreito.addEventListener('change', () => { escreveHero(true); aplicaMarca(true); });
-  let giro = -1;
+  // Alterna o convite (livre) com uma marca reservada por vez: o convite nunca some.
+  let giro = 0;
   if (!quieto) setInterval(() => {
     if (pausado || marca.trim() || !reservadas.length) return;
-    giro = (giro + 1) % (reservadas.length + 1);
-    const r = reservadas[giro];
+    giro++;
+    const r = giro % 2 ? reservadas[((giro - 1) / 2) % reservadas.length] : null;
     mostraNaLinha(r ? r.marca : padrao(), r ? r.vaga : 0, false);
-  }, 3200);
+  }, 3600);
   document.querySelectorAll('[data-checkin]').forEach(a => a.addEventListener('click', () => {
     if (window.gtag) gtag('event', 'checkin_inicio', { marca_digitada: !!marca.trim() });
   }));
@@ -738,7 +739,20 @@
     document.querySelector('[data-embarque-total]').textContent = lista.length + ' de 20';
   }
   let ultima = '';
+  // Check-in feito neste navegador (até 7 dias): a marca aparece pra própria pessoa enquanto a planilha não confirma.
+  function minha() {
+    try {
+      const m = JSON.parse(localStorage.getItem('bmr_minha') || 'null');
+      return m && m.marca && /^pode/i.test(m.painel || '') && Date.now() - m.em < 7 * 864e5 ? m.marca : '';
+    } catch (e) { return ''; }
+  }
   function aplicaReservas(vagas, total) {
+    const eu = minha();
+    total = Math.min(TOTAL, total);
+    if (eu && total < TOTAL && !vagas.some(v => v && v.marca && v.marca.toLowerCase() === eu.toLowerCase())) {
+      vagas = vagas.slice(0, total).concat({ marca: eu });
+      total++;
+    }
     const chave = JSON.stringify([vagas, total]);
     if (chave === ultima) return;
     ultima = chave;

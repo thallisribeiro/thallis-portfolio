@@ -360,18 +360,21 @@ body { min-height: 100svh; display: flex; flex-direction: column; }
   function sucesso(d) {
     progresso(PASSOS.length);
     [...trilho.children].forEach(t => { t.className = 'feito'; });
-    const texto = 'Fiz check-in da ' + d.marca + ' no BrandMyRide: tablet no banco de trás dos carros de app de Porto Seguro. Só 20 vagas de founder. Ideia do @thallisribeiro\nhttps://thallisribeiro.com.br/brandmyride/';
+    // O saguão mostra a vaga desta pessoa na hora, só no navegador dela, até a planilha confirmar.
+    try { localStorage.setItem('bmr_minha', JSON.stringify({ marca: d.marca, painel: d.painel, em: Date.now() })); } catch (e) {}
+    const texto = 'Fiz check-in da ' + d.marca + ' no BrandMyRide: tablet no banco de trás dos carros de app de Porto Seguro. Só 20 vagas de founder. Ideia do @thallisribeiro\nhttps://thallisribeiro.com.br/brandmyride/?utm_source=x&utm_medium=share&utm_campaign=checkin';
     $('#palco').innerHTML =
       '<section class="sucesso">' +
         '<h1 class="display" tabindex="-1" id="feito">Check-in feito, ' + esc(primeiro(d.nome)) + '.</h1>' +
         '<p class="ajuda">A ' + esc(d.marca) + ' já ocupa uma vaga no painel. Eu te chamo no WhatsApp pra fechar e combinar a arte. O check-in não cobra nada.</p>' +
         cartao(d, true) +
         '<div class="acoes">' +
-          '<a class="btn" href="https://twitter.com/intent/tweet?text=' + encodeURIComponent(texto) + '" target="_blank" rel="noopener">Postar no X<svg class="icon"><use href="#i-seta"/></svg></a>' +
+          '<a class="btn" data-postar href="https://twitter.com/intent/tweet?text=' + encodeURIComponent(texto) + '" target="_blank" rel="noopener">Postar no X<svg class="icon"><use href="#i-seta"/></svg></a>' +
           '<a class="btn btn-ghost" href="../">Voltar pro saguão</a>' +
         '</div>' +
       '</section>';
     window.BMR.codigoBarras(document.querySelector('[data-barcode]'), d.marca);
+    document.querySelector('[data-postar]').addEventListener('click', () => { if (window.gtag) gtag('event', 'checkin_share', { rede: 'x' }); });
     $('#feito').focus({ preventScroll: true });
     scrollTo({ top: 0 });
   }
