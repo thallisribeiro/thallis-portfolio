@@ -21,6 +21,8 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111316'/%3E%3Crect x='5' y='5' width='22' height='22' rx='3' fill='%231f2226'/%3E%3Crect x='5' y='15.5' width='22' height='1.5' fill='%23111316'/%3E%3Ctext x='16' y='23.5' font-family='monospace' font-size='18' font-weight='700' text-anchor='middle' fill='%23ffb000'%3EB%3C/text%3E%3C/svg%3E">
 <link rel="preload" href="assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/martian-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://script.google.com" crossorigin>
+<link rel="preconnect" href="https://script.googleusercontent.com" crossorigin>
 <link rel="stylesheet" href="assets/base.css">
 <style>
 /* topo */
@@ -559,6 +561,8 @@
 
   // Painel principal: vira de recado em recado, como painel de aeroporto
   const quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // As palhetas só começam a virar com as fontes prontas: o texto pinta primeiro, a animação vem depois.
+  const pronto = document.fonts.ready;
   let pausado = false;
   const botaoPausa = document.querySelector('[data-pausa]');
   botaoPausa.addEventListener('click', () => {
@@ -579,7 +583,8 @@
   }
   let recado = 0;
   const escreveHero = inst => { const r = recados(); hero.escreve(r[recado % r.length], { cols: estreito.matches ? 11 : 15, atraso: inst ? 0 : 200, escalonado: 30, instantaneo: inst }); };
-  escreveHero(false);
+  hero.escreve(recados()[0].map(() => ''), { cols: estreito.matches ? 11 : 15, instantaneo: true });
+  pronto.then(() => escreveHero(false));
   if (!quieto) setInterval(() => { if (pausado) return; recado++; escreveHero(false); }, 6500);
 
   // Marca do visitante: painel, tablet, cartão, carro da rota e links de check-in
@@ -610,7 +615,8 @@
     if (m) q.set('marca', m);
     document.querySelectorAll('[data-checkin]').forEach(a => { a.href = 'reservar/' + (q.toString() ? '?' + q : ''); });
   }
-  aplicaMarca(false);
+  linhaMarca.escreve([''], { cols: estreito.matches ? 11 : 15, instantaneo: true });
+  pronto.then(() => aplicaMarca(false));
   let espera;
   campo.addEventListener('input', () => {
     clearTimeout(espera);
@@ -660,7 +666,8 @@
   }
   function tique(inst) {
     if (livresTxt == null) return;
-    contagem.escreve([livresTxt], { cols: 11, escalonado: 45, instantaneo: inst, atraso: 600 });
+    const txt = livresTxt;
+    pronto.then(() => contagem.escreve([txt], { cols: 11, escalonado: 45, instantaneo: inst, atraso: 600 }));
     if (finalVisto) contagemFinal.escreve([livresTxt], { cols: 11, escalonado: 45 });
   }
   // Última leitura da planilha (30/09). Pinta na hora; a leitura ao vivo substitui quando chega.
