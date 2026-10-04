@@ -46,6 +46,8 @@
 .filme-som[aria-pressed="true"] { color: var(--amber); border-color: var(--amber); }
 .filme-som:focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; }
 .filme-som .icon { width: 1.45em; height: 1.45em; }
+/* o filme é encenado: os tablets ainda não estão nos carros (PRODUCT.md), então leva a etiqueta, na altura do botão de som */
+.filme-tag { position: absolute; top: clamp(6px, 1.2cqi, 12px); left: clamp(6px, 1.2cqi, 12px); padding: calc(0.225em + 7px) 1em; border: 1px solid rgb(255 255 255 / 0.28); border-radius: 99px; background: rgb(10 11 13 / 0.45); color: rgb(255 255 255 / 0.78); font: 700 clamp(10px, 1.45cqi, 13px)/1 var(--mono); font-stretch: 80%; letter-spacing: 0.08em; text-transform: uppercase; pointer-events: none; }
 .marca-bloco { margin-top: clamp(12px, 2.4cqi, 24px); padding-top: clamp(10px, 1.8cqi, 18px); border-top: 1px solid var(--board-edge); display: grid; gap: clamp(8px, 1.2cqi, 12px); }
 .marca-rot { display: flex; justify-content: space-between; gap: 10px; color: var(--board-label); font: 600 clamp(9px, 1.5cqi, 12px)/1.2 var(--mono); font-stretch: 80%; letter-spacing: 0.1em; text-transform: uppercase; }
 .marca-rot .livre { color: var(--green); }
@@ -345,6 +347,7 @@
       </div>
       <div class="filme">
         <video class="filme-video" data-filme src="assets/video/meio-metro-hero.mp4" poster="assets/video/meio-metro-hero.jpg" autoplay muted loop playsinline preload="auto" aria-label="Filme do BrandMyRide, 35 segundos, com legendas: tablet no banco de trás dos carros de app de Porto Seguro. Ninguém pula este anúncio."></video>
+        <span class="filme-tag">Cenas ilustrativas</span>
         <button class="filme-som" type="button" aria-pressed="false" data-som><svg class="icon" aria-hidden="true"><use href="#i-mudo"/></svg><span>Ativar som</span></button>
       </div>
       <div class="marca-bloco" aria-hidden="true">

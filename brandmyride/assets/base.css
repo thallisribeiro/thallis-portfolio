@@ -160,7 +160,6 @@ button, input, textarea { font: inherit; color: inherit; }
 }
 .flap .folha { z-index: 2; }
 .flap-rows.amber { color: var(--amber); }
-.board-static { margin: 0; font: 700 clamp(1.4rem, 5cqi, 3.2rem)/1.1 var(--mono); font-stretch: 75%; text-transform: uppercase; }
 
 /* Cartão de embarque em papel térmico */
 /* Papel térmico: canto quase reto, sombra de contato, picote com meia-lua cortada nas pontas */
