@@ -19,6 +19,7 @@
 <meta name="twitter:creator" content="@thallisribeiro">
 <meta name="theme-color" content="#111316">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111316'/%3E%3Crect x='5' y='5' width='22' height='22' rx='3' fill='%231f2226'/%3E%3Crect x='5' y='15.5' width='22' height='1.5' fill='%23111316'/%3E%3Ctext x='16' y='23.5' font-family='monospace' font-size='18' font-weight='700' text-anchor='middle' fill='%23ffb000'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="assets/video/meio-metro-hero.jpg" as="image" fetchpriority="high">
 <link rel="preload" href="assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/martian-mono.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/base.css">
@@ -37,6 +38,14 @@
 
 /* herói */
 .heroi { display: grid; gap: clamp(24px, 3.4vw, 40px); padding-block: clamp(18px, 3.4vw, 44px) clamp(16px, 3vw, 40px); }
+/* filme do hero: o painel vira a tela (2.39:1, legendas queimadas, começa mudo) */
+.filme { position: relative; overflow: hidden; border-radius: clamp(6px, 1cqi, 10px); background: #000; aspect-ratio: 1280 / 536; }
+.filme-video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.filme-som { position: absolute; top: clamp(6px, 1.2cqi, 12px); right: clamp(6px, 1.2cqi, 12px); display: inline-flex; align-items: center; gap: 7px; padding: 7px 11px; border: 1px solid rgb(255 255 255 / 0.35); border-radius: 8px; background: rgb(10 11 13 / 0.62); color: #fff; font: 700 clamp(10px, 1.45cqi, 13px)/1 var(--mono); font-stretch: 80%; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; }
+.filme-som:hover { background: rgb(10 11 13 / 0.82); }
+.filme-som[aria-pressed="true"] { color: var(--amber); border-color: var(--amber); }
+.filme-som:focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; }
+.filme-som .icon { width: 1.45em; height: 1.45em; }
 .marca-bloco { margin-top: clamp(12px, 2.4cqi, 24px); padding-top: clamp(10px, 1.8cqi, 18px); border-top: 1px solid var(--board-edge); display: grid; gap: clamp(8px, 1.2cqi, 12px); }
 .marca-rot { display: flex; justify-content: space-between; gap: 10px; color: var(--board-label); font: 600 clamp(9px, 1.5cqi, 12px)/1.2 var(--mono); font-stretch: 80%; letter-spacing: 0.1em; text-transform: uppercase; }
 .marca-rot .livre { color: var(--green); }
@@ -60,7 +69,9 @@
 .heroi [data-painel="marca"] { min-height: 13cqi; align-content: start; }
 @media (max-width: 640px) { .heroi [data-painel="marca"] { min-height: 19cqi; } }
 .heroi-baixo { display: grid; gap: 30px; }
-@media (min-width: 900px) { .heroi-baixo { grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr); gap: clamp(36px, 5vw, 80px); } }
+@media (min-width: 900px) and (max-width: 999.98px) { .heroi-baixo { grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr); gap: clamp(36px, 5vw, 80px); } }
+/* desktop: filme e painel à esquerda, texto e check-in à direita, tudo na primeira dobra */
+@media (min-width: 1000px) { .heroi { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); align-items: center; column-gap: clamp(36px, 4vw, 64px); } .heroi-baixo { gap: 26px; } }
 .lead { margin: 0; font-family: "Archivo Texto", "Segoe UI", system-ui, sans-serif; font-size: clamp(1.14rem, 1.6vw, 1.36rem); line-height: 1.5; max-width: 40ch; text-wrap: pretty; }
 .lead b { font-weight: 750; }
 .checkin { display: grid; gap: 14px; align-content: start; }
@@ -305,6 +316,8 @@
   <symbol id="i-pincel" viewBox="0 0 24 24"><path d="M4 20l1-4 11-11 3 3L8 19z"/><path d="M14 7l3 3"/></symbol>
   <symbol id="i-mais" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
   <symbol id="i-pausa" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></symbol>
+  <symbol id="i-som" viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z"/><path d="M15.5 9.5a3.5 3.5 0 0 1 0 5"/><path d="M18 7a7 7 0 0 1 0 10"/></symbol>
+  <symbol id="i-mudo" viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></symbol>
   <symbol id="qr-tela" viewBox="0 0 21 21" shape-rendering="crispEdges"><path fill="#111" d="M0 0h7v7H0zM14 0h7v7h-7zM0 14h7v7H0z"/><path fill="#fff" d="M1 1h5v5H1zM15 1h5v5h-5zM1 15h5v5H1z"/><path fill="#111" d="M2 2h3v3H2zM16 2h3v3h-3zM2 16h3v3H2zM8 0h1v2H8zM10 1h2v1h-2zM9 3h1v2H9zM11 4h2v2h-2zM8 6h2v1H8zM12 7h1v2h-1zM0 8h2v1H0zM3 8h2v2H3zM6 9h2v1H6zM9 8h2v2H9zM14 8h1v1h-1zM16 8h3v1h-3zM20 9h1v2h-1zM1 11h2v1H1zM4 11h1v2H4zM7 11h3v1H7zM11 10h2v2h-2zM15 10h2v2h-2zM18 11h1v2h-1zM8 13h1v2H8zM10 13h3v1h-3zM14 13h2v1h-2zM17 14h2v2h-2zM9 15h2v2H9zM12 15h1v3h-1zM14 16h2v1h-2zM19 17h2v1h-2zM8 18h2v1H8zM11 19h2v2h-2zM14 18h1v3h-1zM16 19h3v1h-3zM20 19h1v2h-1z"/></symbol>
 </svg>
 
@@ -330,7 +343,10 @@
         <span><svg class="icon"><use href="#i-pouso"/></svg>Chegadas · Porto Seguro</span>
         <span>20 vagas founder</span>
       </div>
-      <div class="flap-rows" data-painel="hero" aria-hidden="true"><p class="board-static">Ninguém pula este anúncio.</p></div>
+      <div class="filme">
+        <video class="filme-video" data-filme src="assets/video/meio-metro-hero.mp4" poster="assets/video/meio-metro-hero.jpg" autoplay muted loop playsinline preload="auto" aria-label="Filme do BrandMyRide, 35 segundos, com legendas: tablet no banco de trás dos carros de app de Porto Seguro. Ninguém pula este anúncio."></video>
+        <button class="filme-som" type="button" aria-pressed="false" data-som><svg class="icon" aria-hidden="true"><use href="#i-mudo"/></svg><span>Ativar som</span></button>
+      </div>
       <div class="marca-bloco" aria-hidden="true">
         <div class="marca-rot"><span data-marca-rot>Tua marca · banco de trás · 15 s</span><span class="livre" data-marca-status>Livre</span></div>
         <div class="flap-rows amber" data-painel="marca"></div>
@@ -595,27 +611,34 @@
     pausado = !pausado;
     botaoPausa.setAttribute('aria-pressed', pausado);
     document.documentElement.classList.toggle('pausado', pausado);
+    const v = document.querySelector('[data-filme]');
+    if (v && !v.controls) { if (pausado) v.pause(); else v.play().catch(() => {}); }
   });
   let reservadas = []; // marcas que já fizeram check-in
   let ocupadas = 0;
-  const hero = Painel(document.querySelector('[data-painel="hero"]'));
-  function recados() {
-    const e = estreito.matches;
-    const livres = 20 - ocupadas; // TOTAL só é declarado mais abaixo
-    const lista = [e ? [' NINGUÉM', ' PULA ESTE', ' ANÚNCIO.'] : [' NINGUÉM PULA', ' ESTE ANÚNCIO.']];
-    if (ocupadas) lista.push(e ? [' ' + ocupadas + ' MARCAS', ' JÁ', ' RESERVARAM'] : [' ' + ocupadas + ' MARCAS JÁ', ' RESERVARAM']);
-    lista.push(livres
-      ? (e ? [' ' + livres + ' VAGAS', ' FOUNDER', ' LIVRES'] : [' ' + livres + ' VAGAS', ' FOUNDER LIVRES'])
-      : (e ? [' VAGAS', ' FOUNDER', ' ESGOTADAS'] : [' VAGAS FOUNDER', ' ESGOTADAS']));
-    lista.push(e ? [' R$ 300', ' POR MÊS', ' 3 CARROS'] : [' R$ 300/MÊS', ' EM 3 CARROS']);
-    lista.push(e ? [' 2X A CADA', ' 10 MIN', ''] : [' 2X A CADA', ' 10 MINUTOS']);
-    return lista;
-  }
-  let recado = 0;
-  const escreveHero = inst => { const r = recados(); hero.escreve(r[recado % r.length], { cols: estreito.matches ? 11 : 15, atraso: inst ? 0 : 200, escalonado: 30, instantaneo: inst }); };
-  hero.escreve(recados()[0].map(() => ''), { cols: estreito.matches ? 11 : 15, instantaneo: true });
-  pronto.then(() => escreveHero(false));
-  if (!quieto) setInterval(() => { if (pausado) return; recado++; escreveHero(false); }, 5000);
+  // Filme do hero: o navegador só deixa tocar sozinho se for mudo; o som fica a um toque e recomeça do início.
+  const filme = document.querySelector('[data-filme]');
+  const som = document.querySelector('[data-som]');
+  const economia = !!(navigator.connection && navigator.connection.saveData);
+  const marcaSom = ligado => {
+    som.setAttribute('aria-pressed', ligado);
+    som.querySelector('span').textContent = ligado ? 'Som ligado' : 'Ativar som';
+    som.querySelector('use').setAttribute('href', ligado ? '#i-som' : '#i-mudo');
+  };
+  if (quieto || economia) { filme.removeAttribute('autoplay'); filme.pause(); filme.controls = true; som.hidden = true; }
+  som.addEventListener('click', () => {
+    const ligar = filme.muted;
+    filme.muted = !ligar;
+    filme.loop = !ligar; // com som, toca uma vez; no fim volta pro loop mudo
+    if (ligar) { filme.currentTime = 0; filme.play().catch(() => {}); }
+    marcaSom(ligar);
+  });
+  filme.addEventListener('ended', () => { filme.muted = true; filme.loop = true; marcaSom(false); filme.play().catch(() => {}); });
+  // fora da tela ou com a pausa ligada, o filme para (bateria e dados)
+  new IntersectionObserver(es => {
+    if (quieto || economia) return;
+    es.forEach(e => { if (e.isIntersecting && !pausado) filme.play().catch(() => {}); else if (!e.isIntersecting) filme.pause(); });
+  }, { threshold: 0.25 }).observe(filme);
 
   // Marca do visitante: painel, tablet, cartão, carro da rota e links de check-in
   const campo = document.getElementById('marca');
@@ -653,7 +676,7 @@
     espera = setTimeout(() => { marca = campo.value; guarda('bmr_marca', marca); aplicaMarca(false); }, 140);
   });
   campo.addEventListener('keydown', e => { if (e.key === 'Enter') document.querySelector('.heroi [data-checkin].btn:not(.btn-sm)').click(); });
-  estreito.addEventListener('change', () => { escreveHero(true); aplicaMarca(true); });
+  estreito.addEventListener('change', () => aplicaMarca(true));
   // Alterna o convite (livre) com uma marca reservada por vez: o convite nunca some.
   let giro = 0;
   if (!quieto) setInterval(() => {
