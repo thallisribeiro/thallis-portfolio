@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<title>Cartão de visita — Dra. Lara Costa</title>
+<link rel="stylesheet" href="/dralaracog/papelaria/papel.css">
+<style>
+  /* 90 × 50 mm final + 3 mm de sangria em cada lado = 96 × 56 mm. Texto a 7 mm da borda do arquivo. */
+  @page { size: 96mm 56mm; }
+  .folha { width: 96mm; height: 56mm; }
+  .frente { background: var(--noite); display: grid; place-items: center; }
+  .frente .marca-dagua { width: 120mm; left: 38mm; top: -18mm; opacity: .09; color: var(--ouro-claro); }
+  .frente img { position: relative; height: 31mm; width: auto; }
+  .verso { background: var(--marfim); }
+  .verso .info { position: absolute; left: 8.5mm; top: 9mm; }
+  .verso .nome { font-size: 13.5pt; }
+  .verso .regua-ouro { width: 10mm; margin: 2.4mm 0 3mm; }
+  .verso ul { list-style: none; margin: 0; padding: 0; font-size: 6.9pt; line-height: 1; color: var(--tinta); }
+  .verso li { display: flex; align-items: center; gap: 2mm; margin-bottom: 1.9mm; }
+  .verso li svg { width: 2.8mm; height: 2.8mm; fill: none; stroke: var(--ouro); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+  .verso .qr { position: absolute; right: 8.5mm; top: 12mm; width: 19mm; text-align: center; }
+  .verso .qr img { width: 19mm; height: 19mm; display: block; }
+  .verso .qr span { display: block; margin-top: 1.4mm; font: 500 4.6pt/1.3 var(--sem); letter-spacing: .14em; text-transform: uppercase; color: var(--mel); }
+  .verso .faixa { position: absolute; left: 0; right: 0; bottom: 0; height: 6mm; background: var(--noite); border-top: .6mm solid var(--ouro); }
+</style>
+</head>
+<body>
+<div class="folha frente">
+  <svg class="marca-dagua" viewBox="0 0 120 120" aria-hidden="true"><use href="/dralaracog/marca/coroa.svg#coroa"/></svg>
+  <img src="/dralaracog/marca/vertical-negativo.svg" alt="Dra. Lara Costa — Médica, CRM-BA 52805">
+</div>
+<div class="folha verso">
+  <div class="info">
+    <div class="nome">Dra. Lara Costa Gonçalves</div>
+    <div class="cargo">Médica · CRM-BA 52805</div>
+    <div class="regua-ouro"></div>
+    <ul>
+      <li><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 1-13.4 7.9L3 21l1.2-4.4A9 9 0 1 1 21 12z"/><path d="M9 8.5c0 3.6 2.9 6.5 6.5 6.5l1-1.6-2-1-1 .9a4.4 4.4 0 0 1-2.3-2.3l.9-1-1-2z"/></svg>(38) 99989-7448</li>
+      <li><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>dralaracog@gmail.com</li>
+      <li><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg>@laraa_cog</li>
+      <li><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Eunápolis · Porto Seguro — BA</li>
+    </ul>
+  </div>
+  <div class="qr"><img src="/dralaracog/marca/qr-whatsapp.svg" alt="QR code para o WhatsApp da Dra. Lara"><span>Agende pelo<br>WhatsApp</span></div>
+  <div class="faixa"></div>
+</div>
+</body>
+</html>

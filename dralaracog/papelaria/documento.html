@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<title>Documento A5 — Dra. Lara Costa</title>
+<link rel="stylesheet" href="/dralaracog/papelaria/papel.css">
+<style>
+  @page { size: 148mm 210mm; }
+  .folha { width: 148mm; height: 210mm; }
+  .topo { position: absolute; top: 11mm; left: 11mm; right: 11mm; display: flex; justify-content: space-between; align-items: flex-end; }
+  .topo img { height: 12.5mm; width: auto; }
+  .topo .titulo-doc { padding-bottom: 1.2mm; text-align: right; }
+  .topo .regua-ouro { width: 14mm; margin: 2.2mm 0 0 auto; }
+  .divisa { position: absolute; top: 29mm; left: 11mm; right: 11mm; height: .2mm; background: var(--linha); }
+  .corpo { position: absolute; top: 34mm; left: 11mm; right: 11mm; bottom: 47mm; display: flex; flex-direction: column; }
+  .linha-campos { display: flex; gap: 6mm; align-items: baseline; margin-bottom: 5mm; font-size: 9pt; }
+  .linha-campos .rotulo { margin-right: 2mm; }
+  .cresce { flex: 1; }
+  .pautado { flex: 1; }
+  .texto { font: 400 10.5pt/2.1 var(--sem); }
+  .texto p { margin: 0 0 2mm; }
+  .bloco { margin-top: 4mm; }
+  .bloco .rotulo { display: block; margin-bottom: 1mm; }
+  .bloco .pautado { height: calc(var(--n, 2) * 8mm); flex: none; }
+  .numerado { counter-reset: n; flex: 1; }
+  .numerado div { height: 8mm; border-bottom: .22mm solid var(--linha); display: flex; align-items: flex-end; padding-bottom: 1mm; }
+  .numerado div::before { counter-increment: n; content: counter(n) '.'; font: 500 7pt/1 var(--sem); color: var(--ouro); width: 6mm; }
+  .cid { margin-top: 4mm; padding: 3mm 3.5mm; border: .25mm solid var(--linha); font-size: 8pt; line-height: 1.9; }
+  .marca-dagua { width: 96mm; left: 26mm; top: 74mm; }
+  .assinatura { position: absolute; right: 11mm; bottom: 28mm; width: 60mm; text-align: center; }
+  .assinatura .traco { border-top: .25mm solid var(--tinta); margin-bottom: 1.4mm; }
+  .assinatura .rotulo { letter-spacing: .14em; }
+  .local { position: absolute; left: 11mm; bottom: 29mm; font-size: 8.5pt; }
+  .rodape { position: absolute; left: 11mm; right: 11mm; bottom: 7.5mm; display: flex; justify-content: space-between; align-items: flex-end; padding-top: 3mm; border-top: .3mm solid var(--ouro); }
+  .rodape .contatos { text-align: right; font-size: 7pt; line-height: 1.55; color: #4F5563; }
+  .faixa { position: absolute; left: 0; right: 0; bottom: 0; height: 2.6mm; background: var(--noite); border-top: .7mm solid var(--ouro); }
+  section[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="folha">
+  <svg class="marca-dagua" viewBox="0 0 120 120" aria-hidden="true"><use href="/dralaracog/marca/coroa.svg#coroa"/></svg>
+
+  <header class="topo">
+    <img src="/dralaracog/marca/horizontal.svg" alt="Dra. Lara Costa — Médica, CRM-BA 52805">
+    <div><p class="titulo-doc" data-titulo>Receituário</p><div class="regua-ouro"></div></div>
+  </header>
+  <div class="divisa"></div>
+
+  <section class="corpo" data-doc="receituario">
+    <div class="linha-campos"><span class="rotulo">Paciente</span><span class="campo cresce"></span><span class="rotulo">Data</span><span class="campo" style="--w:24mm"></span></div>
+    <div class="pautado"></div>
+  </section>
+
+  <section class="corpo" data-doc="atestado" hidden>
+    <div class="texto">
+      <p>Atesto, para os devidos fins, que o(a) Sr.(a) <span class="campo" style="--w:74mm"></span>, documento nº <span class="campo" style="--w:38mm"></span>, esteve sob meus cuidados profissionais nesta data, devendo afastar-se de suas atividades por <span class="campo" style="--w:10mm"></span> (<span class="campo" style="--w:26mm"></span>) dia(s), a partir de <span class="campo" style="--w:22mm"></span>.</p>
+    </div>
+    <div class="bloco" style="--n:2"><span class="rotulo">Observações</span><div class="pautado"></div></div>
+    <div class="cid">Autorizo a inclusão do diagnóstico (CID) neste atestado: CID <span class="campo" style="--w:18mm"></span><br>Assinatura do(a) paciente ou responsável: <span class="campo" style="--w:50mm"></span></div>
+  </section>
+
+  <section class="corpo" data-doc="exames" hidden>
+    <div class="linha-campos"><span class="rotulo">Paciente</span><span class="campo cresce"></span><span class="rotulo">Data</span><span class="campo" style="--w:24mm"></span></div>
+    <span class="rotulo" style="margin-bottom:1mm">Solicito</span>
+    <div class="numerado"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    <div class="bloco" style="--n:2"><span class="rotulo">Indicação clínica</span><div class="pautado"></div></div>
+  </section>
+
+  <section class="corpo" data-doc="encaminhamento" hidden>
+    <div class="linha-campos"><span class="rotulo">Ao(à) colega / serviço</span><span class="campo cresce"></span></div>
+    <div class="linha-campos"><span class="rotulo">Paciente</span><span class="campo cresce"></span><span class="rotulo">Idade</span><span class="campo" style="--w:14mm"></span></div>
+    <div class="bloco" style="--n:3"><span class="rotulo">Motivo do encaminhamento</span><div class="pautado"></div></div>
+    <div class="bloco" style="--n:5"><span class="rotulo">Resumo clínico e exames</span><div class="pautado"></div></div>
+    <p style="margin:4mm 0 0;font-size:8.5pt">Agradeço a atenção e coloco-me à disposição para o que for necessário.</p>
+  </section>
+
+  <p class="local" data-local hidden>Eunápolis – BA, <span class="campo" style="--w:30mm"></span></p>
+  <div class="assinatura"><div class="traco"></div><span class="rotulo">Assinatura e carimbo</span></div>
+
+  <footer class="rodape">
+    <div><div class="nome">Dra. Lara Costa Gonçalves</div><div class="cargo">Médica · CRM-BA 52805</div></div>
+    <div class="contatos">(38) 99989-7448 · dralaracog@gmail.com<br>Eunápolis · Porto Seguro — BA</div>
+  </footer>
+  <div class="faixa"></div>
+</div>
+<script>
+  // ?doc=receituario|atestado|exames|encaminhamento — um molde, quatro impressos.
+  var TITULOS = { receituario: 'Receituário', atestado: 'Atestado médico', exames: 'Solicitação de exames', encaminhamento: 'Encaminhamento' };
+  var doc = new URLSearchParams(location.search).get('doc') || 'receituario';
+  if (!TITULOS[doc]) doc = 'receituario';
+  document.querySelectorAll('[data-doc]').forEach(function (s) { s.hidden = s.dataset.doc !== doc; });
+  document.querySelector('[data-titulo]').textContent = TITULOS[doc];
+  document.querySelector('[data-local]').hidden = doc !== 'atestado' && doc !== 'encaminhamento';
+  document.querySelector('.marca-dagua').style.display = doc === 'receituario' ? '' : 'none';
+  document.title = TITULOS[doc] + ' — Dra. Lara Costa';
+</script>
+</body>
+</html>

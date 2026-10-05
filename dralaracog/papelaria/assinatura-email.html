@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Assinatura de e-mail — Dra. Lara Costa</title>
+<style>
+  body { margin: 0; padding: 48px 20px; background: #F8F4EC; font: 400 16px/1.6 'Segoe UI', system-ui, sans-serif; color: #262A33; }
+  main { max-width: 640px; margin: 0 auto; }
+  h1 { font: 500 28px/1.2 Georgia, serif; color: #1E2B45; margin: 0 0 8px; }
+  .moldura { background: #fff; border: 1px solid #E5DCCB; padding: 28px; margin: 24px 0; }
+  button { min-height: 48px; padding: 0 24px; border: 0; background: #1E2B45; color: #F8F4EC; font: 500 14px/1 inherit; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; }
+  ol { padding-left: 20px; }
+  .ok { color: #2E7D4F; margin-left: 12px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Assinatura de e-mail</h1>
+  <p>Funciona no Gmail, Outlook e Apple Mail. As imagens vêm do site, então não precisam ser anexadas.</p>
+  <div class="moldura" id="assinatura">
+    <!-- Tabela e estilo inline: é o único HTML que todo cliente de e-mail respeita. -->
+    <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:Georgia,'Times New Roman',serif;">
+      <tr>
+        <td style="padding:0 18px 0 0;vertical-align:middle;">
+          <img src="https://thallisribeiro.com.br/dralaracog/marca/png/simbolo-200.png" width="72" height="72" alt="Dra. Lara Costa" style="display:block;border:0;">
+        </td>
+        <td style="padding:2px 0 2px 18px;border-left:2px solid #C9973A;vertical-align:middle;">
+          <div style="font-size:20px;line-height:1.2;color:#1E2B45;">Dra. Lara Costa Gonçalves</div>
+          <div style="font-family:Arial,Helvetica,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#6E5A35;padding:4px 0 8px;">Médica · CRM-BA 52805</div>
+          <div style="font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.6;color:#4F5563;">
+            <a href="https://wa.me/5538999897448" style="color:#1E2B45;text-decoration:none;">(38) 99989-7448</a> &nbsp;·&nbsp;
+            <a href="mailto:dralaracog@gmail.com" style="color:#1E2B45;text-decoration:none;">dralaracog@gmail.com</a><br>
+            <a href="https://thallisribeiro.com.br/dralaracog/" style="color:#1E2B45;text-decoration:none;">thallisribeiro.com.br/dralaracog</a> &nbsp;·&nbsp; Eunápolis · Porto Seguro — BA
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <button type="button" id="copiar">Copiar assinatura</button><span class="ok" id="ok" hidden>Copiada.</span>
+  <ol>
+    <li>Clique em <strong>Copiar assinatura</strong>.</li>
+    <li>No Gmail: Configurações → Ver todas as configurações → Assinatura → Criar nova.</li>
+    <li>Cole no campo (Ctrl+V) e salve no fim da página.</li>
+  </ol>
+</main>
+<script>
+  document.getElementById('copiar').addEventListener('click', function () {
+    var html = document.getElementById('assinatura').innerHTML;
+    var texto = document.getElementById('assinatura').innerText;
+    var feito = function () { document.getElementById('ok').hidden = false; };
+    if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write) {
+      navigator.clipboard.write([new ClipboardItem({
+        'text/html': new Blob([html], { type: 'text/html' }),
+        'text/plain': new Blob([texto], { type: 'text/plain' })
+      })]).then(feito);
+    } else {
+      // Navegador antigo: seleciona a assinatura renderizada e copia.
+      var r = document.createRange();
+      r.selectNodeContents(document.getElementById('assinatura'));
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      document.execCommand('copy'); s.removeAllRanges(); feito();
+    }
+  });
+</script>
+</body>
+</html>

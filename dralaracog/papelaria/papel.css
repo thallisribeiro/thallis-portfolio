@@ -1,0 +1,25 @@
+/* Base comum da papelaria. Cada peça define o tamanho da .folha e o @page. */
+@font-face { font-family: 'Cormorant Garamond'; src: url('/dralaracog/fontes/cormorant.woff2') format('woff2'); font-weight: 300 700; }
+@font-face { font-family: 'Cormorant Garamond'; src: url('/dralaracog/fontes/cormorant-ital.woff2') format('woff2'); font-weight: 300 700; font-style: italic; }
+@font-face { font-family: 'Jost'; src: url('/dralaracog/fontes/jost.woff2') format('woff2'); font-weight: 100 900; }
+
+:root {
+  --noite: #1E2B45; --noite-2: #16213A; --marfim: #F8F4EC; --linho: #EFE7DA;
+  --ouro: #C9973A; --ouro-claro: #E2B65A; --mel: #6E5A35; --tinta: #262A33; --linha: #DDD3C2;
+  --serifa: 'Cormorant Garamond', serif; --sem: 'Jost', sans-serif;
+}
+@page { margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { background: #CFC9BF; color: var(--tinta); font: 400 9pt/1.5 var(--sem); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.folha { position: relative; overflow: hidden; background: #fff; break-after: page; }
+.folha:last-child { break-after: auto; }
+
+.nome { font: 500 13pt/1.1 var(--serifa); color: var(--noite); }
+.cargo { font: 500 6.4pt/1.4 var(--sem); letter-spacing: .24em; text-transform: uppercase; color: var(--mel); }
+.titulo-doc { font: 500 7.6pt/1 var(--sem); letter-spacing: .32em; text-transform: uppercase; color: var(--mel); }
+.regua-ouro { height: .3mm; background: var(--ouro); }
+.campo { display: inline-block; width: var(--w, 40mm); border-bottom: .25mm solid #B9AE9C; height: 1em; vertical-align: baseline; }
+.rotulo { font: 500 6.6pt/1 var(--sem); letter-spacing: .18em; text-transform: uppercase; color: var(--mel); }
+.pautado { background-image: linear-gradient(to bottom, transparent calc(100% - .22mm), var(--linha) calc(100% - .22mm)); background-size: 100% 8mm; }
+.marca-dagua { position: absolute; color: var(--ouro); opacity: .07; pointer-events: none; }

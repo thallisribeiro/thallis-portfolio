@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Identidade visual — Dra. Lara Costa</title>
+<meta name="description" content="Manual de marca da Dra. Lara Costa: símbolo, logotipo, cores, tipografia, papelaria para impressão e peças digitais.">
+<link rel="preload" href="/dralaracog/fontes/cormorant.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/dralaracog/fontes/jost.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add('anim')</script>
+<link rel="stylesheet" href="/dralaracog/estilo.css?v=1">
+<link rel="icon" type="image/svg+xml" href="/dralaracog/marca/favicon.svg">
+<meta name="theme-color" content="#1E2B45">
+<style>
+  .abertura { padding: calc(var(--topo) + 64px) 0 40px; }
+  .abertura h1 { max-width: 14ch; }
+  .abertura p.chamada { max-width: 52ch; color: var(--tinta-suave); }
+  .indice { display: flex; flex-wrap: wrap; gap: 10px 26px; margin: 34px 0 0; padding: 0; list-style: none; font-size: .9rem; }
+  .indice a { color: var(--noite); text-decoration: none; border-bottom: 1px solid var(--ouro); }
+  .conceito { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(40px, 7vw, 96px); align-items: center; }
+  .conceito img { width: min(100%, 380px); margin-inline: auto; }
+  .conceito dl { margin: 28px 0 0; }
+  .conceito dt { font-family: var(--serifa); font-size: 1.35rem; font-weight: 600; color: var(--noite); }
+  .conceito dd { margin: 0 0 16px; color: var(--tinta-suave); }
+  .amostras { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .amostra { display: flex; flex-direction: column; border: 1px solid rgba(30, 43, 69, .08); }
+  .amostra-palco { display: grid; place-items: center; min-height: 240px; padding: 36px; }
+  .amostra-palco img { max-height: 150px; width: auto; }
+  .palco-marfim { background: var(--marfim); }
+  .palco-linho { background: var(--linho); }
+  .palco-noite { background: var(--noite); }
+  .palco-branco { background: #fff; }
+  .amostra-legenda { margin-top: auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px; padding: 16px 20px; background: #fff; font-size: .92rem; }
+  .amostra-legenda strong { font-weight: 500; color: var(--noite); }
+  .baixar { display: flex; flex-wrap: wrap; gap: 8px; }
+  .baixar a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 14px; border: 1px solid rgba(30, 43, 69, .25); font: 500 .72rem/1 var(--sem); letter-spacing: .14em; text-transform: uppercase; color: var(--noite); text-decoration: none; transition: background .3s, color .3s; }
+  .baixar a:hover { background: var(--noite); color: var(--marfim); }
+  .regras { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .regra { background: var(--marfim); padding: 28px; border: 1px solid rgba(30, 43, 69, .07); }
+  .regra h3 { margin-bottom: 12px; }
+  .regra p, .regra li { color: var(--tinta-suave); font-size: .98rem; }
+  .regra ul { margin: 0; padding-left: 18px; }
+  .protecao { position: relative; display: grid; place-items: center; height: 170px; margin-bottom: 18px; background: repeating-linear-gradient(45deg, rgba(201, 151, 58, .1) 0 6px, transparent 6px 12px); }
+  .protecao img { width: 96px; outline: 30px solid var(--marfim); }
+  .cores { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .cor { border: 1px solid rgba(30, 43, 69, .08); background: #fff; }
+  .cor-amostra { height: 120px; }
+  .cor-dados { padding: 16px 18px 18px; font-size: .88rem; line-height: 1.6; }
+  .cor-dados strong { display: block; font: 600 1.3rem/1.2 var(--serifa); color: var(--noite); margin-bottom: 6px; }
+  .cor-dados code { font: 500 .85rem/1.6 ui-monospace, Consolas, monospace; color: var(--tinta); }
+  .tipos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .tipo { background: var(--marfim); padding: 32px; border: 1px solid rgba(30, 43, 69, .07); }
+  .tipo .exemplo-serifa { font: 500 clamp(2.4rem, 4vw, 3.4rem)/1.05 var(--serifa); color: var(--noite); margin: 10px 0 18px; }
+  .tipo .exemplo-sem { font: 400 1.25rem/1.5 var(--sem); color: var(--noite); margin: 10px 0 18px; }
+  .tipo .alfabeto { font-size: .95rem; color: var(--tinta-suave); word-break: break-word; }
+  .papeis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px 20px; }
+  .papel figure { margin: 0 0 14px; display: grid; place-items: center; aspect-ratio: 1; background: var(--linho); padding: 18px; }
+  .papel figure img { max-height: 100%; width: auto; box-shadow: 0 10px 26px -14px rgba(22, 33, 58, .45); }
+  .papel h3 { font-size: 1.3rem; margin-bottom: 4px; }
+  .papel p { font-size: .88rem; color: var(--tinta-suave); margin-bottom: 12px; }
+  .papel-largo { grid-column: span 2; }
+  .papel-largo figure { aspect-ratio: 2 / 1; }
+  .destaques { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; margin: 24px 0 8px; }
+  .destaques a { display: block; }
+  .destaques img { border-radius: 50%; aspect-ratio: 1; object-fit: cover; width: 100%; }
+  .destaques span { display: block; text-align: center; font-size: .8rem; margin-top: 8px; color: var(--tinta-suave); }
+  .digital { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .digital > div { background: #fff; border: 1px solid rgba(30, 43, 69, .08); padding: 24px; }
+  .digital img { margin-bottom: 16px; }
+  .digital h3 { font-size: 1.3rem; margin-bottom: 6px; }
+  .digital p { font-size: .9rem; color: var(--tinta-suave); }
+  @media (max-width: 1020px) {
+    .papeis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .regras, .cores, .digital { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .destaques { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  @media (max-width: 700px) {
+    .conceito, .amostras, .tipos, .regras, .cores, .digital { grid-template-columns: 1fr; }
+    .papeis { grid-template-columns: 1fr; }
+    .papel-largo { grid-column: auto; }
+  }
+</style>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="cabecalho">
+  <div class="cabecalho-interno">
+    <a class="marca" href="/dralaracog/" aria-label="Dra. Lara Costa, voltar ao site">
+      <img src="/dralaracog/marca/simbolo.svg" alt="" width="44" height="44">
+      <span class="marca-texto"><span class="marca-nome">Dra. Lara Costa</span><span class="marca-linha">Identidade visual</span></span>
+    </a>
+    <a class="link-seta" href="/dralaracog/">Ver o site</a>
+  </div>
+</header>
+
+<main id="conteudo">
+  <section class="abertura" aria-labelledby="t-abertura">
+    <div class="container">
+      <p class="olho">Identidade visual · Outubro de 2026</p>
+      <h1 id="t-abertura">A marca da Dra. Lara Costa</h1>
+      <div class="regua"><i></i></div>
+      <p class="chamada">Símbolo, logotipo, cores, tipografia, papelaria pronta para a gráfica e peças para Instagram e e-mail. Tudo o que é preciso para ela se apresentar do mesmo jeito em todo lugar.</p>
+      <ul class="indice">
+        <li><a href="#conceito">Conceito</a></li>
+        <li><a href="#logotipo">Logotipo</a></li>
+        <li><a href="#regras">Regras de uso</a></li>
+        <li><a href="#cores">Cores</a></li>
+        <li><a href="#tipografia">Tipografia</a></li>
+        <li><a href="#papelaria">Papelaria</a></li>
+        <li><a href="#carimbo">Carimbo e bordado</a></li>
+        <li><a href="#digital">Digital</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="conceito" aria-labelledby="t-conceito">
+    <div class="container conceito">
+      <img src="/dralaracog/marca/simbolo.svg" alt="Símbolo da Dra. Lara Costa: girassol dourado com miolo azul-noite e as iniciais LC" width="380" height="380">
+      <div>
+        <p class="olho">Conceito</p>
+        <h2 id="t-conceito">Iluminar</h2>
+        <div class="regua"><i></i></div>
+        <p>É a palavra que a Dra. Lara escolheu para abrir a própria biografia, e virou o centro da marca. O girassol é a flor que se volta para a luz. Aqui, as pétalas douradas abraçam um miolo azul-noite, a cor do scrub com que ela atende. No centro, as iniciais LC.</p>
+        <dl>
+          <dt>Pétalas douradas</dt><dd>O cuidado que se abre em volta de cada paciente, em duas camadas para dar profundidade.</dd>
+          <dt>Miolo azul-noite</dt><dd>A medicina: o plantão, a seriedade, a confiança.</dd>
+          <dt>Iniciais em serifa clássica</dt><dd>Cormorant Garamond, uma letra de tradição com traço humano e próximo.</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="faixa-linho" id="logotipo" aria-labelledby="t-logotipo">
+    <div class="container">
+      <p class="olho">Logotipo</p>
+      <h2 id="t-logotipo">Versões</h2>
+      <div class="regua"><i></i></div>
+      <p style="max-width:62ch">Os arquivos SVG têm o texto convertido em contorno: abrem iguais em qualquer computador e a gráfica não precisa das fontes. Para a tela, use o PNG com fundo transparente.</p>
+      <div class="amostras">
+        <div class="amostra">
+          <div class="amostra-palco palco-marfim"><img src="/dralaracog/marca/horizontal.svg" alt="Logotipo horizontal" style="max-height:110px"></div>
+          <div class="amostra-legenda"><strong>Horizontal · principal</strong><span class="baixar"><a href="/dralaracog/marca/horizontal.svg" download>SVG</a><a href="/dralaracog/marca/png/horizontal-2000.png" download>PNG</a></span></div>
+        </div>
+        <div class="amostra">
+          <div class="amostra-palco palco-noite"><img src="/dralaracog/marca/horizontal-negativo.svg" alt="Logotipo horizontal negativo" style="max-height:110px"></div>
+          <div class="amostra-legenda"><strong>Horizontal · fundo escuro</strong><span class="baixar"><a href="/dralaracog/marca/horizontal-negativo.svg" download>SVG</a><a href="/dralaracog/marca/png/horizontal-negativo-2000.png" download>PNG</a></span></div>
+        </div>
+        <div class="amostra">
+          <div class="amostra-palco palco-linho"><img src="/dralaracog/marca/vertical.svg" alt="Logotipo vertical"></div>
+          <div class="amostra-legenda"><strong>Vertical</strong><span class="baixar"><a href="/dralaracog/marca/vertical.svg" download>SVG</a><a href="/dralaracog/marca/png/vertical-1400.png" download>PNG</a></span></div>
+        </div>
+        <div class="amostra">
+          <div class="amostra-palco palco-noite"><img src="/dralaracog/marca/vertical-negativo.svg" alt="Logotipo vertical negativo"></div>
+          <div class="amostra-legenda"><strong>Vertical · fundo escuro</strong><span class="baixar"><a href="/dralaracog/marca/vertical-negativo.svg" download>SVG</a><a href="/dralaracog/marca/png/vertical-negativo-1400.png" download>PNG</a></span></div>
+        </div>
+        <div class="amostra">
+          <div class="amostra-palco palco-marfim"><img src="/dralaracog/marca/simbolo.svg" alt="Símbolo colorido"></div>
+          <div class="amostra-legenda"><strong>Símbolo · avatar, favicon, selo</strong><span class="baixar"><a href="/dralaracog/marca/simbolo.svg" download>SVG</a><a href="/dralaracog/marca/png/simbolo-1000.png" download>PNG</a></span></div>
+        </div>
+        <div class="amostra">
+          <div class="amostra-palco palco-branco" style="gap:28px;grid-auto-flow:column"><img src="/dralaracog/marca/simbolo-noite.svg" alt="Símbolo em uma cor, azul-noite" width="130" height="130" style="width:130px;height:130px"><span style="background:var(--noite);padding:20px;display:grid"><img src="/dralaracog/marca/simbolo-marfim.svg" alt="Símbolo em uma cor, marfim" width="110" height="110" style="width:110px;height:110px"></span></div>
+          <div class="amostra-legenda"><strong>Uma cor · carimbo, gravação, bordado</strong><span class="baixar"><a href="/dralaracog/marca/simbolo-noite.svg" download>Azul</a><a href="/dralaracog/marca/simbolo-marfim.svg" download>Marfim</a></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="regras" aria-labelledby="t-regras">
+    <div class="container">
+      <p class="olho">Regras de uso</p>
+      <h2 id="t-regras">Para a marca durar</h2>
+      <div class="regua"><i></i></div>
+      <div class="regras">
+        <div class="regra">
+          <div class="protecao"><img src="/dralaracog/marca/simbolo.svg" alt="Símbolo com área de proteção marcada em volta"></div>
+          <h3>Área de proteção</h3>
+          <p>Deixe livre em volta do logotipo um espaço igual a um terço do símbolo. Nada de texto, borda ou foto dentro dessa margem.</p>
+        </div>
+        <div class="regra">
+          <h3>Tamanho mínimo</h3>
+          <ul>
+            <li>Símbolo: 7 mm impresso ou 24 px na tela.</li>
+            <li>Horizontal: 35 mm impresso ou 160 px na tela.</li>
+            <li>Abaixo disso, use só o símbolo; para favicon, a versão simplificada.</li>
+          </ul>
+        </div>
+        <div class="regra">
+          <h3>Não faça</h3>
+          <ul>
+            <li>Esticar, girar ou trocar as cores do símbolo.</li>
+            <li>Refazer o LC em outra fonte.</li>
+            <li>Aplicar sobre foto movimentada sem um fundo liso.</li>
+            <li>Escrever especialidade ao lado do nome: pela Resolução CFM 2.336/2023, só com RQE.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faixa-linho" id="cores" aria-labelledby="t-cores">
+    <div class="container">
+      <p class="olho">Cores</p>
+      <h2 id="t-cores">Paleta</h2>
+      <div class="regua"><i></i></div>
+      <div class="cores">
+        <div class="cor"><div class="cor-amostra" style="background:#1E2B45"></div><div class="cor-dados"><strong>Azul-noite</strong><code>#1E2B45</code> · RGB 30 43 69<br>CMYK 57 38 0 73<br>Cor principal: títulos, fundos escuros, miolo do símbolo.</div></div>
+        <div class="cor"><div class="cor-amostra" style="background:#C9973A"></div><div class="cor-dados"><strong>Girassol</strong><code>#C9973A</code> · RGB 201 151 58<br>CMYK 0 25 71 21<br>Pétalas, filetes e botões. Decorativa sobre fundo claro.</div></div>
+        <div class="cor"><div class="cor-amostra" style="background:#E2B65A"></div><div class="cor-dados"><strong>Girassol claro</strong><code>#E2B65A</code> · RGB 226 182 90<br>CMYK 0 19 60 11<br>Segunda camada de pétalas e texto dourado sobre azul.</div></div>
+        <div class="cor"><div class="cor-amostra" style="background:#F8F4EC;border-bottom:1px solid #E5DCCB"></div><div class="cor-dados"><strong>Marfim</strong><code>#F8F4EC</code> · RGB 248 244 236<br>CMYK 0 2 5 3<br>Fundo principal do site e do verso do cartão.</div></div>
+        <div class="cor"><div class="cor-amostra" style="background:#EFE7DA"></div><div class="cor-dados"><strong>Linho</strong><code>#EFE7DA</code> · RGB 239 231 218<br>CMYK 0 3 9 6<br>Faixas alternadas e molduras de foto.</div></div>
+        <div class="cor"><div class="cor-amostra" style="background:#6E5A35"></div><div class="cor-dados"><strong>Mel</strong><code>#6E5A35</code> · RGB 110 90 53<br>CMYK 0 18 52 57<br>Dourado legível para rótulos pequenos sobre marfim.</div></div>
+      </div>
+      <p class="nota">CMYK aproximado: peça à gráfica uma prova impressa antes da tiragem, principalmente do azul-noite.</p>
+    </div>
+  </section>
+
+  <section id="tipografia" aria-labelledby="t-tipografia">
+    <div class="container">
+      <p class="olho">Tipografia</p>
+      <h2 id="t-tipografia">Duas famílias, ambas gratuitas</h2>
+      <div class="regua"><i></i></div>
+      <div class="tipos">
+        <div class="tipo">
+          <p class="olho">Títulos, nome e citações</p>
+          <p class="exemplo-serifa">Cormorant Garamond</p>
+          <p class="alfabeto">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz · Çç Ãã Éé · 0123456789</p>
+          <a class="link-seta" href="https://fonts.google.com/specimen/Cormorant+Garamond" target="_blank" rel="noopener">Baixar no Google Fonts</a>
+        </div>
+        <div class="tipo">
+          <p class="olho">Textos, rótulos e informações</p>
+          <p class="exemplo-sem">Jost — limpa, geométrica, fácil de ler em receita e em celular.</p>
+          <p class="alfabeto">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz · Çç Ãã Éé · 0123456789</p>
+          <a class="link-seta" href="https://fonts.google.com/specimen/Jost" target="_blank" rel="noopener">Baixar no Google Fonts</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faixa-linho" id="papelaria" aria-labelledby="t-papelaria">
+    <div class="container">
+      <p class="olho">Papelaria</p>
+      <h2 id="t-papelaria">Pronta para a gráfica</h2>
+      <div class="regua"><i></i></div>
+      <p style="max-width:66ch">PDFs no tamanho final, com as fontes embutidas. O endereço do consultório fica em branco para preencher ou carimbar até ser definido.</p>
+      <div class="papeis">
+        <article class="papel">
+          <figure><img src="/dralaracog/papelaria/previa/receituario-a5.png" alt="Prévia do receituário A5" loading="lazy" width="559" height="794"></figure>
+          <h3>Receituário</h3><p>A5 · 148 × 210 mm · offset 90 g, bloco de 50 ou 100 folhas.</p>
+          <span class="baixar"><a href="/dralaracog/papelaria/pdf/receituario-a5.pdf" download>Baixar PDF</a></span>
+        </article>
+        <article class="papel">
+          <figure><img src="/dralaracog/papelaria/previa/atestado-a5.png" alt="Prévia do atestado médico A5" loading="lazy" width="559" height="794"></figure>
+          <h3>Atestado médico</h3><p>A5 · com autorização do paciente para o CID, como pede a Resolução CFM 1.658/2002.</p>
+          <span class="baixar"><a href="/dralaracog/papelaria/pdf/atestado-a5.pdf" download>Baixar PDF</a></span>
+        </article>
+        <article class="papel">
+          <figure><img src="/dralaracog/papelaria/previa/solicitacao-de-exames-a5.png" alt="Prévia da solicitação de exames A5" loading="lazy" width="559" height="794"></figure>
+          <h3>Solicitação de exames</h3><p>A5 · dez linhas numeradas e espaço para a indicação clínica.</p>
+          <span class="baixar"><a href="/dralaracog/papelaria/pdf/solicitacao-de-exames-a5.pdf" download>Baixar PDF</a></span>
+        </article>
+        <article class="papel">
+          <figure><img src="/dralaracog/papelaria/previa/encaminhamento-a5.png" alt="Prévia do encaminhamento A5" loading="lazy" width="559" height="794"></figure>
+          <h3>Encaminhamento</h3><p>A5 · para o colega especialista, com motivo e resumo clínico.</p>
+          <span class="baixar"><a href="/dralaracog/papelaria/pdf/encaminhamento-a5.pdf" download>Baixar PDF</a></span>
+        </article>
+        <article class="papel papel-largo">
+          <figure><img src="/dralaracog/papelaria/previa/receituario-controle-especial-a4.png" alt="Prévia do receituário de controle especial em duas vias" loading="lazy" width="1123" height="794"></figure>
+          <h3>Receituário de controle especial</h3><p>A4 deitado, duas vias (farmácia e paciente) no modelo da Portaria SVS/MS 344/1998. Corte ao meio.</p>
+          <span class="baixar"><a href="/dralaracog/papelaria/pdf/receituario-controle-especial-a4.pdf" download>Baixar PDF</a></span>
+        </article>
+        <article class="papel">
+          <figure><img src="/dralaracog/papelaria/previa/papel-timbrado-a4.png" alt="Prévia do papel timbrado A4" loading="lazy" width="794" height="1123"></figure>
+          <h3>Papel timbrado</h3><p>A4 · relatórios, laudos e declarações. Serve também de fundo no Word.</p>
+          <span class="baixar"><a href="/dralaracog/papelaria/pdf/papel-timbrado-a4.pdf" download>Baixar PDF</a></span>
+        </article>
+        <article class="papel">
+          <figure><img src="/dralaracog/papelaria/previa/cartao-de-visita.png" alt="Prévia do cartão de visita, frente e verso" loading="lazy" width="726" height="846"></figure>
+          <h3>Cartão de visita</h3><p>90 × 50 mm com 3 mm de sangria · couché fosco 300 g com laminação fosca. O QR abre o WhatsApp.</p>
+          <span class="baixar"><a href="/dralaracog/papelaria/pdf/cartao-de-visita.pdf" download>Baixar PDF</a></span>
+        </article>
+        <article class="papel papel-largo">
+          <figure><img src="/dralaracog/papelaria/previa/envelope-dl.png" alt="Prévia do envelope DL" loading="lazy" width="831" height="416"></figure>
+          <h3>Envelope</h3><p>DL · 220 × 110 mm · offset 90 g. Para resultados, relatórios e correspondência.</p>
+          <span class="baixar"><a href="/dralaracog/papelaria/pdf/envelope-dl.pdf" download>Baixar PDF</a></span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="carimbo" aria-labelledby="t-carimbo">
+    <div class="container">
+      <p class="olho">Carimbo e bordado</p>
+      <h2 id="t-carimbo">Nome e registro sempre iguais</h2>
+      <div class="regua"><i></i></div>
+      <div class="amostras">
+        <div class="amostra">
+          <div class="amostra-palco palco-branco"><img src="/dralaracog/marca/carimbo.svg" alt="Arte do carimbo: Dra. Lara Costa Gonçalves, Médica, CRM-BA 52805" style="width:min(100%,360px);max-height:none"></div>
+          <div class="amostra-legenda"><strong>Carimbo · 47 × 18 mm (Colop Printer 30 ou Trodat 4912)</strong><span class="baixar"><a href="/dralaracog/marca/carimbo.svg" download>SVG</a><a href="/dralaracog/marca/png/carimbo-1400.png" download>PNG</a></span></div>
+        </div>
+        <div class="amostra">
+          <div class="amostra-palco palco-branco"><img src="/dralaracog/marca/bordado.svg" alt="Arte do bordado do jaleco com o símbolo, o nome e o CRM" style="width:min(100%,420px);max-height:none"></div>
+          <div class="amostra-legenda"><strong>Bordado do jaleco e do scrub · cerca de 85 mm, peito esquerdo</strong><span class="baixar"><a href="/dralaracog/marca/bordado.svg" download>SVG</a><a href="/dralaracog/marca/png/bordado-2000.png" download>PNG</a></span></div>
+        </div>
+      </div>
+      <p class="nota">Bordado: linha azul-marinho no texto e dourada no símbolo. Peça ao bordador para não reduzir abaixo de 70 mm, senão os traços finos do nome somem.</p>
+    </div>
+  </section>
+
+  <section class="faixa-linho" id="digital" aria-labelledby="t-digital">
+    <div class="container">
+      <p class="olho">Digital</p>
+      <h2 id="t-digital">Instagram, e-mail e site</h2>
+      <div class="regua"><i></i></div>
+      <h3>Capas dos destaques</h3>
+      <div class="destaques">
+        <a href="/dralaracog/papelaria/instagram/destaque-sobre.png" download><img src="/dralaracog/papelaria/instagram/destaque-sobre.png" alt="Capa de destaque Sobre" loading="lazy" style="object-position:50% 50%"><span>Sobre</span></a>
+        <a href="/dralaracog/papelaria/instagram/destaque-agenda.png" download><img src="/dralaracog/papelaria/instagram/destaque-agenda.png" alt="Capa de destaque Agenda" loading="lazy"><span>Agenda</span></a>
+        <a href="/dralaracog/papelaria/instagram/destaque-duvidas.png" download><img src="/dralaracog/papelaria/instagram/destaque-duvidas.png" alt="Capa de destaque Dúvidas" loading="lazy"><span>Dúvidas</span></a>
+        <a href="/dralaracog/papelaria/instagram/destaque-saude.png" download><img src="/dralaracog/papelaria/instagram/destaque-saude.png" alt="Capa de destaque Saúde" loading="lazy"><span>Saúde</span></a>
+        <a href="/dralaracog/papelaria/instagram/destaque-rotina.png" download><img src="/dralaracog/papelaria/instagram/destaque-rotina.png" alt="Capa de destaque Rotina" loading="lazy"><span>Rotina</span></a>
+        <a href="/dralaracog/papelaria/instagram/destaque-gratidao.png" download><img src="/dralaracog/papelaria/instagram/destaque-gratidao.png" alt="Capa de destaque Gratidão" loading="lazy"><span>Gratidão</span></a>
+      </div>
+      <p class="nota" style="margin-bottom:40px">1080 × 1920 px: poste como story, adicione ao destaque e escolha esta imagem como capa. Toque para baixar.</p>
+      <div class="digital">
+        <div>
+          <img src="/dralaracog/papelaria/instagram/avatar.png" alt="Avatar com o símbolo sobre azul-noite" width="120" height="120" loading="lazy" style="border-radius:50%">
+          <h3>Avatar</h3><p>Para um perfil profissional, WhatsApp Business ou Google. 1080 × 1080 px.</p>
+          <span class="baixar"><a href="/dralaracog/papelaria/instagram/avatar.png" download>Baixar PNG</a></span>
+        </div>
+        <div>
+          <img src="/dralaracog/marca/png/simbolo-200.png" alt="" width="72" height="72" loading="lazy">
+          <h3>Assinatura de e-mail</h3><p>Nome, CRM e contatos no fim de cada e-mail. Copia e cola no Gmail.</p>
+          <span class="baixar"><a href="/dralaracog/papelaria/assinatura-email.html">Abrir e copiar</a></span>
+        </div>
+        <div>
+          <img src="/dralaracog/img/og.png" alt="Imagem que aparece quando o link do site é compartilhado" width="1200" height="630" loading="lazy">
+          <h3>Compartilhamento</h3><p>É a prévia que aparece quando o link do site é enviado no WhatsApp ou nas redes.</p>
+          <span class="baixar"><a href="/dralaracog/img/og.png" download>Baixar PNG</a></span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="container rodape-interno">
+    <img src="/dralaracog/marca/vertical-negativo.svg" alt="Dra. Lara Costa — Médica, CRM-BA 52805" class="rodape-marca" loading="lazy">
+    <div class="rodape-legal">
+      <p class="identificacao"><strong>Dra. Lara Costa Gonçalves</strong><br>Médica · CRM-BA 52805</p>
+      <p>Identidade visual criada em outubro de 2026. Os arquivos desta página podem ser usados livremente pela Dra. Lara em qualquer material.</p>
+      <p class="rodape-links"><a href="/dralaracog/">Voltar ao site</a> · <a href="https://thallisribeiro.com.br/" rel="noopener">Thallis Ribeiro</a></p>
+    </div>
+  </div>
+</footer>
+<script src="/dralaracog/site.js?v=1" defer></script>
+</body>
+</html>

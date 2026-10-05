@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<title>Receituário de controle especial — Dra. Lara Costa</title>
+<link rel="stylesheet" href="/dralaracog/papelaria/papel.css">
+<style>
+  /* A4 deitado com duas vias iguais (Portaria SVS/MS 344/1998): 1ª retida na farmácia, 2ª do paciente. */
+  @page { size: 297mm 210mm; }
+  .folha { width: 297mm; height: 210mm; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .via { position: relative; min-width: 0; padding: 9mm 10mm 8mm; display: flex; flex-direction: column; font-size: 7.6pt; }
+  .topo .titulo-doc { white-space: nowrap; }
+  .via + .via { border-left: .3mm dashed #B9AE9C; }
+  .topo { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3.5mm; }
+  .topo img { height: 9.5mm; width: auto; }
+  .topo .direita { text-align: right; }
+  .topo .titulo-doc { font-size: 7.4pt; letter-spacing: .22em; color: var(--noite); margin: 0 0 1.4mm; }
+  .via-n { font: 500 6.4pt/1 var(--sem); letter-spacing: .2em; text-transform: uppercase; color: var(--mel); }
+  .caixa { border: .25mm solid #B9AE9C; padding: 2.2mm 3mm; }
+  .caixa h2 { margin: 0 0 1.6mm; font: 500 6.2pt/1 var(--sem); letter-spacing: .2em; text-transform: uppercase; color: var(--mel); }
+  .grade { display: grid; grid-template-columns: auto 1fr; gap: 1.3mm 2.5mm; align-items: baseline; }
+  .grade dt { color: #4F5563; }
+  .grade dd { margin: 0; color: var(--tinta); font-weight: 500; }
+  .grade dd .campo { width: 100%; }
+  .paciente { margin: 3mm 0 2mm; display: grid; gap: 2.4mm; }
+  .paciente div { display: flex; gap: 2mm; align-items: baseline; }
+  .paciente .campo { flex: 1; }
+  .prescricao { flex: 1; position: relative; }
+  .prescricao .rotulo { display: block; margin: 1mm 0 .6mm; }
+  .prescricao .pautado { position: absolute; top: 4mm; left: 0; right: 0; bottom: 0; background-size: 100% 7mm; }
+  .assina { display: flex; justify-content: space-between; align-items: flex-end; gap: 6mm; margin: 3mm 0 3mm; }
+  .assina .data { white-space: nowrap; }
+  .assina .traco { flex: 1; max-width: 62mm; text-align: center; }
+  .assina .traco div { border-top: .25mm solid var(--tinta); margin-bottom: 1mm; }
+  .duas { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 2.5mm; }
+  .duas .caixa { font-size: 6.6pt; min-width: 0; }
+  .duas .linhas div { display: flex; gap: 1.5mm; align-items: baseline; margin-top: 1.5mm; }
+  .duas .linhas .campo { flex: 1; width: auto; min-width: 0; height: .9em; }
+  .faixa { position: absolute; left: 0; right: 0; bottom: 0; height: 2.2mm; background: var(--noite); border-top: .6mm solid var(--ouro); }
+</style>
+</head>
+<body>
+<div class="folha">
+  <template id="via">
+    <div class="via">
+      <header class="topo">
+        <img src="/dralaracog/marca/horizontal.svg" alt="Dra. Lara Costa — Médica, CRM-BA 52805">
+        <div class="direita"><p class="titulo-doc">Receituário de controle especial</p><span class="via-n"></span></div>
+      </header>
+      <div class="caixa">
+        <h2>Identificação do emitente</h2>
+        <dl class="grade">
+          <dt>Nome</dt><dd>Dra. Lara Costa Gonçalves</dd>
+          <dt>CRM</dt><dd>52805 &nbsp;·&nbsp; UF: BA</dd>
+          <dt>Telefone</dt><dd>(38) 99989-7448</dd>
+          <dt>Endereço</dt><dd><span class="campo"></span></dd>
+          <dt>Cidade</dt><dd><span class="campo" style="width:60%"></span> &nbsp;UF: BA</dd>
+        </dl>
+      </div>
+      <div class="paciente">
+        <div><span class="rotulo">Paciente</span><span class="campo"></span></div>
+        <div><span class="rotulo">Endereço</span><span class="campo"></span></div>
+      </div>
+      <div class="prescricao"><span class="rotulo">Prescrição</span><div class="pautado"></div></div>
+      <div class="assina">
+        <span class="data">Data: <span class="campo" style="--w:24mm"></span></span>
+        <div class="traco"><div></div><span class="rotulo">Assinatura e carimbo do médico</span></div>
+      </div>
+      <div class="duas">
+        <div class="caixa linhas">
+          <h2>Identificação do comprador</h2>
+          <div>Nome <span class="campo"></span></div>
+          <div>Ident. <span class="campo"></span> Órg. emissor <span class="campo" style="flex:.5"></span></div>
+          <div>Endereço <span class="campo"></span></div>
+          <div>Cidade <span class="campo"></span> UF <span class="campo" style="flex:.25"></span></div>
+          <div>Telefone <span class="campo"></span></div>
+        </div>
+        <div class="caixa linhas">
+          <h2>Identificação do fornecedor</h2>
+          <div style="margin-top:9mm"><span class="campo"></span></div>
+          <div style="justify-content:center;margin-top:1mm">Assinatura do farmacêutico</div>
+          <div style="margin-top:4mm">Data <span class="campo"></span></div>
+        </div>
+      </div>
+      <div class="faixa"></div>
+    </div>
+  </template>
+</div>
+<script>
+  var folha = document.querySelector('.folha');
+  var molde = document.getElementById('via');
+  ['1ª via — Farmácia', '2ª via — Paciente'].forEach(function (rotulo) {
+    var via = molde.content.cloneNode(true);
+    via.querySelector('.via-n').textContent = rotulo;
+    folha.appendChild(via);
+  });
+</script>
+</body>
+</html>

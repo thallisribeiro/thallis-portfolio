@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<title>Papel timbrado A4 — Dra. Lara Costa</title>
+<link rel="stylesheet" href="/dralaracog/papelaria/papel.css">
+<style>
+  /* Relatórios, laudos, declarações e cartas. Corpo livre entre 44 mm e 262 mm. */
+  @page { size: 210mm 297mm; }
+  .folha { width: 210mm; height: 297mm; }
+  .topo { position: absolute; top: 14mm; left: 18mm; right: 18mm; display: flex; justify-content: space-between; align-items: center; }
+  .topo img { height: 15mm; width: auto; }
+  .topo .contatos { text-align: right; font-size: 7.6pt; line-height: 1.7; color: #4F5563; }
+  .divisa { position: absolute; top: 36mm; left: 18mm; right: 18mm; height: .22mm; background: var(--linha); }
+  .divisa::before { content: ''; position: absolute; left: 0; top: -.15mm; width: 22mm; height: .5mm; background: var(--ouro); }
+  .marca-dagua { width: 170mm; right: -58mm; bottom: -52mm; opacity: .06; }
+  .rodape { position: absolute; left: 18mm; right: 18mm; bottom: 10mm; display: flex; justify-content: space-between; align-items: flex-end; padding-top: 3.4mm; border-top: .3mm solid var(--ouro); }
+  .rodape .direita { text-align: right; font-size: 7.2pt; line-height: 1.6; color: #4F5563; }
+  .faixa { position: absolute; left: 0; right: 0; bottom: 0; height: 3mm; background: var(--noite); border-top: .8mm solid var(--ouro); }
+</style>
+</head>
+<body>
+<div class="folha">
+  <svg class="marca-dagua" viewBox="0 0 120 120" aria-hidden="true"><use href="/dralaracog/marca/coroa.svg#coroa"/></svg>
+  <header class="topo">
+    <img src="/dralaracog/marca/horizontal.svg" alt="Dra. Lara Costa — Médica, CRM-BA 52805">
+    <div class="contatos">(38) 99989-7448<br>dralaracog@gmail.com<br>Eunápolis · Porto Seguro — BA</div>
+  </header>
+  <div class="divisa"></div>
+  <footer class="rodape">
+    <div><div class="nome">Dra. Lara Costa Gonçalves</div><div class="cargo">Médica · CRM-BA 52805</div></div>
+    <div class="direita">thallisribeiro.com.br/dralaracog<br>@laraa_cog</div>
+  </footer>
+  <div class="faixa"></div>
+</div>
+</body>
+</html>

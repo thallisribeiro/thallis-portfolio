@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<title>Envelope DL — Dra. Lara Costa</title>
+<link rel="stylesheet" href="/dralaracog/papelaria/papel.css">
+<style>
+  /* Envelope DL (220 × 110 mm), frente. Área do destinatário livre no quadrante inferior direito. */
+  @page { size: 220mm 110mm; }
+  .folha { width: 220mm; height: 110mm; }
+  .remetente { position: absolute; left: 14mm; top: 12mm; }
+  .remetente img { height: 14mm; width: auto; }
+  .remetente p { margin: 3.4mm 0 0; font-size: 7.2pt; line-height: 1.6; color: #4F5563; }
+  .marca-dagua { width: 120mm; right: -46mm; top: -44mm; opacity: .07; }
+  .faixa { position: absolute; left: 0; right: 0; bottom: 0; height: 3mm; background: var(--noite); border-top: .8mm solid var(--ouro); }
+</style>
+</head>
+<body>
+<div class="folha">
+  <svg class="marca-dagua" viewBox="0 0 120 120" aria-hidden="true"><use href="/dralaracog/marca/coroa.svg#coroa"/></svg>
+  <div class="remetente">
+    <img src="/dralaracog/marca/horizontal.svg" alt="Dra. Lara Costa — Médica, CRM-BA 52805">
+    <p>(38) 99989-7448 · dralaracog@gmail.com<br>Eunápolis · Porto Seguro — BA</p>
+  </div>
+  <div class="faixa"></div>
+</div>
+</body>
+</html>
