@@ -1,0 +1,723 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Painel · Guardian Box</title>
+<link rel="icon" href="../assets/logo-square.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a2463;--navy-2:#061a4a;--navy-3:#123a8f;--lime:#8fe000;--lime-2:#a8f53a;--lime-ink:#1d3300;
+  --ink:#0f1b33;--muted:#5b6782;--line:#e3e8f2;--bg:#f5f7fb;--card:#fff;--soft:#f0f4fb;
+  --ok:#2f8f00;--warn:#b26b00;--bad:#c62828;--r:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:15px/1.5 Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--navy-3)}
+button,input,textarea,select{font:inherit;color:inherit}
+img{display:block;max-width:100%}
+[hidden]{display:none!important}
+
+/* Login */
+#login{min-height:100vh;display:grid;place-items:center;padding:24px;background:linear-gradient(140deg,var(--navy-2),var(--navy-3))}
+.login{background:#fff;border-radius:20px;padding:36px;width:min(400px,100%);box-shadow:0 30px 80px rgba(0,0,0,.3)}
+.login img{width:56px;height:56px;border-radius:12px;margin-bottom:18px}
+.login h1{font-size:1.4rem;color:var(--navy)}
+.login p{color:var(--muted);margin:4px 0 22px;font-size:.93rem}
+.login .fld{margin-bottom:14px}
+.login .pri{width:100%;margin-top:6px;padding:14px}
+.login .tip{margin:16px 0 0;font-size:.82rem;text-align:center}
+
+/* Estrutura */
+#app{display:grid;grid-template-columns:232px 1fr;min-height:100vh}
+.side{background:var(--navy-2);color:#c9d5f3;padding:20px 14px;display:flex;flex-direction:column;gap:4px;position:sticky;top:0;height:100vh}
+.brand{display:flex;gap:10px;align-items:center;padding:4px 8px 20px;color:#fff;text-decoration:none}
+.brand img{width:36px;height:36px;border-radius:8px}
+.brand b{display:block;font-size:.95rem;letter-spacing:.02em}
+.brand small{color:var(--lime);font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.side a.nv{display:flex;gap:12px;align-items:center;padding:10px 12px;border-radius:10px;color:#c9d5f3;text-decoration:none;font-weight:600;font-size:.93rem}
+.side a.nv svg{width:18px;height:18px;flex:none;opacity:.8}
+.side a.nv:hover{background:rgba(255,255,255,.06);color:#fff}
+.side a.nv.on{background:rgba(143,224,0,.14);color:var(--lime-2)}
+.side .fim{margin-top:auto;display:grid;gap:4px;border-top:1px solid rgba(255,255,255,.08);padding-top:12px}
+.main{min-width:0;display:flex;flex-direction:column;height:100vh}
+.demo{background:#fff8e1;border-bottom:1px solid #f3e2a9;color:#6b4e00;font-size:.85rem;padding:9px 24px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.demo button{background:none;border:0;color:#6b4e00;text-decoration:underline;cursor:pointer;font-weight:600}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;background:#fff;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.top small{color:var(--muted);font-size:.8rem;font-weight:600}
+.top h1{font-size:1.25rem;color:var(--navy);line-height:1.2}
+.top .acts{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+#status{font-size:.85rem;color:var(--muted);font-weight:600}
+#status.sujo{color:var(--warn)}
+.work{display:grid;grid-template-columns:minmax(0,1fr);flex:1;min-height:0}
+.work.com-prev{grid-template-columns:minmax(420px,560px) minmax(0,1fr)}
+#view{padding:24px;min-width:0;overflow:auto}
+.work.com-prev #view{border-right:1px solid var(--line)}
+
+/* Botões */
+.pri,.sec,.ghost,.perigo{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:10px;padding:10px 16px;font-weight:700;font-size:.9rem;cursor:pointer;border:1px solid transparent;text-decoration:none;white-space:nowrap}
+.pri{background:var(--lime);color:var(--lime-ink)}
+.pri:hover{background:var(--lime-2)}
+.pri:disabled{background:#e6eaf2;color:#8a94ab;cursor:default}
+.sec{background:#fff;border-color:var(--line);color:var(--ink)}
+.sec:hover{border-color:#c5cee0}
+.ghost{background:none;color:var(--navy-3);padding:8px 10px}
+.perigo{background:#fff;border-color:#f3c7c7;color:var(--bad)}
+.mini{padding:6px 10px;font-size:.82rem;border-radius:8px}
+.ic-btn{width:32px;height:32px;padding:0;border-radius:8px;background:#fff;border:1px solid var(--line);cursor:pointer;color:var(--muted);display:inline-grid;place-items:center}
+.ic-btn:hover{color:var(--ink);border-color:#c5cee0}
+
+/* Cartões e campos */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;margin-bottom:16px}
+.card>h2,.card>h3{font-size:1rem;color:var(--navy);margin-bottom:4px}
+.card>p.muted{margin-bottom:14px}
+.muted{color:var(--muted);font-size:.88rem}
+.fld{display:grid;gap:6px;margin-top:14px}
+.fld:first-child{margin-top:0}
+.fld label{font-weight:600;font-size:.86rem}
+.fld input,.fld textarea,.fld select{width:100%;border:1px solid #d5dcea;border-radius:10px;padding:10px 12px;background:#fff;outline:none;transition:border-color .15s,box-shadow .15s}
+.fld textarea{resize:vertical;min-height:70px;field-sizing:content}
+.fld input:focus,.fld textarea:focus{border-color:var(--navy-3);box-shadow:0 0 0 3px rgba(18,58,143,.12)}
+.fld small{color:var(--muted);font-size:.8rem}
+.fld .linha{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.cnt{font-size:.78rem;font-weight:700;white-space:nowrap}
+.cnt.ok{color:var(--ok)}.cnt.warn{color:var(--warn)}.cnt.bad{color:var(--bad)}
+.slug{display:flex;align-items:center;border:1px solid #d5dcea;border-radius:10px;overflow:hidden;background:#fff}
+.slug span{padding:10px 0 10px 12px;color:var(--muted);font-size:.88rem;white-space:nowrap}
+.slug input{border:0!important;box-shadow:none!important;padding-left:2px}
+.imgf{display:flex;gap:14px;align-items:center}
+.imgf img,.imgf .vz{width:120px;height:80px;object-fit:cover;border-radius:10px;border:1px solid var(--line);background:var(--soft);flex:none}
+.imgf .vz{display:grid;place-items:center;color:var(--muted);font-size:.78rem}
+.imgf div{display:flex;gap:8px;flex-wrap:wrap}
+.chk{display:flex;gap:10px;align-items:center;font-weight:600;font-size:.9rem;cursor:pointer}
+.chk input{width:18px;height:18px;accent-color:var(--ok)}
+
+/* Seções da página inicial */
+details.sec-ed{background:#fff;border:1px solid var(--line);border-radius:var(--r);margin-bottom:10px}
+details.sec-ed>summary{list-style:none;cursor:pointer;padding:14px 18px;font-weight:700;color:var(--navy);display:flex;justify-content:space-between;align-items:center}
+details.sec-ed>summary::-webkit-details-marker{display:none}
+details.sec-ed>summary::after{content:"";width:8px;height:8px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);transition:transform .2s}
+details.sec-ed[open]>summary::after{transform:rotate(-135deg)}
+details.sec-ed>div{padding:0 18px 18px}
+.nota{background:var(--soft);border-radius:10px;padding:10px 12px;font-size:.86rem;color:var(--muted);margin-top:14px}
+.lst{display:grid;gap:10px;margin-top:16px}
+.it{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:#fbfcfe}
+.it-h{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}
+.it-h b{font-size:.86rem;color:var(--muted)}
+.it-h div{display:flex;gap:6px}
+.it .fld{margin-top:10px}
+
+/* Editor de texto */
+.rte{border:1px solid #d5dcea;border-radius:12px;overflow:hidden;background:#fff}
+.rte:focus-within{border-color:var(--navy-3);box-shadow:0 0 0 3px rgba(18,58,143,.12)}
+.rte-bar{display:flex;flex-wrap:wrap;gap:2px;padding:6px;border-bottom:1px solid var(--line);background:#fafbfd;position:sticky;top:0;z-index:2}
+.rte-bar button{border:0;background:none;padding:6px 9px;border-radius:7px;cursor:pointer;font-size:.84rem;font-weight:600;color:#3a4560}
+.rte-bar button:hover{background:#e9eef8}
+.rte-bar i.sep{width:1px;background:var(--line);margin:4px 4px}
+.rte-area{min-height:280px;padding:16px 18px;outline:none;font-size:.97rem;line-height:1.65}
+.rte-area>*+*{margin-top:.8em}
+.rte-area h2{font-size:1.3rem;color:var(--navy)}
+.rte-area h3{font-size:1.08rem;color:var(--navy)}
+.rte-area ul,.rte-area ol{padding-left:1.4em}
+.rte-area img{border-radius:10px;max-height:260px}
+.rte-area:empty::before{content:"Comece a escrever aqui…";color:#9aa4ba}
+
+/* Google */
+.serp{border:1px solid var(--line);border-radius:12px;padding:16px;margin-top:16px;background:#fff;font-family:Arial,sans-serif}
+.serp-site{display:flex;gap:10px;align-items:center;margin-bottom:6px}
+.serp-site img{width:28px;height:28px;border-radius:50%;border:1px solid var(--line)}
+.serp-site b{display:block;font-size:.87rem;font-weight:400;color:#202124}
+.serp-site small{font-size:.78rem;color:#4d5156}
+.serp-t{color:#1a0dab;font-size:1.2rem;line-height:1.3;margin-bottom:3px}
+.serp-d{color:#4d5156;font-size:.88rem;line-height:1.55}
+.serp-cap{font:700 .72rem Inter;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:16px 0 -8px}
+
+/* Tabelas */
+.tb{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.tb th{text-align:left;font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding:10px 14px;background:#fafbfd;border-bottom:1px solid var(--line)}
+.tb td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:middle}
+.tb tr:last-child td{border-bottom:0}
+.tb tr.cl{cursor:pointer}
+.tb tr.cl:hover td{background:#fafbfd}
+.tb .th{width:64px;height:44px;border-radius:8px;object-fit:cover;background:var(--soft)}
+.tb .t b{display:block;color:var(--navy)}
+.tb .t small{color:var(--muted)}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:700;padding:4px 10px;border-radius:99px;white-space:nowrap}
+.pill.pub{background:#eaf7dc;color:#2f6b00}
+.pill.ras{background:#eef1f6;color:#5b6782}
+.dot{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:600;white-space:nowrap}
+.dot::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.dot.ok{color:var(--ok)}.dot.warn{color:var(--warn)}
+.cab{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.cab p{max-width:560px}
+
+/* Início */
+.ola h2{font-size:1.5rem;color:var(--navy)}
+.atalhos{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:18px 0 22px}
+.atalho{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:6px;transition:border-color .15s,transform .15s}
+.atalho:hover{border-color:var(--navy-3);transform:translateY(-2px)}
+.atalho svg{width:26px;height:26px;color:var(--navy-3);margin-bottom:4px}
+.atalho b{color:var(--navy)}
+.atalho span{color:var(--muted);font-size:.86rem}
+.passos3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;counter-reset:p}
+.passos3 div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:.9rem;color:var(--muted)}
+.passos3 div::before{counter-increment:p;content:counter(p);display:grid;place-items:center;width:26px;height:26px;border-radius:8px;background:var(--lime);color:var(--lime-ink);font-weight:800;margin-bottom:8px}
+.passos3 b{color:var(--ink)}
+.nums{display:flex;gap:28px;flex-wrap:wrap;margin-top:6px}
+.nums div b{display:block;font-size:1.6rem;color:var(--navy);line-height:1.1}
+.nums div span{color:var(--muted);font-size:.84rem}
+
+/* Prévia */
+.prev{background:#e9edf5;display:flex;flex-direction:column;min-width:0;min-height:0}
+.prev-bar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 14px;background:#fff;border-bottom:1px solid var(--line)}
+.prev-bar b{font-size:.82rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.seg{display:inline-flex;background:var(--soft);border-radius:9px;padding:3px}
+.seg button{border:0;background:none;padding:6px 12px;border-radius:7px;font-size:.82rem;font-weight:700;color:var(--muted);cursor:pointer}
+.seg button.on{background:#fff;color:var(--navy);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.frame-wrap{flex:1;overflow:hidden;position:relative;display:flex;justify-content:center;align-items:flex-start;padding:14px}
+.frame-wrap iframe{border:0;background:#fff;transform-origin:top left;box-shadow:0 8px 30px rgba(10,36,99,.15);border-radius:6px}
+.frame-wrap.mob iframe{width:390px;height:100%;border-radius:24px;border:8px solid #0f1b33}
+.frame-wrap.desk{display:block;padding:0}
+.frame-wrap.desk iframe{border-radius:0;box-shadow:none}
+#prev-x,#prev-abrir{display:none}
+
+/* Biblioteca de imagens */
+.modal{position:fixed;inset:0;background:rgba(6,26,74,.55);display:grid;place-items:center;padding:20px;z-index:100}
+.modal-c{background:#fff;border-radius:18px;width:min(860px,100%);max-height:88vh;display:flex;flex-direction:column;overflow:hidden}
+.modal-h{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line);gap:12px}
+.modal-h h2{font-size:1.1rem;color:var(--navy)}
+.galeria{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;padding:20px;overflow:auto}
+.galeria button,.galeria figure{border:2px solid transparent;border-radius:12px;padding:0;background:var(--soft);cursor:pointer;overflow:hidden;position:relative}
+.galeria button:hover{border-color:var(--lime)}
+.galeria img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.galeria figure{cursor:default}
+.galeria figcaption{font-size:.75rem;color:var(--muted);padding:6px 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.galeria .rm{position:absolute;top:6px;right:6px}
+.up{border:2px dashed #c5cee0;border-radius:12px;display:grid;place-items:center;text-align:center;padding:16px;color:var(--muted);font-size:.85rem;cursor:pointer;min-height:120px;background:#fff}
+.up:hover{border-color:var(--navy-3);color:var(--navy-3)}
+.up input{display:none}
+
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);opacity:0;background:var(--ink);color:#fff;padding:12px 18px;border-radius:12px;font-weight:600;font-size:.92rem;display:flex;gap:14px;align-items:center;transition:.25s;z-index:200;pointer-events:none;max-width:calc(100% - 32px)}
+#toast.on{opacity:1;transform:translateX(-50%);pointer-events:auto}
+#toast a{color:var(--lime);font-weight:700}
+
+@media (max-width:1100px){
+  .work.com-prev{grid-template-columns:1fr}
+  .work.com-prev #view{border:0}
+  .prev{display:none}
+  .prev.aberta{display:flex;position:fixed;inset:0;z-index:90}
+  #prev-x{display:inline-flex}
+  .work.com-prev ~ #prev-abrir{display:inline-flex;position:fixed;right:16px;bottom:16px;z-index:80;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+}
+@media (max-width:760px){
+  #app{grid-template-columns:1fr}
+  .main{height:auto}
+  #view{overflow:visible}
+  .side{position:static;height:auto;flex-direction:row;overflow-x:auto;padding:10px;gap:4px}
+  .brand{padding:0 8px 0 0}.brand div{display:none}
+  .side a.nv{white-space:nowrap;padding:8px 10px}
+  .side a.nv svg{display:none}
+  .side .fim{margin:0;border:0;padding:0;display:flex}
+  .top{position:static;padding:14px 16px}
+  #view{padding:16px}
+  .demo{padding:9px 16px}
+  .passos3{grid-template-columns:1fr}
+  .tb .col-g,.tb .col-d{display:none}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-casa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></symbol>
+  <symbol id="i-pag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></symbol>
+  <symbol id="i-cx" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/></symbol>
+  <symbol id="i-blog" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></symbol>
+  <symbol id="i-busca" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="i-img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></symbol>
+  <symbol id="i-emp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></symbol>
+  <symbol id="i-sair" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></symbol>
+</svg>
+
+<div id="login">
+  <form class="login" onsubmit="entrar(event)">
+    <img src="../assets/logo-square.png" alt="Guardian Box">
+    <h1>Painel do site</h1>
+    <p>Guardian Box Self Storage</p>
+    <div class="fld"><label for="l-e">E-mail</label><input id="l-e" type="email" value="contato@guardianbox.com.br" autocomplete="username"></div>
+    <div class="fld"><label for="l-s">Senha</label><input id="l-s" type="password" value="demonstracao" autocomplete="current-password"></div>
+    <button class="pri" type="submit">Entrar no painel</button>
+    <p class="muted tip">Demonstração: os dados já estão preenchidos, é só entrar.</p>
+  </form>
+</div>
+
+<div id="app" hidden>
+  <aside class="side">
+    <a class="brand" href="#inicio"><img src="../assets/logo-square.png" alt=""><div><b>GUARDIAN BOX</b><small>Painel</small></div></a>
+    <a class="nv" href="#inicio" data-r="inicio"><svg><use href="#i-casa"/></svg>Início</a>
+    <a class="nv" href="#home" data-r="home"><svg><use href="#i-pag"/></svg>Página inicial</a>
+    <a class="nv" href="#servicos" data-r="servicos servico"><svg><use href="#i-cx"/></svg>Serviços</a>
+    <a class="nv" href="#blog" data-r="blog post"><svg><use href="#i-blog"/></svg>Blog</a>
+    <a class="nv" href="#seo" data-r="seo"><svg><use href="#i-busca"/></svg>SEO (Google)</a>
+    <a class="nv" href="#midia" data-r="midia"><svg><use href="#i-img"/></svg>Imagens</a>
+    <a class="nv" href="#empresa" data-r="empresa"><svg><use href="#i-emp"/></svg>Dados da empresa</a>
+    <div class="fim">
+      <a class="nv" href="../" target="_blank"><svg><use href="#i-ext"/></svg>Ver o site</a>
+      <a class="nv" href="#" onclick="sair();return false"><svg><use href="#i-sair"/></svg>Sair</a>
+    </div>
+  </aside>
+  <div class="main">
+    <div class="demo"><span><b>Ambiente de demonstração.</b> O que você publicar aqui aparece no site de teste só para você, neste navegador. Pode mexer à vontade.</span><button type="button" onclick="restaurar()">Restaurar conteúdo original</button></div>
+    <header class="top">
+      <div><small id="crumb"></small><h1 id="titulo"></h1></div>
+      <div class="acts"><span id="status"></span><button class="pri" id="publicar" type="button" onclick="publicar()" disabled>Publicar alterações</button></div>
+    </header>
+    <div class="work" id="work">
+      <div id="view"></div>
+      <div class="prev" id="prev" hidden>
+        <div class="prev-bar">
+          <b>Prévia ao vivo</b>
+          <div style="display:flex;gap:8px;align-items:center">
+            <div class="seg"><button type="button" class="on" data-modo="desk">Computador</button><button type="button" data-modo="mob">Celular</button></div>
+            <button class="sec mini" id="prev-x" type="button" onclick="prevEl.classList.remove('aberta')">Fechar</button>
+          </div>
+        </div>
+        <div class="frame-wrap desk" id="fw"><iframe id="frame" title="Prévia do site"></iframe></div>
+      </div>
+    </div>
+    <button class="pri" id="prev-abrir" type="button" onclick="prevEl.classList.add('aberta');escala()">Ver prévia</button>
+  </div>
+</div>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-c">
+    <div class="modal-h"><h2 id="modal-t">Escolher imagem</h2><button class="sec mini" type="button" onclick="fecharMidia()">Fechar</button></div>
+    <div class="galeria" id="galeria"></div>
+  </div>
+</div>
+<div id="toast"></div>
+
+<script src="../cms.js"></script>
+<script>
+// ---------- Estado ----------
+let D = gbClone(C);          // rascunho: só vai pro site quando clica em Publicar
+let sujo = false;
+const novos = new Set();     // itens criados agora: o endereço acompanha o título até alguém mexer nele
+const BASE = new URL('../', location.href).href;
+const BANCO = ['assets/foto1.webp', 'assets/foto2.webp', 'assets/foto3.webp', 'assets/foto7.webp', 'assets/logo-square.png'];
+const DOMINIO = 'guardianbox.com.br';
+const $ = s => document.querySelector(s);
+const esc = gbEsc;
+const ver = s => !s ? '' : /^(data:|https?:)/.test(s) ? s : '../' + s;
+const set = (o, k, v) => { const p = k.split('.'), u = p.pop(); p.reduce((a, x) => a[x], o)[u] = v; };
+const slugify = s => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 70);
+const hoje = () => new Date().toLocaleDateString('sv-SE');
+let uid = 0;
+
+// ---------- Login ----------
+function entrar(e) { e.preventDefault(); try { localStorage.setItem('gb-login', '1'); } catch (x) {} abrirApp(); }
+function sair() { if (sujo && !confirm('Há alterações não publicadas. Sair mesmo assim?')) return; try { localStorage.removeItem('gb-login'); } catch (x) {} sujo = false; location.hash = ''; location.reload(); }
+function abrirApp() { $('#login').hidden = true; $('#app').hidden = false; rota(); }
+
+// ---------- Publicar ----------
+function marcar() { sujo = true; status(); }
+function status() {
+  $('#status').textContent = sujo ? '● Alterações não publicadas' : '✓ Tudo publicado';
+  $('#status').className = sujo ? 'sujo' : '';
+  $('#publicar').disabled = !sujo;
+}
+function slugsUnicos(lista) {
+  const vistos = new Set();
+  lista.forEach(x => {
+    let s = slugify(x.slug || x.titulo) || 'pagina', b = s, n = 2;
+    while (vistos.has(s)) s = b + '-' + n++;
+    vistos.add(s); x.slug = s;
+  });
+}
+function publicar(msg) {
+  slugsUnicos(D.servicos); slugsUnicos(D.posts);
+  try { localStorage.setItem(GB_KEY, JSON.stringify(D)); }
+  catch (e) { toast('O navegador ficou sem espaço para tantas imagens nesta demonstração. Apague alguma em Imagens e tente de novo.'); return false; }
+  C = gbClone(D); sujo = false; status();
+  toast((msg || 'Publicado! O site já está atualizado.') + ` <a href="${linkSite()}" target="_blank">Ver no site ↗</a>`);
+  rota(true);
+  return true;
+}
+function restaurar() {
+  if (!confirm('Voltar todo o site para o conteúdo original? Tudo o que você mudou nesta demonstração será apagado.')) return;
+  try { localStorage.removeItem(GB_KEY); } catch (e) {}
+  D = gbClone(GB_DEFAULT); C = gbClone(D); sujo = false; status(); novos.clear();
+  location.hash = '#inicio'; rota(true); toast('Conteúdo original restaurado.');
+}
+addEventListener('beforeunload', e => { if (sujo) { e.preventDefault(); e.returnValue = ''; } });
+
+let toastT;
+function toast(html) { const t = $('#toast'); t.innerHTML = html; t.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('on'), 5000); }
+
+// ---------- Campos ----------
+function campo(k, label, tipo = 'text', dica = '', o = {}) {
+  const v = gbGet(D, k) ?? '', id = 'f' + (++uid);
+  if (tipo === 'img') return `<div class="fld"><label>${label}</label><div class="imgf">${v ? `<img src="${esc(ver(v))}" alt="">` : '<span class="vz">Sem imagem</span>'}<div><button class="sec mini" type="button" data-img="${k}">${v ? 'Trocar imagem' : 'Escolher imagem'}</button>${o.opcional && v ? `<button class="ghost mini" type="button" data-img-rm="${k}">Remover</button>` : ''}</div></div>${dica ? `<small>${dica}</small>` : ''}</div>`;
+  const ctl = tipo === 'area' ? `<textarea id="${id}" data-k="${k}" rows="3">${esc(v)}</textarea>`
+    : tipo === 'slug' ? `<div class="slug"><span>${DOMINIO}/${o.pre}/</span><input id="${id}" data-k="${k}" data-slug value="${esc(v)}"></div>`
+    : `<input id="${id}" data-k="${k}" type="${tipo === 'date' ? 'date' : 'text'}" value="${esc(v)}"${o.titulo ? ` data-titulo="${o.titulo}"` : ''}>`;
+  const cnt = o.max ? `<span class="cnt" data-for="${k}" data-max="${o.max}" data-min="${o.min || 0}"></span>` : '';
+  return `<div class="fld"><div class="linha"><label for="${id}">${label}</label>${cnt}</div>${ctl}${dica ? `<small>${dica}</small>` : ''}</div>`;
+}
+
+function rte(k) {
+  return `<div class="rte"><div class="rte-bar">
+    <button type="button" data-cmd="formatBlock" data-v="h2">Título</button>
+    <button type="button" data-cmd="formatBlock" data-v="h3">Subtítulo</button>
+    <button type="button" data-cmd="formatBlock" data-v="p">Texto normal</button><i class="sep"></i>
+    <button type="button" data-cmd="bold"><b>N</b></button>
+    <button type="button" data-cmd="italic"><i>I</i></button>
+    <button type="button" data-cmd="insertUnorderedList">• Lista</button>
+    <button type="button" data-cmd="insertOrderedList">1. Lista</button><i class="sep"></i>
+    <button type="button" data-cmd="link">Link</button>
+    <button type="button" data-cmd="img">Imagem</button>
+    <button type="button" data-cmd="removeFormat">Limpar formatação</button>
+  </div><div class="rte-area" contenteditable="true" data-k="${k}">${gbGet(D, k) || ''}</div></div>`;
+}
+
+// Cada lista guarda o próprio esquema para poder se redesenhar sozinha
+const LISTAS = {};
+function lista(L) {
+  LISTAS[L.k] = L;
+  const arr = gbGet(D, L.k);
+  return `<div class="lst" data-lista="${L.k}">${arr.map((x, i) => `<div class="it"><div class="it-h"><b>${esc(L.rot(i, x))}</b>${L.fixo ? '' : `<div>
+      <button class="ic-btn" type="button" title="Subir" data-mv="${L.k}|${i}|-1"${i ? '' : ' disabled'}>↑</button>
+      <button class="ic-btn" type="button" title="Descer" data-mv="${L.k}|${i}|1"${i < arr.length - 1 ? '' : ' disabled'}>↓</button>
+      <button class="ic-btn" type="button" title="Remover" data-rm="${L.k}|${i}">✕</button></div>`}</div>
+    ${L.f.map(([k, lb, t, d]) => campo(`${L.k}.${i}.${k}`, lb, t, d)).join('')}</div>`).join('')}
+    ${L.fixo ? '' : `<button class="sec mini" type="button" data-add="${L.k}">+ ${L.add}</button>`}</div>`;
+}
+function redesenhaLista(k) { $(`[data-lista="${k}"]`).outerHTML = lista(LISTAS[k]); }
+
+function seo(base, pre, item) {
+  const fbT = item ? `${base.replace(/\.seo$/, '')}.titulo` : '', fbD = item ? `${base.replace(/\.seo$/, '')}.resumo` : '';
+  return `${campo(base + '.title', 'Título no Google', 'text', 'Comece pelo que a pessoa digita no Google. Ideal: 30 a 60 caracteres.', { max: 60, min: 30 })}
+    ${campo(base + '.description', 'Descrição no Google', 'area', 'Diga o benefício e convide para o clique. Ideal: 70 a 160 caracteres.', { max: 160, min: 70 })}
+    <div class="serp-cap">Prévia no Google</div>
+    <div class="serp" data-base="${base}" data-pre="${pre}" data-fbt="${fbT}" data-fbd="${fbD}"></div>`;
+}
+const corta = (s, n) => s.length > n ? s.slice(0, n - 1).trimEnd() + '…' : s;
+function urlDe(el) {
+  const base = el.dataset.base.replace(/\.seo$/, '');
+  if (el.dataset.pre === '') return `https://${DOMINIO}`;
+  if (el.dataset.pre === 'blog' && base === 'seo.blog') return `https://${DOMINIO} › blog`;
+  return `https://${DOMINIO} › ${el.dataset.pre} › ${gbGet(D, base + '.slug') || '…'}`;
+}
+function atualizaSeo() {
+  document.querySelectorAll('.serp').forEach(el => {
+    const b = el.dataset.base;
+    const t = gbGet(D, b + '.title') || (el.dataset.fbt && gbGet(D, el.dataset.fbt) + ' | Guardian Box') || '';
+    const d = gbGet(D, b + '.description') || (el.dataset.fbd && gbGet(D, el.dataset.fbd)) || '';
+    el.innerHTML = `<div class="serp-site"><img src="../assets/logo-square.png" alt=""><div><b>Guardian Box Self Storage</b><small>${esc(urlDe(el))}</small></div></div>
+      <div class="serp-t">${esc(corta(t, 62)) || '<span style="color:#9aa4ba">Sem título</span>'}</div><div class="serp-d">${esc(corta(d, 160)) || '<span style="color:#9aa4ba">Sem descrição: o Google vai escolher um trecho qualquer da página.</span>'}</div>`;
+  });
+  document.querySelectorAll('.cnt').forEach(el => {
+    const n = String(gbGet(D, el.dataset.for) || '').length, max = +el.dataset.max, min = +el.dataset.min;
+    el.textContent = `${n}/${max}`;
+    el.className = 'cnt ' + (!n || n > max ? 'bad' : n < min ? 'warn' : 'ok');
+  });
+}
+function notaSeo(x) {
+  const t = (x.seo.title || '').length, d = (x.seo.description || '').length;
+  return t >= 30 && t <= 60 && d >= 70 && d <= 160 ? '<span class="dot ok">Ótimo</span>' : '<span class="dot warn">Revisar</span>';
+}
+
+// ---------- Prévia ----------
+const prevEl = $('#prev'), frame = $('#frame'), fw = $('#fw');
+let prevSrc = '', prevRota = null, prevIr = null, prevT;
+function previa(src, rotaP, ir) {
+  $('#work').classList.toggle('com-prev', !!src);
+  prevEl.hidden = !src;
+  if (!src) return;
+  prevRota = rotaP; prevIr = ir;
+  if (prevSrc !== src) { prevSrc = src; frame.src = src; } else mandar(ir);
+  escala();
+}
+frame.addEventListener('load', () => mandar(prevIr));
+function mandar(ir) { try { frame.contentWindow.postMessage({ gb: D, rota: prevRota, ir }, location.origin); } catch (e) {} }
+function mandarDepois() { clearTimeout(prevT); prevT = setTimeout(() => mandar(), 120); }
+function escala() {
+  if (fw.classList.contains('mob')) { frame.style.transform = ''; frame.style.width = ''; frame.style.height = ''; return; }
+  if (!fw.clientWidth) return;
+  const W = 1280, k = Math.min(1, fw.clientWidth / W);
+  frame.style.width = W + 'px'; frame.style.height = (fw.clientHeight / k) + 'px'; frame.style.transform = `scale(${k})`;
+}
+new ResizeObserver(escala).observe(fw);
+document.querySelectorAll('[data-modo]').forEach(b => b.onclick = () => {
+  document.querySelectorAll('[data-modo]').forEach(x => x.classList.toggle('on', x === b));
+  fw.className = 'frame-wrap ' + b.dataset.modo; escala();
+});
+
+// ---------- Telas ----------
+const HOME = [
+  { t: 'Faixa do topo', ir: 'topo', f: [['home.topo.aviso', 'Texto da esquerda', 'text', 'Palavras entre *asteriscos* ficam em destaque, igual no WhatsApp.'], ['home.topo.local', 'Texto da direita']] },
+  { t: 'Banner principal', ir: 'topo', f: [['home.hero.promo', 'Selo de oferta'], ['home.hero.titulo', 'Título principal', 'area', 'Palavras entre *asteriscos* ficam verdes.'], ['home.hero.texto', 'Texto de apoio', 'area', 'Palavras entre *asteriscos* ficam em negrito.'], ['home.hero.imagem', 'Imagem de fundo', 'img']] },
+  { t: 'Benefícios', ir: 'beneficios', l: { k: 'home.beneficios', fixo: true, rot: i => 'Benefício ' + (i + 1), f: [['titulo', 'Título'], ['texto', 'Texto']] } },
+  { t: 'Tamanhos e preços', ir: 'tamanhos', f: [['home.tamanhos.titulo', 'Título'], ['home.tamanhos.texto', 'Texto', 'area']], l: { k: 'home.boxes', fixo: true, rot: (i, x) => x.nome, f: [['nome', 'Nome do box'], ['eq', 'Equivale a'], ['desc', 'Descrição', 'area'], ['car', 'Veículo sugerido'], ['preco', 'Preço', 'text', 'Deixe vazio para mostrar "Consulte".']] } },
+  { t: 'Soluções', ir: 'solucoes', f: [['home.solucoes.selo', 'Selo'], ['home.solucoes.titulo', 'Título'], ['home.solucoes.texto', 'Texto', 'area']], nota: 'Os cartões desta seção são as suas páginas de serviço. <a href="#servicos">Editar ou criar serviços →</a>' },
+  { t: 'Como funciona (3 passos)', ir: 'passos', f: [['home.passos.titulo', 'Título']], l: { k: 'home.passos.itens', fixo: true, rot: i => 'Passo ' + (i + 1), f: [['titulo', 'Título'], ['texto', 'Texto', 'area']] } },
+  { t: 'Segurança e fotos', ir: 'seguranca', f: [['home.seguranca.titulo', 'Título'], ['home.seguranca.fotos.0', 'Foto grande', 'img'], ['home.seguranca.fotos.1', 'Foto de cima', 'img'], ['home.seguranca.fotos.2', 'Foto de baixo', 'img']], l: { k: 'home.seguranca.itens', fixo: true, rot: i => 'Item ' + (i + 1), f: [['titulo', 'Título'], ['texto', 'Texto', 'area']] } },
+  { t: 'Avaliações', ir: 'avaliacoes', f: [['home.avaliacoes.titulo', 'Título'], ['home.avaliacoes.nota', 'Nota'], ['home.avaliacoes.resumo', 'Resumo']], l: { k: 'home.avaliacoes.itens', rot: (i, x) => x.nome || 'Nova avaliação', novo: { nome: '', texto: '' }, add: 'Adicionar avaliação', f: [['nome', 'Nome do cliente'], ['texto', 'Comentário', 'area']] } },
+  { t: 'Blog na página inicial', ir: 'blog', f: [['home.blog.titulo', 'Título']], nota: 'Os 3 artigos mais recentes aparecem aqui sozinhos. <a href="#post/novo">Escrever um artigo →</a>' },
+  { t: 'Dúvidas frequentes', ir: 'faq', f: [['home.faq.titulo', 'Título']], l: { k: 'home.faq.itens', rot: (i, x) => x.p || 'Nova pergunta', novo: { p: '', r: '' }, add: 'Adicionar pergunta', f: [['p', 'Pergunta'], ['r', 'Resposta', 'area']] } },
+  { t: 'Chamada final', ir: 'final', f: [['home.final.titulo', 'Título'], ['home.final.texto', 'Texto', 'area']] }
+];
+
+const TELAS = {
+  inicio() {
+    const pubS = D.servicos.filter(s => s.publicado).length, pubP = D.posts.filter(p => p.publicado).length;
+    const rev = [...D.servicos, ...D.posts].filter(x => notaSeo(x).includes('warn')).length;
+    return { t: 'Início', c: 'Painel', html: `<div class="ola"><h2>Bem-vinda ao painel do seu site</h2><p class="muted">Tudo o que aparece no site da Guardian Box você muda por aqui, sem programador.</p></div>
+      <div class="atalhos">
+        <a class="atalho" href="#home"><svg><use href="#i-pag"/></svg><b>Editar a página inicial</b><span>Textos, títulos, fotos, preços dos boxes e perguntas frequentes.</span></a>
+        <a class="atalho" href="#servico/novo"><svg><use href="#i-cx"/></svg><b>Criar página de serviço</b><span>Uma página nova, com endereço próprio, que já entra no menu de soluções.</span></a>
+        <a class="atalho" href="#post/novo"><svg><use href="#i-blog"/></svg><b>Escrever artigo no blog</b><span>Editor simples, com títulos, listas, links e imagens.</span></a>
+        <a class="atalho" href="#seo"><svg><use href="#i-busca"/></svg><b>Revisar SEO</b><span>Título e descrição de cada página no Google, com prévia.</span></a>
+        <a class="atalho" href="#midia"><svg><use href="#i-img"/></svg><b>Imagens</b><span>Envie fotos do celular ou do computador. O painel já reduz o tamanho.</span></a>
+        <a class="atalho" href="#empresa"><svg><use href="#i-emp"/></svg><b>Dados da empresa</b><span>Telefone, WhatsApp, endereço e horário, trocados no site inteiro de uma vez.</span></a>
+      </div>
+      <div class="card"><h2>Seu site agora</h2><div class="nums">
+        <div><b>${pubS}</b><span>páginas de serviço no ar</span></div>
+        <div><b>${pubP}</b><span>artigos publicados</span></div>
+        <div><b>${D.posts.length - pubP + D.servicos.length - pubS}</b><span>rascunhos</span></div>
+        <div><b>${rev}</b><span>páginas com SEO a revisar</span></div></div></div>
+      <div class="card"><h2>Como funciona</h2><p class="muted">Três passos, sempre os mesmos.</p><div class="passos3">
+        <div><b>Mude o que quiser</b> nos campos. Nada vai para o site enquanto você edita.</div>
+        <div><b>Confira na prévia</b> ao lado, no computador ou no celular, enquanto digita.</div>
+        <div><b>Clique em Publicar</b> e o site atualiza na hora.</div></div></div>` };
+  },
+
+  home() {
+    return { t: 'Página inicial', c: 'Páginas', prev: ['../index.html?preview'], html:
+      `<p class="muted" style="margin-bottom:14px">Abra uma seção para editar. A prévia ao lado vai até ela.</p>` +
+      HOME.map((s, n) => `<details class="sec-ed" data-ir="${s.ir}"${n === 1 ? ' open' : ''}><summary>${s.t}</summary><div>
+        ${(s.f || []).map(([k, lb, t, d]) => campo(k, lb, t, d)).join('')}
+        ${s.l ? lista(s.l) : ''}${s.nota ? `<div class="nota">${s.nota}</div>` : ''}</div></details>`).join('') +
+      `<details class="sec-ed" data-ir="topo"><summary>SEO da página inicial</summary><div>${seo('seo.home', '')}</div></details>` };
+  },
+
+  servicos() {
+    return { t: 'Serviços', c: 'Páginas', html: `<div class="cab"><p class="muted">Cada serviço tem página própria no site e aparece na seção "Soluções" da página inicial e no rodapé.</p><a class="pri" href="#servico/novo">+ Nova página de serviço</a></div>
+      <table class="tb"><thead><tr><th></th><th>Página</th><th>Situação</th><th class="col-g">Google</th><th></th></tr></thead><tbody>
+      ${D.servicos.map((s, i) => `<tr class="cl" onclick="location.hash='#servico/${i}'"><td>${s.imagem ? `<img class="th" src="${esc(ver(s.imagem))}" alt="">` : '<div class="th"></div>'}</td>
+        <td class="t"><b>${esc(s.titulo || 'Sem título')}</b><small>/servicos/${esc(s.slug)}</small></td>
+        <td>${s.publicado ? '<span class="pill pub">Publicada</span>' : '<span class="pill ras">Rascunho</span>'}</td><td class="col-g">${notaSeo(s)}</td>
+        <td style="text-align:right"><a class="sec mini" href="#servico/${i}">Editar</a></td></tr>`).join('')}</tbody></table>` };
+  },
+
+  servico(i) { return editor('servicos', i); },
+
+  blog() {
+    const ord = D.posts.map((p, i) => [p, i]).sort((a, b) => (b[0].data || '').localeCompare(a[0].data || ''));
+    return { t: 'Blog', c: 'Conteúdo', html: `<div class="cab"><p class="muted">Artigos ajudam a Guardian Box a aparecer no Google para quem pesquisa "guarda-móveis em Itajaí", "como guardar móveis" e parecidos.</p><a class="pri" href="#post/novo">+ Novo artigo</a></div>
+      <table class="tb"><thead><tr><th></th><th>Artigo</th><th class="col-d">Data</th><th>Situação</th><th class="col-g">Google</th><th></th></tr></thead><tbody>
+      ${ord.map(([p, i]) => `<tr class="cl" onclick="location.hash='#post/${i}'"><td>${p.imagem ? `<img class="th" src="${esc(ver(p.imagem))}" alt="">` : '<div class="th"></div>'}</td>
+        <td class="t"><b>${esc(p.titulo || 'Sem título')}</b><small>/blog/${esc(p.slug)}</small></td><td class="col-d muted">${p.data ? gbData(p.data) : ''}</td>
+        <td>${p.publicado ? '<span class="pill pub">Publicado</span>' : '<span class="pill ras">Rascunho</span>'}</td><td class="col-g">${notaSeo(p)}</td>
+        <td style="text-align:right"><a class="sec mini" href="#post/${i}">Editar</a></td></tr>`).join('')}</tbody></table>` };
+  },
+
+  post(i) { return editor('posts', i); },
+
+  seo() {
+    const bloco = (titulo, base, pre, item, link) => `<details class="sec-ed"><summary><span>${esc(titulo)}</span><span style="margin:0 14px 0 auto">${item ? notaSeo(item) : ''}</span></summary><div>${seo(base, pre, item)}${link ? `<p style="margin-top:12px"><a href="${link}">Editar a página →</a></p>` : ''}</div></details>`;
+    return { t: 'SEO (Google)', c: 'Páginas', html: `<div class="card"><h2>O que é isto</h2><p class="muted" style="margin:0">O <b>título</b> e a <b>descrição</b> são o que aparece quando alguém encontra a Guardian Box no Google. Cada página do site tem os seus. Abra uma página, edite e veja a prévia de como fica no resultado da busca.</p></div>
+      <h3 style="margin:18px 0 10px;color:var(--navy)">Páginas fixas</h3>
+      ${bloco('Página inicial', 'seo.home', '', null, '#home')}${bloco('Lista do blog', 'seo.blog', 'blog', null)}
+      <h3 style="margin:18px 0 10px;color:var(--navy)">Serviços</h3>${D.servicos.map((s, i) => bloco(s.titulo || 'Sem título', `servicos.${i}.seo`, 'servicos', s, '#servico/' + i)).join('')}
+      <h3 style="margin:18px 0 10px;color:var(--navy)">Artigos do blog</h3>${D.posts.map((p, i) => bloco(p.titulo || 'Sem título', `posts.${i}.seo`, 'blog', p, '#post/' + i)).join('')}` };
+  },
+
+  midia() {
+    return { t: 'Imagens', c: 'Biblioteca', html: `<div class="cab"><p class="muted">Fotos enviadas aqui ficam disponíveis em todas as páginas. O painel reduz o tamanho sozinho para o site continuar rápido.</p></div>
+      <div class="card" style="padding:0"><div class="galeria">${galeria(false)}</div></div>` };
+  },
+
+  empresa() {
+    return { t: 'Dados da empresa', c: 'Configurações', prev: ['../index.html?preview', null, 'localizacao'], html: `<div class="card"><h2>Contato</h2><p class="muted">Muda em todos os lugares do site de uma vez: topo, rodapé, botões e mapa.</p>
+      ${campo('contato.telefone', 'Telefone')}${campo('contato.whatsapp', 'WhatsApp', 'text', 'Todos os botões de WhatsApp do site usam este número.')}${campo('contato.email', 'E-mail')}</div>
+      <div class="card"><h2>Endereço e horário</h2>${campo('contato.endereco', 'Endereço', 'area', 'O mapa e o botão "Como chegar" se ajustam sozinhos.')}${campo('contato.horario', 'Horário de atendimento', 'area')}</div>
+      <div class="card"><h2>Redes sociais</h2>${campo('contato.instagram', 'Instagram (link)')}${campo('contato.facebook', 'Facebook (link)')}</div>` };
+  }
+};
+
+function editor(col, i) {
+  const ehServ = col === 'servicos', x = D[col][i];
+  if (!x) return { t: 'Página não encontrada', c: '', html: `<p class="muted">Essa página não existe mais. <a href="#${ehServ ? 'servicos' : 'blog'}">Voltar</a></p>` };
+  const b = `${col}.${i}`, pre = ehServ ? 'servicos' : 'blog', nome = ehServ ? 'página' : 'artigo';
+  const acoes = x.publicado
+    ? `<span class="pill pub">${ehServ ? 'Publicada' : 'Publicado'}</span><button class="pri" type="button" onclick="publicar('${ehServ ? 'Página atualizada' : 'Artigo atualizado'} no site.')">Salvar e atualizar no site</button><button class="ghost" type="button" onclick="despublicar('${col}',${i})">Tirar do ar</button>`
+    : `<span class="pill ras">Rascunho</span><button class="sec" type="button" onclick="publicar('Rascunho salvo. Ele não aparece no site até você publicar.')">Salvar rascunho</button><button class="pri" type="button" onclick="publicarItem('${col}',${i})">Publicar ${nome}</button>`;
+  return { t: x.titulo || (ehServ ? 'Nova página de serviço' : 'Novo artigo'), c: ehServ ? 'Serviços' : 'Blog', prev: ['../pagina.html?preview', [ehServ ? 'servico' : 'post', i]], html: `
+    <div class="card" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">${acoes}</div>
+    <div class="card"><h2>Conteúdo</h2>
+      ${campo(b + '.titulo', ehServ ? 'Nome do serviço' : 'Título do artigo', 'text', '', { titulo: b })}
+      ${campo(b + '.slug', 'Endereço da página', 'slug', novos.has(x) ? 'Preenchido a partir do título. Pode ajustar.' : 'Evite mudar o endereço de uma página já publicada: links compartilhados deixariam de funcionar.', { pre })}
+      ${campo(b + '.resumo', 'Resumo', 'area', ehServ ? 'Aparece no cartão da página inicial e abaixo do título.' : 'Aparece na lista do blog e abaixo do título.')}
+      ${campo(b + '.imagem', ehServ ? 'Imagem' : 'Imagem de capa', 'img', '', { opcional: true })}
+      ${ehServ ? '' : `<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">${campo(b + '.data', 'Data', 'date')}${campo(b + '.autor', 'Autor')}</div>`}
+      <div class="fld"><label>Texto ${ehServ ? 'da página' : 'do artigo'}</label>${rte(b + '.conteudo')}</div>
+    </div>
+    <div class="card"><h2>SEO: como aparece no Google</h2><p class="muted">Se deixar em branco, o painel usa o título e o resumo.</p>${seo(b + '.seo', pre, x)}</div>
+    <div class="card"><h2>Excluir</h2><p class="muted">Apaga ${ehServ ? 'esta página' : 'este artigo'} do painel e do site.</p><button class="perigo" type="button" onclick="excluir('${col}',${i})">Excluir ${nome}</button></div>` };
+}
+
+function novoItem(col) {
+  const x = col === 'servicos'
+    ? { slug: '', titulo: '', publicado: false, imagem: '', resumo: '', conteudo: '', seo: { title: '', description: '' } }
+    : { slug: '', titulo: '', data: hoje(), autor: 'Equipe Guardian Box', publicado: false, imagem: '', resumo: '', conteudo: '', seo: { title: '', description: '' } };
+  D[col].push(x); novos.add(x); marcar();
+  return D[col].length - 1;
+}
+function publicarItem(col, i) {
+  const x = D[col][i];
+  if (!x.titulo.trim()) { toast('Dê um título antes de publicar.'); $('[data-titulo]')?.focus(); return; }
+  x.publicado = true; novos.delete(x);
+  publicar(col === 'servicos' ? 'Página publicada! Ela já aparece no site e na página inicial.' : 'Artigo publicado! Ele já aparece no blog e na página inicial.');
+}
+function despublicar(col, i) { D[col][i].publicado = false; publicar('Tirado do ar. Continua salvo aqui como rascunho.'); }
+function excluir(col, i) {
+  if (!confirm('Excluir de vez? Isso não tem como desfazer.')) return;
+  D[col].splice(i, 1); location.hash = col === 'servicos' ? '#servicos' : '#blog'; publicar('Excluído.');
+}
+// Item novo que ficou sem título não vira lixo na lista
+function limparNovos(manter) {
+  for (const col of ['servicos', 'posts']) D[col] = D[col].filter(x => x === manter || !(novos.has(x) && !x.titulo.trim() && !x.conteudo.trim()));
+}
+
+function linkSite() {
+  const [r, a] = location.hash.slice(1).split('/');
+  if (r === 'servico' && D.servicos[a]?.publicado) return `../pagina.html?servico=${D.servicos[a].slug}`;
+  if (r === 'post' && D.posts[a]?.publicado) return `../pagina.html?post=${D.posts[a].slug}`;
+  if (r === 'blog') return '../pagina.html?blog';
+  return '../';
+}
+
+// ---------- Roteador ----------
+let telaAtual = '';
+function rota(forcar) {
+  let [r, a] = location.hash.slice(1).split('/');
+  if (!TELAS[r]) r = 'inicio';
+  if ((r === 'servico' || r === 'post') && a === 'novo') { limparNovos(); location.replace(`#${r}/${novoItem(r === 'servico' ? 'servicos' : 'posts')}`); return; }
+  const chave = r + '/' + (a || '');
+  if (!forcar && chave === telaAtual) return;
+  if (chave !== telaAtual) limparNovos(r === 'servico' ? D.servicos[a] : r === 'post' ? D.posts[a] : null);
+  telaAtual = chave;
+  const scroll = forcar ? $('#view').scrollTop : 0;
+  const abertos = forcar ? [...document.querySelectorAll('details.sec-ed')].map(d => d.open) : null;
+  const t = TELAS[r](a === undefined ? undefined : +a);
+  $('#titulo').textContent = t.t; $('#crumb').textContent = t.c;
+  $('#view').innerHTML = t.html;
+  if (abertos) document.querySelectorAll('details.sec-ed').forEach((d, n) => { if (abertos[n] != null) d.open = abertos[n]; });
+  $('#view').scrollTop = scroll; if (!forcar) scrollTo(0, 0);
+  document.querySelectorAll('.side a.nv[data-r]').forEach(n => n.classList.toggle('on', n.dataset.r.split(' ').includes(r)));
+  previa(...(t.prev || []));
+  atualizaSeo(); status();
+}
+addEventListener('hashchange', () => rota());
+
+// ---------- Eventos do formulário ----------
+const view = $('#view');
+view.addEventListener('input', e => {
+  const el = e.target.closest('[data-k]'); if (!el) return;
+  const k = el.dataset.k;
+  const v = el.isContentEditable ? el.innerHTML : el.type === 'checkbox' ? el.checked : el.value;
+  set(D, k, v);
+  if (el.dataset.slug !== undefined) novos.delete(gbGet(D, k.replace(/\.slug$/, '')));
+  if (el.dataset.titulo) {
+    const item = gbGet(D, el.dataset.titulo);
+    if (novos.has(item)) { item.slug = slugify(v); const s = view.querySelector(`[data-k="${el.dataset.titulo}.slug"]`); if (s) s.value = item.slug; }
+    $('#titulo').textContent = v || $('#titulo').textContent;
+  }
+  marcar(); atualizaSeo(); mandarDepois();
+});
+view.addEventListener('toggle', e => { if (e.target.open && e.target.dataset.ir) mandar(e.target.dataset.ir); }, true);
+view.addEventListener('focusin', e => { const d = e.target.closest('[data-ir]'); if (d) mandar(d.dataset.ir); });
+
+// Colar texto sem a formatação de Word/Google Docs
+view.addEventListener('paste', e => {
+  if (!e.target.closest('.rte-area')) return;
+  e.preventDefault(); document.execCommand('insertText', false, e.clipboardData.getData('text/plain'));
+});
+let faixa = null; // seleção guardada para inserir imagem no lugar certo
+document.addEventListener('selectionchange', () => {
+  const s = getSelection(); if (s.rangeCount && s.anchorNode && s.anchorNode.parentElement?.closest('.rte-area')) faixa = s.getRangeAt(0).cloneRange();
+});
+view.addEventListener('mousedown', e => { if (e.target.closest('.rte-bar button')) e.preventDefault(); });
+
+view.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.cmd) {
+    const area = b.closest('.rte').querySelector('.rte-area');
+    if (b.dataset.cmd === 'link') { const u = prompt('Endereço do link (ex.: https://wa.me/55479...)'); if (u) document.execCommand('createLink', false, u); }
+    else if (b.dataset.cmd === 'img') {
+      const r = faixa;
+      abrirMidia(src => { area.focus(); if (r) { const s = getSelection(); s.removeAllRanges(); s.addRange(r); } document.execCommand('insertHTML', false, `<img src="${esc(/^data:/.test(src) ? src : new URL(src, BASE).href)}" alt="">`); });
+      return;
+    }
+    else document.execCommand(b.dataset.cmd, false, b.dataset.v || null);
+    area.focus(); return;
+  }
+  if (b.dataset.img) { const k = b.dataset.img; abrirMidia(src => { set(D, k, src); marcar(); rota(true); mandar(); }); return; }
+  if (b.dataset.imgRm) { set(D, b.dataset.imgRm, ''); marcar(); rota(true); mandar(); return; }
+  if (b.dataset.add) { const L = LISTAS[b.dataset.add]; gbGet(D, L.k).push(gbClone(L.novo)); marcar(); redesenhaLista(L.k); mandar(); return; }
+  if (b.dataset.rm) { const [k, i] = b.dataset.rm.split('|'); if (!confirm('Remover este item?')) return; gbGet(D, k).splice(+i, 1); marcar(); redesenhaLista(k); mandar(); return; }
+  if (b.dataset.mv) { const [k, i, d] = b.dataset.mv.split('|'), a = gbGet(D, k), j = +i + +d; [a[i], a[j]] = [a[j], a[i]]; marcar(); redesenhaLista(k); mandar(); }
+});
+
+// ---------- Imagens ----------
+let escolher = null;
+function galeria(escolhendo) {
+  const todas = [...BANCO.map(src => ({ src, nome: src.split('/').pop() })), ...D.midia.map((m, i) => ({ ...m, i }))];
+  const up = `<label class="up"><input type="file" accept="image/*" multiple onchange="enviar(this)"><span><b>+ Enviar imagens</b><br>do computador ou celular</span></label>`;
+  return up + todas.map(m => escolhendo
+    ? `<button type="button" data-src="${esc(m.src)}"><img src="${esc(ver(m.src))}" alt=""><figcaption>${esc(m.nome)}</figcaption></button>`
+    : `<figure><img src="${esc(ver(m.src))}" alt=""><figcaption>${esc(m.nome)}</figcaption>${m.i != null ? `<button class="ic-btn rm" type="button" title="Apagar" onclick="apagarMidia(${m.i})">✕</button>` : ''}</figure>`).join('');
+}
+function abrirMidia(cb) { escolher = cb; $('#galeria').innerHTML = galeria(true); $('#modal').hidden = false; }
+function fecharMidia() { $('#modal').hidden = true; escolher = null; }
+$('#galeria').addEventListener('click', e => { const b = e.target.closest('button[data-src]'); if (b && escolher) { const cb = escolher; fecharMidia(); cb(b.dataset.src); } });
+$('#modal').addEventListener('click', e => { if (e.target.id === 'modal') fecharMidia(); });
+addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#modal').hidden) fecharMidia(); });
+
+// ponytail: a imagem vai inteira (data URL) no conteúdo e cabe ~5 MB no navegador; no produto final ela sobe como arquivo e o conteúdo guarda só o endereço
+async function reduzir(file) {
+  const url = URL.createObjectURL(file), img = new Image();
+  img.src = url; await img.decode();
+  const k = Math.min(1, 1600 / Math.max(img.width, img.height)), c = document.createElement('canvas');
+  c.width = Math.round(img.width * k); c.height = Math.round(img.height * k);
+  c.getContext('2d').drawImage(img, 0, 0, c.width, c.height); URL.revokeObjectURL(url);
+  const webp = c.toDataURL('image/webp', .8);
+  return webp.startsWith('data:image/webp') ? webp : c.toDataURL('image/jpeg', .82);
+}
+async function enviar(inp) {
+  const fs = [...inp.files]; if (!fs.length) return;
+  toast('Preparando ' + fs.length + (fs.length > 1 ? ' imagens…' : ' imagem…'));
+  for (const f of fs) {
+    try { D.midia.push({ src: await reduzir(f), nome: f.name }); } catch (e) { toast('Não consegui abrir ' + esc(f.name) + '. Tente uma foto JPG ou PNG.'); }
+  }
+  marcar();
+  $('#galeria').innerHTML = galeria(!!escolher);
+  if (!$('#modal').hidden || telaAtual.startsWith('midia')) toast(escolher ? 'Pronto! Agora clique na imagem para usar.' : 'Imagens enviadas. Clique em Publicar para salvar.');
+  if (telaAtual.startsWith('midia')) rota(true);
+}
+function apagarMidia(i) { if (!confirm('Apagar esta imagem da biblioteca?')) return; D.midia.splice(i, 1); marcar(); rota(true); }
+
+// ---------- Começo ----------
+status();
+let logada = false;
+try { logada = !!localStorage.getItem('gb-login'); } catch (e) {}
+if (logada) abrirApp();
+</script>
+</body>
+</html>
