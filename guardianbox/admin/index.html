@@ -13,10 +13,15 @@
 :root{
   --navy:#0a2463;--navy-2:#061a4a;--navy-3:#123a8f;--lime:#8fe000;--lime-2:#a8f53a;--lime-ink:#1d3300;
   --ink:#0f1b33;--muted:#5b6782;--line:#e3e8f2;--bg:#f5f7fb;--card:#fff;--soft:#f0f4fb;
-  --ok:#2f8f00;--warn:#b26b00;--bad:#c62828;--r:14px;
+  --ok:#2b7a00;--warn:#985a00;--bad:#c62828;--r:14px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font:15px/1.5 Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+body{font:15px/1.5 Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;accent-color:var(--navy-3)}
+:focus-visible{outline:3px solid var(--focus,var(--navy-3));outline-offset:2px}
+.side,#login{--focus:var(--lime)}
+.login{--focus:var(--navy-3)}
+::selection{background:rgba(143,224,0,.45)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 a{color:var(--navy-3)}
 button,input,textarea,select{font:inherit;color:inherit}
 img{display:block;max-width:100%}
@@ -35,7 +40,7 @@ img{display:block;max-width:100%}
 /* Estrutura */
 #app{display:grid;grid-template-columns:232px 1fr;min-height:100vh}
 .side{background:var(--navy-2);color:#c9d5f3;padding:20px 14px;display:flex;flex-direction:column;gap:4px;position:sticky;top:0;height:100vh}
-.brand{display:flex;gap:10px;align-items:center;padding:4px 8px 20px;color:#fff;text-decoration:none}
+.brand{display:flex;gap:10px;align-items:center;padding:4px 8px 20px;color:#fff;text-decoration:none;flex:none}
 .brand img{width:36px;height:36px;border-radius:8px}
 .brand b{display:block;font-size:.95rem;letter-spacing:.02em}
 .brand small{color:var(--lime);font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
@@ -43,10 +48,11 @@ img{display:block;max-width:100%}
 .side a.nv svg{width:18px;height:18px;flex:none;opacity:.8}
 .side a.nv:hover{background:rgba(255,255,255,.06);color:#fff}
 .side a.nv.on{background:rgba(143,224,0,.14);color:var(--lime-2)}
+.side nav{display:contents}
 .side .fim{margin-top:auto;display:grid;gap:4px;border-top:1px solid rgba(255,255,255,.08);padding-top:12px}
 .main{min-width:0;display:flex;flex-direction:column;height:100vh}
 .demo{background:#fff8e1;border-bottom:1px solid #f3e2a9;color:#6b4e00;font-size:.85rem;padding:9px 24px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-.demo button{background:none;border:0;color:#6b4e00;text-decoration:underline;cursor:pointer;font-weight:600}
+.demo button{background:none;border:0;color:#6b4e00;text-decoration:underline;cursor:pointer;font-weight:600;padding:10px 0;margin:-10px 0}
 .top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;background:#fff;border-bottom:1px solid var(--line);flex-wrap:wrap}
 .top small{color:var(--muted);font-size:.8rem;font-weight:600}
 .top h1{font-size:1.25rem;color:var(--navy);line-height:1.2}
@@ -62,7 +68,7 @@ img{display:block;max-width:100%}
 .pri,.sec,.ghost,.perigo{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:10px;padding:10px 16px;font-weight:700;font-size:.9rem;cursor:pointer;border:1px solid transparent;text-decoration:none;white-space:nowrap}
 .pri{background:var(--lime);color:var(--lime-ink)}
 .pri:hover{background:var(--lime-2)}
-.pri:disabled{background:#e6eaf2;color:#8a94ab;cursor:default}
+.pri:disabled{background:#e9edf3;color:#5b6782;cursor:default}
 .sec{background:#fff;border-color:var(--line);color:var(--ink)}
 .sec:hover{border-color:#c5cee0}
 .ghost{background:none;color:var(--navy-3);padding:8px 10px}
@@ -78,7 +84,7 @@ img{display:block;max-width:100%}
 .muted{color:var(--muted);font-size:.88rem}
 .fld{display:grid;gap:6px;margin-top:14px}
 .fld:first-child{margin-top:0}
-.fld label{font-weight:600;font-size:.86rem}
+.fld label,.fld .lb{font-weight:600;font-size:.86rem}
 .fld input,.fld textarea,.fld select{width:100%;border:1px solid #d5dcea;border-radius:10px;padding:10px 12px;background:#fff;outline:none;transition:border-color .15s,box-shadow .15s}
 .fld textarea{resize:vertical;min-height:70px;field-sizing:content}
 .fld input:focus,.fld textarea:focus{border-color:var(--navy-3);box-shadow:0 0 0 3px rgba(18,58,143,.12)}
@@ -113,6 +119,7 @@ details.sec-ed>div{padding:0 18px 18px}
 
 /* Editor de texto */
 .rte{border:1px solid #d5dcea;border-radius:12px;overflow:hidden;background:#fff}
+.rte-area:focus-visible{outline:none}
 .rte:focus-within{border-color:var(--navy-3);box-shadow:0 0 0 3px rgba(18,58,143,.12)}
 .rte-bar{display:flex;flex-wrap:wrap;gap:2px;padding:6px;border-bottom:1px solid var(--line);background:#fafbfd;position:sticky;top:0;z-index:2}
 .rte-bar button{border:0;background:none;padding:6px 9px;border-radius:7px;cursor:pointer;font-size:.84rem;font-weight:600;color:#3a4560}
@@ -144,7 +151,8 @@ details.sec-ed>div{padding:0 18px 18px}
 .tb tr.cl{cursor:pointer}
 .tb tr.cl:hover td{background:#fafbfd}
 .tb .th{width:64px;height:44px;border-radius:8px;object-fit:cover;background:var(--soft)}
-.tb .t b{display:block;color:var(--navy)}
+.tb .t a{display:block;color:var(--navy);font-weight:700;text-decoration:none}
+.tb .t a:hover{text-decoration:underline}
 .tb .t small{color:var(--muted)}
 .pill{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:700;padding:4px 10px;border-radius:99px;white-space:nowrap}
 .pill.pub{background:#eaf7dc;color:#2f6b00}
@@ -154,6 +162,8 @@ details.sec-ed>div{padding:0 18px 18px}
 .dot.ok{color:var(--ok)}.dot.warn{color:var(--warn)}
 .cab{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
 .cab p{max-width:560px}
+h2.grp{font-size:1rem;color:var(--navy);margin:22px 0 10px}
+.vazio-tb{text-align:center;padding:36px 16px!important;color:var(--muted)}
 
 /* Início */
 .ola h2{font-size:1.5rem;color:var(--navy)}
@@ -199,12 +209,18 @@ details.sec-ed>div{padding:0 18px 18px}
 .galeria .rm{position:absolute;top:6px;right:6px}
 .up{border:2px dashed #c5cee0;border-radius:12px;display:grid;place-items:center;text-align:center;padding:16px;color:var(--muted);font-size:.85rem;cursor:pointer;min-height:120px;background:#fff}
 .up:hover{border-color:var(--navy-3);color:var(--navy-3)}
-.up input{display:none}
+.up:focus-within{border-color:var(--navy-3);color:var(--navy-3);box-shadow:0 0 0 3px rgba(18,58,143,.15)}
 
 #toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);opacity:0;background:var(--ink);color:#fff;padding:12px 18px;border-radius:12px;font-weight:600;font-size:.92rem;display:flex;gap:14px;align-items:center;transition:.25s;z-index:200;pointer-events:none;max-width:calc(100% - 32px)}
 #toast.on{opacity:1;transform:translateX(-50%);pointer-events:auto}
 #toast a{color:var(--lime);font-weight:700}
 
+@media (pointer:coarse){
+  .ic-btn{width:44px;height:44px}
+  .mini,.seg button{min-height:40px}
+  .rte-bar button{min-height:44px;min-width:44px}
+  .side a.nv{min-height:44px}
+}
 @media (max-width:1100px){
   .work.com-prev{grid-template-columns:1fr}
   .work.com-prev #view{border:0}
@@ -226,7 +242,8 @@ details.sec-ed>div{padding:0 18px 18px}
   #view{padding:16px}
   .demo{padding:9px 16px}
   .passos3{grid-template-columns:1fr}
-  .tb .col-g,.tb .col-d{display:none}
+  .tb .col-g,.tb .col-d,.tb .col-a{display:none}
+  .tb td,.tb th{padding:10px}
 }
 </style>
 </head>
@@ -259,6 +276,7 @@ details.sec-ed>div{padding:0 18px 18px}
 <div id="app" hidden>
   <aside class="side">
     <a class="brand" href="#inicio"><img src="../assets/logo-square.png" alt=""><div><b>GUARDIAN BOX</b><small>Painel</small></div></a>
+    <nav aria-label="Seções do painel">
     <a class="nv" href="#inicio" data-r="inicio"><svg><use href="#i-casa"/></svg>Início</a>
     <a class="nv" href="#home" data-r="home"><svg><use href="#i-pag"/></svg>Página inicial</a>
     <a class="nv" href="#servicos" data-r="servicos servico"><svg><use href="#i-cx"/></svg>Serviços</a>
@@ -266,6 +284,7 @@ details.sec-ed>div{padding:0 18px 18px}
     <a class="nv" href="#seo" data-r="seo"><svg><use href="#i-busca"/></svg>SEO (Google)</a>
     <a class="nv" href="#midia" data-r="midia"><svg><use href="#i-img"/></svg>Imagens</a>
     <a class="nv" href="#empresa" data-r="empresa"><svg><use href="#i-emp"/></svg>Dados da empresa</a>
+    </nav>
     <div class="fim">
       <a class="nv" href="../" target="_blank"><svg><use href="#i-ext"/></svg>Ver o site</a>
       <a class="nv" href="#" onclick="sair();return false"><svg><use href="#i-sair"/></svg>Sair</a>
@@ -294,13 +313,13 @@ details.sec-ed>div{padding:0 18px 18px}
   </div>
 </div>
 
-<div class="modal" id="modal" hidden>
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-t">
   <div class="modal-c">
     <div class="modal-h"><h2 id="modal-t">Escolher imagem</h2><button class="sec mini" type="button" onclick="fecharMidia()">Fechar</button></div>
     <div class="galeria" id="galeria"></div>
   </div>
 </div>
-<div id="toast"></div>
+<div id="toast" role="status" aria-live="polite"></div>
 
 <script src="../cms.js"></script>
 <script>
@@ -362,7 +381,7 @@ function toast(html) { const t = $('#toast'); t.innerHTML = html; t.classList.ad
 // ---------- Campos ----------
 function campo(k, label, tipo = 'text', dica = '', o = {}) {
   const v = gbGet(D, k) ?? '', id = 'f' + (++uid);
-  if (tipo === 'img') return `<div class="fld"><label>${label}</label><div class="imgf">${v ? `<img src="${esc(ver(v))}" alt="">` : '<span class="vz">Sem imagem</span>'}<div><button class="sec mini" type="button" data-img="${k}">${v ? 'Trocar imagem' : 'Escolher imagem'}</button>${o.opcional && v ? `<button class="ghost mini" type="button" data-img-rm="${k}">Remover</button>` : ''}</div></div>${dica ? `<small>${dica}</small>` : ''}</div>`;
+  if (tipo === 'img') return `<div class="fld"><span class="lb">${label}</span><div class="imgf">${v ? `<img src="${esc(ver(v))}" alt="">` : '<span class="vz">Sem imagem</span>'}<div><button class="sec mini" type="button" data-img="${k}">${v ? 'Trocar imagem' : 'Escolher imagem'}</button>${o.opcional && v ? `<button class="ghost mini" type="button" data-img-rm="${k}">Remover</button>` : ''}</div></div>${dica ? `<small>${dica}</small>` : ''}</div>`;
   const ctl = tipo === 'area' ? `<textarea id="${id}" data-k="${k}" rows="3">${esc(v)}</textarea>`
     : tipo === 'slug' ? `<div class="slug"><span>${DOMINIO}/${o.pre}/</span><input id="${id}" data-k="${k}" data-slug value="${esc(v)}"></div>`
     : `<input id="${id}" data-k="${k}" type="${tipo === 'date' ? 'date' : 'text'}" value="${esc(v)}"${o.titulo ? ` data-titulo="${o.titulo}"` : ''}>`;
@@ -370,19 +389,19 @@ function campo(k, label, tipo = 'text', dica = '', o = {}) {
   return `<div class="fld"><div class="linha"><label for="${id}">${label}</label>${cnt}</div>${ctl}${dica ? `<small>${dica}</small>` : ''}</div>`;
 }
 
-function rte(k) {
-  return `<div class="rte"><div class="rte-bar">
+function rte(k, rotulo) {
+  return `<div class="rte"><div class="rte-bar" role="toolbar" aria-label="Formatação do texto">
     <button type="button" data-cmd="formatBlock" data-v="h2">Título</button>
     <button type="button" data-cmd="formatBlock" data-v="h3">Subtítulo</button>
     <button type="button" data-cmd="formatBlock" data-v="p">Texto normal</button><i class="sep"></i>
-    <button type="button" data-cmd="bold"><b>N</b></button>
-    <button type="button" data-cmd="italic"><i>I</i></button>
-    <button type="button" data-cmd="insertUnorderedList">• Lista</button>
-    <button type="button" data-cmd="insertOrderedList">1. Lista</button><i class="sep"></i>
+    <button type="button" data-cmd="bold" aria-label="Negrito" title="Negrito"><b>N</b></button>
+    <button type="button" data-cmd="italic" aria-label="Itálico" title="Itálico"><i>I</i></button>
+    <button type="button" data-cmd="insertUnorderedList" aria-label="Lista com marcadores">• Lista</button>
+    <button type="button" data-cmd="insertOrderedList" aria-label="Lista numerada">1. Lista</button><i class="sep"></i>
     <button type="button" data-cmd="link">Link</button>
     <button type="button" data-cmd="img">Imagem</button>
     <button type="button" data-cmd="removeFormat">Limpar formatação</button>
-  </div><div class="rte-area" contenteditable="true" data-k="${k}">${gbGet(D, k) || ''}</div></div>`;
+  </div><div class="rte-area" contenteditable="true" role="textbox" aria-multiline="true" aria-label="${rotulo}" data-k="${k}">${gbGet(D, k) || ''}</div></div>`;
 }
 
 // Cada lista guarda o próprio esquema para poder se redesenhar sozinha
@@ -508,11 +527,11 @@ const TELAS = {
 
   servicos() {
     return { t: 'Serviços', c: 'Páginas', html: `<div class="cab"><p class="muted">Cada serviço tem página própria no site e aparece na seção "Soluções" da página inicial e no rodapé.</p><a class="pri" href="#servico/novo">+ Nova página de serviço</a></div>
-      <table class="tb"><thead><tr><th></th><th>Página</th><th>Situação</th><th class="col-g">Google</th><th></th></tr></thead><tbody>
-      ${D.servicos.map((s, i) => `<tr class="cl" onclick="location.hash='#servico/${i}'"><td>${s.imagem ? `<img class="th" src="${esc(ver(s.imagem))}" alt="">` : '<div class="th"></div>'}</td>
-        <td class="t"><b>${esc(s.titulo || 'Sem título')}</b><small>/servicos/${esc(s.slug)}</small></td>
+      <table class="tb"><thead><tr><th><span class="vh">Imagem</span></th><th>Página</th><th>Situação</th><th class="col-g">Google</th><th class="col-a"><span class="vh">Ações</span></th></tr></thead><tbody>
+      ${D.servicos.length ? '' : '<tr><td colspan="5" class="vazio-tb">Nenhuma página de serviço ainda. <a href="#servico/novo">Criar a primeira →</a></td></tr>'}${D.servicos.map((s, i) => `<tr class="cl" onclick="location.hash='#servico/${i}'"><td>${s.imagem ? `<img class="th" src="${esc(ver(s.imagem))}" alt="">` : '<div class="th"></div>'}</td>
+        <td class="t"><a href="#servico/${i}">${esc(s.titulo || 'Sem título')}</a><small>/servicos/${esc(s.slug)}</small></td>
         <td>${s.publicado ? '<span class="pill pub">Publicada</span>' : '<span class="pill ras">Rascunho</span>'}</td><td class="col-g">${notaSeo(s)}</td>
-        <td style="text-align:right"><a class="sec mini" href="#servico/${i}">Editar</a></td></tr>`).join('')}</tbody></table>` };
+        <td class="col-a" style="text-align:right"><a class="sec mini" href="#servico/${i}" tabindex="-1">Editar</a></td></tr>`).join('')}</tbody></table>` };
   },
 
   servico(i) { return editor('servicos', i); },
@@ -520,11 +539,11 @@ const TELAS = {
   blog() {
     const ord = D.posts.map((p, i) => [p, i]).sort((a, b) => (b[0].data || '').localeCompare(a[0].data || ''));
     return { t: 'Blog', c: 'Conteúdo', html: `<div class="cab"><p class="muted">Artigos ajudam a Guardian Box a aparecer no Google para quem pesquisa "guarda-móveis em Itajaí", "como guardar móveis" e parecidos.</p><a class="pri" href="#post/novo">+ Novo artigo</a></div>
-      <table class="tb"><thead><tr><th></th><th>Artigo</th><th class="col-d">Data</th><th>Situação</th><th class="col-g">Google</th><th></th></tr></thead><tbody>
-      ${ord.map(([p, i]) => `<tr class="cl" onclick="location.hash='#post/${i}'"><td>${p.imagem ? `<img class="th" src="${esc(ver(p.imagem))}" alt="">` : '<div class="th"></div>'}</td>
-        <td class="t"><b>${esc(p.titulo || 'Sem título')}</b><small>/blog/${esc(p.slug)}</small></td><td class="col-d muted">${p.data ? gbData(p.data) : ''}</td>
+      <table class="tb"><thead><tr><th><span class="vh">Imagem</span></th><th>Artigo</th><th class="col-d">Data</th><th>Situação</th><th class="col-g">Google</th><th class="col-a"><span class="vh">Ações</span></th></tr></thead><tbody>
+      ${ord.length ? '' : '<tr><td colspan="6" class="vazio-tb">Nenhum artigo ainda. <a href="#post/novo">Escrever o primeiro →</a></td></tr>'}${ord.map(([p, i]) => `<tr class="cl" onclick="location.hash='#post/${i}'"><td>${p.imagem ? `<img class="th" src="${esc(ver(p.imagem))}" alt="">` : '<div class="th"></div>'}</td>
+        <td class="t"><a href="#post/${i}">${esc(p.titulo || 'Sem título')}</a><small>/blog/${esc(p.slug)}</small></td><td class="col-d muted">${p.data ? gbData(p.data) : ''}</td>
         <td>${p.publicado ? '<span class="pill pub">Publicado</span>' : '<span class="pill ras">Rascunho</span>'}</td><td class="col-g">${notaSeo(p)}</td>
-        <td style="text-align:right"><a class="sec mini" href="#post/${i}">Editar</a></td></tr>`).join('')}</tbody></table>` };
+        <td class="col-a" style="text-align:right"><a class="sec mini" href="#post/${i}" tabindex="-1">Editar</a></td></tr>`).join('')}</tbody></table>` };
   },
 
   post(i) { return editor('posts', i); },
@@ -532,10 +551,10 @@ const TELAS = {
   seo() {
     const bloco = (titulo, base, pre, item, link) => `<details class="sec-ed"><summary><span>${esc(titulo)}</span><span style="margin:0 14px 0 auto">${item ? notaSeo(item) : ''}</span></summary><div>${seo(base, pre, item)}${link ? `<p style="margin-top:12px"><a href="${link}">Editar a página →</a></p>` : ''}</div></details>`;
     return { t: 'SEO (Google)', c: 'Páginas', html: `<div class="card"><h2>O que é isto</h2><p class="muted" style="margin:0">O <b>título</b> e a <b>descrição</b> são o que aparece quando alguém encontra a Guardian Box no Google. Cada página do site tem os seus. Abra uma página, edite e veja a prévia de como fica no resultado da busca.</p></div>
-      <h3 style="margin:18px 0 10px;color:var(--navy)">Páginas fixas</h3>
+      <h2 class="grp">Páginas fixas</h2>
       ${bloco('Página inicial', 'seo.home', '', null, '#home')}${bloco('Lista do blog', 'seo.blog', 'blog', null)}
-      <h3 style="margin:18px 0 10px;color:var(--navy)">Serviços</h3>${D.servicos.map((s, i) => bloco(s.titulo || 'Sem título', `servicos.${i}.seo`, 'servicos', s, '#servico/' + i)).join('')}
-      <h3 style="margin:18px 0 10px;color:var(--navy)">Artigos do blog</h3>${D.posts.map((p, i) => bloco(p.titulo || 'Sem título', `posts.${i}.seo`, 'blog', p, '#post/' + i)).join('')}` };
+      <h2 class="grp">Serviços</h2>${D.servicos.map((s, i) => bloco(s.titulo || 'Sem título', `servicos.${i}.seo`, 'servicos', s, '#servico/' + i)).join('')}
+      <h2 class="grp">Artigos do blog</h2>${D.posts.map((p, i) => bloco(p.titulo || 'Sem título', `posts.${i}.seo`, 'blog', p, '#post/' + i)).join('')}` };
   },
 
   midia() {
@@ -566,7 +585,7 @@ function editor(col, i) {
       ${campo(b + '.resumo', 'Resumo', 'area', ehServ ? 'Aparece no cartão da página inicial e abaixo do título.' : 'Aparece na lista do blog e abaixo do título.')}
       ${campo(b + '.imagem', ehServ ? 'Imagem' : 'Imagem de capa', 'img', '', { opcional: true })}
       ${ehServ ? '' : `<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">${campo(b + '.data', 'Data', 'date')}${campo(b + '.autor', 'Autor')}</div>`}
-      <div class="fld"><label>Texto ${ehServ ? 'da página' : 'do artigo'}</label>${rte(b + '.conteudo')}</div>
+      <div class="fld"><span class="lb">Texto ${ehServ ? 'da página' : 'do artigo'}</span>${rte(b + '.conteudo', ehServ ? 'Texto da página' : 'Texto do artigo')}</div>
     </div>
     <div class="card"><h2>SEO: como aparece no Google</h2><p class="muted">Se deixar em branco, o painel usa o título e o resumo.</p>${seo(b + '.seo', pre, x)}</div>
     <div class="card"><h2>Excluir</h2><p class="muted">Apaga ${ehServ ? 'esta página' : 'este artigo'} do painel e do site.</p><button class="perigo" type="button" onclick="excluir('${col}',${i})">Excluir ${nome}</button></div>` };
@@ -620,7 +639,7 @@ function rota(forcar) {
   $('#view').innerHTML = t.html;
   if (abertos) document.querySelectorAll('details.sec-ed').forEach((d, n) => { if (abertos[n] != null) d.open = abertos[n]; });
   $('#view').scrollTop = scroll; if (!forcar) scrollTo(0, 0);
-  document.querySelectorAll('.side a.nv[data-r]').forEach(n => n.classList.toggle('on', n.dataset.r.split(' ').includes(r)));
+  document.querySelectorAll('.side a.nv[data-r]').forEach(n => { const on = n.dataset.r.split(' ').includes(r); n.classList.toggle('on', on); on ? n.setAttribute('aria-current', 'page') : n.removeAttribute('aria-current'); });
   previa(...(t.prev || []));
   atualizaSeo(); status();
 }
@@ -679,13 +698,20 @@ view.addEventListener('click', e => {
 let escolher = null;
 function galeria(escolhendo) {
   const todas = [...BANCO.map(src => ({ src, nome: src.split('/').pop() })), ...D.midia.map((m, i) => ({ ...m, i }))];
-  const up = `<label class="up"><input type="file" accept="image/*" multiple onchange="enviar(this)"><span><b>+ Enviar imagens</b><br>do computador ou celular</span></label>`;
+  const up = `<label class="up"><input class="vh" type="file" accept="image/*" multiple onchange="enviar(this)"><span><b>+ Enviar imagens</b><br>do computador ou celular</span></label>`;
   return up + todas.map(m => escolhendo
     ? `<button type="button" data-src="${esc(m.src)}"><img src="${esc(ver(m.src))}" alt=""><figcaption>${esc(m.nome)}</figcaption></button>`
     : `<figure><img src="${esc(ver(m.src))}" alt=""><figcaption>${esc(m.nome)}</figcaption>${m.i != null ? `<button class="ic-btn rm" type="button" title="Apagar" onclick="apagarMidia(${m.i})">✕</button>` : ''}</figure>`).join('');
 }
-function abrirMidia(cb) { escolher = cb; $('#galeria').innerHTML = galeria(true); $('#modal').hidden = false; }
-function fecharMidia() { $('#modal').hidden = true; escolher = null; }
+let focoAntes = null;
+function abrirMidia(cb) { escolher = cb; focoAntes = document.activeElement; $('#galeria').innerHTML = galeria(true); $('#modal').hidden = false; $('#galeria input').focus(); }
+function fecharMidia() { $('#modal').hidden = true; escolher = null; focoAntes?.focus?.(); }
+$('#modal').addEventListener('keydown', e => {
+  if (e.key !== 'Tab') return;
+  const f = [...$('#modal').querySelectorAll('button,input')], a = f[0], z = f[f.length - 1];
+  if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); }
+  else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); }
+});
 $('#galeria').addEventListener('click', e => { const b = e.target.closest('button[data-src]'); if (b && escolher) { const cb = escolher; fecharMidia(); cb(b.dataset.src); } });
 $('#modal').addEventListener('click', e => { if (e.target.id === 'modal') fecharMidia(); });
 addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#modal').hidden) fecharMidia(); });

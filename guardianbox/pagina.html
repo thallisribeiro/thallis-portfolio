@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="site.css">
 </head>
 <body data-pagina="interna">
+<a class="skip" href="#gb-main">Pular para o conteúdo</a>
 
 <svg width="0" height="0" style="position:absolute">
   <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></symbol>
@@ -43,7 +44,7 @@
 <header>
   <div class="wrap">
     <a href="./" class="logo"><img src="assets/logo-square.png" alt=""><div><strong>GUARDIAN BOX</strong><small>Self Storage</small></div></a>
-    <nav id="nav"><ul>
+    <nav id="nav" aria-label="Principal"><ul>
       <li><a href="./#tamanhos">Tamanhos</a></li>
       <li><a href="./#solucoes">Soluções</a></li>
       <li><a href="./#seguranca">Segurança</a></li>
@@ -54,7 +55,7 @@
     <div class="head-cta">
       <a class="tel" data-gb-tel data-gb="contato.telefone"></a>
       <a class="btn btn-lime" href="./#orcamento">Orçamento grátis</a>
-      <button class="burger" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+      <button class="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     </div>
   </div>
 </header>
@@ -73,9 +74,9 @@
           <a data-wa="Olá!" aria-label="WhatsApp"><svg><use href="#i-wa"/></svg></a>
         </div>
       </div>
-      <div><h4>Soluções</h4><ul id="gb-foot-servicos"></ul></div>
-      <div><h4>Empresa</h4><ul><li><a href="./#tamanhos">Tamanhos de box</a></li><li><a href="./#seguranca">Segurança</a></li><li><a href="pagina.html?blog">Blog</a></li><li><a href="./#faq">Dúvidas</a></li></ul></div>
-      <div><h4>Contato</h4><ul><li data-gb="contato.telefone">(47) 99286-1607</li><li data-gb="contato.email">contato@guardianbox.com.br</li><li data-gb="contato.endereco">Rua Francisco de Paula Seara, 351<br>São Judas, Itajaí – SC</li></ul></div>
+      <div><h2>Soluções</h2><ul id="gb-foot-servicos"></ul></div>
+      <div><h2>Empresa</h2><ul><li><a href="./#tamanhos">Tamanhos de box</a></li><li><a href="./#seguranca">Segurança</a></li><li><a href="pagina.html?blog">Blog</a></li><li><a href="./#faq">Dúvidas</a></li></ul></div>
+      <div><h2>Contato</h2><ul><li data-gb="contato.telefone">(47) 99286-1607</li><li data-gb="contato.email">contato@guardianbox.com.br</li><li data-gb="contato.endereco">Rua Francisco de Paula Seara, 351<br>São Judas, Itajaí – SC</li></ul></div>
     </div>
     <div class="copy"><span>© <span id="yr">2026</span> Guardian Box Self Storage. Todos os direitos reservados.</span><a href="#">Política de privacidade</a></div>
   </div>
@@ -137,7 +138,6 @@ function gbExtra(){
   gbMeta(title, desc);
 }
 gbRender();
-document.querySelectorAll("nav a").forEach(a=>a.onclick=()=>document.getElementById("nav").classList.remove("open"));
 </script>
 </body>
 </html>

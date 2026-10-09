@@ -189,7 +189,7 @@ const gbLists = {
   'tiers': () => C.home.boxes.map(t => `
   <div class="tier${t.pop ? ' pop' : ''}">${t.pop ? '<span class="tag">Mais procurado</span>' : ''}
     <svg class="cube"><use href="#i-cube"/></svg>
-    <h4>${gbEsc(t.nome)}</h4><div class="eq">${gbEsc(t.eq)}</div><p>${gbEsc(t.desc)}</p>
+    <h3>${gbEsc(t.nome)}</h3><div class="eq">${gbEsc(t.eq)}</div><p>${gbEsc(t.desc)}</p>
     <div class="car"><svg width="18" height="18"><use href="#i-truck"/></svg>${gbEsc(t.car)}</div>
     <div class="price"><b>${gbEsc(t.preco || 'Consulte')}</b><a data-wa="Olá! Quero um orçamento do ${gbEsc(t.nome)}.">Orçar →</a></div>
   </div>`).join('')
@@ -209,11 +209,23 @@ function gbRender() {
   for (const id in gbLists) { const el = document.getElementById(id); if (el) el.innerHTML = gbLists[id](); }
   const blogSec = document.getElementById('blog');
   if (blogSec) blogSec.hidden = !gbPosts().length;
+  const solSec = document.getElementById('solucoes');
+  if (solSec) solSec.hidden = !C.servicos.some(s => s.publicado);
   if (document.body.dataset.pagina === 'home') gbMeta(C.seo.home.title, C.seo.home.description);
   const yr = document.getElementById('yr');
   if (yr) yr.textContent = new Date().getFullYear();
   gbBindWa();
 }
+
+// Menu do celular: abre/fecha pelo botão, fecha no Esc e ao escolher um link
+addEventListener('DOMContentLoaded', () => {
+  const nav = document.getElementById('nav'), bt = document.querySelector('.burger');
+  if (!nav || !bt) return;
+  const abrir = v => { nav.classList.toggle('open', v); bt.setAttribute('aria-expanded', v); bt.setAttribute('aria-label', v ? 'Fechar menu' : 'Abrir menu'); };
+  bt.onclick = () => abrir(!nav.classList.contains('open'));
+  nav.addEventListener('click', e => { if (e.target.closest('a')) abrir(false); });
+  addEventListener('keydown', e => { if (e.key === 'Escape' && nav.classList.contains('open')) { abrir(false); bt.focus(); } });
+});
 
 // Prévia do painel: recebe o rascunho e redesenha sem salvar nada.
 const GB_PREVIEW = new URLSearchParams(location.search).has('preview');
