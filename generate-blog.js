@@ -741,6 +741,7 @@ ${rssItems}
     { loc: `${SITE_URL}/`, lastmod: posts[0]?.date },
     { loc: `${SITE_URL}/blog/`, lastmod: posts[0]?.date },
     ...CIDADES.map((c) => ({ loc: `${SITE_URL}/site-em-7-dias/${c.slug}/`, lastmod: modificadoEm(`site-em-7-dias/${c.slug}/index.html`) })),
+    { loc: `${SITE_URL}/ovelhinha/`, lastmod: modificadoEm('ovelhinha/index.html') },
     ...posts.map(p => ({ loc: `${SITE_URL}/blog/${p.slug}/`, lastmod: p.date })),
     ...temaCounts.map(t => ({ loc: `${SITE_URL}/blog/tema/${t.slug}/`, lastmod: posts[0]?.date })),
   ];
