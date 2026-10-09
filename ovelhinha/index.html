@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://thallisribeiro.com.br/ovelhinha/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ovelhinha: jogos bíblicos para crianças de 2 a 5 anos">
-<meta property="og:description" content="Colorir, histórias narradas e 8 jogos bíblicos. Sem anúncios, sem cadastro, funciona sem internet. Em breve na App Store e no Google Play.">
+<meta property="og:description" content="Colorir, histórias narradas e 8 brincadeiras. Sem anúncios, sem cadastro, funciona sem internet. Em breve na App Store e no Google Play.">
 <meta property="og:url" content="https://thallisribeiro.com.br/ovelhinha/">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Ovelhinha">
@@ -101,15 +101,10 @@ a:hover { text-decoration-color: currentColor; }
 }
 .marca { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-right: auto; color: var(--roxo); font-weight: 900; font-size: 22px; text-decoration: none; letter-spacing: -.01em; }
 .marca img { width: 40px; height: 40px; }
-.contador {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 4px 12px 4px 5px; border-radius: 999px;
-  background: var(--amarelo); color: var(--ameixa);
-  font-weight: 900; font-size: 16px; font-variant-numeric: tabular-nums;
-}
-.contador img { width: 26px; height: 26px; }
-.contador small { font-size: 14px; font-weight: 800; }
-@media (max-width: 599px) { .contador { display: none; } }
+.atalhos { display: flex; gap: 2px; }
+.atalhos a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 999px; color: var(--roxo); font-weight: 900; text-decoration: none; }
+.atalhos a:hover { background: rgb(255 255 255 / .7); }
+@media (max-width: 759px) { .atalhos { display: none; } }
 .so-leitor { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
 /* Capa do álbum */
@@ -124,7 +119,7 @@ a:hover { text-decoration-color: currentColor; }
 .capa h1 { font-size: clamp(56px, 9vw, 128px); line-height: .92; letter-spacing: -.03em; color: var(--roxo); }
 .promessa { margin-top: .5em; font-size: clamp(21px, 2.5vw, 34px); font-weight: 800; line-height: 1.3; max-width: 30ch; text-wrap: balance; }
 .capa .botao { margin-top: clamp(24px, 3vw, 36px); }
-.escreva { margin-top: 12px; font-weight: 700; color: var(--roxo-texto); }
+.escreva { margin-top: 12px; max-width: 34ch; font-weight: 700; color: var(--roxo-texto); text-wrap: balance; }
 .escreva span { font-weight: 900; color: var(--ameixa); user-select: all; -webkit-user-select: all; }
 .breve { margin-top: 10px; font-weight: 800; color: var(--roxo-texto); }
 .pilula-capa {
@@ -182,7 +177,7 @@ a:hover { text-decoration-color: currentColor; }
 .num { position: absolute; z-index: 2; top: 6px; left: 10px; font-size: 13px; font-weight: 900; color: var(--roxo-texto); font-variant-numeric: tabular-nums; }
 .adesivo { transform: rotate(var(--r, 0deg)); filter: var(--sombra-adesivo); }
 .encaixe > img.adesivo { width: 74%; }
-.slot h3 { font-size: clamp(19px, 1.6vw, 22px); }
+.slot h3:not(.selo) { font-size: clamp(19px, 1.6vw, 22px); }
 .fala { color: var(--roxo); font-weight: 800; }
 .voz { color: var(--roxo-texto); }
 .slot p:not(.fala) { color: var(--roxo-texto); font-size: .94em; }
@@ -222,7 +217,7 @@ a:hover { text-decoration-color: currentColor; }
 .mascote-fala { display: flex; align-items: center; justify-content: flex-end; gap: 14px; }
 .mascote-fala img { width: clamp(120px, 13vw, 176px); flex: none; filter: var(--sombra-adesivo); }
 .balao {
-  position: relative; max-width: 24ch; padding: 14px 20px; border-radius: 22px;
+  position: relative; min-width: 0; max-width: 24ch; padding: 14px 20px; border-radius: 22px; overflow-wrap: anywhere;
   background: #fff; color: var(--ameixa); font-size: clamp(18px, 1.7vw, 23px); font-weight: 900; line-height: 1.3;
   box-shadow: 0 3px 0 rgb(101 82 152 / .14), 0 12px 22px -10px rgb(61 44 94 / .3);
 }
@@ -249,7 +244,7 @@ a:hover { text-decoration-color: currentColor; }
 .preco { aspect-ratio: auto; width: 86%; padding: .7em .4em .8em; border-radius: 30px; gap: 2px; }
 .preco .valor { font-size: 32px; font-size: clamp(22px, 17cqi, 44px); letter-spacing: -.02em; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .preco .periodo { font-size: 17px; font-size: clamp(13px, 8cqi, 19px); font-weight: 800; }
-.slot .tres { font-size: 15px; font-size: clamp(13px, 7.2cqi, 19px); }
+.slot .tres { font-size: 14px; font-size: clamp(13px, 6.2cqi, 17px); }
 .tres b { display: block; font-size: 52px; font-size: clamp(36px, 30cqi, 66px); line-height: .9; }
 .selinho {
   position: absolute; right: -12%; top: -78%; display: grid; place-items: center;
@@ -351,7 +346,7 @@ a:hover { text-decoration-color: currentColor; }
   .slot-linha.slot-tela { grid-template-columns: 140px minmax(0, 1fr); }
 }
 @media print {
-  .barra, .contador { display: none; }
+  .barra { display: none; }
   .colar .encaixe .adesivo { transform: rotate(var(--r, 0deg)); filter: none; }
   .fantasma, .encaixe::before { display: none; }
 }
@@ -363,7 +358,11 @@ a:hover { text-decoration-color: currentColor; }
 
 <header class="barra">
   <a class="marca" href="#capa" aria-label="Ovelhinha, início da página"><img src="/ovelhinha/img/mascote/ola.webp" alt="" width="40" height="40"><span>Ovelhinha</span></a>
-  <span class="contador" aria-hidden="true"><img src="/ovelhinha/img/adesivos/estrela.webp" alt="" width="26" height="26"><span><b data-conta>29</b>/<span data-total>29</span></span><small>adesivos</small></span>
+  <nav class="atalhos" aria-label="Seções da página">
+    <a href="#jogos">Brincadeiras</a>
+    <a href="#clube">Preço</a>
+    <a href="#igrejas">Igrejas</a>
+  </nav>
   <a class="botao botao-p" href="mailto:xthallis@gmail.com?subject=Me%20avise%20quando%20a%20Ovelhinha%20lan%C3%A7ar&amp;body=Ol%C3%A1!%20Quero%20saber%20quando%20a%20Ovelhinha%20chegar.%20Meu%20celular%20%C3%A9%3A%20Android%20%2F%20iPhone">Me avise<span class="so-leitor"> (abre seu app de e-mail)</span></a>
 </header>
 
@@ -373,7 +372,7 @@ a:hover { text-decoration-color: currentColor; }
       <h1 id="t-capa">Ovelhinha</h1>
       <p class="promessa">Jogos bíblicos, histórias e desenhos para colorir para crianças de 2 a 5 anos</p>
       <a class="botao" href="mailto:xthallis@gmail.com?subject=Me%20avise%20quando%20a%20Ovelhinha%20lan%C3%A7ar&amp;body=Ol%C3%A1!%20Quero%20saber%20quando%20a%20Ovelhinha%20chegar.%20Meu%20celular%20%C3%A9%3A%20Android%20%2F%20iPhone">Me avise quando lançar<span class="so-leitor"> (abre seu app de e-mail)</span></a>
-      <p class="escreva">ou escreva para <span>xthallis@gmail.com</span></p>
+      <p class="escreva">Abre seu e-mail com a mensagem pronta: é só tocar em Enviar. Ou escreva para <span>xthallis@gmail.com</span></p>
       <p class="breve">Em breve na App Store e no Google Play</p>
       <p class="pilula-capa"><span>Sem anúncios ·</span> <span>sem cadastro ·</span> <span>funciona sem internet</span></p>
       <a class="link-igreja" href="#igrejas">É do ministério infantil? Kit gratuito</a>
@@ -394,66 +393,70 @@ a:hover { text-decoration-color: currentColor; }
   <section class="aberto" id="jogos" aria-labelledby="t-jogos">
     <div class="folha">
       <div class="folha-topo">
-        <h2 id="t-jogos">8 jogos bíblicos para os pequeninos</h2>
-        <p>Ninguém precisa saber ler. Cada brincadeira tem voz e explica em voz alta o que fazer, e os botões são grandes para mãos pequenas.</p>
+        <h2 id="t-jogos">8 brincadeiras para os pequeninos</h2>
+        <p>A criança não precisa saber ler. Cada brincadeira explica em voz alta o que fazer, e os botões são grandes para mãos pequenas.</p>
       </div>
       <ol class="slots slots-linha">
         <li class="slot slot-linha slot-tela" style="--r:-1.5deg">
-          <div class="encaixe encaixe-tela"><span class="num" aria-hidden="true">1</span><img class="adesivo foto" src="/ovelhinha/img/telas/jogos.webp" alt="Tela inicial do app com as oito portas: Colorir, Balões, Arca de Noé, Quebra-cabeça, Memória, Sombras, Histórias e Música" width="480" height="1043"></div>
+          <div class="encaixe encaixe-tela"><span class="num" aria-hidden="true">1</span><img class="adesivo foto" src="/ovelhinha/img/telas/jogos.webp" alt="Tela inicial do app com os oito botões: Colorir, Balões, Arca de Noé, Quebra-cabeça, Memória, Sombras, Histórias e Música" width="480" height="1043"></div>
           <div class="texto-slot">
-            <h3>Assim é a tela inicial</h3>
-            <p>Uma porta grande para cada brincadeira. É a tela de verdade do app, em português.</p>
+            <h3>Esta é a tela inicial</h3>
+            <p>Um botão grande para cada brincadeira. É a tela de verdade do app, em português.</p>
           </div>
         </li>
       </ol>
       <ol class="slots" start="2">
         <li class="slot" style="--cor:#E5B877;--tinta:#F7EAD6;--r:-3deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">2</span><img class="adesivo" src="/ovelhinha/img/mascote/pinta.webp" alt="" width="340" height="340"></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">2</span><img class="adesivo foto" src="/ovelhinha/img/jogos/colorir.webp" alt="" width="320" height="320"></div>
           <h3>Colorir</h3>
           <p class="fala"><span class="voz">A voz diz:</span> “Vamos pintar!”</p>
-          <p>30 desenhos bíblicos. Toque numa parte e ela se enche de cor, ou pinte com o pincel livre.</p>
+          <p>30 desenhos das histórias da Bíblia. Toque numa parte e ela se enche de cor, ou pinte com o pincel livre.</p>
         </li>
         <li class="slot" style="--cor:#8CC8EC;--tinta:#DDEFF9;--r:4deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">3</span><img class="adesivo" src="/ovelhinha/img/adesivos/elefante.webp" alt="" width="256" height="256"></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">3</span><img class="adesivo foto" src="/ovelhinha/img/jogos/baloes.webp" alt="" width="320" height="320"></div>
           <h3>Balões</h3>
           <p class="fala"><span class="voz">A voz diz:</span> “Estoure os balões!”</p>
+          <p>Cada balão leva um bichinho. Um toque estoura o balão, o bichinho pula na grama e a voz diz o nome dele.</p>
         </li>
       </ol>
     </div>
     <div class="folha folha-dir">
       <ol class="slots" start="4">
         <li class="slot" style="--cor:#98C8AE;--tinta:#E0EFE7;--r:-2deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">4</span><img class="adesivo" src="/ovelhinha/img/adesivos/arca.webp" alt="" width="256" height="256" loading="lazy"></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">4</span><img class="adesivo foto" src="/ovelhinha/img/jogos/arca.webp" alt="" width="320" height="320"></div>
           <h3>Arca de Noé</h3>
           <p class="fala"><span class="voz">A voz diz:</span> “Leve os animais para a arca, de dois em dois!”</p>
+          <p>Os bichinhos entram na arca, dois de cada. No fim aparece o arco-íris, como na história de Noé.</p>
         </li>
         <li class="slot" style="--cor:#EAA3A7;--tinta:#F9E3E5;--r:3deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">5</span><img class="adesivo" src="/ovelhinha/img/adesivos/borboleta.webp" alt="" width="256" height="256" loading="lazy"></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">5</span><img class="adesivo foto" src="/ovelhinha/img/jogos/quebra-cabeca.webp" alt="" width="320" height="320"></div>
           <h3>Quebra-cabeça</h3>
           <p class="fala"><span class="voz">A voz diz:</span> “Monte o quebra-cabeça!”</p>
-          <p>Com 4, 12 ou 36 peças.</p>
+          <p>Os desenhos das histórias viram quebra-cabeças de 4, 12 ou 36 peças.</p>
         </li>
         <li class="slot" style="--cor:#B9ACE3;--tinta:#EAE6F7;--r:-4deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">6</span><img class="adesivo" src="/ovelhinha/img/adesivos/leao.webp" alt="" width="256" height="256" loading="lazy"></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">6</span><img class="adesivo foto" src="/ovelhinha/img/jogos/memoria.webp" alt="" width="320" height="320" loading="lazy"></div>
           <h3>Memória</h3>
           <p class="fala"><span class="voz">A voz diz:</span> “Encontre os pares!”</p>
+          <p>Seis cartas, três pares de bichinhos e a pombinha no verso. Sem placar e sem relógio.</p>
         </li>
         <li class="slot" style="--cor:#9CCB7C;--tinta:#E1EFD8;--r:2deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">7</span><img class="adesivo" src="/ovelhinha/img/adesivos/coelho.webp" alt="" width="256" height="256" loading="lazy"></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">7</span><img class="adesivo foto" src="/ovelhinha/img/jogos/sombras.webp" alt="" width="320" height="320" loading="lazy"></div>
           <h3>Sombras</h3>
           <p class="fala"><span class="voz">A voz diz:</span> “Leve cada bichinho até a sua sombra!”</p>
+          <p>Três bichinhos esperam na grama. A criança leva cada um até a sua sombra e a voz diz o nome dele.</p>
         </li>
         <li class="slot" style="--cor:#F2B880;--tinta:#FBEAD9;--r:-2deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">8</span><img class="adesivo" src="/ovelhinha/img/adesivos/noe.webp" alt="" width="256" height="256" loading="lazy"></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">8</span><img class="adesivo foto" src="/ovelhinha/img/jogos/historias.webp" alt="" width="320" height="320" loading="lazy"></div>
           <h3>Histórias</h3>
           <p class="fala"><span class="voz">A voz diz:</span> “Escolha uma história!”</p>
-          <p>Livrinhos ilustrados e narrados.</p>
+          <p>Livrinhos narrados da Criação, da Arca de Noé, do Natal e de Jesus.</p>
         </li>
         <li class="slot" style="--cor:#8FB8F0;--tinta:#DDEAFB;--r:4deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">9</span><img class="adesivo" src="/ovelhinha/img/adesivos/passarinho.webp" alt="" width="256" height="256" loading="lazy"></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">9</span><img class="adesivo foto" src="/ovelhinha/img/jogos/musica.webp" alt="" width="320" height="320" loading="lazy"></div>
           <h3>Música</h3>
           <p class="fala"><span class="voz">A voz diz:</span> “Toque o piano dos bichinhos!”</p>
-          <p>Com a canção “Cristo tem amor por mim”.</p>
+          <p>Um piano de bichinhos com a canção “Cristo tem amor por mim”.</p>
         </li>
       </ol>
       <div class="mascote-fala">
@@ -463,39 +466,68 @@ a:hover { text-decoration-color: currentColor; }
     </div>
   </section>
 
+  <section class="aberto aberto-inteiro" id="telas" aria-labelledby="t-telas">
+    <div class="folha-topo">
+      <h2 id="t-telas">Por dentro do app</h2>
+      <p>Telas do app em português, do jeito que aparecem no celular.</p>
+    </div>
+    <ol class="slots slots-telas largura-toda" start="10">
+      <li class="slot" style="--r:1.5deg">
+        <div class="encaixe encaixe-tela"><span class="num" aria-hidden="true">10</span><img class="adesivo foto" src="/ovelhinha/img/telas/colorir.webp" alt="Tela de pintura com o desenho da arca de Noé meio colorido e a caixa de giz embaixo" width="480" height="1043" loading="lazy"></div>
+        <h3>Pintando a arca</h3>
+      </li>
+      <li class="slot" style="--r:-1deg">
+        <div class="encaixe encaixe-tela"><span class="num" aria-hidden="true">11</span><img class="adesivo foto" src="/ovelhinha/img/telas/historias.webp" alt="Página de livrinho narrado: os animais entram na arca, dois a dois" width="480" height="1043" loading="lazy"></div>
+        <h3>Livrinho narrado</h3>
+      </li>
+      <li class="slot" style="--r:1deg">
+        <div class="encaixe encaixe-tela"><span class="num" aria-hidden="true">12</span><img class="adesivo foto" src="/ovelhinha/img/telas/arca.webp" alt="Jogo da Arca de Noé: bichinhos espalhados na tela e a arca na água esperando por eles" width="480" height="1043" loading="lazy"></div>
+        <h3>Arca de Noé</h3>
+      </li>
+      <li class="slot" style="--r:-1.5deg">
+        <div class="encaixe encaixe-tela"><span class="num" aria-hidden="true">13</span><img class="adesivo foto" src="/ovelhinha/img/telas/musica.webp" alt="Piano dos bichinhos: oito teclas coloridas, cada uma com um animal" width="480" height="1043" loading="lazy"></div>
+        <h3>Piano dos bichinhos</h3>
+      </li>
+      <li class="slot" style="--r:1.5deg">
+        <div class="encaixe encaixe-tela"><span class="num" aria-hidden="true">14</span><img class="adesivo foto" src="/ovelhinha/img/telas/adesivos.webp" alt="Álbum Meus adesivos com 7 de 40 adesivos ganhos e o resto em silhueta" width="480" height="1043" loading="lazy"></div>
+        <h3>Álbum de 40 adesivos</h3>
+      </li>
+    </ol>
+  </section>
+
   <section class="aberto" id="pais" aria-labelledby="t-pais">
     <div class="folha">
       <div class="folha-topo">
         <h2 id="t-pais">Para você entregar o celular com tranquilidade</h2>
         <p>O que fica de fora do app pesa tanto quanto o que tem dentro.</p>
       </div>
-      <ol class="slots slots-linha" start="10">
+      <ol class="slots slots-linha" start="15">
         <li class="slot slot-linha" style="--r:-4deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">10</span><h3 class="adesivo selo" style="--selo:#FFE08A">Sem anúncios</h3></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">15</span><h3 class="adesivo selo" style="--selo:#FFE08A">Sem anúncios</h3></div>
           <p>Nenhuma propaganda aparece para a criança, em nenhuma tela.</p>
         </li>
         <li class="slot slot-linha" style="--r:3deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">11</span><h3 class="adesivo selo selo-pilula" style="--selo:#D9CFF3">Sem cadastro</h3></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">16</span><h3 class="adesivo selo selo-pilula" style="--selo:#D9CFF3">Sem cadastro</h3></div>
           <p>Não pede conta, e-mail nem senha. É instalar e brincar.</p>
         </li>
         <li class="slot slot-linha" style="--r:-2deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">12</span><h3 class="adesivo selo selo-quadro" style="--selo:#BFE2F7">Funciona sem internet</h3></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">17</span><h3 class="adesivo selo selo-quadro" style="--selo:#BFE2F7">Funciona sem internet</h3></div>
           <p>Tudo fica dentro do app: dá para brincar sem Wi-Fi e sem dados móveis.</p>
         </li>
       </ol>
     </div>
     <div class="folha folha-dir">
-      <ol class="slots slots-linha" start="13">
+      <ol class="slots slots-linha" start="18">
         <li class="slot slot-linha" style="--r:4deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">13</span><h3 class="adesivo selo selo-gota" style="--selo:#CDE8B8">Não coleta dados</h3></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">18</span><h3 class="adesivo selo selo-gota" style="--selo:#CDE8B8">Não coleta dados</h3></div>
           <p>As pinturas e os ajustes ficam guardados só neste aparelho.</p>
         </li>
         <li class="slot slot-linha" style="--r:-3deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">14</span><h3 class="adesivo selo selo-quadro" style="--selo:#F6C9CC">Área dos pais</h3></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">19</span><h3 class="adesivo selo selo-quadro" style="--selo:#F6C9CC">Área dos pais</h3></div>
           <p>Uma soma rápida, só para adultos, protege os ajustes. As compras e os links externos ficam lá dentro.</p>
         </li>
         <li class="slot slot-linha" style="--r:2deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">15</span><h3 class="adesivo selo" style="--selo:#FBD3A8">Tempo de tela</h3></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">20</span><h3 class="adesivo selo" style="--selo:#FBD3A8">Tempo de tela</h3></div>
           <p>Você escolhe o limite de uso e a hora de descansar. Quando o tempo acaba, a ovelhinha vai dormir e só um adulto continua.</p>
         </li>
       </ol>
@@ -512,28 +544,28 @@ a:hover { text-decoration-color: currentColor; }
         <h2 id="t-historias">Quatro histórias da Bíblia</h2>
         <p>A Criação, a Arca de Noé, o Natal e Jesus, contadas em livrinhos narrados e também nos 30 desenhos para colorir. Sem cenas de medo.</p>
       </div>
-      <ol class="slots" start="16">
+      <ol class="slots" start="21">
         <li class="slot" style="--r:-2deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">16</span><img class="adesivo foto" src="/ovelhinha/img/historias/criacao.webp" alt="Desenho do app: dois passarinhos azuis num galho de macieira, um coelho na grama e o sol sorrindo" width="480" height="480" loading="lazy"></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">21</span><img class="adesivo foto" src="/ovelhinha/img/historias/criacao.webp" alt="Desenho do app: dois passarinhos azuis num galho de macieira, um coelho na grama e o sol sorrindo" width="480" height="480" loading="lazy"></div>
           <h3>A Criação</h3>
           <p class="fala"><span class="voz">A voz diz:</span> “Deus fez tudo com amor. E fez você também!”</p>
         </li>
         <li class="slot" style="--r:2.5deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">17</span><img class="adesivo foto" src="/ovelhinha/img/historias/arca.webp" alt="Desenho do app: Noé acenando na arca com a girafa, o elefante e a pomba, debaixo do arco-íris" width="480" height="480" loading="lazy"></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">22</span><img class="adesivo foto" src="/ovelhinha/img/historias/arca.webp" alt="Desenho do app: Noé acenando na arca com a girafa, o elefante e a pomba, debaixo do arco-íris" width="480" height="480" loading="lazy"></div>
           <h3>Arca de Noé</h3>
           <p class="fala"><span class="voz">A voz diz:</span> “O arco-íris lembra: Deus cumpre suas promessas!”</p>
         </li>
       </ol>
     </div>
     <div class="folha folha-dir">
-      <ol class="slots" start="18">
+      <ol class="slots" start="23">
         <li class="slot" style="--r:1.5deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">18</span><img class="adesivo foto" src="/ovelhinha/img/historias/natal.webp" alt="Desenho do app: Maria e José olhando o menino Jesus na manjedoura, com a estrela e um carneirinho" width="480" height="480" loading="lazy"></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">23</span><img class="adesivo foto" src="/ovelhinha/img/historias/natal.webp" alt="Desenho do app: Maria e José olhando o menino Jesus na manjedoura, com a estrela e um carneirinho" width="480" height="480" loading="lazy"></div>
           <h3>Natal</h3>
           <p class="fala"><span class="voz">A voz diz:</span> “Jesus nasceu! Ele é o presente de Deus para nós.”</p>
         </li>
         <li class="slot" style="--r:-3deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">19</span><img class="adesivo foto" src="/ovelhinha/img/historias/jesus.webp" alt="Desenho do app: Jesus sentado na grama com duas crianças e um carneirinho" width="480" height="480" loading="lazy"></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">24</span><img class="adesivo foto" src="/ovelhinha/img/historias/jesus.webp" alt="Desenho do app: Jesus sentado na grama com duas crianças e um carneirinho" width="480" height="480" loading="lazy"></div>
           <h3>Jesus e as crianças</h3>
           <p class="fala"><span class="voz">A voz diz:</span> “Jesus ama as crianças. Jesus ama você!”</p>
         </li>
@@ -549,22 +581,22 @@ a:hover { text-decoration-color: currentColor; }
     <div class="folha">
       <div class="folha-topo">
         <h2 id="t-igrejas">Para o ministério infantil da sua igreja</h2>
-        <p>Conteúdo comum a católicos e evangélicos, feito para o berçário e o maternal, sem cenas de medo. Cada igreja recebe um código que as famílias digitam no app.</p>
+        <p>Conteúdo comum a católicos e evangélicos, feito para o berçário e o maternal, sem cenas de medo. Cada família recebe um código que libera o Clube Ovelhinha sem custo, pelo prazo que informamos junto com os códigos.</p>
         <p>O kit já funciona hoje, impresso. O app e os códigos chegam no lançamento: peça agora e enviamos assim que a Ovelhinha estiver nas lojas.</p>
       </div>
       <div class="folha-topo">
         <h3 class="passos-titulo">Como usar em 3 passos</h3>
         <ol class="passos">
           <li>Imprima os desenhos da história do domingo.</li>
-          <li>Depois da aula, compartilhe o código da igreja (peça o seu abaixo) no grupo das famílias.</li>
+          <li>Depois da aula, entregue os códigos às famílias (peça os da sua igreja abaixo).</li>
           <li>Em casa, a criança pinta o mesmo desenho no app e ouve a história narrada.</li>
         </ol>
       </div>
     </div>
     <div class="folha folha-dir">
-      <ol class="slots slots-igreja" start="20">
+      <ol class="slots slots-igreja" start="25">
         <li class="slot slot-linha" style="--r:-2deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">20</span><img class="adesivo folha-impressa" src="/ovelhinha/img/kit/arco-iris-colorir.webp" alt="Página do kit para colorir: Noé e a família debaixo do arco-íris, só com o contorno" width="520" height="520" loading="lazy"></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">25</span><img class="adesivo folha-impressa" src="/ovelhinha/img/kit/arco-iris-colorir.webp" alt="Página do kit para colorir: Noé e a família debaixo do arco-íris, só com o contorno" width="520" height="520" loading="lazy"></div>
           <div class="texto-slot">
             <h3>Kit gratuito para imprimir</h3>
             <p>30 desenhos bíblicos para colorir na sala: a Criação, a Arca de Noé, o Natal e a vida de Jesus. Cada página tem um QR code para as famílias encontrarem o app.</p>
@@ -572,10 +604,10 @@ a:hover { text-decoration-color: currentColor; }
           </div>
         </li>
         <li class="slot slot-linha" style="--r:3deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">21</span><span class="adesivo selo selo-quadro" style="--selo:#D9CFF3" aria-hidden="true"><span><small>No app:</small>“Tenho um código”</span></span></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">26</span><span class="adesivo selo selo-quadro" style="--selo:#D9CFF3" aria-hidden="true"><span><small>No app:</small>“Tenho um código”</span></span></div>
           <div class="texto-slot">
             <h3>Códigos para as famílias</h3>
-            <p>Sua igreja recebe um código para as famílias do ministério infantil e acesso gratuito para as professoras. Escreva com o nome da igreja, a cidade e quantas crianças de 2 a 5 anos participam.</p>
+            <p>Escreva com o nome da igreja, a cidade e quantas crianças de 2 a 5 anos participam: separamos um código para cada família e para as professoras.</p>
             <a class="botao botao-branco" href="mailto:xthallis@gmail.com?subject=C%C3%B3digos%20Ovelhinha%20para%20a%20igreja&amp;body=Nome%20da%20igreja%3A%20%0D%0ACidade%3A%20%0D%0ACrian%C3%A7as%20de%202%20a%205%20anos%3A%20">Pedir códigos por e-mail<span class="so-leitor"> (abre seu app de e-mail)</span></a>
             <p class="nota">No app, o adulto abre a área dos pais e toca em “Tenho um código”.</p>
           </div>
@@ -588,57 +620,29 @@ a:hover { text-decoration-color: currentColor; }
     <div class="folha">
       <div class="folha-topo">
         <h2 id="t-clube">Clube Ovelhinha</h2>
-        <p>Comece com 3 brincadeiras grátis. Depois, o Clube Ovelhinha libera todos os desenhos, jogos e histórias.</p>
+        <p>As 3 primeiras brincadeiras são grátis. Depois, o Clube Ovelhinha libera todos os desenhos, brincadeiras e histórias.</p>
       </div>
-      <ol class="slots slots-clube" start="22">
+      <ol class="slots slots-clube" start="27">
         <li class="slot" style="--r:-4deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">22</span><h3 class="adesivo selo tres" style="--selo:#FFE08A"><span><b>3</b> brincadeiras grátis</span></h3></div>
-          <p>Sem assinatura, a criança já brinca com 3 atividades.</p>
+          <div class="encaixe"><span class="num" aria-hidden="true">27</span><span class="adesivo selo tres" style="--selo:#FFE08A" aria-hidden="true"><span><b>3</b> primeiras brincadeiras grátis</span></span></div>
+          <h3>Experimente 3 brincadeiras grátis</h3>
+          <p>As 3 primeiras vezes que a criança abre uma brincadeira são grátis. Depois, só com o Clube.</p>
         </li>
       </ol>
     </div>
     <div class="folha folha-dir">
-      <ol class="slots slots-clube" start="23">
+      <ol class="slots slots-clube" start="28">
         <li class="slot" style="--r:2deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">23</span><h3 class="adesivo selo preco" style="--selo:#BFE2F7"><span class="valor">R$ 9,90</span> <span class="periodo">por mês</span></h3></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">28</span><h3 class="adesivo selo preco" style="--selo:#BFE2F7"><span class="valor">R$ 9,90</span> <span class="periodo">por mês</span></h3></div>
           <p>Plano mensal, com renovação automática.</p>
         </li>
         <li class="slot" style="--r:-2.5deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">24</span><h3 class="adesivo selo preco" style="--selo:#D9CFF3;position:relative"><span class="valor">R$ 59,90</span> <span class="periodo">por ano</span> <span class="selinho">7 dias grátis</span></h3></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">29</span><h3 class="adesivo selo preco" style="--selo:#D9CFF3;position:relative"><span class="valor">R$ 59,90</span> <span class="periodo">por ano</span> <span class="selinho">7 dias grátis</span></h3></div>
           <p>Plano anual. Quem assina pela primeira vez começa com 7 dias grátis.</p>
         </li>
       </ol>
       <p class="miudo">A assinatura é feita na App Store ou no Google Play e pode ser cancelada pela loja. A compra fica na área dos pais, atrás do desafio para adultos: a criança nunca vê preço.</p>
     </div>
-  </section>
-
-  <section class="aberto aberto-inteiro" id="telas" aria-labelledby="t-telas">
-    <div class="folha-topo">
-      <h2 id="t-telas">Por dentro do app</h2>
-      <p>Telas do app em português, do jeito que aparecem no celular.</p>
-    </div>
-    <ol class="slots slots-telas largura-toda" start="25">
-      <li class="slot" style="--r:1.5deg">
-        <div class="encaixe encaixe-tela"><span class="num" aria-hidden="true">25</span><img class="adesivo foto" src="/ovelhinha/img/telas/colorir.webp" alt="Tela de pintura com o desenho da arca de Noé meio colorido e a caixa de giz embaixo" width="480" height="1043" loading="lazy"></div>
-        <h3>Pintando a arca</h3>
-      </li>
-      <li class="slot" style="--r:-1deg">
-        <div class="encaixe encaixe-tela"><span class="num" aria-hidden="true">26</span><img class="adesivo foto" src="/ovelhinha/img/telas/historias.webp" alt="Página de livrinho narrado: os animais entram na arca, dois a dois" width="480" height="1043" loading="lazy"></div>
-        <h3>Livrinho narrado</h3>
-      </li>
-      <li class="slot" style="--r:1deg">
-        <div class="encaixe encaixe-tela"><span class="num" aria-hidden="true">27</span><img class="adesivo foto" src="/ovelhinha/img/telas/arca.webp" alt="Jogo da Arca de Noé: bichinhos espalhados na tela e a arca na água esperando por eles" width="480" height="1043" loading="lazy"></div>
-        <h3>Jogo da arca</h3>
-      </li>
-      <li class="slot" style="--r:-1.5deg">
-        <div class="encaixe encaixe-tela"><span class="num" aria-hidden="true">28</span><img class="adesivo foto" src="/ovelhinha/img/telas/musica.webp" alt="Piano dos bichinhos: oito teclas coloridas, cada uma com um animal" width="480" height="1043" loading="lazy"></div>
-        <h3>Piano dos bichinhos</h3>
-      </li>
-      <li class="slot" style="--r:1.5deg">
-        <div class="encaixe encaixe-tela"><span class="num" aria-hidden="true">29</span><img class="adesivo foto" src="/ovelhinha/img/telas/adesivos.webp" alt="Álbum Meus adesivos com 7 de 40 adesivos ganhos e o resto em silhueta" width="480" height="1043" loading="lazy"></div>
-        <h3>Álbum de 40 adesivos</h3>
-      </li>
-    </ol>
   </section>
 
   <section class="aberto" id="perguntas" aria-labelledby="t-perguntas">
@@ -687,11 +691,13 @@ a:hover { text-decoration-color: currentColor; }
     <h2 id="t-fim">A Ovelhinha chega em breve</h2>
     <p>Mande um e-mail e avisamos quando o app estiver na App Store e no Google Play.</p>
     <a class="botao" href="mailto:xthallis@gmail.com?subject=Me%20avise%20quando%20a%20Ovelhinha%20lan%C3%A7ar&amp;body=Ol%C3%A1!%20Quero%20saber%20quando%20a%20Ovelhinha%20chegar.%20Meu%20celular%20%C3%A9%3A%20Android%20%2F%20iPhone">Me avise quando lançar<span class="so-leitor"> (abre seu app de e-mail)</span></a>
-    <p class="escreva">ou escreva para <span>xthallis@gmail.com</span></p>
+    <p class="escreva">Abre seu e-mail com a mensagem pronta: é só tocar em Enviar. Ou escreva para <span>xthallis@gmail.com</span></p>
   </div>
   <img class="festa" src="/ovelhinha/img/mascote/festa.webp" alt="A ovelhinha pulando de alegria" width="400" height="400" loading="lazy">
-  <div class="chao">
-    <footer class="rodape">
+</section>
+
+<footer class="chao">
+  <div class="rodape">
       <nav aria-label="Documentos do app">
         <ul>
           <li><a href="https://thallisribeiro.github.io/ovelhinha/privacy-policy.html">Política de Privacidade</a></li>
@@ -701,22 +707,15 @@ a:hover { text-decoration-color: currentColor; }
       </nav>
       <p>Thallis Ribeiro · Brasil · <a href="mailto:xthallis@gmail.com">xthallis@gmail.com</a></p>
       <p><a href="https://thallisribeiro.com.br/">thallisribeiro.com.br</a></p>
-    </footer>
-  </div>
-</section>
+    </div>
+</footer>
 
 <script>
 (() => {
-  // Cada adesivo é pressionado no encaixe quando aparece, uma vez só, e o contador do
-  // álbum sobe junto. Sem a classe "colar" (sem JS ou com movimento reduzido) nada disso
-  // roda e tudo já está colado.
-  const conta = document.querySelector('[data-conta]');
-  const encaixes = document.querySelectorAll('.encaixe');
-  document.querySelector('[data-total]').textContent = conta.textContent = encaixes.length;
+  // Cada adesivo é pressionado no encaixe quando aparece, uma vez só. Sem a classe
+  // "colar" (sem JS ou com movimento reduzido) nada disso roda e tudo já está colado.
   if (!document.documentElement.classList.contains('colar')) return;
-  const pilula = conta.closest('.contador');
-  let colados = 0;
-  conta.textContent = 0;
+  const encaixes = document.querySelectorAll('.encaixe');
   // A silhueta do adesivo fica marcada no encaixe, como no álbum do app.
   encaixes.forEach((el) => {
     const adesivo = el.querySelector('.adesivo');
@@ -725,11 +724,6 @@ a:hover { text-decoration-color: currentColor; }
     fantasma.setAttribute('aria-hidden', 'true');
     if (fantasma.alt) fantasma.alt = '';
     el.insertBefore(fantasma, adesivo);
-  });
-  addEventListener('animationend', (e) => {
-    if (e.animationName !== 'colar' || !e.target.closest('.encaixe')) return;
-    conta.textContent = ++colados;
-    pilula.animate([{ transform: 'scale(1.16)' }, { transform: 'scale(1)' }], { duration: 360, easing: 'cubic-bezier(.16,1,.3,1)' });
   });
   const io = new IntersectionObserver((entradas) => {
     let i = 0;
