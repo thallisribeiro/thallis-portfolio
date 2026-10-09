@@ -120,6 +120,7 @@ a:hover { text-decoration-color: currentColor; }
 .promessa { margin-top: .5em; font-size: clamp(21px, 2.5vw, 34px); font-weight: 800; line-height: 1.3; max-width: 30ch; text-wrap: balance; }
 .capa .botao { margin-top: clamp(24px, 3vw, 36px); }
 .escreva { margin-top: 12px; max-width: 34ch; font-weight: 700; color: var(--roxo-texto); text-wrap: balance; }
+a[href="mailto:xthallis@gmail.com"], .escreva span { white-space: nowrap; }
 .escreva span { font-weight: 900; color: var(--ameixa); user-select: all; -webkit-user-select: all; }
 .breve { margin-top: 10px; font-weight: 800; color: var(--roxo-texto); }
 .pilula-capa {
@@ -189,6 +190,7 @@ a:hover { text-decoration-color: currentColor; }
 .slots-telas { --gx: clamp(14px, 2.2vw, 30px); display: flex; flex-wrap: wrap; justify-content: center; column-gap: var(--gx); }
 .slots-telas > li { width: calc((100% - 2 * var(--gx)) / 3); }
 @media (max-width: 479px) { .slots-telas { --gx: 12px; } .slots-telas > li { width: calc((100% - var(--gx)) / 2); } }
+@media (min-width: 960px) { .slots-telas > li { width: calc((100% - 4 * var(--gx)) / 5); } }
 .encaixe-tela { aspect-ratio: 480 / 1043; border-radius: 22px; }
 .aberto-inteiro::before { display: none; }
 .encaixe-tela > img.foto { width: 86%; border-width: 4px; border-radius: 14px; }
@@ -211,13 +213,14 @@ a:hover { text-decoration-color: currentColor; }
 .slots-linha { grid-template-columns: minmax(0, 1fr); gap: 22px; }
 .slot-linha { grid-template-columns: clamp(118px, 11vw, 148px) minmax(0, 1fr); align-items: center; column-gap: clamp(16px, 2vw, 24px); }
 .slot-linha .encaixe { margin: 0; }
+.slots-linha .selo { font-size: clamp(14px, 11.5cqi, 20px); }
 .slots-linha .slot-linha p { font-size: 1em; }
 
 /* A ovelhinha falando, com o balão do app. */
 .mascote-fala { display: flex; align-items: center; justify-content: flex-end; gap: 14px; }
 .mascote-fala img { width: clamp(120px, 13vw, 176px); flex: none; filter: var(--sombra-adesivo); }
 .balao {
-  position: relative; min-width: 0; max-width: 24ch; padding: 14px 20px; border-radius: 22px; overflow-wrap: anywhere;
+  position: relative; min-width: 0; max-width: 24ch; padding: 14px 20px; border-radius: 22px; overflow-wrap: break-word;
   background: #fff; color: var(--ameixa); font-size: clamp(18px, 1.7vw, 23px); font-weight: 900; line-height: 1.3;
   box-shadow: 0 3px 0 rgb(101 82 152 / .14), 0 12px 22px -10px rgb(61 44 94 / .3);
 }
@@ -336,7 +339,7 @@ a:hover { text-decoration-color: currentColor; }
   .slots { column-gap: 12px; }
   .encaixe > img.foto { width: 88%; }
   .foto { border-width: 4px; border-radius: 12px; }
-  .slot-linha { grid-template-columns: 118px minmax(0, 1fr); }
+  .slot-linha { grid-template-columns: 132px minmax(0, 1fr); }
   .selo { border-width: 4px; }
   .preco { width: 92%; }
   .mascote-fala img { width: 112px; }
@@ -375,7 +378,7 @@ a:hover { text-decoration-color: currentColor; }
       <p class="escreva">Abre seu e-mail com a mensagem pronta: é só tocar em Enviar. Ou escreva para <span>xthallis@gmail.com</span></p>
       <p class="breve">Em breve na App Store e no Google Play</p>
       <p class="pilula-capa"><span>Sem anúncios ·</span> <span>sem cadastro ·</span> <span>funciona sem internet</span></p>
-      <a class="link-igreja" href="#igrejas">É do ministério infantil? Kit gratuito</a>
+      <a class="link-igreja" href="#igrejas">É do ministério infantil ou catequese? Kit gratuito</a>
     </div>
     <div class="capa-arte">
       <img class="colado-capa c-arco" src="/ovelhinha/img/adesivos/arco-iris.webp" alt="" width="256" height="256">
@@ -520,11 +523,11 @@ a:hover { text-decoration-color: currentColor; }
       <ol class="slots slots-linha" start="18">
         <li class="slot slot-linha" style="--r:4deg">
           <div class="encaixe"><span class="num" aria-hidden="true">18</span><h3 class="adesivo selo selo-gota" style="--selo:#CDE8B8">Não coleta dados</h3></div>
-          <p>As pinturas e os ajustes ficam guardados só neste aparelho.</p>
+          <p>As pinturas e as configurações ficam guardadas só neste aparelho.</p>
         </li>
         <li class="slot slot-linha" style="--r:-3deg">
           <div class="encaixe"><span class="num" aria-hidden="true">19</span><h3 class="adesivo selo selo-quadro" style="--selo:#F6C9CC">Área dos pais</h3></div>
-          <p>Uma soma rápida, só para adultos, protege os ajustes. As compras e os links externos ficam lá dentro.</p>
+          <p>Uma soma rápida, só para adultos, protege as configurações. As compras e os links externos ficam lá dentro.</p>
         </li>
         <li class="slot slot-linha" style="--r:2deg">
           <div class="encaixe"><span class="num" aria-hidden="true">20</span><h3 class="adesivo selo" style="--selo:#FBD3A8">Tempo de tela</h3></div>
@@ -542,7 +545,7 @@ a:hover { text-decoration-color: currentColor; }
     <div class="folha">
       <div class="folha-topo">
         <h2 id="t-historias">Quatro histórias da Bíblia</h2>
-        <p>A Criação, a Arca de Noé, o Natal e Jesus, contadas em livrinhos narrados e também nos 30 desenhos para colorir. Sem cenas de medo.</p>
+        <p>A Criação, a Arca de Noé, o Natal e Jesus, contadas em livrinhos narrados e também nos 30 desenhos para colorir. Sem cenas assustadoras.</p>
       </div>
       <ol class="slots" start="21">
         <li class="slot" style="--r:-2deg">
@@ -580,8 +583,8 @@ a:hover { text-decoration-color: currentColor; }
   <section class="aberto" id="igrejas" aria-labelledby="t-igrejas">
     <div class="folha">
       <div class="folha-topo">
-        <h2 id="t-igrejas">Para o ministério infantil da sua igreja</h2>
-        <p>Conteúdo comum a católicos e evangélicos, feito para o berçário e o maternal, sem cenas de medo. Cada família recebe um código que libera o Clube Ovelhinha sem custo, pelo prazo que informamos junto com os códigos.</p>
+        <h2 id="t-igrejas">Para o ministério infantil ou a catequese da sua igreja</h2>
+        <p>Conteúdo comum a católicos e evangélicos, feito para o berçário e o maternal, sem cenas assustadoras. Cada família recebe um código que libera o Clube Ovelhinha sem custo, pelo prazo que informamos junto com os códigos.</p>
         <p>O kit já funciona hoje, impresso. O app e os códigos chegam no lançamento: peça agora e enviamos assim que a Ovelhinha estiver nas lojas.</p>
       </div>
       <div class="folha-topo">
@@ -607,7 +610,7 @@ a:hover { text-decoration-color: currentColor; }
           <div class="encaixe"><span class="num" aria-hidden="true">26</span><span class="adesivo selo selo-quadro" style="--selo:#D9CFF3" aria-hidden="true"><span><small>No app:</small>“Tenho um código”</span></span></div>
           <div class="texto-slot">
             <h3>Códigos para as famílias</h3>
-            <p>Escreva com o nome da igreja, a cidade e quantas crianças de 2 a 5 anos participam: separamos um código para cada família e para as professoras.</p>
+            <p>Escreva com o nome da igreja, a cidade e quantas crianças de 2 a 5 anos participam: separamos um código para cada família e para os professores.</p>
             <a class="botao botao-branco" href="mailto:xthallis@gmail.com?subject=C%C3%B3digos%20Ovelhinha%20para%20a%20igreja&amp;body=Nome%20da%20igreja%3A%20%0D%0ACidade%3A%20%0D%0ACrian%C3%A7as%20de%202%20a%205%20anos%3A%20">Pedir códigos por e-mail<span class="so-leitor"> (abre seu app de e-mail)</span></a>
             <p class="nota">No app, o adulto abre a área dos pais e toca em “Tenho um código”.</p>
           </div>
@@ -620,13 +623,13 @@ a:hover { text-decoration-color: currentColor; }
     <div class="folha">
       <div class="folha-topo">
         <h2 id="t-clube">Clube Ovelhinha</h2>
-        <p>As 3 primeiras brincadeiras são grátis. Depois, o Clube Ovelhinha libera todos os desenhos, brincadeiras e histórias.</p>
+        <p>Dá para experimentar 3 vezes de graça. Depois, o app inteiro fica no Clube Ovelhinha.</p>
       </div>
       <ol class="slots slots-clube" start="27">
         <li class="slot" style="--r:-4deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">27</span><span class="adesivo selo tres" style="--selo:#FFE08A" aria-hidden="true"><span><b>3</b> primeiras brincadeiras grátis</span></span></div>
-          <h3>Experimente 3 brincadeiras grátis</h3>
-          <p>As 3 primeiras vezes que a criança abre uma brincadeira são grátis. Depois, só com o Clube.</p>
+          <div class="encaixe"><span class="num" aria-hidden="true">27</span><span class="adesivo selo tres" style="--selo:#FFE08A" aria-hidden="true"><span><b>3</b> vezes grátis</span></span></div>
+          <h3>Experimente 3 vezes grátis</h3>
+          <p>Cada vez que a criança abre uma brincadeira conta uma vez, mesmo se sair logo. Depois da 3ª, só com o Clube.</p>
         </li>
       </ol>
     </div>
@@ -649,14 +652,18 @@ a:hover { text-decoration-color: currentColor; }
     <div class="folha">
       <div class="folha-topo">
         <h2 id="t-perguntas">Perguntas dos pais</h2>
-        <p>Respostas curtas para o que mais perguntam antes de baixar.</p>
+        <p>Respostas curtas para o que mais perguntam antes de baixar. Ou escreva para <a href="mailto:xthallis@gmail.com">xthallis@gmail.com</a>.</p>
       </div>
       <div class="mascote-fala">
-        <p class="balao">Ficou alguma dúvida? Escreva para <a href="mailto:xthallis@gmail.com">xthallis@gmail.com</a></p>
+        <p class="balao">Ficou alguma dúvida? Escreva pra gente!</p>
         <img src="/ovelhinha/img/mascote/pensa.webp" alt="" width="320" height="320" loading="lazy">
       </div>
     </div>
     <div class="folha perguntas">
+      <details>
+        <summary>Quanto custa?</summary>
+        <p>Dá para experimentar 3 vezes de graça. Depois, o Clube Ovelhinha custa R$ 9,90 por mês ou R$ 59,90 por ano, com 7 dias grátis no plano anual para quem assina pela primeira vez. <a href="#clube">Ver os planos</a></p>
+      </details>
       <details>
         <summary>Quando o app chega às lojas?</summary>
         <p>Em breve. Toque em “Me avise quando lançar” e mande o e-mail: avisamos assim que a Ovelhinha estiver na App Store e no Google Play.</p>
@@ -671,15 +678,19 @@ a:hover { text-decoration-color: currentColor; }
       </details>
       <details>
         <summary>Serve para famílias católicas e evangélicas?</summary>
-        <p>Sim. O conteúdo é comum a católicos e evangélicos: a Criação, a Arca de Noé, o Natal e a vida de Jesus, para crianças pequenas e sem cenas de medo.</p>
+        <p>Sim. O conteúdo é comum a católicos e evangélicos: a Criação, a Arca de Noé, o Natal e a vida de Jesus, para crianças pequenas e sem cenas assustadoras.</p>
       </details>
       <details>
         <summary>O que o app guarda sobre a criança?</summary>
-        <p>Nada sai do aparelho. As pinturas e os ajustes ficam guardados só nele, e o app não pede cadastro. Os detalhes estão na <a href="https://thallisribeiro.github.io/ovelhinha/privacy-policy.html">Política de Privacidade</a>.</p>
+        <p>Nada sai do aparelho. As pinturas e as configurações ficam guardadas só nele, e o app não pede cadastro. Os detalhes estão na <a href="https://thallisribeiro.github.io/ovelhinha/privacy-policy.html">Política de Privacidade</a>.</p>
       </details>
       <details>
         <summary>Como cancelo a assinatura?</summary>
         <p>Pela loja onde você assinou. No Google Play: foto do perfil, Pagamentos e assinaturas, Assinaturas. No iPhone e no iPad: Ajustes, seu nome, Assinaturas.</p>
+      </details>
+      <details>
+        <summary>Quem faz a Ovelhinha?</summary>
+        <p>A Ovelhinha é feita por Thallis Ribeiro, aqui no Brasil. <a href="/">Conheça outros trabalhos em thallisribeiro.com.br</a></p>
       </details>
     </div>
   </section>
