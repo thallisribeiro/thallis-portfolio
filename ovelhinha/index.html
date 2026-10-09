@@ -46,8 +46,6 @@
   --contorno: rgb(101 82 152 / .34);
   --lip: 0 5px 0 rgb(101 82 152 / .16), 0 7px 14px rgb(101 82 152 / .08);
   --sombra-adesivo: drop-shadow(0 3px 0 rgb(101 82 152 / .2)) drop-shadow(0 8px 9px rgb(61 44 94 / .14));
-  --sombra-alta: drop-shadow(0 3px 0 rgb(101 82 152 / 0)) drop-shadow(0 26px 18px rgb(61 44 94 / .24));
-  --sombra-rente: drop-shadow(0 1px 0 rgb(101 82 152 / .28)) drop-shadow(0 2px 3px rgb(61 44 94 / .22));
   --dobra: clamp(56px, 7vw, 112px);
   --morro-h: clamp(120px, 15vw, 230px);
   --sobe: clamp(62px, 8.5vw, 130px);
@@ -111,8 +109,7 @@ a:hover { text-decoration-color: currentColor; }
 }
 .contador img { width: 26px; height: 26px; }
 .contador small { font-size: 14px; font-weight: 800; }
-@media (max-width: 379px) { .marca span { display: none; } }
-@media (max-width: 599px) { .contador small { display: none; } }
+@media (max-width: 599px) { .marca span { display: none; } }
 
 /* Capa do álbum */
 .capa { position: relative; overflow: clip; }
@@ -122,19 +119,27 @@ a:hover { text-decoration-color: currentColor; }
   display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr); align-items: center; column-gap: 24px;
   padding: clamp(28px, 5vw, 64px) clamp(16px, 4vw, 48px) 0;
 }
-.capa-texto { padding-bottom: calc(var(--sobe) + 48px); }
+.capa-texto { padding-bottom: calc(var(--sobe) + 24px); }
 .capa h1 { font-size: clamp(56px, 9vw, 128px); line-height: .92; letter-spacing: -.03em; color: var(--roxo); }
 .promessa { margin-top: .5em; font-size: clamp(21px, 2.5vw, 34px); font-weight: 800; line-height: 1.3; max-width: 30ch; text-wrap: balance; }
 .capa .botao { margin-top: clamp(24px, 3vw, 36px); }
-.breve { margin-top: 14px; font-weight: 800; color: var(--roxo-texto); }
+.escreva { margin-top: 12px; font-weight: 700; color: var(--roxo-texto); }
+.escreva span { font-weight: 900; color: var(--ameixa); user-select: all; -webkit-user-select: all; }
+.breve { margin-top: 10px; font-weight: 800; color: var(--roxo-texto); }
+.pilula-capa {
+  display: inline-block; max-width: 100%; margin-top: 16px; padding: 8px 18px; border-radius: 20px;
+  background: #fff; color: var(--roxo); font-size: clamp(15px, 1.2vw, 17px); font-weight: 900; line-height: 1.35; text-wrap: balance;
+}
+.pilula-capa span { white-space: nowrap; }
+.link-igreja { display: inline-flex; align-items: center; min-height: 44px; margin-top: 6px; font-weight: 800; color: var(--ameixa); text-decoration-color: rgb(61 44 94 / .5); }
 .capa-arte { position: relative; width: 100%; max-width: 520px; aspect-ratio: 1 / .9; justify-self: center; align-self: end; margin-bottom: calc(var(--sobe) + 2px); }
 .capa-arte img { position: absolute; }
 .capa-arte .ovelha { width: 66%; left: 17%; bottom: 0; filter: drop-shadow(0 10px 10px rgb(61 44 94 / .14)); }
-.capa-arte .colado-capa { filter: var(--sombra-adesivo); }
-.c-arco { width: 26%; left: 6%; top: 0; transform: rotate(-9deg); }
-.c-pomba { width: 25%; right: 0; top: 0; transform: rotate(8deg); }
-.c-leao { width: 24%; left: -2%; bottom: 2%; transform: rotate(-5deg); }
-.c-elefante { width: 27%; right: -3%; bottom: 0; transform: rotate(6deg); }
+.capa-arte .colado-capa { filter: var(--sombra-adesivo); transform: rotate(var(--r, 0deg)); }
+.c-arco { width: 26%; left: 6%; top: 0; --r: -9deg; --i: 0; }
+.c-pomba { width: 25%; right: 0; top: 0; --r: 8deg; --i: 1; }
+.c-leao { width: 24%; left: -2%; bottom: 2%; --r: -5deg; --i: 2; }
+.c-elefante { width: 27%; right: -3%; bottom: 0; --r: 6deg; --i: 3; }
 .morro {
   position: absolute; left: -12%; right: -12%; bottom: 0; height: var(--morro-h);
   background: linear-gradient(180deg, var(--morro-a), var(--morro-b));
@@ -172,6 +177,7 @@ a:hover { text-decoration-color: currentColor; }
   background: var(--tinta, var(--vazio));
   margin-bottom: 8px;
 }
+.encaixe > * { grid-area: 1 / 1; }
 .num { position: absolute; top: 6px; left: 10px; font-size: 13px; font-weight: 900; color: var(--roxo-texto); font-variant-numeric: tabular-nums; }
 .adesivo { transform: rotate(var(--r, 0deg)); filter: var(--sombra-adesivo); }
 .encaixe > img.adesivo { width: 74%; }
@@ -187,7 +193,9 @@ a:hover { text-decoration-color: currentColor; }
 /* Fotos-adesivo: histórias e telas do app, com a borda branca do adesivo. */
 .foto { border: 6px solid #fff; border-radius: 16px; }
 .encaixe > img.foto { width: 86%; }
+.slots-telas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .slots-telas .encaixe { aspect-ratio: 480 / 1043; border-radius: 22px; }
+.aberto-inteiro::before { display: none; }
 .slots-telas .encaixe > img.foto { width: 86%; border-width: 4px; border-radius: 14px; }
 .slots-telas .slot h3 { font-size: clamp(17px, 1.4vw, 19px); }
 
@@ -239,11 +247,11 @@ a:hover { text-decoration-color: currentColor; }
 .preco { aspect-ratio: auto; width: 86%; padding: .7em .4em .8em; border-radius: 30px; gap: 2px; }
 .preco .valor { font-size: 32px; font-size: clamp(22px, 17cqi, 44px); letter-spacing: -.02em; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .preco .periodo { font-size: 17px; font-size: clamp(13px, 8cqi, 19px); font-weight: 800; }
-.tres { font-size: 16px; font-size: clamp(12px, 8.5cqi, 19px); }
+.tres { font-size: 15px; font-size: clamp(11px, 7.2cqi, 19px); }
 .tres b { display: block; font-size: 52px; font-size: clamp(36px, 30cqi, 66px); line-height: .9; }
 .selinho {
-  position: absolute; right: -13%; bottom: -42%; display: grid; place-items: center;
-  width: 36cqi; min-width: 66px; aspect-ratio: 1; padding: 6px; border-radius: 50%;
+  position: absolute; right: -12%; top: -78%; display: grid; place-items: center;
+  width: 30cqi; min-width: 58px; aspect-ratio: 1; padding: 6px; border-radius: 50%;
   border: 4px solid #fff; background: radial-gradient(110% 80% at 28% 16%, rgb(255 255 255 / .8), rgb(255 255 255 / 0) 46%), var(--amarelo);
   font-size: 14px; font-size: clamp(12px, 6.4cqi, 16px); line-height: 1; transform: rotate(10deg);
 }
@@ -285,18 +293,31 @@ a:hover { text-decoration-color: currentColor; }
 .rodape nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; column-gap: 8px; }
 .rodape a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 8px; color: var(--ameixa); text-decoration-color: rgb(61 44 94 / .4); }
 
-/* O gesto do álbum: cada adesivo paira sobre o encaixe e é pressionado no lugar. */
-.colar .encaixe:not(.colado) .adesivo { transform: translate(9%, -15%) rotate(calc(var(--r, 0deg) - 8deg)) scale(1.13); filter: var(--sombra-alta); }
+/* O gesto do álbum: cada adesivo paira sobre o encaixe, com a silhueta dele marcada no
+   lugar, e é pressionado. Só transform e opacity animam. */
+.fantasma { filter: brightness(0) opacity(.1) !important; animation: none !important; user-select: none; -webkit-user-select: none; }
+.encaixe::before {
+  content: ""; position: absolute; inset: 20% 16% 6%; border-radius: 50%; pointer-events: none; opacity: 0;
+  background: radial-gradient(closest-side, rgb(61 44 94 / .26), rgb(61 44 94 / 0));
+}
+.colar .encaixe:not(.colado)::before { opacity: 1; }
+.colar .encaixe:not(.colado) .adesivo:not(.fantasma) { transform: translate(9%, -15%) rotate(calc(var(--r, 0deg) - 8deg)) scale(1.13); }
 .encaixe.colado .adesivo { animation: colar 680ms cubic-bezier(.2, .85, .25, 1) calc(var(--i, 0) * 130ms) backwards; }
+.encaixe.colado::before { animation: pousa 680ms linear calc(var(--i, 0) * 130ms) backwards; }
+.colar .colado-capa { animation: colar 680ms cubic-bezier(.2, .85, .25, 1) calc(var(--i, 0) * 150ms + 250ms) backwards; }
 .encaixe.colado::after {
   content: ""; position: absolute; inset: -4px; border-radius: 21px; border: 3px solid var(--amarelo); pointer-events: none;
   opacity: 0; animation: aro 560ms var(--solta) calc(var(--i, 0) * 130ms + 380ms) backwards;
 }
 @keyframes colar {
-  0% { transform: translate(9%, -15%) rotate(calc(var(--r, 0deg) - 8deg)) scale(1.13); filter: var(--sombra-alta); }
-  56% { transform: translate(0, 1%) rotate(var(--r, 0deg)) scale(.95); filter: var(--sombra-rente); }
+  0% { transform: translate(9%, -15%) rotate(calc(var(--r, 0deg) - 8deg)) scale(1.13); }
+  56% { transform: translate(0, 1%) rotate(var(--r, 0deg)) scale(.95); }
   78% { transform: rotate(var(--r, 0deg)) scale(1.02); }
-  100% { transform: rotate(var(--r, 0deg)) scale(1); filter: var(--sombra-adesivo); }
+  100% { transform: rotate(var(--r, 0deg)) scale(1); }
+}
+@keyframes pousa {
+  0% { opacity: 1; }
+  56%, 100% { opacity: 0; }
 }
 @keyframes aro {
   0% { opacity: .95; transform: scale(.97); }
@@ -325,14 +346,10 @@ a:hover { text-decoration-color: currentColor; }
   .slots-igreja .slot-linha { grid-template-columns: minmax(0, 1fr); }
   .slots-igreja .encaixe { width: min(100%, 230px); }
 }
-/* Telas: seis lado a lado, três em cada folha, com a dobra entre elas. */
-@media (min-width: 960px) {
-  .slots-telas { grid-template-columns: repeat(3, minmax(0, 1fr)) 0 repeat(3, minmax(0, 1fr)); column-gap: calc(var(--dobra) / 2); }
-  .slots-telas > li:nth-child(4) { grid-column: 5; }
-}
 @media print {
   .barra, .contador { display: none; }
   .colar .encaixe .adesivo { transform: rotate(var(--r, 0deg)); filter: none; }
+  .fantasma, .encaixe::before { display: none; }
 }
 </style>
 </head>
@@ -352,7 +369,10 @@ a:hover { text-decoration-color: currentColor; }
       <h1 id="t-capa">Ovelhinha</h1>
       <p class="promessa">Jogos bíblicos, histórias e colorir para crianças de 2 a 5 anos</p>
       <a class="botao" href="mailto:xthallis@gmail.com?subject=Me%20avise%20quando%20a%20Ovelhinha%20lan%C3%A7ar">Me avise quando lançar</a>
+      <p class="escreva">ou escreva para <span>xthallis@gmail.com</span></p>
       <p class="breve">Em breve na App Store e no Google Play</p>
+      <p class="pilula-capa"><span>Sem anúncios ·</span> <span>sem cadastro ·</span> <span>funciona sem internet</span></p>
+      <a class="link-igreja" href="#igrejas">É do ministério infantil? Kit gratuito</a>
     </div>
     <div class="capa-arte">
       <img class="colado-capa c-arco" src="/ovelhinha/img/adesivos/arco-iris.webp" alt="" width="256" height="256">
@@ -430,113 +450,84 @@ a:hover { text-decoration-color: currentColor; }
     </div>
   </section>
 
-  <section class="aberto" id="historias" aria-labelledby="t-historias">
-    <div class="folha">
-      <div class="folha-topo">
-        <h2 id="t-historias">Quatro histórias da Bíblia</h2>
-        <p>A Criação, a Arca de Noé, o Natal e Jesus, contadas em livrinhos narrados e repartidas nos 30 desenhos para colorir. Sem cenas de medo.</p>
-      </div>
-      <ol class="slots" start="9">
-        <li class="slot" style="--r:-2deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">9</span><img class="adesivo foto" src="/ovelhinha/img/historias/criacao.webp" alt="Desenho do app: dois passarinhos azuis num galho de macieira, um coelho na grama e o sol sorrindo" width="480" height="480" loading="lazy"></div>
-          <h3>A Criação</h3>
-          <p class="fala">“Deus fez tudo com amor. E fez você também!”</p>
-        </li>
-        <li class="slot" style="--r:2.5deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">10</span><img class="adesivo foto" src="/ovelhinha/img/historias/arca.webp" alt="Desenho do app: Noé acenando na arca com a girafa, o elefante e a pomba, debaixo do arco-íris" width="480" height="480" loading="lazy"></div>
-          <h3>Arca de Noé</h3>
-          <p class="fala">“O arco-íris lembra: Deus cumpre suas promessas!”</p>
-        </li>
-      </ol>
-    </div>
-    <div class="folha folha-dir">
-      <ol class="slots" start="11">
-        <li class="slot" style="--r:1.5deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">11</span><img class="adesivo foto" src="/ovelhinha/img/historias/natal.webp" alt="Desenho do app: Maria e José olhando o menino Jesus na manjedoura, com a estrela e um carneirinho" width="480" height="480" loading="lazy"></div>
-          <h3>Natal</h3>
-          <p class="fala">“Jesus nasceu! Ele é o presente de Deus para nós.”</p>
-        </li>
-        <li class="slot" style="--r:-3deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">12</span><img class="adesivo foto" src="/ovelhinha/img/historias/jesus.webp" alt="Desenho do app: Jesus sentado na grama com duas crianças e um carneirinho" width="480" height="480" loading="lazy"></div>
-          <h3>Jesus e as crianças</h3>
-          <p class="fala">“Jesus ama as crianças. Jesus ama você!”</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="aberto" id="telas" aria-labelledby="t-telas">
-    <div class="folha-topo">
-      <h2 id="t-telas">Por dentro do app</h2>
-      <p>Telas do app em português, do jeito que aparecem no celular.</p>
-    </div>
-    <ol class="slots slots-telas largura-toda" start="13">
-      <li class="slot" style="--r:-1.5deg">
-        <div class="encaixe"><span class="num" aria-hidden="true">13</span><img class="adesivo foto" src="/ovelhinha/img/telas/jogos.webp" alt="Tela inicial do app com as oito portas: Colorir, Balões, Arca de Noé, Quebra-cabeça, Memória, Sombras, Histórias e Música" width="480" height="1043" loading="lazy"></div>
-        <h3>Os 8 jogos</h3>
-      </li>
-      <li class="slot" style="--r:1.5deg">
-        <div class="encaixe"><span class="num" aria-hidden="true">14</span><img class="adesivo foto" src="/ovelhinha/img/telas/colorir.webp" alt="Tela de pintura com o desenho da arca de Noé meio colorido e a caixa de giz embaixo" width="480" height="1043" loading="lazy"></div>
-        <h3>Pintando a arca</h3>
-      </li>
-      <li class="slot" style="--r:-1deg">
-        <div class="encaixe"><span class="num" aria-hidden="true">15</span><img class="adesivo foto" src="/ovelhinha/img/telas/historias.webp" alt="Página de livrinho narrado: os animais entram na arca, dois a dois" width="480" height="1043" loading="lazy"></div>
-        <h3>Livrinho narrado</h3>
-      </li>
-      <li class="slot" style="--r:1deg">
-        <div class="encaixe"><span class="num" aria-hidden="true">16</span><img class="adesivo foto" src="/ovelhinha/img/telas/arca.webp" alt="Jogo da Arca de Noé: bichinhos espalhados na tela e a arca na água esperando por eles" width="480" height="1043" loading="lazy"></div>
-        <h3>Jogo da arca</h3>
-      </li>
-      <li class="slot" style="--r:-1.5deg">
-        <div class="encaixe"><span class="num" aria-hidden="true">17</span><img class="adesivo foto" src="/ovelhinha/img/telas/musica.webp" alt="Piano dos bichinhos: oito teclas coloridas, cada uma com um animal" width="480" height="1043" loading="lazy"></div>
-        <h3>Piano dos bichinhos</h3>
-      </li>
-      <li class="slot" style="--r:1.5deg">
-        <div class="encaixe"><span class="num" aria-hidden="true">18</span><img class="adesivo foto" src="/ovelhinha/img/telas/adesivos.webp" alt="Álbum Meus adesivos com 7 de 40 adesivos ganhos e o resto em silhueta" width="480" height="1043" loading="lazy"></div>
-        <h3>Álbum de 40 adesivos</h3>
-      </li>
-    </ol>
-  </section>
-
   <section class="aberto" id="pais" aria-labelledby="t-pais">
     <div class="folha">
       <div class="folha-topo">
         <h2 id="t-pais">Para você entregar o celular tranquilo</h2>
         <p>O que fica de fora do app pesa tanto quanto o que tem dentro.</p>
       </div>
-      <ol class="slots slots-linha" start="19">
+      <ol class="slots slots-linha" start="9">
         <li class="slot slot-linha" style="--r:-4deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">19</span><h3 class="adesivo selo" style="--selo:#FFE08A">Sem anúncios</h3></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">9</span><h3 class="adesivo selo" style="--selo:#FFE08A">Sem anúncios</h3></div>
           <p>Nenhuma propaganda aparece para a criança, em nenhuma tela.</p>
         </li>
         <li class="slot slot-linha" style="--r:3deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">20</span><h3 class="adesivo selo selo-pilula" style="--selo:#D9CFF3">Sem cadastro</h3></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">10</span><h3 class="adesivo selo selo-pilula" style="--selo:#D9CFF3">Sem cadastro</h3></div>
           <p>Não pede conta, e-mail nem senha. É instalar e brincar.</p>
         </li>
         <li class="slot slot-linha" style="--r:-2deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">21</span><h3 class="adesivo selo selo-quadro" style="--selo:#BFE2F7">Funciona sem internet</h3></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">11</span><h3 class="adesivo selo selo-quadro" style="--selo:#BFE2F7">Funciona sem internet</h3></div>
           <p>Tudo fica dentro do app: dá para brincar sem Wi-Fi e sem dados móveis.</p>
         </li>
       </ol>
     </div>
     <div class="folha folha-dir">
-      <ol class="slots slots-linha" start="22">
+      <ol class="slots slots-linha" start="12">
         <li class="slot slot-linha" style="--r:4deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">22</span><h3 class="adesivo selo selo-gota" style="--selo:#CDE8B8">Não coleta dados</h3></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">12</span><h3 class="adesivo selo selo-gota" style="--selo:#CDE8B8">Não coleta dados</h3></div>
           <p>As pinturas e os ajustes ficam guardados só neste aparelho.</p>
         </li>
         <li class="slot slot-linha" style="--r:-3deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">23</span><h3 class="adesivo selo selo-quadro" style="--selo:#F6C9CC">Área dos pais</h3></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">13</span><h3 class="adesivo selo selo-quadro" style="--selo:#F6C9CC">Área dos pais</h3></div>
           <p>Uma soma rápida, só para adultos, protege os ajustes. As compras e os links externos ficam lá dentro.</p>
         </li>
         <li class="slot slot-linha" style="--r:2deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">24</span><h3 class="adesivo selo" style="--selo:#FBD3A8">Tempo de tela</h3></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">14</span><h3 class="adesivo selo" style="--selo:#FBD3A8">Tempo de tela</h3></div>
           <p>Você escolhe o limite de uso e a hora de descansar. Quando o tempo acaba, a ovelhinha vai dormir e só um adulto continua.</p>
         </li>
       </ol>
       <div class="mascote-fala">
         <p class="balao">Hora de descansar! A ovelhinha está com soninho. Até a próxima!</p>
         <img src="/ovelhinha/img/mascote/dorme.webp" alt="" width="360" height="360" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section class="aberto" id="historias" aria-labelledby="t-historias">
+    <div class="folha">
+      <div class="folha-topo">
+        <h2 id="t-historias">Quatro histórias da Bíblia</h2>
+        <p>A Criação, a Arca de Noé, o Natal e Jesus, contadas em livrinhos narrados e repartidas nos 30 desenhos para colorir. Sem cenas de medo.</p>
+      </div>
+      <ol class="slots" start="15">
+        <li class="slot" style="--r:-2deg">
+          <div class="encaixe"><span class="num" aria-hidden="true">15</span><img class="adesivo foto" src="/ovelhinha/img/historias/criacao.webp" alt="Desenho do app: dois passarinhos azuis num galho de macieira, um coelho na grama e o sol sorrindo" width="480" height="480" loading="lazy"></div>
+          <h3>A Criação</h3>
+          <p class="fala">“Deus fez tudo com amor. E fez você também!”</p>
+        </li>
+        <li class="slot" style="--r:2.5deg">
+          <div class="encaixe"><span class="num" aria-hidden="true">16</span><img class="adesivo foto" src="/ovelhinha/img/historias/arca.webp" alt="Desenho do app: Noé acenando na arca com a girafa, o elefante e a pomba, debaixo do arco-íris" width="480" height="480" loading="lazy"></div>
+          <h3>Arca de Noé</h3>
+          <p class="fala">“O arco-íris lembra: Deus cumpre suas promessas!”</p>
+        </li>
+      </ol>
+    </div>
+    <div class="folha folha-dir">
+      <ol class="slots" start="17">
+        <li class="slot" style="--r:1.5deg">
+          <div class="encaixe"><span class="num" aria-hidden="true">17</span><img class="adesivo foto" src="/ovelhinha/img/historias/natal.webp" alt="Desenho do app: Maria e José olhando o menino Jesus na manjedoura, com a estrela e um carneirinho" width="480" height="480" loading="lazy"></div>
+          <h3>Natal</h3>
+          <p class="fala">“Jesus nasceu! Ele é o presente de Deus para nós.”</p>
+        </li>
+        <li class="slot" style="--r:-3deg">
+          <div class="encaixe"><span class="num" aria-hidden="true">18</span><img class="adesivo foto" src="/ovelhinha/img/historias/jesus.webp" alt="Desenho do app: Jesus sentado na grama com duas crianças e um carneirinho" width="480" height="480" loading="lazy"></div>
+          <h3>Jesus e as crianças</h3>
+          <p class="fala">“Jesus ama as crianças. Jesus ama você!”</p>
+        </li>
+      </ol>
+      <div class="mascote-fala">
+        <p class="balao">Pinte uma história. A gente guarda para você.</p>
+        <img src="/ovelhinha/img/mascote/pinta.webp" alt="" width="340" height="340" loading="lazy">
       </div>
     </div>
   </section>
@@ -557,9 +548,9 @@ a:hover { text-decoration-color: currentColor; }
       </div>
     </div>
     <div class="folha folha-dir">
-      <ol class="slots slots-igreja" start="25">
+      <ol class="slots slots-igreja" start="19">
         <li class="slot slot-linha" style="--r:-2deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">25</span><img class="adesivo folha-impressa" src="/ovelhinha/img/kit/arco-iris-colorir.webp" alt="Página do kit para colorir: Noé e a família debaixo do arco-íris, só com o contorno" width="520" height="520" loading="lazy"></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">19</span><img class="adesivo folha-impressa" src="/ovelhinha/img/kit/arco-iris-colorir.webp" alt="Página do kit para colorir: Noé e a família debaixo do arco-íris, só com o contorno" width="520" height="520" loading="lazy"></div>
           <div class="texto-slot">
             <h3>Kit gratuito para imprimir</h3>
             <p>30 desenhos bíblicos para colorir na sala: a Criação, a Arca de Noé, o Natal e a vida de Jesus. Cada página tem um QR code para as famílias encontrarem o app.</p>
@@ -567,7 +558,7 @@ a:hover { text-decoration-color: currentColor; }
           </div>
         </li>
         <li class="slot slot-linha" style="--r:3deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">26</span><span class="adesivo selo selo-pilula" style="--selo:#B9ACE3" aria-hidden="true">Tenho um código</span></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">20</span><span class="adesivo selo selo-pilula" style="--selo:#B9ACE3" aria-hidden="true">Tenho um código</span></div>
           <div class="texto-slot">
             <h3>Códigos para as famílias</h3>
             <p>Sua igreja recebe um código para as famílias do ministério infantil e acesso gratuito para as professoras. Escreva com o nome da igreja, a cidade e quantas crianças de 2 a 5 anos participam.</p>
@@ -585,21 +576,21 @@ a:hover { text-decoration-color: currentColor; }
         <h2 id="t-clube">Clube Ovelhinha</h2>
         <p>Comece com 3 brincadeiras grátis. Depois, o Clube Ovelhinha libera todos os desenhos, jogos e histórias.</p>
       </div>
-      <ol class="slots" start="27">
+      <ol class="slots" start="21">
         <li class="slot" style="--r:-4deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">27</span><h3 class="adesivo selo tres" style="--selo:#FFE08A"><span><b>3</b> brincadeiras grátis</span></h3></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">21</span><h3 class="adesivo selo tres" style="--selo:#FFE08A"><span><b>3</b> brincadeiras grátis</span></h3></div>
           <p>Sem assinatura, a criança já brinca com 3 atividades.</p>
         </li>
       </ol>
     </div>
     <div class="folha folha-dir">
-      <ol class="slots" start="28">
+      <ol class="slots" start="22">
         <li class="slot" style="--r:2deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">28</span><h3 class="adesivo selo preco" style="--selo:#BFE2F7"><span class="valor">R$ 9,90</span> <span class="periodo">por mês</span></h3></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">22</span><h3 class="adesivo selo preco" style="--selo:#BFE2F7"><span class="valor">R$ 9,90</span> <span class="periodo">por mês</span></h3></div>
           <p>Plano mensal, com renovação automática.</p>
         </li>
         <li class="slot" style="--r:-2.5deg">
-          <div class="encaixe"><span class="num" aria-hidden="true">29</span><h3 class="adesivo selo preco" style="--selo:#D9CFF3;position:relative"><span class="valor">R$ 59,90</span> <span class="periodo">por ano</span> <span class="selinho">7 dias grátis</span></h3></div>
+          <div class="encaixe"><span class="num" aria-hidden="true">23</span><h3 class="adesivo selo preco" style="--selo:#D9CFF3;position:relative"><span class="valor">R$ 59,90</span> <span class="periodo">por ano</span> <span class="selinho">7 dias grátis</span></h3></div>
           <p>Plano anual. Quem assina pela primeira vez começa com 7 dias grátis.</p>
         </li>
       </ol>
@@ -607,11 +598,48 @@ a:hover { text-decoration-color: currentColor; }
     </div>
   </section>
 
+  <section class="aberto aberto-inteiro" id="telas" aria-labelledby="t-telas">
+    <div class="folha-topo">
+      <h2 id="t-telas">Por dentro do app</h2>
+      <p>Telas do app em português, do jeito que aparecem no celular.</p>
+    </div>
+    <ol class="slots slots-telas largura-toda" start="24">
+      <li class="slot" style="--r:-1.5deg">
+        <div class="encaixe"><span class="num" aria-hidden="true">24</span><img class="adesivo foto" src="/ovelhinha/img/telas/jogos.webp" alt="Tela inicial do app com as oito portas: Colorir, Balões, Arca de Noé, Quebra-cabeça, Memória, Sombras, Histórias e Música" width="480" height="1043" loading="lazy"></div>
+        <h3>Os 8 jogos</h3>
+      </li>
+      <li class="slot" style="--r:1.5deg">
+        <div class="encaixe"><span class="num" aria-hidden="true">25</span><img class="adesivo foto" src="/ovelhinha/img/telas/colorir.webp" alt="Tela de pintura com o desenho da arca de Noé meio colorido e a caixa de giz embaixo" width="480" height="1043" loading="lazy"></div>
+        <h3>Pintando a arca</h3>
+      </li>
+      <li class="slot" style="--r:-1deg">
+        <div class="encaixe"><span class="num" aria-hidden="true">26</span><img class="adesivo foto" src="/ovelhinha/img/telas/historias.webp" alt="Página de livrinho narrado: os animais entram na arca, dois a dois" width="480" height="1043" loading="lazy"></div>
+        <h3>Livrinho narrado</h3>
+      </li>
+      <li class="slot" style="--r:1deg">
+        <div class="encaixe"><span class="num" aria-hidden="true">27</span><img class="adesivo foto" src="/ovelhinha/img/telas/arca.webp" alt="Jogo da Arca de Noé: bichinhos espalhados na tela e a arca na água esperando por eles" width="480" height="1043" loading="lazy"></div>
+        <h3>Jogo da arca</h3>
+      </li>
+      <li class="slot" style="--r:-1.5deg">
+        <div class="encaixe"><span class="num" aria-hidden="true">28</span><img class="adesivo foto" src="/ovelhinha/img/telas/musica.webp" alt="Piano dos bichinhos: oito teclas coloridas, cada uma com um animal" width="480" height="1043" loading="lazy"></div>
+        <h3>Piano dos bichinhos</h3>
+      </li>
+      <li class="slot" style="--r:1.5deg">
+        <div class="encaixe"><span class="num" aria-hidden="true">29</span><img class="adesivo foto" src="/ovelhinha/img/telas/adesivos.webp" alt="Álbum Meus adesivos com 7 de 40 adesivos ganhos e o resto em silhueta" width="480" height="1043" loading="lazy"></div>
+        <h3>Álbum de 40 adesivos</h3>
+      </li>
+    </ol>
+  </section>
+
   <section class="aberto" id="perguntas" aria-labelledby="t-perguntas">
     <div class="folha">
       <div class="folha-topo">
         <h2 id="t-perguntas">Perguntas dos pais</h2>
-        <p>Ficou alguma dúvida? Escreva para <a href="mailto:xthallis@gmail.com">xthallis@gmail.com</a>.</p>
+        <p>Respostas curtas para o que mais perguntam antes de baixar.</p>
+      </div>
+      <div class="mascote-fala">
+        <p class="balao">Ficou alguma dúvida? Escreva para <a href="mailto:xthallis@gmail.com">xthallis@gmail.com</a></p>
+        <img src="/ovelhinha/img/mascote/pensa.webp" alt="" width="320" height="320" loading="lazy">
       </div>
     </div>
     <div class="folha perguntas">
@@ -649,6 +677,7 @@ a:hover { text-decoration-color: currentColor; }
     <h2 id="t-fim">A Ovelhinha chega em breve</h2>
     <p>Mande um e-mail e avisamos quando o app estiver na App Store e no Google Play.</p>
     <a class="botao" href="mailto:xthallis@gmail.com?subject=Me%20avise%20quando%20a%20Ovelhinha%20lan%C3%A7ar">Me avise quando lançar</a>
+    <p class="escreva">ou escreva para <span>xthallis@gmail.com</span></p>
   </div>
   <img class="festa" src="/ovelhinha/img/mascote/festa.webp" alt="A ovelhinha pulando de alegria" width="400" height="400" loading="lazy">
   <div class="chao">
@@ -678,8 +707,17 @@ a:hover { text-decoration-color: currentColor; }
   const pilula = conta.closest('.contador');
   let colados = 0;
   conta.textContent = 0;
+  // A silhueta do adesivo fica marcada no encaixe, como no álbum do app.
+  encaixes.forEach((el) => {
+    const adesivo = el.querySelector('.adesivo');
+    const fantasma = adesivo.cloneNode(true);
+    fantasma.classList.add('fantasma');
+    fantasma.setAttribute('aria-hidden', 'true');
+    if (fantasma.alt) fantasma.alt = '';
+    el.insertBefore(fantasma, adesivo);
+  });
   addEventListener('animationend', (e) => {
-    if (e.animationName !== 'colar') return;
+    if (e.animationName !== 'colar' || !e.target.closest('.encaixe')) return;
     conta.textContent = ++colados;
     pilula.animate([{ transform: 'scale(1.16)' }, { transform: 'scale(1)' }], { duration: 360, easing: 'cubic-bezier(.16,1,.3,1)' });
   });
