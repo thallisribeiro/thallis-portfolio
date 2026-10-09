@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ovelhinha: jogos bíblicos para crianças de 2 a 5 anos</title>
+<meta name="description" content="Jogos bíblicos, histórias narradas e desenhos para colorir para crianças de 2 a 5 anos. Sem anúncios, sem cadastro e funciona sem internet. Em breve na App Store e no Google Play.">
+<link rel="canonical" href="https://thallisribeiro.com.br/ovelhinha/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ovelhinha: jogos bíblicos para crianças de 2 a 5 anos">
+<meta property="og:description" content="Colorir, histórias narradas e 8 jogos bíblicos. Sem anúncios, sem cadastro, funciona sem internet. Em breve na App Store e no Google Play.">
+<meta property="og:url" content="https://thallisribeiro.com.br/ovelhinha/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Ovelhinha">
+<meta property="og:image" content="https://thallisribeiro.com.br/ovelhinha/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A ovelhinha acenando num morro verde, com leão, elefante, pomba e arco-íris. Jogos bíblicos, histórias e colorir para 2 a 5 anos.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#D6ECFF">
+<link rel="icon" type="image/png" href="/ovelhinha/img/favicon-48.png">
+<link rel="apple-touch-icon" href="/ovelhinha/img/icone-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+<link rel="preload" href="/ovelhinha/img/mascote/ola.webp" as="image" fetchpriority="high">
+<!-- Os adesivos só flutuam antes de colar quando há JS e movimento liberado.
+     Sem esta classe, tudo já nasce colado no lugar. -->
+<script>if(matchMedia('(prefers-reduced-motion: no-preference)').matches&&'IntersectionObserver'in window)document.documentElement.classList.add('colar')</script>
+<style>
+:root {
+  --ceu: #D6ECFF;
+  --ceu-claro: #E7F4FF;
+  --lavanda: #F2EAFB;
+  --creme: #FFF1DD;
+  --papel: #FFFCF7;
+  --ameixa: #3D2C5E;
+  --roxo: #655298;
+  --roxo-texto: #5D4E85;
+  --amarelo: #FFC93C;
+  --amarelo-lip: #D9A21B;
+  --amarelo-claro: #FFE08A;
+  --morro-a: #B6E08E;
+  --morro-b: #8CCB6A;
+  --vazio: #F4F0FA;
+  --contorno: rgb(101 82 152 / .34);
+  --lip: 0 5px 0 rgb(101 82 152 / .16), 0 7px 14px rgb(101 82 152 / .08);
+  --sombra-adesivo: drop-shadow(0 3px 0 rgb(101 82 152 / .2)) drop-shadow(0 8px 9px rgb(61 44 94 / .14));
+  --sombra-alta: drop-shadow(0 3px 0 rgb(101 82 152 / 0)) drop-shadow(0 26px 18px rgb(61 44 94 / .24));
+  --sombra-rente: drop-shadow(0 1px 0 rgb(101 82 152 / .28)) drop-shadow(0 2px 3px rgb(61 44 94 / .22));
+  --dobra: clamp(56px, 7vw, 112px);
+  --morro-h: clamp(120px, 15vw, 230px);
+  --sobe: clamp(62px, 8.5vw, 130px);
+  --solta: cubic-bezier(.16, 1, .3, 1);
+  color-scheme: light;
+  scrollbar-color: #B9ACE3 var(--lavanda);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  font: 600 clamp(16.5px, 1.25vw, 18px)/1.55 Nunito, "Trebuchet MS", sans-serif;
+  color: var(--ameixa);
+  background: linear-gradient(180deg, var(--ceu) 0, var(--ceu-claro) 900px, var(--lavanda) 45%, var(--creme) 100%);
+}
+::selection { background: var(--amarelo-claro); color: var(--ameixa); }
+img { display: block; max-width: 100%; height: auto; }
+h1, h2, h3 { font-weight: 900; line-height: 1.1; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+a { color: var(--roxo); text-decoration-thickness: 2px; text-underline-offset: .18em; text-decoration-color: rgb(101 82 152 / .45); }
+a:hover { text-decoration-color: currentColor; }
+:focus-visible { outline: 3px solid var(--ameixa); outline-offset: 3px; border-radius: 6px; }
+
+.pular { position: absolute; left: 12px; top: -80px; z-index: 30; background: #fff; padding: 12px 18px; border-radius: 14px; font-weight: 900; }
+.pular:focus { top: 12px; }
+
+/* Botões: a pílula com o lábio das portas do app. */
+.botao {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5em;
+  min-height: 58px; padding: 0 32px; border-radius: 999px;
+  background: var(--amarelo); color: var(--ameixa);
+  font: 900 clamp(18px, 1.5vw, 20px)/1.1 Nunito, sans-serif; text-decoration: none; text-align: center; white-space: nowrap;
+  box-shadow: 0 5px 0 var(--amarelo-lip), 0 12px 20px -6px rgb(101 82 152 / .3);
+  transition: transform .18s var(--solta), box-shadow .18s var(--solta);
+}
+.botao:hover { transform: translateY(-2px); box-shadow: 0 7px 0 var(--amarelo-lip), 0 16px 24px -8px rgb(101 82 152 / .34); }
+.botao:active { transform: translateY(4px); box-shadow: 0 1px 0 var(--amarelo-lip), 0 4px 8px -4px rgb(101 82 152 / .3); }
+.botao-p { min-height: 44px; padding: 0 18px; font-size: 16px; box-shadow: 0 3px 0 var(--amarelo-lip); }
+.botao-p:hover { box-shadow: 0 5px 0 var(--amarelo-lip); }
+.botao-p:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--amarelo-lip); }
+.botao-branco { background: #fff; color: var(--roxo); box-shadow: 0 5px 0 rgb(101 82 152 / .26), 0 12px 20px -8px rgb(101 82 152 / .28); }
+.botao-branco:hover { box-shadow: 0 7px 0 rgb(101 82 152 / .26), 0 16px 24px -8px rgb(101 82 152 / .3); }
+.botao-branco:active { box-shadow: 0 1px 0 rgb(101 82 152 / .26); }
+
+/* Barra do álbum: como o topo de "Meus adesivos" no app. */
+.barra {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; gap: 10px;
+  min-height: 64px; padding: 8px max(12px, calc((100% - 1240px) / 2));
+  background: rgb(214 236 255 / .96);
+  box-shadow: 0 1px 0 rgb(101 82 152 / .12);
+}
+.marca { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-right: auto; color: var(--roxo); font-weight: 900; font-size: 22px; text-decoration: none; letter-spacing: -.01em; }
+.marca img { width: 40px; height: 40px; }
+.contador {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 12px 4px 5px; border-radius: 999px;
+  background: var(--amarelo); color: var(--ameixa);
+  font-weight: 900; font-size: 16px; font-variant-numeric: tabular-nums;
+}
+.contador img { width: 26px; height: 26px; }
+.contador small { font-size: 14px; font-weight: 800; }
+@media (max-width: 379px) { .marca span { display: none; } }
+@media (max-width: 599px) { .contador small { display: none; } }
+
+/* Capa do álbum */
+.capa { position: relative; overflow: clip; }
+.capa-interna {
+  position: relative; z-index: 1;
+  max-width: 1240px; margin: 0 auto;
+  display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr); align-items: center; column-gap: 24px;
+  padding: clamp(28px, 5vw, 64px) clamp(16px, 4vw, 48px) 0;
+}
+.capa-texto { padding-bottom: calc(var(--sobe) + 48px); }
+.capa h1 { font-size: clamp(56px, 9vw, 128px); line-height: .92; letter-spacing: -.03em; color: var(--roxo); }
+.promessa { margin-top: .5em; font-size: clamp(21px, 2.5vw, 34px); font-weight: 800; line-height: 1.3; max-width: 30ch; text-wrap: balance; }
+.capa .botao { margin-top: clamp(24px, 3vw, 36px); }
+.breve { margin-top: 14px; font-weight: 800; color: var(--roxo-texto); }
+.capa-arte { position: relative; width: 100%; max-width: 520px; aspect-ratio: 1 / .9; justify-self: center; align-self: end; margin-bottom: calc(var(--sobe) + 2px); }
+.capa-arte img { position: absolute; }
+.capa-arte .ovelha { width: 66%; left: 17%; bottom: 0; filter: drop-shadow(0 10px 10px rgb(61 44 94 / .14)); }
+.capa-arte .colado-capa { filter: var(--sombra-adesivo); }
+.c-arco { width: 26%; left: 6%; top: 0; transform: rotate(-9deg); }
+.c-pomba { width: 25%; right: 0; top: 0; transform: rotate(8deg); }
+.c-leao { width: 24%; left: -2%; bottom: 2%; transform: rotate(-5deg); }
+.c-elefante { width: 27%; right: -3%; bottom: 0; transform: rotate(6deg); }
+.morro {
+  position: absolute; left: -12%; right: -12%; bottom: 0; height: var(--morro-h);
+  background: linear-gradient(180deg, var(--morro-a), var(--morro-b));
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+}
+
+/* Páginas do álbum: duas folhas abertas com a dobra no meio. */
+/* Adesivos ainda pairando (girados, antes de colar) não podem empurrar a página para o lado. */
+.album { display: grid; gap: clamp(56px, 8vw, 112px); padding: 0 clamp(10px, 3vw, 40px); overflow-x: clip; }
+.aberto {
+  position: relative; width: 100%; max-width: 1240px; margin: 0 auto;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--dobra); row-gap: 40px;
+  padding: clamp(24px, 4.4vw, 60px) clamp(16px, 4vw, 56px) clamp(32px, 4.4vw, 64px);
+  border-radius: 30px;
+  background: linear-gradient(180deg, var(--papel), #FCF8FF 70%, #F9F5FE);
+  box-shadow: 0 2px 0 #fff, 0 4px 0 rgb(101 82 152 / .12), 0 6px 0 #fff, 0 8px 0 rgb(101 82 152 / .1), 0 30px 50px -24px rgb(61 44 94 / .32);
+}
+.aberto::before {
+  content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: var(--dobra); transform: translateX(-50%); pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgb(101 82 152 / .05) 40%, rgb(61 44 94 / .13) 50%, rgb(101 82 152 / .05) 60%, transparent);
+}
+.album > .aberto:first-child { margin-top: calc(-1 * var(--sobe)); }
+.folha { display: grid; align-content: start; gap: clamp(28px, 3vw, 40px); }
+.folha-topo { display: grid; gap: 14px; }
+.folha-topo h2 { font-size: clamp(30px, 3.6vw, 48px); letter-spacing: -.02em; }
+.folha-topo p { color: var(--roxo-texto); max-width: 46ch; }
+.largura-toda { grid-column: 1 / -1; }
+
+/* Encaixes: o contorno tracejado impresso na página e o número do lugar. */
+.slots { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(26px, 3vw, 40px) clamp(14px, 2.2vw, 30px); }
+.slot { display: grid; align-content: start; gap: 6px; }
+.encaixe {
+  position: relative; display: grid; place-items: center; aspect-ratio: 1;
+  border: 2px dashed var(--cor, var(--contorno)); border-radius: 18px; container-type: inline-size;
+  background: var(--tinta, var(--vazio));
+  margin-bottom: 8px;
+}
+.num { position: absolute; top: 6px; left: 10px; font-size: 13px; font-weight: 900; color: var(--roxo-texto); font-variant-numeric: tabular-nums; }
+.adesivo { transform: rotate(var(--r, 0deg)); filter: var(--sombra-adesivo); }
+.encaixe > img.adesivo { width: 74%; }
+.slot h3 { font-size: clamp(19px, 1.6vw, 22px); }
+.fala { display: flex; gap: 6px; color: var(--roxo); font-weight: 800; }
+.fala::before {
+  content: ""; flex: none; width: 18px; height: 18px; margin-top: .2em; background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 9.5h3.5L12 5.5v13l-4.5-4H4z' fill='%23000'/%3E%3Cpath d='M16 9a4 4 0 0 1 0 6M18.8 6.5a7.5 7.5 0 0 1 0 11'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 9.5h3.5L12 5.5v13l-4.5-4H4z' fill='%23000'/%3E%3Cpath d='M16 9a4 4 0 0 1 0 6M18.8 6.5a7.5 7.5 0 0 1 0 11'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+.slot p:not(.fala) { color: var(--roxo-texto); font-size: .94em; }
+
+/* Fotos-adesivo: histórias e telas do app, com a borda branca do adesivo. */
+.foto { border: 6px solid #fff; border-radius: 16px; }
+.encaixe > img.foto { width: 86%; }
+.slots-telas .encaixe { aspect-ratio: 480 / 1043; border-radius: 22px; }
+.slots-telas .encaixe > img.foto { width: 86%; border-width: 4px; border-radius: 14px; }
+.slots-telas .slot h3 { font-size: clamp(17px, 1.4vw, 19px); }
+
+/* Selos de texto: adesivos brilhantes com a frase como título. */
+.selo {
+  display: grid; place-items: center; text-align: center;
+  width: 78%; aspect-ratio: 1; padding: .35em .45em;
+  font-size: 16px; font-size: clamp(11px, 11.5cqi, 20px); font-weight: 900; line-height: 1.05; letter-spacing: -.01em; text-wrap: balance;
+  border: 5px solid #fff; border-radius: 50%;
+  background: radial-gradient(110% 80% at 28% 16%, rgb(255 255 255 / .8), rgb(255 255 255 / 0) 46%), var(--selo, var(--amarelo-claro));
+}
+.encaixe:has(> .selo) { padding-top: 10%; }
+.selo-pilula { aspect-ratio: 1.7; border-radius: 999px; }
+.selo-quadro { border-radius: 26px; width: 80%; }
+.selo-gota { border-radius: 58% 42% 52% 48% / 46% 56% 44% 54%; }
+.slots-linha { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+.slot-linha { grid-template-columns: clamp(118px, 11vw, 148px) minmax(0, 1fr); align-items: center; column-gap: clamp(16px, 2vw, 24px); }
+.slot-linha .encaixe { margin: 0; }
+.slots-linha .slot-linha p { font-size: 1em; }
+
+/* A ovelhinha falando, com o balão do app. */
+.mascote-fala { display: flex; align-items: center; justify-content: flex-end; gap: 14px; }
+.mascote-fala img { width: clamp(120px, 13vw, 176px); flex: none; filter: var(--sombra-adesivo); }
+.balao {
+  position: relative; max-width: 24ch; padding: 14px 20px; border-radius: 22px;
+  background: #fff; color: var(--ameixa); font-size: clamp(18px, 1.7vw, 23px); font-weight: 900; line-height: 1.3;
+  box-shadow: 0 3px 0 rgb(101 82 152 / .14), 0 12px 22px -10px rgb(61 44 94 / .3);
+}
+.balao::after { content: ""; position: absolute; right: -8px; top: 50%; width: 18px; height: 18px; margin-top: -9px; background: #fff; transform: rotate(45deg); border-radius: 3px; }
+
+/* Igrejas */
+.passos { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; counter-reset: passo; }
+.passos li { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 14px; align-items: center; counter-increment: passo; font-weight: 800; }
+.passos li::before {
+  content: counter(passo); display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%;
+  background: var(--amarelo); border: 4px solid #fff; font-size: 22px; font-weight: 900;
+  filter: drop-shadow(0 3px 0 rgb(101 82 152 / .2));
+}
+.passos-titulo { font-size: clamp(21px, 1.8vw, 24px); }
+.folha-impressa { width: 72%; padding: 6%; background: #fff; border-radius: 6px; box-shadow: 6px 7px 0 -1px #fff, 6px 7px 0 0 rgb(101 82 152 / .18), 12px 14px 0 -1px #fff, 12px 14px 0 0 rgb(101 82 152 / .14); }
+.slot .botao { justify-self: start; margin-top: 12px; min-height: 52px; padding: 0 24px; font-size: 17px; }
+.nota { font-size: .94em; color: var(--roxo-texto); }
+.slots-igreja { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+.slots-igreja .slot-linha { grid-template-columns: clamp(150px, 15vw, 196px) minmax(0, 1fr); align-items: start; }
+.texto-slot { display: grid; gap: 6px; }
+.slot .botao { padding: 0 20px; }
+
+/* Clube */
+.preco { aspect-ratio: auto; width: 86%; padding: .7em .4em .8em; border-radius: 30px; gap: 2px; }
+.preco .valor { font-size: 32px; font-size: clamp(22px, 17cqi, 44px); letter-spacing: -.02em; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.preco .periodo { font-size: 17px; font-size: clamp(13px, 8cqi, 19px); font-weight: 800; }
+.tres { font-size: 16px; font-size: clamp(12px, 8.5cqi, 19px); }
+.tres b { display: block; font-size: 52px; font-size: clamp(36px, 30cqi, 66px); line-height: .9; }
+.selinho {
+  position: absolute; right: -13%; bottom: -42%; display: grid; place-items: center;
+  width: 36cqi; min-width: 66px; aspect-ratio: 1; padding: 6px; border-radius: 50%;
+  border: 4px solid #fff; background: radial-gradient(110% 80% at 28% 16%, rgb(255 255 255 / .8), rgb(255 255 255 / 0) 46%), var(--amarelo);
+  font-size: 14px; font-size: clamp(12px, 6.4cqi, 16px); line-height: 1; transform: rotate(10deg);
+}
+.miudo { font-size: .94em; color: var(--roxo-texto); max-width: 52ch; }
+
+/* Perguntas */
+.perguntas { display: grid; }
+.perguntas details { border-bottom: 2px dashed var(--contorno); }
+.perguntas details:first-child { border-top: 2px dashed var(--contorno); }
+.perguntas summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  min-height: 60px; padding: 12px 0; cursor: pointer; list-style: none;
+  font-size: clamp(18px, 1.5vw, 20px); font-weight: 900;
+}
+.perguntas summary::-webkit-details-marker { display: none; }
+.perguntas summary::after {
+  content: ""; flex: none; width: 30px; height: 30px; border-radius: 50%;
+  background:
+    linear-gradient(var(--ameixa), var(--ameixa)) center / 12px 3px no-repeat,
+    linear-gradient(var(--ameixa), var(--ameixa)) center / 3px 12px no-repeat,
+    var(--amarelo-claro);
+  transition: transform .3s var(--solta);
+}
+.perguntas details[open] summary::after { transform: rotate(45deg); }
+.perguntas details p { padding: 0 44px 20px 0; color: var(--roxo-texto); max-width: 60ch; }
+
+/* Contracapa */
+.contracapa { position: relative; margin-top: clamp(72px, 9vw, 128px); text-align: center; }
+.contracapa-topo { display: grid; justify-items: center; gap: 14px; padding: 0 16px; }
+.contracapa h2 { font-size: clamp(34px, 4.6vw, 60px); letter-spacing: -.02em; color: var(--roxo); }
+.contracapa .botao { margin-top: 10px; }
+.contracapa .festa { width: clamp(190px, 20vw, 260px); margin: clamp(8px, 2vw, 24px) auto -48px; position: relative; z-index: 1; filter: drop-shadow(0 10px 10px rgb(61 44 94 / .14)); }
+.chao {
+  background: linear-gradient(180deg, var(--morro-a), var(--morro-b) 260px);
+  border-radius: 50% 50% 0 0 / 120px 120px 0 0;
+  padding: 92px 16px 28px;
+}
+.rodape { max-width: 1240px; margin: 0 auto; display: grid; gap: 10px; justify-items: center; color: var(--ameixa); font-weight: 800; }
+.rodape nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; column-gap: 8px; }
+.rodape a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 8px; color: var(--ameixa); text-decoration-color: rgb(61 44 94 / .4); }
+
+/* O gesto do álbum: cada adesivo paira sobre o encaixe e é pressionado no lugar. */
+.colar .encaixe:not(.colado) .adesivo { transform: translate(9%, -15%) rotate(calc(var(--r, 0deg) - 8deg)) scale(1.13); filter: var(--sombra-alta); }
+.encaixe.colado .adesivo { animation: colar 680ms cubic-bezier(.2, .85, .25, 1) calc(var(--i, 0) * 130ms) backwards; }
+.encaixe.colado::after {
+  content: ""; position: absolute; inset: -4px; border-radius: 21px; border: 3px solid var(--amarelo); pointer-events: none;
+  opacity: 0; animation: aro 560ms var(--solta) calc(var(--i, 0) * 130ms + 380ms) backwards;
+}
+@keyframes colar {
+  0% { transform: translate(9%, -15%) rotate(calc(var(--r, 0deg) - 8deg)) scale(1.13); filter: var(--sombra-alta); }
+  56% { transform: translate(0, 1%) rotate(var(--r, 0deg)) scale(.95); filter: var(--sombra-rente); }
+  78% { transform: rotate(var(--r, 0deg)) scale(1.02); }
+  100% { transform: rotate(var(--r, 0deg)) scale(1); filter: var(--sombra-adesivo); }
+}
+@keyframes aro {
+  0% { opacity: .95; transform: scale(.97); }
+  100% { opacity: 0; transform: scale(1.07); }
+}
+
+@media (max-width: 959px) {
+  .aberto { grid-template-columns: minmax(0, 1fr); row-gap: clamp(40px, 7vw, 56px); }
+  .aberto::before { display: none; }
+}
+@media (max-width: 759px) {
+  .capa-interna { grid-template-columns: minmax(0, 1fr); text-align: center; justify-items: center; padding-top: 22px; }
+  .capa-texto { padding-bottom: 0; display: grid; justify-items: center; }
+  .promessa { max-width: 20ch; }
+  .capa-arte { max-width: 250px; margin-top: 2px; }
+  .mascote-fala { justify-content: center; }
+}
+@media (max-width: 479px) {
+  .slots { column-gap: 12px; }
+  .encaixe > img.foto { width: 88%; }
+  .foto { border-width: 4px; border-radius: 12px; }
+  .slot-linha { grid-template-columns: 118px minmax(0, 1fr); }
+  .selo { border-width: 4px; }
+  .preco { width: 92%; }
+  .mascote-fala img { width: 112px; }
+  .slots-igreja .slot-linha { grid-template-columns: minmax(0, 1fr); }
+  .slots-igreja .encaixe { width: min(100%, 230px); }
+}
+/* Telas: seis lado a lado, três em cada folha, com a dobra entre elas. */
+@media (min-width: 960px) {
+  .slots-telas { grid-template-columns: repeat(3, minmax(0, 1fr)) 0 repeat(3, minmax(0, 1fr)); column-gap: calc(var(--dobra) / 2); }
+  .slots-telas > li:nth-child(4) { grid-column: 5; }
+}
+@media print {
+  .barra, .contador { display: none; }
+  .colar .encaixe .adesivo { transform: rotate(var(--r, 0deg)); filter: none; }
+}
+</style>
+</head>
+<body>
+
+<a class="pular" href="#album">Pular para o conteúdo</a>
+
+<header class="barra">
+  <a class="marca" href="#capa" aria-label="Ovelhinha, início da página"><img src="/ovelhinha/img/mascote/ola.webp" alt="" width="40" height="40"><span>Ovelhinha</span></a>
+  <span class="contador" aria-hidden="true"><img src="/ovelhinha/img/adesivos/estrela.webp" alt="" width="26" height="26"><span><b data-conta>29</b>/<span data-total>29</span></span><small>adesivos</small></span>
+  <a class="botao botao-p" href="mailto:xthallis@gmail.com?subject=Me%20avise%20quando%20a%20Ovelhinha%20lan%C3%A7ar">Me avise</a>
+</header>
+
+<section class="capa" id="capa" aria-labelledby="t-capa">
+  <div class="capa-interna">
+    <div class="capa-texto">
+      <h1 id="t-capa">Ovelhinha</h1>
+      <p class="promessa">Jogos bíblicos, histórias e colorir para crianças de 2 a 5 anos</p>
+      <a class="botao" href="mailto:xthallis@gmail.com?subject=Me%20avise%20quando%20a%20Ovelhinha%20lan%C3%A7ar">Me avise quando lançar</a>
+      <p class="breve">Em breve na App Store e no Google Play</p>
+    </div>
+    <div class="capa-arte">
+      <img class="colado-capa c-arco" src="/ovelhinha/img/adesivos/arco-iris.webp" alt="" width="256" height="256">
+      <img class="colado-capa c-pomba" src="/ovelhinha/img/adesivos/pomba.webp" alt="" width="256" height="256">
+      <img class="ovelha" src="/ovelhinha/img/mascote/ola.webp" alt="A ovelhinha, mascote do app, acenando com seu lenço azul" width="512" height="512" fetchpriority="high">
+      <img class="colado-capa c-leao" src="/ovelhinha/img/adesivos/leao.webp" alt="" width="256" height="256">
+      <img class="colado-capa c-elefante" src="/ovelhinha/img/adesivos/elefante.webp" alt="" width="256" height="256">
+    </div>
+  </div>
+  <div class="morro" aria-hidden="true"></div>
+</section>
+
+<main class="album" id="album">
+
+  <section class="aberto" id="jogos" aria-labelledby="t-jogos">
+    <div class="folha">
+      <div class="folha-topo">
+        <h2 id="t-jogos">8 jogos bíblicos para os pequeninos</h2>
+        <p>Ninguém precisa saber ler. Cada brincadeira tem voz e explica em voz alta o que fazer, e os botões são grandes para mãos pequenas.</p>
+      </div>
+      <ol class="slots">
+        <li class="slot" style="--cor:#E5B877;--tinta:#F7EAD6;--r:-3deg">
+          <div class="encaixe"><span class="num" aria-hidden="true">1</span><img class="adesivo" src="/ovelhinha/img/mascote/pinta.webp" alt="" width="340" height="340"></div>
+          <h3>Colorir</h3>
+          <p class="fala">“Vamos pintar!”</p>
+          <p>30 desenhos bíblicos. Toque numa parte e ela se enche de cor, ou pinte com o pincel livre.</p>
+        </li>
+        <li class="slot" style="--cor:#8CC8EC;--tinta:#DDEFF9;--r:4deg">
+          <div class="encaixe"><span class="num" aria-hidden="true">2</span><img class="adesivo" src="/ovelhinha/img/adesivos/elefante.webp" alt="" width="256" height="256"></div>
+          <h3>Balões</h3>
+          <p class="fala">“Estoure os balões!”</p>
+        </li>
+        <li class="slot" style="--cor:#98C8AE;--tinta:#E0EFE7;--r:-2deg">
+          <div class="encaixe"><span class="num" aria-hidden="true">3</span><img class="adesivo" src="/ovelhinha/img/adesivos/arca.webp" alt="" width="256" height="256" loading="lazy"></div>
+          <h3>Arca de Noé</h3>
+          <p class="fala">“Leve os animais para a arca, de dois em dois!”</p>
+        </li>
+        <li class="slot" style="--cor:#EAA3A7;--tinta:#F9E3E5;--r:3deg">
+          <div class="encaixe"><span class="num" aria-hidden="true">4</span><img class="adesivo" src="/ovelhinha/img/adesivos/borboleta.webp" alt="" width="256" height="256" loading="lazy"></div>
+          <h3>Quebra-cabeça</h3>
+          <p class="fala">“Monte o quebra-cabeça!”</p>
+          <p>Com 4, 12 ou 36 peças.</p>
+        </li>
+      </ol>
+    </div>
+    <div class="folha folha-dir">
+      <ol class="slots" start="5">
+        <li class="slot" style="--cor:#B9ACE3;--tinta:#EAE6F7;--r:-4deg">
+          <div class="encaixe"><span class="num" aria-hidden="true">5</span><img class="adesivo" src="/ovelhinha/img/adesivos/leao.webp" alt="" width="256" height="256" loading="lazy"></div>
+          <h3>Memória</h3>
+          <p class="fala">“Encontre os pares!”</p>
+        </li>
+        <li class="slot" style="--cor:#9CCB7C;--tinta:#E1EFD8;--r:2deg">
+          <div class="encaixe"><span class="num" aria-hidden="true">6</span><img class="adesivo" src="/ovelhinha/img/adesivos/coelho.webp" alt="" width="256" height="256" loading="lazy"></div>
+          <h3>Sombras</h3>
+          <p class="fala">“Leve cada bichinho até a sua sombra!”</p>
+        </li>
+        <li class="slot" style="--cor:#F2B880;--tinta:#FBEAD9;--r:-2deg">
+          <div class="encaixe"><span class="num" aria-hidden="true">7</span><img class="adesivo" src="/ovelhinha/img/adesivos/noe.webp" alt="" width="256" height="256" loading="lazy"></div>
+          <h3>Histórias</h3>
+          <p class="fala">“Escolha uma história!”</p>
+          <p>Livrinhos ilustrados e narrados.</p>
+        </li>
+        <li class="slot" style="--cor:#8FB8F0;--tinta:#DDEAFB;--r:4deg">
+          <div class="encaixe"><span class="num" aria-hidden="true">8</span><img class="adesivo" src="/ovelhinha/img/adesivos/passarinho.webp" alt="" width="256" height="256" loading="lazy"></div>
+          <h3>Música</h3>
+          <p class="fala">“Toque o piano dos bichinhos!”</p>
+          <p>Com a canção “Cristo tem amor por mim”.</p>
+        </li>
+      </ol>
+      <div class="mascote-fala">
+        <p class="balao">Oi! Vamos brincar?</p>
+        <img src="/ovelhinha/img/mascote/aponta.webp" alt="" width="320" height="320" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section class="aberto" id="historias" aria-labelledby="t-historias">
+    <div class="folha">
+      <div class="folha-topo">
+        <h2 id="t-historias">Quatro histórias da Bíblia</h2>
+        <p>A Criação, a Arca de Noé, o Natal e Jesus, contadas em livrinhos narrados e repartidas nos 30 desenhos para colorir. Sem cenas de medo.</p>
+      </div>
+      <ol class="slots" start="9">
+        <li class="slot" style="--r:-2deg">
+          <div class="encaixe"><span class="num" aria-hidden="true">9</span><img class="adesivo foto" src="/ovelhinha/img/historias/criacao.webp" alt="Desenho do app: dois passarinhos azuis num galho de macieira, um coelho na grama e o sol sorrindo" width="480" height="480" loading="lazy"></div>
+          <h3>A Criação</h3>
+          <p class="fala">“Deus fez tudo com amor. E fez você também!”</p>
+        </li>
+        <li class="slot" style="--r:2.5deg">
+          <div class="encaixe"><span class="num" aria-hidden="true">10</span><img class="adesivo foto" src="/ovelhinha/img/historias/arca.webp" alt="Desenho do app: Noé acenando na arca com a girafa, o elefante e a pomba, debaixo do arco-íris" width="480" height="480" loading="lazy"></div>
+          <h3>Arca de Noé</h3>
+          <p class="fala">“O arco-íris lembra: Deus cumpre suas promessas!”</p>
+        </li>
+      </ol>
+    </div>
+    <div class="folha folha-dir">
+      <ol class="slots" start="11">
+        <li class="slot" style="--r:1.5deg">
+          <div class="encaixe"><span class="num" aria-hidden="true">11</span><img class="adesivo foto" src="/ovelhinha/img/historias/natal.webp" alt="Desenho do app: Maria e José olhando o menino Jesus na manjedoura, com a estrela e um carneirinho" width="480" height="480" loading="lazy"></div>
+          <h3>Natal</h3>
+          <p class="fala">“Jesus nasceu! Ele é o presente de Deus para nós.”</p>
+        </li>
+        <li class="slot" style="--r:-3deg">
+          <div class="encaixe"><span class="num" aria-hidden="true">12</span><img class="adesivo foto" src="/ovelhinha/img/historias/jesus.webp" alt="Desenho do app: Jesus sentado na grama com duas crianças e um carneirinho" width="480" height="480" loading="lazy"></div>
+          <h3>Jesus e as crianças</h3>
+          <p class="fala">“Jesus ama as crianças. Jesus ama você!”</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="aberto" id="telas" aria-labelledby="t-telas">
+    <div class="folha-topo">
+      <h2 id="t-telas">Por dentro do app</h2>
+      <p>Telas do app em português, do jeito que aparecem no celular.</p>
+    </div>
+    <ol class="slots slots-telas largura-toda" start="13">
+      <li class="slot" style="--r:-1.5deg">
+        <div class="encaixe"><span class="num" aria-hidden="true">13</span><img class="adesivo foto" src="/ovelhinha/img/telas/jogos.webp" alt="Tela inicial do app com as oito portas: Colorir, Balões, Arca de Noé, Quebra-cabeça, Memória, Sombras, Histórias e Música" width="480" height="1043" loading="lazy"></div>
+        <h3>Os 8 jogos</h3>
+      </li>
+      <li class="slot" style="--r:1.5deg">
+        <div class="encaixe"><span class="num" aria-hidden="true">14</span><img class="adesivo foto" src="/ovelhinha/img/telas/colorir.webp" alt="Tela de pintura com o desenho da arca de Noé meio colorido e a caixa de giz embaixo" width="480" height="1043" loading="lazy"></div>
+        <h3>Pintando a arca</h3>
+      </li>
+      <li class="slot" style="--r:-1deg">
+        <div class="encaixe"><span class="num" aria-hidden="true">15</span><img class="adesivo foto" src="/ovelhinha/img/telas/historias.webp" alt="Página de livrinho narrado: os animais entram na arca, dois a dois" width="480" height="1043" loading="lazy"></div>
+        <h3>Livrinho narrado</h3>
+      </li>
+      <li class="slot" style="--r:1deg">
+        <div class="encaixe"><span class="num" aria-hidden="true">16</span><img class="adesivo foto" src="/ovelhinha/img/telas/arca.webp" alt="Jogo da Arca de Noé: bichinhos espalhados na tela e a arca na água esperando por eles" width="480" height="1043" loading="lazy"></div>
+        <h3>Jogo da arca</h3>
+      </li>
+      <li class="slot" style="--r:-1.5deg">
+        <div class="encaixe"><span class="num" aria-hidden="true">17</span><img class="adesivo foto" src="/ovelhinha/img/telas/musica.webp" alt="Piano dos bichinhos: oito teclas coloridas, cada uma com um animal" width="480" height="1043" loading="lazy"></div>
+        <h3>Piano dos bichinhos</h3>
+      </li>
+      <li class="slot" style="--r:1.5deg">
+        <div class="encaixe"><span class="num" aria-hidden="true">18</span><img class="adesivo foto" src="/ovelhinha/img/telas/adesivos.webp" alt="Álbum Meus adesivos com 7 de 40 adesivos ganhos e o resto em silhueta" width="480" height="1043" loading="lazy"></div>
+        <h3>Álbum de 40 adesivos</h3>
+      </li>
+    </ol>
+  </section>
+
+  <section class="aberto" id="pais" aria-labelledby="t-pais">
+    <div class="folha">
+      <div class="folha-topo">
+        <h2 id="t-pais">Para você entregar o celular tranquilo</h2>
+        <p>O que fica de fora do app pesa tanto quanto o que tem dentro.</p>
+      </div>
+      <ol class="slots slots-linha" start="19">
+        <li class="slot slot-linha" style="--r:-4deg">
+          <div class="encaixe"><span class="num" aria-hidden="true">19</span><h3 class="adesivo selo" style="--selo:#FFE08A">Sem anúncios</h3></div>
+          <p>Nenhuma propaganda aparece para a criança, em nenhuma tela.</p>
+        </li>
+        <li class="slot slot-linha" style="--r:3deg">
+          <div class="encaixe"><span class="num" aria-hidden="true">20</span><h3 class="adesivo selo selo-pilula" style="--selo:#D9CFF3">Sem cadastro</h3></div>
+          <p>Não pede conta, e-mail nem senha. É instalar e brincar.</p>
+        </li>
+        <li class="slot slot-linha" style="--r:-2deg">
+          <div class="encaixe"><span class="num" aria-hidden="true">21</span><h3 class="adesivo selo selo-quadro" style="--selo:#BFE2F7">Funciona sem internet</h3></div>
+          <p>Tudo fica dentro do app: dá para brincar sem Wi-Fi e sem dados móveis.</p>
+        </li>
+      </ol>
+    </div>
+    <div class="folha folha-dir">
+      <ol class="slots slots-linha" start="22">
+        <li class="slot slot-linha" style="--r:4deg">
+          <div class="encaixe"><span class="num" aria-hidden="true">22</span><h3 class="adesivo selo selo-gota" style="--selo:#CDE8B8">Não coleta dados</h3></div>
+          <p>As pinturas e os ajustes ficam guardados só neste aparelho.</p>
+        </li>
+        <li class="slot slot-linha" style="--r:-3deg">
+          <div class="encaixe"><span class="num" aria-hidden="true">23</span><h3 class="adesivo selo selo-quadro" style="--selo:#F6C9CC">Área dos pais</h3></div>
+          <p>Uma soma rápida, só para adultos, protege os ajustes. As compras e os links externos ficam lá dentro.</p>
+        </li>
+        <li class="slot slot-linha" style="--r:2deg">
+          <div class="encaixe"><span class="num" aria-hidden="true">24</span><h3 class="adesivo selo" style="--selo:#FBD3A8">Tempo de tela</h3></div>
+          <p>Você escolhe o limite de uso e a hora de descansar. Quando o tempo acaba, a ovelhinha vai dormir e só um adulto continua.</p>
+        </li>
+      </ol>
+      <div class="mascote-fala">
+        <p class="balao">Hora de descansar! A ovelhinha está com soninho. Até a próxima!</p>
+        <img src="/ovelhinha/img/mascote/dorme.webp" alt="" width="360" height="360" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section class="aberto" id="igrejas" aria-labelledby="t-igrejas">
+    <div class="folha">
+      <div class="folha-topo">
+        <h2 id="t-igrejas">Para o ministério infantil da sua igreja</h2>
+        <p>Conteúdo comum a católicos e evangélicos, feito para o berçário e o maternal, sem cenas de medo.</p>
+      </div>
+      <div class="folha-topo">
+        <h3 class="passos-titulo">Como usar em 3 passos</h3>
+        <ol class="passos">
+          <li>Imprima os desenhos da história do domingo.</li>
+          <li>Depois da aula, compartilhe o código no grupo das famílias.</li>
+          <li>Em casa, a criança pinta o mesmo desenho no app e ouve a história narrada.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="folha folha-dir">
+      <ol class="slots slots-igreja" start="25">
+        <li class="slot slot-linha" style="--r:-2deg">
+          <div class="encaixe"><span class="num" aria-hidden="true">25</span><img class="adesivo folha-impressa" src="/ovelhinha/img/kit/arco-iris-colorir.webp" alt="Página do kit para colorir: Noé e a família debaixo do arco-íris, só com o contorno" width="520" height="520" loading="lazy"></div>
+          <div class="texto-slot">
+            <h3>Kit gratuito para imprimir</h3>
+            <p>30 desenhos bíblicos para colorir na sala: a Criação, a Arca de Noé, o Natal e a vida de Jesus. Cada página tem um QR code para as famílias encontrarem o app.</p>
+            <a class="botao botao-branco" href="/ovelhinha/kit-igrejas-ovelhinha.pdf">Baixar o kit (PDF, 5,7 MB)</a>
+          </div>
+        </li>
+        <li class="slot slot-linha" style="--r:3deg">
+          <div class="encaixe"><span class="num" aria-hidden="true">26</span><span class="adesivo selo selo-pilula" style="--selo:#B9ACE3" aria-hidden="true">Tenho um código</span></div>
+          <div class="texto-slot">
+            <h3>Códigos para as famílias</h3>
+            <p>Sua igreja recebe um código para as famílias do ministério infantil e acesso gratuito para as professoras. Escreva com o nome da igreja, a cidade e quantas crianças de 2 a 5 anos participam.</p>
+            <a class="botao botao-branco" href="mailto:xthallis@gmail.com?subject=C%C3%B3digos%20Ovelhinha%20para%20a%20igreja&amp;body=Nome%20da%20igreja%3A%20%0D%0ACidade%3A%20%0D%0ACrian%C3%A7as%20de%202%20a%205%20anos%3A%20">Pedir códigos por e-mail</a>
+            <p class="nota">No app, o adulto abre a área dos pais e toca em “Tenho um código”.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="aberto" id="clube" aria-labelledby="t-clube">
+    <div class="folha">
+      <div class="folha-topo">
+        <h2 id="t-clube">Clube Ovelhinha</h2>
+        <p>Comece com 3 brincadeiras grátis. Depois, o Clube Ovelhinha libera todos os desenhos, jogos e histórias.</p>
+      </div>
+      <ol class="slots" start="27">
+        <li class="slot" style="--r:-4deg">
+          <div class="encaixe"><span class="num" aria-hidden="true">27</span><h3 class="adesivo selo tres" style="--selo:#FFE08A"><span><b>3</b> brincadeiras grátis</span></h3></div>
+          <p>Sem assinatura, a criança já brinca com 3 atividades.</p>
+        </li>
+      </ol>
+    </div>
+    <div class="folha folha-dir">
+      <ol class="slots" start="28">
+        <li class="slot" style="--r:2deg">
+          <div class="encaixe"><span class="num" aria-hidden="true">28</span><h3 class="adesivo selo preco" style="--selo:#BFE2F7"><span class="valor">R$ 9,90</span> <span class="periodo">por mês</span></h3></div>
+          <p>Plano mensal, com renovação automática.</p>
+        </li>
+        <li class="slot" style="--r:-2.5deg">
+          <div class="encaixe"><span class="num" aria-hidden="true">29</span><h3 class="adesivo selo preco" style="--selo:#D9CFF3;position:relative"><span class="valor">R$ 59,90</span> <span class="periodo">por ano</span> <span class="selinho">7 dias grátis</span></h3></div>
+          <p>Plano anual. Quem assina pela primeira vez começa com 7 dias grátis.</p>
+        </li>
+      </ol>
+      <p class="miudo">A assinatura é feita na App Store ou no Google Play e pode ser cancelada pela loja. A compra fica na área dos pais, atrás do desafio para adultos: a criança nunca vê preço.</p>
+    </div>
+  </section>
+
+  <section class="aberto" id="perguntas" aria-labelledby="t-perguntas">
+    <div class="folha">
+      <div class="folha-topo">
+        <h2 id="t-perguntas">Perguntas dos pais</h2>
+        <p>Ficou alguma dúvida? Escreva para <a href="mailto:xthallis@gmail.com">xthallis@gmail.com</a>.</p>
+      </div>
+    </div>
+    <div class="folha perguntas">
+      <details>
+        <summary>Quando o app chega às lojas?</summary>
+        <p>Em breve. Toque em “Me avise quando lançar” e mande o e-mail: avisamos assim que a Ovelhinha estiver na App Store e no Google Play.</p>
+      </details>
+      <details>
+        <summary>A criança precisa saber ler?</summary>
+        <p>Não. Cada brincadeira explica em voz alta o que fazer. A narração usa a voz do próprio aparelho, em português, inglês ou espanhol.</p>
+      </details>
+      <details>
+        <summary>Precisa de internet?</summary>
+        <p>Não. Depois de instalado, o app funciona sem internet.</p>
+      </details>
+      <details>
+        <summary>Serve para famílias católicas e evangélicas?</summary>
+        <p>Sim. O conteúdo é comum a católicos e evangélicos: a Criação, a Arca de Noé, o Natal e a vida de Jesus, para crianças pequenas e sem cenas de medo.</p>
+      </details>
+      <details>
+        <summary>O que o app guarda sobre a criança?</summary>
+        <p>Nada sai do aparelho. As pinturas e os ajustes ficam guardados só nele, e o app não pede cadastro. Os detalhes estão na <a href="https://thallisribeiro.github.io/ovelhinha/privacy-policy.html">Política de Privacidade</a>.</p>
+      </details>
+      <details>
+        <summary>Como cancelo a assinatura?</summary>
+        <p>Pela loja onde você assinou. No Google Play: foto do perfil, Pagamentos e assinaturas, Assinaturas. No iPhone e no iPad: Ajustes, seu nome, Assinaturas.</p>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<section class="contracapa" aria-labelledby="t-fim">
+  <div class="contracapa-topo">
+    <h2 id="t-fim">A Ovelhinha chega em breve</h2>
+    <p>Mande um e-mail e avisamos quando o app estiver na App Store e no Google Play.</p>
+    <a class="botao" href="mailto:xthallis@gmail.com?subject=Me%20avise%20quando%20a%20Ovelhinha%20lan%C3%A7ar">Me avise quando lançar</a>
+  </div>
+  <img class="festa" src="/ovelhinha/img/mascote/festa.webp" alt="A ovelhinha pulando de alegria" width="400" height="400" loading="lazy">
+  <div class="chao">
+    <footer class="rodape">
+      <nav aria-label="Documentos do app">
+        <ul>
+          <li><a href="https://thallisribeiro.github.io/ovelhinha/privacy-policy.html">Política de Privacidade</a></li>
+          <li><a href="https://thallisribeiro.github.io/ovelhinha/terms.html">Termos de Uso</a></li>
+          <li><a href="https://thallisribeiro.github.io/ovelhinha/support.html">Suporte</a></li>
+        </ul>
+      </nav>
+      <p>Thallis Ribeiro · Brasil · <a href="mailto:xthallis@gmail.com">xthallis@gmail.com</a></p>
+      <p><a href="https://thallisribeiro.com.br/">thallisribeiro.com.br</a></p>
+    </footer>
+  </div>
+</section>
+
+<script>
+(() => {
+  // Cada adesivo é pressionado no encaixe quando aparece, uma vez só, e o contador do
+  // álbum sobe junto. Sem a classe "colar" (sem JS ou com movimento reduzido) nada disso
+  // roda e tudo já está colado.
+  const conta = document.querySelector('[data-conta]');
+  const encaixes = document.querySelectorAll('.encaixe');
+  document.querySelector('[data-total]').textContent = conta.textContent = encaixes.length;
+  if (!document.documentElement.classList.contains('colar')) return;
+  const pilula = conta.closest('.contador');
+  let colados = 0;
+  conta.textContent = 0;
+  addEventListener('animationend', (e) => {
+    if (e.animationName !== 'colar') return;
+    conta.textContent = ++colados;
+    pilula.animate([{ transform: 'scale(1.16)' }, { transform: 'scale(1)' }], { duration: 360, easing: 'cubic-bezier(.16,1,.3,1)' });
+  });
+  const io = new IntersectionObserver((entradas) => {
+    let i = 0;
+    for (const e of entradas) {
+      if (!e.isIntersecting) continue;
+      io.unobserve(e.target);
+      e.target.style.setProperty('--i', i++);
+      e.target.classList.add('colado');
+    }
+  }, { threshold: 0.25 });
+  encaixes.forEach((el) => io.observe(el));
+})();
+</script>
+</body>
+</html>
