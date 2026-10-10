@@ -743,6 +743,7 @@ ${rssItems}
     ...CIDADES.map((c) => ({ loc: `${SITE_URL}/site-em-7-dias/${c.slug}/`, lastmod: modificadoEm(`site-em-7-dias/${c.slug}/index.html`) })),
     { loc: `${SITE_URL}/ovelhinha/`, lastmod: modificadoEm('ovelhinha/index.html') },
     { loc: `${SITE_URL}/hs-codes/`, lastmod: modificadoEm('hs-codes/index.html') },
+    { loc: `${SITE_URL}/serial-warranty/`, lastmod: modificadoEm('serial-warranty/index.html') },
     ...posts.map(p => ({ loc: `${SITE_URL}/blog/${p.slug}/`, lastmod: p.date })),
     ...temaCounts.map(t => ({ loc: `${SITE_URL}/blog/tema/${t.slug}/`, lastmod: posts[0]?.date })),
   ];
