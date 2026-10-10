@@ -744,6 +744,11 @@ ${rssItems}
     { loc: `${SITE_URL}/ovelhinha/`, lastmod: modificadoEm('ovelhinha/index.html') },
     { loc: `${SITE_URL}/hs-codes/`, lastmod: modificadoEm('hs-codes/index.html') },
     { loc: `${SITE_URL}/serial-warranty/`, lastmod: modificadoEm('serial-warranty/index.html') },
+    { loc: `${SITE_URL}/ferramentas/`, lastmod: modificadoEm('ferramentas/index.html') },
+    { loc: `${SITE_URL}/cardapio-digital/`, lastmod: modificadoEm('cardapio-digital/index.html') },
+    { loc: `${SITE_URL}/gerador-de-politica-de-privacidade/`, lastmod: modificadoEm('gerador-de-politica-de-privacidade/index.html') },
+    { loc: `${SITE_URL}/quanto-custa-um-site/`, lastmod: modificadoEm('quanto-custa-um-site/index.html') },
+    { loc: `${SITE_URL}/gerador-de-link-whatsapp/`, lastmod: modificadoEm('gerador-de-link-whatsapp/index.html') },
     ...posts.map(p => ({ loc: `${SITE_URL}/blog/${p.slug}/`, lastmod: p.date })),
     ...temaCounts.map(t => ({ loc: `${SITE_URL}/blog/tema/${t.slug}/`, lastmod: posts[0]?.date })),
   ];

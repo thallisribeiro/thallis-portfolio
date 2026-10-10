@@ -8,4 +8,9 @@ Este site inclui um blog em /blog/ — um diário real do que é construído, in
 
 - [Home](https://thallisribeiro.com.br/): site profissional em 7 dias a partir de R$ 997; sites de cliente no ar (Eunoimóvel, Dr. Daniel Gazzola, Bit da Macrobit, Dra. Lara Costa) e produtos meus (LicitaCerta, IZMED e outros).
 - [Blog](https://thallisribeiro.com.br/blog/): posts sobre construir produtos e conteúdo com IA.
+- [Ferramentas grátis](https://thallisribeiro.com.br/ferramentas/): ferramentas sem cadastro para pequenos negócios; o que a pessoa digita fica no navegador.
+- [Cardápio digital com QR code](https://thallisribeiro.com.br/cardapio-digital/): monta o cardápio, gera link, QR code e plaquinhas para as mesas; o cardápio fica dentro do link.
+- [Gerador de política de privacidade (LGPD)](https://thallisribeiro.com.br/gerador-de-politica-de-privacidade/): política a partir do que o negócio faz, com os artigos da Lei 13.709/2018 citados.
+- [Quanto custa um site](https://thallisribeiro.com.br/quanto-custa-um-site/): compara fazer sozinho, freelancer e agência com preços de fontes citadas.
+- [Gerador de link do WhatsApp](https://thallisribeiro.com.br/gerador-de-link-whatsapp/): link wa.me com mensagem, QR code e botão para site.
 - [Sitemap](https://thallisribeiro.com.br/sitemap.xml): lista completa de páginas.

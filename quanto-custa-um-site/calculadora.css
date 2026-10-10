@@ -1,0 +1,116 @@
+/* Calculadora "quanto custa um site?" — só o que /style.css não tem. Prefixo calc-. */
+
+.calc-logo { color: var(--text); text-decoration: none; min-height: 44px; }
+.calc-hero { padding-top: clamp(48px, 10vw, 112px); }
+.calc-h1 { font-size: clamp(2.2rem, 6.4vw, 4.4rem); }
+.calc-hero .tese-sub { margin-bottom: 16px; }
+.calc-privacidade { color: var(--muted); font-size: 15px; margin: 0; }
+
+.calc-secao { padding-top: clamp(40px, 8vw, 72px); padding-bottom: clamp(40px, 8vw, 72px); }
+.calc-estreito { max-width: 880px; }
+.calc-secao .secao-titulo, #como .secao-titulo, #perguntas .secao-titulo, #fontes .secao-titulo { margin-bottom: 20px; }
+
+/* ---------- formulário ---------- */
+.calc-form { display: grid; gap: 28px; }
+.calc-grupo { border: 0; margin: 0; padding: 0; min-width: 0; }
+.calc-grupo legend, .calc-rotulo {
+  display: block; padding: 0; margin-bottom: 12px;
+  font-family: var(--font-display); font-weight: 700; font-size: 1.15rem;
+}
+.calc-opcoes { display: grid; gap: 10px; }
+.calc-opcao {
+  display: flex; align-items: flex-start; gap: 12px;
+  min-height: 48px; padding: 12px 14px;
+  background: var(--secondary); border: 1px solid var(--line); border-radius: 12px;
+  cursor: pointer; line-height: 1.45;
+}
+.calc-opcao:hover { border-color: var(--muted); }
+.calc-opcao:has(input:checked) { border-color: var(--primary); }
+.calc-opcao input { flex: none; width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--primary); }
+.calc-opcao strong { display: block; font-weight: 600; }
+.calc-desc { display: block; color: var(--muted); font-size: 14px; }
+.calc-form input:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+
+.calc-paginas input {
+  width: 8.5rem; min-height: 48px; padding: 8px 12px;
+  font: 600 1.1rem var(--font-body); color: var(--text);
+  background: var(--secondary); border: 1px solid var(--muted); border-radius: 12px;
+}
+.calc-paginas input:disabled { opacity: .6; }
+.calc-paginas input[aria-invalid="true"] { border-color: #FF7B72; }
+.calc-dica { color: var(--muted); font-size: 14px; margin: 8px 0 0; }
+.calc-erro { color: #FF7B72; font-size: 15px; font-weight: 600; margin: 6px 0 0; }
+.calc-erro:empty { display: none; }
+.calc-enviar { justify-self: start; border: 0; cursor: pointer; }
+.calc-aviso { color: var(--primary); }
+
+@media (min-width: 720px) {
+  .calc-opcoes-tipo { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .calc-opcoes-recursos, .calc-opcoes-quem { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ---------- resultado ---------- */
+#resultado-titulo { scroll-margin-top: 88px; }
+#resultado-titulo:focus { outline: none; }
+#resultado-titulo:focus-visible { outline: 2px solid var(--primary); outline-offset: 4px; }
+.calc-resumo { color: var(--muted); margin: -8px 0 24px; }
+.calc-rotas { display: grid; gap: 16px; }
+@media (min-width: 960px) { .calc-rotas { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+.calc-rota {
+  min-width: 0; padding: 22px 20px;
+  background: var(--secondary); border: 1px solid var(--line); border-radius: var(--radius-card);
+}
+.calc-rota[data-escolhida] { border-color: var(--primary); }
+.calc-rota-topo { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+.calc-rota h3 { font-size: 1.25rem; }
+.calc-rota h4 { font-family: var(--font-display); font-size: 1rem; margin: 22px 0 10px; }
+.calc-selo {
+  font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--primary); border: 1px solid var(--primary); border-radius: 999px; padding: 2px 10px;
+}
+.calc-numeros { margin: 0; display: grid; gap: 12px; }
+.calc-linha { border-top: 1px solid var(--line); padding-top: 10px; }
+.calc-linha dt { color: var(--muted); font-size: 14px; }
+.calc-linha dd { margin: 2px 0 0; overflow-wrap: anywhere; }
+.calc-valor { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; }
+.calc-mini { color: var(--muted); font-size: 14px; }
+.calc-rota > .calc-mini { margin: 12px 0 0; }
+.calc-lista li { font-size: 15px; max-width: none; }
+.calc-avisos { margin: 16px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.calc-avisos li { font-size: 14px; color: var(--text); border-left: 2px solid var(--primary); padding-left: 10px; }
+.calc-rodape-resultado { color: var(--muted); font-size: 14px; margin: 20px 0 0; max-width: 70ch; }
+
+/* Nota de fonte: link curto dentro do texto; área de toque ampliada sem mexer na linha. */
+.calc-ref {
+  display: inline-block; min-width: 24px; min-height: 24px; padding: 0 2px;
+  font-size: 13px; line-height: 24px; text-align: center; vertical-align: baseline;
+  color: var(--accent); text-decoration: none;
+}
+.calc-ref:hover { text-decoration: underline; }
+
+/* ---------- oferta ---------- */
+.calc-oferta { border-left: 3px solid var(--primary); padding-left: clamp(16px, 4vw, 28px); }
+.calc-oferta .tese-kicker { margin-bottom: 12px; }
+.calc-oferta .secao-titulo { margin-bottom: 12px; }
+.calc-oferta-preco strong { font-family: var(--font-display); font-size: 2.2rem; color: var(--primary); }
+.calc-oferta .lista-marcada { margin: 8px 0 20px; }
+.calc-oferta .nota-canal { color: var(--muted); font-size: 14px; }
+
+/* ---------- conteúdo ---------- */
+.calc-passos { margin: 0; padding-left: 1.4em; display: grid; gap: 14px; max-width: 70ch; }
+.calc-passos li::marker { color: var(--primary); font-weight: 700; }
+#perguntas summary { padding: 10px 0; min-height: 44px; }
+#perguntas summary:focus-visible { outline: 2px solid var(--primary); outline-offset: 4px; }
+#perguntas details p { max-width: 70ch; margin-bottom: 8px; }
+.calc-fontes { padding-left: 1.6em; display: grid; gap: 4px; color: var(--muted); font-size: 15px; }
+.calc-fontes li { overflow-wrap: anywhere; scroll-margin-top: 88px; }
+.calc-fontes li:target { color: var(--text); }
+.calc-links a { display: inline-block; min-height: 44px; line-height: 44px; }
+.calc-fontes a { display: inline-block; padding: 10px 0; min-height: 44px; }
+.nav-landing .btn-nav { min-height: 44px; display: inline-flex; align-items: center; }
+@media (max-width: 360px) {
+  .nav-landing .nav-inner { padding-left: 16px; padding-right: 16px; }
+  .nav-landing .logo { font-size: 16px; }
+  .nav-landing .btn-nav { padding: 8px 12px; font-size: 13px; white-space: nowrap; }
+}

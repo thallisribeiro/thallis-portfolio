@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cardápio digital grátis com QR code, sem cadastro</title>
+<meta name="description" content="Monte o cardápio digital do seu restaurante, gere o link e o QR code e imprima as plaquinhas das mesas. Grátis, sem cadastro e sem mensalidade.">
+<link rel="canonical" href="https://thallisribeiro.com.br/cardapio-digital/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cardápio digital grátis com QR code, sem cadastro">
+<meta property="og:description" content="Monte o cardápio digital do seu restaurante, gere o link e o QR code e imprima as plaquinhas das mesas. Grátis, sem cadastro e sem mensalidade.">
+<meta property="og:url" content="https://thallisribeiro.com.br/cardapio-digital/">
+<meta property="og:image" content="https://thallisribeiro.com.br/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/cardapio-digital/cardapio.css">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230B0F14'/%3E%3Crect x='10' y='14' width='44' height='4' rx='2' fill='%23E8A33D'/%3E%3Crect x='10' y='30' width='30' height='4' rx='2' fill='%238B949E'/%3E%3Crect x='10' y='46' width='18' height='4' rx='2' fill='%238B949E'/%3E%3C/svg%3E">
+<script>
+  // O link de edição traz o cardápio depois do #. Ele é lido aqui e tirado da barra de
+  // endereço ANTES do Google Analytics carregar: a contagem de visitas não leva junto o
+  // conteúdo do cardápio.
+  if (/^#v\d\./.test(location.hash)) {
+    window.cardapioCodigo = location.hash.slice(1);
+    history.replaceState(null, '', location.pathname + location.search);
+  }
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-247F9N1WQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-247F9N1WQE');
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Cardápio digital grátis com QR code",
+  "url": "https://thallisribeiro.com.br/cardapio-digital/",
+  "description": "Monte o cardápio digital do seu restaurante, gere o link e o QR code e imprima as plaquinhas das mesas. Grátis, sem cadastro e sem mensalidade.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Qualquer navegador",
+  "inLanguage": "pt-BR",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" },
+  "author": { "@type": "Person", "name": "Thallis Ribeiro", "url": "https://thallisribeiro.com.br/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "O cardápio digital é grátis mesmo? Precisa de cadastro?",
+      "acceptedAnswer": { "@type": "Answer", "text": "É grátis, sem cadastro e sem mensalidade. O cardápio não tem anúncio: só um rodapé pequeno com o link desta ferramenta." } },
+    { "@type": "Question", "name": "Onde o meu cardápio fica guardado?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Dentro do próprio link. O cardápio vai compactado depois do #, a parte do endereço que o navegador não envia para nenhum servidor. O que você digita não sai do seu navegador: não existe banco de dados com o seu cardápio. O rascunho fica salvo só neste aparelho. A página conta visitas com o Google Analytics, como o resto do site, mas o conteúdo do cardápio não vai junto." } },
+    { "@type": "Question", "name": "Se eu mudar um preço, preciso imprimir o QR code de novo?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sim. Como o cardápio mora dentro do link, qualquer mudança gera um link novo e um QR code novo. O QR antigo continua abrindo o cardápio antigo. Imprima as plaquinhas de novo e troque nas mesas. Se você muda preço com frequência, um site com endereço fixo resolve: o QR nunca muda e você edita o cardápio quando quiser." } },
+    { "@type": "Question", "name": "Como eu edito o cardápio depois?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Pelo link de edição, que aparece junto com o QR code. Guarde esse link, por exemplo mandando para o seu próprio WhatsApp. Neste aparelho o rascunho também fica salvo, mas se você limpar o navegador ou trocar de celular, só o link de edição traz o cardápio de volta." } },
+    { "@type": "Question", "name": "Por que aparece o aviso de link longo?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Quanto maior o cardápio, maior o link e mais quadradinhos o QR code tem. Quadradinho muito pequeno é difícil de ler para celular simples ou com pouca luz. Descrições mais curtas deixam o QR mais fácil de ler." } },
+    { "@type": "Question", "name": "Dá para colocar fotos dos pratos?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Nesta ferramenta, não: foto não cabe dentro de um link. Num site próprio do restaurante, dá." } },
+    { "@type": "Question", "name": "O cliente precisa baixar algum aplicativo?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Não. Na maioria dos celulares a própria câmera lê o QR code e abre o cardápio no navegador. Nos mais antigos, o Google Lens ou um leitor de QR resolve." } }
+  ]
+}
+</script>
+</head>
+<body data-page-ev="tool_cardapio_viewed">
+
+<a class="skip-link" href="#editor">Pular para o editor do cardápio</a>
+
+<header class="nav nav-landing">
+  <div class="nav-inner">
+    <a class="logo-wrap cd-logo" href="/">
+      <span class="logo-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="logo">Thallis Ribeiro</span>
+    </a>
+    <div class="nav-actions">
+      <a class="btn btn-ghost btn-nav" href="/ferramentas/">Ferramentas<span class="cd-largo"> grátis</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <section class="cd-hero">
+    <div class="cd-largura">
+      <p class="tese-kicker">Ferramenta grátis · sem cadastro</p>
+      <h1 class="cd-h1">Cardápio digital grátis com QR code</h1>
+      <p class="cd-sub">Monte o cardápio do seu restaurante, gere o link e o QR code e imprima as plaquinhas das mesas. Sem cadastro e sem mensalidade. O que você digita não sai do seu navegador: o cardápio fica guardado dentro do próprio link.</p>
+    </div>
+  </section>
+
+  <section class="cd-ferramenta" aria-label="Editor do cardápio">
+    <div class="cd-largura cd-grade">
+      <form id="editor" class="cd-editor" novalidate tabindex="-1">
+        <p id="aviso" class="cd-alerta" hidden></p>
+        <p class="cd-exemplo">Já deixamos um cardápio de exemplo para você ver como fica. <button type="button" class="cd-botao" id="zerar">Começar do zero</button></p>
+
+        <fieldset class="cd-bloco">
+          <legend>Restaurante</legend>
+          <div class="cd-campo">
+            <label for="f-nome">Nome do restaurante</label>
+            <input id="f-nome" name="nome" maxlength="60" autocomplete="organization" required aria-describedby="f-nome-erro">
+            <p id="f-nome-erro" class="cd-erro" hidden>Escreva o nome do restaurante para gerar o link e o QR code.</p>
+          </div>
+          <div class="cd-campo">
+            <label for="f-frase">Frase curta <span class="cd-opcional">(opcional)</span></label>
+            <input id="f-frase" name="frase" maxlength="100" placeholder="Ex.: Comida caseira desde 1998">
+          </div>
+          <div class="cd-duas">
+            <div class="cd-campo">
+              <label for="f-whatsapp">WhatsApp <span class="cd-opcional">(opcional)</span></label>
+              <input id="f-whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(73) 98888-7777" aria-describedby="f-whatsapp-dica f-whatsapp-erro">
+              <p id="f-whatsapp-dica" class="cd-dica">Com DDD. Vira o botão "Chamar no WhatsApp".</p>
+              <p id="f-whatsapp-erro" class="cd-erro" hidden>Esse número não parece certo. Use DDD + número, por exemplo (73) 98888-7777.</p>
+            </div>
+            <div class="cd-campo">
+              <label for="f-instagram">Instagram <span class="cd-opcional">(opcional)</span></label>
+              <input id="f-instagram" name="instagram" autocapitalize="none" spellcheck="false" placeholder="@seurestaurante" aria-describedby="f-instagram-erro">
+              <p id="f-instagram-erro" class="cd-erro" hidden>Use só o nome de usuário, por exemplo @seurestaurante.</p>
+            </div>
+          </div>
+          <div class="cd-campo">
+            <label for="f-endereco">Endereço <span class="cd-opcional">(opcional)</span></label>
+            <input id="f-endereco" name="endereco" maxlength="120" autocomplete="street-address" placeholder="Ex.: Rua da Praia, 100, Centro">
+          </div>
+          <div class="cd-campo">
+            <label for="f-horario">Horário <span class="cd-opcional">(opcional)</span></label>
+            <input id="f-horario" name="horario" maxlength="80" placeholder="Ex.: Ter a dom, 11h às 22h">
+          </div>
+          <fieldset class="cd-temas">
+            <legend>Tema</legend>
+            <label class="cd-tema"><input type="radio" name="tema" value="classico"><span class="cd-amostra cd-amostra-classico" aria-hidden="true"></span>Claro clássico</label>
+            <label class="cd-tema"><input type="radio" name="tema" value="escuro"><span class="cd-amostra cd-amostra-escuro" aria-hidden="true"></span>Escuro</label>
+            <label class="cd-tema"><input type="radio" name="tema" value="praia"><span class="cd-amostra cd-amostra-praia" aria-hidden="true"></span>Praia</label>
+          </fieldset>
+        </fieldset>
+
+        <fieldset class="cd-bloco">
+          <legend>Cardápio</legend>
+          <p class="cd-dica">Item ou seção sem nome não aparece no cardápio. Até 12 seções e 150 itens.</p>
+          <div id="secoes"></div>
+          <p id="limite" class="cd-dica" role="status"></p>
+          <button type="button" class="cd-botao cd-adicionar" data-acao="add-secao">+ Adicionar seção</button>
+        </fieldset>
+
+        <div class="cd-fim-form">
+          <button type="button" class="btn btn-primary btn-lg" id="ir-resultado">Ver meu link e QR code</button>
+        </div>
+      </form>
+
+      <aside class="cd-previa" aria-label="Prévia do cardápio">
+        <p class="cd-previa-rotulo">Prévia: assim o cliente vê no celular</p>
+        <div class="cd-celular">
+          <iframe id="previa" title="Prévia do cardápio no celular" src="/cardapio-digital/ver/"></iframe>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="resultado" class="cd-secao cd-resultado" aria-labelledby="resultado-titulo">
+    <div class="cd-largura">
+      <h2 id="resultado-titulo" class="secao-titulo" tabindex="-1">Seu link e o QR code</h2>
+      <p id="saida-vazia" class="cd-dica cd-saida-vazia">Escreva o nome do restaurante lá em cima para gerar o link e o QR code.</p>
+      <div id="saida" class="cd-saida" hidden>
+        <div class="cd-qr-coluna">
+          <div id="qr" class="cd-qr" role="img" aria-label="QR code que abre o cardápio"></div>
+          <label for="medidor" class="cd-rotulo cd-medidor-rotulo">Tamanho do link</label>
+          <meter id="medidor" min="0"></meter>
+          <p id="medidor-texto" class="cd-dica"></p>
+          <p id="medidor-aviso" class="cd-alerta" role="status" hidden></p>
+        </div>
+        <div class="cd-saida-acoes">
+          <label for="link-publico" class="cd-rotulo">Link do cardápio (é o que vai no QR code)</label>
+          <div class="cd-copiar">
+            <input id="link-publico" readonly>
+            <button type="button" class="cd-botao" data-copiar="link-publico">Copiar link</button>
+          </div>
+          <div class="cd-acoes">
+            <a id="abrir" class="cd-botao" target="_blank" rel="noopener">Abrir cardápio</a>
+            <button type="button" class="cd-botao" id="baixar">Baixar QR (PNG)</button>
+            <button type="button" class="cd-botao" id="imprimir">Imprimir plaquinhas das mesas</button>
+          </div>
+          <p class="cd-dica">As plaquinhas saem 4 por folha A4, com linha tracejada para recortar.</p>
+
+          <div class="cd-edicao">
+            <label for="link-edicao" class="cd-rotulo">Link de edição: guarde este</label>
+            <div class="cd-copiar">
+              <input id="link-edicao" readonly>
+              <button type="button" class="cd-botao" data-copiar="link-edicao">Copiar</button>
+            </div>
+            <p class="cd-dica">Não guardamos o seu cardápio em lugar nenhum: ele está dentro do link. Para mudar o cardápio depois, ou em outro celular, abra este link de edição. Mande para o seu próprio WhatsApp para não perder.</p>
+          </div>
+          <p id="copiado" class="cd-copiado" role="status"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="oferta" class="cd-secao cd-oferta" aria-labelledby="oferta-titulo">
+    <div class="cd-largura">
+      <div class="cd-oferta-caixa">
+        <p class="tese-kicker">Mudou o preço, muda o QR</p>
+        <h2 id="oferta-titulo" class="secao-titulo">Um site do restaurante, com endereço que não muda</h2>
+        <p>Aqui o cardápio mora dentro do link, então cada mudança gera um QR novo e as plaquinhas precisam ser impressas de novo. Com um site próprio:</p>
+        <ul class="lista-marcada">
+          <li><strong>O QR das mesas nunca muda.</strong> O endereço é fixo, no domínio do restaurante (seurestaurante.com.br), e você troca preço e prato quando quiser.</li>
+          <li><strong>Fotos dos pratos</strong>, que não cabem dentro de um link.</li>
+          <li><strong>Aparece no Google</strong> quando alguém procura onde comer na cidade, com mapa, horário e botão de WhatsApp para reserva.</li>
+        </ul>
+        <p class="cd-preco"><strong>A partir de R$ 997, no ar em 7 dias.</strong> Domínio .com.br incluso.</p>
+        <a class="btn btn-primary btn-lg" href="https://wa.me/5573988899345?text=Quero%20um%20site%20para%20o%20meu%20restaurante%20%5Bcardapio%5D" target="_blank" rel="noopener" data-ev="tool_cardapio_cta_clicked" data-ev-local="oferta">Quero um site para o meu restaurante</a>
+        <p class="cd-dica">Você será direcionado ao WhatsApp. Quem responde é o Thallis.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cd-secao" aria-labelledby="como-titulo">
+    <div class="cd-largura cd-texto">
+      <h2 id="como-titulo" class="secao-titulo">Como funciona</h2>
+      <ol class="cd-passos">
+        <li><strong>Escreva o cardápio.</strong> Seções, pratos, preços e selos como vegano e sem glúten. A prévia mostra como fica no celular do cliente.</li>
+        <li><strong>Gere o link e o QR code.</strong> Copie o link para o Instagram e o WhatsApp, baixe o QR em PNG ou imprima as plaquinhas das mesas.</li>
+        <li><strong>Guarde o link de edição.</strong> É com ele que você muda o cardápio depois. Mudou o cardápio, o QR muda junto: imprima as plaquinhas de novo.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="cd-secao" aria-labelledby="faq-titulo">
+    <div class="cd-largura cd-texto">
+      <h2 id="faq-titulo" class="secao-titulo">Perguntas frequentes</h2>
+      <div class="faq cd-faq">
+        <details>
+          <summary>O cardápio digital é grátis mesmo? Precisa de cadastro?</summary>
+          <p>É grátis, sem cadastro e sem mensalidade. O cardápio não tem anúncio: só um rodapé pequeno com o link desta ferramenta.</p>
+        </details>
+        <details>
+          <summary>Onde o meu cardápio fica guardado?</summary>
+          <p>Dentro do próprio link. O cardápio vai compactado depois do #, a parte do endereço que o navegador não envia para nenhum servidor. O que você digita não sai do seu navegador: não existe banco de dados com o seu cardápio. O rascunho fica salvo só neste aparelho. A página conta visitas com o Google Analytics, como o resto do site, mas o conteúdo do cardápio não vai junto.</p>
+        </details>
+        <details>
+          <summary>Se eu mudar um preço, preciso imprimir o QR code de novo?</summary>
+          <p>Sim. Como o cardápio mora dentro do link, qualquer mudança gera um link novo e um QR code novo. O QR antigo continua abrindo o cardápio antigo. Imprima as plaquinhas de novo e troque nas mesas. Se você muda preço com frequência, <a href="#oferta">um site com endereço fixo</a> resolve: o QR nunca muda e você edita o cardápio quando quiser.</p>
+        </details>
+        <details>
+          <summary>Como eu edito o cardápio depois?</summary>
+          <p>Pelo link de edição, que aparece junto com o QR code. Guarde esse link, por exemplo mandando para o seu próprio WhatsApp. Neste aparelho o rascunho também fica salvo, mas se você limpar o navegador ou trocar de celular, só o link de edição traz o cardápio de volta.</p>
+        </details>
+        <details>
+          <summary>Por que aparece o aviso de link longo?</summary>
+          <p>Quanto maior o cardápio, maior o link e mais quadradinhos o QR code tem. Quadradinho muito pequeno é difícil de ler para celular simples ou com pouca luz. Descrições mais curtas deixam o QR mais fácil de ler.</p>
+        </details>
+        <details>
+          <summary>Dá para colocar fotos dos pratos?</summary>
+          <p>Nesta ferramenta, não: foto não cabe dentro de um link. Num site próprio do restaurante, dá.</p>
+        </details>
+        <details>
+          <summary>O cliente precisa baixar algum aplicativo?</summary>
+          <p>Não. Na maioria dos celulares a própria câmera lê o QR code e abre o cardápio no navegador. Nos mais antigos, o Google Lens ou um leitor de QR resolve.</p>
+        </details>
+      </div>
+      <p class="cd-mais">Veja também as outras <a href="/ferramentas/">ferramentas grátis para pequenos negócios</a> ou <a href="/">conheça o trabalho do Thallis</a>.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span>Thallis Ribeiro · 2026</span>
+  <a class="footer-social" href="/">Início</a>
+  <a class="footer-social" href="/ferramentas/">Ferramentas grátis</a>
+  <a class="footer-social" href="/blog/">Blog</a>
+</footer>
+
+<!-- Só aparece na impressão: 4 plaquinhas por folha A4. -->
+<div id="plaquinhas" class="cd-plaquinhas" aria-hidden="true"></div>
+
+<template id="tpl-secao">
+  <div class="cd-secao-ed">
+    <div class="cd-secao-topo">
+      <div class="cd-campo">
+        <label for="__nome">Nome da seção</label>
+        <input id="__nome" data-campo="nome" maxlength="40" placeholder="Ex.: Entradas, Pratos, Bebidas">
+      </div>
+      <div class="cd-mover" role="group" aria-label="Organizar seção">
+        <button type="button" class="cd-botao cd-icone" data-acao="subir-secao" aria-label="Subir seção">↑</button>
+        <button type="button" class="cd-botao cd-icone" data-acao="descer-secao" aria-label="Descer seção">↓</button>
+        <button type="button" class="cd-botao" data-acao="remover-secao">Remover seção</button>
+      </div>
+    </div>
+    <ol class="cd-itens"></ol>
+    <button type="button" class="cd-botao cd-adicionar" data-acao="add-item">+ Adicionar item nesta seção</button>
+  </div>
+</template>
+
+<template id="tpl-item">
+  <li class="cd-item">
+    <div class="cd-item-linha">
+      <div class="cd-campo cd-campo-nome">
+        <label for="__nome">Nome do item</label>
+        <input id="__nome" data-campo="nome" maxlength="60" placeholder="Ex.: Pastel de queijo">
+      </div>
+      <div class="cd-campo cd-campo-preco">
+        <label for="__preco">Preço</label>
+        <input id="__preco" data-campo="preco" inputmode="decimal" autocomplete="off" placeholder="25,90" aria-describedby="__preco-erro">
+      </div>
+    </div>
+    <p id="__preco-erro" class="cd-erro" hidden>Não entendi o preço. Escreva assim: 25,90</p>
+    <div class="cd-campo">
+      <label for="__desc">Descrição <span class="cd-opcional">(opcional)</span></label>
+      <textarea id="__desc" data-campo="desc" rows="2" maxlength="140" placeholder="Ex.: Seis unidades, massa fina"></textarea>
+    </div>
+    <fieldset class="cd-selos">
+      <legend>Selos <span class="cd-opcional">(opcional)</span></legend>
+      <label><input type="checkbox" data-campo="selo" value="vegetariano"> Vegetariano</label>
+      <label><input type="checkbox" data-campo="selo" value="vegano"> Vegano</label>
+      <label><input type="checkbox" data-campo="selo" value="sem-gluten"> Sem glúten</label>
+      <label><input type="checkbox" data-campo="selo" value="picante"> Picante</label>
+    </fieldset>
+    <div class="cd-mover" role="group" aria-label="Organizar item">
+      <button type="button" class="cd-botao cd-icone" data-acao="subir-item" aria-label="Subir item">↑</button>
+      <button type="button" class="cd-botao cd-icone" data-acao="descer-item" aria-label="Descer item">↓</button>
+      <button type="button" class="cd-botao" data-acao="remover-item">Remover item</button>
+    </div>
+  </li>
+</template>
+
+<script src="/assets/ferramentas/qrcode.js"></script>
+<script type="module" src="/cardapio-digital/editor.mjs"></script>
+<script src="/assets/main.js" defer></script>
+</body>
+</html>

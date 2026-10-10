@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="pt-BR" data-tema="classico">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Cardápio</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23FBF8F3'/%3E%3Crect x='14' y='16' width='36' height='5' rx='2.5' fill='%238E3B22'/%3E%3Crect x='14' y='30' width='36' height='4' rx='2' fill='%236B5E52'/%3E%3Crect x='14' y='42' width='24' height='4' rx='2' fill='%236B5E52'/%3E%3C/svg%3E">
+<style>
+/* Esta é a página que o cliente do restaurante vê. Parece o cardápio do restaurante,
+   não o portfólio: fontes do sistema (nada a baixar no 3G) e três temas fixos. */
+:root {
+  --fundo: #FBF8F3; --cartao: #FFFFFF; --texto: #231C17; --suave: #6B5E52;
+  --acento: #8E3B22; --sobre-acento: #FFFFFF; --linha: #E6DCCD; --chip: #F1E9DD;
+  --fonte-titulo: Georgia, "Times New Roman", serif;
+  --fonte: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color-scheme: light;
+}
+[data-tema="escuro"] {
+  --fundo: #14120F; --cartao: #1E1B17; --texto: #F3EEE6; --suave: #B9AE9F;
+  --acento: #E6B566; --sobre-acento: #14120F; --linha: #3A342C; --chip: #28241E;
+  color-scheme: dark;
+}
+[data-tema="praia"] {
+  --fundo: #F2F9F8; --cartao: #FFFFFF; --texto: #0E2A2F; --suave: #44606A;
+  --acento: #0B6873; --sobre-acento: #FFFFFF; --linha: #D2E6E3; --chip: #E0F1EE;
+  --fonte-titulo: var(--fonte);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body {
+  margin: 0; background: var(--fundo); color: var(--texto);
+  font: 16px/1.5 var(--fonte); overflow-wrap: anywhere;
+}
+h1, h2, h3, p { margin: 0; }
+a { color: var(--acento); }
+:focus-visible { outline: 3px solid var(--acento); outline-offset: 2px; border-radius: 4px; }
+
+.pagina { max-width: 640px; margin: 0 auto; }
+
+.topo { padding: 32px 16px 20px; text-align: center; }
+.nome { font-family: var(--fonte-titulo); font-size: clamp(1.75rem, 7vw, 2.4rem); line-height: 1.15; letter-spacing: -.01em; }
+.frase { color: var(--suave); margin-top: 8px; }
+.contatos { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 18px; }
+.botao {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
+  padding: 10px 18px; border-radius: 999px; font-weight: 600; text-decoration: none;
+  border: 2px solid var(--acento);
+}
+.botao-cheio { background: var(--acento); color: var(--sobre-acento); }
+.botao-vazio { color: var(--acento); }
+.info { list-style: none; padding: 0; margin: 16px 0 0; color: var(--suave); font-size: 15px; }
+.info li + li { margin-top: 2px; }
+.info strong { color: var(--texto); font-weight: 600; }
+.info a { display: inline-block; padding: 12px 0; margin: -12px 0; } /* alvo de toque de 44 px sem afastar as linhas */
+
+.chips {
+  position: sticky; top: 0; z-index: 2; background: var(--fundo);
+  border-bottom: 1px solid var(--linha);
+}
+.chips ul {
+  display: flex; gap: 8px; list-style: none; margin: 0; padding: 10px 16px;
+  overflow-x: auto; scrollbar-width: none;
+}
+.chips ul::-webkit-scrollbar { display: none; }
+.chips button {
+  flex: none; min-height: 44px; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--linha);
+  background: var(--chip); color: var(--texto); font: 600 15px/1 var(--fonte); cursor: pointer; white-space: nowrap;
+}
+.chips button[aria-current="true"] { background: var(--acento); border-color: var(--acento); color: var(--sobre-acento); }
+
+.secao { padding: 24px 16px 8px; scroll-margin-top: 66px; }
+.secao h2 { font-family: var(--fonte-titulo); font-size: 1.45rem; margin-bottom: 8px; }
+.secao h2:focus { outline: none; }
+.itens { list-style: none; margin: 0; padding: 0; }
+.item { padding: 14px 0; border-bottom: 1px solid var(--linha); }
+.item:last-child { border-bottom: 0; }
+.item-linha { display: flex; align-items: baseline; gap: 12px; }
+.item-nome { flex: 1; min-width: 0; font-size: 1.05rem; font-weight: 600; font-family: var(--fonte); }
+.item-preco { flex: none; font-weight: 700; color: var(--acento); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.item-desc { color: var(--suave); font-size: 15px; margin-top: 2px; }
+.selos { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; margin: 8px 0 0; }
+.selo {
+  font-size: 12px; font-weight: 600; line-height: 1; padding: 5px 8px; border-radius: 999px;
+  border: 1px solid var(--linha); color: var(--suave); background: var(--cartao);
+}
+.vazio { color: var(--suave); padding: 24px 16px; text-align: center; }
+
+.erro { padding: 56px 20px; text-align: center; }
+.erro h1 { font-family: var(--fonte-titulo); font-size: 1.6rem; line-height: 1.2; margin-bottom: 12px; }
+.erro p { color: var(--suave); max-width: 40ch; margin: 0 auto 16px; }
+
+.credito { padding: 32px 16px 40px; text-align: center; font-size: 13px; color: var(--suave); }
+.credito a { color: var(--suave); display: inline-block; padding: 12px 4px; }
+
+@media print {
+  :root, [data-tema] {
+    --fundo: #fff; --cartao: #fff; --texto: #000; --suave: #333; --acento: #000; --linha: #bbb; color-scheme: light;
+  }
+  @page { margin: 14mm; }
+  body { font-size: 11pt; }
+  .chips, .contatos, .credito a { display: none; }
+  .topo { padding-top: 0; }
+  .credito::after { content: "Cardápio digital: thallisribeiro.com.br/cardapio-digital"; }
+  #secoes { columns: 2; column-gap: 10mm; }
+  .secao { padding: 0 0 4mm; break-inside: auto; }
+  .secao h2 { break-after: avoid; }
+  .item { break-inside: avoid; padding: 6pt 0; }
+  .selo { border-color: #999; }
+}
+</style>
+</head>
+<body>
+
+<div class="pagina" id="cardapio" hidden>
+  <header class="topo">
+    <h1 class="nome" id="nome"></h1>
+    <p class="frase" id="frase" hidden></p>
+    <div class="contatos" id="contatos" hidden></div>
+    <ul class="info" id="info" hidden></ul>
+  </header>
+  <nav class="chips" id="chips" aria-label="Seções do cardápio" hidden><ul></ul></nav>
+  <main id="secoes"></main>
+</div>
+
+<main class="pagina erro" id="erro" hidden>
+  <h1>Não conseguimos abrir este cardápio</h1>
+  <p id="erro-motivo">O link pode ter sido cortado ao ser copiado, ou é de uma versão antiga do cardápio. Peça ao restaurante o QR code ou o link atualizado.</p>
+</main>
+
+<noscript><p class="pagina erro">Para ver o cardápio, ative o JavaScript do navegador.</p></noscript>
+
+<footer class="pagina credito">
+  <a href="https://thallisribeiro.com.br/cardapio-digital/" target="_blank" rel="noopener">Cardápio criado grátis em thallisribeiro.com.br/cardapio-digital</a>
+</footer>
+
+<script type="module">
+import { decodeMenu, formatPrice, whatsappUrl, instagramUrl } from '/cardapio-digital/cardapio.mjs';
+
+// O # é dado não confiável: tudo entra por textContent, e links só com valor já validado.
+const NOME_SELO = { vegetariano: 'Vegetariano', vegano: 'Vegano', 'sem-gluten': 'Sem glúten', picante: 'Picante' };
+const semMovimento = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = (id) => document.getElementById(id);
+const MOTIVO_PADRAO = $('erro-motivo').textContent;
+
+function el(tag, classe, texto) {
+  const e = document.createElement(tag);
+  if (classe) e.className = classe;
+  if (texto) e.textContent = texto;
+  return e;
+}
+
+function link(href, classe, texto) {
+  const a = el('a', classe, texto);
+  a.href = href;
+  a.target = '_blank';
+  a.rel = 'noopener';
+  return a;
+}
+
+function mostrarErro(motivo) {
+  document.documentElement.dataset.tema = 'classico';
+  document.title = 'Cardápio não encontrado';
+  $('cardapio').hidden = true;
+  $('erro').hidden = false;
+  $('erro-motivo').textContent = motivo || MOTIVO_PADRAO;
+}
+
+function montar(m) {
+  document.documentElement.dataset.tema = m.tema;
+  document.title = m.nome + ' — Cardápio';
+  $('nome').textContent = m.nome;
+  $('frase').textContent = m.frase;
+  $('frase').hidden = !m.frase;
+
+  const contatos = $('contatos');
+  contatos.replaceChildren();
+  const zap = whatsappUrl(m.whatsapp, 'Olá! Vi o cardápio digital.');
+  const insta = instagramUrl(m.instagram);
+  if (zap) contatos.append(link(zap, 'botao botao-cheio', 'Chamar no WhatsApp'));
+  if (insta) contatos.append(link(insta, 'botao botao-vazio', 'Instagram @' + m.instagram));
+  contatos.hidden = !contatos.childElementCount;
+
+  const info = $('info');
+  info.replaceChildren();
+  if (m.endereco) {
+    const li = el('li');
+    li.append(el('strong', '', 'Endereço: '), link('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(m.endereco), '', m.endereco));
+    info.append(li);
+  }
+  if (m.horario) {
+    const li = el('li');
+    li.append(el('strong', '', 'Horário: '), m.horario);
+    info.append(li);
+  }
+  info.hidden = !info.childElementCount;
+
+  const secoes = $('secoes');
+  const chips = $('chips').firstElementChild;
+  secoes.replaceChildren();
+  chips.replaceChildren();
+  m.secoes.filter((s) => s.itens.length).forEach((s, n) => {
+    const sec = el('section', 'secao');
+    const h2 = el('h2', '', s.nome);
+    h2.id = 'secao-' + n;
+    h2.tabIndex = -1;
+    sec.setAttribute('aria-labelledby', h2.id);
+    const ul = el('ul', 'itens');
+    for (const i of s.itens) {
+      const li = el('li', 'item');
+      const linha = el('div', 'item-linha');
+      linha.append(el('h3', 'item-nome', i.nome));
+      if (i.preco !== null) linha.append(el('span', 'item-preco', formatPrice(i.preco)));
+      li.append(linha);
+      if (i.desc) li.append(el('p', 'item-desc', i.desc));
+      if (i.selos.length) {
+        const selos = el('ul', 'selos');
+        selos.setAttribute('aria-label', 'Selos');
+        for (const x of i.selos) selos.append(el('li', 'selo', NOME_SELO[x]));
+        li.append(selos);
+      }
+      ul.append(li);
+    }
+    sec.append(h2, ul);
+    secoes.append(sec);
+
+    // Botão, não link com #: o # deste endereço é o próprio cardápio.
+    const b = el('button', '', s.nome);
+    b.type = 'button';
+    b.addEventListener('click', () => {
+      for (const x of chips.querySelectorAll('button')) x.removeAttribute('aria-current');
+      b.setAttribute('aria-current', 'true');
+      sec.scrollIntoView({ behavior: semMovimento ? 'auto' : 'smooth' });
+      h2.focus({ preventScroll: true });
+    });
+    const item = el('li');
+    item.append(b);
+    chips.append(item);
+  });
+  if (!secoes.childElementCount) secoes.append(el('p', 'vazio', 'Este cardápio ainda não tem itens.'));
+  $('chips').hidden = chips.childElementCount < 2;
+
+  $('erro').hidden = true;
+  $('cardapio').hidden = false;
+}
+
+function descompacta() {
+  try { new DecompressionStream('deflate-raw'); return true; } catch { return false; }
+}
+
+let vez = 0;
+async function abrir() {
+  const minha = ++vez;
+  const codigo = location.hash.slice(1);
+  if (!codigo) return mostrarErro('Este link não tem nenhum cardápio. Peça ao restaurante o QR code ou o link completo.');
+  const menu = await decodeMenu(codigo);
+  if (minha !== vez) return; // chegou um # mais novo enquanto este decodificava
+  if (menu) return montar(menu);
+  if (codigo.startsWith('v1.') && !descompacta()) {
+    return mostrarErro('Este navegador é antigo demais para abrir o cardápio. Atualize o navegador do celular ou peça o cardápio impresso.');
+  }
+  mostrarErro();
+}
+
+addEventListener('hashchange', abrir);
+abrir();
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+/* Gerador de política de privacidade (LGPD). Tokens vêm de /style.css. */
+.lgpd { padding: var(--space-lg) var(--space-sm); }
+.lgpd-inner { max-width: 1180px; margin: 0 auto; }
+.lgpd-topo { max-width: 760px; }
+.lgpd-topo h1 { font-size: clamp(30px, 6vw, 46px); line-height: 1.1; margin-bottom: var(--space-sm); }
+.lgpd .eyebrow { margin-bottom: var(--space-sm); }
+.lgpd-lead { color: var(--muted); font-size: 18px; margin-bottom: var(--space-md); }
+
+.lgpd-app { display: grid; gap: var(--space-lg); grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 1024px) {
+  .lgpd-app { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); align-items: start; }
+  .resultado { position: sticky; top: 84px; max-height: calc(100vh - 100px); overflow: auto; padding: 4px; }
+}
+
+/* Formulário */
+.lgpd fieldset { border: 1px solid var(--line); border-radius: var(--radius-card); padding: var(--space-md) var(--space-sm); margin: 0 0 var(--space-md); min-width: 0; }
+@media (min-width: 480px) { .lgpd fieldset { padding: var(--space-md); } }
+.lgpd legend { font-family: var(--font-display); font-weight: 700; font-size: 19px; padding: 0 8px; }
+.campo { margin-bottom: var(--space-sm); }
+.campo label { display: block; font-weight: 600; margin-bottom: 6px; }
+.obrig, .opc { color: var(--muted); font-weight: 400; }
+.lgpd input[type="text"], .lgpd input[type="email"], .lgpd input[type="date"], .lgpd select {
+  width: 100%; min-height: 48px; padding: 10px 12px; font: inherit; color: var(--text);
+  background: var(--secondary); border: 1px solid var(--muted); border-radius: 10px;
+}
+.lgpd input[type="date"] { color-scheme: dark; }
+.lgpd input[aria-invalid="true"] { border-color: #FF7B72; }
+.lgpd :is(input, select, summary, [tabindex]):focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.duas { display: grid; gap: 0 var(--space-sm); grid-template-columns: minmax(0, 1fr) 96px; }
+.dica { color: var(--muted); font-size: 14px; margin: 6px 0 0; }
+.erro { color: #FF7B72; font-size: 14px; font-weight: 600; margin: 6px 0 0; }
+.explica { color: var(--muted); font-size: 15px; }
+
+.opcao label { display: flex; gap: 12px; align-items: flex-start; min-height: 44px; padding: 10px 0; cursor: pointer; }
+.opcao input { flex: none; width: 24px; height: 24px; margin: 1px 0 0; accent-color: var(--primary); }
+.opcao .dica { margin: -8px 0 6px 36px; }
+.sub { margin: 0 0 8px 36px; }
+/* Alvos de toque de 44 px também no cabeçalho e no "Começar de novo" (só nesta página). */
+.logo-wrap, .btn-nav { min-height: 44px; display: inline-flex; align-items: center; }
+.logo-wrap { color: var(--text); text-decoration: none; }
+.lgpd button[type="reset"] { min-height: 44px; padding: 10px 16px; font-size: 15px; cursor: pointer; }
+
+/* Resultado */
+.resultado h2 { font-size: 26px; margin-bottom: var(--space-xs); }
+.aviso-legal { background: var(--secondary); border-left: 4px solid var(--accent); border-radius: 8px; padding: 12px 14px; font-size: 15px; }
+.avisos { margin: 0 0 var(--space-sm); padding: 12px 14px 12px 32px; border: 1px solid var(--primary); border-radius: 8px; font-size: 15px; }
+.avisos li + li { margin-top: 8px; }
+.acoes { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin: var(--space-sm) 0 6px; }
+.acoes .btn { min-height: 44px; padding: 10px 16px; font-size: 15px; cursor: pointer; border: 0; }
+.lgpd-oferta .btn-ghost { border: 1px solid var(--muted); }
+.lgpd button.btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--muted); }
+.status { min-height: 1.6em; color: var(--muted); font-size: 14px; margin: 0 0 var(--space-xs); }
+
+.previa {
+  background: #F6F8FA; color: #1F2328; border-radius: 12px; padding: 20px 16px;
+  overflow-wrap: anywhere; font-size: 15px;
+}
+.previa h3 { font-size: 22px; margin-bottom: 12px; color: #1F2328; }
+.previa h4 { font-family: var(--font-display); font-size: 17px; margin: 18px 0 6px; }
+.previa p { color: #1F2328; margin: 0 0 8px; }
+.previa ul { margin: 0 0 8px; padding-left: 22px; }
+
+.lgpd-oferta { max-width: 760px; margin-top: var(--space-lg); padding: var(--space-md) var(--space-sm); border: 1px solid var(--line); border-radius: var(--radius-card); }
+.lgpd-oferta h2 { font-size: 19px; margin-bottom: 8px; }
+.lgpd-oferta p { color: var(--muted); }
+.lgpd-oferta .btn { min-height: 44px; padding: 12px 18px; }
+
+/* Texto de apoio */
+.lgpd-texto { max-width: 760px; margin: var(--space-xl) auto 0; }
+.lgpd-texto h2 { font-size: 26px; margin-bottom: var(--space-sm); }
+.lgpd-texto section + section { margin-top: var(--space-lg); }
+.passos { padding-left: 22px; }
+.passos li + li { margin-top: 8px; }
+.faq summary { padding: 9px 0; }
+.fontes li + li { margin-top: 8px; }
+.fontes, .fontes p { color: var(--muted); font-size: 15px; }
