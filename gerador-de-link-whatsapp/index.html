@@ -266,7 +266,7 @@
 <script src="/assets/ferramentas/qrcode.js" defer></script>
 <script src="/assets/main.js" defer></script>
 <script type="module">
-import { normalizePhone, formatPhone, buildLink, buttonSnippet, ERROS } from '/gerador-de-link-whatsapp/whatsapp.mjs';
+import { normalizePhone, formatPhone, buildLink, buttonSnippet, ERROS, dddDaUrl } from '/gerador-de-link-whatsapp/whatsapp.mjs';
 
 const $ = (id) => document.getElementById(id);
 const form = $('wz-form'), pais = $('pais'), numero = $('numero'), mensagem = $('mensagem'), rotulo = $('rotulo');
@@ -340,6 +340,27 @@ try {
     if (!pais.value) pais.value = '55';
   }
 } catch {}
+
+// Vindo de /ddd/<nn>/ com ?ddd=73: Brasil e "(73) " no campo, cursor no fim. O parâmetro sai da
+// URL logo em seguida, para não reaplicar ao recarregar. Rascunho com outro número só é trocado
+// se a pessoa confirmar.
+const ddd = dddDaUrl(location.search);
+if (new URLSearchParams(location.search).has('ddd')) {
+  const u = new URL(location.href);
+  u.searchParams.delete('ddd');
+  history.replaceState(history.state, '', u);
+}
+if (ddd) {
+  const digitos = numero.value.replace(/\D/g, ''), r = normalizePhone(numero.value, pais.value);
+  const jaEDesseDdd = r.ok && r.digits.startsWith('55' + ddd);
+  if (!jaEDesseDdd && (!digitos || digitos === ddd || confirm(`Você tem um número salvo aqui: ${numero.value.trim()}. Trocar pelo DDD ${ddd}?`))) {
+    pais.value = '55';
+    numero.value = `(${ddd}) `;
+    salva();
+  }
+  numero.focus();
+  numero.setSelectionRange(numero.value.length, numero.value.length);
+}
 
 form.addEventListener('input', () => { atualiza(false); salva(); });
 form.addEventListener('change', (e) => { if (e.target === numero || e.target === pais) atualiza(numero.value.trim() !== ''); });

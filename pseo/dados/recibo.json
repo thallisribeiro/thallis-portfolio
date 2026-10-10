@@ -1,0 +1,377 @@
+{
+  "atualizado": "2026-10-10",
+  "lido": "2026-10-10",
+  "fontes": {
+    "cc": { "nome": "Código Civil, Lei nº 10.406/2002 (texto compilado, Planalto)", "curto": "Código Civil", "url": "https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm" },
+    "inquilinato": { "nome": "Lei do Inquilinato, Lei nº 8.245/1991 (Planalto)", "curto": "Lei 8.245/1991", "url": "https://www.planalto.gov.br/ccivil_03/leis/l8245.htm" },
+    "ctb": { "nome": "Código de Trânsito Brasileiro, Lei nº 9.503/1997 (texto compilado, Planalto)", "curto": "Código de Trânsito Brasileiro", "url": "https://www.planalto.gov.br/ccivil_03/leis/l9503compilado.htm" },
+    "atpv": { "nome": "gov.br, serviço “Vender veículos digitalmente pela Carteira Digital de Trânsito (ATPV-e)”", "curto": "gov.br", "url": "https://www.gov.br/pt-br/servicos/vender-veiculos-digitalmente-pela-carteira-digital-de-transito-atpv-e" },
+    "lc150": { "nome": "Lei Complementar nº 150/2015, trabalho doméstico (Planalto)", "curto": "LC 150/2015", "url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp150.htm" },
+    "esocial": { "nome": "eSocial, Perguntas Frequentes do Empregador Doméstico (gov.br)", "curto": "eSocial Doméstico, perguntas frequentes", "url": "https://www.gov.br/esocial/pt-br/empregador-domestico/perguntas-frequentes" },
+    "clt": { "nome": "Consolidação das Leis do Trabalho, Decreto-Lei nº 5.452/1943 (texto compilado, Planalto)", "curto": "CLT", "url": "https://www.planalto.gov.br/ccivil_03/decreto-lei/del5452compilado.htm" },
+    "l9250": { "nome": "Lei nº 9.250/1995, Imposto de Renda da pessoa física (Planalto)", "curto": "Lei 9.250/1995", "url": "https://www.planalto.gov.br/ccivil_03/leis/l9250.htm" },
+    "carne": { "nome": "Receita Federal, “Carnê-Leão” (gov.br)", "curto": "Receita Federal", "url": "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/carne-leao" },
+    "cf": { "nome": "Constituição Federal (texto compilado, Planalto)", "curto": "Constituição Federal", "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicaocompilado.htm" }
+  },
+  "comum": {
+    "lei": [
+      { "texto": "Quem paga tem direito à quitação e pode reter o pagamento enquanto ela não for dada", "fonte": "cc", "artigo": "art. 319" },
+      { "texto": "A quitação pode ser dada por documento particular, sem cartório, e deve dizer o valor e a espécie da dívida quitada, o nome de quem pagou, o tempo e o lugar do pagamento, com a assinatura de quem recebeu ou do seu representante", "fonte": "cc", "artigo": "art. 320" },
+      { "texto": "Mesmo sem algum desses itens, a quitação vale se os termos dela ou as circunstâncias mostrarem que a dívida foi paga", "fonte": "cc", "artigo": "art. 320, parágrafo único" },
+      { "texto": "Quando o pagamento é em parcelas periódicas, a quitação da última faz presumir, até prova em contrário, que as anteriores foram pagas", "fonte": "cc", "artigo": "art. 322" }
+    ],
+    "aviso": "Resumo em linguagem simples, não é orientação jurídica. O recibo prova o pagamento; ele não substitui contrato, nota fiscal nem as obrigações próprias de cada caso."
+  },
+  "oferta": {
+    "titulo": "Recibo resolvido. E o próximo cliente?",
+    "texto": "Se você tem um negócio, um site com os seus serviços, o endereço no mapa e um botão de WhatsApp faz você aparecer para quem procura no Google na sua cidade, e não só para quem já tem o seu número."
+  },
+  "hub": {
+    "title": "Modelos de recibo grátis: aluguel, serviço, sinal e mais",
+    "description": "Modelos de recibo prontos: aluguel, prestação de serviço, sinal, venda de veículo, diarista, honorários e mais. Abra no gerador grátis e imprima em PDF.",
+    "h1": "Modelos de recibo",
+    "intro": "Cada tipo de recibo tem um detalhe que o recibo genérico esquece: o aluguel precisa ser discriminado, o sinal precisa dizer quanto falta, a venda de carro não termina no recibo, a consulta precisa do endereço e do CPF de quem atendeu. Escolha o seu caso, veja o modelo pronto e abra no gerador grátis já preenchido. Você completa nomes e valor, e imprime em duas vias ou salva em PDF.",
+    "passos": [
+      "Escolha o tipo de recibo e leia o modelo. O que está entre colchetes é o que você vai trocar.",
+      "Toque em “Usar este modelo”. O gerador abre com o “referente a” e a forma de pagamento preenchidos. Se já houver um recibo em andamento, ele pergunta antes de trocar.",
+      "Preencha quem recebeu, quem pagou, o valor, a cidade e a data. O valor por extenso sai sozinho; depois é só imprimir as duas vias e assinar, ou salvar em PDF."
+    ],
+    "todo": [
+      "O valor em número e por extenso.",
+      "A que se refere o pagamento, com detalhe suficiente para não confundir com outro pagamento entre as mesmas pessoas.",
+      "O nome de quem pagou e, se possível, o CPF ou o CNPJ.",
+      "A forma de pagamento: Pix, dinheiro, cartão, transferência ou boleto.",
+      "A cidade e a data do pagamento.",
+      "A assinatura de quem recebeu o dinheiro, ou de quem o representa, com nome e documento."
+    ],
+    "faq": [
+      { "p": "Recibo precisa ser registrado em cartório?", "r": "Não. O Código Civil diz que a quitação sempre pode ser dada por documento particular (art. 320). O que o recibo precisa é trazer o valor, a que se refere, quem pagou, a data, o lugar e a assinatura de quem recebeu." },
+      { "p": "Recibo feito no computador vale?", "r": "Vale, desde que seja assinado por quem recebeu. Imprima as duas vias, assine as duas e entregue uma a quem pagou. Se for mandar em PDF, imprima, assine e envie a foto ou o arquivo escaneado." },
+      { "p": "Recibo substitui nota fiscal?", "r": "Não. O recibo prova que o pagamento aconteceu; a nota fiscal é um documento das regras de impostos. Se você precisa emitir nota depende de como você trabalha e da sua cidade. Na dúvida, confirme com o seu contador ou com a prefeitura." },
+      { "p": "Os modelos são grátis?", "r": "São. Você abre o modelo no gerador, preenche, imprime ou salva em PDF sem cadastro e sem pagar. O que você digita fica no seu navegador e não vai para nenhum servidor." },
+      { "p": "Por que o modelo não traz o valor?", "r": "Porque o valor é o que foi pago de verdade, e só você sabe. O modelo traz a frase do “referente a” com lacunas; o gerador escreve o valor por extenso a partir do número que você digitar." }
+    ]
+  },
+  "grupos": [
+    { "nome": "Casa e imóvel", "slugs": ["aluguel", "diarista"] },
+    { "nome": "Serviços e trabalho", "slugs": ["prestacao-de-servico", "honorarios", "comissao", "adiantamento", "reembolso-de-despesas"] },
+    { "nome": "Compra, venda e pagamentos", "slugs": ["pagamento-em-dinheiro", "sinal", "venda-de-veiculo"] },
+    { "nome": "Família e doações", "slugs": ["pensao-alimenticia", "doacao"] }
+  ],
+  "tipos": {
+    "aluguel": {
+      "nome": "Aluguel",
+      "termo": "aluguel",
+      "description": "Modelo de recibo de aluguel discriminado, com mês, endereço, aluguel, condomínio e IPTU. Abra no gerador grátis e imprima em duas vias ou em PDF.",
+      "intro": "O recibo de aluguel é o que o inquilino guarda para provar que pagou e o que o proprietário usa para fechar o mês. A Lei do Inquilinato pede que ele seja discriminado: não basta “recebi o aluguel”, é preciso dizer o que foi pago. O modelo já traz o mês, o endereço do imóvel, o vencimento e uma linha para cada valor.",
+      "precisa": [
+        "O mês de referência e a data de vencimento, como “aluguel de outubro de 2026, vencido em 05/10/2026”.",
+        "O endereço do imóvel alugado, para não confundir com outro imóvel do mesmo proprietário.",
+        "Cada valor separado: aluguel, condomínio, IPTU, água, multa ou juros por atraso, quando houver.",
+        "O nome de quem pagou (o inquilino ou quem pagou por ele), o total em número e por extenso, a forma de pagamento, a cidade e a data.",
+        "A assinatura do proprietário ou da imobiliária que recebeu, com CPF ou CNPJ."
+      ],
+      "tituloCuidados": "Cuidados no recibo de aluguel",
+      "cuidados": [
+        { "titulo": "Nada de quitação genérica", "texto": "O locador é obrigado a fornecer ao inquilino recibo discriminado das importâncias pagas, e a quitação genérica é proibida. Na prática, “aluguel e encargos” sem os valores separados não cumpre a regra", "fonte": "inquilinato", "artigo": "art. 22, VI" },
+        { "titulo": "Atraso, multa e juros", "texto": "Se o aluguel foi pago com atraso, escreva a multa e os juros numa linha própria. Somados ao aluguel sem explicação, parecem um reajuste que não houve." },
+        { "titulo": "Pix não diz o mês", "texto": "O comprovante do banco mostra que o dinheiro saiu, mas não diz a que mês nem a que encargos o pagamento se refere. O recibo fecha essa lacuna, e quem paga tem direito a ele", "fonte": "cc", "artigo": "art. 319" }
+      ],
+      "faq": [
+        { "p": "Recibo de aluguel precisa de firma reconhecida?", "r": "Não precisa. O Código Civil diz que a quitação pode ser dada por documento particular (art. 320), sem cartório. O que ela precisa ter é o valor, a que se refere, quem pagou, a data, o lugar e a assinatura de quem recebeu." },
+        { "p": "Pagamento por Pix dispensa o recibo de aluguel?", "r": "O comprovante do Pix prova a transferência, mas não diz qual mês nem quais encargos foram pagos. Como a Lei do Inquilinato obriga o locador a fornecer recibo discriminado (art. 22, VI), vale mandar o recibo junto, nem que seja em PDF." },
+        { "p": "Quem assina o recibo de aluguel?", "r": "Quem recebeu o dinheiro: o proprietário, ou a imobiliária ou o administrador que recebe em nome dele. Se o imóvel tem mais de um dono e só um recebe, ele assina como quem recebeu e pode citar os demais no referente." },
+        { "p": "Posso fazer um recibo só para vários meses?", "r": "Pode, desde que diga quais meses e o valor de cada um. “Aluguéis de agosto, setembro e outubro de 2026, com o valor de cada mês” é discriminado; “aluguéis atrasados” não é." },
+        { "p": "E se o inquilino pagar em dinheiro?", "r": "Faça o recibo na hora, com a forma de pagamento “em dinheiro”, e entregue assinado. Dinheiro não deixa registro no banco, então o recibo passa a ser a prova principal, e quem paga pode reter o pagamento até receber a quitação (Código Civil, art. 319)." }
+      ],
+      "relacionados": ["sinal", "pagamento-em-dinheiro", "prestacao-de-servico", "reembolso-de-despesas", "diarista"]
+    },
+    "prestacao-de-servico": {
+      "nome": "Prestação de serviço",
+      "termo": "prestação de serviço",
+      "description": "Modelo de recibo de prestação de serviço com o serviço, a data, o local e o número do orçamento. Gere grátis, imprima em duas vias ou salve em PDF.",
+      "intro": "Recibo de prestação de serviço é o que fecha o trabalho: o cliente prova que pagou e você prova que recebeu por aquele serviço, e não por outro. O modelo amarra o pagamento ao que foi feito, ao local, à data e ao número do orçamento, se houve, para não sobrar dúvida sobre o que está quitado.",
+      "precisa": [
+        "O serviço descrito como o cliente entende: “instalação de três pontos de tomada na cozinha”, e não “serviços diversos”.",
+        "A data ou o período em que foi feito e o endereço, quando o serviço é no local do cliente.",
+        "Se o valor é parcial (entrada, parcela ou etapa), qual parte é e quanto falta, como “2ª parcela de 3”.",
+        "O número do orçamento ou do contrato, se existir, para ligar o pagamento ao que foi combinado.",
+        "Nome e CPF ou CNPJ de quem pagou e de quem recebeu, valor em número e por extenso, forma de pagamento, cidade, data e assinatura."
+      ],
+      "tituloCuidados": "Cuidados no recibo de serviço",
+      "cuidados": [
+        { "titulo": "Recibo não é nota fiscal", "texto": "O recibo prova o pagamento, mas não é documento fiscal. Se você precisa emitir nota depende de como você trabalha (autônomo, MEI ou empresa) e da sua cidade. Na dúvida, confirme com o contador ou com a prefeitura." },
+        { "titulo": "Recebeu de pessoa física, como pessoa física", "texto": "O carnê-leão é o imposto de renda mensal da pessoa física sobre o que ela recebe de outra pessoa física ou do exterior, e vence no último dia útil do mês seguinte ao recebimento. Os recibos ajudam a organizar esses valores", "fonte": "carne", "artigo": "página “Carnê-Leão”" },
+        { "titulo": "Pagamento parcial", "texto": "Em recibo de entrada ou de parcela, escreva o total do serviço e o saldo. Assim, o recibo de uma parcela não é lido como quitação do serviço inteiro." }
+      ],
+      "faq": [
+        { "p": "Recibo de prestação de serviço substitui nota fiscal?", "r": "Não. O recibo prova que o pagamento aconteceu, mas não é documento fiscal. Se você precisa emitir nota depende de como você trabalha (autônomo, MEI ou empresa) e da sua cidade. Na dúvida, confirme com o seu contador ou com a prefeitura." },
+        { "p": "Autônomo sem CNPJ pode dar recibo?", "r": "Pode. O recibo é dado por quem recebeu o dinheiro, pessoa física ou empresa, com o CPF ou o CNPJ. Quem recebe de outra pessoa física, como pessoa física, também deve olhar o carnê-leão, o imposto de renda mensal desses rendimentos, segundo a Receita Federal." },
+        { "p": "Preciso dar recibo se o cliente pagou por Pix?", "r": "Se o cliente pedir, sim: quem paga tem direito à quitação (Código Civil, art. 319). O comprovante do Pix mostra a transferência, mas não diz por qual serviço. Com o recibo, fica claro o que foi pago." },
+        { "p": "Como fazer recibo de serviço pago em parcelas?", "r": "Um recibo por pagamento, cada um dizendo qual parcela é, o total do serviço e quanto falta. Na última, escreva que é a parcela final e que o serviço está quitado." },
+        { "p": "O recibo precisa listar os materiais?", "r": "Não precisa, mas ajuda quando o valor inclui material comprado por você: “serviço de pintura da sala, com tinta e massa” evita a pergunta depois. Se existe orçamento detalhado, basta citar o número dele no referente." }
+      ],
+      "relacionados": ["honorarios", "sinal", "pagamento-em-dinheiro", "comissao", "reembolso-de-despesas"]
+    },
+    "pagamento-em-dinheiro": {
+      "nome": "Pagamento em dinheiro",
+      "termo": "pagamento em dinheiro",
+      "description": "Modelo de recibo de pagamento em dinheiro: o que foi pago, valor por extenso e assinatura na hora. Gere grátis e imprima em duas vias ou salve em PDF.",
+      "intro": "Pagamento em dinheiro vivo não deixa extrato, comprovante de Pix nem registro no banco. Se der problema depois, o recibo é a prova de que o dinheiro mudou de mão e de quanto foi. O modelo já sai com a forma “em dinheiro” e com uma frase dizendo que o valor foi contado e conferido na entrega.",
+      "precisa": [
+        "O que foi pago: produto, serviço, parcela ou dívida, com detalhe suficiente para não confundir com outro pagamento entre as mesmas pessoas.",
+        "O valor em número e por extenso. Em dinheiro, o extenso dificulta que alguém acrescente um zero depois.",
+        "A forma “em dinheiro” escrita no recibo.",
+        "Nome e documento de quem pagou e de quem recebeu, cidade e data.",
+        "A assinatura de quem recebeu, feita na hora, nas duas vias."
+      ],
+      "tituloCuidados": "Cuidados com pagamento em dinheiro",
+      "cuidados": [
+        { "titulo": "Recibo na hora, não depois", "texto": "Quem paga tem direito à quitação e pode segurar o pagamento até recebê-la. Em dinheiro, isso quer dizer que o recibo assinado é entregue no mesmo momento em que as notas mudam de mão", "fonte": "cc", "artigo": "art. 319" },
+        { "titulo": "Contem juntos", "texto": "Contem o valor juntos antes de assinar. Se houver troco, o recibo leva o valor efetivamente pago, e não o valor das notas entregues." },
+        { "titulo": "Valores altos", "texto": "Em valor alto, prefira um meio que deixe registro, como Pix ou transferência, e use o recibo para dizer a que o pagamento se refere. Se for mesmo em dinheiro, uma testemunha que viu a entrega e assina junto ajuda a provar o pagamento se alguém contestar." }
+      ],
+      "faq": [
+        { "p": "Recibo de pagamento em dinheiro tem validade?", "r": "Tem. O Código Civil diz que a quitação pode ser dada por documento particular e deve trazer o valor, a que se refere, quem pagou, quando e onde, com a assinatura de quem recebeu (art. 320). Não precisa de cartório." },
+        { "p": "Posso me recusar a pagar se não me derem recibo?", "r": "Pode segurar o pagamento até receber a quitação: o Código Civil diz que quem paga tem direito a ela e pode reter o pagamento enquanto não for dada (art. 319). Para facilitar, leve o recibo já preenchido para a outra pessoa assinar." },
+        { "p": "Precisa de testemunha no recibo?", "r": "A lista do art. 320 do Código Civil não inclui testemunha. Em valor alto, porém, uma testemunha que viu a entrega e assina junto pode ajudar a provar o pagamento se alguém contestar depois." },
+        { "p": "Recibo escrito à mão vale?", "r": "Vale, se tiver o que o art. 320 do Código Civil pede: valor, a que se refere, quem pagou, data, lugar e assinatura de quem recebeu. O gerador só deixa o recibo mais legível e já escreve o valor por extenso." },
+        { "p": "E se eu perder o recibo?", "r": "Peça uma segunda via a quem recebeu, com a data do pagamento original e a observação “segunda via”. Por isso o gerador imprime duas vias numa folha: uma fica com cada um." }
+      ],
+      "relacionados": ["prestacao-de-servico", "aluguel", "sinal", "diarista", "adiantamento"]
+    },
+    "sinal": {
+      "nome": "Sinal (arras)",
+      "termo": "sinal (arras)",
+      "description": "Modelo de recibo de sinal (arras) com o valor total, o saldo e a data para quitar. Veja o que diz o Código Civil e gere grátis em duas vias.",
+      "intro": "Sinal é o dinheiro que uma parte dá à outra para fechar o negócio antes do pagamento total: a entrada da festa, do carro, do móvel sob medida. O Código Civil chama isso de arras e diz o que acontece com ele se alguém desistir. Por isso o recibo de sinal precisa dizer mais do que um recibo comum: o valor total do negócio, quanto falta e até quando.",
+      "precisa": [
+        "Que o valor é sinal e princípio de pagamento (arras), e de qual negócio, com o bem ou o serviço bem descrito.",
+        "O valor total do negócio, o valor do sinal e o saldo, com a data ou a condição para pagar o resto.",
+        "Se vocês combinaram direito de arrependimento, ou seja, que qualquer um pode desistir. Isso muda o destino do sinal.",
+        "Nome e documento de quem deu e de quem recebeu o sinal, cidade, data e assinatura de quem recebeu."
+      ],
+      "tituloCuidados": "O que o Código Civil diz sobre o sinal",
+      "cuidados": [
+        { "titulo": "Negócio cumprido: o sinal conta no preço", "texto": "Quando o contrato é cumprido, o sinal é devolvido ou descontado do que falta pagar, se for do mesmo gênero da prestação principal, como dinheiro com dinheiro", "fonte": "cc", "artigo": "art. 417" },
+        { "titulo": "Desistência sem cláusula de arrependimento", "texto": "Se quem deu o sinal não cumpre o contrato, a outra parte pode desfazê-lo e ficar com o sinal. Se quem recebeu é quem não cumpre, quem deu pode desfazer o contrato e exigir o sinal de volta mais o equivalente, com atualização monetária, juros e honorários de advogado. A parte prejudicada pode pedir indenização maior se provar prejuízo maior, valendo o sinal como mínimo", "fonte": "cc", "artigo": "arts. 418 e 419" },
+        { "titulo": "Com cláusula de arrependimento", "texto": "Se o contrato prevê que qualquer parte pode desistir, o sinal passa a ser só indenização: quem deu e desistiu perde o sinal; quem recebeu e desistiu devolve o sinal mais o equivalente. Nesse caso não há indenização a mais", "fonte": "cc", "artigo": "art. 420" }
+      ],
+      "faq": [
+        { "p": "Qual a diferença entre sinal e entrada?", "r": "No dia a dia, as duas palavras são usadas para o primeiro pagamento. O que define a consequência é o que foi combinado e escrito: o valor dado como sinal ou arras segue os arts. 417 a 420 do Código Civil se alguém desistir. Por isso, escreva no recibo exatamente o que o valor é." },
+        { "p": "Se o cliente desistir, eu devolvo o sinal?", "r": "Sem cláusula de arrependimento, se quem deu o sinal não cumpre o contrato, quem recebeu pode desfazê-lo e ficar com o sinal (Código Civil, art. 418, I). Com cláusula de arrependimento, quem deu e desistiu perde o sinal (art. 420). Caso com prejuízo maior ou circunstância especial pede um advogado." },
+        { "p": "E se eu, que recebi o sinal, não puder cumprir?", "r": "Sem cláusula de arrependimento, quem deu pode desfazer o contrato e exigir de volta o sinal mais o equivalente, com atualização monetária, juros e honorários de advogado (Código Civil, art. 418, II). Com cláusula de arrependimento, você devolve o sinal mais o equivalente, sem indenização a mais (art. 420)." },
+        { "p": "O recibo de sinal substitui o contrato?", "r": "Não. Ele prova que o sinal foi pago e resume o negócio. Para negócio de valor alto ou com muitas condições, como prazo de entrega, especificações e multa, vale fazer um contrato e citar no recibo." },
+        { "p": "Posso receber o sinal por Pix?", "r": "Pode. No gerador, escolha Pix como forma de pagamento. O comprovante do banco mostra a transferência; o recibo diz que ela é sinal daquele negócio e quanto falta pagar." }
+      ],
+      "relacionados": ["prestacao-de-servico", "venda-de-veiculo", "aluguel", "pagamento-em-dinheiro", "comissao"]
+    },
+    "venda-de-veiculo": {
+      "nome": "Venda de veículo",
+      "termo": "venda de veículo",
+      "description": "Modelo de recibo de venda de veículo com placa, Renavam e quilometragem, e o que a lei pede depois: transferência no Detran e comunicação de venda.",
+      "intro": "Na venda de carro ou moto entre particulares, o recibo prova que o dinheiro foi pago e em que estado o veículo foi entregue. Mas ele não transfere o veículo: isso é feito no Detran, com prazo na lei. Este modelo traz o recibo com os dados que identificam o veículo e, abaixo, o que mais a venda precisa para o vendedor não continuar respondendo pelo que o comprador fizer.",
+      "precisa": [
+        "Marca, modelo, ano, placa e Renavam do veículo, copiados do documento. O chassi também pode entrar.",
+        "O valor e a forma de pagamento. Se foi parcelado, quanto foi pago agora e quanto falta.",
+        "A quilometragem e a frase “no estado em que se encontra”, para registrar como o veículo foi entregue.",
+        "A data e a hora da entrega das chaves, se forem diferentes das do pagamento.",
+        "Nome, CPF e assinatura do vendedor, que recebeu o dinheiro, e o nome e o CPF do comprador."
+      ],
+      "tituloCuidados": "O que a venda precisa além do recibo",
+      "cuidados": [
+        { "titulo": "O comprador tem 30 dias para transferir", "texto": "Na transferência de propriedade, o novo dono tem 30 dias para tomar as providências do novo Certificado de Registro de Veículo. Deixar de registrar no prazo é infração média, com multa e remoção do veículo", "fonte": "ctb", "artigo": "arts. 123, § 1º, e 233" },
+        { "titulo": "O vendedor comunica a venda", "texto": "Se o comprador não transferir em 30 dias, o vendedor deve mandar ao Detran do estado, em até 60 dias, cópia autenticada do comprovante de transferência assinado e datado. Sem isso, responde junto pelas penalidades e reincidências até a data da comunicação", "fonte": "ctb", "artigo": "art. 134" },
+        { "titulo": "Venda digital", "texto": "Nos estados que aderiram, vendedor e comprador podem assinar a autorização de transferência (ATPV-e) pelo aplicativo Carteira Digital de Trânsito, com conta gov.br prata ou ouro, sem reconhecer firma, para veículo com documento emitido a partir de 4 de janeiro de 2021. Depois, o comprador ainda vai ao Detran para a vistoria e a transferência", "fonte": "atpv", "artigo": "serviço ATPV-e" }
+      ],
+      "faq": [
+        { "p": "Recibo de compra e venda de veículo transfere o carro?", "r": "Não. O recibo prova o pagamento. O novo documento sai no Detran, e o comprador tem 30 dias para tomar as providências da transferência (Código de Trânsito Brasileiro, art. 123, § 1º)." },
+        { "p": "Como o vendedor se protege de multas depois da venda?", "r": "Comunicando a venda. Se o comprador não transferir em 30 dias, o vendedor deve enviar ao Detran, em até 60 dias, cópia autenticada do comprovante de transferência assinado e datado; sem isso, responde junto pelas penalidades até a comunicação (CTB, art. 134). Na venda digital pela Carteira Digital de Trânsito, a comunicação é feita pelo aplicativo." },
+        { "p": "Precisa reconhecer firma?", "r": "Na venda pelo aplicativo Carteira Digital de Trânsito, segundo o gov.br, a transferência é feita sem reconhecer firma. Na venda em papel, o procedimento depende do Detran do seu estado: confira lá antes de fechar." },
+        { "p": "O que conferir antes de receber o dinheiro?", "r": "Se os dados do documento batem com o veículo (placa, chassi, Renavam), se a venda digital está disponível no seu estado e para o seu documento, e combine por escrito quem paga débitos até a data da entrega. Só entregue as chaves com o pagamento confirmado na conta." },
+        { "p": "Venda parcelada: como fazer o recibo?", "r": "Um recibo por pagamento, com o valor total, a parcela paga e o saldo. Escreva no primeiro recibo como e quando será feita a transferência, para os dois saberem em que momento o veículo passa para o nome do comprador." }
+      ],
+      "relacionados": ["sinal", "pagamento-em-dinheiro", "prestacao-de-servico", "doacao", "comissao"]
+    },
+    "diarista": {
+      "nome": "Diarista",
+      "termo": "diarista",
+      "description": "Modelo de recibo de diarista com os dias e o endereço, e quando a lei trata como empregada doméstica, com eSocial. Gere grátis em duas vias.",
+      "intro": "Recibo de diarista é a prova simples do pagamento de cada diária, para quem paga e para quem recebe. Mas ele só cabe quando a pessoa é de fato diarista. Se o trabalho na mesma casa passa de 2 dias por semana, de forma contínua, a lei trata como emprego doméstico, e aí o que vale é o registro no eSocial, não um recibo avulso.",
+      "precisa": [
+        "Os dias trabalhados, um por um, e o endereço da casa, como “diárias de 6 e 13 de outubro de 2026, na Rua das Flores, 10”.",
+        "O valor total pago e, se quiser, o valor de cada diária no referente.",
+        "Se houve transporte ou outro valor pago junto, escrito separado.",
+        "Nome e CPF da diarista, que recebeu e assina, e de quem pagou, forma de pagamento, cidade e data."
+      ],
+      "tituloCuidados": "Diarista ou empregada doméstica",
+      "cuidados": [
+        { "titulo": "Quando deixa de ser diarista", "texto": "Empregado doméstico é quem presta serviço de forma contínua, subordinada, onerosa e pessoal, sem finalidade lucrativa, a pessoa ou família, no âmbito da casa, por mais de 2 dias por semana. Nesse caso valem as regras do emprego doméstico", "fonte": "lc150", "artigo": "art. 1º" },
+        { "titulo": "Empregada doméstica: eSocial, não recibo avulso", "texto": "O empregador doméstico cadastra a trabalhadora no eSocial até o dia anterior à admissão, paga o DAE mensal, que vence até o dia 7, e pode apresentar à trabalhadora o recibo de salário que o eSocial disponibiliza depois do fechamento da folha, junto com o DAE pago. Um recibo como este não substitui nenhuma dessas obrigações", "fonte": "esocial", "artigo": "perguntas 06.01, 08.02 e 17.02" },
+        { "titulo": "Diarista de verdade", "texto": "Para quem trabalha até 2 dias por semana em cada casa, o recibo de cada pagamento é a prova de que as diárias foram pagas e de quais dias elas cobrem. Um recibo por pagamento, listando os dias, já basta." }
+      ],
+      "faq": [
+        { "p": "Diarista que trabalha 3 dias por semana é empregada?", "r": "Pela Lei Complementar 150/2015, art. 1º, quem trabalha de forma contínua, subordinada, onerosa e pessoal para a mesma pessoa ou família, no âmbito da casa, por mais de 2 dias por semana é empregado doméstico. Nesse caso há registro no eSocial e os direitos do emprego doméstico." },
+        { "p": "O recibo protege quem contrata de uma ação trabalhista?", "r": "Ele prova os pagamentos, mas não muda a natureza do trabalho. Se na prática a relação é de emprego doméstico, recibo de diária não substitui o registro no eSocial. Na dúvida sobre o seu caso, procure um advogado trabalhista ou os canais de atendimento do eSocial." },
+        { "p": "Precisa fazer um recibo por diária?", "r": "Não. Pode ser um recibo por pagamento, listando os dias que ele cobre. O importante é ficar claro quais diárias foram pagas, para não haver dúvida depois." },
+        { "p": "Pagamento por Pix já basta?", "r": "O comprovante do Pix mostra a transferência, mas não diz quais dias foram pagos. O recibo assinado pela diarista diz, e quem paga tem direito à quitação (Código Civil, art. 319)." },
+        { "p": "E o recibo da empregada doméstica, como faz?", "r": "Pelo eSocial. Segundo as perguntas frequentes do eSocial Doméstico (pergunta 17.02), o empregador pode apresentar à trabalhadora o DAE quitado junto com o demonstrativo e recibo de salário que o sistema disponibiliza depois do fechamento da folha." }
+      ],
+      "relacionados": ["adiantamento", "pagamento-em-dinheiro", "prestacao-de-servico", "reembolso-de-despesas", "aluguel"]
+    },
+    "comissao": {
+      "nome": "Comissão",
+      "termo": "comissão",
+      "description": "Modelo de recibo de comissão com o negócio, o percentual e a data do fechamento. Veja quando a comissão vai na folha e gere o recibo grátis em PDF.",
+      "intro": "Comissão gera discussão quando ninguém escreveu sobre qual venda ela foi paga e com que percentual. O recibo de comissão amarra o pagamento ao negócio que o gerou: quem indicou ou vendeu, qual cliente, quando fechou e o que foi combinado. Serve para corretor autônomo, indicador, vendedor parceiro e representante que não é empregado.",
+      "precisa": [
+        "O negócio que gerou a comissão: o que foi vendido ou indicado e para quem.",
+        "A base e o percentual combinados, ou o valor fixo, e a data do fechamento.",
+        "Se for parte da comissão, qual parte e quanto falta.",
+        "A referência ao acordo, se existir: contrato, e-mail ou mensagem, com a data.",
+        "Nome e documento de quem recebeu e de quem pagou, forma de pagamento, cidade, data e assinatura."
+      ],
+      "tituloCuidados": "Cuidados no recibo de comissão",
+      "cuidados": [
+        { "titulo": "Empregado: comissão vai na folha", "texto": "As comissões pagas pelo empregador integram o salário. Para empregado, o pagamento entra na folha e no recibo de salário, e não num recibo avulso", "fonte": "clt", "artigo": "art. 457, § 1º" },
+        { "titulo": "Corretagem: quando a remuneração é devida", "texto": "No contrato de corretagem, a remuneração é devida ao corretor quando ele consegue o resultado previsto, ou ainda que o negócio não se efetive por arrependimento das partes", "fonte": "cc", "artigo": "art. 725" },
+        { "titulo": "Recebeu de pessoa física", "texto": "Se você é pessoa física e recebeu a comissão de outra pessoa física, o valor entra no carnê-leão, o imposto de renda mensal desses rendimentos, que vence no último dia útil do mês seguinte", "fonte": "carne", "artigo": "página “Carnê-Leão”" }
+      ],
+      "faq": [
+        { "p": "Recibo de comissão precisa dizer o percentual?", "r": "O Código Civil não exige: ele pede valor, a que se refere, quem pagou, data, lugar e assinatura (art. 320). Mas escrever a base e o percentual evita a discussão mais comum, que é se a comissão foi calculada sobre o valor certo." },
+        { "p": "Vendedor registrado recebe comissão por recibo?", "r": "Não deveria. As comissões pagas pelo empregador integram o salário (CLT, art. 457, § 1º) e vão na folha de pagamento. O recibo avulso serve para quem não é empregado." },
+        { "p": "Se o negócio for desfeito, a comissão é devolvida?", "r": "Depende do que foi combinado e do tipo de contrato. Na corretagem, o Código Civil diz que a remuneração é devida quando o corretor consegue o resultado previsto, ainda que o negócio não se efetive por arrependimento das partes (art. 725). Escreva no acordo o que acontece em cada caso." },
+        { "p": "Como fazer recibo de comissão paga em partes?", "r": "Um recibo por pagamento, dizendo o total da comissão, a parte paga e o saldo. No último, escreva que a comissão daquele negócio está quitada." }
+      ],
+      "relacionados": ["prestacao-de-servico", "honorarios", "sinal", "reembolso-de-despesas", "adiantamento"]
+    },
+    "adiantamento": {
+      "nome": "Adiantamento (vale)",
+      "termo": "vale (adiantamento salarial)",
+      "description": "Modelo de recibo de vale ou adiantamento salarial, com o mês do desconto. Veja o que a CLT diz e gere grátis para o empregado assinar.",
+      "intro": "Vale é o adiantamento de parte do salário antes do dia do pagamento. Ele pode ser descontado depois justamente por ser adiantamento, e a prova de que o empregado recebeu é o recibo assinado por ele. O modelo já diz de qual mês é o salário adiantado e em qual pagamento o valor será descontado, para o fechamento do mês não virar conta de cabeça.",
+      "precisa": [
+        "Que o valor é adiantamento (vale) do salário, e de qual mês.",
+        "Em qual pagamento ele será descontado.",
+        "Nome e CPF do empregado, que recebe e assina, e o nome da empresa ou do empregador, que pagou.",
+        "Valor em número e por extenso, forma de pagamento, cidade e data."
+      ],
+      "tituloCuidados": "O que a CLT diz sobre o vale",
+      "cuidados": [
+        { "titulo": "Desconto só de adiantamento, lei ou contrato coletivo", "texto": "O empregador não pode descontar do salário, salvo quando o desconto resultar de adiantamentos, de dispositivos de lei ou de contrato coletivo", "fonte": "clt", "artigo": "art. 462" },
+        { "titulo": "Salário se paga contra recibo", "texto": "O pagamento do salário deve ser feito contra recibo assinado pelo empregado. O comprovante de depósito em conta aberta para esse fim, em nome do empregado e com o consentimento dele, tem força de recibo", "fonte": "clt", "artigo": "art. 464" },
+        { "titulo": "Feche o mês com os vales", "texto": "No dia do pagamento, some os vales do mês, desconte e guarde os recibos dos vales junto com o recibo de salário daquele mês. Assim, qualquer conferência depois bate." }
+      ],
+      "faq": [
+        { "p": "Pode descontar o vale do salário?", "r": "Pode. A CLT proíbe descontos no salário, mas abre exceção para adiantamentos, dispositivos de lei e contrato coletivo (art. 462). O recibo assinado é a prova de que o adiantamento foi feito." },
+        { "p": "Vale pago por Pix precisa de recibo?", "r": "O comprovante de depósito tem força de recibo quando é feito em conta aberta para esse fim, em nome do empregado e com o consentimento dele (CLT, art. 464, parágrafo único). Fora disso, ou se o vale for em dinheiro, faça o recibo assinado." },
+        { "p": "Quem assina o recibo de vale?", "r": "O empregado, que recebeu o dinheiro. Se ele não souber assinar, a CLT prevê a impressão digital ou, se não for possível, a assinatura a rogo, feita por outra pessoa a pedido dele (art. 464)." },
+        { "p": "Qual a diferença entre vale e empréstimo ao empregado?", "r": "Vale é parte do próprio salário paga antes e descontada no pagamento seguinte. Valor que vai ser descontado ao longo de vários meses é outra conversa: combine por escrito o valor, as parcelas e os meses, em vez de chamar de vale." },
+        { "p": "Preciso fazer um recibo por vale?", "r": "É o mais seguro: um recibo por adiantamento, com a data em que foi pago. No fechamento do mês, fica fácil somar os vales e conferir o desconto." }
+      ],
+      "relacionados": ["diarista", "comissao", "reembolso-de-despesas", "pagamento-em-dinheiro"]
+    },
+    "reembolso-de-despesas": {
+      "nome": "Reembolso de despesas",
+      "termo": "reembolso de despesas",
+      "description": "Modelo de recibo de reembolso de despesas com o período, a finalidade e os comprovantes anexos. Gere grátis, imprima e junte as notas.",
+      "intro": "Reembolso é o dinheiro que volta para quem pagou uma despesa no lugar de outra pessoa ou da empresa: o combustível das entregas, o material comprado para a obra, a passagem da viagem de trabalho. O recibo de reembolso diz que a devolução foi paga; os comprovantes anexos dizem do quê. Um sem o outro vira dúvida no fechamento do caixa.",
+      "precisa": [
+        "Que tipo de despesa e para quê, como “combustível das entregas de 1º a 15 de outubro”.",
+        "O período ou as datas das despesas.",
+        "Quantos comprovantes estão anexos.",
+        "Quem fez a despesa (e recebe o reembolso) e quem pagou o reembolso, valor por extenso, forma de pagamento, cidade, data e assinatura de quem recebeu."
+      ],
+      "tituloCuidados": "Cuidados no reembolso",
+      "cuidados": [
+        { "titulo": "Anexe os comprovantes", "texto": "Notas fiscais, cupons e recibos de cada despesa vão grampeados ou digitalizados junto. Se faltar o comprovante de algum gasto, escreva qual e por quê, em vez de arredondar o total." },
+        { "titulo": "Empregado em viagem", "texto": "Para empregado, ajuda de custo e diárias para viagem, mesmo habituais, não integram a remuneração, não se incorporam ao contrato de trabalho e não são base de encargo trabalhista e previdenciário. Mantenha o reembolso separado do salário, com os comprovantes", "fonte": "clt", "artigo": "art. 457, § 2º" },
+        { "titulo": "Reembolso não é pagamento por serviço", "texto": "Se além das despesas houver pagamento pelo trabalho, faça dois recibos, ou escreva os dois valores separados no referente. Misturar esconde quanto foi custo e quanto foi ganho." }
+      ],
+      "faq": [
+        { "p": "Reembolso de despesas precisa de nota fiscal?", "r": "Depende de quem reembolsa: muitas empresas só aceitam nota fiscal ou cupom. O recibo prova o pagamento do reembolso se disser o valor, a que se refere, quem pagou, data, lugar e a assinatura de quem recebeu (Código Civil, art. 320). Os comprovantes provam a despesa." },
+        { "p": "Posso juntar várias despesas num recibo só?", "r": "Pode, se forem do mesmo período e da mesma finalidade e se os comprovantes estiverem anexos. Escreva o período e a quantidade de comprovantes no referente." },
+        { "p": "Reembolso de quilometragem: como escrever?", "r": "Escreva o trajeto ou a finalidade, as datas, a quilometragem rodada e o valor por quilômetro que vocês combinaram. O valor por quilômetro é acordo entre as partes; deixe-o escrito para não virar discussão." },
+        { "p": "Reembolso entra no salário do empregado?", "r": "A CLT diz que ajuda de custo e diárias para viagem não integram a remuneração nem são base de encargos (art. 457, § 2º). Mantenha o reembolso separado do salário, com os comprovantes, e na dúvida confirme com o contador." }
+      ],
+      "relacionados": ["adiantamento", "prestacao-de-servico", "comissao", "pagamento-em-dinheiro", "honorarios"]
+    },
+    "pensao-alimenticia": {
+      "nome": "Pensão alimentícia",
+      "termo": "pensão alimentícia",
+      "description": "Modelo de recibo de pensão alimentícia com o mês, quem tem direito e a decisão ou acordo. Veja quando o recibo ajuda no Imposto de Renda.",
+      "intro": "Quem paga pensão alimentícia precisa provar cada pagamento, mês a mês, e quem recebe precisa controlar o que entrou. Quando o pagamento é por depósito na conta indicada, o comprovante do banco já é a prova principal. O recibo ajuda quando o pagamento é em dinheiro, vai para outra conta ou o comprovante não diz a que mês se refere.",
+      "precisa": [
+        "O mês ou o período a que a pensão se refere.",
+        "Em favor de quem é a pensão e quem recebeu por essa pessoa, se foi o representante.",
+        "A decisão judicial, o acordo homologado ou a escritura que fixou a pensão, com o número do processo, se houver.",
+        "Valor em número e por extenso, forma de pagamento, cidade, data e assinatura de quem recebeu."
+      ],
+      "tituloCuidados": "Cuidados com a pensão",
+      "cuidados": [
+        { "titulo": "Pague como a decisão manda", "texto": "Se a decisão ou o acordo diz como pagar, por exemplo por depósito numa conta, pague exatamente assim. O recibo complementa a prova; ele não muda o que foi decidido." },
+        { "titulo": "Imposto de Renda de quem paga", "texto": "A pensão alimentícia paga em cumprimento de decisão judicial, de acordo homologado judicialmente ou de escritura pública pode ser deduzida na base de cálculo do imposto de quem paga. Guarde o comprovante de cada mês", "fonte": "l9250", "artigo": "art. 8º, II, “f”" },
+        { "titulo": "Acordo só de boca", "texto": "Pensão combinada sem decisão, acordo homologado ou escritura fica fora da dedução descrita acima, e cada pagamento depende ainda mais do recibo. Para formalizar, procure a Defensoria Pública ou um advogado." }
+      ],
+      "faq": [
+        { "p": "Quem assina o recibo de pensão alimentícia?", "r": "Quem recebeu o dinheiro: a própria pessoa com direito à pensão, se for maior, ou quem a representa, como a mãe ou o pai do filho menor. O Código Civil pede a assinatura do credor ou do seu representante (art. 320)." },
+        { "p": "Pensão paga por Pix precisa de recibo?", "r": "Se o Pix vai para a conta indicada na decisão ou no acordo, o comprovante do banco já é a prova principal. O recibo é útil quando o pagamento foi em dinheiro, em outra conta ou quando o comprovante não diz a que mês se refere." },
+        { "p": "Posso deduzir a pensão no Imposto de Renda?", "r": "A Lei 9.250/1995 permite deduzir a pensão alimentícia paga em cumprimento de decisão judicial, de acordo homologado judicialmente ou de escritura pública (art. 8º, II, “f”). Pensão combinada sem nenhum desses documentos fica fora dessa regra. Confira as instruções da Receita no ano da declaração." },
+        { "p": "E se eu pagar em dinheiro, em mãos?", "r": "Se a decisão manda depositar em conta, siga a decisão. Se o pagamento em mãos foi combinado, peça o recibo assinado na hora, com o mês e o valor: quem paga tem direito à quitação e pode reter o pagamento enquanto ela não for dada (Código Civil, art. 319)." }
+      ],
+      "relacionados": ["pagamento-em-dinheiro", "doacao", "reembolso-de-despesas", "aluguel"]
+    },
+    "honorarios": {
+      "nome": "Honorários",
+      "termo": "honorários",
+      "description": "Modelo de recibo de honorários para profissional liberal, com o que o paciente precisa para deduzir no Imposto de Renda. Gere grátis em PDF.",
+      "intro": "Recibo de honorários é o que o profissional liberal entrega pelo serviço prestado: médico, dentista, psicólogo, fisioterapeuta, advogado, engenheiro, arquiteto. Para quem atende na área da saúde, ele tem um peso a mais: é com ele que o paciente deduz a despesa no Imposto de Renda, e a lei diz o que precisa estar escrito para isso.",
+      "precisa": [
+        "O serviço: consulta, sessão, procedimento, projeto, laudo ou parecer, com a data ou o período.",
+        "Quem foi atendido, se for diferente de quem pagou, como o filho atendido e a mãe que pagou.",
+        "Seu nome, seu endereço e seu CPF ou CNPJ, nos campos de quem recebeu. Na saúde, os três são exigidos para a dedução.",
+        "Seu registro no conselho profissional, se quiser, junto ao nome.",
+        "Valor em número e por extenso, forma de pagamento, cidade, data e assinatura."
+      ],
+      "tituloCuidados": "Honorários e Imposto de Renda",
+      "cuidados": [
+        { "titulo": "Saúde: o que o recibo precisa para a dedução", "texto": "Pagamentos a médicos, dentistas, psicólogos, fisioterapeutas, fonoaudiólogos, terapeutas ocupacionais e hospitais podem ser deduzidos, desde que especificados e comprovados, com nome, endereço e CPF ou CNPJ de quem recebeu, e só os do próprio tratamento de quem paga e de seus dependentes", "fonte": "l9250", "artigo": "art. 8º, II, “a”, e § 2º, II e III" },
+        { "titulo": "Carnê-leão", "texto": "Profissional que recebe de pessoa física, como pessoa física, apura o carnê-leão, o imposto de renda mensal sobre esses rendimentos, que vence no último dia útil do mês seguinte ao recebimento", "fonte": "carne", "artigo": "página “Carnê-Leão”" },
+        { "titulo": "Recibo não é nota fiscal", "texto": "Se você atende como empresa, ou se a sua cidade exige nota para o seu serviço, o recibo não substitui a nota. Confirme com o seu contador." }
+      ],
+      "faq": [
+        { "p": "O que o recibo de consulta precisa ter para o Imposto de Renda?", "r": "O pagamento especificado, com nome, endereço e CPF ou CNPJ de quem recebeu (Lei 9.250/1995, art. 8º, § 2º, III). No gerador, preencha os campos opcionais de quem recebe (CPF ou CNPJ e endereço) e diga no referente qual foi o atendimento e a data." },
+        { "p": "Preciso colocar o nome do paciente?", "r": "Quando quem pagou é diferente de quem foi atendido, sim: escreva o nome do paciente no referente. A lei limita a dedução aos pagamentos do próprio tratamento de quem paga e ao de seus dependentes (Lei 9.250/1995, art. 8º, § 2º, II)." },
+        { "p": "Posso dar um recibo por mês para várias sessões?", "r": "Pode, listando as datas das sessões no referente. O que importa é o pagamento estar especificado e comprovado, com os dados de quem recebeu." },
+        { "p": "Advogado, engenheiro ou arquiteto também usam este modelo?", "r": "Usam. A regra de dedução da Lei 9.250/1995 vale para os profissionais de saúde listados nela; para os demais, o recibo prova o pagamento dos honorários e ajuda a organizar o carnê-leão, se você recebe de pessoa física." }
+      ],
+      "relacionados": ["prestacao-de-servico", "comissao", "reembolso-de-despesas", "pagamento-em-dinheiro"]
+    },
+    "doacao": {
+      "nome": "Doação",
+      "termo": "doação",
+      "description": "Modelo de recibo de doação em dinheiro, feita por liberalidade, com o que diz o Código Civil e o aviso sobre o ITCMD do seu estado. Grátis, em PDF.",
+      "intro": "O recibo de doação registra que alguém recebeu dinheiro de outra pessoa sem contrapartida: a ajuda de um parente, a doação para um projeto, a contribuição para uma causa. Ele serve para quem doa e para quem recebe mostrarem de onde o dinheiro veio e por quê. Este modelo é para doação em dinheiro; imóvel tem forma própria, explicada abaixo.",
+      "precisa": [
+        "Que é doação, feita por liberalidade e sem contrapartida.",
+        "A finalidade, se houver, como “para a reforma da sede” ou “para os estudos”; se a doação é livre, apague essa parte.",
+        "Nome e CPF ou CNPJ de quem doou e de quem recebeu.",
+        "Valor em número e por extenso, forma de pagamento, cidade, data e assinatura de quem recebeu."
+      ],
+      "tituloCuidados": "O que a lei diz sobre doação",
+      "cuidados": [
+        { "titulo": "O que é doação", "texto": "Doação é o contrato em que uma pessoa, por liberalidade, transfere do seu patrimônio bens ou vantagens para o de outra", "fonte": "cc", "artigo": "art. 538" },
+        { "titulo": "Forma da doação", "texto": "A doação é feita por escritura pública ou por instrumento particular. A doação verbal vale para bens móveis de pequeno valor, se a entrega vier logo em seguida", "fonte": "cc", "artigo": "art. 541" },
+        { "titulo": "Imóvel pede escritura", "texto": "Salvo lei em contrário, a escritura pública é essencial para transferir direitos reais sobre imóvel de valor acima de trinta vezes o maior salário mínimo vigente. Recibo não serve para isso", "fonte": "cc", "artigo": "art. 108" },
+        { "titulo": "Imposto estadual", "texto": "O imposto sobre doação (ITCMD) é instituído pelos estados e pelo Distrito Federal, e cada um tem as suas regras. Confira na Secretaria da Fazenda do seu estado", "fonte": "cf", "artigo": "art. 155, I" }
+      ],
+      "faq": [
+        { "p": "Recibo de doação em dinheiro tem validade?", "r": "Tem. O Código Civil diz que a doação se faz por escritura pública ou por instrumento particular (art. 541), e o recibo assinado é um documento particular. Para valores altos ou com condições, um contrato de doação mais completo pode ser mais seguro." },
+        { "p": "Doação paga imposto?", "r": "Pode pagar o ITCMD, o imposto sobre doação, que é instituído pelos estados e pelo Distrito Federal (Constituição, art. 155, I). Isenção, alíquota e quem paga dependem do estado. Confira na Secretaria da Fazenda do seu estado antes de fazer a doação." },
+        { "p": "Preciso declarar a doação no Imposto de Renda?", "r": "As instruções de declaração mudam a cada ano e dependem de quem doa e de quem recebe. Guarde o recibo e o comprovante da transferência e confira as instruções da Receita Federal para a declaração do ano." },
+        { "p": "Posso fazer recibo de doação de um bem, e não de dinheiro?", "r": "Este gerador faz recibo de valor em dinheiro. Para bem móvel, descreva o bem num documento particular assinado; doação verbal só vale para bem móvel de pequeno valor com entrega logo em seguida (Código Civil, art. 541, parágrafo único). Imóvel acima do limite legal pede escritura pública (art. 108)." }
+      ],
+      "relacionados": ["pensao-alimenticia", "pagamento-em-dinheiro", "reembolso-de-despesas", "venda-de-veiculo"]
+    }
+  }
+}

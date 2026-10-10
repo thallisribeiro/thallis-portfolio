@@ -148,6 +148,7 @@
 
         <div class="oc-caixa">
           <h2 id="itens-titulo">Itens</h2>
+          <p class="oc-dica" id="modelo-dica" hidden></p>
           <ol class="oc-itens" id="itens" aria-labelledby="itens-titulo"></ol>
           <button type="button" class="btn btn-ghost oc-add" id="adicionar">+ Adicionar item</button>
         </div>
@@ -371,6 +372,7 @@
 import {
   UNIDADES, ERROS, calcular, calcularPagamento, textoPagamento, formatValor, formatQuantidade, formatPercentual,
   parseDias, somarDias, hojeISO, formatData, formatNumero, numeroDe, resumoWhatsApp, linkWhatsApp,
+  slugModelo, lerModelo, temConteudo,
 } from '/gerador-de-orcamento/orcamento.mjs';
 
 const $ = (id) => document.getElementById(id);
@@ -680,12 +682,44 @@ $('logo-remover').addEventListener('click', () => {
   $('logo').focus();
 });
 
+// ---------- abrir com modelo: /gerador-de-orcamento/?modelo=<slug> (links de /modelo-de-orcamento/) ----------
+async function abreModelo() {
+  const slug = slugModelo(location.search);
+  if (!slug) return;
+  try {
+    let m = null;
+    try { m = lerModelo(await (await fetch('/gerador-de-orcamento/modelos.json')).json(), slug); } catch {}
+    if (!m) { anuncia('Esse modelo não foi encontrado. O orçamento continua como estava.'); return; }
+    const tinha = temConteudo(estado);
+    if (tinha && !confirm(`Trocar o orçamento que está aberto pelo modelo de ${m.nome}? O cliente, os itens e as observações dele vão ser apagados. Os dados da sua empresa e a logo continuam.`)) {
+      anuncia('Modelo não aplicado. O seu orçamento continua como estava.');
+      return;
+    }
+    const { empresa, validadeDias, pagamento } = estado, numero = tinha ? proximoNumero() : estado.numero;
+    estado = { ...novoEstado(), empresa, validadeDias, numero, observacoes: m.observacoes };
+    estado.pagamento.forma = pagamento.forma;
+    estado.itens = m.itens.map((it) => ({ ...novoItem(), ...it }));
+    tudo = false; tocados.clear();
+    preencheForm(); renderItens(); atualiza(); salva();
+    const dica = `Itens do modelo de ${m.nome}. Ponha o valor de cada um, ajuste as quantidades e apague o que não for usar.`;
+    $('modelo-dica').textContent = dica;
+    $('modelo-dica').hidden = false;
+    anuncia(dica);
+  } finally {
+    // O parâmetro sai da barra de endereço: recarregar a página não troca o rascunho de novo.
+    const u = new URL(location.href);
+    u.searchParams.delete('modelo');
+    history.replaceState(history.state, '', u.pathname + u.search + u.hash);
+  }
+}
+
 restaura();
 preencheForm();
 renderItens();
 mostraLogo();
 atualiza();
 salva();
+abreModelo();
 </script>
 </body>
 </html>

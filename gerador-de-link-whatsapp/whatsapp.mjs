@@ -15,6 +15,12 @@ export const DDDS = new Set(
    '91 92 93 94 95 96 97 98 99').split(' ')
 );
 
+// ?ddd=73 (vindo das páginas /ddd/<nn>/): devolve o DDD só se for um dos 67; qualquer outra coisa vira ''.
+export function dddDaUrl(search) {
+  const d = new URLSearchParams(search ?? '').get('ddd') ?? '';
+  return DDDS.has(d) ? d : '';
+}
+
 export const ERROS = {
   vazio: 'Digite o número do WhatsApp.',
   sem_ddd: 'Coloque o DDD antes do número. Exemplo: (73) 98889-9345.',

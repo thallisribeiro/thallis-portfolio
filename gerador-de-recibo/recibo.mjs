@@ -209,3 +209,21 @@ export function buildRecibo(input = {}) {
   const texto = ok ? `*${recibo.titulo}*\nValor: ${valor}\n\n${recibo.corpo}\n\n${recibo.local}\n\n${assinatura}` : '';
   return { ok, erros, recibo, texto };
 }
+
+// ---------- modelo por tipo de recibo: /gerador-de-recibo/?modelo=<slug>, dados em modelos.json ----------
+// O mesmo modelos.json alimenta as páginas /modelo-de-recibo/<slug>/ (pseo/recibo.js).
+export function slugModelo(busca) {
+  const s = new URLSearchParams(busca ?? '').get('modelo') ?? '';
+  return s.length <= 60 && /^[a-z0-9]+(-[a-z0-9]+)*$/.test(s) ? s : null;
+}
+
+// Só os campos conhecidos: "referente a" com o limite do campo (200), forma que o select tem.
+export function lerModelo(modelos, slug) {
+  const m = slug && modelos && Object.hasOwn(modelos, slug) ? modelos[slug] : null;
+  if (typeof m?.referente !== 'string' || !m.referente.trim()) return null;
+  const txt = (v, max) => (typeof v === 'string' ? v.slice(0, max) : '');
+  return { nome: txt(m.nome, 80), referente: m.referente.slice(0, 200), forma: Object.hasOwn(FORMAS, m.forma) ? m.forma : 'pix', dica: txt(m.dica, 400) };
+}
+
+// Rascunho que vale perguntar antes de trocar (os dados de quem recebe ficam, como no "Novo recibo").
+export const temRascunho = (campos) => ['pagadorNome', 'pagadorDoc', 'valor', 'referente'].some((k) => String(campos?.[k] ?? '').trim());

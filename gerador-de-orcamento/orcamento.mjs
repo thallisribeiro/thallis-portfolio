@@ -165,3 +165,31 @@ export function resumoWhatsApp(orc = {}) {
 
 // Sem número: o WhatsApp abre a lista de conversas e a pessoa escolhe o cliente.
 export const linkWhatsApp = (texto) => 'https://wa.me/?text=' + encodeURIComponent(texto);
+
+// ---------- modelo por ofício: /gerador-de-orcamento/?modelo=<slug>, itens em modelos.json ----------
+// O mesmo modelos.json alimenta as páginas /modelo-de-orcamento/<slug>/ (pseo/orcamento.js).
+export function slugModelo(busca) {
+  const s = new URLSearchParams(busca ?? '').get('modelo') ?? '';
+  return s.length <= 60 && /^[a-z0-9]+(-[a-z0-9]+)*$/.test(s) ? s : null;
+}
+
+// Só os campos conhecidos, com os limites dos campos da página; preço nunca vem do modelo.
+export function lerModelo(modelos, slug) {
+  const m = slug && modelos && Object.hasOwn(modelos, slug) ? modelos[slug] : null;
+  if (!Array.isArray(m?.itens) || !m.itens.length) return null;
+  const txt = (v, max) => (typeof v === 'string' ? v.slice(0, max) : '');
+  return {
+    nome: txt(m.nome, 80),
+    itens: m.itens.slice(0, 200).map((it) => ({
+      descricao: txt(it?.descricao, 500),
+      unidade: UNIDADES.includes(it?.unidade) ? it.unidade : 'un',
+      quantidade: txt(it?.quantidade, 12) || '1',
+      valor: '',
+    })),
+    observacoes: txt(m.observacoes, 2000),
+  };
+}
+
+// Rascunho que vale perguntar antes de trocar (dados da empresa não contam: eles ficam).
+export const temConteudo = (orc) => Boolean(String(orc?.cliente?.nome ?? '').trim() || String(orc?.observacoes ?? '').trim()
+  || (orc?.itens ?? []).some((i) => String(i?.descricao ?? '').trim() || String(i?.valor ?? '').trim()));

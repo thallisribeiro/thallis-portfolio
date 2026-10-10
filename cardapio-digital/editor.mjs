@@ -350,7 +350,19 @@ $('imprimir').addEventListener('click', () => print());
 
 // ---------- início ----------
 
-let estado = lerRascunho() || JSON.parse(JSON.stringify(EXEMPLO));
+// ?modelo=<slug> vem do botão "Usar este modelo" de /cardapio-digital-para/<tipo>/. Os modelos
+// ficam em modelos.json, o mesmo arquivo que gera aquelas páginas (pseo/cardapio.js).
+async function lerModelos() {
+  try {
+    const r = await fetch(new URL('modelos.json', import.meta.url));
+    return r.ok ? await r.json() : null;
+  } catch { return null; }
+}
+
+const rascunho = lerRascunho();
+let estado = rascunho || JSON.parse(JSON.stringify(EXEMPLO));
+const params = new URLSearchParams(location.search);
+const slug = params.get('modelo');
 if (window.cardapioCodigo) {
   const doLink = await decodeMenu(window.cardapioCodigo);
   if (doLink) {
@@ -359,6 +371,34 @@ if (window.cardapioCodigo) {
   } else {
     aviso('Este link de edição está incompleto ou quebrado (às vezes ele é cortado ao ser copiado). Mostramos o último rascunho salvo neste aparelho.', true);
   }
+} else if (slug) {
+  const modelos = await lerModelos();
+  const modelo = modelos && Object.prototype.hasOwnProperty.call(modelos, slug) ? validateMenu(modelos[slug]) : null;
+  if (!modelo) {
+    aviso(modelos ? 'Não encontramos esse modelo de cardápio. Mostramos o último rascunho salvo neste aparelho, ou o exemplo.'
+      : 'Não conseguimos carregar o modelo agora. Confira a internet e abra o link de novo.', true);
+  } else {
+    // Rascunho que é só o exemplo ou um modelo sem mexer não tem nada a perder: troca sem perguntar.
+    const igual = (m) => JSON.stringify(validateMenu(m, { rascunho: true })) === JSON.stringify(rascunho);
+    const intocado = !rascunho || [EXEMPLO, ...Object.values(modelos)].some(igual);
+    if (intocado || confirm('Você já tem um cardápio em edição neste aparelho. Trocar pelo modelo?\n\nO cardápio atual sai do editor. Se você guardou o link de edição dele, o link continua abrindo o cardápio.')) {
+      estado = modelo;
+      aviso('Modelo carregado. Troque o nome, defina os preços e apague o que você não vende.');
+      // O texto fixo fala do "cardápio de exemplo"; com um modelo aberto, ele mentiria.
+      const exemplo = document.querySelector('.cd-exemplo');
+      if (exemplo && exemplo.firstChild && exemplo.firstChild.nodeType === Node.TEXT_NODE) {
+        exemplo.firstChild.textContent = 'Este é o modelo que você escolheu, sem preços. ';
+      }
+    } else {
+      aviso('Mantivemos o seu cardápio. O modelo não foi aberto.');
+    }
+  }
+}
+// Tira o ?modelo do endereço: recarregar a página não pergunta de novo nem troca o que já foi editado.
+if (slug !== null) {
+  params.delete('modelo');
+  const resto = params.toString();
+  history.replaceState(null, '', location.pathname + (resto ? '?' + resto : '') + location.hash);
 }
 preencherCampos();
 montar();

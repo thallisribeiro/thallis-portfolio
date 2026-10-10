@@ -1,0 +1,74 @@
+{
+  "aluguel": {
+    "nome": "Aluguel",
+    "referente": "aluguel de [mês/ano] do imóvel na [endereço do imóvel], vencido em [data]; valores pagos: aluguel R$ [ ], condomínio R$ [ ], IPTU R$ [ ]",
+    "forma": "pix",
+    "dica": "Troque o que está entre colchetes. Recibo de aluguel precisa ser discriminado (Lei do Inquilinato, art. 22, VI): escreva o valor de cada parte paga e apague o que não houver."
+  },
+  "prestacao-de-servico": {
+    "nome": "Prestação de serviço",
+    "referente": "serviço de [qual serviço], feito em [data ou período] no endereço [local], conforme orçamento nº [número]",
+    "forma": "pix",
+    "dica": "Troque o que está entre colchetes. Descreva o serviço do jeito que o cliente entende e, se houve orçamento, cite o número dele. Sem orçamento, apague essa parte."
+  },
+  "pagamento-em-dinheiro": {
+    "nome": "Pagamento em dinheiro",
+    "referente": "[o que foi pago: produto, serviço ou parcela], com o valor contado e conferido no ato da entrega",
+    "forma": "dinheiro",
+    "dica": "Troque o que está entre colchetes. Dinheiro em espécie não deixa registro no banco: conte o valor na frente de quem pagou e entregue o recibo assinado na hora."
+  },
+  "sinal": {
+    "nome": "Sinal (arras)",
+    "referente": "sinal e princípio de pagamento (arras) de [o que foi comprado ou contratado], valor total R$ [ ], restando R$ [ ] a pagar até [data]",
+    "forma": "pix",
+    "dica": "Troque o que está entre colchetes. Se vocês combinaram que qualquer um pode desistir, escreva isso também: muda o que acontece com o sinal (Código Civil, art. 420)."
+  },
+  "venda-de-veiculo": {
+    "nome": "Venda de veículo",
+    "referente": "venda do veículo [marca e modelo], ano [ano], placa [placa], Renavam [número], no estado em que se encontra, entregue com [quilometragem] km",
+    "forma": "transferencia",
+    "dica": "Troque o que está entre colchetes. O recibo prova o pagamento, mas não transfere o veículo: a transferência é feita no Detran (Código de Trânsito Brasileiro, arts. 123 e 134)."
+  },
+  "diarista": {
+    "nome": "Diarista",
+    "referente": "diária(s) de limpeza nos dias [datas], na residência em [endereço]",
+    "forma": "pix",
+    "dica": "Troque o que está entre colchetes. Trabalho na mesma casa por mais de 2 dias por semana é emprego doméstico, com registro no eSocial (LC 150/2015, art. 1º): este recibo não substitui isso."
+  },
+  "comissao": {
+    "nome": "Comissão",
+    "referente": "comissão de [percentual]% sobre [venda ou indicação de quê] para o cliente [nome], fechada em [data], conforme combinado em [data do acordo]",
+    "forma": "pix",
+    "dica": "Troque o que está entre colchetes. Se quem recebe é seu empregado, a comissão integra o salário e vai na folha (CLT, art. 457, § 1º); este recibo é para quem não é empregado."
+  },
+  "adiantamento": {
+    "nome": "Adiantamento (vale)",
+    "referente": "adiantamento (vale) do salário de [mês/ano], a ser descontado no pagamento do salário de [mês/ano]",
+    "forma": "dinheiro",
+    "dica": "Troque o que está entre colchetes. Quem recebe o vale é quem assina o recibo. O desconto de adiantamento no salário é permitido pela CLT (art. 462)."
+  },
+  "reembolso-de-despesas": {
+    "nome": "Reembolso de despesas",
+    "referente": "reembolso de despesas com [combustível, material, viagem] feitas em [data ou período] para [empresa ou pessoa], conforme [quantidade] comprovantes anexos",
+    "forma": "pix",
+    "dica": "Troque o que está entre colchetes. Anexe as notas e os cupons de cada despesa: o recibo prova que o reembolso foi pago; os comprovantes mostram do quê."
+  },
+  "pensao-alimenticia": {
+    "nome": "Pensão alimentícia",
+    "referente": "pensão alimentícia de [mês/ano] em favor de [nome de quem tem direito à pensão], conforme [decisão judicial, acordo homologado ou escritura] nº [número]",
+    "forma": "pix",
+    "dica": "Troque o que está entre colchetes. Assina quem recebe a pensão ou quem a representa (como a mãe ou o pai do filho menor). Se a decisão manda depositar em conta, deposite nela."
+  },
+  "honorarios": {
+    "nome": "Honorários",
+    "referente": "honorários por [consulta, sessão, projeto ou laudo] prestado(s) a [nome do paciente ou cliente] em [data ou período]",
+    "forma": "pix",
+    "dica": "Troque o que está entre colchetes. Para o cliente deduzir despesa de saúde no Imposto de Renda, o recibo precisa ter seu nome, endereço e CPF ou CNPJ (Lei 9.250/1995, art. 8º, § 2º, III)."
+  },
+  "doacao": {
+    "nome": "Doação",
+    "referente": "doação em dinheiro, feita por liberalidade e sem contrapartida, [para a finalidade, se houver]",
+    "forma": "pix",
+    "dica": "Troque o que está entre colchetes ou apague a finalidade. Doação pode pagar imposto estadual (ITCMD), conforme as regras do seu estado: confira na Secretaria da Fazenda."
+  }
+}

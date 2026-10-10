@@ -1,0 +1,2000 @@
+{
+  "eletricista": {
+    "nome": "Eletricista",
+    "itens": [
+      {
+        "descricao": "Visita técnica e diagnóstico da instalação",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Instalação de ponto de tomada novo (caixa, fiação e acabamento)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Instalação de ponto de luz com interruptor",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Troca de tomada ou interruptor existente",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Instalação de chuveiro elétrico com circuito e disjuntor próprios",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Troca do quadro de distribuição, com circuitos separados e identificados",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Instalação de dispositivo DR no quadro",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Instalação de luminária ou ventilador de teto",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Material elétrico (fios, disjuntores, eletrodutos e caixas), conforme lista anexa",
+        "unidade": "serviço",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Material: [incluso, conforme lista anexa / por conta do cliente]. Não estão inclusos: abertura e fechamento de parede, reboco e pintura. Se, ao abrir a instalação, aparecer problema fora do previsto, o serviço extra só é feito depois de um orçamento complementar aprovado. Garantia do serviço: [prazo] a partir da entrega. Visita técnica: [descontada / não descontada] do total se o orçamento for aprovado. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "encanador": {
+    "nome": "Encanador",
+    "itens": [
+      {
+        "descricao": "Visita técnica e diagnóstico",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Localização de vazamento (caça-vazamento)",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Desentupimento de pia, ralo ou vaso sanitário",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Troca de registro ou válvula de descarga",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Instalação de torneira, misturador ou chuveiro",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Instalação ou troca de vaso sanitário com caixa acoplada",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Ponto novo de água ou esgoto",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Troca de trecho de tubulação (metro linear)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Instalação ou troca de caixa d’água",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Material hidráulico (tubos, conexões, registros e vedação), conforme lista anexa",
+        "unidade": "serviço",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Material: [incluso, conforme lista anexa / por conta do cliente]. Não estão inclusos: quebra e fechamento de parede ou piso, reposição de azulejo e piso [ou inclui; se tiver peças de reposição guardadas, me avise]. Localização de vazamento: [cobrada à parte / descontada se o conserto for aprovado]. Se, ao abrir, aparecer tubulação comprometida fora do previsto, o serviço extra só é feito depois de orçamento complementar aprovado. Água fechada durante: [tempo previsto]. Garantia: [prazo] sobre a mão de obra e as conexões feitas. Pagamento: [forma]. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "pintor": {
+    "nome": "Pintor",
+    "itens": [
+      {
+        "descricao": "Proteção de piso, móveis e esquadrias com lona e fita",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Lixamento e correção de pequenas imperfeições",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Massa corrida em paredes internas (aplicação e lixamento)",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Pintura de paredes internas, tinta acrílica",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Pintura de teto",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Pintura de porta com batente, esmalte",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Pintura de grade ou portão com fundo anticorrosivo e esmalte",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Pintura de fachada",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Limpeza final e retirada do material",
+        "unidade": "serviço",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Área medida na visita: [total em m², por cômodo]. Demãos: [quantas] nas paredes e [quantas] no teto. Material: [incluso / por conta do cliente]; tinta [marca e linha] na cor [cor]. Não inclui tratamento de infiltração, troca de reboco solto nem reparo de trincas; se aparecerem, faço orçamento separado. Na parte externa, dias de chuva não contam no prazo. Garantia do serviço: [prazo] a partir da entrega. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "pedreiro": {
+    "nome": "Pedreiro e reforma",
+    "itens": [
+      {
+        "descricao": "Visita técnica e levantamento da obra",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Demolição de parede ou revestimento, com retirada do material",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Caçamba para entulho (por caçamba)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Alvenaria de vedação (levantar parede com blocos)",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Chapisco e reboco de parede",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Contrapiso e regularização do piso",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Assentamento de piso ou porcelanato, com rejunte",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Assentamento de revestimento de parede, com rejunte",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Diária de pedreiro com ajudante, para serviços sem medida fechada (por dia)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Material de obra (cimento, areia, argamassa, blocos), conforme lista anexa",
+        "unidade": "serviço",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Medidas tiradas na visita: [m² por etapa e por cômodo]. Material: [incluso, conforme lista anexa / por conta do cliente]. Entulho: [caçamba inclusa / por conta do cliente]. Não estão inclusos: projeto, ART, instalações elétricas e hidráulicas, gesso, pintura e [outros]. Se, ao demolir ou abrir, aparecer problema fora do previsto, paro, mostro e só continuo com orçamento complementar aprovado. Prazo: [dias de trabalho] a partir de [data]. Pagamento: [entrada e etapas]. Garantia do serviço: [prazo] a partir da entrega. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "gesseiro": {
+    "nome": "Gesso e drywall",
+    "itens": [
+      {
+        "descricao": "Visita técnica e medição",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Forro de gesso",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Forro de drywall com estrutura metálica",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Parede de drywall com estrutura e placas dos dois lados",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Isolamento acústico com lã mineral dentro da parede",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Sanca de gesso (metro linear)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Moldura ou rodateto de gesso (metro linear)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Recorte para spot, luminária ou alçapão",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Tratamento de juntas e massa para pintura",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Material (placas, perfis, gesso, fita e massa), conforme lista anexa",
+        "unidade": "serviço",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Área medida na visita: [m² de forro e de parede, metros lineares de sanca e moldura]. Material: [incluso / por conta do cliente]; placa [tipo, para área seca ou úmida]. Reforço para TV, armário ou luminária pesada: [onde; incluso / não incluso]. Não inclui instalação elétrica, pintura nem remoção de forro antigo [ou inclui]. Retirada das sobras: [inclusa / não inclusa]. Infiltração vinda de telhado, laje ou cano não é coberta pela garantia. Garantia do serviço: [prazo] a partir da entrega. Pagamento: [entrada e restante]. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "marceneiro": {
+    "nome": "Móveis planejados",
+    "itens": [
+      {
+        "descricao": "Medição no local e projeto",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Armários de cozinha, aéreos e inferiores, conforme projeto",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Guarda-roupa sob medida, conforme projeto",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Painel de TV com rack ou nichos",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Gabinete de banheiro com espelheira",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Ferragens (dobradiças, corrediças e puxadores), conforme especificação",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Frete e transporte das peças até o local",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Montagem e instalação no local, com fixação e ajustes",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Desmontagem e retirada de móvel antigo",
+        "unidade": "serviço",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Projeto aprovado: versão [número], de [data]; o que vale é o projeto aprovado. Chapa: [tipo, espessura e padrão de cor]. Ferragens: [corrediças, dobradiças e puxadores]. Medição final feita com piso, revestimento e gesso prontos. Não inclui tampo de pedra, vidros, espelhos, iluminação nem pontos elétricos e hidráulicos [ou inclui]. Alteração depois da aprovação vira orçamento complementar. Prazo: [dias] de fabricação após aprovação e entrada, mais [dias] de instalação. Pagamento: [entrada e restante]. Garantia: [prazo] sobre fabricação e montagem. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "serralheiro": {
+    "nome": "Serralheiro",
+    "itens": [
+      {
+        "descricao": "Visita técnica e medição",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Portão de abrir, de correr ou basculante, conforme desenho aprovado",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Grade de proteção para janela ou porta",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Guarda-corpo ou corrimão (metro linear)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Estrutura metálica para cobertura ou toldo",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Fundo anticorrosivo e pintura de acabamento",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Instalação com chumbamento ou fixação na alvenaria",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Automatização de portão (motor e instalação)",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Conserto, solda ou ajuste em portão ou grade existente",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Material (tubos, perfis, chapas, fechadura e acessórios), conforme lista anexa",
+        "unidade": "serviço",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Medidas conferidas na visita: [medidas de cada peça]. Desenho aprovado: [anexo]. Material: [tipo de tubo ou perfil, galvanizado ou não], [incluso / por conta do cliente]. Pintura: [fundo anticorrosivo e acabamento na cor (qual) / só fundo / não inclusa]. Não inclui reparo de reboco após o chumbamento nem a parte elétrica do motor [ou inclui]. Mudança de desenho depois do corte vira orçamento complementar. Prazo: [dias] de fabricação após aprovação e entrada; instalação em [data]. Garantia: [prazo] sobre solda, fabricação e instalação; motor e controle com a garantia do fabricante. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "vidraceiro": {
+    "nome": "Vidraceiro",
+    "itens": [
+      {
+        "descricao": "Visita técnica e medição",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Box de banheiro em vidro, com perfis ou ferragens",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Janela ou porta de vidro com ferragens",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Fechamento de sacada em vidro",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Guarda-corpo de vidro (metro linear)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Espelho sob medida com fixação",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Tampo ou prateleira de vidro",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Troca de vidro quebrado em esquadria existente",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Aplicação de película em vidro",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Retirada e descarte do vidro antigo",
+        "unidade": "serviço",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Medição final: [data], com revestimento e piso prontos; vidro feito com medida provisória a pedido do cliente fica por conta dele se não servir. Vidro: [tipo, espessura e cor]. Ferragens e perfis: [acabamento e cor]. Retirada e descarte do vidro antigo: [inclusos / não inclusos]. Não inclui reparo de azulejo ou de alvenaria. Prazo: [dias úteis] após a medição final e a entrada. Garantia: [prazo] sobre instalação e ferragens; quebra por impacto não está coberta. Pagamento: [entrada na medição final e restante na instalação]. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "montador-de-moveis": {
+    "nome": "Montador de móveis",
+    "itens": [
+      {
+        "descricao": "Montagem de guarda-roupa",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Montagem de cama, cama box ou beliche",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Montagem de cômoda, criado-mudo ou sapateira",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Montagem de rack, painel de TV ou estante",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Montagem de armário de cozinha (por módulo)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Fixação de móvel na parede, com bucha e parafuso",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Instalação de prateleira, nicho ou suporte de TV",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Desmontagem de móvel para mudança",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Taxa de deslocamento",
+        "unidade": "serviço",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Móveis: [lista, com loja e modelo]. O preço considera o móvel completo, com todas as peças e ferragens na caixa; peça faltando ou com defeito é com a loja, e a volta para terminar [é cobrada / não é cobrada]. Fixação na parede: [inclusa / não inclusa], com bucha e parafuso [inclusos / por conta do cliente]. Retirada de embalagens: [inclusa / não inclusa]. Deslocamento: [incluso / cobrado à parte, inclusive se o cliente desmarcar no dia]. Garantia da montagem: [prazo]; defeito de fábrica é com a loja. Pagamento: [forma], na conclusão. Aprovação: mensagem por escrito ou assinatura neste orçamento."
+  },
+  "chaveiro": {
+    "nome": "Chaveiro",
+    "itens": [
+      {
+        "descricao": "Atendimento e deslocamento até o local",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Abertura de porta residencial sem dano à fechadura",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Abertura de veículo",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Troca de segredo de cilindro (por porta)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Instalação de fechadura nova",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Instalação de fechadura digital",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Cópia de chave simples",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Cópia de chave de veículo com chip, com codificação",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Fechadura, cilindro ou peças, conforme modelo escolhido",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Adicional para atendimento fora do horário comercial",
+        "unidade": "serviço",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Atendimento: [endereço], [dia e horário]. Deslocamento: [cobrado mesmo se o serviço não for feito / descontado se o serviço for feito]. Adicional fora do horário comercial: [valor / não se aplica]. Abertura: tento sem danificar; se for preciso trocar o cilindro, aviso antes e a peça entra conforme este orçamento. Para abrir imóvel ou veículo, peço documento ou comprovante que ligue a pessoa ao local. Peças: [modelo], [fornecidas por mim / do cliente]. Garantia: [prazo] sobre instalação e cópias; a fechadura tem a garantia do fabricante. Pagamento: [Pix / dinheiro / cartão]. Aprovação: mensagem por escrito."
+  },
+  "ar-condicionado": {
+    "nome": "Ar-condicionado",
+    "itens": [
+      {
+        "descricao": "Visita técnica e avaliação do local",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Instalação de split (unidade interna e externa) com a tubulação combinada",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Tubulação de cobre com isolamento além da combinada (metro linear)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Suporte para a unidade externa",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Dreno para escoamento da água (metro linear)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Canaleta para acabamento da tubulação (metro linear)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Limpeza preventiva de aparelho split",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Higienização completa com desmontagem da unidade interna",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Carga de gás refrigerante com teste de vazamento",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Desinstalação de aparelho existente",
+        "unidade": "un",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Aparelho: [tipo, marca, modelo e capacidade], fornecido [pelo cliente / por mim]. A instalação inclui [metros de tubulação, suporte e dreno]; o que passar disso é cobrado conforme os itens deste orçamento. Não inclui ponto elétrico, quebra e acabamento de parede nem acesso por fora do prédio [ou inclui]. Em conserto, peças [originais / equivalentes, com autorização do cliente]. Defeito encontrado na limpeza vira orçamento complementar. Garantia do serviço: [prazo]; o aparelho tem a garantia do fabricante. Pagamento: [forma]. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "energia-solar": {
+    "nome": "Energia solar",
+    "itens": [
+      {
+        "descricao": "Visita técnica, análise das contas de luz e avaliação do telhado",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Projeto do sistema e ART",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Kit: módulos, inversor, cabos e conectores, conforme lista anexa",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Estrutura de fixação para o tipo de telhado, laje ou solo",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Proteções elétricas e quadro, conforme projeto",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Instalação dos módulos e da estrutura",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Instalação do inversor e ligações elétricas",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Solicitação de acesso na distribuidora e acompanhamento",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Adequação do padrão de entrada, se a distribuidora exigir",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Frete do kit, ativação do sistema e configuração do monitoramento",
+        "unidade": "serviço",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Kit: [marca, modelo e quantidade dos módulos e do inversor], conforme lista anexa, comprado [por mim / pelo cliente]. Responsável técnico: [nome e registro]; ART [inclusa / à parte]. Solicitação de acesso na distribuidora: [inclusa / não inclusa]; a ligação depende da resposta da distribuidora. Não inclui reforço ou troca de telhado nem adequação do padrão de entrada [ou inclui]. Estimativa de geração: [valor], com base em [dados usados]; é estimativa, não promessa. Prazo de instalação: [dias] após a chegada do kit. Garantias: equipamentos conforme os fabricantes; instalação [prazo]. Pagamento: [etapas]. Aprovação: assinatura neste orçamento."
+  },
+  "limpeza": {
+    "nome": "Limpeza",
+    "itens": [
+      {
+        "descricao": "Diária de limpeza residencial (por dia)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Faxina pesada: armários por dentro, azulejos, rejunte e vidros internos",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Limpeza comercial de escritório ou loja (por visita)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Limpeza pós-obra: pó, respingos de tinta e cimento",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Limpeza de vidros e esquadrias pelo lado de fora",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Limpeza interna de geladeira, forno ou armários",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Lavagem de sofá, colchão ou cadeira estofada",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Pessoa adicional na equipe (por dia)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Produtos e equipamentos de limpeza",
+        "unidade": "serviço",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Tipo de limpeza: [residencial / comercial / pós-obra]. Local: [cômodos ou área em m²]. Incluso: [lista por cômodo]. Não inclui retirada de entulho, limpeza de fachada ou em altura, nem [outros], salvo os itens listados. Produtos e equipamentos: [inclusos / do cliente]. Equipe: [quantas pessoas], [dia e horário]. Se o local estiver diferente do combinado, ajusto o orçamento antes de começar. Conferência: [no fim do serviço / até (quando)]; item listado mal feito eu refaço sem custo. Pagamento: [no dia / mensal]. Aprovação: mensagem por escrito ou assinatura neste orçamento."
+  },
+  "dedetizacao": {
+    "nome": "Dedetização",
+    "itens": [
+      {
+        "descricao": "Vistoria e identificação das pragas",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Desinsetização contra baratas, formigas e outros insetos",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Desratização com porta-iscas (por ponto)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Descupinização em móvel, madeiramento ou solo",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Controle de escorpiões",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Tratamento de área externa, jardim e garagem",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Limpeza e desinfecção de caixa d’água",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Retorno dentro do prazo de assistência técnica",
+        "unidade": "serviço",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Pragas-alvo: [quais]. Áreas tratadas: [cômodos, área externa, m²]. Método: [gel, pulverização, iscas]. Orientações de antes e depois, enviadas por escrito: [o que guardar, tempo fora do local para pessoas e animais]. Prazo de assistência técnica: [prazo, por extenso], com retorno [gratuito / cobrado] se a praga-alvo voltar e as orientações forem seguidas. Ao final, entrego o comprovante de execução. Licenças sanitária e ambiental: [números e validade]. Responsável técnico: [nome e registro]. Pagamento: [forma]. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "jardinagem-e-paisagismo": {
+    "nome": "Jardinagem e paisagismo",
+    "itens": [
+      {
+        "descricao": "Visita técnica e medição do terreno",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Projeto paisagístico com desenho e lista de espécies",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Limpeza do terreno com retirada de mato e entulho verde",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Preparo do solo com terra vegetal e adubo",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Plantio de mudas conforme lista anexa (espécie e quantidade)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Plantio de grama em placas",
+        "unidade": "m²",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Instalação de sistema de irrigação nos canteiros",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Mudas, grama, terra e adubo, conforme lista anexa",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Retirada do resíduo verde (caçamba ou frete)",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Manutenção: corte de grama, poda e limpeza de canteiros (por mês)",
+        "unidade": "un",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Área medida na visita: [total em m²]. Mudas, grama, terra e adubo: [inclusos, conforme lista anexa / por conta do cliente]. Não estão inclusos: poda de árvore grande, remoção de toco e conserto da irrigação existente; se forem necessários, faço orçamento separado. Dias de chuva forte não contam no prazo. Reposição de muda que não pegar: [prazo], desde que a rega siga a orientação entregue. Manutenção: [quantas] visitas por mês, cancelamento com aviso de [prazo]. Pagamento: [entrada e saldo]. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "piscineiro": {
+    "nome": "Piscineiro",
+    "itens": [
+      {
+        "descricao": "Visita inicial e avaliação da piscina, do filtro e da bomba",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Limpeza pesada inicial para piscina parada ou muito suja",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Manutenção: peneira, escovação, aspiração e correção da água (por mês)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Visita avulsa de limpeza e tratamento (por visita)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Produtos químicos do mês, conforme lista anexa",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Recuperação de água verde ou turva (por visita extra)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Limpeza da faixa de azulejos na linha da água",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Troca da areia do filtro",
+        "unidade": "serviço",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Visitas: [quantas] por [semana / mês], às [dias]. Cada visita inclui peneira, escovação, aspiração, limpeza da borda e correção da água. Produtos químicos: [inclusos até tal quantidade / por conta do cliente]. Recuperação de água verde depois de chuva, festa ou bomba desligada não está no valor mensal e é orçada à parte antes de começar. Conserto de bomba e vazamento: orçamento separado. Visita perdida por chuva é remarcada para [quando]. Vencimento: dia [dia] de cada mês; cancelamento com aviso de [prazo]. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "mudanca-e-frete": {
+    "nome": "Mudança e frete",
+    "itens": [
+      {
+        "descricao": "Avaliação dos itens por visita ou vídeo",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Veículo com motorista para transporte entre os endereços",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Ajudante para carga e descarga (por ajudante)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Embalagem de louças, objetos e eletrônicos",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Material de embalagem: caixas, plástico bolha, filme e fita",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Desmontagem e montagem de móvel (guarda-roupa, cama, rack)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Içamento de móvel por corda pela janela ou sacada",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Acréscimo por escada sem elevador (por andar)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Hora de espera no local além do combinado",
+        "unidade": "h",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Endereços: [saída] para [chegada]. Itens conforme lista anexa; o que não estiver nela só é levado com acréscimo aprovado. Embalagem: [feita por nós / pelo cliente]. Avarias: cobrimos [o que e até quanto], com aviso em até [prazo] após a entrega; caixas fechadas pelo cliente e móveis já danificados não entram. Não inclui instalação de eletrodomésticos, cortinas e luminárias. Espera além de [tempo] é cobrada por hora. Sinal de [valor] para reservar a data; cancelamento com menos de [prazo] [perde / não perde] o sinal. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "mecanico": {
+    "nome": "Mecânico",
+    "itens": [
+      {
+        "descricao": "Diagnóstico com scanner e teste de rodagem",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Troca de óleo do motor e filtro de óleo (mão de obra)",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Troca de pastilhas de freio dianteiras (mão de obra)",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Retífica ou troca de discos de freio (mão de obra)",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Troca do kit de embreagem (mão de obra)",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Troca de amortecedores (mão de obra, por par)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Alinhamento e balanceamento",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Hora de mão de obra para serviço fora da tabela",
+        "unidade": "h",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Peças, óleo e fluidos conforme lista anexa, com tipo e marca de cada peça",
+        "unidade": "serviço",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Veículo: [modelo, ano, placa], com [quilometragem] na entrada. Peças: [originais / de reposição, marca], conforme lista; peça trazida pelo cliente fica sem garantia da oficina. Se, ao desmontar, aparecer outro defeito, aviso com foto e valor, e o extra só é feito depois de aprovado. Peças trocadas ficam à disposição do cliente. Garantia: [prazo] sobre mão de obra e peças fornecidas, a partir da entrega. Diagnóstico: [descontado / não descontado] se aprovado. Carro pronto e não retirado em [prazo] paga estadia de [valor] por dia. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "funilaria-e-pintura": {
+    "nome": "Funilaria e pintura",
+    "itens": [
+      {
+        "descricao": "Avaliação do dano, com desmontagem parcial se necessário",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Desamassar e recuperar peça de lataria (por peça)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Recuperação de para-choque plástico com trinca ou arranhão",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Troca de peça de lataria, com mão de obra (por peça)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Preparação com massa, primer e lixamento (por peça)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Pintura com verniz (por peça)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Esfumado de cor na peça vizinha (por peça)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Desmontagem e remontagem de maçaneta, friso, lanterna e sensor",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Polimento final da área pintada",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Tinta, verniz, primer, massa e peças, conforme lista anexa",
+        "unidade": "serviço",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Veículo: [modelo, ano, placa, cor]. Peças mexidas: conforme lista, fotografadas na entrada. Peças novas: [originais / de reposição / usadas, com autorização do cliente]. A cor nova pode ter pequena diferença de tom em relação ao resto do carro, o que foi explicado ao cliente. Dano escondido encontrado depois de desmontar só é reparado com orçamento complementar aprovado. Prazo: [dias úteis] após a chegada das peças. Garantia da pintura e da funilaria: [prazo] a partir da entrega. Seguro: franquia por conta de [quem]. Pagamento: [entrada e saldo]. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "estetica-automotiva": {
+    "nome": "Estética automotiva",
+    "itens": [
+      {
+        "descricao": "Vistoria de entrada com fotos do veículo",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Lavagem externa detalhada com descontaminação da pintura",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Higienização interna de bancos, carpete, teto e painel",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Limpeza e hidratação de bancos de couro",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Polimento de correção de pintura (riscos e manchas superficiais)",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Polimento de farol (por farol)",
+        "unidade": "un",
+        "quantidade": "2"
+      },
+      {
+        "descricao": "Vitrificação ou selante de pintura, produto informado nas observações",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Limpeza do motor",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Adicional por sujeira pesada (pelo de animal, areia, barro, mofo)",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Leva e traz do veículo",
+        "unidade": "serviço",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Veículo: [modelo, cor, placa]. Estado na entrada registrado em fotos, com riscos, amassados e manchas que já existiam. Riscos que atravessaram o verniz e manchas antigas não saem com polimento. Produto de proteção: [nome e linha]; depois da aplicação, o carro não deve ser lavado nem tomar chuva por [prazo]. Garantia da proteção: [prazo], com lavagens de manutenção [conforme orientação]. Retoque de falha ou mancha sem custo em até [prazo]. Sujeira fora do normal é avisada e cobrada à parte antes de começar. Pagamento: [forma], sinal de [valor] para serviços longos. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "manutencao-de-computadores": {
+    "nome": "Manutenção de computadores",
+    "itens": [
+      {
+        "descricao": "Diagnóstico do equipamento com testes de hardware e software",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Backup dos arquivos e pastas indicados pelo cliente",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Formatação e instalação do sistema operacional",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Instalação e configuração dos programas indicados pelo cliente",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Limpeza interna com troca de pasta térmica",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Troca de HD por SSD com migração dos dados",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Instalação de pente de memória RAM",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Peças conforme lista anexa, com tipo, marca e garantia de cada uma",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Visita técnica no local do cliente, com deslocamento",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Hora técnica para serviço além do previsto",
+        "unidade": "h",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Equipamento: [marca, modelo, número de série], recebido com [acessórios]. Backup: [incluso, das pastas listadas / não incluso]; arquivos fora da lista não são salvos. Recuperação de dados de disco danificado não está inclusa e não é garantida. Peças: [novas / compatíveis, marca], conforme lista; peça comprada pelo cliente tem garantia com a loja. Licenças de programas: [do cliente / inclusas]. Garantia do serviço e das peças fornecidas: [prazo] a partir da entrega. Equipamento não retirado em [prazo] após o aviso de pronto: [regra]. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "conserto-de-celular": {
+    "nome": "Conserto de celular",
+    "itens": [
+      {
+        "descricao": "Diagnóstico do aparelho com teste de funções",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Troca de tela frontal com touch (peça e mão de obra)",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Troca de bateria (peça e mão de obra)",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Troca de conector de carga (peça e mão de obra)",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Troca de câmera traseira ou frontal (por câmera)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Troca de tampa traseira (peça e mão de obra)",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Limpeza de placa após contato com líquido",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Película de proteção aplicada na entrega",
+        "unidade": "un",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Aparelho: [marca, modelo, IMEI], recebido [ligando / sem ligar], com [trincas, marcas de queda, sinal de líquido]. Funções testadas na entrada: [lista]. Peça: [original / compatível], com garantia de [prazo] contra defeito da peça e do serviço. A garantia não cobre queda, trinca nova, contato com líquido nem aparelho aberto por terceiros. Se, ao abrir, aparecer outro defeito, aviso e só sigo com nova aprovação. Diagnóstico: [cobrado / não cobrado] se o conserto não for aprovado. Aparelho não retirado em [prazo] após o aviso: [regra]. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "criacao-de-site": {
+    "nome": "Criação de site",
+    "itens": [
+      {
+        "descricao": "Briefing e planejamento: estrutura de páginas e objetivos do site",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Criação do layout, com as rodadas de ajuste descritas nas observações",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Desenvolvimento de página (por página)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Formulário de contato e botão de WhatsApp",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Configuração para buscadores: títulos, descrições e indexação",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Domínio e hospedagem do primeiro ano (repasse)",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Publicação do site e treinamento para editar o conteúdo",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Hora de ajuste fora do escopo",
+        "unidade": "h",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Manutenção: atualizações, backup e pequenas alterações (por mês)",
+        "unidade": "un",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Escopo: [páginas e funcionalidades listadas]. Textos e imagens: [fornecidos pelo cliente / produzidos por mim, orçados à parte]. Ajustes inclusos: [quantas] rodadas no layout e [quantas] no site pronto; o que passar é cobrado por hora. Domínio e hospedagem: [em nome do cliente / repasse], renovação por conta de [quem]. Prazo: [dias] a partir do recebimento do conteúdo. Correção de erros sem custo por [prazo] após a publicação. Ao quitar, o cliente recebe [acessos, arquivos e cessão de direitos]. Pagamento: [entrada, layout aprovado, publicação]. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "designer-grafico": {
+    "nome": "Designer gráfico",
+    "itens": [
+      {
+        "descricao": "Briefing e pesquisa de referências",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Criação de logotipo, com propostas iniciais e rodadas de alteração",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Manual de marca: cores, fontes e usos do logotipo",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Cartão de visita, frente e verso",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Cardápio ou catálogo (por página)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Arte para post de rede social (por arte)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Arte de banner ou fachada para impressão",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Rodada extra de alteração, além das incluídas",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Arquivo editável (aberto) das peças",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Fontes e imagens de banco licenciadas, conforme lista",
+        "unidade": "serviço",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Peças: [lista]. Propostas iniciais: [quantas]; rodadas de alteração incluídas: [quantas] por peça. Alteração é mudança de cor, texto ou posição; novo conceito é pedido novo, orçado à parte. Textos e fotos: [do cliente / produzidos por mim]. Arquivos entregues: [para impressão e web; editável incluso / não incluso]. Direitos: [cessão total / licença de uso para tais usos], por escrito, após a quitação. Impressão: [por conta do cliente / item separado]. A prova final é aprovada pelo cliente antes de imprimir. Pagamento: [entrada e saldo na entrega]. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "social-media": {
+    "nome": "Social media",
+    "itens": [
+      {
+        "descricao": "Diagnóstico do perfil e planejamento de conteúdo do mês",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Post de imagem ou carrossel com arte e legenda (por post)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Vídeo curto com roteiro e edição (por vídeo)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Stories (por dia de publicação)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Agendamento e publicação nas redes combinadas",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Resposta a comentários e mensagens em horário comercial (por mês)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Gestão de anúncios: criação, acompanhamento e ajustes (por mês)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Relatório mensal com números e próximos passos",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Cobertura de evento ou gravação externa",
+        "unidade": "h",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Redes: [quais]. Entregas por mês: [quantos] posts, [quantos] vídeos e stories em [quantos] dias. Planejamento enviado até o dia [dia] e aprovado pelo cliente em até [prazo]; post não aprovado a tempo não é reposto. Verba de anúncio: [valor sugerido], paga pelo cliente direto à plataforma, fora deste orçamento. Não há garantia de seguidores, alcance ou vendas. Contas e acessos ficam em nome do cliente. Direitos sobre as peças: [cessão / licença de uso], por escrito. Vencimento: dia [dia]; cancelamento com aviso de [prazo]. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "fotografo": {
+    "nome": "Fotógrafo",
+    "itens": [
+      {
+        "descricao": "Cobertura fotográfica do evento",
+        "unidade": "h",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Ensaio antes do evento ou ensaio externo, com edição",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Fotos editadas entregues em galeria online",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Segundo fotógrafo",
+        "unidade": "h",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Hora extra de cobertura, se autorizada no dia",
+        "unidade": "h",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Álbum impresso, com diagramação e escolha das fotos",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Pen drive com os arquivos",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Deslocamento até o local do evento",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Cessão de uso comercial das fotos (quando o cliente for empresa)",
+        "unidade": "serviço",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Cobertura das [hora] às [hora] em [local]. Entrega: [quantidade] fotos editadas em galeria online em até [prazo] após o evento; fotos sem edição [não são entregues / entregues por valor à parte]. Álbum: prazo contado da escolha das fotos pelo cliente, com [número] rodadas de ajuste. Hora extra: [valor por hora], só com autorização no dia. Uso das fotos: [pessoal / comercial em …]; uso no meu portfólio [autorizado / não autorizado]. Arquivos guardados por [prazo]. Sinal de [valor] reserva a data; restante [antes do evento / na entrega]. Cancelamento ou troca de data: [regra]. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "filmagem": {
+    "nome": "Filmagem",
+    "itens": [
+      {
+        "descricao": "Captação do evento com um cinegrafista",
+        "unidade": "h",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Segundo cinegrafista",
+        "unidade": "h",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Imagens aéreas com drone, se o local e o tempo permitirem",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Áudio dedicado da cerimônia ou dos discursos, com microfone de lapela",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Edição do vídeo curto para redes sociais",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Edição do filme completo do evento",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Cerimônia na íntegra, com corte simples",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Hora extra de captação, se autorizada no dia",
+        "unidade": "h",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Deslocamento até o local",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Cessão de uso comercial do vídeo (quando o cliente for empresa)",
+        "unidade": "serviço",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Captação das [hora] às [hora] em [local]. Entregas: [vídeo curto] em até [prazo] e [filme completo] em até [prazo] após o evento, por [link / pen drive]. Revisões: [número] rodadas de ajuste inclusas; reedição e rodada extra são cobradas à parte. Trilha: [banco licenciado incluso / escolhida pelo cliente, que responde pelo uso]. Drone: se não puder voar por regra do local ou pelo tempo, [o item sai do total / combinamos outra entrega]. Material bruto: [não entregue / entregue por valor à parte]. Uso: [pessoal / comercial em …]. Sinal de [valor] reserva a data; saldo [na entrega]. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "buffet-e-salgados": {
+    "nome": "Buffet e salgados",
+    "itens": [
+      {
+        "descricao": "Salgados fritos variados, fritos no local (cento)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Salgados assados variados (cento)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Prato quente, conforme cardápio anexo (por pessoa)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Sobremesa servida, conforme cardápio anexo (por pessoa)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Bebidas não alcoólicas, conforme lista (por pessoa)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Garçom pelo período do evento (por pessoa da equipe)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Cozinheira ou fritadeira no local (por pessoa da equipe)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Louça, talheres, réchauds e toalhas",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Transporte, montagem e desmontagem",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Convidado extra além do número contratado (por pessoa)",
+        "unidade": "un",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Convidados: [número] adultos e [número] crianças. Serviço das [hora] às [hora]. Número final de convidados e cardápio confirmados até [data]; depois disso, convidado extra custa [valor por pessoa], se houver como atender. Bebidas: [inclusas / do cliente, servidas pela equipe; gelo e copos: incluso / por conta do cliente]. Sobras: [ficam com o cliente, em embalagem dele / não saem do local]. Louça quebrada ou perdida: [cobrada pela reposição / não cobrada]. Sinal de [valor] reserva a data; saldo até [data]. Cancelamento depois de [data]: [regra]. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "bolos-e-doces": {
+    "nome": "Bolos e doces",
+    "itens": [
+      {
+        "descricao": "Bolo decorado, massa e recheio conforme pedido",
+        "unidade": "kg",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Andar adicional ou andar falso decorado",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Topo de bolo personalizado",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Figuras modeladas ou flores de açúcar",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Doces tradicionais enrolados, sabores conforme lista (cento)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Doces finos com forminha especial (cento)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Cupcakes ou bem-casados decorados",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Embalagem individual ou lembrancinha embalada",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Entrega e montagem do bolo no local",
+        "unidade": "serviço",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Bolo: [peso] kg, massa [sabor], recheio [sabor], cobertura [tipo], tema [tema]; rende cerca de [número] fatias. Doces: [quantidade] centos, sabores [lista]. Foto de referência anexa; diferenças: [o que muda]. Mudanças de sabor, tema ou quantidade até [data]. Retirada / entrega: [data e hora] em [local]. Depois da entrega, transporte e conservação são do cliente; o bolo aguenta [tempo] fora da geladeira. Boleira ou suporte emprestados devolvidos até [data]. Sinal de [valor] na encomenda; saldo [na retirada / antes da entrega]. Cancelamento: [regra]. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "decoracao-de-festas": {
+    "nome": "Decoração de festas",
+    "itens": [
+      {
+        "descricao": "Mesa principal decorada, com peças locadas conforme lista anexa",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Painel ou fundo temático",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Arco ou guirlanda de balões (metro linear)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Coluna ou buquê de balões",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Centro de mesa para mesa de convidados",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Arranjo de flores naturais",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Papelaria personalizada (tags, toppers, plaquinhas)",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Montagem e desmontagem no local",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Transporte das peças até o local",
+        "unidade": "serviço",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Tema: [tema], cores [cores]. Peças locadas conforme lista anexa, que voltam comigo na desmontagem; balões, flores e papelaria [ficam com o cliente / são descartados]. Montagem às [hora] e desmontagem às [hora], conforme liberação do salão. Itens que dependem do salão: [hélio, fixação na parede, outros]; se não forem liberados, [saem do total / são trocados]. Peça locada quebrada, manchada ou perdida: cobrada por [critério]. Mudanças de tema, cor ou itens até [data]. Sinal de [valor] reserva a data; saldo até [data, antes da montagem]. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "dj-e-som": {
+    "nome": "DJ e som",
+    "itens": [
+      {
+        "descricao": "DJ na festa, com repertório combinado",
+        "unidade": "h",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Sistema de som para a pista, conforme o público informado",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Som e microfones para cerimônia em outro ambiente",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Microfone sem fio para discursos e homenagens",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Iluminação de pista",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Máquina de fumaça ou outros efeitos",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Montagem, passagem de som e desmontagem",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Hora extra de DJ e som, se autorizada no dia",
+        "unidade": "h",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Deslocamento até o local do evento",
+        "unidade": "serviço",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Evento em [data], em [local]. Música das [hora] às [hora]; chegada para montagem às [hora]. Inclui: [som, iluminação, cerimônia]. Não inclui: [telão, pista de LED, efeitos]. O local oferece [tomada e energia perto do DJ, espaço coberto, acesso para descarga]; falta de energia no local não é responsabilidade do DJ. Hora extra: [valor por hora], autorizada por [nome]. Repertório: formulário devolvido até [data]. Se eu ficar impedido de ir: [DJ substituto combinado / devolução do valor pago]. Sinal de [valor] reserva a data; saldo [até o dia do evento]. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "maquiagem-e-cabelo": {
+    "nome": "Maquiagem e cabelo",
+    "itens": [
+      {
+        "descricao": "Maquiagem e penteado da noiva",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Prova de maquiagem e penteado antes do evento",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Maquiagem de madrinha, mãe ou convidada (por pessoa)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Penteado de madrinha, mãe ou convidada (por pessoa)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Cílios postiços (por pessoa)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Apliques, tiara ou acessórios de cabelo",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Permanência para retoque até a cerimônia ou as fotos",
+        "unidade": "h",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Deslocamento até o local de atendimento",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Manicure da noiva, na véspera ou no dia (opcional)",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Taxa de espera por atraso, depois da tolerância combinada",
+        "unidade": "h",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Atendimento em [local], no dia [data]; noiva pronta às [hora]. Pessoas atendidas e serviço de cada uma: conforme cronograma anexo. Prova em [data], com [número] ajustes. Cílios, apliques e acessórios: [inclusos / à parte]. Tolerância de [tempo] para atraso; depois disso, taxa de espera e cronograma ajustado. Retoque: [incluso até … / não incluso]. Manicure: [incluída / feita por parceira, cobrada à parte / não incluída]. Pessoa a mais só se couber no horário. Sinal de [valor] reserva a data; saldo [no dia]. Cancelamento: [regra]. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "personal-trainer": {
+    "nome": "Personal trainer",
+    "itens": [
+      {
+        "descricao": "Avaliação física inicial e definição de objetivos",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Aula individual presencial (por aula)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Pacote mensal de aulas na frequência combinada (por mês)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Aula em dupla ou pequeno grupo (por aula)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Treino escrito para os dias sem acompanhamento",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Acompanhamento online com correção por vídeo (por mês)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Reavaliação física",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Deslocamento até o local da aula (por aula)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Taxa de personal externo cobrada pela academia ou condomínio (por mês)",
+        "unidade": "un",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Objetivo: [objetivo combinado], sem promessa de resultado em prazo. Aulas: [frequência] por semana, de [duração], em [local], às [dias e horários]. Pacote válido de [data] a [data]. Desmarcação com pelo menos [antecedência] dá direito a reposição até [prazo]; falta sem aviso [conta como aula dada / é reposta]. Aula cancelada por mim é sempre reposta. Taxa da academia ou condomínio: [paga por mim / paga pelo aluno]. O aluno informa lesões e condições de saúde antes de começar; liberação médica [pedida / não pedida]. Pagamento: [pacote adiantado até o dia …]. Registro no CREF: [número]. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "aulas-particulares": {
+    "nome": "Aulas particulares",
+    "itens": [
+      {
+        "descricao": "Aula de diagnóstico do nível do aluno",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Aula individual presencial",
+        "unidade": "h",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Aula individual online",
+        "unidade": "h",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Aula em dupla ou grupo pequeno (por aula, por aluno)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Pacote mensal com número de aulas e horário fixo (por mês)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Preparação de material e correção de exercícios entre as aulas",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Simulado com correção comentada",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Material didático ou apostila, conforme lista",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Deslocamento até a casa do aluno (por aula)",
+        "unidade": "un",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Aluno: [nome], [série ou nível]. Responsável pelo pagamento: [nome]. Matéria e objetivo: [descrição]. Aulas de [duração], [frequência], [presenciais em … / online], às [dias e horários]. Pacote com [número] aulas, válido de [data] a [data]. Desmarcação com [antecedência] dá direito a reposição até [prazo]; falta sem aviso [conta como aula dada / é reposta]. Aula cancelada por mim é sempre reposta. Material: [incluso / por conta do aluno]. Não há garantia de nota ou aprovação, que dependem também do estudo entre as aulas. Pagamento: [até o dia …]. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "costureira": {
+    "nome": "Costureira",
+    "itens": [
+      {
+        "descricao": "Barra de calça comum",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Barra original de jeans",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Ajuste de cintura ou laterais",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Troca de zíper, com zíper incluso",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Troca ou reposição de botões",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Conserto de rasgo ou descostura",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Ajuste de vestido de festa (cintura, alças e comprimento)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Roupa sob medida, com modelagem, confecção e provas incluídas",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Tecido e aviamentos para roupa sob medida, conforme lista",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Taxa de urgência para entrega antes do prazo normal",
+        "unidade": "serviço",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Peças recebidas em [data], conforme lista. Retirada: [data]. Aviamentos (linha, zíper, botões, entretela): [inclusos / cobrados à parte]. Roupa sob medida: tecido [comprado por mim / trazido pelo cliente e conferido antes do corte]; [número] provas, nos dias [datas]; mudança de modelo depois do corte é cobrada à parte. Retoque sem custo se pedido até [prazo] após a retirada, com a peça sem uso e sem lavar. Não cobre mudança de medida depois da prova nem encolhimento na lavagem. Peças não retiradas em [prazo]: [regra]. Pagamento: [sinal de … / na retirada]. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "traducao": {
+    "nome": "Tradução",
+    "itens": [
+      {
+        "descricao": "Contagem e análise do texto de origem",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Tradução do texto (por palavra ou lauda, conforme observações)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Revisão por um segundo tradutor (por palavra ou lauda)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Tradução de texto dentro de imagens, tabelas e gráficos",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Formatação no mesmo layout do documento original",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Aplicação do glossário ou das traduções anteriores do cliente",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Legendagem de vídeo, com sincronização (por minuto de vídeo)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Taxa de urgência para entrega antes do prazo normal",
+        "unidade": "serviço",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Idiomas: de [origem] para [destino]. Unidade: [palavra / lauda de … caracteres, com ou sem espaços / hora]; contagem de [número] feita sobre [arquivo editável / PDF escaneado]. Orçamento feito por estimativa: vale a contagem final do documento completo. Prazo: [data], contado do recebimento dos arquivos finais e da aprovação. Mudança no texto original durante o trabalho vira orçamento complementar. Erros de tradução apontados até [prazo] após a entrega são corrigidos sem custo. Esta tradução [não é / é] juramentada. Pagamento: [sinal de … / na entrega]. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "consultoria": {
+    "nome": "Consultoria",
+    "itens": [
+      {
+        "descricao": "Reunião inicial e levantamento de informações",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Diagnóstico da situação atual, com relatório",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Plano de ação com prioridades e responsáveis",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Reunião de apresentação dos resultados",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Treinamento da equipe do cliente",
+        "unidade": "h",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Acompanhamento da implantação, pacote mensal de horas (por mês)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Hora de consultoria avulsa, fora do escopo",
+        "unidade": "h",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Deslocamento, viagem e hospedagem, quando presencial",
+        "unidade": "serviço",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Problema a resolver: [descrição]. Entregáveis: [diagnóstico, plano de ação, …]. Inclui [número] reuniões de [duração], [presenciais / online]. Fora do escopo: [o que não está incluído], inclusive a execução das recomendações, que fica com o cliente. Prazos: [datas por etapa], contados do recebimento das informações pedidas; atraso no envio adia as etapas seguintes. Ajustes no relatório: [número] rodadas. Reunião desmarcada com menos de [antecedência]: [regra]. Pedido fora do escopo vira orçamento complementar. Não há garantia de resultado, que depende da execução. Pagamento: [por etapa / mensal até o dia …]. Aprovação: assinatura neste orçamento ou mensagem por escrito."
+  },
+  "contador": {
+    "nome": "Contador",
+    "itens": [
+      {
+        "descricao": "Escrituração contábil e fiscal (por mês)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Apuração de tributos e envio de guias (por mês)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Folha de pagamento e pró-labore (por funcionário, por mês)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Balancete mensal e demonstrações anuais",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Declarações anuais da empresa",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Abertura de empresa (taxas de órgãos públicos à parte)",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Alteração contratual (taxas à parte)",
+        "unidade": "serviço",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Declaração de pessoa física dos sócios (por sócio)",
+        "unidade": "un",
+        "quantidade": "1"
+      },
+      {
+        "descricao": "Certidões e demandas avulsas",
+        "unidade": "h",
+        "quantidade": "1"
+      }
+    ],
+    "observacoes": "Serviços mensais: [lista], calculados para [quantos] funcionários e [volume] de movimento por mês; acima disso, o valor é revisto. Serviços eventuais: conforme tabela, cobrados quando pedidos. Taxas, certificado digital, cartório e junta: [por conta do cliente / inclusos]. Documentos enviados pelo cliente até o dia [dia]; guias e relatórios entregues até o dia [dia]. Multa por atraso causado por documento enviado fora do prazo: por conta de [quem]. Vencimento: dia [dia]. Reajuste: [data e critério]. Duração: [prazo], com aviso de [prazo] para encerrar. Aceita a proposta, assinamos contrato de prestação de serviços por escrito."
+  }
+}

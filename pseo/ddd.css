@@ -1,0 +1,33 @@
+/* Família DDD (pseo/ddd.js). Tokens de /style.css; o comum vem de /pseo/pseo.css. */
+
+/* .pseo-tabela no celular põe display:block nas linhas, e isso venceria o [hidden] do filtro. */
+.ddd [hidden] { display: none !important; }
+
+.ddd-fatos { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 8px 20px; }
+.ddd-fatos dt { color: var(--muted); }
+.ddd-fatos dd { margin: 0; }
+@media (max-width: 480px) {
+  .ddd-fatos { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .ddd-fatos dd + dt { margin-top: 10px; }
+}
+
+.ddd-campo { margin: var(--space-md) 0 var(--space-sm); }
+.ddd-campo label { display: block; font-weight: 600; margin-bottom: 6px; }
+.ddd-campo input {
+  width: 100%; max-width: 440px; min-height: 48px; padding: 10px 14px;
+  font: 16px/1.4 var(--font-body); color: var(--text);
+  background: var(--background); border: 1px solid #6E7681; border-radius: var(--radius-btn);
+}
+.ddd-campo .pseo-miudo { margin: 6px 0 0; }
+.ddd-aviso { font-weight: 600; margin: 8px 0 0; }
+.ddd-aviso:empty { display: none; }
+
+.ddd-cidades { columns: 2 240px; column-gap: 32px; margin: var(--space-sm) 0 0; padding-left: 1.2em; }
+.ddd-cidades li { break-inside: avoid; padding: 3px 0; overflow-wrap: anywhere; }
+.ddd-cidades small { color: var(--muted); font-size: 14px; white-space: nowrap; }
+
+.ddd-formula { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-family: var(--font-display); font-weight: 700; font-size: 18px; }
+.ddd-formula span { background: var(--secondary); box-shadow: var(--shadow-card); border-radius: 10px; padding: 6px 12px; }
+
+.ddd-legenda { text-align: left; color: var(--muted); font-size: 14px; padding-bottom: 8px; }
+.ddd .pseo-tabela td a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 4px; }

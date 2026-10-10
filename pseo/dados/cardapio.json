@@ -1,0 +1,454 @@
+{
+  "atualizado": "2026-10-10",
+  "fontes": { "eca": { "nome": "Estatuto da Criança e do Adolescente (Lei 8.069/1990), art. 81, II, e art. 243", "url": "https://www.planalto.gov.br/ccivil_03/leis/l8069.htm", "lido": "10/10/2026" } },
+  "tipos": [
+    {
+      "slug": "pizzaria", "nome": "Pizzaria", "tipo": "pizzaria", "da": "da pizzaria", "meu": "a minha pizzaria",
+      "grupo": "Lanches, pizza e salgados", "resumo": "Tamanhos, meia a meia, sabores especiais e bordas",
+      "description": "Modelo de cardápio digital para pizzaria com tamanhos, meia a meia, sabores especiais e bordas. Abra no editor grátis, ponha seus preços e gere o QR.",
+      "intro": "Na pizzaria, o preço depende de três coisas ao mesmo tempo: o tamanho, o sabor e a borda. Cardápio de papel costuma esconder isso numa tabela apertada. O modelo abaixo usa o que a ferramenta tem (um preço por item) a seu favor: tamanhos viram itens com preço, sabores ficam agrupados sem preço e bordas entram como acréscimo.",
+      "organizar": [
+        "Tamanhos como itens. Cada tamanho é um item da seção Tamanhos, com o preço e, na descrição, quantas fatias tem e quantos sabores cabem. Os sabores tradicionais ficam sem preço: o cliente escolhe o sabor e paga pelo tamanho.",
+        "Meia a meia com a regra escrita. Diga em cada tamanho quantos sabores cabem e decida como cobra a pizza de dois sabores: pelo sabor mais caro ou pela média dos dois. Escreva a regra na descrição do tamanho, para ninguém descobrir na hora de pagar.",
+        "Especiais numa seção própria. Camarão, pepperoni e outros que custam mais ficam juntos, com o acréscimo como preço. A lista de tradicionais continua limpa e o cliente vê de cara o que é mais caro.",
+        "Bordas como acréscimo. Uma seção Bordas recheadas com o valor de cada uma. Se o valor da borda muda conforme o tamanho, escreva os valores na descrição em vez de criar uma borda para cada tamanho.",
+        "Ingredientes na descrição, na ordem em que vão na pizza. É o que responde o \"a portuguesa leva ovo?\" sem ligação. Selo vegetariano nas que não têm carne; vegano só na que não leva queijo nem outro derivado de leite."
+      ],
+      "dia": "No salão, o cliente lê sabores e ingredientes na mesa enquanto espera, e o garçom deixa de recitar a lista. No delivery, o mesmo link vai na bio do Instagram e na resposta do WhatsApp, e o botão Chamar no WhatsApp do cardápio leva o cliente de volta para a conversa do pedido. Só lembre que o cardápio está dentro do link: mudou o preço da grande, mudam o link e o QR.",
+      "qr": "Uma plaquinha por mesa e uma no balcão de retirada, onde quem veio buscar espera em pé. No delivery, baixe o QR em PNG e mande imprimir em adesivo para a tampa da caixa ou num panfleto que vai junto: quem pediu uma vez já tem o cardápio na próxima. Cole o adesivo em vez de imprimir direto no papelão; superfície lisa e clara é o que a câmera lê melhor.",
+      "faq": [
+        { "p": "Como mostrar pizza meia a meia no cardápio digital?", "r": "Na descrição de cada tamanho, escreva quantos sabores cabem (\"até 2 sabores\") e a regra de preço que você usa para a pizza de dois sabores. A ferramenta não monta a pizza com o cliente: ela mostra o cardápio, e o pedido continua no salão, no telefone ou no WhatsApp." },
+        { "p": "Dá para ter preço diferente para cada sabor em cada tamanho?", "r": "Dá, com um item por combinação (Calabresa grande, Calabresa média e assim por diante), mas o cardápio cresce rápido. Quanto mais itens, maior o link e mais miúdo o QR. Tamanhos com preço, sabores sem preço e especiais como acréscimo é o jeito mais enxuto." },
+        { "p": "Mudei o preço da pizza grande. O QR das mesas continua valendo?", "r": "O QR antigo continua abrindo o cardápio antigo, com o preço antigo. Gere o QR novo no editor e troque as plaquinhas das mesas e os adesivos do delivery no mesmo dia." },
+        { "p": "Posso usar o mesmo QR no salão e no delivery?", "r": "Pode, é o mesmo link. Se o cardápio do delivery for diferente (menos sabores, preço próprio, taxa de entrega), faça dois cardápios no editor, cada um com o seu QR." },
+        { "p": "Onde coloco a taxa de entrega?", "r": "Como um item numa seção Entrega: \"Taxa de entrega, por bairro, pergunte no WhatsApp\", ou um item por bairro com o valor. Assim o cliente já sabe antes de chamar." }
+      ],
+      "relacionados": ["hamburgueria", "esfiharia", "pastelaria", "lanchonete", "marmitaria"]
+    },
+    {
+      "slug": "hamburgueria", "nome": "Hamburgueria", "tipo": "hamburgueria", "da": "da hamburgueria", "meu": "a minha hamburgueria",
+      "grupo": "Lanches, pizza e salgados", "resumo": "Burgers, ponto da carne, adicionais e combo",
+      "description": "Modelo de cardápio digital para hamburgueria: burgers, ponto da carne, adicionais e combo sem repetir o cardápio. Grátis, sem cadastro, com QR code.",
+      "intro": "Hamburgueria vende combinação: o lanche, o ponto da carne, os adicionais e o combo com batata e bebida. Quando tudo isso está numa lista só, o cliente se perde e pede o de sempre. O modelo separa cada decisão numa seção, na ordem em que o cliente decide.",
+      "organizar": [
+        "Combo como acréscimo, não como cópia. Em vez de repetir cada burger na versão combo, crie um item \"Transforme em combo\" com o que entra (batata e bebida) e o valor a mais. O cardápio fica com metade do tamanho e o QR fica mais fácil de ler.",
+        "Ponto da carne num item sem preço: \"Mal passado, ao ponto ou bem passado: avise no pedido\". Item sem preço aparece no cardápio só com o nome e a descrição, e serve para esse tipo de aviso.",
+        "Adicionais numa seção própria, cada um com o seu valor. Bacon, cheddar, ovo e carne extra escondidos no fim da descrição não são vistos; numa lista, viram pedido.",
+        "Descrição na ordem da montagem: pão, carne, queijo, molho, salada. Quem tem restrição procura o ingrediente. Selo vegetariano no burger de grão-de-bico, vegano no de plantas com maionese vegana.",
+        "Nome que diz o que é. \"Cheddar e bacon\" explica mais que um nome criativo que ninguém conhece. Se a casa tem nomes próprios, comece a descrição pelo que vem dentro."
+      ],
+      "dia": "Com o QR no balcão e nas mesas, o cliente escolhe o burger, o ponto e os adicionais antes de chegar ao caixa, e a fila anda. No delivery próprio, o link na bio e na resposta do WhatsApp substitui o PDF ou a foto do cardápio: abre como página, sem arquivo para baixar. Cada mudança de preço gera um link e um QR novos, então junte os reajustes e troque tudo de uma vez.",
+      "qr": "No balcão do caixa, na altura dos olhos de quem está na fila, e uma plaquinha por mesa. No delivery, um adesivo com o QR no saco de papel ou na embalagem do lanche. Se você também vende por aplicativo de entrega, não misture: este QR é do seu cardápio, com o seu WhatsApp, e serve para o cliente pedir direto com você na próxima vez.",
+      "faq": [
+        { "p": "Como colocar combo no cardápio digital da hamburgueria?", "r": "Com um item \"Transforme em combo\" na seção Combo, dizendo o que entra (batata e bebida) e o valor a mais. Repetir cada burger com preço de combo dobra o cardápio e deixa o link maior." },
+        { "p": "Onde aviso o ponto da carne?", "r": "Num item sem preço, numa seção \"Ponto da carne\": \"Mal passado, ao ponto ou bem passado: avise no pedido\". Ele aparece no cardápio como um aviso, sem valor ao lado." },
+        { "p": "Posso marcar o burger como sem glúten?", "r": "Só se o pão é sem glúten e o preparo não encosta em farinha: mesma chapa, mesma espátula e mesmo óleo da batata empanada contam. Se não dá para garantir, deixe sem o selo." },
+        { "p": "Dá para pôr foto dos burgers?", "r": "Nesta ferramenta, não: foto não cabe dentro de um link, e o cardápio inteiro mora no link. Se a foto do lanche é o seu forte, um site próprio resolve." },
+        { "p": "O cliente consegue fazer o pedido pelo cardápio?", "r": "Não. O cardápio mostra burgers, adicionais e preços. Se você preencher o WhatsApp, aparece o botão Chamar no WhatsApp, e o pedido segue na conversa." }
+      ],
+      "relacionados": ["lanchonete", "cachorro-quente", "pizzaria", "food-truck", "bar"]
+    },
+    {
+      "slug": "lanchonete", "nome": "Lanchonete", "tipo": "lanchonete", "da": "da lanchonete", "meu": "a minha lanchonete",
+      "grupo": "Lanches, pizza e salgados", "resumo": "Salgados, chapa, lista de X, PF e sucos",
+      "description": "Modelo de cardápio digital para lanchonete: salgados, sanduíche na chapa, lista de X, prato feito e sucos. Abra pronto no editor grátis e gere o QR code.",
+      "intro": "Lanchonete tem cardápio comprido e de tudo um pouco: salgado, sanduíche na chapa, a lista de X, prato feito, suco e vitamina. Na placa da parede, ninguém lê da mesa. O modelo agrupa pelo que o cliente procura primeiro e escreve a lista de X de um jeito que cabe na tela do celular.",
+      "organizar": [
+        "Agrupe pelo que o cliente procura: salgado, chapa, X, prato, bebida. Se o mesmo pão de queijo é vendido de manhã e à tarde, ele aparece uma vez só.",
+        "Lista de X em escada. Cada X descreve só o que tem a mais que o anterior (X-salada: \"X-burguer + alface, tomate e maionese\"). A descrição fica curta, o cliente entende a diferença e o link do cardápio fica menor.",
+        "O que muda todo dia fica fora do texto. Como cada mudança gera um QR novo, o prato feito entra com o que sempre vem e \"a carne do dia: pergunte no balcão\", em vez do nome do prato de hoje.",
+        "Suco e vitamina separados: vitamina leva leite, então é vegetariana, não vegana. Suco só com fruta e água pode levar o selo vegano.",
+        "Recheio no nome do salgado: coxinha de frango, kibe de carne. É uma pergunta a menos no balcão, e quem não come carne acha o pão de queijo sem procurar."
+      ],
+      "dia": "Na lanchonete, o cardápio costuma ser a placa da parede ou uma folha plastificada no balcão. Com o QR, o cliente lê a lista inteira no celular, com descrição, e o atendente para de explicar o que vem no X-tudo. Quando o preço do salgado mudar, a placa e o QR precisam ser refeitos: o QR antigo continua mostrando o preço antigo.",
+      "qr": "Uma plaquinha no balcão, ao lado do caixa, e uma em cada mesa ou bancada. Se você tem a placa de preços na parede, cole o QR nela, na altura de quem está em pé na fila: quem não enxerga a placa de longe lê no celular. Para quem pede pelo WhatsApp, mande o link do cardápio em vez da foto da placa.",
+      "faq": [
+        { "p": "Como escrever a lista de X no cardápio digital?", "r": "Em escada: o X-burguer descreve o básico, e cada X seguinte diz só o que tem a mais (\"X-salada + bacon\"). Fica curto no celular e o cliente compara sem ler tudo de novo." },
+        { "p": "Posso colocar o prato do dia?", "r": "Coloque o item \"PF do dia\" com o que sempre vem (arroz, feijão, salada) e \"carne do dia: pergunte no balcão\". Se escrever o prato de hoje, amanhã o cardápio está errado e o QR precisa ser refeito." },
+        { "p": "Pão de queijo e coxinha levam selo?", "r": "Pão de queijo é vegetariano. O selo sem glúten só vale se a receita é de polvilho e a assadeira não divide espaço com farinha de trigo. A massa da coxinha leva trigo." },
+        { "p": "Quantos itens cabem no cardápio?", "r": "A ferramenta aceita até 150 itens e 12 seções, mas quanto mais itens, maior o link e mais miúdo o QR. O editor mostra um medidor do tamanho do link e avisa quando o QR pode ficar difícil de ler." }
+      ],
+      "relacionados": ["hamburgueria", "pastelaria", "padaria", "cachorro-quente", "marmitaria", "esfiharia"]
+    },
+    {
+      "slug": "acai", "nome": "Açaí", "tipo": "açaí", "da": "da loja de açaí", "meu": "a minha loja de açaí",
+      "grupo": "Doces, sorvete e café", "resumo": "Tamanhos, complementos inclusos e adicionais pagos",
+      "description": "Modelo de cardápio digital para açaí: tamanhos do copo, complementos inclusos, adicionais pagos e açaí no quilo. Grátis, sem cadastro, com QR code.",
+      "intro": "No açaí, o cardápio é uma conta: o tamanho do copo, quantos complementos vêm no preço e quanto custa cada adicional. Quando isso não está escrito, a conversa acontece no balcão, cliente por cliente. O modelo deixa a conta à vista, com tamanhos, complementos inclusos e adicionais pagos em seções separadas.",
+      "organizar": [
+        "Tamanho como item, com o limite de complementos na descrição: \"Copo 500 ml, até 4 complementos\". É o que o cliente precisa saber antes de escolher.",
+        "Duas listas de complementos: os que vêm no preço do copo, sem preço no item, e os adicionais pagos, numa seção própria com o valor de cada um. Misturar as duas é o jeito mais rápido de cobrar errado.",
+        "Açaí no quilo, se você tem, como item com o preço do kg e uma frase sobre o que entra na balança.",
+        "Escreva como o açaí é batido: com xarope, sem açúcar, com banana. Se você tem versão zero açúcar, diga como ela é adoçada.",
+        "Selos nos complementos, não no copo, porque o copo depende do que o cliente escolhe. Banana, morango e kiwi são veganos; leite em pó, leite condensado e mel não. Granola costuma levar aveia e trigo, então nada de selo sem glúten nela."
+      ],
+      "dia": "No balcão do açaí, a fila trava quando cada cliente pergunta o que entra no copo e quanto custa o adicional. Com o QR à vista, ele monta o copo lendo no celular antes de chegar a vez. Cardápio de açaí muda com a estação (fruta que falta, adicional novo), e cada mudança é um QR novo: junte as alterações e reimprima de uma vez.",
+      "qr": "Em cima do balcão, na frente das cubas de complementos, e na parede onde a fila se forma. Para o açaí de viagem, um adesivo com o QR na tampa do copo ou no saquinho leva o cardápio para a casa do cliente. Perto da máquina e das cubas a plaquinha molha: use um porta-plaquinha de acrílico.",
+      "faq": [
+        { "p": "Como mostrar os complementos grátis e os pagos?", "r": "Em duas seções: \"Complementos inclusos\", com os itens sem preço, e \"Adicionais (cobrados à parte)\", cada um com o seu valor. O limite de complementos de cada copo vai na descrição do tamanho." },
+        { "p": "Dá para cobrar açaí no quilo no cardápio digital?", "r": "Dá: crie o item \"Açaí no quilo\" com o preço do kg e escreva na descrição o que entra na balança, por exemplo se os complementos são pesados junto." },
+        { "p": "Posso marcar o açaí como vegano?", "r": "Marque o selo só no que você conferiu: a base do açaí (veja o rótulo do fornecedor) e cada complemento. Leite em pó, leite condensado e mel não são veganos." },
+        { "p": "Mudou o preço de um adicional. Preciso reimprimir tudo?", "r": "O QR muda junto com o cardápio, então sim: plaquinhas e adesivos com o QR antigo continuam abrindo o cardápio antigo. Anote as mudanças da semana e atualize tudo de uma vez." }
+      ],
+      "relacionados": ["sorveteria", "quiosque-de-praia", "confeitaria", "cafeteria", "lanchonete"]
+    },
+    {
+      "slug": "sorveteria", "nome": "Sorveteria", "tipo": "sorveteria", "da": "da sorveteria", "meu": "a minha sorveteria",
+      "grupo": "Doces, sorvete e café", "resumo": "Quilo e bola, sabores fixos, picolés e taças",
+      "description": "Modelo de cardápio digital para sorveteria: sorvete no quilo e por bola, sabores fixos, picolés, milk-shake e coberturas. Grátis e com QR code.",
+      "intro": "Sorveteria vende de três jeitos ao mesmo tempo: sorvete no quilo ou por bola, picolé e as montagens (taça, milk-shake, casquinha). O modelo dá uma seção para cada jeito de cobrar e deixa os sabores sem preço, porque o sabor muda e o preço não.",
+      "organizar": [
+        "Quilo e bola em itens separados: \"Sorvete no quilo\" com o preço do kg, e casquinha, copinho e pote com o preço de cada. O cliente vê de cara qual jeito serve para ele.",
+        "Sabores sem preço numa seção própria, só os fixos. Para os que entram e saem, um item \"Sabor da semana: pergunte no balcão\". Assim você não reimprime o QR toda vez que chega um sabor novo.",
+        "Diga quantos sabores cabem no pote e na taça, e o que entra no milk-shake e na banana split.",
+        "Coberturas e caldas como adicionais com preço, ou na descrição da taça quando já vêm inclusas.",
+        "Selos com cuidado: sorvete de massa costuma levar leite, então é vegetariano, não vegano. Sorbet feito só com fruta, água e açúcar pode ser vegano. Sabores com biscoito ou cookie levam trigo, e a colher que serve todos os potes espalha migalha: sem glúten, só com certeza."
+      ],
+      "dia": "Na sorveteria, quem está na frente da vitrine decide pelos olhos; o QR ajuda quem está na fila ou na mesa a ver o preço do quilo, da taça e do milk-shake sem perguntar. Como os sabores do dia mudam o tempo todo, escreva os fixos e deixe o resto para a vitrine: o QR dura mais sem reimpressão.",
+      "qr": "Na vitrine, do lado de fora do vidro e virado para a fila, perto da balança e nas mesas. A balança é o lugar natural para quem quer saber o preço do quilo. Em sorveteria de praia ou de calçada, use plaquinha em acrílico ou plastificada: mão molhada e sol estragam papel rápido.",
+      "faq": [
+        { "p": "Como mostrar sorvete no quilo e por bola no mesmo cardápio?", "r": "Com itens separados numa seção Sorvete: \"Sorvete no quilo\" com o preço do kg, e casquinha, copinho e pote com o preço de cada. Os sabores ficam em outra seção, sem preço." },
+        { "p": "E os sabores que mudam toda semana?", "r": "Liste só os fixos e crie um item \"Sabor da semana: pergunte no balcão\". Cada mudança de texto gera um QR novo, então o que gira muito fica fora do cardápio." },
+        { "p": "Sorvete de fruta é vegano?", "r": "Nem sempre: muitos levam leite ou creme. Só marque vegano o que é feito sem leite, sem ovo e sem mel, e confira a base pronta no rótulo do fornecedor." },
+        { "p": "Dá para ter um cardápio só para o carrinho de picolé?", "r": "Dá: faça um segundo cardápio no editor, só com os picolés e os preços do carrinho, e imprima um QR para ele. Cada cardápio é um link diferente, com o seu próprio link de edição." }
+      ],
+      "relacionados": ["acai", "confeitaria", "cafeteria", "quiosque-de-praia", "padaria"]
+    },
+    {
+      "slug": "self-service", "nome": "Self-service e por quilo", "tipo": "restaurante self-service e por quilo", "da": "do self-service", "meu": "o meu restaurante por quilo",
+      "grupo": "Refeições", "resumo": "Preço do quilo, o que é fixo no buffet e o que é à parte",
+      "description": "Modelo de cardápio digital para self-service e restaurante por quilo: preço do kg, buffet fixo, especial do dia e o que é cobrado à parte. Com QR code.",
+      "intro": "No self-service, o cliente não escolhe prato no cardápio: ele escolhe no buffet. O que ele precisa ler é outra coisa: quanto custa o quilo, o que é cobrado à parte, o que está sempre no buffet e o que serve para quem tem restrição. O modelo responde isso sem precisar mudar todo dia.",
+      "organizar": [
+        "Preço do quilo no topo: primeira seção, primeiro item, com \"preço do kg\" escrito. É o que o cliente procura antes de pegar o prato e confere na balança.",
+        "Separe o que é pesado do que é cobrado à parte: bebida, sobremesa, embalagem para viagem. Escrito no cardápio, isso não vira conversa desconfortável no caixa.",
+        "O buffet muda todo dia, o cardápio não precisa mudar. Liste o que está sempre lá (arroz, feijão, saladas) e os pratos fixos de cada dia da semana. O que varia fica como \"carnes do dia: veja no buffet\", e o QR continua valendo.",
+        "Fim de semana com preço diferente vira dois itens (seg a sex, sáb e dom), cada um com o seu preço. Assim você não troca o QR toda sexta-feira.",
+        "Quem tem restrição não tem como perguntar de cada travessa. Marque vegano o feijão sem carne e as saladas sem molho; sem glúten, só onde você garante, porque a mesma colher passando de uma travessa para outra mistura tudo."
+      ],
+      "dia": "No self-service, o QR na mesa e na fila do buffet responde o que hoje se pergunta no caixa: quanto está o quilo, se a bebida entra no peso, se tem opção sem carne. Quando o preço do quilo subir, o link e o QR mudam junto; aproveite o reajuste para trocar todas as plaquinhas de uma vez.",
+      "qr": "Na entrada da fila do buffet, junto da pilha de pratos, para o cliente ler antes de se servir; ao lado da balança; e nas mesas. Perto do buffet a plaquinha pega vapor e respingo: use porta-plaquinha de acrílico. No balcão de comida para viagem, uma plaquinha deixa claro o preço da embalagem.",
+      "faq": [
+        { "p": "O que colocar no cardápio digital de um restaurante por quilo?", "r": "O preço do quilo, o que é cobrado à parte (bebida, sobremesa, embalagem), o que está sempre no buffet e os pratos fixos de cada dia da semana. O prato que muda todo dia fica no buffet, com a plaquinha da travessa." },
+        { "p": "Como mostrar o preço do quilo diferente no fim de semana?", "r": "Com dois itens: \"Refeição por quilo (seg a sex)\" e \"Refeição por quilo (sáb e dom)\", cada um com o seu preço. O mesmo QR serve a semana toda." },
+        { "p": "Preciso trocar o QR todo dia por causa do buffet?", "r": "Não, se o cardápio listar o que é fixo e os especiais de cada dia da semana. Cada mudança no texto gera um QR novo, então o que muda de um dia para o outro não entra." },
+        { "p": "Bebida e sobremesa entram no peso?", "r": "Isso é regra sua, e deve estar escrita. Coloque bebida e sobremesa numa seção \"Cobrado à parte\" com o preço, ou diga na descrição do quilo o que entra na balança." }
+      ],
+      "relacionados": ["marmitaria", "churrascaria", "lanchonete", "padaria", "restaurante-japones"]
+    },
+    {
+      "slug": "marmitaria", "nome": "Marmitaria e delivery de marmita", "tipo": "marmitaria e delivery de marmita", "da": "da marmitaria", "meu": "a minha marmitaria",
+      "grupo": "Refeições", "resumo": "Tamanhos, mistura de cada dia, entrega pelo WhatsApp",
+      "description": "Modelo de cardápio digital para marmitaria: tamanhos P, M e G, mistura de cada dia, acompanhamentos e taxa de entrega. Link para o WhatsApp e QR grátis.",
+      "intro": "Marmitaria vende pelo WhatsApp e pelo tamanho da marmita. O cliente quer saber três coisas: quanto custa cada tamanho, o que vem dentro e qual é a mistura de hoje. O modelo deixa tamanhos e acompanhamentos fixos e trata o cardápio da semana de um jeito que não obriga a trocar o QR todo dia.",
+      "organizar": [
+        "O tamanho define o preço; a mistura define a escolha. Cada tamanho vira um item com o que cabe dentro (quantas misturas, quantos acompanhamentos). As misturas ficam sem preço.",
+        "Cardápio da semana fixo por dia: se a segunda é sempre frango e a quarta é sempre feijoada, o QR vale o mês inteiro. Se a mistura muda toda semana, escreva \"mistura do dia: veja no status do WhatsApp\" em vez do nome do prato.",
+        "Taxa de entrega como item: \"Taxa de entrega, por bairro, pergunte no WhatsApp\", ou um item por bairro com o valor. Retirada no balcão também é item, com \"sem taxa\".",
+        "Horário de pedido no topo, no campo Horário do editor: até que horas você aceita pedido para o almoço. É o que define se o cliente pede hoje ou amanhã.",
+        "Marmita fitness ou vegetariana como item próprio, com o selo. Quem procura essa opção lê o cardápio atrás dela, e ela some quando está no meio dos acompanhamentos."
+      ],
+      "dia": "Na marmitaria, o cardápio digital substitui a foto do quadro que você manda de manhã para cada cliente: o link fica na bio, no status e na mensagem de boas-vindas, e o botão Chamar no WhatsApp traz o cliente de volta para a conversa do pedido. O que muda todo dia continua no status; o que é fixo fica no link, que só muda quando você muda o cardápio.",
+      "qr": "O QR vai onde a marmita vai: um adesivo na tampa ou no saco de entrega, para o cliente pedir de novo amanhã sem procurar o seu número. No balcão de retirada, uma plaquinha. Para empresas que pedem em grupo, mande o link: o responsável repassa no grupo do trabalho, e cada um lê o cardápio no próprio celular.",
+      "faq": [
+        { "p": "Como colocar o cardápio da semana sem trocar o QR todo dia?", "r": "Com uma seção \"Mistura de cada dia\" que se repete toda semana (segunda, frango; quarta, feijoada). Se a mistura não segue um padrão, deixe \"mistura do dia: veja no status do WhatsApp\". Cada mudança no texto gera um QR novo." },
+        { "p": "Dá para receber o pedido pelo cardápio?", "r": "Não. O cardápio mostra tamanhos, misturas e preços, e o botão Chamar no WhatsApp abre a conversa com você. Pedido, endereço e pagamento seguem no WhatsApp, como hoje." },
+        { "p": "Como mostrar a taxa de entrega?", "r": "Como item numa seção Entrega, com o valor ou com \"por bairro, pergunte no WhatsApp\". Se você atende poucos bairros, um item por bairro com o valor evita a pergunta." },
+        { "p": "Marmita congelada entra no mesmo cardápio?", "r": "Pode entrar numa seção \"Congeladas\", com o peso e o modo de aquecer na descrição. Se o público é outro (quem compra o kit da semana), um segundo cardápio, com outro QR, fica mais claro." },
+        { "p": "Preciso de CNPJ ou cadastro para usar?", "r": "Não. A ferramenta é grátis e não pede cadastro, CNPJ nem conta: você monta o cardápio e o link sai na hora." }
+      ],
+      "relacionados": ["self-service", "lanchonete", "churrascaria", "pizzaria", "food-truck"]
+    },
+    {
+      "slug": "churrascaria", "nome": "Churrascaria", "tipo": "churrascaria", "da": "da churrascaria", "meu": "a minha churrascaria",
+      "grupo": "Refeições", "resumo": "Rodízio, cortes do espeto, à la carte e o que é à parte",
+      "description": "Modelo de cardápio digital para churrascaria: rodízio com o que está incluso, cortes do espeto, à la carte e bebidas à parte. Grátis, com QR code.",
+      "intro": "Churrascaria tem dois cardápios num só: o rodízio, que tem preço por pessoa e precisa explicar o que está incluso, e o à la carte, com preço por prato. O modelo separa as duas coisas e deixa claro o que é cobrado à parte, que é onde a conta costuma surpreender.",
+      "organizar": [
+        "Rodízio com o que está incluso (carnes, buffet de saladas, acompanhamentos) e o que não está (bebida, sobremesa). É na conta que essa dúvida aparece quando não está escrita.",
+        "Lista dos cortes sem preço, só para o cliente saber o que passa no espeto e pedir o que gosta. Corte que só sai em certos dias vai com o dia na descrição.",
+        "Criança com a idade escrita: \"Rodízio infantil, de 5 a 10 anos\", com a faixa que você usa. Sem a idade, cada mesa negocia.",
+        "Quem não come carne também vai à churrascaria com a família. Um item \"Buffet sem carne\" com preço próprio resolve, e os selos marcam o queijo coalho (vegetariano) e o abacaxi com canela (vegano).",
+        "À la carte com quantas pessoas serve e o que acompanha. \"Picanha (serve 2)\" sem dizer o acompanhamento gera pergunta na mesa; se quiser, escreva também o peso."
+      ],
+      "dia": "Na churrascaria o garçom passa com o espeto, não com o cardápio. O QR na mesa resolve o que ele não tem tempo de explicar: o que o rodízio inclui, quanto custa a bebida e qual é o preço da criança. Reajustou o rodízio, gere o QR novo e troque as plaquinhas de todas as mesas no mesmo dia, porque o QR antigo continua mostrando o preço antigo.",
+      "qr": "Uma plaquinha por mesa, em suporte firme, longe do molho e do porta-palito. Na recepção, onde a família espera para sentar, um QR maior: baixe o PNG e mande imprimir no tamanho que quiser. Quem lê o preço do rodízio antes de sentar não se assusta na conta.",
+      "faq": [
+        { "p": "O que escrever no cardápio digital do rodízio?", "r": "O preço por pessoa, o que está incluso (carnes, buffet, acompanhamentos), o preço da criança com a faixa de idade e o que é cobrado à parte, como bebida e sobremesa." },
+        { "p": "Preciso listar todas as carnes do rodízio?", "r": "Liste as que passam sempre. As que dependem do dia ou do fornecedor ficam fora, ou com o dia em que saem, para não prometer o que não vai passar na mesa." },
+        { "p": "Rodízio e à la carte podem ficar no mesmo QR?", "r": "Podem, em seções separadas. Se o almoço e o jantar têm preço diferente, um item para cada horário evita trocar o QR no meio do dia." },
+        { "p": "Como mostrar o preço da criança?", "r": "Como item próprio, \"Rodízio infantil\", com a faixa de idade na descrição. Se criança pequena não paga, escreva também: é a primeira pergunta de quem chega com filho." }
+      ],
+      "relacionados": ["bar", "self-service", "marmitaria", "restaurante-japones", "quiosque-de-praia"]
+    },
+    {
+      "slug": "restaurante-japones", "nome": "Japonês e sushi", "tipo": "restaurante japonês e sushi", "da": "do japonês", "meu": "o meu restaurante japonês",
+      "grupo": "Refeições", "resumo": "Combinados, peças com quantidade, o que é cru",
+      "description": "Modelo de cardápio digital para restaurante japonês e sushi: combinados, peças com quantidade, pratos quentes e o que é cru. Abra no editor grátis.",
+      "intro": "Cardápio japonês tem nome que muita gente não conhece, peça que vem em quantidade (8 de hossomaki, 2 de niguiri) e combinado que mistura tudo. O modelo escreve a quantidade em cada item, explica o nome em poucas palavras, diz o que é cru e separa combinados, peças e pratos quentes.",
+      "organizar": [
+        "Quantidade em todo item: \"8 peças\", \"2 unidades\", \"5 fatias\". No japonês, o nome não diz o tamanho, e é a primeira pergunta de quem vai dividir.",
+        "Explique o nome na descrição: uramaki tem o arroz por fora, hossomaki é fino com a alga por fora, niguiri é o bolinho de arroz com a fatia em cima. Quem conhece pula; quem não conhece pede sem medo.",
+        "Diga o que é cru. \"Peixe cru\" na descrição do sashimi, do niguiri e do temaki ajuda quem não come cru a escolher sem chamar o garçom.",
+        "Selos com atenção: o shoyu comum tem trigo, hot roll e tempurá são empanados, e o missoshiru costuma levar caldo de peixe, então não é vegetariano. Vegano só no que é arroz, alga e vegetal; sem glúten, só se você serve shoyu sem trigo.",
+        "Combinado com a composição ou com \"seleção do sushiman\". Se as peças mudam conforme o peixe do dia, diga isso em vez de listar peça por peça, e o QR continua valendo."
+      ],
+      "dia": "No japonês, o cliente passa um bom tempo decifrando o cardápio. Com o QR, ele lê no próprio celular, no tamanho de letra dele, e passa o celular para a mesa. O link também vai no Instagram para quem pede para retirar. Mudou o combinado ou o preço, o link e o QR mudam: troque as plaquinhas de todas as mesas de uma vez.",
+      "qr": "Uma plaquinha em cada mesa e uma no balcão do sushiman, se o restaurante tem balcão. No delivery, um adesivo com o QR na tampa da embalagem ou no saco. No rodízio, o QR serve para consultar o que tem; o pedido de cada rodada continua com o garçom.",
+      "faq": [
+        { "p": "Como escrever o cardápio de sushi para quem não conhece os nomes?", "r": "Com a quantidade e uma explicação curta na descrição: \"Uramaki filadélfia, 8 peças, arroz por fora: salmão e cream cheese\". O nome japonês fica, e a descrição diz o que é." },
+        { "p": "Vale avisar no cardápio o que é cru?", "r": "Vale: \"peixe cru\" na descrição do sashimi, do niguiri e do temaki é o que basta para quem não come cru escolher outra coisa sem perguntar." },
+        { "p": "Posso marcar sushi como sem glúten?", "r": "Só se você serve shoyu sem trigo e o item não é empanado. O shoyu comum leva trigo, e hot roll e tempurá são fritos na farinha. Na dúvida, deixe sem o selo." },
+        { "p": "Rodízio japonês cabe no cardápio digital?", "r": "Cabe como item, com o preço por pessoa e o que está incluso. Se o rodízio tem lista própria de peças, coloque numa seção \"No rodízio\", sem preço." }
+      ],
+      "relacionados": ["self-service", "esfiharia", "churrascaria", "bar", "marmitaria"]
+    },
+    {
+      "slug": "bar", "nome": "Bar e boteco", "tipo": "bar e boteco", "da": "do bar", "meu": "o meu bar",
+      "grupo": "Bebidas, praia e hospedagem", "resumo": "Petiscos, porções, cervejas, doses e drinks",
+      "description": "Modelo de cardápio digital para bar e boteco: petiscos, porções com quantas pessoas servem, cervejas, doses e drinks. Grátis, sem cadastro, com QR code.",
+      "intro": "Bar vende porção e dose, e as duas têm o mesmo problema no cardápio: a medida. Porção para quantas pessoas, dose de quantos ml, cerveja de qual tamanho. O modelo coloca a medida em cada item e separa petiscos, porções, cervejas, doses e bebidas sem álcool.",
+      "organizar": [
+        "Medida em todo item: porção \"serve 2 a 3\", dose \"50 ml\", cerveja \"600 ml\" ou \"long neck\". Sem medida, o cliente compara preço de coisas diferentes.",
+        "Porção com o acompanhamento (\"com mandioca\", \"com molho tártaro\"). Meia porção, se você faz, como item próprio com o preço.",
+        "Cerveja por tamanho, não por marca. As marcas mudam com o fornecedor, e cada mudança gera um QR novo. \"Cerveja 600 ml, pergunte as marcas geladas\" dura meses.",
+        "Doses e drinks com a base escrita (cachaça, vodca, gin), e uma seção sem álcool para quem vai dirigir ou não bebe.",
+        "Aviso de maiores na frase do topo. A venda de bebida alcoólica para menores de 18 anos é proibida pelo Estatuto da Criança e do Adolescente (art. 81 e art. 243). O modelo já traz a frase."
+      ],
+      "dia": "No bar, o cardápio de papel some, molha e vai parar na mesa do lado. Com o QR na mesa, cada um olha no próprio celular, inclusive quem chega depois. O garçom passa menos tempo recitando porção. Só não use o cardápio para a promoção do dia: cada mudança gera um QR novo, e promoção fica melhor no quadro ou no status do WhatsApp.",
+      "qr": "Uma plaquinha por mesa, presa com fita dupla face ou em suporte, porque mesa de bar se arrasta e copo derrama. No balcão, uma na altura dos olhos. Em mesa na calçada, use acrílico ou plastifique: sereno e cerveja derramada acabam com papel rápido.",
+      "faq": [
+        { "p": "Como mostrar porção e meia porção no cardápio digital?", "r": "Com a medida no nome da seção ou do item (\"serve 2 a 3\") e a meia porção como item próprio, com o seu preço. Se toda porção tem meia, um item \"Meia porção\" com a regra na descrição resolve." },
+        { "p": "Preciso colocar o aviso de proibido para menores?", "r": "A venda de bebida alcoólica para menores de 18 anos é proibida pelo ECA (art. 81 e 243). Se o seu estado ou município exige placa no estabelecimento, o cardápio digital não substitui a placa; a frase no topo do cardápio reforça a regra para quem está na mesa." },
+        { "p": "E quando a cerveja acaba ou troca de marca?", "r": "Escreva a cerveja pelo tamanho e deixe \"pergunte as marcas geladas\" na descrição. Marca que você sempre tem pode ir no nome; a que entra e sai fica fora, para o QR não mudar toda semana." },
+        { "p": "Happy hour com preço diferente cabe no mesmo cardápio?", "r": "Cabe, como itens próprios com o horário na descrição (\"Chope 300 ml, happy hour, das 17h às 19h\"). O mesmo QR serve o dia todo, sem trocar plaquinha." },
+        { "p": "O cardápio fecha a conta da mesa?", "r": "Não. Ele mostra itens e preços; comanda e conta continuam com o garçom e o caixa." }
+      ],
+      "fontes": ["eca"],
+      "relacionados": ["quiosque-de-praia", "adega", "churrascaria", "pastelaria", "hamburgueria"]
+    },
+    {
+      "slug": "cafeteria", "nome": "Cafeteria", "tipo": "cafeteria", "da": "da cafeteria", "meu": "a minha cafeteria",
+      "grupo": "Doces, sorvete e café", "resumo": "Cafés, tamanho e leite vegetal como extra, comidinhas",
+      "description": "Modelo de cardápio digital para cafeteria: cafés explicados, tamanho e leite vegetal como acréscimo, gelados, chás e comidinhas. Grátis, com QR code.",
+      "intro": "Cafeteria vende variação: o mesmo café em dois tamanhos, com leite de vaca ou vegetal, com um shot a mais, quente ou gelado. O modelo mostra como escrever isso sem repetir cada bebida várias vezes, e separa cafés, extras, gelados e comidinhas.",
+      "organizar": [
+        "Tamanho e leite como acréscimo. A bebida tem o preço do tamanho padrão; \"Tamanho grande\", \"Leite vegetal\" e \"Shot extra\" entram como itens com o valor a mais. Escrever cada bebida em todos os tamanhos multiplica o cardápio e o tamanho do link.",
+        "Explique as diferenças: latte tem mais leite que o cappuccino, mocha leva chocolate, coado é passado no filtro. Quem não conhece acaba pedindo sempre o mesmo.",
+        "Leite vegetal como opção vai na descrição (\"pode ser com leite vegetal\"); o selo vegano fica só na bebida que já vem com ele.",
+        "O grão é o seu diferencial? A origem que não muda vai na frase do topo; o grão do mês, que muda, fica no quadro, para o QR não precisar mudar.",
+        "Comidinhas que variam sem o sabor no nome: \"Bolo do dia (fatia), pergunte o sabor de hoje\"."
+      ],
+      "dia": "Na cafeteria, a fila anda devagar quando cada cliente pergunta a diferença entre latte e cappuccino. Com o QR no balcão, ele lê enquanto espera e chega no caixa decidido. Quem fica na mesa com o notebook abre o link de novo para escolher o segundo café sem levantar para ler a lousa.",
+      "qr": "No balcão, ao lado do caixa e onde a fila se forma, e nas mesas. Se você tem cardápio de giz na parede, cole o QR num canto dele: quem está longe lê no celular. No copo para viagem, um adesivo com o QR na luva de papelão leva o cardápio junto.",
+      "faq": [
+        { "p": "Como mostrar os tamanhos das bebidas no cardápio digital?", "r": "Com o preço do tamanho padrão em cada bebida e um item \"Tamanho grande\" com o acréscimo. É um item a mais em vez de uma bebida a mais para cada tamanho." },
+        { "p": "Como indicar leite vegetal?", "r": "Como item de acréscimo (\"Leite vegetal: aveia ou amêndoas\") e, nas bebidas que aceitam, \"pode ser com leite vegetal\" na descrição. O selo vegano vai só onde a bebida já vem sem leite de vaca." },
+        { "p": "Dá para colocar a senha do Wi-Fi no cardápio?", "r": "Dá, na frase do topo ou num item \"Wi-Fi\". Mas o link é público: qualquer pessoa com o link vê a senha. E se a senha mudar, o QR muda junto." },
+        { "p": "Preciso mudar o QR quando muda o bolo do dia?", "r": "Não, se o item for \"Bolo do dia (fatia)\" com \"pergunte o sabor de hoje\". O QR só muda quando muda o texto ou o preço do cardápio." }
+      ],
+      "relacionados": ["padaria", "confeitaria", "sorveteria", "lanchonete", "pousada"]
+    },
+    {
+      "slug": "padaria", "nome": "Padaria", "tipo": "padaria", "da": "da padaria", "meu": "a minha padaria",
+      "grupo": "Doces, sorvete e café", "resumo": "Pães e frios no quilo, café da manhã e encomendas",
+      "description": "Modelo de cardápio digital para padaria: pães e frios no quilo, café da manhã na chapa, doces e encomendas de festa. Grátis, sem cadastro, com QR code.",
+      "intro": "Padaria vende por unidade, por quilo e por encomenda, do começo da manhã até a noite. O modelo separa pães, frios, café da manhã, doces e encomendas, cada um com a unidade de preço certa, para o cliente não achar que o preço do quilo é o da unidade.",
+      "organizar": [
+        "Cada produto com a sua unidade no nome: \"Pão francês (kg)\", \"Pão doce (unidade)\", \"Salgadinhos de festa (cento)\". O preço só faz sentido com a unidade do lado.",
+        "Separe o balcão das encomendas. Encomenda tem prazo e pedido mínimo; diga isso na descrição (\"pedido com 2 dias de antecedência\", \"mínimo 1 cento\").",
+        "Horário da fornada, se é fixo, na frase do topo (por exemplo, \"pão quentinho às 6h e às 16h\"). É informação que não muda e que o cliente gosta de saber.",
+        "Café da manhã numa seção própria, se você tem mesas, com o lanche da chapa e as bebidas juntos: quem senta pede tudo de uma vez.",
+        "Selos com realismo: só é vegano o que não leva leite, ovo nem manteiga, e na padaria quase nada pode ter o selo sem glúten, porque a farinha está no ar e nas bancadas."
+      ],
+      "dia": "Na padaria, o cardápio digital trabalha mais fora da loja do que dentro: o link no WhatsApp e no Instagram mostra encomendas de festa, bolo por quilo e salgadinho pelo cento, que é o que o cliente quer saber antes de ligar. No balcão, o QR responde o preço do quilo dos frios sem o atendente parar o fatiador.",
+      "qr": "Na fila do caixa, no balcão do café (se você tem mesas) e na vitrine de encomendas, perto dos bolos expostos. Se quiser, faça um segundo cardápio só de encomendas, com o seu próprio QR. Um adesivo com o QR no saco de pão é o QR que vai para a casa de todo cliente.",
+      "faq": [
+        { "p": "Como mostrar no cardápio o que é vendido por quilo?", "r": "Com a unidade no nome do item: \"Pão francês (kg)\", \"Presunto fatiado (kg)\", e o preço do quilo no campo de preço. Uma seção \"Frios (kg)\" deixa isso claro para a seção inteira." },
+        { "p": "Como colocar as encomendas de festa?", "r": "Numa seção Encomendas, com a unidade (cento, kg, inteira), o pedido mínimo e o prazo na descrição. O pedido em si é combinado pelo botão Chamar no WhatsApp." },
+        { "p": "Posso mostrar o horário da fornada?", "r": "Pode, na frase do topo ou no campo Horário. Como o horário da fornada costuma ser fixo, ele não obriga a trocar o QR." },
+        { "p": "Dá para encomendar o bolo pelo cardápio?", "r": "O cardápio mostra sabores, tamanhos e prazo; o pedido segue pelo botão Chamar no WhatsApp, onde você combina data, recheio e sinal." }
+      ],
+      "relacionados": ["confeitaria", "cafeteria", "lanchonete", "self-service", "pastelaria"]
+    },
+    {
+      "slug": "confeitaria", "nome": "Confeitaria e doceria", "tipo": "confeitaria e doceria", "da": "da confeitaria", "meu": "a minha confeitaria",
+      "grupo": "Doces, sorvete e café", "resumo": "Vitrine, bolo de festa no quilo, massas, recheios e prazo",
+      "description": "Modelo de cardápio digital para confeitaria e doceria: vitrine, bolo de festa no quilo, massas e recheios, docinhos no cento e prazo de encomenda.",
+      "intro": "Confeitaria vende pronta-entrega e encomenda, e as duas têm preço de jeitos diferentes: fatia e unidade na vitrine, quilo e cento na encomenda. O modelo separa as duas e mostra como escrever massas, recheios e prazo sem um cardápio enorme.",
+      "organizar": [
+        "Vitrine e encomenda em seções separadas. Na vitrine, preço por fatia ou unidade; na encomenda, preço por quilo ou por cento, com pedido mínimo e prazo na descrição.",
+        "Massas e recheios como listas, não como combinações. As massas e os recheios ficam sem preço, e o \"Bolo de festa (kg)\" tem o preço. Recheio que custa mais vira um item de acréscimo por quilo.",
+        "Prazo de encomenda num item próprio, perto do topo. É a primeira coisa que quem tem festa no sábado precisa saber.",
+        "Selos: doce quase sempre é vegetariano; vegano só sem leite, ovo, manteiga e mel. Sem glúten pede atenção, porque granulado pode levar malte (que tem glúten) e o mesmo batedor passa de uma massa para a outra. Confira o rótulo de cada ingrediente.",
+        "Doce do dia sem o sabor no nome (\"Fatia de bolo, pergunte os sabores de hoje\"), para o QR durar."
+      ],
+      "dia": "Na confeitaria, o cardápio digital é o que você manda quando perguntam quanto fica um bolo para a festa: massas, recheios, preço do quilo e prazo, num link só. Na loja, o QR da vitrine ajuda quem quer saber o preço da fatia sem esperar atendimento. Mudou o preço do quilo, o link muda: mande o novo para quem pediu orçamento.",
+      "qr": "Na vitrine e no caixa. Na caixa de bolo e no saquinho de docinho, um adesivo com o QR: quem provou o bolo na festa encontra você para a próxima. Para encomendas pelo WhatsApp, coloque o link do cardápio na mensagem de saudação do WhatsApp Business e a primeira pergunta já chega respondida.",
+      "faq": [
+        { "p": "Como colocar bolo por quilo no cardápio digital?", "r": "Com o item \"Bolo de festa (kg)\" e o preço do quilo, o pedido mínimo na descrição e, logo abaixo, as listas de massas e recheios sem preço. Recheio especial entra como acréscimo por quilo." },
+        { "p": "Brigadeiro pode ter o selo sem glúten?", "r": "Só se você conferiu o rótulo de cada ingrediente, inclusive do granulado, que pode levar malte, e se o preparo não divide utensílio com massa de trigo. Na dúvida, deixe sem o selo." },
+        { "p": "Onde coloco o prazo e o pedido mínimo?", "r": "O prazo num item próprio (\"Prazo de encomenda\") perto do topo, e o pedido mínimo na descrição de cada produto de encomenda (\"mínimo de 2 kg\", \"mínimo de 50 por sabor\")." },
+        { "p": "Dá para receber o sinal pelo cardápio?", "r": "Não. O cardápio só mostra; data, sabor, sinal e pagamento são combinados no WhatsApp. Para o sinal por Pix, o gerador de QR Code Pix deste site faz o QR com o valor." }
+      ],
+      "relacionados": ["padaria", "cafeteria", "sorveteria", "acai", "pastelaria"]
+    },
+    {
+      "slug": "pastelaria", "nome": "Pastelaria", "tipo": "pastelaria", "da": "da pastelaria", "meu": "a minha pastelaria",
+      "grupo": "Lanches, pizza e salgados", "resumo": "Preço por faixa, sabores simples, especiais e doces",
+      "description": "Modelo de cardápio digital para pastelaria: preço por faixa, sabores simples, especiais e doces, mini pastéis e caldo de cana. Grátis, com QR code.",
+      "intro": "Pastelaria tem muitos sabores e poucos preços: quase sempre o simples custa um valor, o especial outro e o doce outro. O modelo usa isso: uma seção de preços por faixa e as listas de sabores sem preço. Quando o preço sobe, você muda poucos números, não trinta.",
+      "organizar": [
+        "Uma seção Preços com cada faixa (simples, especial, doce, mini pastéis), e os sabores em seções sem preço. É o jeito mais curto de escrever um cardápio de pastel, e o link fica pequeno.",
+        "Sabor no nome, recheio na descrição quando o nome não diz tudo: \"Pizza: mussarela, tomate e orégano\".",
+        "Caldo de cana por tamanho de copo, um item para cada, e diga se tem com limão ou abacaxi.",
+        "Pastelaria de feira: os dias e os lugares vão no campo Horário (por exemplo, \"Ter: feira do Centro; Sáb: feira do bairro\"). Se a agenda muda toda semana, escreva \"agenda no Instagram\" para não trocar o QR.",
+        "Selos: a massa de pastel leva farinha de trigo, então nada de sem glúten. Queijo, pizza e palmito com queijo são vegetarianos; vegano só se a massa e o recheio não têm leite nem ovo."
+      ],
+      "dia": "Na pastelaria de feira ou de balcão, a fila é longa e o cliente decide na última hora. Com o QR na barraca, ele escolhe o sabor enquanto espera e chega pedindo. Quem não está na feira vê o link no Instagram e sabe em que dia você está em qual lugar. Mudou o preço de uma faixa, gere o QR novo: são poucos números, a troca é rápida.",
+      "qr": "Na frente da barraca ou do balcão, na altura dos olhos, do lado onde a fila se forma. Na feira, prenda uma plaquinha plastificada com abraçadeira na estrutura da barraca, porque vento leva papel solto. No saquinho do pastel para viagem, um adesivo com o QR.",
+      "faq": [
+        { "p": "Como organizar muitos sabores de pastel no cardápio digital?", "r": "Com uma seção de preços por faixa (simples, especial, doce) e os sabores agrupados por faixa, sem preço. O cliente escolhe o sabor e sabe o preço pela seção." },
+        { "p": "Pastel pode ter o selo vegano?", "r": "Só se a massa não leva leite nem ovo e o recheio é só vegetal, como palmito sem queijo. Confira a receita da sua massa antes de marcar." },
+        { "p": "Como mostrar em que feira estou em cada dia?", "r": "No campo Horário do editor, que aparece no topo do cardápio. Se a agenda muda toda semana, deixe \"agenda das feiras no Instagram\" para não trocar o QR." },
+        { "p": "Faço mini pastel para festa. Entra no mesmo cardápio?", "r": "Entra numa seção \"Para festas\", com o preço do cento, o pedido mínimo e o prazo na descrição. O pedido é combinado no WhatsApp." }
+      ],
+      "relacionados": ["lanchonete", "padaria", "food-truck", "esfiharia", "bar"]
+    },
+    {
+      "slug": "food-truck", "nome": "Food truck", "tipo": "food truck", "da": "do food truck", "meu": "o meu food truck",
+      "grupo": "Lanches, pizza e salgados", "resumo": "Cardápio curto, combo e um QR por evento",
+      "description": "Modelo de cardápio digital para food truck: cardápio curto, combo, acompanhamentos e um QR para cada evento. Grátis, sem cadastro, imprime em casa.",
+      "intro": "Food truck tem cardápio curto, muda de lugar e às vezes muda de cardápio conforme o evento. O modelo é enxuto de propósito: poucos itens, um combo claro e pouco texto, porque a fila é em pé e o celular é lido no sol.",
+      "organizar": [
+        "Cardápio curto. Com fila em pé, cada item a mais é mais tempo de decisão. Se você tem quatro principais, deixe quatro.",
+        "Combo em destaque, num item com o que entra e o preço. Quem está com pressa pede o combo.",
+        "Um cardápio por tipo de evento: festival com cardápio reduzido, evento fechado com outro preço. Cada cardápio é um link e um QR; imprima uma plaquinha para cada um e troque na lateral do truck conforme o evento.",
+        "Onde e quando no campo Horário: \"Sex e sáb à noite, agenda no Instagram\". Endereço só se você tem ponto fixo.",
+        "Descrição de uma linha, porque no sol e de pé ninguém lê parágrafo. Os selos ajudam quem procura opção vegetariana no meio do evento."
+      ],
+      "dia": "Cardápio pintado na lateral do truck custa caro para refazer quando o preço muda. Com o QR, a troca é imprimir uma plaquinha nova em casa: mudou o cardápio, gere o QR novo e troque. Em evento, o QR também ajuda quem está no fim da fila a decidir sem enxergar o painel lá na frente.",
+      "qr": "Na lateral do truck, perto da janela de pedido, e um segundo QR onde a fila começa. Baixe o PNG e imprima maior que a plaquinha, num banner ou adesivo de vinil: QR grande é lido de mais longe. Evite vinil brilhante virado para o sol da tarde, porque o reflexo atrapalha a câmera.",
+      "faq": [
+        { "p": "Como fazer cardápio digital para food truck que muda de lugar?", "r": "O cardápio é o mesmo em qualquer lugar: o link não depende de endereço. Use o campo Horário para dizer onde encontrar você (\"agenda no Instagram\") e deixe o endereço em branco se não tem ponto fixo." },
+        { "p": "Posso ter um cardápio diferente para cada evento?", "r": "Pode. Cada cardápio que você monta no editor gera um link e um QR próprios. Guarde o link de edição de cada um para ajustar no próximo evento." },
+        { "p": "O QR funciona impresso grande, num banner?", "r": "Funciona: baixe o QR em PNG no editor e mande para a gráfica. Mantenha a margem branca em volta do QR e não estique só um lado. Quanto maior impresso, de mais longe a câmera lê." },
+        { "p": "Dá para receber pedido pelo celular na fila?", "r": "Não. O cardápio mostra; o pedido é na janela do truck ou pelo WhatsApp, se você preencher o número." }
+      ],
+      "relacionados": ["hamburgueria", "cachorro-quente", "pastelaria", "quiosque-de-praia", "acai"]
+    },
+    {
+      "slug": "pousada", "nome": "Pousada", "tipo": "pousada", "da": "da pousada", "meu": "a minha pousada",
+      "grupo": "Bebidas, praia e hospedagem", "resumo": "Horário do café, serviço de quarto e frigobar",
+      "description": "Modelo de cardápio digital para pousada: horário e itens do café da manhã, serviço de quarto, frigobar e kit lanche. QR code grátis para o quarto.",
+      "intro": "Na pousada, o cardápio não é para vender mais: é para o hóspede saber o que vem no café da manhã, em que horário, e o que dá para pedir no quarto. O modelo junta isso num link só, que fica no quarto, na recepção e na mensagem de confirmação da reserva.",
+      "organizar": [
+        "Horário do café no topo, no campo Horário do editor. É a pergunta clássica do check-in. No modelo, os horários são exemplo: troque pelos da sua pousada.",
+        "Café da manhã sem preço, se está na diária, e com o que realmente vem, sem prometer o que depende do dia: \"frutas da estação\", \"bolos caseiros\".",
+        "Serviço de quarto com o jeito de pedir e o horário (\"ligue para a recepção ou chame no WhatsApp, até as 22h\"). Café no quarto, se você faz, com o prazo e o acréscimo.",
+        "Restrição alimentar: o hóspede avisa na reserva, mas o cardápio ajuda. Frutas são veganas e sem glúten; a tapioca é de mandioca, mas só leva o selo sem glúten se a frigideira não divide espaço com massa de trigo.",
+        "Hóspede estrangeiro: faça um segundo cardápio em inglês ou espanhol, com o seu próprio QR, e deixe os dois no quarto."
+      ],
+      "dia": "Na pousada, o QR no quarto substitui a pastinha plastificada que some ou fica desatualizada. O hóspede abre o cardápio no celular, vê o horário do café e o que dá para pedir, e chama a recepção pelo botão do WhatsApp, se você preencher o número. Mudou um preço do serviço de quarto, mudam o link e o QR: troque as plaquinhas de todos os quartos de uma vez.",
+      "qr": "No quarto, ao lado da cama ou na porta do frigobar; na recepção; e no salão do café, em cada mesa. No quarto, a plaquinha dura mais num porta-retrato ou suporte de acrílico. Se a pousada tem piscina ou área com serviço, uma plaquinha lá também. E mande o link na confirmação da reserva: o hóspede chega sabendo.",
+      "faq": [
+        { "p": "O que colocar no cardápio digital da pousada?", "r": "O horário e os itens do café da manhã, o serviço de quarto com o jeito de pedir e o horário, o frigobar com preço e o que mais você oferece, como kit lanche para passeio." },
+        { "p": "Como mostrar o horário do café da manhã?", "r": "No campo Horário do editor, que aparece no topo do cardápio (\"Café da manhã das 7h às 10h\"). Se no fim de semana o horário é outro, escreva os dois." },
+        { "p": "Posso ter o cardápio em inglês?", "r": "Pode: monte um segundo cardápio no editor, em inglês, e imprima o QR dele ao lado do outro. Cada cardápio é um link diferente." },
+        { "p": "Dá para cobrar o serviço de quarto pelo cardápio?", "r": "Não. O cardápio mostra itens e preços; a cobrança continua na conta do hóspede, no check-out." },
+        { "p": "Frigobar entra no cardápio?", "r": "Entra numa seção própria, com o preço de cada item. Como cada mudança gera um QR novo, coloque só o que fica sempre no frigobar." }
+      ],
+      "relacionados": ["quiosque-de-praia", "cafeteria", "padaria", "bar", "churrascaria"]
+    },
+    {
+      "slug": "quiosque-de-praia", "nome": "Quiosque de praia", "tipo": "quiosque e barraca de praia", "da": "do quiosque", "meu": "o meu quiosque",
+      "grupo": "Bebidas, praia e hospedagem", "resumo": "Porções, água de coco, cadeira e guarda-sol",
+      "description": "Modelo de cardápio digital para quiosque e barraca de praia: porções, peixe do dia, água de coco, bebidas, cadeira e guarda-sol. QR code grátis.",
+      "intro": "No quiosque de praia, o cliente está na cadeira, longe do balcão, e o cardápio de papel voa, molha e enche de areia. O modelo junta o que se pede na areia (porções, peixe, água de coco, bebidas) e o que se aluga (cadeira e guarda-sol), com a medida de cada porção.",
+      "organizar": [
+        "Medida e para quantos: \"serve 2\", \"porção com 10 iscas\". Na areia, ninguém vai até o balcão perguntar o tamanho.",
+        "Cadeira e guarda-sol como itens, com o preço e a regra (diária, ou cortesia para quem consome). O que vira discussão no fim do dia é o que não estava escrito.",
+        "Peixe do dia sem o nome do peixe: \"Peixe frito, pergunte o peixe de hoje\" mantém o QR válido quando muda a pesca.",
+        "WhatsApp preenchido: com o número no cardápio, aparece o botão Chamar no WhatsApp, e o cliente da cadeira chama você sem levantar.",
+        "Selos ajudam o turista com restrição: queijo coalho é vegetariano; caipirinha, água de coco e aipim frito são veganos. Isca empanada leva trigo."
+      ],
+      "dia": "No quiosque, o QR preso na mesa ou no guarda-sol leva o cardápio até a cadeira. O cliente lê no celular, mesmo com vento, e chama pelo WhatsApp ou pelo garçom. O turista que conheceu você hoje volta amanhã pelo link no Instagram. Se o preço muda na temporada, o QR muda junto: imprima as plaquinhas novas antes do feriado, não no meio dele.",
+      "qr": "Plaquinha em acrílico ou plastificada em cada mesa, sempre presa, porque vento leva. No guarda-sol, prenda no mastro com abraçadeira, virada para a cadeira. Um QR maior no balcão e na frente do quiosque, para quem passa pela calçada. No sol forte, plastificação fosca reflete menos que a brilhante e ajuda a câmera.",
+      "faq": [
+        { "p": "Como fazer o cardápio digital do quiosque funcionar na areia?", "r": "Com o QR preso em cada mesa ou guarda-sol, plastificado ou em acrílico, e o WhatsApp preenchido no cardápio, para o cliente chamar sem levantar da cadeira." },
+        { "p": "Cadeira e guarda-sol entram no cardápio?", "r": "Entram, como itens com o preço e a regra na descrição: diária, ou cortesia para quem consome. Escrito, evita discussão na hora de fechar a conta." },
+        { "p": "O sinal na praia é fraco. O cardápio abre?", "r": "A página do cardápio é leve, sem foto, e o cardápio vem dentro do próprio link, sem consulta a banco de dados. Mesmo assim, o celular precisa de alguma conexão para abrir a página." },
+        { "p": "O preço muda na temporada. Como faço?", "r": "Monte dois cardápios no editor, um de temporada e outro para o resto do ano, cada um com o seu QR. Guarde os dois links de edição e troque as plaquinhas quando a temporada começar." }
+      ],
+      "relacionados": ["bar", "pousada", "acai", "sorveteria", "food-truck"]
+    },
+    {
+      "slug": "esfiharia", "nome": "Esfiharia e comida árabe", "tipo": "esfiharia e comida árabe", "da": "da esfiharia", "meu": "a minha esfiharia",
+      "grupo": "Lanches, pizza e salgados", "resumo": "Abertas e fechadas, dúzia, kibe e pratos árabes",
+      "description": "Modelo de cardápio digital para esfiharia e comida árabe: esfihas abertas e fechadas, dúzia com sabores, kibe, tabule e homus. Grátis, com QR code.",
+      "intro": "Esfiharia vende por unidade e em quantidade: a esfiha avulsa, a dúzia para levar, o kibe e os pratos árabes para dividir. O modelo separa esfihas abertas, fechadas e doces, mostra como escrever a dúzia sem repetir sabores e explica em poucas palavras o que é cada prato árabe.",
+      "organizar": [
+        "Preço por unidade em cada sabor e um item para a dúzia e a meia dúzia, com quantos sabores dá para misturar. Assim você não repete cada sabor com preço de dúzia.",
+        "Abertas e fechadas em seções separadas: o cliente sabe o formato que quer, e a fechada costuma ter outros sabores.",
+        "Explique o árabe: tabule leva trigo, kibe cru é carne crua, homus é pasta de grão-de-bico com tahine. Quem não conhece arrisca mais quando sabe o que vai comer.",
+        "Selo picante na esfiha com pimenta síria ou pimenta calabresa; a de carne sem pimenta fica sem selo, para quem não come picante achar a dela.",
+        "Selos veganos com a sua receita na mão: zaatar e espinafre só são veganos se a massa não leva leite nem ovo. O trigo está em quase tudo (massa, tabule, kibe), então o selo sem glúten fica para pouquíssimos itens."
+      ],
+      "dia": "Esfiha sai muito para viagem e por telefone, em dúzia de sabores misturados, um pedido fácil de errar quando o cliente não tem o cardápio na frente. Com o link no WhatsApp e no Instagram, ele escolhe os sabores lendo e escreve a lista. No salão, o QR na mesa serve para o segundo pedido da noite. Mudou o preço da dúzia, gere o QR novo e troque.",
+      "qr": "Na mesa e no balcão de retirada. Na caixa da dúzia, um adesivo com o QR na tampa, que é onde a família abre e olha. Se você entrega, um panfleto com o QR junto do pedido vira o cardápio da porta da geladeira.",
+      "faq": [
+        { "p": "Como colocar esfiha por unidade e por dúzia no cardápio digital?", "r": "Cada sabor com o preço da unidade, e itens \"Dúzia\" e \"Meia dúzia\" com quantos sabores dá para misturar na descrição. É mais curto do que repetir cada sabor com preço de dúzia." },
+        { "p": "Vale avisar que o kibe cru é de carne crua?", "r": "Vale: \"carne crua\" na descrição basta para quem não come cru escolher outra coisa sem precisar perguntar." },
+        { "p": "Quais itens árabes podem ter selo vegano?", "r": "Tabule, homus e esfiha de zaatar ou de espinafre costumam ser, desde que a massa e os molhos não levem leite, ovo ou coalhada. Confira a sua receita antes de marcar." },
+        { "p": "Rodízio de esfiha cabe no cardápio?", "r": "Cabe como item, com o preço por pessoa e o que está incluso. Liste os sabores do rodízio numa seção sem preço." }
+      ],
+      "relacionados": ["pizzaria", "pastelaria", "lanchonete", "restaurante-japones", "marmitaria"]
+    },
+    {
+      "slug": "cachorro-quente", "nome": "Cachorro-quente", "tipo": "cachorro-quente", "da": "do cachorro-quente", "meu": "o meu ponto de cachorro-quente",
+      "grupo": "Lanches, pizza e salgados", "resumo": "O que vem no completo, adicionais e molhos",
+      "description": "Modelo de cardápio digital para cachorro-quente: simples, completo, prensado, adicionais com preço e molhos. Grátis, sem cadastro, com QR para o carrinho.",
+      "intro": "Cachorro-quente é montagem: o pão e a salsicha são a base, e o que muda tudo é o que vai por cima. E \"completo\" não quer dizer a mesma coisa em todo lugar. O modelo separa os dogs prontos, com tudo o que vem escrito, a lista de adicionais com preço e os molhos.",
+      "organizar": [
+        "Diga o que vem no completo. Em um lugar ele tem purê e batata palha, em outro tem milho, ervilha e vinagrete. Liste tudo, na descrição do item.",
+        "Adicionais com preço numa seção própria; molhos grátis num item só (\"ketchup, mostarda e maionese à vontade\").",
+        "Prensado ou não, uma ou duas salsichas: cada variação vira um item, com nome curto e a diferença na descrição (\"completo com 2 salsichas\").",
+        "Selo vegetariano só se a salsicha é vegetal e nada mais leva carne; o selo picante vai no molho de pimenta, não no dog inteiro.",
+        "Carrinho que muda de ponto: use o campo Horário para os dias e o lugar (\"Seg a sáb, 18h às 23h, em frente à praça\")."
+      ],
+      "dia": "No carrinho, o cardápio costuma ser um banner com preço que ninguém atualiza. Com o QR na lateral, o cliente lê o que vem em cada dog enquanto o anterior é montado, e chega sabendo os adicionais. Mudou o preço, gere o QR novo e troque a plaquinha: é uma folha impressa em casa.",
+      "qr": "Na lateral do carrinho virada para a fila, e no balcão ou na mesinha, se tiver. Em ponto de rua à noite, deixe a plaquinha perto da luz: no escuro a câmera tem dificuldade para ler o QR. Para festas que você atende, mande o link do cardápio junto do orçamento.",
+      "faq": [
+        { "p": "O que escrever no cachorro-quente completo?", "r": "Tudo o que vai nele, na ordem: pão, salsicha, purê, milho, ervilha, vinagrete, batata palha, o que for o seu completo. É a pergunta que todo cliente novo faz." },
+        { "p": "Como cobrar os adicionais no cardápio digital?", "r": "Numa seção Adicionais, um item para cada (bacon, cheddar, salsicha extra) com o seu preço. Molhos grátis ficam num item só, sem preço." },
+        { "p": "O cardápio funciona à noite, no carrinho?", "r": "O cardápio abre no celular com a tela acesa; quem precisa de luz é o QR impresso. Deixe a plaquinha perto da lâmpada do carrinho." },
+        { "p": "Faço festa com carrinho de cachorro-quente. Dá para mandar o cardápio?", "r": "Dá: monte um cardápio de festa no editor, com o preço por pessoa ou por quantidade, num link separado. Cada cardápio tem o seu QR e o seu link de edição." }
+      ],
+      "relacionados": ["hamburgueria", "lanchonete", "food-truck", "pastelaria", "pizzaria"]
+    },
+    {
+      "slug": "adega", "nome": "Adega e distribuidora de bebidas", "tipo": "adega e distribuidora de bebidas", "da": "da adega", "meu": "a minha adega",
+      "grupo": "Bebidas, praia e hospedagem", "resumo": "Unidade, fardo e caixa, kits, gelo e entrega",
+      "description": "Modelo de cardápio digital para adega e distribuidora de bebidas: unidade, fardo e caixa, destilados, kits, gelo, carvão e entrega. Com QR code grátis.",
+      "intro": "Adega e distribuidora vendem catálogo: cerveja por unidade, fardo e caixa, destilado por garrafa, gelo, carvão e kits de festa. O cliente quer ver o preço antes de chamar no WhatsApp. O modelo organiza por tipo de bebida e por embalagem, com o aviso de venda proibida para menores no topo.",
+      "organizar": [
+        "Organize por embalagem. O mesmo produto em unidade, fardo e caixa são três itens, com a quantidade no nome (\"Fardo com 12 latas\").",
+        "Marca muda com o fornecedor e com a promoção da semana, e cada mudança gera um QR novo. Prefira o tipo e o tamanho (\"Cerveja lata 350 ml\") e deixe \"pergunte as marcas\" na descrição. Marca que você sempre tem pode ir no nome.",
+        "Kits de festa e de churrasco com o que vem dentro. Gelo e carvão numa seção própria: é o que se esquece e se pede junto.",
+        "Entrega como item: taxa por bairro e pedido mínimo, se houver. O horário de entrega vai no campo Horário.",
+        "Aviso de maiores: vender ou entregar bebida alcoólica a menor de 18 anos é proibido pelo Estatuto da Criança e do Adolescente (art. 81, II, e art. 243). O modelo já traz o aviso na frase do topo e um item sobre a entrega só para maiores."
+      ],
+      "dia": "Na adega, o cardápio digital trabalha no WhatsApp: em vez de responder quanto está o fardo foto por foto, você manda o link, e o cliente vê cerveja, destilado, gelo e kit com preço. O botão Chamar no WhatsApp volta para a sua conversa, com o cliente já sabendo o que quer. Quando o preço muda, o link e o QR mudam: mande o link novo e troque a plaquinha do balcão.",
+      "qr": "No balcão e na porta da adega, para quem passa. Um adesivo com o QR no saco de gelo ou na sacola de entrega fica na casa do cliente até a próxima festa. Nos grupos do bairro e na lista de transmissão, mande o link, não a imagem do QR: no celular, link é um toque.",
+      "faq": [
+        { "p": "Como montar o cardápio digital de uma distribuidora de bebidas?", "r": "Por tipo (cervejas, destilados, sem álcool, gelo e carvão, kits) e, dentro de cada tipo, por embalagem, com a quantidade no nome. Entrega e taxa como itens no fim." },
+        { "p": "Preciso colocar o aviso de proibido para menores?", "r": "A venda e a entrega de bebida alcoólica para menores de 18 anos são proibidas pelo ECA (art. 81, II, e art. 243). Se o seu estado ou município exige placa, o cardápio não substitui a placa; o aviso no topo do cardápio reforça a regra para quem pede." },
+        { "p": "Como mostrar fardo, caixa e unidade?", "r": "Um item para cada embalagem, com a quantidade no nome (\"Fardo com 12 latas\", \"Caixa com 24 garrafas 600 ml\") e o preço de cada." },
+        { "p": "A marca da cerveja muda toda semana. Como faço?", "r": "Escreva o tipo e o tamanho no nome e \"pergunte as marcas\" na descrição. Cada mudança de texto gera um QR novo, então o que muda toda semana fica fora do cardápio." },
+        { "p": "O cliente consegue pagar pelo cardápio?", "r": "Não. Pedido e pagamento ficam no WhatsApp e na entrega. Para receber por Pix, o gerador de QR Code Pix deste site faz o QR com o valor." }
+      ],
+      "fontes": ["eca"],
+      "relacionados": ["bar", "quiosque-de-praia", "churrascaria", "food-truck", "marmitaria"]
+    }
+  ]
+}

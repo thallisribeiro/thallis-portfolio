@@ -182,3 +182,53 @@ test('buildRecibo: espaços e quebras de linha viram um espaço só', () => {
   assert.ok(r.recibo.corpo.includes('Recebi de João Souza,'));
   assert.ok(r.recibo.corpo.includes('referente a aluguel de outubro, paga'));
 });
+
+// ---------- abrir com modelo: /gerador-de-recibo/?modelo=<slug> ----------
+import { slugModelo, lerModelo, temRascunho } from '../gerador-de-recibo/recibo.mjs';
+import { readFileSync } from 'node:fs';
+
+test('slugModelo: só aceita slug simples vindo da URL', () => {
+  assert.equal(slugModelo('?modelo=aluguel'), 'aluguel');
+  assert.equal(slugModelo('?x=1&modelo=venda-de-veiculo'), 'venda-de-veiculo');
+  for (const busca of ['', '?modelo=', '?modelo=Aluguel', '?modelo=%3Cscript%3E', '?modelo=__proto__', '?modelo=a_b', `?modelo=${'a'.repeat(61)}`, null])
+    assert.equal(slugModelo(busca), null, String(busca));
+});
+
+test('lerModelo: referente até 200 caracteres, forma conhecida, dica opcional', () => {
+  const modelos = {
+    ok: { nome: 'Aluguel', referente: 'aluguel de [mês/ano]', forma: 'transferencia', dica: 'Troque o que está entre colchetes.' },
+    longo: { nome: 'Longo', referente: 'r'.repeat(300), forma: 'cheque', dica: 7 },
+    vazio: { nome: 'Vazio', referente: '  ', forma: 'pix' },
+  };
+  assert.deepEqual(lerModelo(modelos, 'ok'), { nome: 'Aluguel', referente: 'aluguel de [mês/ano]', forma: 'transferencia', dica: 'Troque o que está entre colchetes.' });
+  const l = lerModelo(modelos, 'longo');
+  assert.equal(l.referente.length, 200);
+  assert.equal(l.forma, 'pix', 'forma desconhecida volta para Pix');
+  assert.equal(l.dica, '');
+  for (const slug of ['vazio', 'nada', 'constructor', 'toString', '', undefined]) assert.equal(lerModelo(modelos, slug), null, String(slug));
+  assert.equal(lerModelo(undefined, 'ok'), null);
+});
+
+test('temRascunho: pagador, valor ou referente escritos pedem confirmação antes de trocar', () => {
+  assert.equal(temRascunho({}), false);
+  assert.equal(temRascunho({ recebedorNome: 'Maria', cidade: 'Eunápolis', forma: 'pix', numero: '3' }), false, 'dados de quem recebe ficam');
+  for (const k of ['pagadorNome', 'pagadorDoc', 'valor', 'referente']) assert.equal(temRascunho({ [k]: 'x' }), true, k);
+  assert.equal(temRascunho({ referente: '   ' }), false);
+});
+
+test('modelos.json: todo modelo carrega e vira um recibo completo quando a pessoa preenche o resto', () => {
+  const modelos = JSON.parse(readFileSync(new URL('../gerador-de-recibo/modelos.json', import.meta.url), 'utf8'));
+  const slugs = Object.keys(modelos);
+  assert.ok(slugs.length > 0);
+  for (const slug of slugs) {
+    assert.equal(slugModelo(`?modelo=${slug}`), slug, slug);
+    const bruto = modelos[slug], m = lerModelo(modelos, slug);
+    assert.ok(m && m.nome && m.dica, slug);
+    assert.equal(m.referente, bruto.referente, `${slug}: referente passa de 200 caracteres`);
+    assert.equal(m.forma, bruto.forma, `${slug}: forma "${bruto.forma}" não existe no gerador`);
+    assert.ok(!/R\$\s*\d/.test(m.referente), `${slug}: modelo não traz valor`);
+    const r = buildRecibo({ ...completo, referente: m.referente, forma: m.forma });
+    assert.equal(r.ok, true, slug);
+    assert.ok(r.recibo.corpo.includes(`referente a ${m.referente.replace(/[\s.;,]+$/, '')}, paga `), slug);
+  }
+});

@@ -1,0 +1,600 @@
+{
+  "pizzaria": { "nome": "Nome da sua pizzaria", "tema": "classico", "secoes": [
+    { "nome": "Tamanhos", "itens": [
+      { "nome": "Broto", "desc": "4 fatias, 1 sabor" },
+      { "nome": "Média", "desc": "6 fatias, até 2 sabores" },
+      { "nome": "Grande", "desc": "8 fatias, até 2 sabores (meia a meia)" },
+      { "nome": "Família", "desc": "12 fatias, até 3 sabores" }
+    ] },
+    { "nome": "Sabores tradicionais", "semPreco": true, "itens": [
+      { "nome": "Mussarela", "desc": "Molho de tomate, mussarela e orégano", "selos": ["vegetariano"] },
+      { "nome": "Calabresa", "desc": "Calabresa fatiada e cebola" },
+      { "nome": "Portuguesa", "desc": "Presunto, ovo, cebola, ervilha e mussarela" },
+      { "nome": "Frango com catupiry", "desc": "Frango desfiado e catupiry" },
+      { "nome": "Margherita", "desc": "Mussarela, tomate e manjericão", "selos": ["vegetariano"] },
+      { "nome": "Quatro queijos", "desc": "Mussarela, provolone, parmesão e catupiry", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Sabores especiais (acréscimo)", "itens": [
+      { "nome": "Camarão", "desc": "Camarão, catupiry e mussarela" },
+      { "nome": "Pepperoni", "desc": "Pepperoni e mussarela", "selos": ["picante"] },
+      { "nome": "Vegana", "desc": "Molho, legumes assados e azeitona, sem queijo", "selos": ["vegano"] }
+    ] },
+    { "nome": "Pizzas doces", "itens": [
+      { "nome": "Chocolate com morango", "selos": ["vegetariano"] },
+      { "nome": "Romeu e Julieta", "desc": "Goiabada e mussarela", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Bordas recheadas", "itens": [
+      { "nome": "Borda de catupiry", "selos": ["vegetariano"] },
+      { "nome": "Borda de cheddar", "selos": ["vegetariano"] },
+      { "nome": "Borda de chocolate", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Bebidas", "itens": [
+      { "nome": "Refrigerante 2 L", "desc": "Pergunte os sabores" },
+      { "nome": "Refrigerante lata" },
+      { "nome": "Suco natural", "desc": "Laranja ou maracujá" }
+    ] }
+  ] },
+
+  "hamburgueria": { "nome": "Nome da sua hamburgueria", "tema": "escuro", "secoes": [
+    { "nome": "Burgers", "itens": [
+      { "nome": "Clássico", "desc": "Pão brioche, blend, queijo, alface, tomate e maionese da casa" },
+      { "nome": "Cheddar e bacon", "desc": "Blend, cheddar cremoso, bacon e cebola caramelizada" },
+      { "nome": "Duplo", "desc": "Dois blends, dois queijos e picles" },
+      { "nome": "Picante", "desc": "Blend, queijo, jalapeño e molho de pimenta", "selos": ["picante"] },
+      { "nome": "Veggie", "desc": "Burger de grão-de-bico, queijo, alface e tomate", "selos": ["vegetariano"] },
+      { "nome": "Vegano", "desc": "Burger de plantas, maionese vegana e salada", "selos": ["vegano"] }
+    ] },
+    { "nome": "Ponto da carne", "semPreco": true, "itens": [
+      { "nome": "Como você prefere", "desc": "Mal passado, ao ponto ou bem passado: avise no pedido" }
+    ] },
+    { "nome": "Adicionais", "itens": [
+      { "nome": "Bacon" },
+      { "nome": "Cheddar", "selos": ["vegetariano"] },
+      { "nome": "Ovo", "selos": ["vegetariano"] },
+      { "nome": "Blend extra" }
+    ] },
+    { "nome": "Combo", "itens": [
+      { "nome": "Transforme em combo", "desc": "Batata frita + refrigerante lata, em qualquer burger" }
+    ] },
+    { "nome": "Acompanhamentos", "itens": [
+      { "nome": "Batata frita", "selos": ["vegano"] },
+      { "nome": "Batata com cheddar e bacon" },
+      { "nome": "Onion rings", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Bebidas", "itens": [
+      { "nome": "Refrigerante lata" },
+      { "nome": "Suco natural" },
+      { "nome": "Milk-shake", "desc": "Chocolate, morango ou baunilha", "selos": ["vegetariano"] }
+    ] }
+  ] },
+
+  "lanchonete": { "nome": "Nome da sua lanchonete", "tema": "classico", "secoes": [
+    { "nome": "Salgados", "itens": [
+      { "nome": "Coxinha de frango" },
+      { "nome": "Kibe de carne" },
+      { "nome": "Enroladinho de salsicha" },
+      { "nome": "Pão de queijo", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Na chapa", "itens": [
+      { "nome": "Misto quente", "desc": "Pão de forma, presunto e queijo" },
+      { "nome": "Queijo quente", "desc": "Pão de forma e mussarela", "selos": ["vegetariano"] },
+      { "nome": "Bauru", "desc": "Pão francês, presunto, queijo, tomate e orégano" }
+    ] },
+    { "nome": "Lanches X", "itens": [
+      { "nome": "X-burguer", "desc": "Pão, hambúrguer e queijo" },
+      { "nome": "X-salada", "desc": "X-burguer + alface, tomate e maionese" },
+      { "nome": "X-bacon", "desc": "X-salada + bacon" },
+      { "nome": "X-egg", "desc": "X-salada + ovo" },
+      { "nome": "X-tudo", "desc": "X-salada + presunto, ovo, bacon e batata palha" }
+    ] },
+    { "nome": "Prato feito", "itens": [
+      { "nome": "PF do dia", "desc": "Arroz, feijão, salada e a carne do dia: pergunte no balcão" }
+    ] },
+    { "nome": "Sucos e vitaminas", "itens": [
+      { "nome": "Suco natural", "desc": "Laranja, maracujá ou abacaxi com hortelã", "selos": ["vegano"] },
+      { "nome": "Vitamina", "desc": "Banana, mamão ou abacate, batida com leite", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Bebidas", "itens": [
+      { "nome": "Café coado" },
+      { "nome": "Refrigerante lata" },
+      { "nome": "Água mineral" }
+    ] }
+  ] },
+
+  "acai": { "nome": "Nome da sua loja de açaí", "tema": "escuro", "secoes": [
+    { "nome": "Tamanhos", "itens": [
+      { "nome": "Copo 300 ml", "desc": "Até 3 complementos" },
+      { "nome": "Copo 500 ml", "desc": "Até 4 complementos" },
+      { "nome": "Copo 700 ml", "desc": "Até 5 complementos" },
+      { "nome": "Açaí no quilo", "desc": "Preço do kg, você monta e pesa" }
+    ] },
+    { "nome": "Complementos inclusos", "semPreco": true, "itens": [
+      { "nome": "Banana", "selos": ["vegano"] },
+      { "nome": "Morango", "selos": ["vegano"] },
+      { "nome": "Granola" },
+      { "nome": "Paçoca" },
+      { "nome": "Leite em pó", "selos": ["vegetariano"] },
+      { "nome": "Leite condensado", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Adicionais (cobrados à parte)", "itens": [
+      { "nome": "Creme de avelã", "selos": ["vegetariano"] },
+      { "nome": "Kiwi", "selos": ["vegano"] },
+      { "nome": "Mel", "selos": ["vegetariano"] },
+      { "nome": "Confete de chocolate", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Para beber", "itens": [
+      { "nome": "Vitamina de açaí", "desc": "Açaí batido com leite e banana", "selos": ["vegetariano"] },
+      { "nome": "Água mineral" }
+    ] }
+  ] },
+
+  "sorveteria": { "nome": "Nome da sua sorveteria", "tema": "praia", "secoes": [
+    { "nome": "Sorvete", "itens": [
+      { "nome": "Sorvete no quilo", "desc": "Preço do kg: sirva-se e pese no caixa" },
+      { "nome": "Casquinha 1 bola" },
+      { "nome": "Copinho 2 bolas" },
+      { "nome": "Pote 1 litro", "desc": "Até 3 sabores, para levar" }
+    ] },
+    { "nome": "Sabores fixos", "semPreco": true, "itens": [
+      { "nome": "Creme", "selos": ["vegetariano"] },
+      { "nome": "Chocolate", "selos": ["vegetariano"] },
+      { "nome": "Morango", "selos": ["vegetariano"] },
+      { "nome": "Flocos", "selos": ["vegetariano"] },
+      { "nome": "Limão", "desc": "Sorbet feito com água, sem leite", "selos": ["vegano"] },
+      { "nome": "Sabor da semana", "desc": "Pergunte no balcão" }
+    ] },
+    { "nome": "Picolés", "itens": [
+      { "nome": "Picolé de fruta", "desc": "Feito com água", "selos": ["vegano"] },
+      { "nome": "Picolé de creme", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Taças e milk-shakes", "itens": [
+      { "nome": "Milk-shake", "desc": "Sorvete batido com leite, sabor à escolha", "selos": ["vegetariano"] },
+      { "nome": "Banana split", "desc": "Banana, 3 bolas, calda e chantilly", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Coberturas", "itens": [
+      { "nome": "Calda de chocolate", "selos": ["vegetariano"] },
+      { "nome": "Chantilly", "selos": ["vegetariano"] },
+      { "nome": "Granulado", "selos": ["vegetariano"] }
+    ] }
+  ] },
+
+  "self-service": { "nome": "Nome do seu restaurante", "tema": "classico", "secoes": [
+    { "nome": "Preço do quilo", "itens": [
+      { "nome": "Refeição por quilo (seg a sex)", "desc": "Preço do kg, pesado no prato" },
+      { "nome": "Refeição por quilo (sáb e dom)", "desc": "Preço do kg, pesado no prato" },
+      { "nome": "Embalagem para viagem", "desc": "Cobrada à parte" }
+    ] },
+    { "nome": "Sempre no buffet", "semPreco": true, "itens": [
+      { "nome": "Arroz branco e integral", "selos": ["vegano"] },
+      { "nome": "Feijão sem carne", "selos": ["vegano"] },
+      { "nome": "Saladas e legumes", "desc": "Molhos à parte", "selos": ["vegano"] },
+      { "nome": "Carnes do dia", "desc": "Assados e grelhados: veja no buffet" },
+      { "nome": "Massa do dia", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Especial de cada dia", "semPreco": true, "itens": [
+      { "nome": "Quarta e sábado", "desc": "Feijoada" },
+      { "nome": "Sexta", "desc": "Peixe" }
+    ] },
+    { "nome": "Cobrado à parte", "itens": [
+      { "nome": "Sobremesa do dia" },
+      { "nome": "Suco natural (copo)", "selos": ["vegano"] },
+      { "nome": "Refrigerante lata" },
+      { "nome": "Água mineral" }
+    ] }
+  ] },
+
+  "marmitaria": { "nome": "Nome da sua marmitaria", "tema": "classico", "secoes": [
+    { "nome": "Tamanhos", "itens": [
+      { "nome": "Marmita P", "desc": "Arroz, feijão, 1 mistura e 1 acompanhamento" },
+      { "nome": "Marmita M", "desc": "Arroz, feijão, 1 mistura e 2 acompanhamentos" },
+      { "nome": "Marmita G", "desc": "Arroz, feijão, 2 misturas e 2 acompanhamentos" },
+      { "nome": "Marmita fitness", "desc": "Arroz integral, legumes e proteína grelhada" }
+    ] },
+    { "nome": "Mistura de cada dia", "semPreco": true, "itens": [
+      { "nome": "Segunda", "desc": "Frango assado" },
+      { "nome": "Terça", "desc": "Carne de panela" },
+      { "nome": "Quarta", "desc": "Feijoada" },
+      { "nome": "Quinta", "desc": "Strogonoff de frango" },
+      { "nome": "Sexta", "desc": "Peixe frito" },
+      { "nome": "Opção vegetariana", "desc": "Todo dia: omelete ou legumes gratinados", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Acompanhamentos", "semPreco": true, "itens": [
+      { "nome": "Farofa" },
+      { "nome": "Salada", "selos": ["vegano"] },
+      { "nome": "Purê de batata", "selos": ["vegetariano"] },
+      { "nome": "Macarrão", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Extras e bebidas", "itens": [
+      { "nome": "Ovo frito", "selos": ["vegetariano"] },
+      { "nome": "Refrigerante lata" },
+      { "nome": "Suco natural (garrafa)", "selos": ["vegano"] }
+    ] },
+    { "nome": "Entrega", "semPreco": true, "itens": [
+      { "nome": "Taxa de entrega", "desc": "Por bairro: pergunte no WhatsApp" },
+      { "nome": "Retirada no balcão", "desc": "Sem taxa" }
+    ] }
+  ] },
+
+  "churrascaria": { "nome": "Nome da sua churrascaria", "tema": "escuro", "secoes": [
+    { "nome": "Rodízio", "itens": [
+      { "nome": "Rodízio completo", "desc": "Carnes no espeto, buffet de saladas e acompanhamentos" },
+      { "nome": "Rodízio infantil", "desc": "Para crianças de 5 a 10 anos" },
+      { "nome": "Buffet sem carne", "desc": "Só saladas e acompanhamentos", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Passam no espeto", "semPreco": true, "itens": [
+      { "nome": "Picanha" },
+      { "nome": "Fraldinha" },
+      { "nome": "Costela" },
+      { "nome": "Cupim" },
+      { "nome": "Linguiça" },
+      { "nome": "Coração de frango" },
+      { "nome": "Queijo coalho", "selos": ["vegetariano"] },
+      { "nome": "Abacaxi com canela", "selos": ["vegano"] }
+    ] },
+    { "nome": "À la carte", "itens": [
+      { "nome": "Picanha na chapa (serve 2)", "desc": "Com arroz, farofa, vinagrete e fritas" },
+      { "nome": "Costela assada (serve 2)", "desc": "Com mandioca e vinagrete" }
+    ] },
+    { "nome": "Cobrado à parte", "itens": [
+      { "nome": "Sobremesa" },
+      { "nome": "Refrigerante lata" },
+      { "nome": "Suco natural (jarra)", "selos": ["vegano"] },
+      { "nome": "Cerveja 600 ml" }
+    ] }
+  ] },
+
+  "restaurante-japones": { "nome": "Nome do seu restaurante", "tema": "escuro", "secoes": [
+    { "nome": "Combinados", "itens": [
+      { "nome": "Combinado 20 peças", "desc": "Sashimi, niguiri, uramaki e hossomaki" },
+      { "nome": "Combinado 40 peças", "desc": "Para 2 pessoas" },
+      { "nome": "Combinado vegetariano", "desc": "16 peças de pepino, manga e cenoura", "selos": ["vegano"] },
+      { "nome": "Rodízio", "desc": "Por pessoa: peças e pratos quentes à vontade" }
+    ] },
+    { "nome": "Peças", "itens": [
+      { "nome": "Sashimi de salmão", "desc": "5 fatias de peixe cru" },
+      { "nome": "Niguiri de salmão", "desc": "2 unidades: arroz com fatia de peixe cru" },
+      { "nome": "Uramaki filadélfia", "desc": "8 peças, arroz por fora: salmão, cream cheese" },
+      { "nome": "Hossomaki de pepino", "desc": "8 peças finas, alga por fora", "selos": ["vegano"] },
+      { "nome": "Temaki de salmão", "desc": "Cone de alga com arroz e salmão cru" },
+      { "nome": "Hot roll", "desc": "8 peças empanadas e fritas" }
+    ] },
+    { "nome": "Pratos quentes", "itens": [
+      { "nome": "Yakissoba", "desc": "Macarrão com legumes e carne ou frango" },
+      { "nome": "Yakissoba de legumes", "selos": ["vegano"] },
+      { "nome": "Guioza", "desc": "6 pastéis cozidos de carne de porco" },
+      { "nome": "Missoshiru", "desc": "Sopa de missô com tofu; o caldo leva peixe" }
+    ] },
+    { "nome": "Extras", "itens": [
+      { "nome": "Sunomono", "desc": "Salada de pepino agridoce", "selos": ["vegano"] },
+      { "nome": "Wasabi extra", "selos": ["picante"] }
+    ] },
+    { "nome": "Bebidas", "itens": [
+      { "nome": "Chá verde gelado" },
+      { "nome": "Refrigerante lata" }
+    ] }
+  ] },
+
+  "bar": { "nome": "Nome do seu bar", "frase": "Proibida a venda de bebida alcoólica para menores de 18 anos", "tema": "escuro", "secoes": [
+    { "nome": "Petiscos", "itens": [
+      { "nome": "Amendoim torrado", "selos": ["vegano"] },
+      { "nome": "Torresmo" },
+      { "nome": "Bolinho de bacalhau", "desc": "6 unidades" },
+      { "nome": "Dadinho de tapioca", "desc": "Com geleia de pimenta", "selos": ["vegetariano", "picante"] }
+    ] },
+    { "nome": "Porções (serve 2 a 3)", "itens": [
+      { "nome": "Calabresa acebolada" },
+      { "nome": "Frango a passarinho", "desc": "Com alho frito" },
+      { "nome": "Isca de peixe", "desc": "Com molho tártaro" },
+      { "nome": "Mandioca frita", "selos": ["vegano"] },
+      { "nome": "Meia porção", "desc": "Qualquer porção pela metade" }
+    ] },
+    { "nome": "Cervejas", "itens": [
+      { "nome": "Cerveja 600 ml", "desc": "Pergunte as marcas geladas" },
+      { "nome": "Long neck" },
+      { "nome": "Chope 300 ml" },
+      { "nome": "Cerveja sem álcool" }
+    ] },
+    { "nome": "Doses e drinks", "itens": [
+      { "nome": "Cachaça (dose de 50 ml)" },
+      { "nome": "Caipirinha", "desc": "Limão, cachaça e açúcar", "selos": ["vegano"] },
+      { "nome": "Caipiroska", "desc": "Limão, vodca e açúcar", "selos": ["vegano"] },
+      { "nome": "Gin tônica" }
+    ] },
+    { "nome": "Sem álcool", "itens": [
+      { "nome": "Refrigerante lata" },
+      { "nome": "Água com gás" },
+      { "nome": "Suco natural", "selos": ["vegano"] }
+    ] }
+  ] },
+
+  "cafeteria": { "nome": "Nome da sua cafeteria", "tema": "classico", "secoes": [
+    { "nome": "Cafés", "itens": [
+      { "nome": "Espresso", "desc": "Curto ou longo" },
+      { "nome": "Café coado", "desc": "Passado no filtro, na hora" },
+      { "nome": "Cappuccino", "desc": "Espresso, leite vaporizado e espuma", "selos": ["vegetariano"] },
+      { "nome": "Latte", "desc": "Espresso com mais leite e pouca espuma", "selos": ["vegetariano"] },
+      { "nome": "Mocha", "desc": "Espresso, chocolate e leite", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Tamanho, leite e extras", "itens": [
+      { "nome": "Tamanho grande", "desc": "Acréscimo em qualquer bebida" },
+      { "nome": "Leite vegetal", "desc": "Aveia ou amêndoas, no lugar do leite" },
+      { "nome": "Shot extra de espresso" }
+    ] },
+    { "nome": "Gelados e chás", "itens": [
+      { "nome": "Café gelado", "desc": "Espresso, gelo e leite", "selos": ["vegetariano"] },
+      { "nome": "Chá gelado", "desc": "Mate com limão", "selos": ["vegano"] },
+      { "nome": "Chá quente", "desc": "Camomila, hortelã ou erva-doce", "selos": ["vegano"] }
+    ] },
+    { "nome": "Comidinhas", "itens": [
+      { "nome": "Pão de queijo", "selos": ["vegetariano"] },
+      { "nome": "Croissant de presunto e queijo" },
+      { "nome": "Misto na chapa" },
+      { "nome": "Bolo do dia (fatia)", "desc": "Pergunte o sabor de hoje", "selos": ["vegetariano"] },
+      { "nome": "Cookie", "selos": ["vegetariano"] }
+    ] }
+  ] },
+
+  "padaria": { "nome": "Nome da sua padaria", "tema": "classico", "secoes": [
+    { "nome": "Pães", "itens": [
+      { "nome": "Pão francês (kg)" },
+      { "nome": "Pão de forma da casa" },
+      { "nome": "Pão doce (unidade)", "selos": ["vegetariano"] },
+      { "nome": "Pão de queijo (kg)", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Frios (kg)", "itens": [
+      { "nome": "Presunto fatiado" },
+      { "nome": "Mussarela fatiada", "selos": ["vegetariano"] },
+      { "nome": "Peito de peru" }
+    ] },
+    { "nome": "Café da manhã", "itens": [
+      { "nome": "Pão na chapa", "desc": "Pão francês com manteiga", "selos": ["vegetariano"] },
+      { "nome": "Misto quente" },
+      { "nome": "Pão com ovo", "selos": ["vegetariano"] },
+      { "nome": "Café com leite", "selos": ["vegetariano"] },
+      { "nome": "Suco de laranja", "selos": ["vegano"] }
+    ] },
+    { "nome": "Doces", "itens": [
+      { "nome": "Sonho", "desc": "Recheio de creme", "selos": ["vegetariano"] },
+      { "nome": "Bolo caseiro (fatia)", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Encomendas", "itens": [
+      { "nome": "Salgadinhos de festa (cento)", "desc": "Coxinha, kibe e bolinha de queijo; mínimo 1 cento" },
+      { "nome": "Bolo de aniversário (kg)", "desc": "Pedido com 2 dias de antecedência", "selos": ["vegetariano"] },
+      { "nome": "Torta salgada inteira", "desc": "Frango ou palmito" }
+    ] }
+  ] },
+
+  "confeitaria": { "nome": "Nome da sua confeitaria", "tema": "classico", "secoes": [
+    { "nome": "Na vitrine", "itens": [
+      { "nome": "Fatia de bolo", "desc": "Pergunte os sabores de hoje", "selos": ["vegetariano"] },
+      { "nome": "Brownie", "selos": ["vegetariano"] },
+      { "nome": "Brigadeiro gourmet (unidade)", "selos": ["vegetariano"] },
+      { "nome": "Torta de limão (fatia)", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Bolo de encomenda", "itens": [
+      { "nome": "Bolo de festa (kg)", "desc": "Escolha a massa e o recheio; mínimo de 2 kg" },
+      { "nome": "Recheio especial (kg)", "desc": "Acréscimo por quilo" },
+      { "nome": "Bolo vegano (kg)", "desc": "Sem ovo, leite e manteiga", "selos": ["vegano"] }
+    ] },
+    { "nome": "Massas", "semPreco": true, "itens": [
+      { "nome": "Branca", "selos": ["vegetariano"] },
+      { "nome": "Chocolate", "selos": ["vegetariano"] },
+      { "nome": "Cenoura", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Recheios", "semPreco": true, "itens": [
+      { "nome": "Brigadeiro", "selos": ["vegetariano"] },
+      { "nome": "Doce de leite", "selos": ["vegetariano"] },
+      { "nome": "Coco com chocolate", "selos": ["vegetariano"] },
+      { "nome": "Frutas vermelhas", "desc": "Recheio especial", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Docinhos (cento)", "itens": [
+      { "nome": "Brigadeiro", "selos": ["vegetariano"] },
+      { "nome": "Beijinho", "selos": ["vegetariano"] },
+      { "nome": "Docinhos finos", "desc": "Pergunte os sabores; mínimo de 50 por sabor", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Prazo e entrega", "semPreco": true, "itens": [
+      { "nome": "Prazo de encomenda", "desc": "Pedidos com 5 dias de antecedência" },
+      { "nome": "Entrega", "desc": "Taxa por bairro; retirada sem custo" }
+    ] }
+  ] },
+
+  "pastelaria": { "nome": "Nome da sua pastelaria", "tema": "classico", "secoes": [
+    { "nome": "Preços", "itens": [
+      { "nome": "Pastel simples" },
+      { "nome": "Pastel especial" },
+      { "nome": "Pastel doce" },
+      { "nome": "Mini pastéis (10 unidades)", "desc": "Sabores simples sortidos" }
+    ] },
+    { "nome": "Sabores simples", "semPreco": true, "itens": [
+      { "nome": "Carne", "desc": "Carne moída temperada" },
+      { "nome": "Queijo", "selos": ["vegetariano"] },
+      { "nome": "Frango" },
+      { "nome": "Pizza", "desc": "Mussarela, tomate e orégano", "selos": ["vegetariano"] },
+      { "nome": "Palmito com queijo", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Sabores especiais", "semPreco": true, "itens": [
+      { "nome": "Carne com queijo" },
+      { "nome": "Frango com catupiry" },
+      { "nome": "Camarão" },
+      { "nome": "Carne seca com catupiry" }
+    ] },
+    { "nome": "Sabores doces", "semPreco": true, "itens": [
+      { "nome": "Banana com canela", "selos": ["vegetariano"] },
+      { "nome": "Chocolate", "selos": ["vegetariano"] },
+      { "nome": "Romeu e Julieta", "desc": "Goiabada com queijo", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Bebidas", "itens": [
+      { "nome": "Caldo de cana 300 ml", "selos": ["vegano"] },
+      { "nome": "Caldo de cana 500 ml", "selos": ["vegano"] },
+      { "nome": "Refrigerante lata" }
+    ] }
+  ] },
+
+  "food-truck": { "nome": "Nome do seu food truck", "tema": "escuro", "secoes": [
+    { "nome": "Principais", "itens": [
+      { "nome": "Burger da casa", "desc": "Blend, queijo, cebola caramelizada e molho" },
+      { "nome": "Sanduíche de pernil", "desc": "Pernil desfiado e vinagrete" },
+      { "nome": "Wrap de frango", "desc": "Frango grelhado, alface e molho de iogurte" },
+      { "nome": "Sanduíche de cogumelos", "desc": "Cogumelos na chapa, queijo e rúcula", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Combo", "itens": [
+      { "nome": "Combo", "desc": "Qualquer principal + batata + bebida" }
+    ] },
+    { "nome": "Acompanhamentos", "itens": [
+      { "nome": "Batata frita", "selos": ["vegano"] },
+      { "nome": "Batata com cheddar", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Bebidas", "itens": [
+      { "nome": "Refrigerante lata" },
+      { "nome": "Água mineral" },
+      { "nome": "Limonada", "selos": ["vegano"] }
+    ] },
+    { "nome": "Doce", "itens": [
+      { "nome": "Churros", "desc": "Doce de leite", "selos": ["vegetariano"] }
+    ] }
+  ] },
+
+  "pousada": { "nome": "Nome da sua pousada", "frase": "Café da manhã incluso na diária", "horario": "Café da manhã das 7h às 10h", "tema": "praia", "secoes": [
+    { "nome": "Café da manhã (incluso)", "semPreco": true, "itens": [
+      { "nome": "Pães e bolos caseiros", "selos": ["vegetariano"] },
+      { "nome": "Frutas da estação", "selos": ["vegano", "sem-gluten"] },
+      { "nome": "Ovos mexidos ou omelete", "desc": "Feitos na hora", "selos": ["vegetariano"] },
+      { "nome": "Tapioca", "desc": "Com queijo, coco ou manteiga", "selos": ["vegetariano"] },
+      { "nome": "Frios", "desc": "Queijo e presunto" },
+      { "nome": "Café, leite, sucos e chás", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Serviço de quarto", "itens": [
+      { "nome": "Como pedir", "desc": "Ligue para a recepção ou chame no WhatsApp, até as 22h", "semPreco": true },
+      { "nome": "Café da manhã no quarto", "desc": "Avise na véspera; acréscimo por pessoa" },
+      { "nome": "Sanduíche natural", "desc": "Frango, cenoura e alface" },
+      { "nome": "Tábua de frios (para 2)" },
+      { "nome": "Batata frita", "selos": ["vegano"] }
+    ] },
+    { "nome": "Bebidas e frigobar", "itens": [
+      { "nome": "Água mineral" },
+      { "nome": "Refrigerante lata" },
+      { "nome": "Cerveja long neck" }
+    ] },
+    { "nome": "Para o passeio", "itens": [
+      { "nome": "Kit lanche", "desc": "Sanduíche, fruta e água; peça na véspera" }
+    ] }
+  ] },
+
+  "quiosque-de-praia": { "nome": "Nome do seu quiosque", "tema": "praia", "secoes": [
+    { "nome": "Na areia", "itens": [
+      { "nome": "Cadeira (diária)" },
+      { "nome": "Guarda-sol (diária)" }
+    ] },
+    { "nome": "Porções", "itens": [
+      { "nome": "Peixe frito (serve 2)", "desc": "Pergunte o peixe de hoje; com limão e farofa" },
+      { "nome": "Isca de peixe", "desc": "Empanada, com molho tártaro" },
+      { "nome": "Camarão alho e óleo (serve 2)" },
+      { "nome": "Lula à dorê" },
+      { "nome": "Batata frita", "selos": ["vegano"] },
+      { "nome": "Aipim frito", "selos": ["vegano"] },
+      { "nome": "Queijo coalho na brasa", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Bebidas", "itens": [
+      { "nome": "Água de coco", "desc": "Gelada, no coco", "selos": ["vegano"] },
+      { "nome": "Água mineral" },
+      { "nome": "Refrigerante lata" },
+      { "nome": "Cerveja lata" },
+      { "nome": "Caipirinha", "desc": "Limão, cachaça e açúcar", "selos": ["vegano"] },
+      { "nome": "Suco natural", "desc": "Pergunte as frutas", "selos": ["vegano"] }
+    ] }
+  ] },
+
+  "esfiharia": { "nome": "Nome da sua esfiharia", "tema": "classico", "secoes": [
+    { "nome": "Esfihas abertas", "itens": [
+      { "nome": "Carne", "desc": "Carne moída, tomate e cebola" },
+      { "nome": "Carne picante", "desc": "Com pimenta síria", "selos": ["picante"] },
+      { "nome": "Queijo", "selos": ["vegetariano"] },
+      { "nome": "Calabresa" },
+      { "nome": "Frango com catupiry" },
+      { "nome": "Zaatar", "desc": "Tomilho, gergelim e azeite", "selos": ["vegano"] }
+    ] },
+    { "nome": "Esfihas fechadas", "itens": [
+      { "nome": "Espinafre", "desc": "Com cebola e limão", "selos": ["vegano"] },
+      { "nome": "Ricota", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Esfihas doces", "itens": [
+      { "nome": "Chocolate", "selos": ["vegetariano"] },
+      { "nome": "Romeu e Julieta", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Em quantidade", "itens": [
+      { "nome": "Meia dúzia de abertas", "desc": "Até 2 sabores" },
+      { "nome": "Dúzia de abertas", "desc": "Até 3 sabores" }
+    ] },
+    { "nome": "Cozinha árabe", "itens": [
+      { "nome": "Kibe frito (unidade)" },
+      { "nome": "Kibe cru", "desc": "Carne crua, trigo e hortelã, com azeite" },
+      { "nome": "Tabule", "desc": "Trigo, salsinha, tomate, hortelã e limão", "selos": ["vegano"] },
+      { "nome": "Homus", "desc": "Pasta de grão-de-bico com tahine, com pão sírio", "selos": ["vegano"] },
+      { "nome": "Coalhada seca", "desc": "Com pão sírio", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Bebidas", "itens": [
+      { "nome": "Refrigerante lata" },
+      { "nome": "Suco natural", "selos": ["vegano"] }
+    ] }
+  ] },
+
+  "cachorro-quente": { "nome": "Nome do seu cachorro-quente", "tema": "escuro", "secoes": [
+    { "nome": "Dogs", "itens": [
+      { "nome": "Simples", "desc": "Pão, salsicha e molho" },
+      { "nome": "Completo", "desc": "Pão, salsicha, purê, milho, ervilha, vinagrete e batata palha" },
+      { "nome": "Duplo", "desc": "Completo com 2 salsichas" },
+      { "nome": "Prensado", "desc": "Completo com queijo, prensado na chapa" },
+      { "nome": "Vegetariano", "desc": "Salsicha vegetal, purê, vinagrete e batata palha", "selos": ["vegetariano"] }
+    ] },
+    { "nome": "Adicionais", "itens": [
+      { "nome": "Bacon" },
+      { "nome": "Cheddar", "selos": ["vegetariano"] },
+      { "nome": "Requeijão", "selos": ["vegetariano"] },
+      { "nome": "Salsicha extra" }
+    ] },
+    { "nome": "Molhos", "itens": [
+      { "nome": "Ketchup, mostarda e maionese", "desc": "À vontade, sem custo", "semPreco": true },
+      { "nome": "Molho de pimenta", "selos": ["vegano", "picante"] }
+    ] },
+    { "nome": "Combo e bebidas", "itens": [
+      { "nome": "Combo", "desc": "Qualquer dog + refrigerante lata" },
+      { "nome": "Refrigerante lata" },
+      { "nome": "Suco natural", "selos": ["vegano"] }
+    ] }
+  ] },
+
+  "adega": { "nome": "Nome da sua adega", "frase": "Proibida a venda de bebida alcoólica para menores de 18 anos", "tema": "escuro", "secoes": [
+    { "nome": "Cervejas", "itens": [
+      { "nome": "Cerveja lata 350 ml", "desc": "Unidade, gelada; pergunte as marcas" },
+      { "nome": "Fardo com 12 latas" },
+      { "nome": "Cerveja 600 ml" },
+      { "nome": "Caixa com 24 garrafas 600 ml", "desc": "Com troca do casco" },
+      { "nome": "Long neck" },
+      { "nome": "Cerveja sem álcool" }
+    ] },
+    { "nome": "Destilados (garrafa)", "itens": [
+      { "nome": "Cachaça" },
+      { "nome": "Vodca" },
+      { "nome": "Gin" },
+      { "nome": "Whisky" }
+    ] },
+    { "nome": "Kits", "itens": [
+      { "nome": "Kit gin", "desc": "Gin, 4 tônicas e gelo" },
+      { "nome": "Kit churrasco", "desc": "Carvão, gelo e 12 latas" }
+    ] },
+    { "nome": "Sem álcool", "itens": [
+      { "nome": "Refrigerante 2 L" },
+      { "nome": "Água tônica" },
+      { "nome": "Energético lata" },
+      { "nome": "Água mineral" }
+    ] },
+    { "nome": "Gelo e carvão", "itens": [
+      { "nome": "Gelo (saco)" },
+      { "nome": "Carvão (saco)" }
+    ] },
+    { "nome": "Entrega", "semPreco": true, "itens": [
+      { "nome": "Taxa de entrega", "desc": "Por bairro: pergunte no WhatsApp" },
+      { "nome": "Entrega só para maiores de 18", "desc": "Documento na entrega" }
+    ] }
+  ] }
+}

@@ -18,4 +18,8 @@ Este site inclui um blog em /blog/ — um diário real do que é construído, in
 - [Gerador de orçamento](https://thallisribeiro.com.br/gerador-de-orcamento/): orçamento em PDF com itens, desconto, parcelas e resumo para WhatsApp.
 - [Gerador de termos de uso](https://thallisribeiro.com.br/gerador-de-termos-de-uso/): termos para site, loja virtual ou serviço online, com CDC e Decreto 7.962/2013 citados.
 - [Gerador de assinatura de e-mail](https://thallisribeiro.com.br/gerador-de-assinatura-de-email/): assinatura em HTML para Gmail e Outlook.
+- [Modelos de orçamento por profissão](https://thallisribeiro.com.br/modelo-de-orcamento/): 38 modelos que abrem preenchidos no gerador de orçamento; sem preços inventados.
+- [Modelos de recibo](https://thallisribeiro.com.br/modelo-de-recibo/): 12 tipos de recibo com a base legal citada.
+- [Cardápio digital por tipo de negócio](https://thallisribeiro.com.br/cardapio-digital-para/): 20 modelos de cardápio que abrem no editor.
+- [DDD](https://thallisribeiro.com.br/ddd/): os 67 DDDs do Brasil e os municípios de cada um, pelos dados abertos da Anatel e estimativas do IBGE.
 - [Sitemap](https://thallisribeiro.com.br/sitemap.xml): lista completa de páginas.

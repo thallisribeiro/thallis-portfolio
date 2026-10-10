@@ -1,7 +1,7 @@
 // node --test test/ferramentas-whatsapp.test.mjs
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { DDDS, normalizePhone, formatPhone, buildLink, buttonSnippet, ERROS } from '../gerador-de-link-whatsapp/whatsapp.mjs';
+import { DDDS, normalizePhone, formatPhone, buildLink, buttonSnippet, ERROS, dddDaUrl } from '../gerador-de-link-whatsapp/whatsapp.mjs';
 
 test('DDDs: os 67 códigos nacionais da Anatel, nenhum a mais', () => {
   assert.equal(DDDS.size, 67);
@@ -156,6 +156,14 @@ test('buttonSnippet flutuante: canto inferior direito, nome acessível', () => {
 
 test('buttonSnippet: rótulo vazio usa o padrão', () => {
   assert.ok(buttonSnippet(LINK, '   ', 'inline').includes('>Fale no WhatsApp</a>'));
+});
+
+test('dddDaUrl: ?ddd= só vale com um dos 67 DDDs; o resto é ignorado', () => {
+  assert.equal(dddDaUrl('?ddd=73'), '73');
+  assert.equal(dddDaUrl('?utm_source=x&ddd=11'), '11');
+  for (const q of ['', '?ddd=', '?ddd=10', '?ddd=7', '?ddd=730', '?ddd=73a', '?ddd=+73', '?ddd=%3Cscript%3E', '?numero=73', null]) {
+    assert.equal(dddDaUrl(q), '', String(q));
+  }
 });
 
 test('buttonSnippet recusa link que não é do wa.me', () => {

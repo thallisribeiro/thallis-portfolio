@@ -5,6 +5,7 @@
 const fs = require('fs');
 const path = require('path');
 const { CIDADES, pagina: paginaLocal } = require('./paginas-locais.js');
+const { paginasPseo } = require('./pseo');
 
 const ROOT = __dirname;
 const POSTS_DIR = path.join(ROOT, 'content', 'posts');
@@ -82,11 +83,15 @@ function tempoDeLeitura(md) {
 // generate-og-image.js), nunca um case específico.
 const DEFAULT_OG_IMAGE = `${SITE_URL}/assets/og-default.png`;
 
+// Páginas de pSEO (pseo/*.js): modelos ligados às ferramentas grátis. Ver pseo/index.js.
+const PSEO = paginasPseo();
+
 // Tudo que este script escreve FORA de blog/. Uma lista só, lida pela escrita do
 // manifesto e pelo self-test -- duas listas divergem, e já divergiram três vezes.
 const MANIFESTO = ['index.html', 'maquina-de-distribuicao/index.html', 'site-em-7-dias/index.html', 'ficha-de-apuracao/index.html',
   'trabalhe-comigo/index.html', 'feed.xml', 'sitemap.xml',
-  ...CIDADES.map((c) => `site-em-7-dias/${c.slug}/index.html`)];
+  ...CIDADES.map((c) => `site-em-7-dias/${c.slug}/index.html`),
+  ...PSEO.map((p) => p.rel)];
 
 // ── Ícones inline (SVG monocromático via currentColor — zero dependência externa) ──
 const ICONS = {
@@ -727,6 +732,13 @@ ${rssItems}
   }
   console.log(`[gerado] ${CIDADES.length} página(s) de cidade em /site-em-7-dias/`);
 
+  // pSEO: cada página traz um modelo que abre preenchido numa ferramenta grátis. Ver pseo/index.js.
+  for (const p of PSEO) {
+    fs.mkdirSync(path.dirname(path.join(ROOT, p.rel)), { recursive: true });
+    fs.writeFileSync(path.join(ROOT, p.rel), p.html, 'utf8');
+  }
+  console.log(`[gerado] ${PSEO.length} página(s) de pSEO`);
+
   // Sitemap
   //
   // `lastmod` da página estática sai do mtime do arquivo, não de uma data escrita à mão:
@@ -754,6 +766,7 @@ ${rssItems}
     { loc: `${SITE_URL}/gerador-de-orcamento/`, lastmod: modificadoEm('gerador-de-orcamento/index.html') },
     { loc: `${SITE_URL}/gerador-de-termos-de-uso/`, lastmod: modificadoEm('gerador-de-termos-de-uso/index.html') },
     { loc: `${SITE_URL}/gerador-de-assinatura-de-email/`, lastmod: modificadoEm('gerador-de-assinatura-de-email/index.html') },
+    ...PSEO.map((p) => ({ loc: `${SITE_URL}${p.loc}`, lastmod: p.lastmod || modificadoEm(p.rel) })),
     ...posts.map(p => ({ loc: `${SITE_URL}/blog/${p.slug}/`, lastmod: p.date })),
     ...temaCounts.map(t => ({ loc: `${SITE_URL}/blog/tema/${t.slug}/`, lastmod: posts[0]?.date })),
   ];

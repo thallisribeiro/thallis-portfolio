@@ -151,8 +151,9 @@
               <button type="button" class="rc-chip" data-modelo="servico">Serviço</button>
               <button type="button" class="rc-chip" data-modelo="sinal">Sinal (entrada)</button>
             </div>
-            <textarea id="referente" name="referente" rows="3" maxlength="200" aria-describedby="dica-referente erro-referente" aria-invalid="false"></textarea>
+            <textarea id="referente" name="referente" rows="3" maxlength="200" aria-describedby="dica-referente modelo-dica erro-referente" aria-invalid="false"></textarea>
             <p class="rc-dica" id="dica-referente">O que foi pago, do jeito que a outra pessoa entende: o serviço, o mês do aluguel, o produto.</p>
+            <p class="rc-dica" id="modelo-dica" hidden></p>
             <p class="rc-erro" id="erro-referente" role="alert"></p>
           </div>
           <div class="rc-linha">
@@ -284,7 +285,7 @@
 
 <script src="/assets/main.js" defer></script>
 <script type="module">
-import { buildRecibo, proximoNumero, dataPorExtenso } from '/gerador-de-recibo/recibo.mjs';
+import { buildRecibo, proximoNumero, dataPorExtenso, slugModelo, lerModelo, temRascunho } from '/gerador-de-recibo/recibo.mjs';
 
 const $ = (id) => document.getElementById(id);
 const form = $('rc-form');
@@ -468,6 +469,40 @@ try {
 if (!form.elements.data.value) form.elements.data.value = hoje();
 if (!form.elements.numero.value) form.elements.numero.value = proximoNumero(numeros);
 atualiza(false);
+
+// ---------- abrir com modelo: /gerador-de-recibo/?modelo=<slug> (links de /modelo-de-recibo/) ----------
+async function abreModelo() {
+  const slug = slugModelo(location.search);
+  if (!slug) return;
+  try {
+    let m = null;
+    try { m = lerModelo(await (await fetch('/gerador-de-recibo/modelos.json')).json(), slug); } catch {}
+    if (!m) { $('status').textContent = 'Esse modelo não foi encontrado. O recibo continua como estava.'; return; }
+    if (temRascunho(valores())) {
+      if (!confirm(`Trocar o recibo que está aberto pelo modelo de ${m.nome}? Quem pagou, o valor e o “referente a” deste recibo vão ser apagados. Os dados de quem recebe continuam.`)) {
+        $('status').textContent = 'Modelo não aplicado. O recibo continua como estava.';
+        return;
+      }
+      for (const k of CAMPOS) if (!MANTIDOS.includes(k)) form.elements[k].value = '';
+      form.elements.data.value = hoje();
+      form.elements.numero.value = proximoNumero(numeros);
+    }
+    form.elements.referente.value = m.referente;
+    form.elements.forma.value = m.forma;
+    $('texto-copia').hidden = true;
+    $('modelo-dica').textContent = m.dica;
+    $('modelo-dica').hidden = !m.dica;
+    atualiza(false);
+    salva();
+    $('status').textContent = `Modelo de recibo de ${m.nome} aplicado. ${m.dica}`;
+  } finally {
+    // O parâmetro sai da barra de endereço: recarregar a página não troca o rascunho de novo.
+    const u = new URL(location.href);
+    u.searchParams.delete('modelo');
+    history.replaceState(history.state, '', u.pathname + u.search + u.hash);
+  }
+}
+abreModelo();
 </script>
 </body>
 </html>

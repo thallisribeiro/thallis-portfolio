@@ -295,3 +295,78 @@ test('linkWhatsApp abre o WhatsApp sem número, para escolher o contato', () => 
 test('unidades oferecidas', () => {
   assert.deepEqual(UNIDADES, ['un', 'h', 'm²', 'kg', 'serviço']);
 });
+
+// ---------- abrir com modelo: /gerador-de-orcamento/?modelo=<slug> ----------
+import { slugModelo, lerModelo, temConteudo } from '../gerador-de-orcamento/orcamento.mjs';
+import { readFileSync } from 'node:fs';
+
+test('slugModelo: só aceita slug simples vindo da URL', () => {
+  assert.equal(slugModelo('?modelo=eletricista'), 'eletricista');
+  assert.equal(slugModelo('?utm_source=x&modelo=mudanca-e-frete'), 'mudanca-e-frete');
+  for (const busca of ['', '?', '?modelo=', '?modelo=Eletricista', '?modelo=%3Cscript%3E', '?modelo=__proto__',
+    '?modelo=a--b', '?modelo=-a', '?modelo=../x', `?modelo=${'a'.repeat(61)}`, undefined])
+    assert.equal(slugModelo(busca), null, String(busca));
+});
+
+test('lerModelo: itens sem preço, unidade conhecida e limites dos campos da página', () => {
+  const modelos = {
+    teste: {
+      nome: 'Teste',
+      itens: [
+        { descricao: 'Pintura de parede', unidade: 'm²', quantidade: '40' },
+        { descricao: 'x'.repeat(600), unidade: '<script>', quantidade: '' },
+        { descricao: 'Com preço no JSON', unidade: 'h', quantidade: '2', valor: '999' },
+        null,
+      ],
+      observacoes: 'o'.repeat(2500),
+    },
+  };
+  const m = lerModelo(modelos, 'teste');
+  assert.equal(m.nome, 'Teste');
+  assert.deepEqual(m.itens[0], { descricao: 'Pintura de parede', unidade: 'm²', quantidade: '40', valor: '' });
+  assert.equal(m.itens[1].descricao.length, 500);
+  assert.equal(m.itens[1].unidade, 'un');
+  assert.equal(m.itens[1].quantidade, '1');
+  assert.equal(m.itens[2].valor, '', 'preço nunca vem do modelo');
+  assert.deepEqual(m.itens[3], { descricao: '', unidade: 'un', quantidade: '1', valor: '' });
+  assert.equal(m.observacoes.length, 2000);
+  for (const slug of ['nada', 'constructor', 'toString', '__proto__', '', null]) assert.equal(lerModelo(modelos, slug), null, String(slug));
+  assert.equal(lerModelo({ vazio: { itens: [] } }, 'vazio'), null);
+  assert.equal(lerModelo(null, 'teste'), null);
+});
+
+test('temConteudo: rascunho com cliente, item ou observação pede confirmação antes de trocar', () => {
+  assert.equal(temConteudo({}), false);
+  assert.equal(temConteudo({ cliente: { nome: ' ' }, itens: [{ descricao: '', quantidade: '1', valor: '' }], observacoes: '' }), false);
+  assert.equal(temConteudo({ empresa: { nome: 'Minha empresa' }, itens: [] }), false, 'dado da empresa fica, não conta');
+  assert.equal(temConteudo({ cliente: { nome: 'Maria' } }), true);
+  assert.equal(temConteudo({ itens: [{ descricao: 'Pintura' }] }), true);
+  assert.equal(temConteudo({ itens: [{ valor: '10' }] }), true);
+  assert.equal(temConteudo({ observacoes: 'Não inclui massa.' }), true);
+});
+
+test('modelos.json: todo modelo carrega, sem preço, com unidade que o gerador oferece', () => {
+  const modelos = JSON.parse(readFileSync(new URL('../gerador-de-orcamento/modelos.json', import.meta.url), 'utf8'));
+  const slugs = Object.keys(modelos);
+  assert.ok(slugs.length > 0);
+  for (const slug of slugs) {
+    assert.equal(slugModelo(`?modelo=${slug}`), slug, `slug inválido: ${slug}`);
+    const bruto = modelos[slug], m = lerModelo(modelos, slug);
+    assert.ok(m && m.nome, slug);
+    assert.ok(m.observacoes.trim(), `${slug}: sem observações`);
+    assert.equal(m.observacoes, bruto.observacoes, `${slug}: observações passam do limite`);
+    assert.equal(m.itens.length, bruto.itens.length);
+    m.itens.forEach((it, i) => {
+      assert.ok(UNIDADES.includes(bruto.itens[i].unidade), `${slug}: unidade "${bruto.itens[i].unidade}"`);
+      assert.equal(it.descricao, bruto.itens[i].descricao, `${slug}: descrição passa do limite`);
+      assert.ok(it.descricao.trim(), `${slug}: item sem descrição`);
+      assert.ok(parseQuantidade(it.quantidade) > 0, `${slug}: quantidade "${it.quantidade}"`);
+      assert.equal(it.valor, '');
+      assert.ok(!('valor' in bruto.itens[i]), `${slug}: modelo não traz preço`);
+    });
+    // o modelo abre como um orçamento válido assim que a pessoa põe os preços
+    const r = calcular({ itens: m.itens.map((it) => ({ ...it, valor: '10' })) });
+    assert.equal(r.ok, true, slug);
+    assert.equal(r.validas, m.itens.length, slug);
+  }
+});

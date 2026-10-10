@@ -1,0 +1,49 @@
+/* Família cardapio-digital-para (pseo/cardapio.js). O modelo usa as cores dos três temas
+   do cardápio que o cliente vê (cardapio-digital/ver/), para parecer o resultado de verdade. */
+
+.cdp-menu {
+  --c-fundo: #FBF8F3; --c-texto: #231C17; --c-suave: #6B5E52; --c-linha: #E6DCCD;
+  --c-titulo: Georgia, "Times New Roman", serif;
+  background: var(--c-fundo); color: var(--c-texto);
+  border: 1px solid var(--line); border-radius: var(--radius-card);
+  padding: 28px 18px 12px; margin: var(--space-md) 0; max-width: 640px;
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow-wrap: anywhere;
+}
+.cdp-menu[data-tema="escuro"] { --c-fundo: #14120F; --c-texto: #F3EEE6; --c-suave: #B9AE9F; --c-linha: #3A342C; }
+.cdp-menu[data-tema="praia"] {
+  --c-fundo: #F2F9F8; --c-texto: #0E2A2F; --c-suave: #44606A; --c-linha: #D2E6E3;
+  --c-titulo: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.pseo .cdp-menu p, .pseo .cdp-menu li { color: var(--c-texto); margin: 0; }
+.pseo .cdp-menu .cdp-nome { font: 700 clamp(1.5rem, 6vw, 2rem)/1.15 var(--c-titulo); text-align: center; }
+.pseo .cdp-menu .cdp-topo { color: var(--c-suave); text-align: center; margin-top: 6px; }
+.pseo .cdp-menu .cdp-topo strong { color: var(--c-texto); }
+.pseo .cdp-menu h3 { font: 700 1.3rem/1.25 var(--c-titulo); color: var(--c-texto); margin: 24px 0 2px; }
+
+.cdp-itens { list-style: none; margin: 0; padding: 0; }
+.cdp-itens > li { padding: 10px 0; border-bottom: 1px solid var(--c-linha); }
+.cdp-itens > li:last-child { border-bottom: 0; }
+.cdp-linha { display: flex; align-items: baseline; gap: 12px; }
+.cdp-item { flex: 1; min-width: 0; font-weight: 600; }
+.cdp-preco { flex: none; font-size: 13px; font-style: italic; color: var(--c-suave); white-space: nowrap; }
+.pseo .cdp-menu .cdp-desc { color: var(--c-suave); font-size: 15px; margin-top: 2px; }
+.cdp-selos { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; margin: 6px 0 0; }
+.pseo .cdp-menu .cdp-selos li {
+  font-size: 12px; font-weight: 600; line-height: 1; padding: 5px 8px; border-radius: 999px;
+  border: 1px solid var(--c-linha); color: var(--c-suave);
+}
+
+.cdp-dicas { padding-left: 1.2em; }
+.cdp-dicas li + li { margin-top: 10px; }
+
+.pseo .cdp-lista a { flex-direction: column; align-items: flex-start; justify-content: center; gap: 2px; }
+.cdp-lista small { color: var(--muted); font-size: 14px; }
+
+@media (max-width: 380px) {
+  .cdp-linha { flex-wrap: wrap; gap: 0 12px; }
+}
+
+@media print {
+  .cdp-menu { border-color: #999; }
+}
