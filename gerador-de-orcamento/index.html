@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gerador de orçamento grátis em PDF, pronto para enviar</title>
+<meta name="description" content="Faça um orçamento profissional grátis: sua logo, itens, desconto, parcelas e validade. Imprima ou salve em PDF e mande pelo WhatsApp. Sem cadastro.">
+<link rel="canonical" href="https://thallisribeiro.com.br/gerador-de-orcamento/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gerador de orçamento grátis em PDF, pronto para enviar">
+<meta property="og:description" content="Faça um orçamento profissional grátis: sua logo, itens, desconto, parcelas e validade. Imprima ou salve em PDF e mande pelo WhatsApp. Sem cadastro.">
+<meta property="og:url" content="https://thallisribeiro.com.br/gerador-de-orcamento/">
+<meta property="og:image" content="https://thallisribeiro.com.br/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/gerador-de-orcamento/orcamento.css">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230B0F14'/%3E%3Crect x='10' y='14' width='44' height='4' rx='2' fill='%23E8A33D'/%3E%3Crect x='10' y='30' width='30' height='4' rx='2' fill='%238B949E'/%3E%3Crect x='10' y='46' width='18' height='4' rx='2' fill='%238B949E'/%3E%3C/svg%3E">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-247F9N1WQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-247F9N1WQE');
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Gerador de orçamento grátis em PDF",
+  "url": "https://thallisribeiro.com.br/gerador-de-orcamento/",
+  "description": "Monta um orçamento profissional com logo, itens, desconto, frete, parcelas e validade, pronto para imprimir ou salvar em PDF e com resumo para o WhatsApp. Funciona no navegador, sem cadastro.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Qualquer navegador",
+  "inLanguage": "pt-BR",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" },
+  "creator": { "@type": "Person", "name": "Thallis Ribeiro", "url": "https://thallisribeiro.com.br/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Como fazer um orçamento que fecha?", "acceptedAnswer": { "@type": "Answer", "text": "Responda rápido, enquanto o cliente ainda está decidindo. Descreva cada item com as palavras do cliente: \"Pintura das paredes da sala (40 m²), duas demãos\" explica mais que \"Serviço de pintura\". Separe material e mão de obra e escreva nas observações o que não está incluso, para não virar discussão depois. Deixe claros o prazo, a validade e uma opção de parcelamento. Mande o PDF com uma mensagem curta e, um ou dois dias antes de a validade acabar, pergunte se ficou alguma dúvida." } },
+    { "@type": "Question", "name": "Precisa de CNPJ para fazer orçamento?", "acceptedAnswer": { "@type": "Answer", "text": "Não. Orçamento é uma proposta de preço e pode sair no nome de uma pessoa, com CPF, ou de uma empresa, com CNPJ. Aqui o campo de documento é opcional. Nota fiscal é outra coisa: se o cliente pedir nota, as regras dependem da sua cidade e de como você trabalha (MEI, autônomo ou empresa). Nesse caso, confirme com um contador." } },
+    { "@type": "Question", "name": "Orçamento tem validade jurídica?", "acceptedAnswer": { "@type": "Answer", "text": "Tem peso, sim. Para quem presta serviço ao consumidor, o Código de Defesa do Consumidor (art. 40) diz que o orçamento deve detalhar mão de obra, materiais e equipamentos, condições de pagamento e as datas de início e término do serviço; se não disser a validade, ela é de 10 dias a partir de quando o cliente recebe; e, depois de aprovado pelo cliente, o orçamento obriga as duas partes e só muda se as duas concordarem. Fora da relação de consumo, o Código Civil (art. 427) diz que a proposta obriga quem a fez, salvo se ela mesma, a natureza do negócio ou as circunstâncias disserem o contrário. Guarde a aprovação do cliente por escrito. Este gerador não substitui um contrato nem a orientação de um advogado, que vale a pena em serviço grande ou longo." } },
+    { "@type": "Question", "name": "Como mandar o orçamento em PDF pelo celular?", "acceptedAnswer": { "@type": "Answer", "text": "Toque em Imprimir / salvar PDF. No Android, na tela que abre, troque a impressora por Salvar como PDF e toque no botão de baixar. No iPhone, na tela de impressão, toque no botão de compartilhar e escolha Salvar em Arquivos, ou mande direto para o WhatsApp. Depois, na conversa com o cliente, toque no clipe, escolha Documento e o PDF. O botão Enviar resumo pelo WhatsApp manda um texto curto com o total, e o PDF vai em seguida na mesma conversa. Os nomes dos botões mudam um pouco de um celular para outro." } },
+    { "@type": "Question", "name": "Onde ficam os dados que eu digito?", "acceptedAnswer": { "@type": "Answer", "text": "Só neste aparelho. O orçamento é montado no seu navegador e o que você digita não sai dele: não tem cadastro e nada vai para servidor. O rascunho, a logo e o último número usado ficam guardados neste navegador para você não perder o trabalho; numa aba anônima, ou se você limpar os dados do navegador, isso some. A página usa o Google Analytics para contar visitas, como o resto do site, mas o conteúdo do orçamento não vai junto." } },
+    { "@type": "Question", "name": "Posso usar a minha própria numeração?", "acceptedAnswer": { "@type": "Answer", "text": "Pode. O número começa em ORC-0001 e sobe sozinho a cada Novo orçamento, contando neste aparelho. Você pode apagar e escrever o número que quiser; o próximo continua a partir do maior número usado. Em outro celular ou computador a contagem começa do zero, então confira antes de mandar." } }
+  ]
+}
+</script>
+</head>
+<body class="oc" data-page-ev="tool_orcamento_viewed">
+
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="nav nav-landing">
+  <div class="nav-inner">
+    <a class="logo-wrap oc-nav-home" href="/">
+      <span class="logo-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="logo">Thallis Ribeiro</span>
+    </a>
+    <div class="nav-actions">
+      <a class="oc-nav-link" href="/ferramentas/">Ferramentas grátis</a>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <section class="oc-topo">
+    <div class="oc-inner">
+      <p class="oc-kicker">Ferramenta grátis · sem cadastro</p>
+      <h1 class="oc-h1">Gerador de orçamento grátis (PDF pronto para enviar)</h1>
+      <p class="oc-lead">Preencha sua empresa, o cliente e os itens. O total, o desconto e as parcelas são calculados na hora, e o orçamento sai num documento limpo, com a sua logo, para imprimir, salvar em PDF ou mandar pelo WhatsApp.</p>
+      <p class="oc-privado">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 9.6 8 11 4.6-1.4 8-6 8-11V5l-8-3Zm-1.2 14.2-3.5-3.5 1.4-1.4 2.1 2.1 4.6-4.6 1.4 1.4-6 6Z"/></svg>
+        <span>O que você digita não sai do seu navegador.</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="oc-ferramenta" aria-label="Gerador de orçamento">
+    <div class="oc-inner oc-grade">
+
+      <form id="oc-form" class="oc-editor" novalidate>
+
+        <div class="oc-caixa">
+          <h2>Sua empresa</h2>
+          <div class="oc-campo">
+            <label for="emp-nome">Nome da empresa ou o seu nome</label>
+            <input id="emp-nome" data-campo="empresa.nome" type="text" maxlength="120" autocomplete="organization">
+          </div>
+          <div class="oc-campo">
+            <label for="emp-doc">CNPJ ou CPF <span class="oc-dica">(opcional)</span></label>
+            <input id="emp-doc" data-campo="empresa.documento" type="text" maxlength="40" autocomplete="off">
+          </div>
+          <div class="oc-campo">
+            <label for="emp-contato">Contato</label>
+            <textarea id="emp-contato" data-campo="empresa.contato" rows="2" maxlength="300" aria-describedby="emp-contato-dica"></textarea>
+            <p class="oc-dica" id="emp-contato-dica">Telefone, e-mail, Instagram ou endereço. Uma informação por linha.</p>
+          </div>
+          <div class="oc-campo">
+            <label for="logo">Logo <span class="oc-dica">(opcional)</span></label>
+            <input id="logo" type="file" accept="image/*" aria-describedby="logo-dica logo-erro">
+            <p class="oc-dica" id="logo-dica">A imagem fica só neste aparelho e é reduzida para no máximo 600 px, para o PDF ficar leve.</p>
+            <p class="oc-erro" id="logo-erro" role="alert"></p>
+            <div class="oc-logo" id="logo-caixa" hidden>
+              <img id="logo-mini" alt="Logo escolhida">
+              <button type="button" class="oc-mini" id="logo-remover">Remover logo</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="oc-caixa">
+          <h2>Orçamento e cliente</h2>
+          <div class="oc-dois">
+            <div class="oc-campo">
+              <label for="numero">Número</label>
+              <input id="numero" data-campo="numero" type="text" maxlength="30" autocomplete="off">
+            </div>
+            <div class="oc-campo">
+              <label for="emissao">Data</label>
+              <input id="emissao" data-campo="emissao" type="date" aria-describedby="emissao-erro">
+              <p class="oc-erro" id="emissao-erro" role="alert"></p>
+            </div>
+          </div>
+          <div class="oc-campo">
+            <label for="validade">Válido por quantos dias</label>
+            <input id="validade" data-campo="validadeDias" type="text" inputmode="numeric" maxlength="3" autocomplete="off" aria-describedby="validade-dica validade-erro">
+            <p class="oc-dica" id="validade-dica" aria-live="polite"></p>
+            <p class="oc-erro" id="validade-erro" role="alert"></p>
+          </div>
+          <div class="oc-campo">
+            <label for="cli-nome">Nome do cliente</label>
+            <input id="cli-nome" data-campo="cliente.nome" type="text" maxlength="120" autocomplete="off">
+          </div>
+          <div class="oc-campo">
+            <label for="cli-contato">Contato do cliente <span class="oc-dica">(opcional)</span></label>
+            <textarea id="cli-contato" data-campo="cliente.contato" rows="2" maxlength="300"></textarea>
+          </div>
+        </div>
+
+        <div class="oc-caixa">
+          <h2 id="itens-titulo">Itens</h2>
+          <ol class="oc-itens" id="itens" aria-labelledby="itens-titulo"></ol>
+          <button type="button" class="btn btn-ghost oc-add" id="adicionar">+ Adicionar item</button>
+        </div>
+
+        <div class="oc-caixa">
+          <h2>Desconto e frete</h2>
+          <div class="oc-campo">
+            <label for="desconto">Desconto <span class="oc-dica">(opcional)</span></label>
+            <div class="oc-junto">
+              <input id="desconto" data-campo="desconto.valor" type="text" inputmode="decimal" autocomplete="off" aria-describedby="desconto-erro">
+              <label class="visually-hidden" for="desconto-tipo">Desconto em reais ou em percentual</label>
+              <select id="desconto-tipo" data-campo="desconto.tipo">
+                <option value="valor">R$</option>
+                <option value="percentual">%</option>
+              </select>
+            </div>
+            <p class="oc-erro" id="desconto-erro" role="alert"></p>
+          </div>
+          <div class="oc-campo">
+            <label for="acrescimo">Frete ou acréscimo (R$) <span class="oc-dica">(opcional)</span></label>
+            <input id="acrescimo" data-campo="acrescimo" type="text" inputmode="decimal" autocomplete="off" aria-describedby="acrescimo-erro">
+            <p class="oc-erro" id="acrescimo-erro" role="alert"></p>
+          </div>
+        </div>
+
+        <div class="oc-caixa">
+          <h2>Condições</h2>
+          <fieldset class="oc-campo">
+            <legend>Pagamento</legend>
+            <div class="oc-opcoes">
+              <label><input type="radio" name="pag-tipo" data-campo="pagamento.tipo" value="avista"> À vista</label>
+              <label><input type="radio" name="pag-tipo" data-campo="pagamento.tipo" value="parcelado"> Entrada + parcelas</label>
+            </div>
+          </fieldset>
+          <div id="parcelado" hidden>
+            <div class="oc-campo">
+              <label for="entrada">Entrada <span class="oc-dica">(deixe em branco se não tiver)</span></label>
+              <div class="oc-junto">
+                <input id="entrada" data-campo="pagamento.entrada.valor" type="text" inputmode="decimal" autocomplete="off" aria-describedby="entrada-erro">
+                <label class="visually-hidden" for="entrada-tipo">Entrada em reais ou em percentual</label>
+                <select id="entrada-tipo" data-campo="pagamento.entrada.tipo">
+                  <option value="percentual">%</option>
+                  <option value="valor">R$</option>
+                </select>
+              </div>
+              <p class="oc-erro" id="entrada-erro" role="alert"></p>
+            </div>
+            <div class="oc-campo">
+              <label for="parcelas">Número de parcelas</label>
+              <select id="parcelas" data-campo="pagamento.parcelas"></select>
+            </div>
+          </div>
+          <div class="oc-campo">
+            <label for="forma">Formas de pagamento <span class="oc-dica">(opcional)</span></label>
+            <input id="forma" data-campo="pagamento.forma" type="text" maxlength="150" placeholder="Pix, cartão ou boleto" autocomplete="off">
+          </div>
+          <div class="oc-campo">
+            <label for="prazo">Prazo de execução <span class="oc-dica">(opcional)</span></label>
+            <input id="prazo" data-campo="prazo" type="text" maxlength="150" placeholder="10 dias úteis após a aprovação" autocomplete="off">
+          </div>
+          <div class="oc-campo">
+            <label for="obs">Observações <span class="oc-dica">(opcional)</span></label>
+            <textarea id="obs" data-campo="observacoes" rows="4" maxlength="2000" aria-describedby="obs-dica"></textarea>
+            <p class="oc-dica" id="obs-dica">Bom lugar para dizer o que não está incluso, garantia e como o cliente aprova.</p>
+          </div>
+        </div>
+      </form>
+
+      <section class="oc-previa" aria-labelledby="previa-titulo">
+        <h2 id="previa-titulo">Prévia do orçamento</h2>
+        <div class="oc-acoes">
+          <button type="button" class="btn btn-primary" id="imprimir">Imprimir / salvar PDF</button>
+          <button type="button" class="btn btn-ghost" id="whats">Enviar resumo pelo WhatsApp <span class="visually-hidden">(abre o WhatsApp em outra aba)</span></button>
+          <button type="button" class="btn btn-ghost" id="novo">Novo orçamento</button>
+        </div>
+        <p class="oc-dica">No celular, toque em Imprimir e escolha &ldquo;Salvar como PDF&rdquo;. O resumo do WhatsApp abre sem número: você escolhe o cliente na lista.</p>
+        <p class="oc-aviso" id="aviso" role="status"></p>
+        <p class="visually-hidden" id="status" role="status"></p>
+
+        <article class="oc-doc" id="doc" aria-label="Documento do orçamento">
+          <header class="oc-doc-topo">
+            <div class="oc-doc-emp">
+              <img id="d-logo" alt="" hidden>
+              <div>
+                <p class="oc-doc-nome" id="d-emp-nome"></p>
+                <p class="apagado" id="d-emp-doc"></p>
+                <p class="pre apagado" id="d-emp-contato"></p>
+              </div>
+            </div>
+            <div class="oc-doc-id">
+              <p class="oc-doc-tit">Orçamento</p>
+              <p id="d-numero"></p>
+              <p class="apagado" id="d-emissao"></p>
+              <p id="d-validade"></p>
+            </div>
+          </header>
+          <div class="oc-doc-cli" id="d-cli">
+            <p class="oc-rot">Para</p>
+            <p id="d-cli-nome"></p>
+            <p class="pre apagado" id="d-cli-contato"></p>
+          </div>
+          <table>
+            <thead><tr><th class="n" scope="col">#</th><th scope="col">Descrição</th><th class="num" scope="col">Qtd.</th><th class="num" scope="col">Valor unit.</th><th class="num" scope="col">Subtotal</th></tr></thead>
+            <tbody id="d-itens"></tbody>
+          </table>
+          <dl class="oc-doc-totais" id="d-totais"></dl>
+          <div class="oc-doc-bloco" id="d-cond"></div>
+          <div class="oc-doc-bloco" id="d-obs" hidden>
+            <p class="oc-rot">Observações</p>
+            <p class="pre" id="d-obs-texto"></p>
+          </div>
+          <div class="oc-doc-assina">
+            <p>De acordo (assinatura do cliente)</p>
+            <p class="data">Data</p>
+          </div>
+        </article>
+      </section>
+
+    </div>
+  </section>
+
+  <section class="oc-oferta" id="site-completo" aria-labelledby="oferta-titulo">
+    <div class="oc-inner oc-caixa">
+      <h2 id="oferta-titulo">O orçamento está pronto. E se o pedido já chegasse pronto também?</h2>
+      <ul>
+        <li><strong>Pedido de orçamento pelo site:</strong> o cliente conta o que precisa (medidas, endereço, prazo) num formulário curto, e a mensagem chega organizada no seu WhatsApp, sem o vai e volta de perguntas.</li>
+        <li><strong>Serviços, fotos de trabalhos feitos e o que está incluso</strong> numa página só: o cliente chega na conversa já sabendo o que você faz.</li>
+        <li><strong>Aparecer no Google</strong> para quem procura o seu serviço na sua cidade, e não só para quem já tem o seu número.</li>
+      </ul>
+      <p class="oc-preco">Site profissional a partir de R$&nbsp;997, no ar em 7 dias.</p>
+      <a class="btn btn-ghost btn-lg" href="https://wa.me/5573988899345?text=Quero%20um%20site%20que%20j%C3%A1%20mande%20or%C3%A7amento%20para%20os%20clientes%20%5Borcamento%5D" target="_blank" rel="noopener">Quero um site assim</a>
+      <p class="nota-canal">Você será direcionado ao WhatsApp. Quem responde sou eu.</p>
+    </div>
+  </section>
+
+  <section class="oc-texto" aria-labelledby="como-titulo">
+    <div class="oc-inner">
+      <h2 id="como-titulo">Como funciona</h2>
+      <ol class="oc-passos">
+        <li><strong>Preencha a sua empresa e o cliente.</strong> A logo é opcional. Os dados da empresa ficam guardados neste aparelho para o próximo orçamento.</li>
+        <li><strong>Adicione os itens.</strong> Quantidade, unidade e valor de cada um. Subtotal, desconto, frete, total e parcelas aparecem na hora.</li>
+        <li><strong>Imprima, salve em PDF ou mande.</strong> O documento sai em A4, sem os botões da página, e o resumo vai pronto para o WhatsApp.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="oc-texto" aria-labelledby="faq-titulo">
+    <div class="oc-inner">
+      <h2 id="faq-titulo">Perguntas frequentes</h2>
+      <div class="faq">
+        <details>
+          <summary>Como fazer um orçamento que fecha?</summary>
+          <p>Responda rápido, enquanto o cliente ainda está decidindo. Descreva cada item com as palavras do cliente: &ldquo;Pintura das paredes da sala (40 m²), duas demãos&rdquo; explica mais que &ldquo;Serviço de pintura&rdquo;. Separe material e mão de obra e escreva nas observações o que não está incluso, para não virar discussão depois. Deixe claros o prazo, a validade e uma opção de parcelamento. Mande o PDF com uma mensagem curta e, um ou dois dias antes de a validade acabar, pergunte se ficou alguma dúvida.</p>
+        </details>
+        <details>
+          <summary>Precisa de CNPJ para fazer orçamento?</summary>
+          <p>Não. Orçamento é uma proposta de preço e pode sair no nome de uma pessoa, com CPF, ou de uma empresa, com CNPJ. Aqui o campo de documento é opcional. Nota fiscal é outra coisa: se o cliente pedir nota, as regras dependem da sua cidade e de como você trabalha (MEI, autônomo ou empresa). Nesse caso, confirme com um contador.</p>
+        </details>
+        <details>
+          <summary>Orçamento tem validade jurídica?</summary>
+          <p>Tem peso, sim. Para quem presta serviço ao consumidor, o <a href="https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm" target="_blank" rel="noopener">Código de Defesa do Consumidor (art. 40)</a> diz que o orçamento deve detalhar mão de obra, materiais e equipamentos, condições de pagamento e as datas de início e término do serviço; se não disser a validade, ela é de 10 dias a partir de quando o cliente recebe; e, depois de aprovado pelo cliente, o orçamento obriga as duas partes e só muda se as duas concordarem. Fora da relação de consumo, o <a href="https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm" target="_blank" rel="noopener">Código Civil (art. 427)</a> diz que a proposta obriga quem a fez, salvo se ela mesma, a natureza do negócio ou as circunstâncias disserem o contrário.</p>
+          <p>Guarde a aprovação do cliente por escrito: a assinatura no espaço &ldquo;De acordo&rdquo; do PDF ou uma mensagem dizendo que aprova. Este gerador não substitui um contrato nem a orientação de um advogado, que vale a pena em serviço grande ou longo.</p>
+        </details>
+        <details>
+          <summary>Como mandar o orçamento em PDF pelo celular?</summary>
+          <p>Toque em <strong>Imprimir / salvar PDF</strong>. No Android, na tela que abre, troque a impressora por &ldquo;Salvar como PDF&rdquo; e toque no botão de baixar. No iPhone, na tela de impressão, toque no botão de compartilhar e escolha &ldquo;Salvar em Arquivos&rdquo;, ou mande direto para o WhatsApp. Depois, na conversa com o cliente, toque no clipe, escolha &ldquo;Documento&rdquo; e o PDF.</p>
+          <p>O botão <strong>Enviar resumo pelo WhatsApp</strong> manda um texto curto com o total, e o PDF vai em seguida na mesma conversa. Os nomes dos botões mudam um pouco de um celular para outro.</p>
+        </details>
+        <details>
+          <summary>Onde ficam os dados que eu digito?</summary>
+          <p>Só neste aparelho. O orçamento é montado no seu navegador e o que você digita não sai dele: não tem cadastro e nada vai para servidor. O rascunho, a logo e o último número usado ficam guardados neste navegador para você não perder o trabalho; numa aba anônima, ou se você limpar os dados do navegador, isso some. A página usa o Google Analytics para contar visitas, como o resto do site, mas o conteúdo do orçamento não vai junto.</p>
+        </details>
+        <details>
+          <summary>Posso usar a minha própria numeração?</summary>
+          <p>Pode. O número começa em ORC-0001 e sobe sozinho a cada <strong>Novo orçamento</strong>, contando neste aparelho. Você pode apagar e escrever o número que quiser; o próximo continua a partir do maior número usado. Em outro celular ou computador a contagem começa do zero, então confira antes de mandar.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="oc-texto" aria-labelledby="fontes-titulo">
+    <div class="oc-inner">
+      <h2 id="fontes-titulo">Fontes</h2>
+      <ul class="oc-fontes">
+        <li>Orçamento prévio, validade de 10 dias quando não houver outra e aprovação que obriga as partes: <a href="https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm" target="_blank" rel="noopener">Lei nº 8.078/1990 (Código de Defesa do Consumidor), art. 40</a>, texto compilado no Planalto, consultado em 10/10/2026.</li>
+        <li>A proposta obriga quem a fez: <a href="https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm" target="_blank" rel="noopener">Lei nº 10.406/2002 (Código Civil), art. 427</a>, texto compilado no Planalto, consultado em 10/10/2026.</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span>Thallis Ribeiro · 2026</span>
+  <a href="/">Início</a>
+  <a href="/ferramentas/">Ferramentas grátis</a>
+  <a href="/blog/">Blog</a>
+</footer>
+
+<template id="tpl-item">
+  <li class="oc-item">
+    <div class="oc-item-grade" role="group">
+      <p class="oc-item-tit"></p>
+      <div class="oc-item-acoes">
+        <button type="button" class="oc-mini" data-acao="subir" title="Subir">&uarr;</button>
+        <button type="button" class="oc-mini" data-acao="descer" title="Descer">&darr;</button>
+        <button type="button" class="oc-mini oc-remover" data-acao="remover">Remover</button>
+      </div>
+      <div class="oc-f oc-f-desc"><label>Descrição</label><textarea name="descricao" rows="2" maxlength="500"></textarea></div>
+      <div class="oc-f oc-f-qtd"><label>Quantidade</label><input name="quantidade" type="text" inputmode="decimal" autocomplete="off"></div>
+      <div class="oc-f oc-f-un"><label>Unidade</label><select name="unidade"></select></div>
+      <div class="oc-f oc-f-valor"><label>Valor unitário (R$)</label><input name="valor" type="text" inputmode="decimal" autocomplete="off" placeholder="0,00"></div>
+      <p class="oc-sub"><span>Subtotal</span> <output></output></p>
+      <p class="oc-erro" role="alert"></p>
+    </div>
+  </li>
+</template>
+
+<script src="/assets/main.js" defer></script>
+<script type="module">
+import {
+  UNIDADES, ERROS, calcular, calcularPagamento, textoPagamento, formatValor, formatQuantidade, formatPercentual,
+  parseDias, somarDias, hojeISO, formatData, formatNumero, numeroDe, resumoWhatsApp, linkWhatsApp,
+} from '/gerador-de-orcamento/orcamento.mjs';
+
+const $ = (id) => document.getElementById(id);
+const form = $('oc-form'), lista = $('itens'), tpl = $('tpl-item');
+const K = 'ferramentas:orcamento', K_LOGO = K + ':logo', K_ULT = K + ':ultimo';
+const campos = [...form.querySelectorAll('[data-campo]')];
+const pega = (o, p) => p.split('.').reduce((a, k) => a?.[k], o);
+const poe = (o, p, v) => { const ks = p.split('.'), u = ks.pop(); ks.reduce((a, k) => (a[k] ??= {}), o)[u] = v; };
+
+let idItem = 0;
+const novoItem = () => ({ id: ++idItem, descricao: '', quantidade: '1', unidade: 'un', valor: '' });
+const novoEstado = () => ({
+  numero: '', emissao: hojeISO(), validadeDias: '15',
+  empresa: { nome: '', documento: '', contato: '' }, cliente: { nome: '', contato: '' },
+  itens: [novoItem()], desconto: { tipo: 'valor', valor: '' }, acrescimo: '',
+  pagamento: { tipo: 'avista', entrada: { tipo: 'percentual', valor: '' }, parcelas: '2', forma: '' },
+  prazo: '', observacoes: '',
+});
+
+let estado = novoEstado(), logo = '', tudo = false;
+const tocados = new Set(); // erro só aparece depois que a pessoa sai do campo (ou tenta imprimir)
+
+for (let n = 1; n <= 24; n++) $('parcelas').append(new Option(String(n), String(n)));
+
+// ---------- rascunho (conveniência: se o navegador negar, a página funciona igual) ----------
+const ultimo = () => { try { return Number(localStorage.getItem(K_ULT)) || 0; } catch { return 0; } };
+function proximoNumero() {
+  const n = Math.max(ultimo(), numeroDe(estado.numero)) + 1;
+  try { localStorage.setItem(K_ULT, String(n)); } catch {}
+  return formatNumero(n);
+}
+function salva() {
+  try { localStorage.setItem(K, JSON.stringify(estado)); } catch {}
+}
+function restaura() {
+  let s = null;
+  try { s = JSON.parse(localStorage.getItem(K) || 'null'); logo = localStorage.getItem(K_LOGO) || ''; } catch {}
+  if (!/^data:image\/(png|jpeg);base64,/.test(logo)) logo = '';
+  if (!s || typeof s !== 'object') { estado.numero = proximoNumero(); return; }
+  for (const el of campos) { const v = pega(s, el.dataset.campo); if (typeof v === 'string') poe(estado, el.dataset.campo, v); }
+  if (Array.isArray(s.itens) && s.itens.length) {
+    estado.itens = s.itens.slice(0, 200).map((it) => {
+      const n = novoItem();
+      for (const k of ['descricao', 'quantidade', 'unidade', 'valor']) if (typeof it?.[k] === 'string') n[k] = it[k];
+      return n;
+    });
+  }
+  if (!estado.numero) estado.numero = proximoNumero();
+}
+
+function preencheForm() {
+  for (const el of campos) {
+    const v = pega(estado, el.dataset.campo) ?? '';
+    if (el.type === 'radio') el.checked = el.value === v; else el.value = v;
+    // rascunho com opção que não existe mais: volta para a primeira
+    if (el.tagName === 'SELECT' && el.selectedIndex < 0) { el.selectedIndex = 0; poe(estado, el.dataset.campo, el.value); }
+  }
+  if (!form.querySelector('[name=pag-tipo]:checked')) { form.querySelector('[name=pag-tipo]').checked = true; estado.pagamento.tipo = 'avista'; }
+}
+
+// ---------- itens ----------
+function renderItens(foco) {
+  lista.replaceChildren(...estado.itens.map((it, i) => {
+    const li = tpl.content.firstElementChild.cloneNode(true), p = `item-${it.id}`, n = i + 1;
+    li.dataset.id = it.id;
+    const tit = li.querySelector('.oc-item-tit');
+    tit.id = `${p}-tit`; tit.textContent = `Item ${n}`;
+    li.querySelector('[role=group]').setAttribute('aria-labelledby', tit.id);
+    const erro = li.querySelector('.oc-erro');
+    erro.id = `${p}-erro`;
+    const un = li.querySelector('[name=unidade]');
+    for (const u of UNIDADES) un.append(new Option(u, u));
+    if (!UNIDADES.includes(it.unidade)) it.unidade = 'un';
+    for (const f of li.querySelectorAll('[name]')) {
+      f.id = `${p}-${f.name}`;
+      f.closest('.oc-f').querySelector('label').htmlFor = f.id;
+      f.value = it[f.name];
+      if (f.name !== 'unidade') f.setAttribute('aria-describedby', erro.id);
+    }
+    const [subir, descer, remover] = li.querySelectorAll('[data-acao]');
+    subir.setAttribute('aria-label', `Subir item ${n}`);
+    descer.setAttribute('aria-label', `Descer item ${n}`);
+    remover.setAttribute('aria-label', `Remover item ${n}`);
+    subir.setAttribute('aria-disabled', String(i === 0));
+    descer.setAttribute('aria-disabled', String(i === estado.itens.length - 1));
+    return li;
+  }));
+  if (foco) foco();
+}
+
+lista.addEventListener('click', (e) => {
+  const b = e.target.closest('[data-acao]');
+  if (!b || b.getAttribute('aria-disabled') === 'true') return;
+  const i = estado.itens.findIndex((it) => it.id === +b.closest('li').dataset.id), acao = b.dataset.acao;
+  if (acao === 'remover') {
+    estado.itens.splice(i, 1);
+    const j = Math.min(i, estado.itens.length - 1);
+    renderItens(() => (j >= 0 ? lista.children[j].querySelector('[data-acao=remover]') : $('adicionar')).focus());
+    anuncia(`Item ${i + 1} removido.`);
+  } else {
+    const j = acao === 'subir' ? i - 1 : i + 1;
+    [estado.itens[i], estado.itens[j]] = [estado.itens[j], estado.itens[i]];
+    renderItens(() => lista.children[j].querySelector(`[data-acao=${acao}]`).focus());
+    anuncia(`Item movido para a posição ${j + 1}.`);
+  }
+  atualiza(); salva();
+});
+
+$('adicionar').addEventListener('click', () => {
+  estado.itens.push(novoItem());
+  renderItens(() => lista.lastElementChild.querySelector('textarea').focus());
+  atualiza(); salva();
+});
+
+// ---------- entrada do formulário ----------
+function guarda(el) {
+  const li = el.closest('.oc-item');
+  if (li) {
+    const it = estado.itens.find((x) => x.id === +li.dataset.id);
+    if (it && el.name in it) it[el.name] = el.value;
+    return `${li.dataset.id}:${el.name}`;
+  }
+  if (el.dataset.campo && (el.type !== 'radio' || el.checked)) poe(estado, el.dataset.campo, el.value);
+  return el.dataset.campo;
+}
+form.addEventListener('input', (e) => { guarda(e.target); atualiza(); salva(); });
+form.addEventListener('change', (e) => {
+  const chave = guarda(e.target);
+  if (chave) tocados.add(chave);
+  atualiza(); salva();
+});
+
+// ---------- erros ----------
+const visivel = (chave) => tudo || tocados.has(chave);
+function sinal(campo, msgEl, msg, mostra) {
+  const v = Boolean(msg && mostra);
+  if (campo) campo.setAttribute('aria-invalid', String(v));
+  const t = v ? msg : '';
+  if (msgEl.textContent !== t) msgEl.textContent = t;
+}
+const CAMPO_DO_ERRO = { descricao: 'descricao', quantidade: 'quantidade', 'quantidade-zero': 'quantidade', valor: 'valor', grande: 'valor' };
+
+// ---------- prévia ----------
+const linha = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; e.textContent = txt; return e; };
+const texto = (id, t) => { const e = $(id); e.textContent = t; e.hidden = !t; };
+function rotuloDoc(d) {
+  const limpo = d.replace(/[^0-9A-Za-z]/g, '');
+  return limpo.length === 11 ? `CPF ${d}` : limpo.length === 14 ? `CNPJ ${d}` : d;
+}
+
+function atualiza() {
+  const r = calcular(estado), ate = somarDias(estado.emissao, parseDias(estado.validadeDias));
+
+  // editor
+  r.linhas.forEach((l, i) => {
+    const li = lista.children[i], it = estado.itens[i];
+    if (!li) return;
+    li.querySelector('output').textContent = l.vazia || l.erros.length ? '—' : formatValor(l.subtotal);
+    const mostrados = l.erros.filter((c) => visivel(`${it.id}:${CAMPO_DO_ERRO[c]}`));
+    for (const nome of ['descricao', 'quantidade', 'valor'])
+      li.querySelector(`[name=${nome}]`).setAttribute('aria-invalid', String(mostrados.some((c) => CAMPO_DO_ERRO[c] === nome)));
+    sinal(null, li.querySelector('.oc-erro'), mostrados.map((c) => ERROS[c]).join(' '), true);
+  });
+  sinal($('desconto'), $('desconto-erro'), ERROS[r.erros.desconto], visivel('desconto.valor') || visivel('desconto.tipo'));
+  sinal($('acrescimo'), $('acrescimo-erro'), ERROS[r.erros.acrescimo], visivel('acrescimo'));
+  sinal($('emissao'), $('emissao-erro'), estado.emissao ? '' : 'Escolha a data do orçamento.', visivel('emissao'));
+  sinal($('validade'), $('validade-erro'), parseDias(estado.validadeDias) ? '' : ERROS.dias, visivel('validadeDias'));
+  $('validade-dica').textContent = ate ? `Vale até ${formatData(ate)}.` : '';
+  const parcelado = estado.pagamento.tipo === 'parcelado';
+  $('parcelado').hidden = !parcelado;
+  const pag = calcularPagamento(r.total, estado.pagamento);
+  sinal($('entrada'), $('entrada-erro'), parcelado && ERROS[pag.erro], visivel('pagamento.entrada.valor') || visivel('pagamento.entrada.tipo'));
+
+  // documento
+  $('d-logo').hidden = !logo;
+  if (logo) $('d-logo').src = logo;
+  texto('d-emp-nome', estado.empresa.nome.trim());
+  texto('d-emp-doc', rotuloDoc(estado.empresa.documento.trim()));
+  texto('d-emp-contato', estado.empresa.contato.trim());
+  texto('d-numero', estado.numero.trim() && `Nº ${estado.numero.trim()}`);
+  texto('d-emissao', formatData(estado.emissao) && `Emitido em ${formatData(estado.emissao)}`);
+  texto('d-validade', ate && `Válido até ${formatData(ate)}`);
+  texto('d-cli-nome', estado.cliente.nome.trim());
+  texto('d-cli-contato', estado.cliente.contato.trim());
+  $('d-cli').hidden = !estado.cliente.nome.trim() && !estado.cliente.contato.trim();
+
+  const validas = r.linhas.filter((l) => !l.vazia && !l.erros.length);
+  $('d-itens').replaceChildren(...validas.map((l, i) => {
+    const tr = document.createElement('tr');
+    tr.append(linha('td', 'n', String(i + 1)), linha('td', 'desc', l.descricao),
+      linha('td', 'num qtd', `${formatQuantidade(l.quantidade)} ${l.unidade}`),
+      linha('td', 'num unit', formatValor(l.valor)), linha('td', 'num sub', formatValor(l.subtotal)));
+    return tr;
+  }));
+  if (!validas.length) {
+    const tr = document.createElement('tr'), td = linha('td', '', 'Os itens que você preencher aparecem aqui.');
+    tr.className = 'vazio oc-so-tela'; td.colSpan = 5; tr.append(td);
+    $('d-itens').append(tr);
+  }
+
+  const tot = [];
+  if (r.desconto || r.acrescimo) tot.push(['Subtotal', formatValor(r.subtotal)]);
+  if (r.desconto) tot.push([r.percentual === null ? 'Desconto' : `Desconto (${formatPercentual(r.percentual)})`, '-' + formatValor(r.desconto)]);
+  if (r.acrescimo) tot.push(['Frete/acréscimo', formatValor(r.acrescimo)]);
+  tot.push(['Total', formatValor(r.total)]);
+  $('d-totais').replaceChildren(...tot.flatMap(([a, b], i) => {
+    const ult = i === tot.length - 1 ? 'total' : '';
+    return [linha('dt', ult, a), linha('dd', ult, b)];
+  }));
+
+  const cond = [
+    ['Pagamento', textoPagamento(r.total, estado.pagamento)],
+    ['Formas de pagamento', estado.pagamento.forma.trim()],
+    ['Prazo de execução', estado.prazo.trim()],
+  ].filter(([, v]) => v);
+  $('d-cond').replaceChildren(...cond.map(([a, b]) => {
+    const p = document.createElement('p');
+    p.append(linha('strong', '', `${a}: `), b);
+    return p;
+  }));
+  $('d-cond').hidden = !cond.length;
+  texto('d-obs-texto', estado.observacoes.trim());
+  $('d-obs').hidden = !estado.observacoes.trim();
+
+  const avisos = [];
+  if (r.comErro) avisos.push(r.comErro === 1 ? '1 item com erro ficou fora do orçamento.' : `${r.comErro} itens com erro ficaram fora do orçamento.`);
+  if (r.erros.total) avisos.push(ERROS.grande);
+  const a = avisos.join(' ');
+  if ($('aviso').textContent !== a) $('aviso').textContent = a;
+  return { r, pag, ate };
+}
+
+const anuncia = (msg) => { $('status').textContent = msg; };
+
+// Imprimir e mandar só com orçamento inteiro: item com erro sumiria do PDF sem ninguém notar.
+function pronto() {
+  const { r, pag, ate } = atualiza();
+  if (r.ok && r.validas && !pag.erro && ate) return true;
+  tudo = true;
+  atualiza();
+  $('aviso').textContent = r.validas ? 'Corrija os campos marcados em vermelho antes de continuar.' : 'Preencha pelo menos um item com descrição e valor.';
+  const alvo = form.querySelector('[aria-invalid="true"]') || lista.querySelector('textarea') || $('adicionar');
+  alvo.focus();
+  return false;
+}
+
+$('imprimir').addEventListener('click', () => { if (pronto()) window.print(); });
+// Nome do PDF salvo = título da página. Só o número, nada do cliente, porque o título também
+// aparece no Analytics.
+const tituloOriginal = document.title;
+addEventListener('beforeprint', () => { document.title = `Orçamento ${estado.numero.trim() || ''}`.trim(); });
+addEventListener('afterprint', () => { document.title = tituloOriginal; });
+
+// <button> com window.open, e não <a href="wa.me">: o main.js conta clique em link wa.me como
+// contato com o Thallis, e o envio do dono do negócio para o cliente não pode entrar nessa conta.
+$('whats').addEventListener('click', () => {
+  if (pronto()) window.open(linkWhatsApp(resumoWhatsApp(estado)), '_blank', 'noopener');
+});
+
+$('novo').addEventListener('click', () => {
+  const temAlgo = estado.cliente.nome.trim() || estado.itens.some((i) => i.descricao.trim() || i.valor.trim());
+  if (temAlgo && !confirm('Começar um orçamento novo? O cliente, os itens e as observações deste vão ser apagados. Os dados da sua empresa e a logo continuam.')) return;
+  const { empresa, validadeDias, pagamento } = estado, numero = proximoNumero();
+  estado = { ...novoEstado(), empresa, validadeDias, numero };
+  estado.pagamento.forma = pagamento.forma;
+  tudo = false; tocados.clear();
+  preencheForm(); renderItens(); atualiza(); salva();
+  anuncia(`Orçamento ${numero} começado. Os dados da empresa foram mantidos.`);
+  $('cli-nome').focus();
+});
+
+// ---------- logo: lida e reduzida aqui mesmo, nunca enviada ----------
+const LADO_MAX = 600;
+$('logo').addEventListener('change', () => {
+  const arq = $('logo').files[0], erro = (m) => { $('logo-erro').textContent = m; $('logo').value = ''; };
+  $('logo-erro').textContent = '';
+  if (!arq) return;
+  if (!arq.type.startsWith('image/')) return erro('Escolha um arquivo de imagem (PNG, JPG ou SVG).');
+  if (arq.size > 15e6) return erro('Imagem grande demais. Use uma de até 15 MB.');
+  const leitor = new FileReader();
+  leitor.onerror = () => erro('Não deu para ler essa imagem. Tente outra.');
+  leitor.onload = () => {
+    const img = new Image();
+    img.onerror = () => erro('Não deu para abrir essa imagem. Tente salvar como PNG ou JPG.');
+    img.onload = () => {
+      const w = img.naturalWidth || LADO_MAX, h = img.naturalHeight || LADO_MAX, k = Math.min(1, LADO_MAX / Math.max(w, h));
+      const cv = document.createElement('canvas');
+      cv.width = Math.max(1, Math.round(w * k)); cv.height = Math.max(1, Math.round(h * k));
+      cv.getContext('2d').drawImage(img, 0, 0, cv.width, cv.height);
+      // JPG continua JPG (foto fica leve); o resto vira PNG para não perder o fundo transparente.
+      logo = arq.type === 'image/jpeg' ? cv.toDataURL('image/jpeg', 0.85) : cv.toDataURL('image/png');
+      try { localStorage.setItem(K_LOGO, logo); } catch {}
+      mostraLogo(); atualiza();
+    };
+    img.src = leitor.result;
+  };
+  leitor.readAsDataURL(arq);
+});
+function mostraLogo() {
+  $('logo-caixa').hidden = !logo;
+  if (logo) $('logo-mini').src = logo;
+}
+$('logo-remover').addEventListener('click', () => {
+  logo = ''; $('logo').value = '';
+  try { localStorage.removeItem(K_LOGO); } catch {}
+  mostraLogo(); atualiza();
+  $('logo').focus();
+});
+
+restaura();
+preencheForm();
+renderItens();
+mostraLogo();
+atualiza();
+salva();
+</script>
+</body>
+</html>

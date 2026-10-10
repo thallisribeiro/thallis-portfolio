@@ -1,0 +1,54 @@
+/* Gerador de QR Code Pix. A base (.wz-*) vem do ferramenta.css do gerador de link do WhatsApp;
+   aqui só o que esta ferramenta tem a mais: resumo, aviso de teste, conferência e o cartaz. */
+
+.wz textarea#descricao { min-height: 72px; }
+.wz-resultado h2, .wz-campo { scroll-margin-top: 96px; } /* o cabeçalho fixo não cobre o título nem o campo com erro ao focar */
+.wz textarea#conferir-texto { min-height: 110px; font: 14px/1.5 ui-monospace, SFMono-Regular, Consolas, monospace; }
+
+.px-resumo { list-style: none; margin: 0 0 var(--space-sm); padding: 0; display: grid; gap: 4px; font-size: 15px; color: var(--muted); }
+.px-resumo strong { color: var(--text); font-weight: 600; overflow-wrap: anywhere; }
+
+.px-teste {
+  margin: var(--space-md) 0 0; padding: 14px 16px; border-radius: var(--radius-btn);
+  border: 1px solid rgba(232,163,61,.45); background: rgba(232,163,61,.08); color: var(--text); font-size: 15px;
+}
+.px-teste strong { display: block; font-family: var(--font-display); font-size: 1.02rem; margin-bottom: 4px; }
+
+.px-ok { font-size: 14px; color: var(--muted); margin: 10px 0 0; }
+.px-ok::before { content: "✓ "; color: var(--ok); font-weight: 700; }
+
+.px-tamanho { display: flex; flex-wrap: wrap; gap: 4px 18px; border: 0; padding: 0; margin: 0 0 6px; min-width: 0; }
+.px-tamanho legend { font-weight: 600; margin-bottom: 4px; padding: 0; }
+.px-tamanho label { display: flex; align-items: center; gap: 10px; min-height: 44px; cursor: pointer; }
+.px-tamanho input { width: 20px; height: 20px; accent-color: var(--primary); }
+
+.px-conferir { padding: 0 var(--space-md) clamp(48px, 8vw, 80px); }
+.px-conferir .btn { min-height: 44px; padding: 10px 18px; font-size: 15px; }
+.wz .footer a { min-width: 44px; justify-content: center; }
+.px-conferir .wz-caixa { max-width: 760px; }
+.px-campos { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 16px; margin: var(--space-sm) 0 0; font-size: 15px; }
+.px-campos dt { color: var(--muted); }
+.px-campos dd { margin: 0; color: var(--text); overflow-wrap: anywhere; }
+@media (max-width: 400px) { .px-campos { grid-template-columns: minmax(0, 1fr); } .px-campos dd { margin-bottom: 8px; } }
+
+/* ---------- cartaz (só aparece na impressão) ---------- */
+.cz { display: none; }
+
+@media print {
+  body.px-imprimindo { background: #fff !important; color: #000 !important; }
+  body.px-imprimindo > :not(#cartaz) { display: none !important; }
+  body.px-imprimindo #cartaz {
+    display: flex !important; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+    gap: 4mm; --u: 1mm; break-inside: avoid; /* sem min-height: 100vh, que pode empurrar uma 2ª página em branco */
+  }
+  body.px-imprimindo #cartaz.cz-a4 { --u: 1.4mm; }
+  body.px-imprimindo #cartaz * { color: #000 !important; } /* o style.css pinta p e afins de claro, para o fundo escuro */
+  .cz-titulo { font: 800 calc(var(--u) * 11) / 1.05 var(--font-display); margin: 0; letter-spacing: -.02em; }
+  .cz-nome { font: 600 calc(var(--u) * 6) / 1.2 var(--font-display); margin: 0; max-width: 100%; overflow-wrap: anywhere; }
+  .cz-qr svg { width: calc(var(--u) * 100); height: auto; display: block; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .cz-valor { font: 700 calc(var(--u) * 7) / 1.1 var(--font-body); margin: 0; }
+  .cz-valor:empty { display: none; }
+  .cz-chave { font: 400 calc(var(--u) * 3.6) / 1.35 var(--font-body); margin: 0; max-width: 100%; overflow-wrap: anywhere; }
+  .cz-chave strong { display: block; font-size: calc(var(--u) * 4.6); font-weight: 600; }
+  .cz-instrucao { font: 400 calc(var(--u) * 3.2) / 1.35 var(--font-body); margin: 0; max-width: 80%; }
+}

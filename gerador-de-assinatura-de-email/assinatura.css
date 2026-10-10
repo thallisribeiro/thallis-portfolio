@@ -1,0 +1,34 @@
+/* Gerador de assinatura. A base (.wz-*) vem do /gerador-de-link-whatsapp/ferramenta.css, para as
+   ferramentas terem a mesma cara; aqui só o que esta página tem a mais. */
+
+.wz input[type="email"], .wz input[type="url"] {
+  width: 100%; min-height: 48px; padding: 10px 14px;
+  font: 16px/1.4 var(--font-body); color: var(--text);
+  background: var(--background); border: 1px solid #6E7681; border-radius: var(--radius-btn);
+}
+.wz input[type="color"] {
+  display: block; width: 88px; height: 48px; padding: 4px; cursor: pointer;
+  background: var(--background); border: 1px solid #6E7681; border-radius: var(--radius-btn);
+}
+.as-secao { margin-top: var(--space-md); padding-top: var(--space-md); border-top: 1px solid var(--line); }
+
+.as-previa {
+  width: 100%; height: 180px; display: block; border: 1px solid var(--line);
+  border-radius: var(--radius-btn); background: #fff;
+}
+.as-contador { font-size: 14px; color: var(--muted); margin: 8px 0 0; }
+.as-contador[data-estado="passou"] { color: #FF7B72; font-weight: 600; }
+.as-status { font-size: 15px; margin: 10px 0 0; }
+.as-status:empty { display: none; }
+.wz-resultado details { margin-top: var(--space-sm); }
+.wz-resultado summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; color: var(--muted); }
+.as-ir { display: inline-flex; align-items: center; min-height: 44px; }
+@media (min-width: 960px) { .as-resultado { position: sticky; top: 88px; } }
+
+.as-guias { display: grid; gap: var(--space-md); }
+@media (min-width: 768px) { .as-guias { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.as-guias h3 { font-size: 1.1rem; margin-bottom: 10px; }
+.as-guias ol { margin: 0 0 10px; padding-left: 22px; color: var(--muted); }
+.as-guias li { margin-bottom: 6px; }
+.as-guias li strong { color: var(--text); font-weight: 600; }
+.as-guias .wz-dica a, .as-guias a { color: var(--accent); }

@@ -1,0 +1,210 @@
+/* Gerador de orçamento. Tokens vêm do /style.css; aqui só o que a ferramenta precisa. */
+
+.oc { color-scheme: dark; }
+.oc [hidden] { display: none !important; } /* .btn declara display e venceria o [hidden] do navegador */
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+.oc-nav-home { color: var(--text); text-decoration: none; min-height: 44px; }
+.oc-nav-link { display: inline-flex; align-items: center; min-height: 44px; padding: 0 4px; color: var(--muted); font-size: 15px; text-decoration: none; }
+.oc-nav-link:hover { color: var(--text); text-decoration: underline; }
+
+.oc-topo { padding: clamp(40px, 8vw, 80px) var(--space-md) clamp(24px, 4vw, 36px); }
+.oc-inner { max-width: 1100px; margin: 0 auto; }
+.oc-kicker { font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+.oc-h1 {
+  font-weight: 800; font-size: clamp(1.9rem, 5.6vw, 3.3rem); line-height: 1.08;
+  letter-spacing: -.03em; text-wrap: balance; max-width: 22ch; margin-bottom: 18px;
+}
+.oc-lead { font-size: clamp(1.02rem, 2.2vw, 1.18rem); color: var(--muted); max-width: 60ch; }
+.oc-privado { display: flex; gap: 8px; align-items: flex-start; font-size: 15px; margin: 0; }
+.oc-privado svg { flex: none; margin-top: 3px; color: var(--ok); }
+
+/* ---------- ferramenta ---------- */
+.oc-ferramenta { padding: 0 var(--space-md) clamp(48px, 8vw, 80px); }
+.oc-ferramenta .oc-inner { max-width: 1280px; }
+.oc-grade { display: grid; gap: var(--space-md); align-items: start; }
+@media (min-width: 1100px) { .oc-grade { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); } }
+.oc-editor { display: grid; gap: var(--space-sm); min-width: 0; }
+
+.oc-caixa {
+  background: var(--secondary); border: 1px solid var(--line); border-radius: var(--radius-card);
+  padding: clamp(16px, 4vw, 26px); min-width: 0;
+}
+.oc-caixa h2 { font-size: 1.2rem; letter-spacing: -.01em; margin-bottom: var(--space-sm); }
+
+.oc-campo { margin-bottom: 16px; border: 0; padding: 0; min-width: 0; }
+.oc-campo:last-child { margin-bottom: 0; }
+.oc-campo > label, .oc-campo > legend, .oc-f > label { display: block; font-weight: 600; margin-bottom: 6px; padding: 0; }
+.oc-dica { font-size: 14px; color: var(--muted); margin: 6px 0 0; }
+.oc-dois { display: grid; gap: 0 12px; }
+@media (min-width: 600px) { .oc-dois { grid-template-columns: 1fr 1fr; } }
+
+.oc input:not([type="radio"]):not([type="file"]), .oc select, .oc textarea {
+  width: 100%; min-height: 48px; padding: 10px 12px;
+  font: 16px/1.4 var(--font-body); color: var(--text);
+  background: var(--background); border: 1px solid #6E7681; border-radius: var(--radius-btn);
+}
+.oc textarea { resize: vertical; min-height: 76px; }
+.oc input[type="file"] { font: 15px var(--font-body); color: var(--muted); max-width: 100%; min-height: 44px; }
+.oc input[type="file"]::file-selector-button {
+  min-height: 44px; margin-right: 10px; padding: 8px 14px; cursor: pointer;
+  font: 600 15px var(--font-body); color: var(--text); background: transparent; border: 1px solid #6E7681; border-radius: var(--radius-btn);
+}
+.oc [aria-invalid="true"] { border-color: #FF7B72 !important; border-width: 2px !important; }
+.oc :where(input, select, textarea, summary):focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+.oc-erro { color: #FF7B72; font-size: 15px; font-weight: 600; margin: 6px 0 0; }
+.oc-erro:empty { display: none; }
+
+/* valor + tipo (R$ ou %) lado a lado */
+.oc-junto { display: grid; grid-template-columns: minmax(0, 1fr) 5.5rem; gap: 8px; }
+
+.oc-opcoes { display: grid; gap: 4px; }
+.oc-opcoes label { display: flex; align-items: center; gap: 10px; min-height: 44px; cursor: pointer; }
+.oc-opcoes input { width: 20px; height: 20px; accent-color: var(--primary); flex: none; }
+
+.oc-logo { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 10px; }
+.oc-logo img { max-width: 140px; max-height: 64px; background: #fff; border-radius: 6px; padding: 4px; }
+
+/* ---------- itens: cartões empilhados no celular, linha compacta de 600 px para cima ---------- */
+.oc-itens { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 12px; }
+.oc-item-grade {
+  display: grid; gap: 10px 10px; padding: 12px; border: 1px solid #30363D; border-radius: 14px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas: "tit tit" "desc desc" "qtd un" "valor valor" "sub sub" "acoes acoes" "erro erro";
+}
+.oc-item-tit { grid-area: tit; margin: 0; font: 700 15px var(--font-display); align-self: center; }
+.oc-f-desc { grid-area: desc; } .oc-f-qtd { grid-area: qtd; } .oc-f-un { grid-area: un; } .oc-f-valor { grid-area: valor; }
+.oc-f { min-width: 0; }
+.oc-f > label { font-size: 14px; margin-bottom: 4px; }
+.oc-f-desc textarea { min-height: 48px; field-sizing: content; max-height: 12em; } /* cresce com o texto onde o navegador suporta */
+.oc-sub { grid-area: sub; margin: 0; font-size: 15px; color: var(--muted); align-self: center; }
+.oc-sub output { color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
+.oc-item-acoes { grid-area: acoes; display: flex; gap: 8px; }
+.oc-item-grade .oc-erro { grid-area: erro; margin: 0; }
+@media (min-width: 600px) {
+  .oc-item-grade {
+    grid-template-columns: 5.5rem 7rem minmax(0, 1fr) auto;
+    grid-template-areas: "tit acoes acoes acoes" "desc desc desc desc" "qtd un valor sub" "erro erro erro erro";
+  }
+  .oc-sub { align-self: end; padding-bottom: 12px; text-align: right; }
+  .oc-sub span { display: block; font-size: 13px; }
+}
+.oc-mini {
+  min-width: 44px; min-height: 44px; padding: 6px 12px; cursor: pointer; border-radius: 10px;
+  font: 600 15px var(--font-body); color: var(--text); background: transparent; border: 1px solid #6E7681;
+}
+.oc-mini:hover { border-color: var(--text); }
+.oc-mini[aria-disabled="true"] { opacity: .45; cursor: default; }
+.oc-mini.oc-remover { margin-left: auto; }
+
+.oc button.btn { cursor: pointer; }
+.oc button.btn-primary { border: 0; }
+.oc .btn-ghost { border: 1px solid #6E7681; color: var(--text); }
+.oc-acoes { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.oc-acoes .btn { min-height: 48px; padding: 12px 18px; font-size: 15px; }
+.oc-add { width: 100%; min-height: 48px; font-size: 15px; }
+
+/* ---------- prévia ---------- */
+.oc-previa { min-width: 0; display: grid; gap: 14px; }
+.oc-previa h2 { font-size: 1.2rem; }
+.oc-aviso { margin: 0; font-size: 15px; border-left: 3px solid #FF7B72; padding: 4px 0 4px 10px; }
+.oc-aviso:empty { display: none; }
+
+/* Fonte do sistema no documento: as fontes variáveis do site viram glifos Type3 no PDF do Chrome
+   e o arquivo passa de 6 MB. Com fonte do sistema ele fica leve para mandar no WhatsApp. */
+.oc-doc {
+  --tinta: #1F2328; --apagado: #57606A; --fio: #D0D7DE; --doc-fonte: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: #fff; color: var(--tinta); color-scheme: light; border-radius: 6px;
+  padding: clamp(16px, 4.5vw, 44px); font: 14px/1.45 var(--doc-fonte); box-shadow: var(--shadow-card);
+  overflow-wrap: anywhere; min-width: 0;
+}
+.oc-doc p { color: inherit; margin: 0; }
+.oc-doc .pre { white-space: pre-line; }
+.oc-doc .apagado { color: var(--apagado); }
+.oc-doc-topo { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 24px; padding-bottom: 16px; border-bottom: 2px solid var(--tinta); }
+.oc-doc-emp { display: flex; gap: 14px; align-items: flex-start; min-width: 0; flex: 1 1 260px; }
+.oc-doc-emp img { max-width: 120px; max-height: 72px; object-fit: contain; flex: none; }
+.oc-doc-nome { font: 700 1.25em/1.2 var(--doc-fonte); margin-bottom: 4px !important; }
+.oc-doc-id { text-align: right; flex: 0 1 auto; }
+.oc-doc-tit { font: 700 1.5em/1.1 var(--doc-fonte); letter-spacing: .04em; text-transform: uppercase; margin-bottom: 6px !important; }
+.oc-doc-cli { padding: 14px 0; }
+.oc-rot { font-size: .78em; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--apagado) !important; }
+
+.oc-doc table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.oc-doc th { text-align: left; font-size: .8em; text-transform: uppercase; letter-spacing: .05em; color: var(--apagado); border-bottom: 1px solid var(--tinta); padding: 6px 6px; }
+.oc-doc td { padding: 8px 6px; border-bottom: 1px solid var(--fio); vertical-align: top; }
+.oc-doc .n { width: 2em; color: var(--apagado); padding-left: 0; }
+.oc-doc .num { text-align: right; white-space: nowrap; }
+.oc-doc .vazio td { color: var(--apagado); text-align: center; padding: 18px 0; }
+
+.oc-doc-totais { margin: 12px 0 0 auto; max-width: 300px; display: grid; grid-template-columns: 1fr auto; gap: 4px 0; font-variant-numeric: tabular-nums; }
+.oc-doc-totais dt { color: var(--apagado); }
+.oc-doc-totais dd { margin: 0; padding-left: 16px; text-align: right; white-space: nowrap; }
+.oc-doc-totais .total { font: 700 1.2em var(--doc-fonte); color: var(--tinta); border-top: 2px solid var(--tinta); padding-top: 6px; margin-top: 4px; }
+.oc-doc-bloco { margin-top: 18px; display: grid; gap: 6px; }
+.oc-doc-bloco p strong { font-weight: 600; }
+.oc-doc-assina { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 28px 40px; }
+.oc-doc-assina p { flex: 1 1 200px; border-top: 1px solid var(--tinta); padding-top: 6px; font-size: .85em; color: var(--apagado); }
+.oc-doc-assina p.data { flex: 0 1 140px; }
+
+/* Prévia estreita no celular: cada item vira duas linhas (descrição; qtd × valor = subtotal). */
+@media screen and (max-width: 599px) {
+  .oc-doc { font-size: 13px; }
+  .oc-doc-id { text-align: left; }
+  .oc-doc-emp { flex-direction: column; }
+  .oc-doc thead { display: none; }
+  .oc-doc tbody tr { display: grid; grid-template-columns: 1.6em auto minmax(0, 1fr) auto; grid-template-areas: "n desc desc desc" ". qtd unit sub"; border-bottom: 1px solid var(--fio); padding: 6px 0; }
+  .oc-doc tbody td { border: 0; padding: 2px 0; }
+  .oc-doc tbody .n { grid-area: n; } .oc-doc .desc { grid-area: desc; } .oc-doc .qtd { grid-area: qtd; }
+  .oc-doc .unit { grid-area: unit; text-align: left; padding-left: 6px; color: var(--apagado); }
+  .oc-doc .unit::before { content: "× "; }
+  .oc-doc .sub { grid-area: sub; padding-left: 8px; font-weight: 600; }
+  .oc-doc .qtd { color: var(--apagado); text-align: left; }
+  .oc-doc .vazio { display: block !important; }
+}
+
+/* ---------- impressão: só o documento, em A4 ---------- */
+@media print {
+  @page { size: A4; margin: 14mm 12mm; }
+  html, body { background: #fff !important; }
+  /* o granulado fixo do style.css vira uma imagem de página inteira em cada folha (PDF de 6 MB) */
+  body::before, body::after { display: none !important; }
+  body > :not(main), main > :not(.oc-ferramenta), .oc-editor, .oc-previa > :not(.oc-doc), .oc-so-tela { display: none !important; }
+  .oc-ferramenta, .oc-ferramenta .oc-inner, .oc-grade, .oc-previa { display: block; padding: 0; margin: 0; max-width: none; }
+  .oc-doc { box-shadow: none; border-radius: 0; padding: 0; font-size: 10pt; }
+  .oc-doc thead { display: table-header-group; } /* cabeçalho da tabela repete em cada página */
+  .oc-doc tr, .oc-doc-topo, .oc-doc-totais, .oc-doc-bloco, .oc-doc-assina { break-inside: avoid; }
+  .oc-doc-totais { break-before: avoid; }
+}
+
+/* ---------- oferta ---------- */
+.oc-oferta { padding: 0 var(--space-md) clamp(48px, 8vw, 80px); }
+.oc-oferta .oc-caixa { border-color: rgba(232,163,61,.3); }
+.oc-oferta h2 { font-size: clamp(1.3rem, 3vw, 1.6rem); }
+.oc-oferta ul { margin: 0 0 var(--space-sm); padding-left: 20px; color: var(--muted); max-width: 62ch; }
+.oc-oferta li { margin-bottom: 8px; }
+.oc-oferta li strong { color: var(--text); font-weight: 600; }
+.oc-oferta .oc-preco { font-weight: 600; }
+
+/* ---------- conteúdo ---------- */
+.oc-texto { padding: clamp(40px, 7vw, 72px) var(--space-md); border-top: 1px solid var(--line); }
+.oc-texto h2 { font-size: clamp(1.4rem, 3.4vw, 1.9rem); letter-spacing: -.02em; margin-bottom: var(--space-md); }
+.oc-passos { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-md); counter-reset: passo; }
+.oc-passos li { counter-increment: passo; padding-left: 48px; position: relative; color: var(--muted); }
+.oc-passos li::before {
+  content: counter(passo); position: absolute; left: 0; top: 0; width: 34px; height: 34px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid #6E7681; color: var(--text); font: 700 15px var(--font-display);
+}
+.oc-passos strong { display: block; color: var(--text); font-family: var(--font-display); font-size: 1.05rem; margin-bottom: 2px; }
+@media (min-width: 768px) { .oc-passos { grid-template-columns: repeat(3, 1fr); } }
+
+.oc .faq { max-width: 760px; }
+.oc .faq summary { display: block; padding: 10px 28px 10px 0; min-height: 44px; position: relative; }
+.oc .faq summary::after { position: absolute; right: 0; top: 10px; float: none; }
+.oc .faq p { margin-top: 8px; }
+.oc .faq a, .oc-fontes a { color: var(--accent); }
+.oc-fontes { font-size: 14px; color: var(--muted); max-width: 760px; }
+.oc-fontes li { margin-bottom: 6px; }
+.oc .footer a { display: inline-flex; align-items: center; min-height: 44px; }

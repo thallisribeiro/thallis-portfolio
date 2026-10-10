@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gerador de QR Code Pix grátis: copia e cola e cartaz para o balcão</title>
+<meta name="description" content="Gere grátis o QR Code Pix e o Pix copia e cola da sua chave, com ou sem valor, e imprima o cartaz do balcão. No padrão do Banco Central, sem cadastro.">
+<link rel="canonical" href="https://thallisribeiro.com.br/gerador-qr-code-pix/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gerador de QR Code Pix grátis: copia e cola e cartaz para o balcão">
+<meta property="og:description" content="Gere grátis o QR Code Pix e o Pix copia e cola da sua chave, com ou sem valor, e imprima o cartaz do balcão. No padrão do Banco Central, sem cadastro.">
+<meta property="og:url" content="https://thallisribeiro.com.br/gerador-qr-code-pix/">
+<meta property="og:image" content="https://thallisribeiro.com.br/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/gerador-de-link-whatsapp/ferramenta.css">
+<link rel="stylesheet" href="/gerador-qr-code-pix/pix.css">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230B0F14'/%3E%3Crect x='10' y='14' width='44' height='4' rx='2' fill='%23E8A33D'/%3E%3Crect x='10' y='30' width='30' height='4' rx='2' fill='%238B949E'/%3E%3Crect x='10' y='46' width='18' height='4' rx='2' fill='%238B949E'/%3E%3C/svg%3E">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-247F9N1WQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-247F9N1WQE');
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Gerador de QR Code Pix grátis",
+  "url": "https://thallisribeiro.com.br/gerador-qr-code-pix/",
+  "description": "Gera o QR Code Pix estático e o código Pix copia e cola de uma chave Pix, com ou sem valor, no padrão BR Code do Banco Central, e o cartaz para imprimir. Funciona no navegador, sem cadastro.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Qualquer navegador",
+  "inLanguage": "pt-BR",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" },
+  "creator": { "@type": "Person", "name": "Thallis Ribeiro", "url": "https://thallisribeiro.com.br/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "É seguro mostrar a minha chave Pix?", "acceptedAnswer": { "@type": "Answer", "text": "A chave serve só para receber: com ela ninguém tira dinheiro da sua conta. Quando o cliente lê o QR, o app dele mostra, antes de pagar, o seu nome e o CPF com parte escondida ou o CNPJ; agência e conta não aparecem. Mas a chave vai dentro do QR e escrita no cartaz: se ela for o seu celular ou e-mail, quem ler vê o número ou o e-mail. Se preferir não expor, crie uma chave aleatória no app do banco e use ela aqui. E confira de vez em quando se ninguém colou outro QR por cima do seu." } },
+    { "@type": "Question", "name": "Qual a diferença entre QR Code Pix estático e dinâmico?", "acceptedAnswer": { "@type": "Answer", "text": "Este gerador faz o QR estático: a chave, o valor e o identificador vão dentro do próprio desenho, e ele pode ser pago várias vezes, por qualquer pessoa. Não há confirmação automática: nem esta página nem o QR sabem se alguém pagou. Quem confirma é você, no app do seu banco, que tem de avisar cada Pix recebido. O QR dinâmico é gerado pelo banco ou pela maquininha a cada cobrança e guarda um endereço na internet com os dados dela; é isso que permite valor por pedido, vencimento e baixa automática. Para ter QR dinâmico, fale com o seu banco." } },
+    { "@type": "Question", "name": "Preciso de CNPJ para receber por Pix com QR Code?", "acceptedAnswer": { "@type": "Answer", "text": "Não. O QR funciona com qualquer chave Pix cadastrada na sua conta: CPF, celular, e-mail, chave aleatória ou CNPJ, inclusive o CNPJ novo, com letras. A diferença é o nome que o cliente vê antes de pagar: é o nome do dono da conta cadastrado no banco. Em conta de pessoa física aparece o seu nome; em conta com CNPJ, o nome fantasia da empresa, ou a razão social se não houver nome fantasia." } },
+    { "@type": "Question", "name": "Tem taxa para receber por Pix?", "acceptedAnswer": { "@type": "Answer", "text": "Este gerador é grátis e não fica com nada: o dinheiro vai direto do banco do cliente para o seu. Tarifa, se houver, é do seu banco, e segue a Resolução BCB nº 19/2020. O banco não pode cobrar de pessoa física, inclusive empresário individual, para enviar Pix nem para receber transferência. Pode cobrar de pessoa física quando ela recebe por uma venda (Pix com finalidade de compra) e pode cobrar de empresa (pessoa jurídica) para enviar e para receber. Quando existe, a tarifa tem de aparecer no comprovante, no extrato e na tabela de tarifas do banco." } },
+    { "@type": "Question", "name": "O QR Code Pix funciona em qualquer banco?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. O QR segue o padrão BR Code do Banco Central, e todo app que oferece Pix tem de ler QR Code e aceitar Pix Copia e Cola. Mesmo assim, faça um pagamento pequeno lendo o QR antes de imprimir: é o jeito de ter certeza de que a chave está certa e o dinheiro cai na sua conta." } },
+    { "@type": "Question", "name": "Por que o nome e a cidade aparecem sem acento ou cortados no QR?", "acceptedAnswer": { "@type": "Answer", "text": "O padrão do QR só aceita letras sem acento nesses campos e limita o nome a 25 caracteres e a cidade a 15. Isso não muda o pagamento: o dinheiro vai para a chave, e o app do cliente mostra o nome cadastrado no banco. No cartaz, o nome sai do jeito que você digitou." } },
+    { "@type": "Question", "name": "Vocês guardam a minha chave Pix?", "acceptedAnswer": { "@type": "Answer", "text": "Não. O QR e o código copia e cola são montados no seu navegador, e o que você digita não sai dele. O rascunho fica salvo só neste aparelho. A página usa o Google Analytics para contar visitas, como o resto do site, mas a chave e os valores não vão junto." } }
+  ]
+}
+</script>
+</head>
+<body class="wz" data-page-ev="tool_pix_viewed">
+
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="nav nav-landing">
+  <div class="nav-inner">
+    <a class="logo-wrap wz-nav-home" href="/">
+      <span class="logo-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="logo">Thallis Ribeiro</span>
+    </a>
+    <div class="nav-actions">
+      <a class="wz-nav-link" href="/ferramentas/">Ferramentas grátis</a>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <section class="wz-topo">
+    <div class="wz-inner">
+      <p class="wz-kicker">Ferramenta grátis · sem cadastro</p>
+      <h1 class="wz-h1">Gerador de QR Code Pix grátis</h1>
+      <p class="wz-lead">Digite a sua chave Pix e saia com o QR Code para o balcão, o código Pix copia e cola para mandar no WhatsApp e um cartaz pronto para imprimir. Segue o padrão do Banco Central e funciona em qualquer banco.</p>
+      <p class="wz-privado">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 9.6 8 11 4.6-1.4 8-6 8-11V5l-8-3Zm-1.2 14.2-3.5-3.5 1.4-1.4 2.1 2.1 4.6-4.6 1.4 1.4-6 6Z"/></svg>
+        <span>O que você digita não sai do seu navegador.</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="wz-ferramenta" aria-label="Gerador">
+    <div class="wz-inner wz-grade">
+
+      <form id="px-form" class="wz-caixa" novalidate>
+        <h2>Seus dados</h2>
+
+        <div class="wz-campo">
+          <label for="tipo">Tipo da chave Pix</label>
+          <select id="tipo" name="tipo">
+            <option value="">Descobrir pelo que eu digitar</option>
+            <option value="cpf">CPF</option>
+            <option value="cnpj">CNPJ</option>
+            <option value="celular">Celular</option>
+            <option value="email">E-mail</option>
+            <option value="aleatoria">Chave aleatória</option>
+          </select>
+        </div>
+
+        <div class="wz-campo">
+          <label for="chave">Chave Pix</label>
+          <input id="chave" name="chave" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="100" aria-describedby="chave-dica chave-erro chave-nota" aria-invalid="false">
+          <p class="wz-dica" id="chave-dica">Do jeito que aparece no app do banco, com ou sem pontos e traços.</p>
+          <p class="wz-erro" id="chave-erro" role="alert"></p>
+          <p class="wz-nota" id="chave-nota"></p>
+        </div>
+
+        <div class="wz-campo">
+          <label for="nome">Nome de quem recebe</label>
+          <input id="nome" name="nome" type="text" autocomplete="organization" maxlength="60" aria-describedby="nome-dica nome-erro nome-nota" aria-invalid="false">
+          <p class="wz-dica" id="nome-dica">O nome da loja ou o seu. Vai em destaque no cartaz.</p>
+          <p class="wz-erro" id="nome-erro" role="alert"></p>
+          <p class="wz-nota" id="nome-nota"></p>
+        </div>
+
+        <div class="wz-campo">
+          <label for="cidade">Cidade</label>
+          <input id="cidade" name="cidade" type="text" autocomplete="address-level2" maxlength="60" aria-describedby="cidade-erro cidade-nota" aria-invalid="false">
+          <p class="wz-erro" id="cidade-erro" role="alert"></p>
+          <p class="wz-nota" id="cidade-nota"></p>
+        </div>
+
+        <div class="wz-campo">
+          <label for="valor">Valor <span class="wz-dica">(opcional)</span></label>
+          <input id="valor" name="valor" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex.: 25,90" maxlength="20" aria-describedby="valor-dica valor-erro" aria-invalid="false">
+          <p class="wz-dica" id="valor-dica">Deixe em branco para o cliente digitar o valor. Preenchido, ele não consegue mudar: bom para produto de preço fixo.</p>
+          <p class="wz-erro" id="valor-erro" role="alert"></p>
+        </div>
+
+        <div class="wz-campo">
+          <label for="txid">Identificador <span class="wz-dica">(opcional)</span></label>
+          <input id="txid" name="txid" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="25" placeholder="Ex.: Mesa12" aria-describedby="txid-dica txid-erro" aria-invalid="false">
+          <p class="wz-dica" id="txid-dica">Aparece no aviso de Pix recebido e no comprovante, para você saber de onde veio o pagamento (uma mesa, um balcão, um produto). Só letras sem acento e números, até 25.</p>
+          <p class="wz-erro" id="txid-erro" role="alert"></p>
+        </div>
+
+        <div class="wz-campo">
+          <label for="descricao">Descrição <span class="wz-dica">(opcional)</span></label>
+          <textarea id="descricao" name="descricao" rows="2" maxlength="72" aria-describedby="descricao-dica descricao-erro"></textarea>
+          <p class="wz-dica" id="descricao-dica">O cliente vê ao ler o QR, como &ldquo;Almoço executivo&rdquo;. <span id="descricao-conta"></span></p>
+          <p class="wz-erro" id="descricao-erro" role="alert"></p>
+        </div>
+
+        <div class="wz-acoes">
+          <button type="submit" class="btn btn-primary btn-lg">Gerar QR Code</button>
+          <button type="button" class="wz-limpar" id="limpar">Apagar o que digitei</button>
+        </div>
+      </form>
+
+      <section class="wz-caixa wz-resultado" aria-labelledby="resultado-titulo">
+        <h2 id="resultado-titulo" tabindex="-1">Seu QR Code Pix</h2>
+        <p class="visually-hidden" role="status" id="status"></p>
+        <p class="wz-vazio" id="vazio">Digite a chave Pix, o nome e a cidade. O QR Code, o Pix copia e cola e o cartaz aparecem aqui.</p>
+
+        <div id="resultado" hidden>
+          <ul class="px-resumo">
+            <li>Chave (<span id="res-tipo"></span>): <strong id="res-chave"></strong></li>
+            <li>Valor: <strong id="res-valor"></strong></li>
+            <li id="res-txid-linha">Identificador: <strong id="res-txid"></strong></li>
+          </ul>
+
+          <div class="wz-qr">
+            <div id="qr-caixa">
+              <svg id="qr-svg" role="img" aria-label="QR Code Pix para pagar com o app do banco" viewBox="0 0 1 1" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#fff"/><path id="qr-path" fill="#000"/></svg>
+            </div>
+            <p class="wz-erro" id="qr-erro"></p>
+            <button type="button" class="btn btn-ghost" id="baixar-qr">Baixar QR (PNG)</button>
+          </div>
+
+          <p class="px-teste"><strong>Teste antes de imprimir</strong>Abra o app do banco em outro celular (ou peça para alguém), leia o QR e confira se aparece o seu nome. Depois faça um Pix pequeno, de R$&nbsp;1,00, e veja se o dinheiro caiu na sua conta.</p>
+
+          <h3>Pix copia e cola</h3>
+          <code class="wz-saida" id="payload"></code>
+          <div class="wz-acoes">
+            <button type="button" class="btn btn-ghost" id="copiar">Copiar código</button>
+          </div>
+          <p class="wz-dica">Para mandar no WhatsApp ou por e-mail: o cliente copia e cola na área Pix do app do banco.</p>
+          <p class="px-ok" id="conferido"></p>
+
+          <h3>Cartaz para o balcão</h3>
+          <fieldset class="px-tamanho">
+            <legend>Tamanho da folha</legend>
+            <label><input type="radio" name="folha" value="a5" form="px-form" checked> A5 (meia folha)</label>
+            <label><input type="radio" name="folha" value="a4" form="px-form"> A4</label>
+          </fieldset>
+          <div class="wz-acoes">
+            <button type="button" class="btn btn-ghost" id="imprimir">Imprimir cartaz para o balcão</button>
+          </div>
+          <p class="wz-dica">O cartaz tem o nome, &ldquo;Pague com Pix&rdquo;, o QR e a chave escrita. Na janela de impressão, escolha a impressora ou &ldquo;Salvar como PDF&rdquo;.</p>
+        </div>
+      </section>
+
+    </div>
+  </section>
+
+  <section class="px-conferir" aria-labelledby="conferir-titulo">
+    <div class="wz-inner wz-caixa">
+      <h2 id="conferir-titulo">Conferir um código Pix copia e cola</h2>
+      <p class="wz-dica">Cole um código (deste gerador, do seu banco ou de um cliente) para ver o que tem dentro e se o dígito de conferência bate.</p>
+      <div class="wz-campo">
+        <label for="conferir-texto">Código Pix copia e cola</label>
+        <textarea id="conferir-texto" rows="3" spellcheck="false" autocapitalize="none" maxlength="600" aria-describedby="conferir-saida"></textarea>
+      </div>
+      <div class="wz-acoes"><button type="button" class="btn btn-ghost" id="conferir">Conferir código</button></div>
+      <div id="conferir-saida" aria-live="polite">
+        <p id="conferir-status"></p>
+        <dl class="px-campos" id="conferir-campos" hidden></dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="wz-oferta" id="site-completo" aria-labelledby="oferta-titulo">
+    <div class="wz-inner wz-caixa">
+      <h2 id="oferta-titulo">O QR resolve o balcão. Um site resolve quem compra de longe.</h2>
+      <ul>
+        <li><strong>Cardápio ou catálogo com preço e o Pix copia e cola na página:</strong> o cliente paga sem precisar pedir a chave no WhatsApp.</li>
+        <li><strong>Quem procura no Google</strong> o seu serviço na sua cidade acha horário, endereço, fotos e como pagar.</li>
+        <li><strong>Pedido e pagamento no mesmo lugar:</strong> botão de WhatsApp com a mensagem certa e o Pix logo abaixo.</li>
+      </ul>
+      <p class="wz-preco">Site profissional a partir de R$&nbsp;997, no ar em 7 dias.</p>
+      <a class="btn btn-ghost btn-lg" href="https://wa.me/5573988899345?text=Quero%20um%20site%20que%20j%C3%A1%20receba%20por%20Pix%20%5Bpix%5D" target="_blank" rel="noopener">Quero um site que receba por Pix</a>
+      <p class="nota-canal">Você será direcionado ao WhatsApp. Quem responde sou eu.</p>
+    </div>
+  </section>
+
+  <section class="wz-texto" aria-labelledby="como-titulo">
+    <div class="wz-inner">
+      <h2 id="como-titulo">Como funciona</h2>
+      <ol class="wz-passos">
+        <li><strong>Digite a chave, o nome e a cidade.</strong> O gerador confere a chave: CPF e CNPJ pelos dígitos verificadores (inclusive o CNPJ novo, com letras), celular pelo DDD, e-mail e chave aleatória pelo formato do Banco Central.</li>
+        <li><strong>Valor só se for fixo.</strong> Em branco, o cliente digita o valor no app na hora de pagar. Preenchido, o app mostra o valor e o cliente não consegue mudar.</li>
+        <li><strong>Teste, baixe e imprima.</strong> Faça um Pix pequeno lendo o QR. Depois baixe a imagem, copie o código para o WhatsApp ou imprima o cartaz do balcão.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="wz-texto" aria-labelledby="faq-titulo">
+    <div class="wz-inner">
+      <h2 id="faq-titulo">Perguntas frequentes</h2>
+      <div class="faq">
+        <details>
+          <summary>É seguro mostrar a minha chave Pix?</summary>
+          <p>A chave serve só para receber: com ela ninguém tira dinheiro da sua conta. Quando o cliente lê o QR, o app dele mostra, antes de pagar, o seu nome e o CPF com parte escondida (como ***.777.888-**) ou o CNPJ; agência e conta não aparecem (<a href="https://www.bcb.gov.br/content/estabilidadefinanceira/pix/Regulamento_Pix/IV_RequisitosMinimosparaExperienciadoUsuario.pdf" target="_blank" rel="noopener">Requisitos Mínimos para a Experiência do Usuário, BCB</a>). Mas a chave vai dentro do QR e escrita no cartaz: se ela for o seu celular ou e-mail, quem ler vê o número ou o e-mail. Se preferir não expor, crie uma chave aleatória no app do banco e use ela aqui. E confira de vez em quando se ninguém colou outro QR por cima do seu.</p>
+        </details>
+        <details>
+          <summary>Qual a diferença entre QR Code Pix estático e dinâmico?</summary>
+          <p>Este gerador faz o <strong>QR estático</strong>: a chave, o valor e o identificador vão dentro do próprio desenho, e ele pode ser pago várias vezes, por qualquer pessoa. <strong>Não há confirmação automática:</strong> nem esta página nem o QR sabem se alguém pagou. Quem confirma é você, no app do seu banco, que tem de avisar cada Pix recebido. O <strong>QR dinâmico</strong> é gerado pelo banco ou pela maquininha a cada cobrança e guarda um endereço na internet com os dados dela; é isso que permite valor por pedido, vencimento e baixa automática. Para ter QR dinâmico, fale com o seu banco. (<a href="https://www.bcb.gov.br/content/estabilidadefinanceira/pix/Regulamento_Pix/II_ManualdePadroesparaIniciacaodoPix.pdf" target="_blank" rel="noopener">Manual de Padrões para Iniciação do Pix</a>, seção 2.4.)</p>
+        </details>
+        <details>
+          <summary>Preciso de CNPJ para receber por Pix com QR Code?</summary>
+          <p>Não. O QR funciona com qualquer chave Pix cadastrada na sua conta: CPF, celular, e-mail, chave aleatória ou CNPJ, inclusive o CNPJ novo, com letras. A diferença é o nome que o cliente vê antes de pagar: é o nome do dono da conta cadastrado no banco. Em conta de pessoa física aparece o seu nome; em conta com CNPJ, o nome fantasia da empresa, ou a razão social se não houver nome fantasia.</p>
+        </details>
+        <details>
+          <summary>Tem taxa para receber por Pix?</summary>
+          <p>Este gerador é grátis e não fica com nada: o dinheiro vai direto do banco do cliente para o seu. Tarifa, se houver, é do seu banco, e segue a <a href="https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&amp;numero=19" target="_blank" rel="noopener">Resolução BCB nº 19/2020</a> (texto vigente consultado em 10/10/2026). O banco <strong>não pode</strong> cobrar de pessoa física, inclusive empresário individual, para enviar Pix nem para receber transferência. <strong>Pode</strong> cobrar de pessoa física quando ela recebe por uma venda (Pix com finalidade de compra) e pode cobrar de empresa (pessoa jurídica) para enviar e para receber. Quando existe, a tarifa tem de aparecer no comprovante, no extrato e na tabela de tarifas do banco.</p>
+        </details>
+        <details>
+          <summary>O QR Code Pix funciona em qualquer banco?</summary>
+          <p>Sim. O QR segue o padrão BR Code do Banco Central, e todo app que oferece Pix tem de ler QR Code e aceitar Pix Copia e Cola (<a href="https://www.bcb.gov.br/content/estabilidadefinanceira/pix/Regulamento_Pix/IV_RequisitosMinimosparaExperienciadoUsuario.pdf" target="_blank" rel="noopener">Requisitos Mínimos para a Experiência do Usuário, BCB</a>). Mesmo assim, faça um pagamento pequeno lendo o QR antes de imprimir: é o jeito de ter certeza de que a chave está certa e o dinheiro cai na sua conta.</p>
+        </details>
+        <details>
+          <summary>Por que o nome e a cidade aparecem sem acento ou cortados no QR?</summary>
+          <p>O padrão do QR só aceita letras sem acento nesses campos e limita o nome a 25 caracteres e a cidade a 15. Isso não muda o pagamento: o dinheiro vai para a chave, e o app do cliente mostra o nome cadastrado no banco. No cartaz, o nome sai do jeito que você digitou.</p>
+        </details>
+        <details>
+          <summary>Vocês guardam a minha chave Pix?</summary>
+          <p>Não. O QR e o código copia e cola são montados no seu navegador, e o que você digita não sai dele. O rascunho fica salvo só neste aparelho. A página usa o Google Analytics para contar visitas, como o resto do site, mas a chave e os valores não vão junto.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="wz-texto" aria-labelledby="fontes-titulo">
+    <div class="wz-inner">
+      <h2 id="fontes-titulo">Fontes</h2>
+      <p class="wz-fontes">Todas consultadas em 10/10/2026.</p>
+      <ul class="wz-fontes">
+        <li>Formato do QR (campos 00, 26, 52, 53, 54, 58, 59, 60, 62 e o CRC16 do campo 63): <a href="https://www.bcb.gov.br/content/estabilidadefinanceira/spb_docs/ManualBRCode.pdf" target="_blank" rel="noopener">Manual do BR Code, versão 2.0.1, Banco Central</a>, que adota o padrão EMV QRCPS-MPM. O código gerado aqui reproduz, caractere por caractere, o exemplo de QR estático do manual do Pix.</li>
+        <li>Campos do Pix no QR estático (chave até 77 caracteres, descrição dividindo o espaço com a chave, identificador só com letras e números até 25, &ldquo;***&rdquo; quando não há identificador) e formato das chaves: <a href="https://www.bcb.gov.br/content/estabilidadefinanceira/pix/Regulamento_Pix/II_ManualdePadroesparaIniciacaodoPix.pdf" target="_blank" rel="noopener">Manual de Padrões para Iniciação do Pix, versão 2.10.0 (19/08/2026), Banco Central</a>, seções 2.4 a 2.6.</li>
+        <li>Regras de cada tipo de chave: <a href="https://www.bcb.gov.br/content/estabilidadefinanceira/pix/Regulamento_Pix/X_ManualOperacionaldoDICT.pdf" target="_blank" rel="noopener">Manual Operacional do DICT, versão 8.5</a> e <a href="https://www.bcb.gov.br/content/estabilidadefinanceira/pix/API-DICT.html" target="_blank" rel="noopener">especificação da API do DICT</a>, Banco Central. DDDs válidos: Anatel, os mesmos do <a href="/gerador-de-link-whatsapp/">gerador de link do WhatsApp</a>.</li>
+        <li>CNPJ com letras a partir de julho de 2026 e cálculo dos dígitos verificadores: <a href="https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/perguntas-e-respostas/cnpj/cnpj-alfanumerico.pdf" target="_blank" rel="noopener">Receita Federal, perguntas e respostas sobre o CNPJ alfanumérico</a>.</li>
+        <li>O que o cliente vê antes de pagar, aviso de Pix recebido com o identificador e obrigação de ler QR Code: <a href="https://www.bcb.gov.br/content/estabilidadefinanceira/pix/Regulamento_Pix/IV_RequisitosMinimosparaExperienciadoUsuario.pdf" target="_blank" rel="noopener">Requisitos Mínimos para a Experiência do Usuário, versão 7.3, Banco Central</a>.</li>
+        <li>Tarifas: <a href="https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&amp;numero=19" target="_blank" rel="noopener">Resolução BCB nº 19, de 1º/10/2020</a>, arts. 3º, 4º e 7º, com a redação da Resolução BCB nº 136/2021.</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span>Thallis Ribeiro · 2026</span>
+  <a href="/">Início</a>
+  <a href="/ferramentas/">Ferramentas grátis</a>
+  <a href="/blog/">Blog</a>
+</footer>
+
+<div id="cartaz" class="cz" aria-hidden="true">
+  <p class="cz-nome" id="cz-nome"></p>
+  <p class="cz-titulo">Pague com Pix</p>
+  <div class="cz-qr" id="cz-qr"></div>
+  <p class="cz-valor" id="cz-valor"></p>
+  <p class="cz-chave"><span id="cz-tipo"></span><strong id="cz-chave"></strong></p>
+  <p class="cz-instrucao">Abra o app do seu banco, entre na área Pix e escolha pagar com QR Code.</p>
+</div>
+
+<script src="/assets/ferramentas/qrcode.js" defer></script>
+<script src="/assets/main.js" defer></script>
+<script type="module">
+import { validateKey, buildPayload, parsePayload, parseValor, textoPix, maxDescricao, formataChave, ERROS } from '/gerador-qr-code-pix/pix.mjs';
+
+const $ = (id) => document.getElementById(id);
+const form = $('px-form');
+const C = { tipo: $('tipo'), chave: $('chave'), nome: $('nome'), cidade: $('cidade'), valor: $('valor'), txid: $('txid'), descricao: $('descricao') };
+const RASCUNHO = 'ferramentas:pix';
+const NOMES = { cpf: 'CPF', cnpj: 'CNPJ', celular: 'celular', email: 'e-mail', aleatoria: 'chave aleatória' };
+const reais = (n) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+// Valida um campo por vez: o resto vai com valores que passam, e o erro que sobrar é desse campo.
+const BASE = { key: '12345678909', name: 'a', city: 'a' };
+const erroDe = (dados) => { try { buildPayload({ ...BASE, ...dados }); return ''; } catch (e) { return e.message; } };
+let payload = '', qr = null, chave = null;
+
+function mostraErro(campo, codigo) {
+  C[campo].setAttribute('aria-invalid', codigo ? 'true' : 'false');
+  $(campo + '-erro').textContent = codigo ? ERROS[codigo] : '';
+}
+
+// Mostra como o texto vai dentro do QR quando muda (acento sai, corte no limite).
+function notaTexto(campo, max, motivo) {
+  const digitado = C[campo].value.trim().replace(/\s+/g, ' '), noQr = textoPix(digitado, max);
+  $(campo + '-nota').textContent = noQr && noQr !== digitado ? `No QR vai assim: “${noQr}”. ${motivo}` : '';
+}
+
+function desenhaQR(texto) {
+  qr = null;
+  try { const q = qrcode(0, 'M'); q.addData(texto); q.make(); qr = q; } catch {}
+  $('qr-caixa').hidden = !qr;
+  $('baixar-qr').hidden = !qr;
+  $('imprimir').hidden = !qr;
+  $('qr-erro').textContent = qr ? '' : 'Não deu para desenhar o QR agora. Recarregue a página. O código copia e cola abaixo funciona.';
+  if (!qr) return;
+  const n = qr.getModuleCount();
+  let d = '';
+  for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) if (qr.isDark(r, c)) d += `M${c + 4} ${r + 4}h1v1h-1z`;
+  $('qr-svg').setAttribute('viewBox', `0 0 ${n + 8} ${n + 8}`); // 4 módulos de margem branca de cada lado
+  $('qr-path').setAttribute('d', d);
+}
+
+function atualiza(mostrar) {
+  const k = validateKey(C.chave.value, C.tipo.value);
+  chave = k.error ? null : k;
+  const valor = parseValor(C.valor.value);
+  const max = chave ? maxDescricao(chave.value) : 72;
+  C.descricao.maxLength = max;
+  $('descricao-conta').textContent = `Até ${max} caracteres com essa chave; ${Math.max(0, max - textoPix(C.descricao.value, 99).length)} livres.`;
+  const erros = {
+    chave: k.error && (mostrar || C.chave.value.trim()) ? k.error : '',
+    nome: erroDe({ name: C.nome.value }),
+    cidade: erroDe({ city: C.cidade.value }),
+    valor: valor === null ? '' : erroDe({ amount: valor }),
+    txid: erroDe({ txid: C.txid.value }),
+    descricao: chave ? erroDe({ key: chave.value, description: C.descricao.value }) : '',
+  };
+  // Erro some assim que o campo fica certo, mas só aparece ao sair do campo ou ao enviar:
+  // reescrever o role="alert" a cada tecla faz o leitor de tela falar sem parar.
+  for (const [campo, codigo] of Object.entries(erros)) {
+    if (campo === 'descricao') { $('descricao-erro').textContent = codigo ? ERROS[codigo] : ''; continue; }
+    if (!codigo) mostraErro(campo, '');
+    else if (mostrar === true || mostrar === campo) mostraErro(campo, codigo);
+  }
+  $('chave-nota').textContent = chave ? `Chave reconhecida: ${NOMES[chave.type]} ${formataChave(chave.type, chave.value)}` : '';
+  notaTexto('nome', 25, 'O app do cliente mostra o nome cadastrado no banco, não esse.');
+  notaTexto('cidade', 15, 'Não muda nada no pagamento.');
+
+  const ok = chave && !Object.values(erros).some(Boolean);
+  payload = ok ? buildPayload({ key: chave.value, name: C.nome.value, city: C.cidade.value, amount: valor, txid: C.txid.value, description: C.descricao.value }) : '';
+  $('resultado').hidden = !ok;
+  $('vazio').hidden = ok;
+  if (!ok) { qr = null; return false; } // nada do QR anterior pode ser baixado ou impresso
+
+  $('res-tipo').textContent = NOMES[chave.type];
+  $('res-chave').textContent = formataChave(chave.type, chave.value);
+  $('res-valor').textContent = valor === null ? 'o cliente digita no app' : reais(valor) + ' (o cliente não muda)';
+  const txid = C.txid.value.trim();
+  $('res-txid-linha').hidden = !txid;
+  $('res-txid').textContent = txid;
+  $('payload').textContent = payload;
+  desenhaQR(payload);
+  const conf = parsePayload(payload);
+  $('conferido').textContent = conf.ok
+    ? `Conferido aqui: estrutura no padrão BR Code e dígito de conferência (CRC ${conf.crc.calculado}) certo.`
+    : ERROS['conferir_' + conf.erro];
+
+  $('cz-nome').textContent = C.nome.value.trim();
+  $('cz-valor').textContent = valor === null ? '' : reais(valor);
+  $('cz-tipo').textContent = 'Chave Pix (' + NOMES[chave.type] + ')';
+  $('cz-chave').textContent = formataChave(chave.type, chave.value);
+  $('cz-qr').replaceChildren(...(qr ? [$('qr-svg').cloneNode(true)] : []));
+  $('cz-qr').firstChild?.removeAttribute('id');
+  return true;
+}
+
+function salva() {
+  try {
+    const s = Object.fromEntries(Object.entries(C).map(([k, el]) => [k, el.value]));
+    s.folha = form.elements.folha.value;
+    localStorage.setItem(RASCUNHO, JSON.stringify(s));
+  } catch {}
+}
+
+try {
+  const s = JSON.parse(localStorage.getItem(RASCUNHO) || 'null');
+  if (s) {
+    for (const [k, el] of Object.entries(C)) if (typeof s[k] === 'string') el.value = s[k];
+    if (!C.tipo.value) C.tipo.value = '';
+    if (s.folha === 'a4') form.elements.folha.value = 'a4';
+  }
+} catch {}
+
+form.addEventListener('input', () => { atualiza(false); salva(); });
+form.addEventListener('change', (e) => {
+  const campo = Object.keys(C).find((k) => C[k] === e.target);
+  if (campo === 'tipo') atualiza(C.chave.value.trim() ? 'chave' : false);
+  else if (campo && C[campo].value.trim()) atualiza(campo);
+  salva();
+});
+$('resultado').addEventListener('change', salva); // radio da folha: ligado ao form por form=, mas o evento sobe por aqui
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  if (!atualiza(true)) {
+    const primeiro = Object.values(C).find((el) => el.getAttribute('aria-invalid') === 'true');
+    (primeiro || C.chave).focus();
+    return;
+  }
+  $('status').textContent = 'QR Code pronto. Teste com um Pix pequeno antes de imprimir.';
+  $('resultado-titulo').focus();
+});
+
+// Cópia própria: navegador dentro do Instagram às vezes nega a área de transferência, e aí o
+// código fica selecionado para a pessoa copiar na mão.
+$('copiar').addEventListener('click', async () => {
+  const b = $('copiar');
+  let ok = false;
+  try { await navigator.clipboard.writeText(payload); ok = true; } catch {
+    const faixa = document.createRange();
+    faixa.selectNodeContents($('payload'));
+    getSelection().removeAllRanges();
+    getSelection().addRange(faixa);
+    try { ok = document.execCommand('copy'); } catch {}
+  }
+  b.textContent = ok ? 'Copiado' : 'Código selecionado: copie no menu';
+  $('status').textContent = ok ? 'Código copiado.' : 'Não deu para copiar sozinho. O código ficou selecionado; copie pelo menu do celular.';
+  setTimeout(() => { b.textContent = 'Copiar código'; }, 2500);
+});
+
+$('limpar').addEventListener('click', () => {
+  form.reset();
+  try { localStorage.removeItem(RASCUNHO); } catch {}
+  for (const campo of ['chave', 'nome', 'cidade', 'valor', 'txid']) mostraErro(campo, '');
+  atualiza(false);
+  C.chave.focus();
+});
+
+$('baixar-qr').addEventListener('click', () => {
+  if (!qr) return;
+  const n = qr.getModuleCount(), lado = n + 8, px = Math.ceil(1024 / lado);
+  const cv = document.createElement('canvas');
+  cv.width = cv.height = lado * px;
+  const g = cv.getContext('2d');
+  g.fillStyle = '#fff'; g.fillRect(0, 0, cv.width, cv.height);
+  g.fillStyle = '#000';
+  for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) if (qr.isDark(r, c)) g.fillRect((c + 4) * px, (r + 4) * px, px, px);
+  cv.toBlob((blob) => {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'qr-code-pix.png';
+    document.body.append(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  }, 'image/png');
+});
+
+const pagina = document.head.appendChild(document.createElement('style'));
+$('imprimir').addEventListener('click', () => {
+  const a4 = form.elements.folha.value === 'a4';
+  pagina.textContent = `@media print { @page { size: ${a4 ? 'A4' : 'A5'} portrait; margin: 10mm; } }`;
+  $('cartaz').classList.toggle('cz-a4', a4);
+  document.body.classList.add('px-imprimindo');
+  window.print();
+});
+addEventListener('afterprint', () => document.body.classList.remove('px-imprimindo'));
+
+// Conferir um código colado: tudo que vem dele é texto do usuário, então só textContent.
+$('conferir').addEventListener('click', () => {
+  const r = parsePayload($('conferir-texto').value);
+  const dl = $('conferir-campos');
+  $('conferir-status').textContent = r.ok
+    ? `Código válido: estrutura no padrão BR Code e dígito de conferência (CRC ${r.crc.calculado}) certo.`
+    : ERROS['conferir_' + r.erro] + (r.erro === 'crc' ? ` (veio ${r.crc.informado}, deveria ser ${r.crc.calculado})` : '');
+  const linhas = r.pix ? [
+    ['Tipo de QR', r.pix.url ? 'dinâmico (os dados ficam no banco, neste endereço: ' + r.pix.url + ')' : 'estático'],
+    ['Chave Pix', r.pix.chave], ['Nome', r.pix.nome], ['Cidade', r.pix.cidade],
+    ['Valor', r.pix.valor ? reais(Number(r.pix.valor)) : r.pix.url ? 'vem do banco, na hora da leitura' : 'o cliente digita'],
+    ['Identificador', r.pix.txid && r.pix.txid !== '***' ? r.pix.txid : 'nenhum'], ['Descrição', r.pix.descricao],
+  ].filter(([, v]) => v) : [];
+  dl.replaceChildren(...linhas.flatMap(([t, v]) => {
+    const dt = document.createElement('dt'), dd = document.createElement('dd');
+    dt.textContent = t; dd.textContent = v;
+    return [dt, dd];
+  }));
+  dl.hidden = !linhas.length;
+});
+
+atualiza(false);
+</script>
+</body>
+</html>

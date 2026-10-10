@@ -1407,6 +1407,11 @@ body::after {
   opacity: .028;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
 }
+/* Impresso, o grão fixo vira uma imagem de página inteira em cada folha: o PDF de um
+   orçamento de 2 páginas ia de 112 KB a 6,5 MB. Papel não precisa de textura. */
+@media print {
+  body::before, body::after { display: none !important; }
+}
 
 /* ---------- 7. BARRA DE PROGRESSO DE LEITURA ----------
    Só onde faz sentido: página longa. Diz quanto falta sem ocupar espaço. */

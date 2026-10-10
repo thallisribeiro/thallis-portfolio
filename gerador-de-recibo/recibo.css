@@ -1,0 +1,140 @@
+/* Gerador de recibo. Tokens vêm do /style.css; aqui só o que a ferramenta precisa. */
+
+.rc { color-scheme: dark; }
+.rc [hidden] { display: none !important; } /* .btn declara display e venceria o [hidden] do navegador */
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+.rc-nav-home { color: var(--text); text-decoration: none; min-height: 44px; }
+.rc-nav-link { display: inline-flex; align-items: center; min-height: 44px; padding: 0 4px; color: var(--muted); font-size: 15px; text-decoration: none; }
+.rc-nav-link:hover { color: var(--text); text-decoration: underline; }
+
+.rc-topo { padding: clamp(40px, 8vw, 80px) var(--space-md) clamp(24px, 4vw, 36px); }
+.rc-inner { max-width: 1100px; margin: 0 auto; }
+.rc-kicker { font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+.rc-h1 {
+  font-weight: 800; font-size: clamp(1.9rem, 5.6vw, 3.3rem); line-height: 1.08;
+  letter-spacing: -.03em; text-wrap: balance; max-width: 22ch; margin-bottom: 18px;
+}
+.rc-lead { font-size: clamp(1.02rem, 2.2vw, 1.18rem); color: var(--muted); max-width: 60ch; }
+.rc-privado { display: flex; gap: 8px; align-items: flex-start; font-size: 15px; color: var(--text); margin: 0; }
+.rc-privado svg { flex: none; margin-top: 3px; color: var(--ok); }
+
+/* ---------- ferramenta ---------- */
+.rc-ferramenta { padding: 0 var(--space-md) clamp(48px, 8vw, 80px); }
+.rc-grade { display: grid; gap: var(--space-md); align-items: start; }
+@media (min-width: 960px) {
+  .rc-grade { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-lg); }
+  .rc-resultado { position: sticky; top: 16px; }
+}
+
+.rc-caixa {
+  background: var(--secondary); border: 1px solid var(--line); border-radius: var(--radius-card);
+  padding: clamp(18px, 4vw, 28px); min-width: 0;
+}
+.rc-caixa h2 { font-size: 1.3rem; letter-spacing: -.01em; margin-bottom: var(--space-sm); }
+
+.rc-grupo { border: 0; padding: 0; margin: 0 0 8px; min-width: 0; }
+.rc-grupo + .rc-grupo { border-top: 1px solid var(--line); padding-top: 20px; }
+.rc-grupo > legend { font: 700 1.05rem var(--font-display); padding: 0; margin-bottom: 14px; }
+
+.rc-campo { margin-bottom: 18px; min-width: 0; }
+.rc-campo > label { display: block; font-weight: 600; margin-bottom: 6px; }
+.rc-opcional { font-weight: 400; color: var(--muted); font-size: 14px; }
+.rc-dica { font-size: 14px; color: var(--muted); margin: 6px 0 0; }
+.rc-linha { display: grid; gap: 0 16px; }
+@media (min-width: 520px) { .rc-linha { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+
+.rc input, .rc select, .rc textarea {
+  width: 100%; min-height: 48px; padding: 10px 14px;
+  font: 16px/1.4 var(--font-body); color: var(--text);
+  background: var(--background); border: 1px solid #6E7681; border-radius: var(--radius-btn);
+}
+.rc textarea { resize: vertical; min-height: 96px; }
+.rc input[aria-invalid="true"], .rc textarea[aria-invalid="true"], .rc select[aria-invalid="true"] { border-color: #FF7B72; border-width: 2px; }
+.rc :where(input, select, textarea, summary):focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+.rc-erro { color: #FF7B72; font-size: 15px; font-weight: 600; margin: 6px 0 0; }
+.rc-erro:empty { display: none; }
+
+.rc-modelos { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.rc-chip {
+  min-height: 44px; padding: 8px 16px; border-radius: 999px; cursor: pointer;
+  font: 500 15px var(--font-body); color: var(--text); background: transparent; border: 1px solid #6E7681;
+}
+.rc-chip:hover { border-color: var(--text); }
+
+.rc button.btn { cursor: pointer; }
+.rc button.btn-primary { border: 0; }
+.rc .btn-ghost { border: 1px solid #6E7681; color: var(--text); }
+.rc-acoes { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 16px; }
+.rc-resultado .btn { min-height: 44px; padding: 12px 20px; font-size: 15px; }
+.rc-link-botao { background: none; border: 0; color: var(--muted); text-decoration: underline; font: 14px var(--font-body); min-height: 44px; padding: 0 4px; cursor: pointer; }
+.rc-link-botao:hover { color: var(--text); }
+
+.rc-resultado h2:focus { outline: none; }
+.rc-resultado h2:focus-visible { outline: 2px solid var(--primary); outline-offset: 4px; }
+.rc-copia { margin-top: 12px; min-height: 160px; font: 14px/1.5 ui-monospace, SFMono-Regular, Consolas, monospace; }
+
+/* ---------- o papel: mesma folha de estilo na prévia e na impressão ---------- */
+.rc-papel {
+  background: #fff; color: #1f2328; border-radius: 6px; padding: clamp(14px, 4vw, 26px);
+  font-size: clamp(12.5px, 3.4vw, 14px); box-shadow: 0 8px 24px rgba(0,0,0,.45);
+}
+.via { font-family: var(--font-body); line-height: 1.5; color: #1f2328; overflow-wrap: anywhere; }
+.via :where(p) { margin: 0; } /* especificidade baixa: as margens abaixo vencem sem !important */
+.via-topo { display: flex; justify-content: space-between; align-items: flex-start; gap: 1em; border-bottom: 2px solid #1f2328; padding-bottom: .6em; margin-bottom: 1em; }
+.via-titulo { font: 700 1.35em/1.2 var(--font-display); letter-spacing: .04em; }
+.via-qual { font-size: .8em; color: #57606a; text-transform: uppercase; letter-spacing: .08em; margin-top: .2em; }
+.via-valor { font: 700 1.35em/1.2 var(--font-display); white-space: nowrap; border: 1.5px solid #1f2328; border-radius: 4px; padding: .25em .55em; }
+.via-corpo { text-align: justify; hyphens: none; }
+.via-local { margin-top: 1em; text-align: right; }
+.via-assinatura { margin: 2.6em auto 0; max-width: 24em; text-align: center; }
+.via-linha { border-top: 1px solid #1f2328; margin-bottom: .35em; }
+.via-nome { font-weight: 600; }
+.via-doc, .via-end { font-size: .9em; color: #3d444d; }
+
+.rc-impressao { display: none; }
+
+@media print {
+  @page { size: A4; margin: 0; } /* margem 0: o navegador não imprime URL e data por cima do recibo */
+  html, body { background: #fff !important; }
+  body > :not(.rc-impressao) { display: none !important; }
+  .rc-impressao { display: block !important; padding: 12mm 16mm 0; font-size: 10.5pt; }
+  .rc-impressao .via { height: 126mm; overflow: hidden; break-inside: avoid; }
+  .via, .via * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .rc-corte { height: 14mm; display: flex; align-items: center; gap: 3mm; color: #57606a; font-size: 8pt; }
+  .rc-corte::before, .rc-corte::after { content: ""; flex: 1; border-top: 1px dashed #8c959f; }
+  .rc-impressao-vazia { font-size: 14pt; }
+}
+
+/* ---------- oferta ---------- */
+.rc-oferta { padding: 0 var(--space-md) clamp(48px, 8vw, 80px); }
+.rc-oferta .rc-caixa { border-color: rgba(232,163,61,.3); }
+.rc-oferta ul { margin: 0 0 var(--space-sm); padding-left: 20px; color: var(--muted); max-width: 62ch; }
+.rc-oferta li { margin-bottom: 8px; }
+.rc-oferta li strong { color: var(--text); font-weight: 600; }
+.rc-oferta .rc-preco { font-weight: 600; color: var(--text); }
+
+/* ---------- conteúdo ---------- */
+.rc-texto { padding: clamp(40px, 7vw, 72px) var(--space-md); border-top: 1px solid var(--line); }
+.rc-texto h2 { font-size: clamp(1.4rem, 3.4vw, 1.9rem); letter-spacing: -.02em; margin-bottom: var(--space-md); }
+.rc-passos { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-md); counter-reset: passo; }
+.rc-passos li { counter-increment: passo; padding-left: 48px; position: relative; color: var(--muted); }
+.rc-passos li::before {
+  content: counter(passo); position: absolute; left: 0; top: 0; width: 34px; height: 34px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid #6E7681; color: var(--text); font: 700 15px var(--font-display);
+}
+.rc-passos strong { display: block; color: var(--text); font-family: var(--font-display); font-size: 1.05rem; margin-bottom: 2px; }
+@media (min-width: 768px) { .rc-passos { grid-template-columns: repeat(3, 1fr); } }
+
+.rc .faq { max-width: 760px; }
+.rc .faq summary { display: block; padding: 10px 28px 10px 0; min-height: 44px; position: relative; }
+.rc .faq summary::after { position: absolute; right: 0; top: 10px; float: none; }
+.rc .faq p { margin-top: 4px; }
+.rc .faq p + p { margin-top: 10px; }
+.rc .faq a, .rc-fontes a { color: var(--accent); }
+
+.rc-fontes { font-size: 14px; color: var(--muted); max-width: 760px; }
+.rc-fontes li { margin-bottom: 6px; }
+.rc .footer a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; }

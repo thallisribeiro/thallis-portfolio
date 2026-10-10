@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gerador de recibo grátis: recibo de pagamento para imprimir ou PDF</title>
+<meta name="description" content="Faça grátis um recibo de pagamento com valor por extenso, CPF ou CNPJ conferido e duas vias numa folha A4 para imprimir ou salvar em PDF. Sem cadastro: o que você digita não sai do seu navegador.">
+<link rel="canonical" href="https://thallisribeiro.com.br/gerador-de-recibo/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gerador de recibo grátis: recibo de pagamento para imprimir ou PDF">
+<meta property="og:description" content="Faça grátis um recibo de pagamento com valor por extenso, CPF ou CNPJ conferido e duas vias numa folha A4 para imprimir ou salvar em PDF. Sem cadastro: o que você digita não sai do seu navegador.">
+<meta property="og:url" content="https://thallisribeiro.com.br/gerador-de-recibo/">
+<meta property="og:image" content="https://thallisribeiro.com.br/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/gerador-de-recibo/recibo.css">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230B0F14'/%3E%3Crect x='10' y='14' width='44' height='4' rx='2' fill='%23E8A33D'/%3E%3Crect x='10' y='30' width='30' height='4' rx='2' fill='%238B949E'/%3E%3Crect x='10' y='46' width='18' height='4' rx='2' fill='%238B949E'/%3E%3C/svg%3E">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-247F9N1WQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-247F9N1WQE');
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Gerador de recibo grátis",
+  "url": "https://thallisribeiro.com.br/gerador-de-recibo/",
+  "description": "Monta um recibo de pagamento com valor por extenso, CPF ou CNPJ conferido (inclusive o CNPJ alfanumérico) e duas vias numa folha A4 para imprimir ou salvar em PDF. Funciona no navegador, sem cadastro.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Qualquer navegador",
+  "inLanguage": "pt-BR",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" },
+  "creator": { "@type": "Person", "name": "Thallis Ribeiro", "url": "https://thallisribeiro.com.br/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Recibo vale como comprovante de pagamento?", "acceptedAnswer": { "@type": "Answer", "text": "Vale. O Código Civil diz que quem paga tem direito à quitação (art. 319) e que ela pode ser dada por instrumento particular, ou seja, um papel feito e assinado por você, sem cartório (art. 320). O recibo precisa dizer o valor, a que se refere o pagamento, o nome de quem pagou, a data e o lugar, e ter a assinatura de quem recebeu. Este gerador pede exatamente esses dados. O mesmo artigo diz que, mesmo faltando algum desses itens, a quitação vale se der para entender que a dívida foi paga." } },
+    { "@type": "Question", "name": "Recibo substitui nota fiscal?", "acceptedAnswer": { "@type": "Answer", "text": "Não. O recibo prova que o pagamento aconteceu; a nota fiscal é um documento da lei de impostos, e este recibo não tem valor fiscal. Empresa do Simples Nacional (ME e EPP) é obrigada a emitir documento fiscal nas vendas e nos serviços (Lei Complementar 123/2006, art. 26, I). O MEI é dispensado, menos nos casos definidos pelo Comitê Gestor do Simples Nacional (art. 26, § 1º): segundo a Receita Estadual do Rio Grande do Sul, em regra ele não precisa emitir nota para consumidor pessoa física, mas precisa nas demais situações, como serviço para empresa com CNPJ. Para autônomo sem CNPJ, a regra muda de cidade para cidade. Na dúvida, pergunte ao seu contador ou à prefeitura." } },
+    { "@type": "Question", "name": "Precisa assinar o recibo?", "acceptedAnswer": { "@type": "Answer", "text": "Precisa. A assinatura de quem recebeu, ou de quem o representa, está na lista do art. 320 do Código Civil. Imprima, assine à mão as duas vias e entregue uma a quem pagou. Se for mandar em PDF, imprima, assine e mande a foto ou o arquivo escaneado. O texto copiado para o WhatsApp não tem assinatura: serve como registro, mas o recibo assinado é o documento que a lei descreve." } },
+    { "@type": "Question", "name": "Como fazer recibo de aluguel, de serviço ou de sinal?", "acceptedAnswer": { "@type": "Answer", "text": "Use os botões acima do campo Referente a. Aluguel: escreva o mês e o endereço do imóvel, como aluguel de outubro de 2026 do imóvel na Rua das Flores, 10. Serviço: diga qual serviço e quando foi feito, como serviço de pintura da fachada, feito de 1º a 5 de outubro de 2026. Sinal: escreva o que foi comprado ou contratado, o valor total e quanto falta pagar, como sinal (entrada) da festa do dia 20/12/2026, valor total de R$ 3.000,00, restando R$ 2.000,00 a pagar até 15/12/2026." } },
+    { "@type": "Question", "name": "Quantas vias do recibo fazer?", "acceptedAnswer": { "@type": "Answer", "text": "Duas. O Código Civil garante a quitação a quem pagou (art. 319), mas não diz quantas cópias fazer. O costume é uma via para quem pagou, que é a prova do pagamento, e outra para quem recebeu, para o controle do caixa. Por isso a impressão já sai com as duas vias numa folha A4, com linha de corte no meio. Assine as duas." } },
+    { "@type": "Question", "name": "Vocês guardam os dados do recibo?", "acceptedAnswer": { "@type": "Answer", "text": "Não. O recibo é montado no seu navegador, e o que você digita não sai dele. O rascunho e os últimos números de recibo ficam salvos só neste aparelho, para você não perder o que digitou e a numeração continuar; o botão Apagar tudo deste aparelho limpa tudo. A página usa o Google Analytics para contar visitas, como o resto do site, mas o que você digita não vai junto." } }
+  ]
+}
+</script>
+</head>
+<body class="rc" data-page-ev="tool_recibo_viewed">
+
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="nav nav-landing">
+  <div class="nav-inner">
+    <a class="logo-wrap rc-nav-home" href="/">
+      <span class="logo-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="logo">Thallis Ribeiro</span>
+    </a>
+    <div class="nav-actions">
+      <a class="rc-nav-link" href="/ferramentas/">Ferramentas grátis</a>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <section class="rc-topo">
+    <div class="rc-inner">
+      <p class="rc-kicker">Ferramenta grátis · sem cadastro</p>
+      <h1 class="rc-h1">Gerador de recibo grátis (pronto para imprimir ou salvar em PDF)</h1>
+      <p class="rc-lead">Preencha quem recebeu, quem pagou e o valor. O valor por extenso sai sozinho, o CPF ou CNPJ é conferido, e a impressão traz duas vias numa folha A4: uma para quem pagou, outra para você.</p>
+      <p class="rc-privado">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 9.6 8 11 4.6-1.4 8-6 8-11V5l-8-3Zm-1.2 14.2-3.5-3.5 1.4-1.4 2.1 2.1 4.6-4.6 1.4 1.4-6 6Z"/></svg>
+        <span>O que você digita não sai do seu navegador.</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="rc-ferramenta" aria-label="Gerador de recibo">
+    <div class="rc-inner rc-grade">
+
+      <form id="rc-form" class="rc-caixa" novalidate>
+        <h2>Dados do recibo</h2>
+
+        <fieldset class="rc-grupo">
+          <legend>Quem recebeu o dinheiro</legend>
+          <div class="rc-campo">
+            <label for="recebedorNome">Nome ou razão social</label>
+            <input id="recebedorNome" name="recebedorNome" type="text" maxlength="100" autocomplete="name" aria-describedby="erro-recebedorNome" aria-invalid="false">
+            <p class="rc-erro" id="erro-recebedorNome" role="alert"></p>
+          </div>
+          <div class="rc-campo">
+            <label for="recebedorDoc">CPF ou CNPJ <span class="rc-opcional">(opcional)</span></label>
+            <input id="recebedorDoc" name="recebedorDoc" type="text" maxlength="20" autocapitalize="characters" spellcheck="false" aria-describedby="dica-doc erro-recebedorDoc" aria-invalid="false">
+            <p class="rc-dica" id="dica-doc">Aceita o CNPJ novo, com letras.</p>
+            <p class="rc-erro" id="erro-recebedorDoc" role="alert"></p>
+          </div>
+          <div class="rc-campo">
+            <label for="recebedorEndereco">Endereço <span class="rc-opcional">(opcional)</span></label>
+            <input id="recebedorEndereco" name="recebedorEndereco" type="text" maxlength="120" autocomplete="street-address">
+          </div>
+        </fieldset>
+
+        <fieldset class="rc-grupo">
+          <legend>Quem pagou</legend>
+          <div class="rc-campo">
+            <label for="pagadorNome">Nome ou razão social</label>
+            <input id="pagadorNome" name="pagadorNome" type="text" maxlength="100" autocomplete="off" aria-describedby="erro-pagadorNome" aria-invalid="false">
+            <p class="rc-erro" id="erro-pagadorNome" role="alert"></p>
+          </div>
+          <div class="rc-campo">
+            <label for="pagadorDoc">CPF ou CNPJ <span class="rc-opcional">(opcional)</span></label>
+            <input id="pagadorDoc" name="pagadorDoc" type="text" maxlength="20" autocapitalize="characters" spellcheck="false" autocomplete="off" aria-describedby="erro-pagadorDoc" aria-invalid="false">
+            <p class="rc-erro" id="erro-pagadorDoc" role="alert"></p>
+          </div>
+        </fieldset>
+
+        <fieldset class="rc-grupo">
+          <legend>Pagamento</legend>
+          <div class="rc-linha">
+            <div class="rc-campo">
+              <label for="valor">Valor recebido (R$)</label>
+              <input id="valor" name="valor" type="text" inputmode="decimal" maxlength="20" placeholder="1.250,00" autocomplete="off" aria-describedby="erro-valor" aria-invalid="false">
+              <p class="rc-erro" id="erro-valor" role="alert"></p>
+            </div>
+            <div class="rc-campo">
+              <label for="forma">Forma de pagamento</label>
+              <select id="forma" name="forma" aria-describedby="erro-forma" aria-invalid="false">
+                <option value="pix" selected>Pix</option>
+                <option value="dinheiro">Dinheiro</option>
+                <option value="cartao">Cartão</option>
+                <option value="transferencia">Transferência bancária</option>
+                <option value="boleto">Boleto</option>
+              </select>
+              <p class="rc-erro" id="erro-forma" role="alert"></p>
+            </div>
+          </div>
+          <div class="rc-campo">
+            <label for="referente">Referente a</label>
+            <div class="rc-modelos" role="group" aria-label="Começar com um modelo">
+              <button type="button" class="rc-chip" data-modelo="aluguel">Aluguel</button>
+              <button type="button" class="rc-chip" data-modelo="servico">Serviço</button>
+              <button type="button" class="rc-chip" data-modelo="sinal">Sinal (entrada)</button>
+            </div>
+            <textarea id="referente" name="referente" rows="3" maxlength="200" aria-describedby="dica-referente erro-referente" aria-invalid="false"></textarea>
+            <p class="rc-dica" id="dica-referente">O que foi pago, do jeito que a outra pessoa entende: o serviço, o mês do aluguel, o produto.</p>
+            <p class="rc-erro" id="erro-referente" role="alert"></p>
+          </div>
+          <div class="rc-linha">
+            <div class="rc-campo">
+              <label for="data">Data do pagamento</label>
+              <input id="data" name="data" type="date" aria-describedby="erro-data" aria-invalid="false">
+              <p class="rc-erro" id="erro-data" role="alert"></p>
+            </div>
+            <div class="rc-campo">
+              <label for="cidade">Cidade</label>
+              <input id="cidade" name="cidade" type="text" maxlength="60" autocomplete="address-level2" placeholder="Eunápolis (BA)" aria-describedby="erro-cidade" aria-invalid="false">
+              <p class="rc-erro" id="erro-cidade" role="alert"></p>
+            </div>
+          </div>
+          <div class="rc-campo">
+            <label for="numero">Número do recibo <span class="rc-opcional">(opcional)</span></label>
+            <input id="numero" name="numero" type="text" maxlength="20" autocomplete="off" aria-describedby="dica-numero">
+            <p class="rc-dica" id="dica-numero" aria-live="polite"></p>
+          </div>
+        </fieldset>
+
+        <div class="rc-acoes">
+          <button type="button" class="rc-link-botao" id="limpar">Apagar tudo deste aparelho</button>
+        </div>
+      </form>
+
+      <section class="rc-caixa rc-resultado" aria-labelledby="previa-titulo">
+        <h2 id="previa-titulo" tabindex="-1">Prévia do recibo</h2>
+        <p class="visually-hidden" role="status" id="status"></p>
+        <div class="rc-papel" id="previa"></div>
+        <p class="rc-dica">Na impressão saem duas vias iguais numa folha A4, uma para quem pagou e outra para você, com linha de corte no meio.</p>
+        <div class="rc-acoes">
+          <button type="button" class="btn btn-primary" id="imprimir">Imprimir / salvar PDF</button>
+          <button type="button" class="btn btn-ghost" id="copiar">Copiar texto para o WhatsApp</button>
+          <button type="button" class="btn btn-ghost" id="novo">Novo recibo</button>
+        </div>
+        <p class="rc-dica">Para ter o PDF, escolha &ldquo;Salvar como PDF&rdquo; na janela de impressão. <strong>Novo recibo</strong> mantém os seus dados e sugere o próximo número.</p>
+        <label class="visually-hidden" for="texto-copia">Texto do recibo para copiar</label>
+        <textarea class="rc-copia" id="texto-copia" readonly hidden></textarea>
+      </section>
+
+    </div>
+  </section>
+
+  <section class="rc-oferta" id="site-completo" aria-labelledby="oferta-titulo">
+    <div class="rc-inner rc-caixa">
+      <h2 id="oferta-titulo">O recibo fecha o pagamento. Um site traz o próximo cliente.</h2>
+      <ul>
+        <li><strong>Quem procura o seu serviço no Google</strong>, na sua cidade, encontra você, e não só quem já tem o seu número.</li>
+        <li><strong>Serviços, preços e formas de pagamento numa página:</strong> menos pergunta repetida no WhatsApp e cliente chegando pronto para fechar.</li>
+        <li><strong>Endereço no mapa e botão de WhatsApp</strong> em cada página, com o seu domínio .com.br passando confiança.</li>
+      </ul>
+      <p class="rc-preco">Site profissional a partir de R$&nbsp;997, no ar em 7 dias.</p>
+      <a class="btn btn-ghost btn-lg" href="https://wa.me/5573988899345?text=Quero%20um%20site%20para%20o%20meu%20neg%C3%B3cio%20%5Brecibo%5D" target="_blank" rel="noopener">Quero um site para o meu negócio</a>
+      <p class="nota-canal">Você será direcionado ao WhatsApp. Quem responde sou eu.</p>
+    </div>
+  </section>
+
+  <section class="rc-texto" aria-labelledby="como-titulo">
+    <div class="rc-inner">
+      <h2 id="como-titulo">Como funciona</h2>
+      <ol class="rc-passos">
+        <li><strong>Preencha os dados</strong> de quem recebeu, de quem pagou e do pagamento. O valor por extenso sai sozinho e o CPF ou CNPJ é conferido.</li>
+        <li><strong>Confira a prévia</strong>. Ela mostra o recibo do jeito que vai sair no papel, com o que o Código Civil pede para um recibo valer.</li>
+        <li><strong>Imprima ou salve em PDF</strong> as duas vias numa folha A4 e assine, ou copie o texto para mandar no WhatsApp.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="rc-texto" aria-labelledby="faq-titulo">
+    <div class="rc-inner">
+      <h2 id="faq-titulo">Perguntas frequentes</h2>
+      <div class="faq">
+        <details>
+          <summary>Recibo vale como comprovante de pagamento?</summary>
+          <p>Vale. O <a href="https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm" target="_blank" rel="noopener">Código Civil</a> diz que quem paga tem direito à quitação (art. 319) e que ela pode ser dada por instrumento particular, ou seja, um papel feito e assinado por você, sem cartório (art. 320). O recibo precisa dizer o valor, a que se refere o pagamento, o nome de quem pagou, a data e o lugar, e ter a assinatura de quem recebeu. Este gerador pede exatamente esses dados.</p>
+          <p>O mesmo artigo diz que, mesmo faltando algum desses itens, a quitação vale se der para entender que a dívida foi paga.</p>
+        </details>
+        <details>
+          <summary>Recibo substitui nota fiscal?</summary>
+          <p>Não. O recibo prova que o pagamento aconteceu; a nota fiscal é um documento da lei de impostos, e <strong>este recibo não tem valor fiscal</strong>.</p>
+          <p>Empresa do Simples Nacional (ME e EPP) é obrigada a emitir documento fiscal nas vendas e nos serviços (<a href="https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp123.htm" target="_blank" rel="noopener">Lei Complementar 123/2006</a>, art. 26, I). O MEI é dispensado, menos nos casos definidos pelo Comitê Gestor do Simples Nacional (art. 26, § 1º): segundo a <a href="https://atendimento.receita.rs.gov.br/o-mei-e-obrigado-a-emitir-nota-fiscal" target="_blank" rel="noopener">Receita Estadual do Rio Grande do Sul</a>, em regra ele não precisa emitir nota para consumidor pessoa física, mas precisa nas demais situações, como serviço para empresa com CNPJ. Para autônomo sem CNPJ, a regra muda de cidade para cidade. Na dúvida, pergunte ao seu contador ou à prefeitura.</p>
+        </details>
+        <details>
+          <summary>Precisa assinar o recibo?</summary>
+          <p>Precisa. A assinatura de quem recebeu, ou de quem o representa, está na lista do art. 320 do Código Civil. Imprima, assine à mão as duas vias e entregue uma a quem pagou. Se for mandar em PDF, imprima, assine e mande a foto ou o arquivo escaneado.</p>
+          <p>O texto copiado para o WhatsApp não tem assinatura: serve como registro, mas o recibo assinado é o documento que a lei descreve.</p>
+        </details>
+        <details>
+          <summary>Como fazer recibo de aluguel, de serviço ou de sinal?</summary>
+          <p>Use os botões acima do campo &ldquo;Referente a&rdquo;.</p>
+          <p><strong>Aluguel:</strong> escreva o mês e o endereço do imóvel, como &ldquo;aluguel de outubro de 2026 do imóvel na Rua das Flores, 10&rdquo;.<br>
+          <strong>Serviço:</strong> diga qual serviço e quando foi feito, como &ldquo;serviço de pintura da fachada, feito de 1º a 5 de outubro de 2026&rdquo;.<br>
+          <strong>Sinal:</strong> escreva o que foi comprado ou contratado, o valor total e quanto falta pagar, como &ldquo;sinal (entrada) da festa do dia 20/12/2026, valor total de R$ 3.000,00, restando R$ 2.000,00 a pagar até 15/12/2026&rdquo;.</p>
+        </details>
+        <details>
+          <summary>Quantas vias do recibo fazer?</summary>
+          <p>Duas. O Código Civil garante a quitação a quem pagou (art. 319), mas não diz quantas cópias fazer. O costume é uma via para quem pagou, que é a prova do pagamento, e outra para quem recebeu, para o controle do caixa. Por isso a impressão já sai com as duas vias numa folha A4, com linha de corte no meio. Assine as duas.</p>
+        </details>
+        <details>
+          <summary>Vocês guardam os dados do recibo?</summary>
+          <p>Não. O recibo é montado no seu navegador, e o que você digita não sai dele. O rascunho e os últimos números de recibo ficam salvos só neste aparelho, para você não perder o que digitou e a numeração continuar; o botão &ldquo;Apagar tudo deste aparelho&rdquo; limpa tudo. A página usa o Google Analytics para contar visitas, como o resto do site, mas o que você digita não vai junto.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="rc-texto" aria-labelledby="fontes-titulo">
+    <div class="rc-inner">
+      <h2 id="fontes-titulo">Fontes</h2>
+      <ul class="rc-fontes">
+        <li>O que o recibo precisa ter: <a href="https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm" target="_blank" rel="noopener">Código Civil, Lei 10.406/2002, arts. 319 e 320</a> (texto compilado do Planalto), consultado em 10/10/2026.</li>
+        <li>Obrigação de emitir documento fiscal e dispensa do MEI: <a href="https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp123.htm" target="_blank" rel="noopener">Lei Complementar 123/2006, art. 26</a>, consultado em 10/10/2026; <a href="https://atendimento.receita.rs.gov.br/o-mei-e-obrigado-a-emitir-nota-fiscal" target="_blank" rel="noopener">Receita Estadual do RS, &ldquo;O MEI é obrigado a emitir nota fiscal?&rdquo;</a>, consultado em 10/10/2026.</li>
+        <li>Conferência do CNPJ com letras: <a href="https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/perguntas-e-respostas/cnpj/cnpj-alfanumerico.pdf" target="_blank" rel="noopener">Receita Federal, Perguntas e Respostas &ldquo;CNPJ alfanumérico&rdquo; (PDF), pergunta 14</a>, consultado em 10/10/2026. Os CNPJs só com números continuam válidos e passam pela mesma conta.</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span>Thallis Ribeiro · 2026</span>
+  <a href="/">Início</a>
+  <a href="/ferramentas/">Ferramentas grátis</a>
+  <a href="/blog/">Blog</a>
+</footer>
+
+<div class="rc-impressao" id="impressao"></div>
+
+<script src="/assets/main.js" defer></script>
+<script type="module">
+import { buildRecibo, proximoNumero, dataPorExtenso } from '/gerador-de-recibo/recibo.mjs';
+
+const $ = (id) => document.getElementById(id);
+const form = $('rc-form');
+const CHAVE = 'ferramentas:recibo';
+const CAMPOS = ['recebedorNome', 'recebedorDoc', 'recebedorEndereco', 'pagadorNome', 'pagadorDoc', 'valor', 'referente', 'forma', 'data', 'cidade', 'numero'];
+const MANTIDOS = ['recebedorNome', 'recebedorDoc', 'recebedorEndereco', 'forma', 'cidade']; // "Novo recibo" não apaga
+let numeros = [];
+
+const hoje = () => {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+};
+const valores = () => Object.fromEntries(CAMPOS.map((k) => [k, form.elements[k].value]));
+
+function el(tag, classe, texto) {
+  const n = document.createElement(tag);
+  n.className = classe;
+  if (texto) n.textContent = texto;
+  return n;
+}
+
+// Uma via do recibo. Tudo por textContent: o que a pessoa digita nunca vira HTML.
+function via(r, qual) {
+  const v = el('article', 'via');
+  const topo = el('div', 'via-topo');
+  const titulo = el('div', '');
+  titulo.append(el('p', 'via-titulo', r.titulo), el('p', 'via-qual', qual));
+  topo.append(titulo, el('p', 'via-valor', r.valor));
+  const assina = el('div', 'via-assinatura');
+  assina.append(el('div', 'via-linha'), el('p', 'via-nome', r.recebedor.nome || 'Assinatura de quem recebeu'));
+  if (r.recebedor.doc) assina.append(el('p', 'via-doc', r.recebedor.doc));
+  if (r.recebedor.endereco) assina.append(el('p', 'via-end', r.recebedor.endereco));
+  v.append(topo, el('p', 'via-corpo', r.corpo), el('p', 'via-local', r.local), assina);
+  return v;
+}
+
+function mostraErro(k, msg) {
+  const campo = form.elements[k];
+  campo.setAttribute('aria-invalid', msg ? 'true' : 'false');
+  $('erro-' + k).textContent = msg || '';
+}
+
+function dicaNumero() {
+  const n = form.elements.numero.value.trim();
+  const ultimo = numeros.at(-1);
+  $('dica-numero').textContent = n && numeros.includes(n)
+    ? `O nº ${n} já foi usado neste aparelho. Para fazer o próximo recibo, toque em Novo recibo.`
+    : ultimo ? `O último número usado neste aparelho foi o ${ultimo}.`
+    : 'Ajuda a organizar e a achar o recibo depois. Os próximos são sugeridos sozinhos.';
+}
+
+// Erro some assim que o campo fica certo, mas só aparece ao sair do campo ou ao imprimir/copiar:
+// reescrever um role="alert" a cada tecla faz o leitor de tela falar sem parar.
+function atualiza(mostrar) {
+  const r = buildRecibo(valores());
+  for (const k of CAMPOS) {
+    if (!$('erro-' + k)) continue;
+    if (!r.erros[k]) mostraErro(k, '');
+    else if (mostrar === true || mostrar === k) mostraErro(k, r.erros[k]);
+  }
+  $('previa').replaceChildren(via(r.recibo, 'Via do pagador'));
+  dicaNumero();
+  return r;
+}
+
+function preparaImpressao() {
+  const r = buildRecibo(valores());
+  $('impressao').replaceChildren(...(r.ok
+    ? [via(r.recibo, 'Via do pagador'), el('div', 'rc-corte', 'recorte aqui'), via(r.recibo, 'Via de quem recebeu')]
+    : [el('p', 'rc-impressao-vazia', 'Volte à página e preencha os campos que faltam no recibo antes de imprimir.')]));
+  return r;
+}
+
+function salva() {
+  try { localStorage.setItem(CHAVE, JSON.stringify({ campos: valores(), numeros })); } catch {}
+}
+
+function anotaNumero() {
+  const n = form.elements.numero.value.trim();
+  if (!n) return;
+  numeros = [...numeros.filter((x) => x !== n), n].slice(-30);
+  salva();
+}
+
+// Valida tudo; se faltar algo, mostra os erros e leva o foco ao primeiro campo com problema.
+function exigeCompleto() {
+  const r = atualiza(true);
+  if (r.ok) return r;
+  const primeiro = CAMPOS.find((k) => r.erros[k]);
+  $('status').textContent = 'Faltam dados no recibo. Confira os campos marcados.';
+  form.elements[primeiro].focus();
+  return null;
+}
+
+form.addEventListener('input', () => { atualiza(false); salva(); });
+form.addEventListener('change', (e) => { if (e.target.value.trim()) atualiza(e.target.name); });
+
+const MODELOS = {
+  aluguel: () => {
+    const mes = dataPorExtenso(form.elements.data.value).replace(/^\S+ de /, '');
+    return `aluguel${mes ? ' de ' + mes : ''} do imóvel na `;
+  },
+  servico: () => 'serviço de ',
+  sinal: () => 'sinal (entrada) da compra de ',
+};
+for (const b of document.querySelectorAll('[data-modelo]')) {
+  b.addEventListener('click', () => {
+    const t = form.elements.referente;
+    t.value = MODELOS[b.dataset.modelo]();
+    t.focus();
+    t.setSelectionRange(t.value.length, t.value.length);
+    atualiza(false);
+    salva();
+  });
+}
+
+$('imprimir').addEventListener('click', () => {
+  if (!exigeCompleto()) return;
+  anotaNumero();
+  dicaNumero();
+  preparaImpressao();
+  window.print();
+});
+// Ctrl+P também passa por aqui, então a folha nunca sai com dado velho.
+window.addEventListener('beforeprint', preparaImpressao);
+
+$('copiar').addEventListener('click', async () => {
+  const r = exigeCompleto();
+  if (!r) return;
+  const b = $('copiar'), caixa = $('texto-copia');
+  let ok = false;
+  try { await navigator.clipboard.writeText(r.texto); ok = true; } catch {}
+  caixa.value = r.texto;
+  // Navegador dentro do Instagram às vezes nega a área de transferência: tenta o jeito antigo e,
+  // se nem assim der, deixa o texto à vista e selecionado para copiar pelo menu.
+  if (!ok) {
+    caixa.hidden = false;
+    caixa.select();
+    try { ok = document.execCommand('copy'); } catch {}
+    if (!ok) caixa.focus();
+  }
+  caixa.hidden = ok;
+  anotaNumero();
+  dicaNumero();
+  $('status').textContent = ok ? 'Texto copiado. Cole na conversa do WhatsApp.' : 'Não deu para copiar sozinho. O texto ficou selecionado abaixo; copie pelo menu do celular.';
+  b.textContent = ok ? 'Copiado' : 'Copie o texto abaixo';
+  setTimeout(() => { b.textContent = 'Copiar texto para o WhatsApp'; }, 2500);
+});
+
+$('novo').addEventListener('click', () => {
+  for (const k of CAMPOS) if (!MANTIDOS.includes(k)) form.elements[k].value = '';
+  form.elements.data.value = hoje();
+  form.elements.numero.value = proximoNumero(numeros);
+  $('texto-copia').hidden = true;
+  atualiza(false);
+  salva();
+  $('status').textContent = 'Novo recibo. Os dados de quem recebe foram mantidos.';
+  form.elements.pagadorNome.focus();
+});
+
+$('limpar').addEventListener('click', () => {
+  form.reset();
+  numeros = [];
+  try { localStorage.removeItem(CHAVE); } catch {}
+  form.elements.data.value = hoje();
+  $('texto-copia').hidden = true;
+  for (const k of CAMPOS) if ($('erro-' + k)) mostraErro(k, '');
+  atualiza(false);
+  $('status').textContent = 'Apagado. Nada deste recibo ficou salvo neste aparelho.';
+  form.elements.recebedorNome.focus();
+});
+
+try {
+  const s = JSON.parse(localStorage.getItem(CHAVE) || 'null');
+  if (s && typeof s === 'object') {
+    if (Array.isArray(s.numeros)) numeros = s.numeros.filter((x) => typeof x === 'string').slice(-30);
+    for (const k of CAMPOS) if (typeof s.campos?.[k] === 'string') form.elements[k].value = s.campos[k];
+    if (!form.elements.forma.value) form.elements.forma.value = 'pix';
+  }
+} catch {}
+if (!form.elements.data.value) form.elements.data.value = hoje();
+if (!form.elements.numero.value) form.elements.numero.value = proximoNumero(numeros);
+atualiza(false);
+</script>
+</body>
+</html>

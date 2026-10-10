@@ -749,6 +749,11 @@ ${rssItems}
     { loc: `${SITE_URL}/gerador-de-politica-de-privacidade/`, lastmod: modificadoEm('gerador-de-politica-de-privacidade/index.html') },
     { loc: `${SITE_URL}/quanto-custa-um-site/`, lastmod: modificadoEm('quanto-custa-um-site/index.html') },
     { loc: `${SITE_URL}/gerador-de-link-whatsapp/`, lastmod: modificadoEm('gerador-de-link-whatsapp/index.html') },
+    { loc: `${SITE_URL}/gerador-qr-code-pix/`, lastmod: modificadoEm('gerador-qr-code-pix/index.html') },
+    { loc: `${SITE_URL}/gerador-de-recibo/`, lastmod: modificadoEm('gerador-de-recibo/index.html') },
+    { loc: `${SITE_URL}/gerador-de-orcamento/`, lastmod: modificadoEm('gerador-de-orcamento/index.html') },
+    { loc: `${SITE_URL}/gerador-de-termos-de-uso/`, lastmod: modificadoEm('gerador-de-termos-de-uso/index.html') },
+    { loc: `${SITE_URL}/gerador-de-assinatura-de-email/`, lastmod: modificadoEm('gerador-de-assinatura-de-email/index.html') },
     ...posts.map(p => ({ loc: `${SITE_URL}/blog/${p.slug}/`, lastmod: p.date })),
     ...temaCounts.map(t => ({ loc: `${SITE_URL}/blog/tema/${t.slug}/`, lastmod: posts[0]?.date })),
   ];
