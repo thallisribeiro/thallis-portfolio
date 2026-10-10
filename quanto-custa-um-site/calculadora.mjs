@@ -86,7 +86,7 @@ export const PRICES = {
   // Oferta do Thallis, exatamente como está na página inicial
   thallis_site: p('thallis', 997, 997, 'R$', 'Site em 7 dias: a partir de R$ 997, até 5 páginas ou uma página única, domínio .com.br incluso', true),
   thallis_blog: p('thallis', 497, 497, 'R$', 'Extra com preço fechado: blog pronto pra publicar'),
-  thallis_10paginas: p('thallis', 997, 997, 'R$', 'Extra com preço fechado: 10 ou mais páginas'),
+  thallis_grande: p('thallis', 997, 997, 'R$', 'Extra com preço fechado: loja virtual, login, sistema ou 10+ páginas'),
 };
 
 export const TIPOS = { landing: 'Landing page', institucional: 'Site institucional', loja: 'Loja virtual' };
@@ -256,31 +256,35 @@ function avisos(rota, e, viraLoja) {
 
 function oferta(e) {
   const tem = (r) => e.recursos.includes(r);
-  const fora = [];
+  const loja = e.tipo === 'loja' || tem('pagamentos');
+  // Página inicial: até 5 páginas no pacote; "Loja, login, sistema e 10+ páginas: + R$ 997,
+  // preço fechado"; "SaaS e projetos maiores: preço fechado depois de uma conversa".
+  // A linha de + R$ 997 entra uma vez só: a home não diz quanto custam dois itens dela.
+  const grandes = [];
+  if (loja) grandes.push(e.tipo === 'loja' ? 'loja virtual' : 'pagamento online');
+  if (tem('area_cliente')) grandes.push('área de cliente com login');
+  if (e.paginas >= 10) grandes.push(`${e.paginas} páginas`);
   const consultar = [];
-  const extras = [];
-  // Limites da página inicial: até 5 páginas no pacote; "10+ páginas" é extra fechado;
-  // "você quer 20 páginas — aí é outro projeto"; loja com carrinho e pagamento, sistema e
-  // área de login estão em "Não é pra você se".
-  if (e.tipo === 'loja') fora.push('loja virtual com carrinho e pagamento');
-  else if (tem('pagamentos')) fora.push('pagamento online no site');
-  if (tem('area_cliente')) fora.push('área de cliente com login');
-  if (e.paginas >= 20) fora.push(`${e.paginas} páginas`);
-  else if (e.paginas >= 10) extras.push('thallis_10paginas');
-  else if (e.paginas > 5) consultar.push(`${e.paginas} páginas (o pacote inclui até 5)`);
-  if (tem('blog')) extras.push('thallis_blog');
+  if (e.paginas > 5 && e.paginas < 10) consultar.push(`${e.paginas} páginas (o pacote inclui até 5; o extra fechado é para 10 ou mais)`);
   if (tem('agendamento')) consultar.push('agendamento online');
   if (tem('catalogo') && e.tipo !== 'loja') consultar.push('catálogo de produtos');
   if (tem('dois_idiomas')) consultar.push('site em dois idiomas');
+  const extras = [];
+  if (grandes.length) extras.push('thallis_grande');
+  if (tem('blog')) extras.push('thallis_blog');
 
-  const status = fora.length ? 'fora' : consultar.length ? 'consultar' : 'cabe';
-  const preco = status === 'fora' ? null : extras.reduce((s, id) => s + PRICES[id].min, PRICES.thallis_site.min);
+  const multiplos = grandes.length > 1;
+  // Login + cobrar o cliente online é SaaS ("das primeiras telas à cobrança dos seus clientes").
+  const saas = loja && tem('area_cliente');
+  const status = saas ? 'conversa' : consultar.length || multiplos ? 'consultar' : 'cabe';
+  const preco = saas ? null : extras.reduce((s, id) => s + PRICES[id].min, PRICES.thallis_site.min);
   return {
     status,
     preco,
     extras: extras.map((id) => ({ nome: PRICES[id].o_que.replace('Extra com preço fechado: ', ''), valor: PRICES[id].min, ref: id })),
     consultar,
-    fora,
+    grandes,
+    multiplos,
     refs: ['thallis_site', 'dominio_combr', ...extras],
   };
 }

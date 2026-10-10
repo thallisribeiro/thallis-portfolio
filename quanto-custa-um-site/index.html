@@ -335,19 +335,22 @@ const INCLUI = [
 function blocoOferta(res, e) {
   const o = res.oferta;
   const corpo = document.getElementById('oferta-corpo');
+  // replaceChildren escreveria "null" na tela; blocos opcionais saem antes.
+  const montar = (...filhos) => corpo.replaceChildren(...filhos.filter(Boolean));
   const zap = el('a', {
     class: 'btn btn-primary btn-lg', href: linkWhatsApp(e), target: '_blank', rel: 'noopener',
     'data-ev': 'site7_cta_clicked', 'data-ev-local': 'calculadora-' + o.status,
-    texto: o.status === 'fora' ? 'Falar comigo no WhatsApp' : 'Pedir orçamento no WhatsApp',
+    texto: o.status === 'conversa' ? 'Conversar no WhatsApp' : 'Pedir orçamento no WhatsApp',
   });
   const nota = el('p', { class: 'nota-canal', texto: 'Você será direcionado ao WhatsApp com a sua conta escrita. Quem responde sou eu.' });
   const fonte = notas(['thallis_site']);
+  const nome = { landing: 'Sua landing page', institucional: 'Seu site institucional', loja: 'Sua loja virtual' }[e.tipo];
 
-  if (o.status === 'fora') {
-    corpo.replaceChildren(
+  if (o.status === 'conversa') {
+    montar(
       el('p', { class: 'tese-kicker', texto: 'E comigo?' }),
-      el('h2', { class: 'secao-titulo', id: 'oferta-titulo', texto: 'Isso foge do meu site em 7 dias' }),
-      el('p', { texto: `Pelo que você marcou (${o.fora.join(', ')}), não é o pacote de R$ 997. Fale comigo: eu digo se faço e quanto fica, ou qual dos três caminhos acima faz mais sentido pra você.` }),
+      el('h2', { class: 'secao-titulo', id: 'oferta-titulo', texto: `${nome} comigo` }),
+      el('p', { texto: 'Área de cliente com login e cobrança online já é sistema, do tipo SaaS. Também faço: das primeiras telas à cobrança dos seus clientes. Nesse caso o preço sai fechado depois de uma conversa no WhatsApp.' }, ...fonte),
       el('p', { class: 'tese-ctas' }, zap), nota);
     return;
   }
@@ -355,12 +358,13 @@ function blocoOferta(res, e) {
   const extras = o.extras.map((x) => el('li', { texto: `${x.nome}: + ${formatarReais(x.valor)}` }));
   const consultar = o.consultar.length
     ? el('p', { texto: `A consultar no WhatsApp: ${o.consultar.join(', ')}. O resto cabe no pacote.` }) : null;
-  const nome = { landing: 'Sua landing page', institucional: 'Seu site institucional' }[e.tipo];
+  const multiplos = o.multiplos
+    ? el('p', { texto: `Você marcou ${o.grandes.join(' e ')}. Cada um está na linha "loja, login, sistema e 10+ páginas" (+ R$ 997); com mais de um, parte daqui e o preço fecha no WhatsApp.` }) : null;
   const soPacote = !o.extras.length && !o.consultar.length;
   const rota = res.rotas[e.quem];
   const comparacao = rota && e.quem !== 'diy'
     ? el('p', { texto: `Na coluna ${rota.nome.toLowerCase()}, criar sai ${formatarFaixa(rota.unica)}. Aqui o preço e o prazo são fechados antes de começar.` }) : null;
-  corpo.replaceChildren(
+  montar(
     el('p', { class: 'tese-kicker', texto: 'E comigo?' }),
     el('h2', { class: 'secao-titulo', id: 'oferta-titulo', texto: soPacote ? `${nome} no ar em até 7 dias` : `${nome} comigo` }),
     el('p', { class: 'calc-oferta-preco' }, el('span', { class: 'calc-mini', texto: 'a partir de ' }), el('strong', { texto: formatarReais(o.preco) }), ...fonte),
@@ -368,6 +372,7 @@ function blocoOferta(res, e) {
     comparacao,
     el('ul', { class: 'lista-marcada' }, ...INCLUI.map((t) => el('li', { texto: t })), ...extras),
     soPacote ? null : el('p', { texto: 'O pacote vai ao ar em até 7 dias; o prazo do que passa dele eu confirmo no WhatsApp.' }),
+    multiplos,
     consultar,
     el('p', { class: 'tese-ctas' }, zap), nota);
 }

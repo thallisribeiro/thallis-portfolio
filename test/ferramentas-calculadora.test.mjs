@@ -22,7 +22,7 @@ function* todas() {
 
 const CAMPOS = ['unica', 'mensal', 'dominio', 'anual', 'primeiroAno', 'prazo'];
 const perto = (a, b) => Math.abs(a - b) < 0.005;
-const ORDEM_STATUS = { cabe: 0, consultar: 1, fora: 2 };
+const ORDEM_STATUS = { cabe: 0, consultar: 1, conversa: 2 };
 
 test('toda combinação devolve faixas ordenadas (min <= max)', () => {
   let n = 0;
@@ -130,20 +130,40 @@ test('a página não mostra preço sem fonte e lista todas as fontes', () => {
   }
 });
 
-test('o que foge da oferta do Thallis aparece como "fale comigo"', () => {
+test('a oferta do Thallis segue a página inicial e nunca fica de fora', () => {
   const of = (e) => calcular(e).oferta;
-  assert.equal(of({ tipo: 'loja', paginas: 5, recursos: [] }).status, 'fora');
-  assert.equal(of({ tipo: 'institucional', paginas: 5, recursos: ['pagamentos'] }).status, 'fora');
-  assert.equal(of({ tipo: 'landing', paginas: 1, recursos: ['area_cliente'] }).status, 'fora');
-  assert.equal(of({ tipo: 'institucional', paginas: 20, recursos: [] }).status, 'fora');
-  assert.equal(of({ tipo: 'institucional', paginas: 20, recursos: [] }).preco, null);
+  for (const e of todas()) assert.ok(['cabe', 'consultar', 'conversa'].includes(of(e).status));
+
+  // Loja, login, sistema e 10+ páginas: + R$ 997, preço fechado.
+  for (const e of [
+    { tipo: 'loja', paginas: 5, recursos: [] },
+    { tipo: 'institucional', paginas: 5, recursos: ['pagamentos'] },
+    { tipo: 'landing', paginas: 1, recursos: ['area_cliente'] },
+    { tipo: 'institucional', paginas: 12, recursos: [] },
+    { tipo: 'institucional', paginas: 20, recursos: [] },
+  ]) {
+    assert.equal(of(e).status, 'cabe', JSON.stringify(e));
+    assert.equal(of(e).preco, 997 + 997, JSON.stringify(e));
+  }
+  // Mais de um item dessa linha: não soma além do que a home diz; "a partir de", fecha no WhatsApp.
+  const dois = of({ tipo: 'loja', paginas: 20, recursos: [] });
+  assert.equal(dois.status, 'consultar');
+  assert.equal(dois.preco, 997 + 997);
+  assert.equal(dois.multiplos, true);
+  // Login + cobrança online = SaaS: preço fechado depois de uma conversa.
+  const saas = of({ tipo: 'institucional', paginas: 5, recursos: ['area_cliente', 'pagamentos'] });
+  assert.equal(saas.status, 'conversa');
+  assert.equal(saas.preco, null);
+  assert.equal(of({ tipo: 'loja', paginas: 5, recursos: ['area_cliente'] }).status, 'conversa');
+
   assert.equal(of({ tipo: 'institucional', paginas: 7, recursos: [] }).status, 'consultar');
+  assert.equal(of({ tipo: 'institucional', paginas: 7, recursos: [] }).preco, 997);
   assert.equal(of({ tipo: 'institucional', paginas: 5, recursos: ['dois_idiomas'] }).status, 'consultar');
 
   const simples = of({ tipo: 'landing', paginas: 1, recursos: ['whatsapp'] });
   assert.equal(simples.status, 'cabe');
   assert.equal(simples.preco, 997);
-  assert.equal(of({ tipo: 'institucional', paginas: 12, recursos: [] }).preco, 997 + 997);
+  assert.equal(of({ tipo: 'loja', paginas: 5, recursos: ['blog'] }).preco, 997 + 997 + 497);
 
   // Plataforma pronta com área de cliente leva aviso.
   assert.ok(calcular({ tipo: 'institucional', paginas: 5, recursos: ['area_cliente'] }).rotas.diy.avisos.length > 0);
