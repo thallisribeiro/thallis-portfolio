@@ -1120,8 +1120,9 @@ main p a:not(.botao):not(.link-seta):focus-visible,
 
 /* Fotos nas páginas internas (tratamentos, ninfoplastia). */
 .bloco-figura { margin: 0 0 var(--e5); }
-.bloco-figura img, .figura-pagina img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; object-position: 50% 30%; border-radius: var(--raio); display: block; }
-.bloco-figura .reservado, .figura-pagina .reservado { aspect-ratio: 16 / 9; min-height: 0; }
+/* 4:3 com o foco um pouco abaixo do centro: nas fotos em pé (médica + paciente deitada) o corpo da paciente entra no quadro — pedido da cliente em 10/10. */
+.bloco-figura img, .figura-pagina img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 55%; border-radius: var(--raio); display: block; }
+.bloco-figura .reservado, .figura-pagina .reservado { aspect-ratio: 4 / 3; min-height: 0; }
 .figura-pagina { margin: 0 0 var(--e6); }
 /* Fotos soltas numa grade (página Sobre): mesma proporção, mesma altura. */
 .grade > img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 20%; border-radius: var(--raio); display: block; }
@@ -1131,3 +1132,16 @@ main p a:not(.botao):not(.link-seta):focus-visible,
 .cta-final .chamada { font-size: 16.5px; margin-bottom: var(--e2); }
 .cta-final p:not(.chamada):not(.aviso-wpp) { font-size: 14.5px; margin-bottom: var(--e4); }
 .cta-final .regua { margin-top: var(--e2); margin-bottom: var(--e3); }
+
+/* Vídeos por página (10/10): grade de 2, capa + play; YouTube só carrega no clique. */
+.videos { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--e4); margin: 0 0 var(--e6); }
+@media (max-width: 700px) { .videos { grid-template-columns: 1fr; } }
+.video { margin: 0; }
+.video-yt, .video video { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--raio); overflow: hidden; background: #1a0b0e; }
+.video-vertical .video-yt, .video-vertical video { aspect-ratio: 9 / 16; max-height: 560px; margin: 0 auto; }
+.video-yt img, .video-yt iframe { width: 100%; height: 100%; object-fit: cover; display: block; border: 0; }
+.video-play { position: absolute; inset: 0; display: grid; place-items: center; }
+.video-play::before { content: ""; width: 64px; height: 64px; border-radius: 50%; background: rgba(124, 30, 45, .92); box-shadow: 0 6px 24px rgba(0, 0, 0, .35); transition: transform .3s ease; }
+.video-play::after { content: ""; position: absolute; width: 0; height: 0; border-left: 20px solid #fff; border-top: 12px solid transparent; border-bottom: 12px solid transparent; margin-left: 5px; }
+.video-yt:hover .video-play::before { transform: scale(1.08); }
+.video figcaption { font-size: 14px; margin-top: var(--e2); color: var(--tinta-suave); }

@@ -488,6 +488,23 @@
   });
 
   /* ---------------------------------------------------------------- */
+  /* 10b. YouTube "lite": a capa é um link normal; com JS o clique      */
+  /*      troca por iframe do youtube-nocookie já tocando. Sem JS, abre */
+  /*      o YouTube numa aba.                                           */
+  /* ---------------------------------------------------------------- */
+  Array.prototype.forEach.call(document.querySelectorAll('.video-yt[data-yt]'), function (a) {
+    a.addEventListener('click', function (evento) {
+      evento.preventDefault();
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + a.getAttribute('data-yt') + '?autoplay=1&rel=0';
+      iframe.title = a.getAttribute('aria-label') || 'Vídeo';
+      iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+      iframe.setAttribute('allowfullscreen', '');
+      a.replaceChildren(iframe);
+    });
+  });
+
+  /* ---------------------------------------------------------------- */
   /* 11. Vídeo do hero: escolhe a versão pela proporção da tela        */
   /*     (3:4 no celular em pé, horizontal no resto). Sem JS, ou com   */
   /*     movimento reduzido, fica a imagem de capa.                    */

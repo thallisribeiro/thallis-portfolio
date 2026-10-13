@@ -46,6 +46,7 @@ itens que o PDF de briefing pede e que ainda não estão entregues.
 | D2 | **Completar as 100 perguntas** — o briefing lista 46 e pede 100. Faltam 54, que dependem de pesquisa de intenção e passam pela mesma aprovação médica de A4. A página não promete 100 enquanto não houver | Páginas 10 e 11 | Página de dúvidas |
 | D3 | **Ativar a medição de cliques** — os eventos (clique no WhatsApp, por unidade) e o consentimento LGPD já estão prontos no site; falta o coletor. Bloqueado até existir domínio com TLS (coletor self-host sem https é barrado pelo navegador). Opções: GTM+GA4 (conta Google) ou Umami no próprio VPS | — | Ligar na virada do domínio |
 | D4 | **Destino do backup fora do VPS** — o backup diário funciona, mas mora no mesmo disco do site; falta decidir para onde espelhar (Drive? esta máquina?) | — | Decisão sua |
+| D5 | **Links dos 9 vídeos no YouTube** — os vídeos do Drive têm 2 a 13 min em 4K (1 a 2,5 GB cada): hospedar no site não fica bom (peso e limite de 100 MB por arquivo na prévia). A estrutura está pronta: cada vídeo já tem título, página e capa no painel; falta só colar o link do YouTube (não listado serve). Sem link, o vídeo não aparece | — | Tratamentos, Ninfoplastia e Tecnologias |
 
 ---
 
@@ -71,4 +72,4 @@ fechados e verificados por medição:
 
 ## Resumo
 
-**19 pendências, 8 fechadas em 04/09/2026 (B4–B7, C2, D1, WhatsApp de Florianópolis e vídeo do hero).** Nenhuma é de construção: 16 são dados ou material que precisam chegar, e 3 são decisões (D2, D3, D4). O blog editável — requisito explícito do briefing — está ENTREGUE via painel Payload; falta só o subdomínio/DNS (C3) para a Dra. acessar. Assim que A1 a A3 e B1 a B3 forem respondidos, o site sai da prévia e vai para o ar no domínio definitivo.
+**20 pendências, 8 fechadas em 04/09/2026 (B4–B7, C2, D1, WhatsApp de Florianópolis e vídeo do hero). Ajustes de texto da cliente de 10/10 aplicados em 13/10.** Nenhuma é de construção: 16 são dados ou material que precisam chegar, e 3 são decisões (D2, D3, D4). O blog editável — requisito explícito do briefing — está ENTREGUE via painel Payload; falta só o subdomínio/DNS (C3) para a Dra. acessar. Assim que A1 a A3 e B1 a B3 forem respondidos, o site sai da prévia e vai para o ar no domínio definitivo.
