@@ -94,28 +94,39 @@ main { max-width: 1080px; margin: 0 auto; padding: 32px 16px 64px; }
 .board { padding: 28px; border-color: rgba(232,163,61,0.22); }
 .board .card-topo .eyebrow { color: var(--amb); }
 .nuvem {
-  position: relative; margin: 22px 0 0; min-height: 300px; padding: 36px 20px;
-  display: flex; flex-wrap: wrap; justify-content: center; align-content: center; align-items: baseline; gap: 6px 22px;
+  position: relative; margin: 22px 0 0; height: 440px; overflow: hidden;
   border-radius: 16px; border: 1px solid var(--linha);
   background:
     radial-gradient(ellipse at 50% 50%, rgba(232,163,61,0.10), transparent 62%),
     radial-gradient(rgba(255,255,255,0.075) 1px, transparent 1.2px) 0 0 / 22px 22px,
     var(--bg);
 }
-.palavra { font-family: var(--display); font-weight: 700; line-height: 1.1; letter-spacing: -0.01em; text-align: center; overflow-wrap: anywhere; transition: transform 0.15s ease; }
-.palavra:hover { transform: translateY(-2px); }
+/* palco: ponto zero no centro do quadro; as palavras se posicionam por transform a partir dele */
+.palco { position: absolute; left: 50%; top: 50%; width: 0; height: 0; transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.palavra {
+  position: absolute; left: 0; top: 0; margin: 0; padding: 1px 4px; border: 0; border-radius: 8px; background: none;
+  white-space: nowrap; cursor: pointer; font-family: var(--display); font-weight: 700; line-height: 1.05; letter-spacing: -0.01em;
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.5s ease, filter 0.2s ease;
+}
 .palavra sup { font: 500 0.42em var(--mono); color: var(--mut); margin-left: 3px; letter-spacing: 0; vertical-align: super; }
 .palavra.minha { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 5px; }
-button.palavra { background: none; border: 0; padding: 0; cursor: pointer; }
-.palavra.nova { animation: surge 0.9s ease-out; }
-@keyframes surge {
-  from { opacity: 0; transform: scale(0.6); text-shadow: 0 0 24px rgba(232,163,61,0.9); }
-  60% { opacity: 1; transform: scale(1.08); }
-  to { transform: scale(1); text-shadow: none; }
-}
-.nuvem-vazia { text-align: center; max-width: 34ch; }
+.palco:hover .palavra:not(:hover):not(.sel), .palco.tem-sel .palavra:not(.sel) { filter: opacity(0.35); }
+.palavra.sel { text-shadow: 0 0 22px currentColor; }
+.palavra:focus-visible { outline-offset: 0; }
+.palavra.nova { animation: brilho 1.6s ease-out; }
+@keyframes brilho { from { text-shadow: 0 0 28px rgba(232,163,61,0.95), 0 0 6px rgba(232,163,61,0.9); } to { text-shadow: none; } }
+.nuvem-vazia { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; padding: 16px; }
 .nuvem-vazia strong { display: block; font: 700 clamp(22px, 4vw, 30px) var(--display); color: var(--txt); margin-bottom: 6px; }
-.nuvem-vazia span { color: var(--mut); }
+.nuvem-vazia span { color: var(--mut); max-width: 34ch; }
+.info { min-height: 52px; margin-top: 12px; padding: 6px 6px 6px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; border: 1px solid var(--linha); border-radius: 14px; background: var(--bg); }
+.info .txt { color: var(--mut); font-size: 15px; overflow-wrap: anywhere; }
+.info .txt b { color: var(--txt); }
+.info .btn { height: 40px; padding: 0 16px; font-size: 14px; }
+.tela { border: 1px solid var(--linha); background: none; color: var(--mut); font: 500 12px var(--mono); padding: 4px 10px; border-radius: 8px; cursor: pointer; }
+.tela:hover { color: var(--txt); }
+.board:fullscreen { overflow: auto; border-radius: 0; border: 0; padding: 28px 32px; display: flex; flex-direction: column; background: var(--bg); }
+.board:fullscreen .nuvem { flex: 1; height: auto; min-height: 60vh; }
+.board:fullscreen .corpo { display: none; }
 
 .mandar { margin-top: 20px; }
 .mandar label { display: block; font: 500 12px var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--mut); margin-bottom: 8px; }
@@ -131,7 +142,8 @@ button.palavra { background: none; border: 0; padding: 0; cursor: pointer; }
 .btn.leve { height: 44px; background: var(--sup2); color: var(--txt); border: 1px solid var(--linha); }
 @media (max-width: 520px) {
   .board { padding: 18px; }
-  .nuvem { min-height: 240px; padding: 24px 12px; gap: 4px 14px; }
+  .nuvem { height: 440px; }
+  .info { flex-direction: column; align-items: stretch; padding: 12px; }
   .mandar-linha { flex-direction: column; }
   .mandar input { flex: none; }
 }
@@ -153,6 +165,25 @@ button.palavra { background: none; border: 0; padding: 0; cursor: pointer; }
 .print { display: block; width: 100%; height: auto; margin: 14px 0 0; border-radius: 12px; border: 1px solid var(--linha); }
 .video { aspect-ratio: 16 / 9; margin: 14px 0 0; }
 .video iframe { width: 100%; height: 100%; border: 0; border-radius: 12px; }
+
+/* comentários: em toda etapa, embaixo do card */
+.conversa { margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--linha); }
+.conversa h3 { font: 500 12px var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--mut); margin-bottom: 14px; }
+.lista-msgs { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.lista-msgs:empty { display: none; }
+.msg { display: flex; gap: 10px; }
+.msg-corpo { flex: 1; min-width: 0; }
+.msg-topo { margin: 0; display: flex; align-items: baseline; gap: 8px; font-size: 14px; }
+.msg-topo strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.msg-topo time { color: var(--mut); font: 400 12px var(--mono); white-space: nowrap; }
+.msg-texto { margin: 2px 0 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.msg.anonima strong { color: var(--mut); font-weight: 500; }
+.comentar { display: flex; gap: 8px; margin-top: 14px; }
+.comentar textarea { flex: 1; min-width: 0; min-height: 48px; padding: 12px 14px; resize: vertical; background: var(--bg); border: 1px solid rgba(255,255,255,0.14); border-radius: 12px; }
+.comentar textarea::placeholder { color: var(--fraco); }
+.comentar textarea:focus { border-color: var(--amb); outline: none; box-shadow: 0 0 0 4px rgba(232,163,61,0.15); }
+.comentar .btn { height: 48px; }
+@media (max-width: 520px) { .comentar { flex-direction: column; } .comentar textarea { flex: none; } }
 
 .av { flex: none; width: 32px; height: 32px; border-radius: 50%; object-fit: cover; background: var(--sup2); display: grid; place-items: center; color: var(--amb); font: 700 14px var(--display); }
 .perigo { border: 1px solid rgba(255,120,120,0.35); background: none; color: #ff9b9b; border-radius: 8px; padding: 6px 12px; font-size: 13px; cursor: pointer; }
@@ -208,7 +239,7 @@ dialog p { color: var(--mut); margin: 0 0 20px; }
 
 <footer>
   <div class="rodape">
-    <p>Usamos nome, foto e e-mail do Google pra você mandar ideia e votar, e pra te avisar quando o app sair.</p>
+    <p>Usamos nome, foto e e-mail do Google pra você mandar ideia, comentar e votar, e pra te avisar quando o app sair.</p>
     <div class="links">
       <a href="/10k/prompts.pdf">os 33 prompts que eu uso pra construir (PDF grátis)</a>
       <a href="/10k/privacidade/">privacidade</a>
@@ -231,11 +262,10 @@ dialog p { color: var(--mut); margin: 0 0 20px; }
 <script>
 'use strict';
 const API = /^(localhost|127\.0\.0\.1)$/.test(location.hostname) ? 'http://localhost:3000' : 'https://10k.72-61-134-210.nip.io';
-const IDEIAS_POR_PESSOA = 3;
 const CORES = ['var(--txt)', 'var(--azul)', '#C9A7FF', '#7EE2A8', '#B8C2CC'];
 const ETAPAS = ['nuvem de ideias', '5 finalistas', 'votação', 'construção', 'venda'];
 const $ = (s) => document.querySelector(s);
-const estado = { feed: null, sessao: lerSessao(), pendente: null, vistas: {} };
+const estado = { feed: null, sessao: lerSessao(), pendente: null, sel: null };
 
 function lerSessao() {
   try { return JSON.parse(localStorage.getItem('10k:sessao')); } catch { return null; }
@@ -324,7 +354,6 @@ function botaoPerigo(rotulo, acao) {
   return b;
 }
 
-const ehAdmin = () => !!estado.feed?.eu?.admin;
 
 // ---------- etapa atual (sai dos próprios posts) ----------
 
@@ -351,53 +380,18 @@ function desenharTrilha() {
 
 // ---------- nuvem ----------
 
-// Tamanho pelo número de pedidos, a maior no meio (alterna direita e esquerda).
+// O quadro (card) é criado uma vez; as palavras vivem dentro dele e só mudam de lugar e de
+// tamanho, deslizando, quando chega ideia nova. Quem cuida delas é desenharPalavras().
 function nuvem(p) {
   const fechada = !!p.fechada_em;
-  const max = Math.max(1, ...p.ideias.map((i) => i.n));
-  const total = p.ideias.reduce((s, i) => s + i.n, 0);
-  const minhas = new Set(p.minhas || []);
-  const vistas = estado.vistas[p.id];
-  estado.vistas[p.id] = new Set(p.ideias.map((i) => i.chave));
-  const ordem = [];
-  p.ideias.forEach((ideia, i) => (i % 2 ? ordem.unshift(ideia) : ordem.push(ideia)));
-  const [base, extra] = estreito() ? [15, 19] : [16, 34];
-
-  const palavras = ordem.map((ideia) => {
-    const rank = p.ideias.indexOf(ideia);
-    const nova = vistas && !vistas.has(ideia.chave);
-    const props = {
-      class: 'palavra' + (minhas.has(ideia.chave) ? ' minha' : '') + (nova ? ' nova' : ''),
-      style: `font-size:${(base + extra * Math.sqrt(ideia.n / max)).toFixed(1)}px;color:${rank === 0 && ideia.n > 1 ? 'var(--amb)' : CORES[rank % CORES.length]}`,
-      title: ideia.n === 1 ? '1 pessoa pediu' : `${ideia.n} pessoas pediram`,
-      role: 'listitem',
-    };
-    const conteudo = [ideia.texto, ideia.n > 1 ? el('sup', { text: '×' + ideia.n }) : null];
-    if (!ehAdmin()) return el('span', props, conteudo);
-    // Admin tira palavra ofensiva com 2 cliques.
-    const b = botaoPerigo(ideia.texto, () => api('POST', `/api/admin/posts/${p.id}/ideias/apagar`, { chave: ideia.chave }));
-    b.className = props.class;
-    b.setAttribute('style', props.style);
-    b.title = 'clica 2x pra tirar da nuvem';
-    return b;
-  });
-
-  const quadro = el('div', { class: 'nuvem', role: 'list', 'aria-label': 'Ideias mandadas' },
-    palavras.length ? palavras : el('div', { class: 'nuvem-vazia' },
-      el('strong', { text: fechada ? 'ninguém mandou ideia' : 'a nuvem tá vazia' }),
-      el('span', { text: fechada ? '' : 'a primeira ideia que chegar aparece aqui em tamanho gigante.' })));
-
-  const resta = Math.max(0, IDEIAS_POR_PESSOA - minhas.size);
   let mandar = null;
   if (!fechada) {
     const entrada = el('input', { id: 'ideia-' + p.id, name: 'texto', maxlength: 40, autocomplete: 'off', placeholder: 'ex.: app pra agenda de barbearia' });
-    const botao = el('button', { class: 'btn', type: 'submit', disabled: !!estado.sessao && resta === 0, text: estado.sessao ? 'mandar ideia' : 'entrar e mandar' });
     mandar = el('form', { class: 'mandar' },
       el('label', { for: 'ideia-' + p.id, text: 'tua ideia, em até 40 letras' }),
-      el('div', { class: 'mandar-linha' }, entrada, botao),
-      el('p', { class: 'dica', text: estado.sessao
-        ? (resta ? `você ainda pode mandar ${resta} de ${IDEIAS_POR_PESSOA}. ideias iguais se somam e crescem.` : 'você já mandou suas 3. agora é torcer.')
-        : `até ${IDEIAS_POR_PESSOA} ideias por pessoa. ideias iguais se somam e crescem.` }));
+      el('div', { class: 'mandar-linha' }, entrada,
+        el('button', { class: 'btn', type: 'submit', text: estado.sessao ? 'mandar ideia' : 'entrar e mandar' })),
+      el('p', { class: 'dica', text: 'manda quantas ideias quiser, uma de cada vez. ideias iguais se somam e crescem na nuvem.' }));
     mandar.addEventListener('submit', (ev) => {
       ev.preventDefault();
       if (!entrada.value.trim()) { entrada.focus(); return; }
@@ -405,27 +399,223 @@ function nuvem(p) {
         try {
           const r = await api('POST', '/api/ideias', { post_id: p.id, texto: entrada.value });
           p.minhas = r.minhas;
+          entrada.value = '';
           aplicarNuvem(r);
-          // O SSE pode ter redesenhado o quadro antes da resposta: limpa o campo que está na tela.
-          const campo = document.getElementById('ideia-' + p.id);
-          if (campo) campo.value = '';
           aviso('ideia na nuvem');
         } catch (e) { aviso(e.message); }
       });
     });
   }
-
-  const pessoas = p.pessoas === 1 ? '1 pessoa' : `${p.pessoas} pessoas`;
+  const telaCheia = document.fullscreenEnabled && el('button', {
+    class: 'tela', type: 'button', text: 'tela cheia',
+    onclick: (ev) => (document.fullscreenElement ? document.exitFullscreen() : ev.target.closest('.board').requestFullscreen()),
+  });
   return el('article', { class: 'card board', id: 'post-' + p.id },
     el('div', { class: 'card-topo' },
       el('span', { class: 'eyebrow', text: fechada ? 'nuvem fechada · as 5 finalistas vêm aí' : 'nuvem aberta' }),
       el('span', { class: 'meta' },
-        el('span', { text: `${total} ${total === 1 ? 'ideia' : 'ideias'} · ${pessoas}` }),
-        el('span', { class: 'vivo' + (estado.aoVivo ? ' on' : ''), text: 'ao vivo' }))),
+        el('span', { class: 'contagem' }),
+        el('span', { class: 'vivo' + (estado.aoVivo ? ' on' : ''), text: 'ao vivo' }),
+        telaCheia)),
     el('h2', { text: p.titulo }),
     p.corpo && el('p', { class: 'corpo' }, comLinks(p.corpo)),
-    quadro,
-    mandar);
+    el('div', { class: 'nuvem' },
+      el('div', { class: 'palco', role: 'group', 'aria-label': 'Ideias mandadas' }),
+      el('div', { class: 'nuvem-vazia' },
+        el('strong', { text: fechada ? 'ninguém mandou ideia' : 'a nuvem tá vazia' }),
+        el('span', { text: fechada ? '' : 'a primeira ideia que chegar aparece aqui em tamanho gigante.' }))),
+    el('div', { class: 'info', 'aria-live': 'polite' }),
+    mandar,
+    conversa(p));
+}
+
+// ---------- comentários (toda etapa tem) ----------
+
+const rotuloComentarios = (n) => (n === 0 ? 'comentários · ninguém comentou ainda' : n === 1 ? '1 comentário' : `${n} comentários`);
+
+function mensagem(c) {
+  const anonima = c.usuario.id == null;
+  return el('li', { class: 'msg' + (anonima ? ' anonima' : ''), id: 'comentario-' + c.id },
+    anonima ? el('span', { class: 'av', 'aria-hidden': 'true', text: '·' }) : avatar(c.usuario),
+    el('div', { class: 'msg-corpo' },
+      el('p', { class: 'msg-topo' },
+        el('strong', { text: c.usuario.nome }),
+        el('time', { datetime: new Date(c.criado_em).toISOString(), text: tempo(c.criado_em) })),
+      el('p', { class: 'msg-texto' }, comLinks(c.texto))));
+}
+
+function conversa(p) {
+  const caixa = el('textarea', {
+    id: 'comentar-' + p.id, name: 'texto', rows: 1, maxlength: 1000,
+    'aria-label': 'Comentário sobre esta etapa', placeholder: 'comenta sobre esta etapa',
+  });
+  const form = el('form', { class: 'comentar' }, caixa, el('button', { class: 'btn leve', type: 'submit', text: 'comentar' }));
+  form.addEventListener('submit', (ev) => {
+    ev.preventDefault();
+    if (!caixa.value.trim()) { caixa.focus(); return; }
+    precisaLogin(async () => {
+      try {
+        const c = await api('POST', '/api/comentarios', { post_id: p.id, texto: caixa.value });
+        caixa.value = '';
+        addComentario(c);
+      } catch (e) { aviso(e.message); }
+    });
+  });
+  return el('section', { class: 'conversa', 'aria-label': 'Comentários' },
+    el('h3', { id: 'ncom-' + p.id, text: rotuloComentarios(p.comentarios.length) }),
+    el('ul', { class: 'lista-msgs', id: 'com-' + p.id }, p.comentarios.map(mensagem)),
+    form);
+}
+
+function addComentario(c) {
+  const p = estado.feed?.posts.find((x) => x.id === c.post_id);
+  if (!p || document.getElementById('comentario-' + c.id)) return;
+  p.comentarios.push(c);
+  document.getElementById('com-' + p.id)?.append(mensagem(c));
+  const h = document.getElementById('ncom-' + p.id);
+  if (h) h.textContent = rotuloComentarios(p.comentarios.length);
+}
+
+function corDa(chave) {
+  let h = 0;
+  for (const c of chave) h = (h * 31 + c.charCodeAt(0)) >>> 0;
+  return CORES[h % CORES.length];
+}
+
+// Espiral a partir do centro, da mais pedida pra menos pedida: cada palavra fica no 1º ponto
+// livre (sem encostar em outra). Segue o formato do quadro: larga no desktop, alta no celular.
+function espiral(medidas, proporcao) {
+  const achata = Math.min(Math.max(proporcao, 0.45), 2.4);
+  const ocupados = [];
+  const pos = new Map();
+  for (const m of medidas) {
+    let x = 0;
+    let y = 0;
+    for (let t = 0, i = 0; i < 8000; i++, t += 0.06) {
+      x = 2.6 * t * Math.cos(t) * achata - m.w / 2;
+      y = 2.6 * t * Math.sin(t) - m.h / 2;
+      const c = { x: x - 5, y: y - 1, w: m.w + 10, h: m.h + 2 };
+      if (!ocupados.some((o) => o.x < c.x + c.w && c.x < o.x + o.w && o.y < c.y + c.h && c.y < o.y + o.h)) {
+        ocupados.push(c);
+        break;
+      }
+    }
+    pos.set(m.chave, { x, y, w: m.w, h: m.h });
+  }
+  return pos;
+}
+
+function desenharPalavras(p) {
+  const card = document.getElementById('post-' + p.id);
+  if (!card) return;
+  const caixa = card.querySelector('.nuvem');
+  const palco = caixa.querySelector('.palco');
+  palco._spans = palco._spans || new Map();
+  const total = p.ideias.reduce((s, i) => s + i.n, 0);
+  card.querySelector('.contagem').textContent =
+    `${total} ${total === 1 ? 'ideia' : 'ideias'} · ${p.pessoas} ${p.pessoas === 1 ? 'pessoa' : 'pessoas'}`;
+  caixa.querySelector('.nuvem-vazia').hidden = p.ideias.length > 0;
+
+  const W = caixa.clientWidth;
+  const H = caixa.clientHeight;
+  const max = Math.max(1, ...p.ideias.map((i) => i.n));
+  const [base, extra] = W < 560 ? [16, 24] : [18, 48];
+  const minhas = new Set(p.minhas || []);
+  const primeira = !palco._pos;
+  const medidas = [];
+  const vivas = new Set();
+
+  p.ideias.forEach((ideia, rank) => {
+    vivas.add(ideia.chave);
+    let s = palco._spans.get(ideia.chave);
+    const nova = !s;
+    if (nova) {
+      s = el('button', { type: 'button', class: 'palavra' });
+      s.addEventListener('click', () => selecionar(p.id, ideia.chave));
+      s.addEventListener('animationend', () => s.classList.remove('nova'));
+      palco.append(s);
+      palco._spans.set(ideia.chave, s);
+    }
+    const tamanho = base + extra * Math.sqrt(ideia.n / max);
+    s.replaceChildren(ideia.texto, ideia.n > 1 ? el('sup', { text: '×' + ideia.n }) : '');
+    s.style.transition = 'none';
+    s.style.fontSize = tamanho.toFixed(1) + 'px';
+    s.style.color = rank === 0 && ideia.n > 1 ? 'var(--amb)' : corDa(ideia.chave);
+    s.classList.toggle('minha', minhas.has(ideia.chave));
+    s.setAttribute('aria-label', `${ideia.texto}, ${ideia.n} ${ideia.n === 1 ? 'pedido' : 'pedidos'}`);
+    medidas.push({ chave: ideia.chave, s, nova, tamanho, w: s.offsetWidth, h: s.offsetHeight });
+  });
+  for (const [chave, s] of palco._spans) if (!vivas.has(chave)) { s.remove(); palco._spans.delete(chave); }
+  if (!medidas.length) { palco._pos = new Map(); atualizarInfo(p); return; }
+
+  // Posições, e escala pra caber no quadro com 20px de folga.
+  const pos = espiral(medidas, W / H);
+  const caixas = [...pos.values()];
+  const minX = Math.min(...caixas.map((c) => c.x));
+  const maxX = Math.max(...caixas.map((c) => c.x + c.w));
+  const minY = Math.min(...caixas.map((c) => c.y));
+  const maxY = Math.max(...caixas.map((c) => c.y + c.h));
+  const escala = Math.min(1, (W - 40) / (maxX - minX), (H - 40) / (maxY - minY));
+  palco.style.transform = `scale(${escala.toFixed(3)}) translate(${(-(minX + maxX) / 2).toFixed(1)}px, ${(-(minY + maxY) / 2).toFixed(1)}px)`;
+
+  // FLIP: começa onde estava (e do tamanho que tinha), e desliza até o lugar novo.
+  for (const m of medidas) {
+    const { x, y } = pos.get(m.chave);
+    const antes = palco._pos?.get(m.chave);
+    if (m.nova) {
+      m.s.style.transform = `translate(${x}px, ${y}px) scale(0.3)`;
+      m.s.style.opacity = '0';
+    } else if (antes) {
+      m.s.style.transform = `translate(${antes.x}px, ${antes.y}px) scale(${(antes.tamanho / m.tamanho).toFixed(3)})`;
+    }
+  }
+  void palco.offsetWidth;
+  for (const m of medidas) {
+    const { x, y } = pos.get(m.chave);
+    m.s.style.transition = '';
+    m.s.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px)`;
+    m.s.style.opacity = '1';
+    if (m.nova && !primeira) m.s.classList.add('nova');
+  }
+  palco._pos = new Map(medidas.map((m) => [m.chave, { ...pos.get(m.chave), tamanho: m.tamanho }]));
+  atualizarInfo(p);
+}
+
+// Tocar numa palavra mostra quantos pediram e o botão de +1.
+function selecionar(postId, chave) {
+  estado.sel = estado.sel?.chave === chave && estado.sel.postId === postId ? null : { postId, chave };
+  const p = estado.feed.posts.find((x) => x.id === postId);
+  if (p) atualizarInfo(p);
+}
+
+function atualizarInfo(p) {
+  const card = document.getElementById('post-' + p.id);
+  if (!card) return;
+  const info = card.querySelector('.info');
+  const palco = card.querySelector('.palco');
+  const sel = estado.sel?.postId === p.id ? p.ideias.find((i) => i.chave === estado.sel.chave) : null;
+  palco.classList.toggle('tem-sel', !!sel);
+  palco._spans?.forEach((s, c) => s.classList.toggle('sel', !!sel && c === sel.chave));
+  if (!sel) {
+    info.replaceChildren(el('span', { class: 'txt', text: p.ideias.length
+      ? (p.fechada_em ? 'toca numa palavra pra ver quantas pessoas pediram.' : 'toca numa palavra pra ver quantas pessoas pediram e apoiar com +1.')
+      : 'as ideias aparecem aqui, ao vivo.' }));
+    return;
+  }
+  const minha = (p.minhas || []).includes(sel.chave);
+  info.replaceChildren(
+    el('span', { class: 'txt' }, el('b', { text: sel.texto }), ` · ${sel.n} ${sel.n === 1 ? 'pessoa pediu' : 'pessoas pediram'}`),
+    !p.fechada_em && el('button', {
+      class: 'btn', type: 'button', disabled: minha, text: minha ? 'você já pediu essa' : '+1 eu também quero',
+      onclick: () => precisaLogin(async () => {
+        try {
+          const r = await api('POST', '/api/ideias', { post_id: p.id, texto: sel.texto });
+          p.minhas = r.minhas;
+          aplicarNuvem(r);
+          aviso('+1 na nuvem');
+        } catch (e) { aviso(e.message); }
+      }),
+    }));
 }
 
 function aplicarNuvem(d) {
@@ -433,13 +623,11 @@ function aplicarNuvem(d) {
   if (!p) return;
   p.ideias = d.ideias;
   p.pessoas = d.pessoas;
-  const atual = document.getElementById('post-' + p.id);
-  const digitado = atual?.querySelector('input')?.value;
-  const focado = atual?.contains(document.activeElement);
-  atual?.replaceWith(nuvem(p));
-  const novo = document.querySelector(`#post-${p.id} input`);
-  if (novo && digitado) novo.value = digitado;
-  if (novo && focado) novo.focus();
+  desenharPalavras(p);
+}
+
+function redesenharNuvens() {
+  for (const p of estado.feed?.posts || []) if (p.tipo === 'nuvem') desenharPalavras(p);
 }
 
 // ---------- outros tipos de post (enquete das finalistas etc.) ----------
@@ -493,7 +681,8 @@ function card(p) {
       title: p.titulo, loading: 'lazy', allowfullscreen: true,
       allow: 'accelerometer; encrypted-media; gyroscope; picture-in-picture',
     })),
-    p.tipo === 'enquete' && enquete(p));
+    p.tipo === 'enquete' && enquete(p),
+    conversa(p));
 }
 
 function desenharFeed() {
@@ -503,11 +692,12 @@ function desenharFeed() {
   const box = $('#posts');
   box.replaceChildren(...(f.posts.length ? f.posts.map(card)
     : [el('p', { class: 'vazio', text: 'A nuvem de ideias abre aqui em breve.' })]));
+  redesenharNuvens(); // precisa do quadro já na página pra medir as palavras
 }
 
 async function carregarFeed() {
   const digitado = {};
-  document.querySelectorAll('.mandar input').forEach((t) => { if (t.value) digitado[t.id] = t.value; });
+  document.querySelectorAll('.mandar input, .comentar textarea').forEach((t) => { if (t.value) digitado[t.id] = t.value; });
   try {
     estado.feed = await api('GET', '/api/feed');
   } catch {
@@ -631,10 +821,22 @@ function aoVivo() {
   fonte.addEventListener('ideias', (e) => aplicarNuvem(dados(e)));
   fonte.addEventListener('votos', (e) => { const d = dados(e); aplicarContagens(d.post_id, d.contagens); });
   fonte.addEventListener('feed', () => carregarFeed());
-  fonte.addEventListener('apagado', (e) => { if (dados(e).tipo === 'usuario') carregarFeed(); });
+  fonte.addEventListener('comentario', (e) => addComentario(dados(e)));
+  fonte.addEventListener('apagado', (e) => {
+    const d = dados(e);
+    if (d.tipo === 'usuario') carregarFeed(); // nome dele vira "alguém que saiu do grupo"
+    else if (d.tipo === 'comentario') document.getElementById('comentario-' + d.id)?.remove();
+  });
   fonte.onopen = () => marcar(true);
   fonte.onerror = () => marcar(false);
 }
+
+// O tamanho das palavras depende da fonte e do quadro: refaz o layout quando um dos dois muda.
+let relayout;
+const pedirRelayout = () => { clearTimeout(relayout); relayout = setTimeout(redesenharNuvens, 150); };
+addEventListener('resize', pedirRelayout);
+document.addEventListener('fullscreenchange', pedirRelayout);
+document.fonts?.ready.then(pedirRelayout);
 
 desenharConta();
 carregarFeed();
