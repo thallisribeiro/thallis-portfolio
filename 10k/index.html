@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Build in group · do zero aos 10k</title>
+<meta name="description" content="Vou construir um app do zero até os 10k e quem decide é o grupo: nicho, nome, criativo e próxima função vão pra enquete. Entra, vota e comenta.">
+<link rel="canonical" href="https://thallisribeiro.com.br/10k/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thallisribeiro.com.br/10k/">
+<meta property="og:title" content="Build in group · do zero aos 10k">
+<meta property="og:description" content="Vou construir um app do zero até os 10k e quem decide é o grupo. Entra, vota e comenta.">
+<meta property="og:image" content="https://thallisribeiro.com.br/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230B0F14'/%3E%3Crect x='10' y='14' width='44' height='4' rx='2' fill='%23E8A33D'/%3E%3Crect x='10' y='30' width='30' height='4' rx='2' fill='%238B949E'/%3E%3Crect x='10' y='46' width='18' height='4' rx='2' fill='%238B949E'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0B0F14; --sup: #11161C; --sup2: #161C24; --txt: #E6EDF3; --mut: #8B949E;
+  --amb: #E8A33D; --azul: #58A6FF; --ok: #25D366; --linha: rgba(255,255,255,0.08);
+  --raio: 20px;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--txt); font: 16px/1.6 Inter, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: "Space Grotesk", sans-serif; margin: 0; line-height: 1.2; }
+a { color: var(--azul); }
+button, input, textarea, select { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--amb); outline-offset: 2px; }
+[hidden] { display: none !important; }
+
+.topo { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 16px; border-bottom: 1px solid var(--linha); background: rgba(11,15,20,0.92); backdrop-filter: blur(8px); }
+.marca { font: 700 17px "Space Grotesk", sans-serif; color: var(--txt); text-decoration: none; white-space: nowrap; }
+.marca span { color: var(--amb); }
+.membros { color: var(--mut); font-size: 14px; white-space: nowrap; }
+.conta { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.nome-curto { max-width: 12ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.btn { min-height: 44px; padding: 0 18px; border-radius: 12px; border: 1px solid var(--linha); background: var(--sup2); cursor: pointer; font-weight: 600; white-space: nowrap; }
+.btn:hover { border-color: rgba(232,163,61,0.5); }
+.btn.primario { background: var(--amb); color: #141008; border-color: transparent; }
+
+.intro { max-width: 1180px; margin: 0 auto; padding: 40px 16px 24px; }
+.kicker { color: var(--amb); font: 600 13px/1 "Space Grotesk", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; }
+.intro h1 { font-size: clamp(28px, 5vw, 48px); margin: 14px 0 16px; max-width: 22ch; }
+.intro p { margin: 0; color: var(--mut); max-width: 60ch; }
+.passos { list-style: none; padding: 0; margin: 18px 0; display: grid; gap: 10px; counter-reset: p; max-width: 62ch; }
+.passos li { counter-increment: p; display: flex; gap: 12px; align-items: baseline; }
+.passos li::before { content: counter(p); flex: none; width: 26px; height: 26px; display: inline-grid; place-items: center; border-radius: 999px; border: 1px solid rgba(232,163,61,0.45); color: var(--amb); font: 700 13px "Space Grotesk", sans-serif; }
+.intro .pdf { font-size: 15px; }
+
+.grade { max-width: 1180px; margin: 0 auto; padding: 0 16px 48px; display: grid; gap: 24px; }
+.abas { display: flex; gap: 8px; }
+.abas .btn { flex: 1; }
+.abas .btn[aria-selected="true"] { border-color: var(--amb); color: var(--amb); }
+@media (min-width: 980px) {
+  .grade { grid-template-columns: minmax(0, 1fr) 360px; align-items: start; }
+  .abas { display: none; }
+  #chat { position: sticky; top: 84px; height: calc(100dvh - 100px); }
+}
+@media (max-width: 979px) {
+  body[data-aba="feed"] #chat, body[data-aba="chat"] #feed { display: none; }
+  #chat { height: calc(100dvh - 150px); min-height: 380px; }
+}
+
+#posts { display: grid; gap: 16px; }
+.card { background: var(--sup); border: 1px solid var(--linha); border-radius: var(--raio); padding: 20px; min-width: 0; }
+.card-topo { display: flex; justify-content: space-between; gap: 8px; color: var(--mut); font-size: 13px; margin-bottom: 8px; }
+.selo { color: var(--amb); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+.card h2 { font-size: 22px; margin-bottom: 8px; overflow-wrap: anywhere; }
+.corpo { white-space: pre-wrap; margin: 0 0 12px; overflow-wrap: anywhere; }
+.prompt { position: relative; margin: 8px 0 12px; padding: 44px 16px 16px; background: var(--bg); border: 1px solid var(--linha); border-radius: 12px; }
+.prompt pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; font: 14px/1.55 ui-monospace, Consolas, monospace; }
+.prompt .btn { position: absolute; top: 8px; right: 8px; min-height: 32px; padding: 0 12px; font-size: 13px; }
+.print { display: block; width: 100%; height: auto; margin: 8px 0 12px; border-radius: 12px; border: 1px solid var(--linha); }
+.video { aspect-ratio: 16 / 9; margin: 8px 0 12px; }
+.video iframe { width: 100%; height: 100%; border: 0; border-radius: 12px; }
+
+.opcoes { display: grid; gap: 8px; margin: 12px 0 8px; }
+.opcao { --pct: 0%; display: flex; justify-content: space-between; align-items: center; gap: 12px; width: 100%; min-height: 48px; padding: 10px 16px; text-align: left; cursor: pointer; border-radius: 12px; border: 1px solid var(--linha); background: linear-gradient(to right, rgba(232,163,61,0.2) var(--pct), var(--sup2) var(--pct)); transition: border-color 0.15s; }
+.opcao:hover:not(:disabled) { border-color: rgba(232,163,61,0.55); }
+.opcao:disabled { cursor: default; }
+.opcao.minha { border-color: var(--amb); }
+.opcao.vencedora { border-color: var(--ok); }
+.opcao-texto { overflow-wrap: anywhere; }
+.opcao-marca { color: var(--amb); font-size: 13px; margin-left: 6px; }
+.opcao.vencedora .opcao-marca { color: var(--ok); }
+.opcao-pct { font: 700 15px "Space Grotesk", sans-serif; font-variant-numeric: tabular-nums; }
+.enquete-rodape { margin: 0; color: var(--mut); font-size: 14px; }
+.nuvem { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px 16px; min-height: 160px; margin: 12px 0; padding: 20px 12px; background: var(--bg); border: 1px solid var(--linha); border-radius: 16px; }
+.palavra { font-family: "Space Grotesk", sans-serif; font-weight: 700; line-height: 1.15; text-align: center; overflow-wrap: anywhere; }
+button.palavra { background: none; border: 0; padding: 0; cursor: pointer; }
+.palavra.minha { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.nuvem .vazio { text-align: center; }
+
+.conversa { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--linha); }
+.conversa h3 { margin-bottom: 10px; color: var(--mut); font-size: 15px; font-weight: 600; }
+.lista-msgs { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.msg { display: flex; gap: 10px; }
+.av { flex: none; width: 32px; height: 32px; border-radius: 50%; object-fit: cover; background: var(--sup2); display: grid; place-items: center; color: var(--amb); font: 700 14px "Space Grotesk", sans-serif; }
+.msg-corpo { flex: 1; min-width: 0; }
+.msg-topo { margin: 0; display: flex; align-items: baseline; gap: 8px; font-size: 14px; }
+.msg-topo strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.msg-topo time { color: var(--mut); font-size: 12px; white-space: nowrap; }
+.msg-texto { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.moderar { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.perigo { min-height: 32px; padding: 2px 10px; border-radius: 8px; border: 1px solid rgba(255,120,120,0.35); background: none; color: #ff9b9b; font-size: 13px; cursor: pointer; }
+.comentar, #falar { display: flex; gap: 8px; margin-top: 12px; }
+.comentar textarea, .comentar input, #falar input { flex: 1; min-width: 0; min-height: 44px; padding: 10px 14px; resize: vertical; background: var(--bg); border: 1px solid var(--linha); border-radius: 12px; }
+
+#chat { display: flex; flex-direction: column; overflow: hidden; background: var(--sup); border: 1px solid var(--linha); border-radius: var(--raio); }
+.chat-topo { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border-bottom: 1px solid var(--linha); }
+.chat-topo h2 { font-size: 17px; }
+#vivo { display: flex; align-items: center; gap: 6px; color: var(--mut); font-size: 12px; }
+#vivo::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--mut); }
+#vivo.on { color: var(--txt); }
+#vivo.on::before { background: var(--ok); }
+#mensagens { flex: 1; overflow-y: auto; padding: 16px; }
+#falar { margin: 0; padding: 12px; border-top: 1px solid var(--linha); }
+.vazio { color: var(--mut); margin: 0; }
+
+.admin label { display: grid; gap: 4px; margin-bottom: 12px; color: var(--mut); font-size: 14px; }
+.admin input, .admin textarea, .admin select { padding: 10px 12px; color: var(--txt); background: var(--bg); border: 1px solid var(--linha); border-radius: 10px; }
+.admin .so-enquete, .admin .so-video, .admin .so-print { display: none; }
+.admin[data-tipo="enquete"] .so-enquete, .admin[data-tipo="video"] .so-video, .admin[data-tipo="print"] .so-print { display: grid; }
+.admin-acoes { display: flex; flex-wrap: wrap; gap: 8px; }
+
+footer { max-width: 1180px; margin: 0 auto; padding: 24px 16px 48px; border-top: 1px solid var(--linha); color: var(--mut); font-size: 14px; }
+footer p { margin: 0 0 12px; }
+dialog { max-width: min(420px, calc(100vw - 32px)); padding: 24px; color: var(--txt); background: var(--sup); border: 1px solid var(--linha); border-radius: var(--raio); }
+dialog::backdrop { background: rgba(0,0,0,0.65); }
+dialog h2 { font-size: 22px; margin-bottom: 8px; }
+dialog p { color: var(--mut); margin: 0 0 16px; }
+#botao-google { min-height: 44px; margin-bottom: 16px; }
+#aviso { position: fixed; left: 50%; bottom: 24px; z-index: 10; max-width: calc(100vw - 32px); padding: 10px 16px; transform: translateX(-50%); background: var(--sup2); border: 1px solid var(--linha); border-radius: 12px; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+#aviso.on { opacity: 1; }
+@media (max-width: 420px) { .membros { display: none; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body data-aba="feed">
+
+<header class="topo">
+  <a class="marca" href="/">thallisribeiro<span>/10k</span></a>
+  <span class="membros" id="membros"></span>
+  <div class="conta" id="conta"></div>
+</header>
+
+<section class="intro">
+  <div class="kicker">do zero aos 10k · build in group</div>
+  <h1>todo mundo faz build in public. eu quero testar build in group.</h1>
+  <p>vou construir um app do zero até os 10k, e quem decide é vocês:</p>
+  <ol class="passos">
+    <li>vocês escrevem na nuvem o que querem que eu construa</li>
+    <li>eu analiso tudo e trago as 5 melhores ideias pra votação</li>
+    <li>vocês votam em qual eu construo</li>
+    <li>nome, criativo e próxima função: enquete</li>
+    <li>preço e se o app vive ou morre: quem decide é a venda. mostro o print toda semana</li>
+  </ol>
+  <a class="pdf" href="/10k/prompts.pdf">os 33 prompts que eu uso pra construir, de graça (PDF)</a>
+</section>
+
+<main class="grade">
+  <div class="abas" role="tablist" aria-label="Seções">
+    <button class="btn" type="button" role="tab" id="aba-feed" aria-selected="true" aria-controls="feed">feed</button>
+    <button class="btn" type="button" role="tab" id="aba-chat" aria-selected="false" aria-controls="chat">chat do grupo</button>
+  </div>
+  <section id="feed" aria-label="Publicações">
+    <div id="posts"><p class="vazio">carregando...</p></div>
+  </section>
+  <aside id="chat" aria-label="Chat do grupo">
+    <div class="chat-topo"><h2>chat do grupo</h2><span id="vivo">ao vivo</span></div>
+    <div id="mensagens" aria-live="polite"><p class="vazio">carregando...</p></div>
+    <form id="falar">
+      <input name="texto" maxlength="500" autocomplete="off" placeholder="manda no chat" aria-label="Mensagem pro chat">
+      <button class="btn primario" type="submit">enviar</button>
+    </form>
+  </aside>
+</main>
+
+<footer>
+  <p>Usamos nome, foto e e-mail do Google pra você votar e comentar, e pra te avisar quando o app sair. Sair do grupo apaga seus votos, comentários e mensagens.</p>
+  <p id="sair-grupo" hidden></p>
+  <p><a href="/">thallisribeiro.com.br</a></p>
+</footer>
+
+<dialog id="login" aria-labelledby="login-titulo">
+  <h2 id="login-titulo">entra pra participar</h2>
+  <p>Login com Google, 1 toque. Votar, comentar e falar no chat é só pra quem está no grupo.</p>
+  <div id="botao-google"></div>
+  <p id="login-off" hidden>O login abre em breve. Por enquanto dá pra acompanhar tudo por aqui.</p>
+  <form method="dialog"><button class="btn" type="submit">agora não</button></form>
+</dialog>
+
+<div id="aviso" role="status" aria-live="polite"></div>
+
+<script>
+'use strict';
+const API = /^(localhost|127\.0\.0\.1)$/.test(location.hostname) ? 'http://localhost:3000' : 'https://10k.72-61-134-210.nip.io';
+const ROTULO = { nuvem: 'nuvem de ideias', enquete: 'enquete', update: 'update', prompt: 'prompt', print: 'print de venda', video: 'vídeo' };
+const IDEIAS_POR_PESSOA = 3;
+const CORES = ['var(--amb)', 'var(--azul)', 'var(--txt)', '#7EE2A8', '#C9A7FF'];
+const $ = (s) => document.querySelector(s);
+const estado = { feed: null, sessao: lerSessao(), pendente: null };
+
+function lerSessao() {
+  try { return JSON.parse(localStorage.getItem('10k:sessao')); } catch { return null; }
+}
+function gravarSessao(s) {
+  estado.sessao = s;
+  try { s ? localStorage.setItem('10k:sessao', JSON.stringify(s)) : localStorage.removeItem('10k:sessao'); } catch {}
+}
+
+// Todo texto entra por textContent/append(string): nada de usuário vira HTML.
+function el(tag, props = {}, ...filhos) {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(props)) {
+    if (v == null || v === false) continue;
+    if (k.startsWith('on')) n.addEventListener(k.slice(2), v);
+    else if (k === 'class') n.className = v;
+    else if (k === 'text') n.textContent = v;
+    else n.setAttribute(k, v === true ? '' : v);
+  }
+  for (const f of filhos.flat()) if (f || f === 0) n.append(f);
+  return n;
+}
+
+function comLinks(txt) {
+  const frag = document.createDocumentFragment();
+  let i = 0;
+  for (const m of txt.matchAll(/https?:\/\/[^\s<>"]*[^\s<>".,;:!?)]/g)) {
+    frag.append(txt.slice(i, m.index), el('a', { href: m[0], target: '_blank', rel: 'noopener nofollow ugc' }, m[0]));
+    i = m.index + m[0].length;
+  }
+  frag.append(txt.slice(i));
+  return frag;
+}
+
+const relativo = new Intl.RelativeTimeFormat('pt-BR', { numeric: 'auto' });
+function tempo(ms) {
+  const s = (ms - Date.now()) / 1000;
+  for (const [u, n] of [['year', 31536000], ['month', 2592000], ['day', 86400], ['hour', 3600], ['minute', 60]]) {
+    if (Math.abs(s) >= n) return relativo.format(Math.round(s / n), u);
+  }
+  return 'agora';
+}
+
+let avisoTimer;
+function aviso(msg) {
+  const a = $('#aviso');
+  a.textContent = msg;
+  a.classList.add('on');
+  clearTimeout(avisoTimer);
+  avisoTimer = setTimeout(() => a.classList.remove('on'), 4000);
+}
+
+async function api(metodo, rota, corpo) {
+  // Todo POST leva corpo: o ModSecurity do VPS (CRS 960012) barra POST sem Content-Length.
+  if (metodo === 'POST') corpo = corpo || {};
+  const headers = {};
+  if (corpo) headers['content-type'] = 'application/json';
+  if (estado.sessao) headers.authorization = 'Bearer ' + estado.sessao.token;
+  const r = await fetch(API + rota, { method: metodo, headers, body: corpo && JSON.stringify(corpo) });
+  const dados = await r.json().catch(() => ({}));
+  if (r.status === 401 && estado.sessao) { gravarSessao(null); desenharConta(); }
+  if (!r.ok) throw new Error(dados.erro || 'deu erro, tenta de novo');
+  return dados;
+}
+
+function avatar(u) {
+  if (u.foto) return el('img', { class: 'av', src: u.foto, alt: '', referrerpolicy: 'no-referrer', loading: 'lazy' });
+  return el('span', { class: 'av', 'aria-hidden': 'true', text: (u.nome || '?').trim().charAt(0).toUpperCase() });
+}
+
+// Ação destrutiva pede 2 cliques: o 1º arma por 3 s.
+function botaoPerigo(rotulo, acao) {
+  const b = el('button', { type: 'button', class: 'perigo', text: rotulo });
+  let armado = null;
+  b.addEventListener('click', async () => {
+    if (!armado) {
+      b.textContent = 'certeza? clica de novo';
+      armado = setTimeout(() => { armado = null; b.textContent = rotulo; }, 3000);
+      return;
+    }
+    clearTimeout(armado);
+    armado = null;
+    b.textContent = rotulo;
+    try { await acao(); aviso('feito'); } catch (e) { aviso(e.message); }
+  });
+  return b;
+}
+
+const ehAdmin = () => !!estado.feed?.eu?.admin;
+
+function mensagem(m, tipo) {
+  return el('li', { class: 'msg', id: tipo + '-' + m.id },
+    avatar(m.usuario),
+    el('div', { class: 'msg-corpo' },
+      el('p', { class: 'msg-topo' },
+        el('strong', { text: m.usuario.nome }),
+        el('time', { datetime: new Date(m.criado_em).toISOString(), text: tempo(m.criado_em) })),
+      el('p', { class: 'msg-texto' }, comLinks(m.texto)),
+      ehAdmin() && el('div', { class: 'moderar' },
+        botaoPerigo('apagar', () => api('POST', `/api/admin/${tipo === 'chat' ? 'chat' : 'comentarios'}/${m.id}/apagar`)),
+        m.usuario.id !== estado.feed.eu.id &&
+          botaoPerigo('bloquear ' + m.usuario.nome.split(' ')[0], () => api('POST', `/api/admin/usuarios/${m.usuario.id}/banir`)))));
+}
+
+// ---------- feed ----------
+
+function enquete(p) {
+  const total = p.opcoes.reduce((s, o) => s + o.votos, 0);
+  const max = Math.max(0, ...p.opcoes.map((o) => o.votos));
+  const fechada = !!p.fechada_em;
+  const lista = el('div', { class: 'opcoes', role: 'group', 'aria-label': p.titulo });
+  for (const o of p.opcoes) {
+    const pct = total ? Math.round((o.votos * 100) / total) : 0;
+    const minha = p.meu_voto === o.id;
+    const vencedora = fechada && max > 0 && o.votos === max;
+    lista.append(el('button', {
+      type: 'button',
+      class: 'opcao' + (minha ? ' minha' : '') + (vencedora ? ' vencedora' : ''),
+      style: `--pct:${pct}%`,
+      disabled: fechada,
+      'aria-pressed': String(minha),
+      onclick: () => votar(p, o),
+    },
+    el('span', { class: 'opcao-texto' }, o.texto,
+      vencedora ? el('span', { class: 'opcao-marca', text: 'venceu' }) : minha ? el('span', { class: 'opcao-marca', text: 'seu voto' }) : null),
+    el('span', { class: 'opcao-pct', text: pct + '%' })));
+  }
+  const rodape = `${total} ${total === 1 ? 'voto' : 'votos'}` +
+    (fechada ? ' · encerrada' : p.meu_voto ? ' · dá pra trocar enquanto estiver aberta' : '');
+  return el('div', { id: 'enq-' + p.id }, lista, el('p', { class: 'enquete-rodape', text: rodape }));
+}
+
+// Nuvem: tamanho pelo número de pedidos, a maior no meio (alterna direita e esquerda).
+function nuvem(p) {
+  const fechada = !!p.fechada_em;
+  const max = Math.max(1, ...p.ideias.map((i) => i.n));
+  const total = p.ideias.reduce((s, i) => s + i.n, 0);
+  const minhas = new Set(p.minhas || []);
+  const ordem = [];
+  p.ideias.forEach((ideia, i) => (i % 2 ? ordem.unshift(ideia) : ordem.push(ideia)));
+  const palavras = ordem.map((ideia) => {
+    const rank = p.ideias.indexOf(ideia);
+    const props = {
+      class: 'palavra' + (minhas.has(ideia.chave) ? ' minha' : ''),
+      style: `font-size:${(15 + 27 * Math.sqrt(ideia.n / max)).toFixed(1)}px;color:${CORES[rank % CORES.length]}`,
+      title: ideia.n === 1 ? '1 pedido' : `${ideia.n} pedidos`,
+    };
+    if (!ehAdmin()) return el('span', props, ideia.texto);
+    const b = botaoPerigo(ideia.texto, () => api('POST', `/api/admin/posts/${p.id}/ideias/apagar`, { chave: ideia.chave }));
+    b.className = props.class;
+    b.setAttribute('style', props.style);
+    b.title = 'admin: clica 2x pra apagar da nuvem';
+    return b;
+  });
+  const caixa = el('div', { class: 'nuvem', role: 'list', 'aria-label': 'Ideias mandadas' },
+    palavras.length ? palavras.map((w) => (w.setAttribute('role', 'listitem'), w))
+      : el('p', { class: 'vazio', text: fechada ? 'Ninguém mandou ideia.' : 'Nenhuma ideia ainda. Manda a primeira.' }));
+  const resumo = `${total} ${total === 1 ? 'ideia' : 'ideias'} de ${p.pessoas} ${p.pessoas === 1 ? 'pessoa' : 'pessoas'}` +
+    (fechada ? ' · nuvem fechada, a enquete com as 5 melhores vem aí' : '');
+  const resta = IDEIAS_POR_PESSOA - minhas.size;
+  let form = null;
+  if (!fechada) {
+    const entrada = el('input', { name: 'texto', maxlength: 40, autocomplete: 'off', placeholder: 'o que você quer que eu construa?', 'aria-label': 'Sua ideia' });
+    form = el('form', { class: 'comentar' }, entrada, el('button', { class: 'btn primario', type: 'submit', text: 'mandar', disabled: estado.sessao && resta <= 0 }));
+    form.addEventListener('submit', (ev) => {
+      ev.preventDefault();
+      precisaLogin(async () => {
+        if (!entrada.value.trim()) return;
+        try {
+          const r = await api('POST', '/api/ideias', { post_id: p.id, texto: entrada.value });
+          entrada.value = '';
+          p.minhas = r.minhas;
+          aplicarNuvem(r);
+        } catch (e) { aviso(e.message); }
+      });
+    });
+  }
+  return el('div', { id: 'nuvem-' + p.id }, caixa, form,
+    el('p', { class: 'enquete-rodape', text: resumo + (!fechada && estado.sessao ? ` · você ainda pode mandar ${Math.max(0, resta)}` : '') }));
+}
+
+function aplicarNuvem(d) {
+  const p = estado.feed?.posts.find((x) => x.id === d.post_id);
+  if (!p) return;
+  p.ideias = d.ideias;
+  p.pessoas = d.pessoas;
+  const atual = document.getElementById('nuvem-' + p.id);
+  const digitado = atual?.querySelector('input')?.value;
+  atual?.replaceWith(nuvem(p));
+  const novo = document.querySelector(`#nuvem-${p.id} input`);
+  if (novo && digitado) novo.value = digitado;
+}
+
+function blocoPrompt(txt) {
+  const copiar = el('button', { type: 'button', class: 'btn', text: 'copiar' });
+  copiar.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(txt); copiar.textContent = 'copiado'; } catch { aviso('não deu pra copiar, seleciona o texto'); }
+    setTimeout(() => { copiar.textContent = 'copiar'; }, 2000);
+  });
+  return el('div', { class: 'prompt' }, copiar, el('pre', {}, txt));
+}
+
+function conversa(p) {
+  const n = p.comentarios.length;
+  const caixa = el('textarea', {
+    name: 'texto', rows: 1, maxlength: 1000, required: true, 'data-post': p.id,
+    'aria-label': 'Comentário', placeholder: 'comenta aqui',
+  });
+  const form = el('form', { class: 'comentar' }, caixa, el('button', { class: 'btn', type: 'submit', text: 'enviar' }));
+  form.addEventListener('submit', (ev) => {
+    ev.preventDefault();
+    precisaLogin(async () => {
+      try {
+        const c = await api('POST', '/api/comentarios', { post_id: p.id, texto: caixa.value });
+        caixa.value = '';
+        addComentario(c);
+      } catch (e) { aviso(e.message); }
+    });
+  });
+  return el('section', { class: 'conversa' },
+    el('h3', { id: 'ncom-' + p.id, text: n === 1 ? '1 comentário' : `${n} comentários` }),
+    el('ul', { class: 'lista-msgs', id: 'com-' + p.id }, p.comentarios.map((c) => mensagem(c, 'comentario'))),
+    form);
+}
+
+function card(p) {
+  return el('article', { class: 'card', id: 'post-' + p.id },
+    el('div', { class: 'card-topo' },
+      el('span', { class: 'selo', text: ROTULO[p.tipo] }),
+      el('time', { datetime: new Date(p.criado_em).toISOString(), text: tempo(p.criado_em) })),
+    el('h2', { text: p.titulo }),
+    p.corpo && (p.tipo === 'prompt' ? blocoPrompt(p.corpo) : el('p', { class: 'corpo' }, comLinks(p.corpo))),
+    p.imagem && el('img', { class: 'print', src: `${API}/uploads/${encodeURIComponent(p.imagem)}`, alt: p.titulo, loading: 'lazy' }),
+    p.video_id && el('div', { class: 'video' }, el('iframe', {
+      src: 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(p.video_id),
+      title: p.titulo, loading: 'lazy', allowfullscreen: true,
+      allow: 'accelerometer; encrypted-media; gyroscope; picture-in-picture',
+    })),
+    p.tipo === 'enquete' && enquete(p),
+    p.tipo === 'nuvem' && nuvem(p),
+    ehAdmin() && el('div', { class: 'moderar' },
+      (p.tipo === 'enquete' || p.tipo === 'nuvem') && !p.fechada_em &&
+        botaoPerigo(p.tipo === 'nuvem' ? 'fechar nuvem' : 'encerrar enquete', () => api('POST', `/api/admin/posts/${p.id}/fechar`)),
+      botaoPerigo('apagar post', () => api('POST', `/api/admin/posts/${p.id}/apagar`))),
+    conversa(p));
+}
+
+function painelAdmin() {
+  const tipo = el('select', { name: 'tipo' }, Object.entries(ROTULO).map(([v, t]) => el('option', { value: v, text: t })));
+  const campo = (rotulo, entrada, classe) => el('label', { class: classe }, rotulo, entrada);
+  const form = el('form', { class: 'card admin' },
+    el('h2', { text: 'novo post' }),
+    campo('tipo', tipo),
+    campo('título', el('input', { name: 'titulo', maxlength: 200, required: true })),
+    campo('texto', el('textarea', { name: 'corpo', rows: 4, maxlength: 5000 })),
+    campo('opções, uma por linha (2 a 6)', el('textarea', { name: 'opcoes', rows: 3 }), 'so-enquete'),
+    campo('link do YouTube', el('input', { name: 'video_url', type: 'url' }), 'so-video'),
+    campo('imagem (PNG, JPEG ou WebP, até 5 MB)', el('input', { name: 'imagem', type: 'file', accept: 'image/png,image/jpeg,image/webp' }), 'so-print'),
+    el('div', { class: 'admin-acoes' },
+      el('button', { class: 'btn primario', type: 'submit', text: 'publicar' }),
+      el('button', { class: 'btn', type: 'button', text: 'baixar membros (CSV)', onclick: baixarCsv })));
+  const ajustar = () => { form.dataset.tipo = tipo.value; };
+  tipo.addEventListener('change', ajustar);
+  ajustar();
+  form.addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    const f = new FormData(form);
+    const corpo = {
+      tipo: f.get('tipo'), titulo: f.get('titulo'), corpo: f.get('corpo'), video_url: f.get('video_url'),
+      opcoes: String(f.get('opcoes') || '').split('\n').map((s) => s.trim()).filter(Boolean),
+    };
+    const arquivo = f.get('imagem');
+    if (arquivo && arquivo.size) corpo.imagem_base64 = await paraBase64(arquivo);
+    try {
+      await api('POST', '/api/admin/posts', corpo);
+      form.reset();
+      ajustar();
+      aviso('publicado');
+      carregarFeed();
+    } catch (e) { aviso(e.message); }
+  });
+  return form;
+}
+
+const paraBase64 = (arquivo) => new Promise((ok, falha) => {
+  const r = new FileReader();
+  r.onload = () => ok(String(r.result).split(',')[1]);
+  r.onerror = falha;
+  r.readAsDataURL(arquivo);
+});
+
+async function baixarCsv() {
+  const r = await fetch(API + '/api/admin/membros.csv', { headers: { authorization: 'Bearer ' + estado.sessao.token } });
+  if (!r.ok) return aviso('não deu pra baixar');
+  const url = URL.createObjectURL(await r.blob());
+  el('a', { href: url, download: 'membros-10k.csv' }).click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+function desenharFeed() {
+  const f = estado.feed;
+  $('#membros').textContent = f.membros === 1 ? '1 no grupo' : `${f.membros} no grupo`;
+  const box = $('#posts');
+  box.replaceChildren();
+  if (ehAdmin()) box.append(painelAdmin());
+  if (!f.posts.length) box.append(el('p', { class: 'vazio', text: 'Nada publicado ainda. A primeira enquete sai aqui.' }));
+  for (const p of f.posts) box.append(card(p));
+}
+
+async function carregarFeed() {
+  // Recarregar o feed não pode apagar o comentário que alguém está digitando.
+  const rascunhos = {};
+  document.querySelectorAll('.comentar textarea').forEach((t) => { if (t.value) rascunhos[t.dataset.post] = t.value; });
+  try {
+    estado.feed = await api('GET', '/api/feed');
+  } catch {
+    $('#posts').replaceChildren(el('div', { class: 'card' },
+      el('p', { class: 'corpo', text: 'Não consegui falar com o servidor agora.' }),
+      el('button', { class: 'btn', type: 'button', text: 'tentar de novo', onclick: carregarFeed })));
+    return;
+  }
+  if (estado.sessao && !estado.feed.eu) gravarSessao(null);
+  if (estado.sessao) gravarSessao({ ...estado.sessao, eu: estado.feed.eu });
+  desenharFeed();
+  desenharConta();
+  prepararGoogle(estado.feed.google_client_id);
+  for (const [id, v] of Object.entries(rascunhos)) {
+    const t = document.querySelector(`.comentar textarea[data-post="${id}"]`);
+    if (t) t.value = v;
+  }
+}
+
+function aplicarContagens(id, contagens) {
+  const p = estado.feed?.posts.find((x) => x.id === id);
+  if (!p) return;
+  for (const o of p.opcoes) o.votos = contagens[o.id] ?? 0;
+  document.getElementById('enq-' + id)?.replaceWith(enquete(p));
+}
+
+function votar(p, o) {
+  precisaLogin(async () => {
+    try {
+      const r = await api('POST', '/api/votos', { post_id: p.id, opcao_id: o.id });
+      p.meu_voto = o.id;
+      aplicarContagens(p.id, r.contagens);
+    } catch (e) { aviso(e.message); }
+  });
+}
+
+function addComentario(c) {
+  const p = estado.feed?.posts.find((x) => x.id === c.post_id);
+  if (!p || document.getElementById('comentario-' + c.id)) return;
+  p.comentarios.push(c);
+  document.getElementById('com-' + p.id)?.append(mensagem(c, 'comentario'));
+  const n = p.comentarios.length;
+  const h = document.getElementById('ncom-' + p.id);
+  if (h) h.textContent = n === 1 ? '1 comentário' : `${n} comentários`;
+}
+
+// ---------- chat ----------
+
+function rolarChat() {
+  const m = $('#mensagens');
+  m.scrollTop = m.scrollHeight;
+}
+
+async function carregarChat() {
+  try {
+    const { mensagens } = await api('GET', '/api/chat');
+    const box = $('#mensagens');
+    if (!mensagens.length) return box.replaceChildren(el('p', { class: 'vazio', text: 'ninguém falou ainda. começa você.' }));
+    box.replaceChildren(el('ul', { class: 'lista-msgs', id: 'lista-chat' }, mensagens.map((m) => mensagem(m, 'chat'))));
+    rolarChat();
+  } catch {
+    $('#mensagens').replaceChildren(el('p', { class: 'vazio', text: 'o chat está fora do ar agora.' }));
+  }
+}
+
+function addChat(m) {
+  if (document.getElementById('chat-' + m.id)) return;
+  const box = $('#mensagens');
+  let lista = $('#lista-chat');
+  if (!lista) { lista = el('ul', { class: 'lista-msgs', id: 'lista-chat' }); box.replaceChildren(lista); }
+  const perto = box.scrollHeight - box.scrollTop - box.clientHeight < 120;
+  lista.append(mensagem(m, 'chat'));
+  if (perto) rolarChat();
+}
+
+$('#falar').addEventListener('submit', (ev) => {
+  ev.preventDefault();
+  const entrada = ev.target.texto;
+  precisaLogin(async () => {
+    if (!entrada.value.trim()) return;
+    try {
+      const m = await api('POST', '/api/chat', { texto: entrada.value });
+      entrada.value = '';
+      addChat(m);
+      rolarChat();
+    } catch (e) { aviso(e.message); }
+  });
+});
+
+// ---------- conta ----------
+
+function abrirLogin() {
+  const desligado = !estado.feed?.google_client_id;
+  $('#login-off').hidden = !desligado;
+  $('#botao-google').hidden = desligado;
+  $('#login').showModal();
+}
+
+function precisaLogin(acao) {
+  if (estado.sessao) return acao();
+  estado.pendente = acao;
+  abrirLogin();
+}
+
+function sair() {
+  gravarSessao(null);
+  try { google.accounts.id.disableAutoSelect(); } catch {}
+  carregarFeed();
+}
+
+function desenharConta() {
+  const conta = $('#conta');
+  const eu = estado.sessao?.eu;
+  if (eu) {
+    conta.replaceChildren(avatar(eu), el('span', { class: 'nome-curto', text: eu.nome.split(' ')[0] }),
+      el('button', { class: 'btn', type: 'button', text: 'sair', onclick: sair }));
+  } else {
+    conta.replaceChildren(el('button', { class: 'btn primario', type: 'button', text: 'entrar', onclick: abrirLogin }));
+  }
+  const saida = $('#sair-grupo');
+  saida.hidden = !eu;
+  saida.replaceChildren(eu ? botaoPerigo('sair do grupo e apagar meus dados', async () => {
+    await api('POST', '/api/eu/apagar');
+    gravarSessao(null);
+    carregarFeed();
+    carregarChat();
+  }) : '');
+}
+
+async function aoEntrar({ credential }) {
+  try {
+    gravarSessao(await api('POST', '/api/login', { credential }));
+    $('#login').close();
+    await carregarFeed();
+    carregarChat();
+    const acao = estado.pendente;
+    estado.pendente = null;
+    if (acao) acao();
+  } catch (e) { aviso(e.message); }
+}
+
+let googlePronto = false;
+function prepararGoogle(clientId) {
+  if (!clientId || googlePronto) return;
+  googlePronto = true;
+  const s = el('script', { src: 'https://accounts.google.com/gsi/client', async: true });
+  s.onload = () => {
+    google.accounts.id.initialize({ client_id: clientId, callback: aoEntrar, ux_mode: 'popup' });
+    google.accounts.id.renderButton($('#botao-google'), { theme: 'filled_black', size: 'large', shape: 'pill', text: 'signin_with', locale: 'pt-BR' });
+  };
+  document.head.append(s);
+}
+
+$('#login').addEventListener('close', () => { if (!estado.sessao) estado.pendente = null; });
+
+// ---------- ao vivo ----------
+
+function aoVivo() {
+  const fonte = new EventSource(API + '/api/ao-vivo');
+  const dados = (e) => JSON.parse(e.data);
+  fonte.addEventListener('chat', (e) => addChat(dados(e)));
+  fonte.addEventListener('comentario', (e) => addComentario(dados(e)));
+  fonte.addEventListener('votos', (e) => { const d = dados(e); aplicarContagens(d.post_id, d.contagens); });
+  fonte.addEventListener('ideias', (e) => aplicarNuvem(dados(e)));
+  fonte.addEventListener('feed', () => carregarFeed());
+  fonte.addEventListener('apagado', (e) => {
+    const d = dados(e);
+    if (d.tipo === 'usuario') { carregarFeed(); carregarChat(); return; }
+    document.getElementById((d.tipo === 'chat' ? 'chat-' : 'comentario-') + d.id)?.remove();
+  });
+  fonte.onopen = () => $('#vivo').classList.add('on');
+  fonte.onerror = () => $('#vivo').classList.remove('on');
+}
+
+// ---------- abas (celular) ----------
+
+for (const aba of ['feed', 'chat']) {
+  $('#aba-' + aba).addEventListener('click', () => {
+    document.body.dataset.aba = aba;
+    $('#aba-feed').setAttribute('aria-selected', String(aba === 'feed'));
+    $('#aba-chat').setAttribute('aria-selected', String(aba === 'chat'));
+    if (aba === 'chat') rolarChat();
+  });
+}
+
+desenharConta();
+carregarFeed();
+carregarChat();
+aoVivo();
+</script>
+</body>
+</html>
