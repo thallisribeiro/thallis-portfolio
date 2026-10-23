@@ -21,7 +21,7 @@ window.DADOS_BRUMNA = {
     "florianopolis": "[HORARIOS_FLORIANOPOLIS]",
     "saoPaulo": "[HORARIOS_SAO_PAULO]"
   },
-  "avaliacoesGoogle": "[URL_GOOGLE_REVIEWS_OU_PLACE_ID]",
+  "avaliacoesGoogle": "ChIJe5rUL-BHJ5UR2t1NmjDKk44",
   "redes": "[INSTAGRAM_E_OUTRAS_REDES_CONFIRMADAS]",
   "dominioFinal": "[DOMINIO_FINAL]",
   "email": "[EMAIL_DE_CONTATO]",

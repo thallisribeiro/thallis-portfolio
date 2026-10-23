@@ -34,7 +34,7 @@ itens que o PDF de briefing pede e que ainda não estão entregues.
 
 | # | O que falta | Onde o briefing pede | Onde está bloqueando |
 | --- | --- | --- | --- |
-| C1 | **Chave da Google Places API** — o perfil já foi identificado (kgmid /g/11xlzk9c2w, "Dra Brumna Valdivieso"); a integração está pronta no gerador e hoje mostra o link "Ver avaliações no Google". Com a chave no servidor (`GOOGLE_PLACES_KEY`), nota e avaliações reais entram sozinhas | Página 5 | Seção de avaliações |
+| C1 | **Chave da Google Places API** — Place ID recebido (ChIJe5rUL-BHJ5UR2t1NmjDKk44) e já ligado: o botão abre o perfil exato. Falta só a chave de API do Google Cloud (`GOOGLE_PLACES_KEY` no servidor) para nota e avaliações aparecerem no site | Página 5 | Seção de avaliações |
 | C2 | ~~Fotos dos aparelhos em fundo infinito~~ — as 4 vieram do Drive da cliente (Fotona, Morpheus8, Ignite RF, Liftera 2) | Página 7 | Fechado em 04/09/2026 |
 | C3 | **Domínio final e hospedagem** — enquanto o site estiver em subpasta, o índice fica bloqueado de propósito | Página 14 | Metatags `robots`, `canonical`, `sitemap.xml` |
 
@@ -46,7 +46,7 @@ itens que o PDF de briefing pede e que ainda não estão entregues.
 | D2 | **Completar as 100 perguntas** — o briefing lista 46 e pede 100. Faltam 54, que dependem de pesquisa de intenção e passam pela mesma aprovação médica de A4. A página não promete 100 enquanto não houver | Páginas 10 e 11 | Página de dúvidas |
 | D3 | **Ativar a medição de cliques** — os eventos (clique no WhatsApp, por unidade) e o consentimento LGPD já estão prontos no site; falta o coletor. Bloqueado até existir domínio com TLS (coletor self-host sem https é barrado pelo navegador). Opções: GTM+GA4 (conta Google) ou Umami no próprio VPS | — | Ligar na virada do domínio |
 | D4 | **Destino do backup fora do VPS** — o backup diário funciona, mas mora no mesmo disco do site; falta decidir para onde espelhar (Drive? esta máquina?) | — | Decisão sua |
-| D5 | **Links dos 9 vídeos no YouTube** — os vídeos do Drive têm 2 a 13 min em 4K (1 a 2,5 GB cada): hospedar no site não fica bom (peso e limite de 100 MB por arquivo na prévia). A estrutura está pronta: cada vídeo já tem título, página e capa no painel; falta só colar o link do YouTube (não listado serve). Sem link, o vídeo não aparece | — | Tratamentos, Ninfoplastia e Tecnologias |
+| D5 | ~~Links dos 9 vídeos no YouTube~~ — **FECHADO em 23/10**: playlist do João ligada; vídeos em Tratamentos (5), Ninfoplastia (2) e Tecnologias (2) | — | Fechado |
 
 ---
 
