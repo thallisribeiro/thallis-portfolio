@@ -1145,3 +1145,8 @@ main p a:not(.botao):not(.link-seta):focus-visible,
 .video-play::after { content: ""; position: absolute; width: 0; height: 0; border-left: 20px solid #fff; border-top: 12px solid transparent; border-bottom: 12px solid transparent; margin-left: 5px; }
 .video-yt:hover .video-play::before { transform: scale(1.08); }
 .video figcaption { font-size: 14px; margin-top: var(--e2); color: var(--tinta-suave); }
+
+/* Botão do Instagram no rodapé (23/10). */
+.rodape-insta { margin-top: var(--e4); }
+.rodape-insta a { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--dourado); border: 1px solid rgba(212, 175, 55, .55); }
+.rodape-insta a:hover { color: #fff; border-color: var(--dourado); }

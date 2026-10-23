@@ -21,13 +21,13 @@ itens que o PDF de briefing pede e que ainda não estão entregues.
 | # | O que falta | Onde o briefing pede | Onde está bloqueando |
 | --- | --- | --- | --- |
 | B1 | **WhatsApp de Florianópolis** | Páginas 5 e 12 | Todos os CTAs, como `[WHATSAPP_FLORIANOPOLIS]` |
-| B2 | **WhatsApp de São Paulo** | Página 12 | CTAs da unidade de SP |
+| B2 | ~~WhatsApp de São Paulo~~ — **FECHADO 23/10**: 11 91641-4060 | Página 12 | Fechado |
 | B3 | ~~Endereços do IMV e da Clínica Fakiani~~ — **FECHADO 23/10**: IMV Rod. José Carlos Daux, 4633 - Saco Grande, Florianópolis; Fakiani Rua Groenlândia, 1426 - Jardim America, São Paulo. Horários retirados a pedido | Página 12 | Fechado |
 | B3b | **WhatsApp de Florianópolis** — chegou no PDF de ajustes (48 99972-0826) e está cadastrado no painel; falta só o de São Paulo (B2) | — | Fechado em 04/09/2026 |
 | B4 | ~~Acesso à pasta de fotos do Drive~~ — **RESOLVIDO em 04/09/2026**: pasta pública lida por completo (85 itens); vídeo do hero, fotos das áreas, dos 4 aparelhos, da jornada, de atendimento e da Clínica Fakiani já estão no painel e no site | Página 15 | Fechado |
 | B5 | ~~Foto de capa profissional~~ — **substituída pelo vídeo do hero** (3:4 no celular, horizontal no desktop), vindo do Drive | Página 5 | Fechado em 04/09/2026 |
 | B6 | ~~Foto da Clínica Fakiani~~ — entrou (fachada, do Drive) | Páginas 5 e 12 | Fechado em 04/09/2026 |
-| B8 | **@ do Instagram da Dra.** — o site não tem nenhum link de rede social; para este público o Instagram é a checagem de confiança antes do WhatsApp | — | Rodapé, página Sobre e schema |
+| B8 | ~~@ do Instagram da Dra.~~ — **FECHADO 23/10**: instagram.com/drabrumna, botão no rodapé de todas as páginas | — | Fechado |
 | B7 | ~~Fotos da Dra. no palco da Fotona, ministrando curso e na Universidade do Porto~~ — viraram o carrossel da trajetória na home (5 fotos) | Página 9 | Fechado em 04/09/2026 |
 
 ## C. Depende de terceiros (3 itens)

@@ -1,8 +1,8 @@
 /* Gerado pelo painel. Não editar à mão: qualquer publicação sobrescreve. */
 window.DADOS_BRUMNA = {
   "whatsapp": {
-    "florianopolis": "[WHATSAPP_FLORIANOPOLIS]",
-    "saoPaulo": "[WHATSAPP_SAO_PAULO]"
+    "florianopolis": "48999720826",
+    "saoPaulo": "11916414060"
   },
   "mensagemInicial": {
     "florianopolis": "Olá! Gostaria de agendar uma consulta em Florianópolis.",
@@ -22,7 +22,7 @@ window.DADOS_BRUMNA = {
     "saoPaulo": "[HORARIOS_SAO_PAULO]"
   },
   "avaliacoesGoogle": "ChIJe5rUL-BHJ5UR2t1NmjDKk44",
-  "redes": "[INSTAGRAM_E_OUTRAS_REDES_CONFIRMADAS]",
+  "redes": "https://www.instagram.com/drabrumna",
   "dominioFinal": "[DOMINIO_FINAL]",
   "email": "[EMAIL_DE_CONTATO]",
   "responsavelPrivacidade": "[DADOS_DO_RESPONSAVEL_PELA_PRIVACIDADE]"

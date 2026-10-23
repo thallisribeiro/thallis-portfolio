@@ -63,7 +63,12 @@
       }
 
       var texto = encodeURIComponent((dados.mensagemInicial || {})[chave] || 'Olá! Gostaria de agendar uma consulta.');
-      botao.setAttribute('href', 'https://wa.me/' + String(numero).replace(/\D/g, '') + '?text=' + texto);
+      // wa.me exige formato internacional: número com DDD e sem o 55 (como o
+      // painel pede) ganha o código do Brasil. Sem isso, "48..." virava código
+      // de país e o botão abria outro número.
+      var digitos = String(numero).replace(/\D/g, '');
+      if (digitos.length <= 11) digitos = '55' + digitos;
+      botao.setAttribute('href', 'https://wa.me/' + digitos + '?text=' + texto);
       botao.setAttribute('target', '_blank');
       botao.setAttribute('rel', 'noopener');
       botao.removeAttribute('aria-disabled');
