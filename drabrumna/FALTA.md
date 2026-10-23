@@ -9,8 +9,8 @@ itens que o PDF de briefing pede e que ainda não estão entregues.
 
 | # | O que falta | Onde o briefing pede | Onde está bloqueando |
 | --- | --- | --- | --- |
-| A1 | **CRM/SC da Dra. Brumna** | Página 14 | Rodapé das 11 páginas, como `[CRM_DRA_BRUMNA]` |
-| A2 | **CRM/SC e RQE do Dr. Thiago Nassif** | Página 14 | Rodapé das 11 páginas |
+| A1 | ~~CRM/SC da Dra. Brumna~~ — **FECHADO 23/10**: CRM/SC 32518 | Página 14 | Fechado |
+| A2 | ~~CRM/SC e RQE do Dr. Thiago Nassif~~ — **FECHADO 23/10**: CRM/SC 32486, RQE 27367 (Cirurgia Geral) | Página 14 | Fechado |
 | A3 | **Confirmar o conflito de registro** — o PDF traz `CRM/SC XXX (RQE) yyy`; há também a menção a `CRM 32518 \| 223200`. Precisa dizer qual é o número, de qual conselho e em que formato exibir | Página 14 | Impede liberar A1 e A2 |
 | A4 | **Aprovar as 46 respostas da FAQ** — todas estão marcadas como rascunho aguardando revisão médica | Páginas 10 e 11 | Página de dúvidas |
 | A5 | **Fechar a frase da página Sobre** — o esboço do PDF termina em "Porque acredito em uma estética". O fecho usado veio de material posterior e precisa da confirmação dela | Página 9 | Página Sobre |
@@ -22,7 +22,7 @@ itens que o PDF de briefing pede e que ainda não estão entregues.
 | --- | --- | --- | --- |
 | B1 | **WhatsApp de Florianópolis** | Páginas 5 e 12 | Todos os CTAs, como `[WHATSAPP_FLORIANOPOLIS]` |
 | B2 | **WhatsApp de São Paulo** | Página 12 | CTAs da unidade de SP |
-| B3 | **Endereços do IMV e da Clínica Fakiani** | Página 12 | Home e Contato |
+| B3 | ~~Endereços do IMV e da Clínica Fakiani~~ — **FECHADO 23/10**: IMV Rod. José Carlos Daux, 4633 - Saco Grande, Florianópolis; Fakiani Rua Groenlândia, 1426 - Jardim America, São Paulo. Horários retirados a pedido | Página 12 | Fechado |
 | B3b | **WhatsApp de Florianópolis** — chegou no PDF de ajustes (48 99972-0826) e está cadastrado no painel; falta só o de São Paulo (B2) | — | Fechado em 04/09/2026 |
 | B4 | ~~Acesso à pasta de fotos do Drive~~ — **RESOLVIDO em 04/09/2026**: pasta pública lida por completo (85 itens); vídeo do hero, fotos das áreas, dos 4 aparelhos, da jornada, de atendimento e da Clínica Fakiani já estão no painel e no site | Página 15 | Fechado |
 | B5 | ~~Foto de capa profissional~~ — **substituída pelo vídeo do hero** (3:4 no celular, horizontal no desktop), vindo do Drive | Página 5 | Fechado em 04/09/2026 |

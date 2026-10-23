@@ -9,13 +9,13 @@ window.DADOS_BRUMNA = {
     "saoPaulo": "Olá! Gostaria de agendar uma consulta em São Paulo."
   },
   "registros": {
-    "crmDraBrumna": "[CRM_DRA_BRUMNA]",
-    "crmDrThiagoNassif": "[CRM_DR_THIAGO_NASSIF]",
-    "rqeDrThiagoNassif": "[RQE_DR_THIAGO_NASSIF]"
+    "crmDraBrumna": "32518",
+    "crmDrThiagoNassif": "32486",
+    "rqeDrThiagoNassif": "27367"
   },
   "enderecos": {
-    "imv": "[ENDERECO_IMV]",
-    "fakiani": "[ENDERECO_CLINICA_FAKIANI]"
+    "imv": "Rod. José Carlos Daux, 4633 - Saco Grande, Florianópolis - SC",
+    "fakiani": "Rua Groenlândia, 1426 - Jardim America, São Paulo"
   },
   "horarios": {
     "florianopolis": "[HORARIOS_FLORIANOPOLIS]",
