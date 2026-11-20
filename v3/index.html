@@ -3,40 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>FounderADS — acorde com venda nova do seu SaaS todo dia</title>
-<meta name="description" content="Como colocar o seu SaaS ou app para vender todo dia com anúncio, mesmo que você nunca tenha aberto o gerenciador. Pré-venda por R$ 97, com 7 dias de garantia.">
-<link rel="canonical" href="https://thallisribeiro.com.br/founderads/">
-<!-- noindex até o Thallis aprovar o texto; tirar esta linha para o Google indexar -->
-<meta name="robots" content="noindex">
+<meta name="robots" content="noindex,nofollow">
+<title>LicitaCerta · página v3 (maquete)</title>
+<!-- MAQUETE da v3 da página de vendas do LicitaCerta (20/11/2026): a mesma oferta e a mesma manchete da v2,
+     na ideia da landing do FounderADS (escura, cena do desejo, cena de hoje, as três mentiras, o método, a oferta,
+     os dois caminhos). Não é a página de produção. As licitações citadas são reais, lidas de /api/abertas-agora
+     em 20/11 às 15h47; na página real o servidor troca pelas do dia. O campo do CNPJ aqui não consulta nada.
+     A CONFERIR antes de ir ao ar: LC 123 art. 48, Lei 14.133 art. 75 § 3º e art. 150. -->
 <meta name="theme-color" content="#0B0F14">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Como acordar todo dia com venda nova do seu SaaS, de gente que nunca ouviu falar de você">
-<meta property="og:description" content="FounderADS: anúncio para quem já tem o produto pronto. Pré-venda por R$ 97.">
-<meta property="og:url" content="https://thallisribeiro.com.br/founderads/">
-<meta property="og:image" content="https://thallisribeiro.com.br/assets/og-default.png">
-<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-247F9N1WQE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-247F9N1WQE');
-  document.documentElement.classList.add('js');
-</script>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230B0F14'/%3E%3Crect x='10' y='14' width='44' height='4' rx='2' fill='%23E8A33D'/%3E%3Crect x='10' y='30' width='30' height='4' rx='2' fill='%238B949E'/%3E%3Crect x='10' y='46' width='18' height='4' rx='2' fill='%238B949E'/%3E%3C/svg%3E">
+<script>document.documentElement.classList.add('js');</script>
 <style>
 :root{--primary:#E8A33D;--primary-2:#FFD08A;--bg:#0B0F14;--surface:#11161C;--surface-2:#161D26;--text:#E6EDF3;--muted:#8B949E;--line:rgba(255,255,255,.08);--verde:#3FB950;--vermelho:#F0736A;--mono:"JetBrains Mono",ui-monospace,Consolas,monospace;color-scheme:dark}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--text);font:17px/1.65 Inter,system-ui,sans-serif;overflow-x:hidden;padding-bottom:84px}
-img{max-width:100%;display:block}
+.maquete{background:#FFF4C2;color:#5C4500;font:500 12px/1.3 var(--mono);text-align:center;padding:6px 12px}
 .wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
 .prosa{max-width:660px}
 h1,h2,h3{font-family:"Space Grotesk",system-ui,sans-serif;line-height:1.1;margin:0;text-wrap:balance}
-h1{font-size:clamp(2.05rem,7.4vw,3.7rem);letter-spacing:-.035em}
+h1{font-size:clamp(2.05rem,7.4vw,3.6rem);letter-spacing:-.035em}
 h1 em,h2 em{font-style:normal;background:linear-gradient(100deg,var(--primary),var(--primary-2));-webkit-background-clip:text;background-clip:text;color:transparent}
 h2{font-size:clamp(1.6rem,5.2vw,2.6rem);letter-spacing:-.025em;margin-bottom:22px}
 h3{font-size:1.12rem}
@@ -57,7 +45,7 @@ section{padding:64px 0;position:relative}
 .topo .btn{display:none}
 
 /* botão */
-.btn{position:relative;overflow:hidden;display:inline-block;background:linear-gradient(180deg,#F5B654,var(--primary));color:#0B0F14;font-weight:700;text-decoration:none;padding:18px 30px;border-radius:14px;font-size:1.08rem;box-shadow:0 10px 34px -10px rgba(232,163,61,.65),inset 0 1px 0 rgba(255,255,255,.4);transition:transform .2s,box-shadow .2s}
+.btn{position:relative;overflow:hidden;display:inline-block;border:0;cursor:pointer;background:linear-gradient(180deg,#F5B654,var(--primary));color:#0B0F14;font:700 1.08rem Inter,system-ui,sans-serif;text-decoration:none;padding:18px 30px;border-radius:14px;box-shadow:0 10px 34px -10px rgba(232,163,61,.65),inset 0 1px 0 rgba(255,255,255,.4);transition:transform .2s,box-shadow .2s}
 .btn::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-20deg);animation:brilho 4.2s infinite}
 .btn:hover,.btn:focus-visible{transform:translateY(-2px);box-shadow:0 16px 44px -10px rgba(232,163,61,.85),inset 0 1px 0 rgba(255,255,255,.4)}
 .btn:focus-visible{outline:2px solid var(--text);outline-offset:3px}
@@ -71,7 +59,13 @@ section{padding:64px 0;position:relative}
 .selo{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(232,163,61,.35);background:rgba(232,163,61,.08);color:var(--primary-2);font-size:.82rem;font-weight:600;padding:7px 14px;border-radius:999px;margin-bottom:22px}
 .selo i{width:8px;height:8px;border-radius:50%;background:var(--verde);box-shadow:0 0 0 0 rgba(63,185,80,.7);animation:pulso 2s infinite}
 @keyframes pulso{70%{box-shadow:0 0 0 9px rgba(63,185,80,0)}100%{box-shadow:0 0 0 0 rgba(63,185,80,0)}}
-.hero .lead{font-size:1.12rem;color:var(--muted);margin:20px auto 28px;max-width:52ch}
+.hero .lead{font-size:1.12rem;color:var(--muted);margin:20px auto 26px;max-width:52ch}
+.teste{display:grid;gap:10px;max-width:440px;margin-inline:auto;text-align:left;background:var(--surface);border:1px solid rgba(232,163,61,.4);border-radius:18px;padding:18px;box-shadow:0 0 70px -30px rgba(232,163,61,.7)}
+.teste label{font-weight:600;font-size:.95rem;color:#fff}
+.teste input{width:100%;font:500 1.1rem Inter,system-ui,sans-serif;padding:15px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:#080B0F;color:var(--text)}
+.teste input:focus{outline:2px solid var(--primary);outline-offset:1px}
+.teste .btn{width:100%;text-align:center}
+.teste .nota{margin:0;text-align:center}
 .hero-arte{margin-top:44px;display:flex;justify-content:center}
 
 /* celular */
@@ -81,21 +75,21 @@ section{padding:64px 0;position:relative}
 .tela::before{content:"";position:absolute;top:9px;left:50%;width:74px;height:20px;margin-left:-37px;border-radius:12px;background:#05070a}
 .hora{font:600 3.1rem/1 "Space Grotesk",sans-serif;text-align:center;margin-top:34px;letter-spacing:-.03em}
 .dia{text-align:center;color:var(--muted);font-size:.8rem;margin:4px 0 22px}
-.notif{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(8px);border-radius:16px;padding:10px 12px;margin-bottom:8px;display:grid;grid-template-columns:30px 1fr auto;gap:10px;align-items:center;text-align:left;font-size:.76rem;line-height:1.3;opacity:0;animation:chega 9s infinite}
-.notif:nth-of-type(4){animation-delay:.9s}.notif:nth-of-type(5){animation-delay:1.8s}.notif:nth-of-type(6){animation-delay:2.7s}
-.notif .ico{width:30px;height:30px;border-radius:9px;background:linear-gradient(180deg,#F5B654,var(--primary));display:grid;place-items:center;color:#0B0F14;font-weight:700}
+.notif{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(8px);border-radius:16px;padding:10px 12px;margin-bottom:8px;display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:center;text-align:left;font-size:.76rem;line-height:1.3;opacity:0;animation:chega 9s infinite}
+.notif:nth-of-type(4){animation-delay:.9s}.notif:nth-of-type(5){animation-delay:1.8s}
+.notif .ico{width:30px;height:30px;border-radius:9px;background:#25D366;display:grid;place-items:center;color:#06301a;font:700 .7rem "Space Grotesk",sans-serif}
 .notif b{display:block;color:#fff;font-size:.8rem}
 .notif span{color:#c5ced8}
-.notif time{color:var(--muted);font-size:.68rem;align-self:start}
+.notif strong{display:block;color:var(--primary-2);font:500 .82rem var(--mono)}
 @keyframes chega{0%{opacity:0;transform:translateY(-14px) scale(.96)}6%,88%{opacity:1;transform:none}96%,100%{opacity:0;transform:none}}
 .legenda{font:400 .7rem var(--mono);color:var(--muted);text-align:center;margin-top:14px;letter-spacing:.04em}
 
-/* terminal */
+/* painel do "hoje" */
 .term{background:#080B0F;border:1px solid var(--line);border-radius:16px;font:400 .8rem/1.75 var(--mono);box-shadow:0 30px 70px -30px #000;overflow:hidden}
 .term-top{display:flex;gap:6px;padding:12px 14px;border-bottom:1px solid var(--line);background:var(--surface)}
 .term-top i{width:10px;height:10px;border-radius:50%;background:#2c3440}
 .term-corpo{padding:16px;overflow-x:auto;white-space:nowrap}
-.term .c{color:var(--muted)}.term .v{color:var(--verde)}.term .a{color:var(--primary)}.term .r{color:var(--vermelho);font-weight:500}
+.term .c{color:var(--muted)}.term .a{color:var(--primary)}.term .r{color:var(--vermelho);font-weight:500}
 .cursor{display:inline-block;width:8px;height:1em;background:var(--primary);vertical-align:-2px;animation:pisca 1s steps(1) infinite}
 @keyframes pisca{50%{opacity:0}}
 
@@ -104,18 +98,16 @@ section{padding:64px 0;position:relative}
 .dores li{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 16px 16px 46px;position:relative;font-size:.98rem;transition:border-color .25s,transform .25s}
 .dores li::before{content:"✕";position:absolute;left:16px;top:15px;color:var(--vermelho);font-weight:700}
 .dores li:hover{border-color:rgba(240,115,106,.4);transform:translateY(-2px)}
+.dores b{color:#fff}
 .destaque{font:600 clamp(1.25rem,4.2vw,1.7rem)/1.3 "Space Grotesk",sans-serif;border-left:3px solid var(--primary);padding-left:18px;margin:28px 0;color:#fff}
 
-/* comparação */
-.versus{display:grid;gap:14px;margin-top:30px}
-.painel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px}
-.painel.bom{border-color:rgba(232,163,61,.45);background:linear-gradient(180deg,rgba(232,163,61,.09),var(--surface) 60%)}
-.painel h3{font-size:1rem;margin-bottom:4px}
-.painel p{font-size:.88rem;color:var(--muted);margin:0}
-.painel svg{width:100%;height:auto;margin-top:14px;display:block}
-.js .traco{stroke-dasharray:700;stroke-dashoffset:700}
-.js .vis .traco{animation:desenha 2.2s ease-out forwards}
-@keyframes desenha{to{stroke-dashoffset:0}}
+/* as compras de hoje */
+.achados{display:grid;gap:14px;margin-top:30px}
+.achado{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px;transition:transform .25s,border-color .25s,box-shadow .25s}
+.achado:hover{transform:translateY(-4px);border-color:rgba(232,163,61,.45);box-shadow:0 24px 50px -30px rgba(232,163,61,.6)}
+.achado p{margin:0;color:#c9d1d9;font-size:.97rem}
+.achado .valor{display:block;font:700 1.7rem/1.2 "Space Grotesk",sans-serif;color:var(--primary);margin-top:10px}
+.achado .prazo{display:block;font:500 .72rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--vermelho);margin-top:6px}
 
 /* cartões */
 .grade{display:grid;gap:14px}
@@ -123,6 +115,7 @@ section{padding:64px 0;position:relative}
 .cartao:hover{transform:translateY(-4px);border-color:rgba(232,163,61,.45);box-shadow:0 24px 50px -30px rgba(232,163,61,.6)}
 .cartao p:last-child{margin-bottom:0}
 .cartao p{font-size:.97rem;color:#c9d1d9}
+.cartao small{display:block;font:400 .72rem var(--mono);color:var(--muted);margin-top:10px}
 .cartao .rot{font:500 .72rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--primary);margin-bottom:10px}
 .cartao h3{margin-bottom:10px;font-size:1.2rem}
 
@@ -134,11 +127,7 @@ section{padding:64px 0;position:relative}
 .trilha li:last-child::after{display:none}
 .trilha b{display:block;font:600 1.08rem "Space Grotesk",sans-serif;color:#fff;margin-bottom:4px}
 .trilha span{color:#c9d1d9;font-size:.96rem}
-
-/* autor */
-.autor{display:grid;gap:26px;align-items:center}
-.foto{width:168px;height:168px;border-radius:28px;object-fit:cover;border:1px solid rgba(232,163,61,.5);box-shadow:0 0 0 6px rgba(232,163,61,.08),0 30px 60px -20px rgba(232,163,61,.45);margin:0 auto}
-.numeros{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:22px 0}
+.numeros{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:26px 0 0}
 .numeros div{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px}
 .numeros strong{display:block;font:700 clamp(1.5rem,6vw,2.1rem)/1.1 "Space Grotesk",sans-serif;color:var(--primary)}
 .numeros span{font-size:.82rem;color:var(--muted)}
@@ -155,7 +144,6 @@ ul.lista li::before{content:attr(data-n);position:absolute;left:16px;top:18px;wi
 .caixa .btn{display:block;margin-top:18px}
 .garantia{display:grid;justify-items:center;text-align:center;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:24px}
 .garantia svg{width:76px;height:76px}
-.garantia h2{margin-bottom:10px}
 .garantia p{margin:0;color:#c9d1d9}
 
 /* dois caminhos */
@@ -178,19 +166,18 @@ details p{margin:0 0 16px;color:var(--muted)}
 
 .ps{background:linear-gradient(180deg,var(--surface-2),var(--surface));border:1px solid var(--line);border-radius:22px;padding:28px 22px}
 footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem}
-footer a{color:var(--muted)}
 
 /* barra fixa do celular */
 .barra{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));background:rgba(11,15,20,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(232,163,61,.35);transform:translateY(110%);transition:transform .35s}
 .barra.on{transform:none}
 .barra div{font-size:.78rem;color:var(--muted);line-height:1.25}
-.barra div b{display:block;color:#fff;font:700 1.15rem "Space Grotesk",sans-serif}
-.barra .btn{padding:13px 20px;font-size:.98rem;border-radius:12px;white-space:nowrap}
+.barra div b{display:block;color:#fff;font:700 1.05rem "Space Grotesk",sans-serif}
+.barra .btn{padding:13px 18px;font-size:.95rem;border-radius:12px;white-space:nowrap}
 
 /* entrada ao rolar */
 .js .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
 .js .rv.vis{opacity:1;transform:none}
-.js .rv.d1{transition-delay:.1s}.js .rv.d2{transition-delay:.2s}.js .rv.d3{transition-delay:.3s}
+.js .rv.d1{transition-delay:.1s}.js .rv.d2{transition-delay:.2s}
 
 /* PC: outro desenho */
 @media (min-width:900px){
@@ -201,22 +188,18 @@ footer a{color:var(--muted)}
   .hero{text-align:left;padding:84px 0 96px}
   .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
   .hero .lead{margin-left:0}
+  .teste{margin-left:0}
   .hero::before{background:radial-gradient(560px 420px at 76% 40%,rgba(232,163,61,.24),transparent 70%),linear-gradient(var(--line) 1px,transparent 1px) 0 0/56px 56px,linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/56px 56px;-webkit-mask-image:radial-gradient(70% 80% at 60% 40%,#000,transparent);mask-image:radial-gradient(70% 80% at 60% 40%,#000,transparent)}
   .hero-arte{margin-top:0}
   .cel{width:320px;transform:rotate(4deg)}
   @keyframes flutua{0%,100%{transform:rotate(4deg)}50%{transform:rotate(3deg) translateY(-14px)}}
   .duas{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-  .duas.inv>:first-child{order:2}
   .dores{grid-template-columns:1fr 1fr}
-  .versus{grid-template-columns:1fr 1fr;gap:20px}
-  .grade.tres{grid-template-columns:repeat(3,1fr);gap:20px}
-  .trilha{grid-template-columns:repeat(6,1fr);gap:18px;margin-top:48px}
+  .achados,.grade.tres{grid-template-columns:repeat(3,1fr);gap:20px}
+  .trilha{grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
   .trilha li{padding:58px 0 0}
-  .trilha li::after{left:50px;right:-18px;top:20px;bottom:auto;width:auto;height:1px;background:linear-gradient(90deg,var(--primary),rgba(232,163,61,.15))}
-  .trilha b{font-size:1rem}
-  .trilha span{font-size:.88rem}
-  .autor{grid-template-columns:300px 1fr;gap:64px}
-  .foto{width:300px;height:340px;border-radius:36px;transform:rotate(-3deg)}
+  .trilha li::after{left:50px;right:-24px;top:20px;bottom:auto;width:auto;height:1px;background:linear-gradient(90deg,var(--primary),rgba(232,163,61,.15))}
+  .numeros{max-width:560px}
   .oferta{grid-template-columns:1.25fr .75fr;gap:32px;align-items:start}
   .caixa{position:sticky;top:96px;padding:38px 30px}
   .garantia{grid-template-columns:auto 1fr;justify-items:start;text-align:left;gap:28px;padding:40px}
@@ -229,45 +212,45 @@ footer a{color:var(--muted)}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
-  .notif{opacity:1}.traco{stroke-dashoffset:0}
+  .notif{opacity:1}
   .js .rv{opacity:1;transform:none}
   html{scroll-behavior:auto}
 }
 </style>
 </head>
 <body>
+<div class="maquete">MAQUETE DA V3 · licitações reais de 20/11, 15h47 · o campo do CNPJ aqui não consulta</div>
 <header class="topo">
   <div class="wrap">
-    <a class="marca" href="/founderads/">Founder<span>ADS</span></a>
-    <a class="btn p" href="https://wa.me/5573988899345?text=Quero%20entrar%20na%20pr%C3%A9-venda%20do%20FounderADS" target="_blank" rel="noopener">Entrar por R$ 97</a>
+    <a class="marca" href="#teste">Licita<span>Certa</span></a>
+    <a class="btn p" href="#teste">Ver quem quer comprar de mim</a>
   </div>
 </header>
 
 <main>
-<!-- RASCUNHO DA V3 (20/11/2026), fora do site. Base: a V2 no ar, sem tirar nada. Entrou o que faltava na ficha dos 17 elementos:
-     9 (por que o que você já tentou não vendeu), 11 (pra quem é e pra quem não é), 14 (ancoragem com número real),
-     16/17 (ganho de agora e perda de depois) e o lugar da prova. Tudo marcado com "V3:" e, onde depende do Thallis, "CONFIRMAR". -->
-<!-- PREÇO: R$ 97 aparece nos botões, na barra fixa, na oferta e nas perguntas. Trocar em todos. -->
 <section class="hero">
   <div class="wrap">
     <div>
-      <div class="selo"><i></i>Pré-venda aberta · para quem já tem um SaaS ou app pronto</div>
-      <h1>Como acordar todo dia com <em>venda nova do seu software</em>, de gente que nunca ouviu falar de você</h1>
-      <p class="lead">Mesmo que você nunca tenha aberto o gerenciador de anúncios, não goste de aparecer e não tenha um seguidor sequer.</p>
-      <a class="btn" href="https://wa.me/5573988899345?text=Quero%20entrar%20na%20pr%C3%A9-venda%20do%20FounderADS" target="_blank" rel="noopener">Quero vender todo dia</a>
-      <p class="nota">Pré-venda por R$ 97 · 7 dias de garantia</p>
+      <div class="selo"><i></i>44.554 compras públicas abertas agora · pra dono de empresa pequena</div>
+      <h1>Descubra como vender pro governo <em>sem conhecer ninguém lá dentro</em></h1>
+      <p class="lead">Mesmo que você nunca tenha participado de uma licitação na vida.</p>
+      <form class="teste" id="teste">
+        <label for="cnpj">Veja o que o governo quer comprar da sua empresa hoje</label>
+        <input id="cnpj" type="text" inputmode="numeric" placeholder="Digite o CNPJ da sua empresa" autocomplete="off">
+        <button class="btn" type="submit">Ver quem quer comprar de mim</button>
+        <p class="nota">De graça, sem cadastro, resultado na hora.</p>
+      </form>
     </div>
     <div class="hero-arte" aria-hidden="true">
       <div>
         <div class="cel"><div class="tela">
           <div class="hora">07:31</div>
-          <div class="dia">quinta-feira</div>
-          <div class="notif"><div class="ico">$</div><div><b>Nova venda</b><span>Plano mensal · Pix aprovado</span></div><time>07:20</time></div>
-          <div class="notif"><div class="ico">$</div><div><b>Nova venda</b><span>Plano anual · Pix aprovado</span></div><time>05:47</time></div>
-          <div class="notif"><div class="ico">$</div><div><b>Nova venda</b><span>Plano mensal · Pix aprovado</span></div><time>03:12</time></div>
-          <div class="notif"><div class="ico">$</div><div><b>Novo cadastro</b><span>Chegou pelo anúncio</span></div><time>01:58</time></div>
+          <div class="dia">sexta-feira</div>
+          <div class="notif"><div class="ico">LC</div><div><b>Prefeitura de Iperó · SP</b><span>Quer comprar uniforme</span><strong>R$ 483.493</strong></div></div>
+          <div class="notif"><div class="ico">LC</div><div><b>USP de Bauru · SP</b><span>Lâmpada, refletor, iluminação</span><strong>R$ 186.439</strong></div></div>
+          <div class="notif"><div class="ico">LC</div><div><b>Sec. de Agricultura · SP</b><span>Periférico de informática</span><strong>R$ 65.346</strong></div></div>
         </div></div>
-        <div class="legenda">cena ilustrativa</div>
+        <div class="legenda">compras reais, abertas em 20/11/2026 · fonte: PNCP</div>
       </div>
     </div>
   </div>
@@ -278,12 +261,12 @@ footer a{color:var(--muted)}
     <div class="prosa rv" style="margin-inline:auto">
       <div class="olho">O que você quer</div>
       <h2>Imagina a cena.</h2>
-      <p>Você acorda, pega o celular e, antes de levantar da cama, abre o painel do seu produto.</p>
-      <p>Tem venda da madrugada. De gente que você não conhece, que não te segue, que nunca viu um post seu.</p>
-      <p>Você não mandou mensagem para ninguém. Não fez thread. Não pediu para amigo divulgar. A pessoa viu um anúncio, entrou na página, pagou e começou a usar.</p>
-      <p>No dia seguinte, de novo. E no outro.</p>
-      <p class="destaque">O seu produto deixa de ser um projeto que você torce para dar certo e vira um negócio que você sabe quanto vai faturar no mês que vem.</p>
-      <p>É isso que um anúncio que funciona faz por quem constrói software. E é isso que eu vou te ensinar a montar.</p>
+      <p>Você acorda, pega o celular e tem mensagem nova no WhatsApp.</p>
+      <p>Uma prefeitura quer comprar exatamente o que a sua empresa vende. Tá ali o nome da cidade, o valor que ela calcula pagar e até que dia dá pra mandar proposta.</p>
+      <p>Você não ligou pra ninguém. Não pediu favor. Não conhece vereador, secretário, ninguém. A compra é pública, e você ficou sabendo no dia em que abriu.</p>
+      <p>No dia seguinte, chega outra. E no outro.</p>
+      <p class="destaque">O governo deixa de ser coisa de quem tem contato e vira mais um cliente na sua carteira. Um cliente que compra todo dia.</p>
+      <p>É isso que acontece quando alguém te avisa na hora certa. E é isso que o LicitaCerta faz por você.</p>
     </div>
   </div>
 </section>
@@ -294,59 +277,42 @@ footer a{color:var(--muted)}
       <div class="rv">
         <div class="olho">O que acontece hoje</div>
         <h2>Agora a cena de verdade.</h2>
-        <p>Você abre o editor e pensa: <b>"falta só mais uma função"</b>.</p>
-        <p>Modo escuro. Uma integração nova. Refazer o onboarding. Você passa a semana nisso, sobe, e ninguém vê. Porque não tem ninguém lá para ver.</p>
-        <p>Não é preguiça. É que <b>construir é confortável</b>. O código responde na hora, o teste passa, dá a sensação de que o produto andou.</p>
-        <p>Vender dá frio na barriga, porque alguém pode dizer não. Então cada função nova vira mais uma semana sem precisar ouvir esse não.</p>
+        <p>Hoje tem <b>44.554 compras públicas abertas</b> no Brasil. Alguma delas é do que você vende.</p>
+        <p>Só que elas não saem no jornal. Tão espalhadas em <b>mais de 70 sistemas diferentes</b>, cada um com um jeito de procurar.</p>
+        <p>Pra achar a sua, alguém teria que abrir um por um, todo dia, e ler tudo. Você tem uma empresa pra tocar.</p>
+        <p>Então a compra abre, fecha, e outra empresa vende. <b>Você nem fica sabendo que existiu.</b></p>
       </div>
       <div class="term rv d1" aria-hidden="true">
         <div class="term-top"><i></i><i></i><i></i></div>
         <div class="term-corpo">
-          <div><span class="c">$</span> git log --oneline --since="3 meses"</div>
-          <div><span class="a">a41f9c2</span> feat: modo escuro</div>
-          <div><span class="a">7be03d1</span> feat: exportar em PDF</div>
-          <div><span class="a">c9d2e77</span> refactor: onboarding novo</div>
-          <div><span class="a">15aa8f0</span> feat: integração com Slack</div>
-          <div><span class="a">e3b7c64</span> feat: painel de métricas</div>
-          <div><span class="c">… mais 212 commits</span></div>
+          <div><span class="c">abas abertas pra procurar uma compra</span></div>
+          <div><span class="a">01</span> portal nacional de compras</div>
+          <div><span class="a">02</span> compras do governo federal</div>
+          <div><span class="a">03</span> sistema do estado</div>
+          <div><span class="a">04</span> site da prefeitura</div>
+          <div><span class="a">05</span> site da prefeitura vizinha</div>
+          <div><span class="c">… mais de 70 sistemas</span></div>
           <div>&nbsp;</div>
-          <div><span class="c">$</span> quem-viu --tudo-isso</div>
-          <div><span class="r">0 pessoas</span></div>
-          <div><span class="c">$</span> <span class="cursor"></span></div>
+          <div><span class="c">tempo que sobrou pra vender hoje</span></div>
+          <div><span class="r">nenhum</span></div>
+          <div><span class="cursor"></span></div>
         </div>
       </div>
     </div>
 
-    <ul class="dores">
-      <li class="rv">O produto está <b>"99% pronto, falta só o marketing"</b>. E esse 1% é o que decide se alguém vai usar.</li>
-      <li class="rv d1">Você posta o progresso no X. Quem curte é outro dev. <b>Dev elogia, não compra.</b></li>
-      <li class="rv">Você posta, vende um pouco. Para de postar para programar, e <b>a venda para junto</b>.</li>
-      <li class="rv d1">Com IA, qualquer um faz um produto em uma semana. <b>Código virou a parte fácil.</b> O difícil é ser visto.</li>
-      <li class="rv">Você abre o painel de manhã torcendo, e o número de usuários é <b>o mesmo de ontem</b>.</li>
-      <li class="rv d1">Você até subiu uma campanha uma vez. Viu clique, não viu venda, e fechou o gerenciador pensando <b>"isso não funciona para software"</b>.</li>
-    </ul>
-
-    <div class="versus">
-      <div class="painel rv">
-        <h3>Venda que depende de você postar</h3>
-        <p>Sobe quando você aparece, some quando você volta a programar.</p>
-        <svg viewBox="0 0 320 110" fill="none" role="img" aria-label="Ilustração: picos de venda que voltam a zero">
-          <path d="M0 100H320" stroke="rgba(255,255,255,.1)"/>
-          <path class="traco" d="M0 98 L40 98 L52 40 L70 96 L120 98 L134 58 L150 97 L215 98 L228 48 L246 97 L320 98" stroke="#8B949E" stroke-width="2.5" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <div class="painel bom rv d1">
-        <h3>Venda que chega por anúncio</h3>
-        <p>Todo dia, com ou sem post, e cresce quando você põe mais.</p>
-        <svg viewBox="0 0 320 110" fill="none" role="img" aria-label="Ilustração: venda constante que cresce">
-          <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E8A33D" stop-opacity=".35"/><stop offset="1" stop-color="#E8A33D" stop-opacity="0"/></linearGradient></defs>
-          <path d="M0 100H320" stroke="rgba(255,255,255,.1)"/>
-          <path d="M0 92 C60 86 90 74 140 62 S230 34 320 12 V100 H0Z" fill="url(#g)"/>
-          <path class="traco" d="M0 92 C60 86 90 74 140 62 S230 34 320 12" stroke="#E8A33D" stroke-width="3" stroke-linecap="round"/>
-        </svg>
-      </div>
+    <div class="achados">
+      <div class="achado rv"><p>Olha essa: a <b>Prefeitura de Iperó</b>, no interior de São Paulo, quer comprar uniforme.</p><span class="valor">R$ 483.493</span><span class="prazo">Proposta até segunda, 23/11, 8h</span></div>
+      <div class="achado rv d1"><p>Essa aqui é da <b>USP de Bauru</b>: lâmpada, refletor, iluminação.</p><span class="valor">R$ 186.439</span><span class="prazo">Também fecha segunda, 8h</span></div>
+      <div class="achado rv d2"><p>E a <b>Secretaria de Agricultura de São Paulo</b> quer periférico de informática.</p><span class="valor">R$ 65.346</span><span class="prazo">Fecha segunda, 8h</span></div>
     </div>
-    <div class="legenda">ilustração do conceito, não é dado de conta</div>
+    <div class="legenda">compras reais, abertas em 20/11/2026 · fonte: PNCP</div>
+
+    <ul class="dores">
+      <li class="rv">Você fica sabendo da licitação <b>pelo concorrente</b>, depois que ele ganhou.</li>
+      <li class="rv d1">O mês depende de <b>quem entra pela porta</b>.</li>
+      <li class="rv">Você já abriu site de prefeitura e <b>não sabia nem onde clicar</b>.</li>
+      <li class="rv d1">Você acha que governo <b>só compra de empresa grande</b>.</li>
+    </ul>
   </div>
 </section>
 
@@ -354,57 +320,28 @@ footer a{color:var(--muted)}
   <div class="wrap">
     <div class="prosa rv">
       <div class="olho">A virada</div>
-      <h2>O seu produto não é o problema. <em>Ninguém viu ele.</em></h2>
-      <p>Quem constrói acredita que produto bom se vende sozinho. Não se vende. Produto bom que ninguém vê fatura igual a produto ruim: zero.</p>
-      <p>A próxima função não vai mudar isso. O que separa o SaaS que vende todo dia do SaaS parado não é código. São três mentiras em que quase todo fundador acredita.</p>
+      <h2>A sua empresa não é o problema. <em>Você só não ficou sabendo.</em></h2>
+      <p>Parece que ganham sempre os mesmos. E ganham. Sabe por quê? Porque só os mesmos ficam sabendo.</p>
+      <p>O que separa quem vende pro governo de quem nunca tentou não é tamanho nem amizade. São três coisas em que quase todo dono de empresa pequena acredita.</p>
     </div>
     <div class="grade tres" style="margin-top:30px">
       <div class="cartao rv">
-        <div class="rot">Mentira nº 1</div>
-        <h3>"Anúncio não funciona para software."</h3>
-        <p>Funciona, quando você faz na ordem. Quase todo mundo começa pelo fim: abre o gerenciador e sobe campanha. O anúncio é a última peça. Antes dele vem a oferta e a página. Com as três no lugar, o anúncio só precisa levar gente.</p>
+        <div class="rot">Dizem por aí · 1</div>
+        <h3>"Pra vender pra prefeitura tem que ter contato."</h3>
+        <p>A compra de Iperó tá publicada. Qualquer empresa do Brasil pode mandar proposta. Contato ajuda? Pode ser. Mas quem não fica sabendo não ganha nem com contato. Você precisa ficar sabendo no dia em que abre.</p>
       </div>
       <div class="cartao rv d1">
-        <div class="rot">Mentira nº 2</div>
-        <h3>"Eu sou dev, não sou de marketing."</h3>
-        <p>Melhor ainda. Anúncio é um sistema: entra dinheiro, sai número, você lê e decide. É mais parecido com debugar do que com ser criativo. E a parte braçal, de criar página, pixel e conta, o seu Claude faz por você com os roteiros que eu entrego.</p>
+        <div class="rot">Dizem por aí · 2</div>
+        <h3>"Prefeitura não paga."</h3>
+        <p>Órgão público não pode contratar sem dizer de qual verba do orçamento sai o pagamento. E o prazo de pagamento vem escrito no edital: você lê antes de mandar proposta. Não gostou do prazo, não entra. Você escolhe pra quem vende.</p>
+        <small>Lei 14.133, art. 150</small>
       </div>
       <div class="cartao rv d2">
-        <div class="rot">Mentira nº 3</div>
-        <h3>"Precisa de muito dinheiro ou de uma agência."</h3>
-        <p>Você começa com cerca de R$ 300 e meia hora por dia. Ninguém conhece o seu produto e o seu cliente como você. Com o passo a passo na mão, quem tem mais chance de acertar é você, não uma agência.</p>
+        <div class="rot">Dizem por aí · 3</div>
+        <h3>"Governo só compra de empresa grande."</h3>
+        <p>Tem compra que a lei separa só pra empresa pequena: até R$ 80 mil, empresa grande nem entra. E tem a dispensa, que fecha em 3 dias úteis, sem pregão e sem sessão, com proposta pela internet. Quase ninguém vê.</p>
+        <small>Lei Complementar 123, art. 48 · Lei 14.133, art. 75</small>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- V3: elemento 9. Por que o que a pessoa já tentou não funcionou (absolve o fundador e abre espaço pro método). -->
-<section>
-  <div class="wrap">
-    <div class="prosa rv">
-      <div class="olho">Por que não vendeu até agora</div>
-      <h2>Você tentou. <em>Só que tudo o que você tentou fala com quem já te conhece.</em></h2>
-      <p>Nada disso foi burrice. Cada tentativa faz sentido para quem constrói. O problema é para quem ela aponta.</p>
-    </div>
-    <div class="grade tres" style="margin-top:30px">
-      <div class="cartao rv">
-        <div class="rot">Postar o progresso</div>
-        <h3>Chega em quem já te segue.</h3>
-        <p>E quem te segue é outro fundador. Ele curte, comenta, torce. O seu cliente não está nessa timeline.</p>
-      </div>
-      <div class="cartao rv d1">
-        <div class="rot">Mais uma função</div>
-        <h3>Melhora o que ninguém viu.</h3>
-        <p>Função nova segura cliente que já entrou. Não traz cliente novo. Quem nunca abriu a sua página não sabe que ela existe.</p>
-      </div>
-      <div class="cartao rv d2">
-        <div class="rot">Impulsionar um post</div>
-        <h3>Compra curtida, não compra.</h3>
-        <p>O botão de impulsionar procura quem interage. Para vender, a campanha precisa procurar quem paga, e isso se configura em outro lugar.</p>
-      </div>
-    </div>
-    <div class="prosa rv" style="margin-top:30px">
-      <p class="destaque">Anúncio é a única dessas peças que coloca o seu produto na frente de um estranho que tem o problema hoje. Por isso ele vem com método, e não com sorte.</p>
     </div>
   </div>
 </section>
@@ -412,62 +349,20 @@ footer a{color:var(--muted)}
 <section>
   <div class="wrap">
     <div class="prosa rv">
-      <div class="olho">O método</div>
-      <h2>Apresento o <em>FounderADS</em></h2>
-      <p>O passo a passo para colocar um SaaS ou app para vender com anúncio no Facebook e no Instagram, feito para quem já tem o produto pronto e não quer virar marqueteiro.</p>
-      <p>Sem aula de enrolação. Você troca a semana da "próxima função" por uma semana em que cada etapa deixa uma parte da sua máquina de vendas funcionando:</p>
+      <div class="olho">Como funciona</div>
+      <h2>Apresento o <em>LicitaCerta</em></h2>
+      <p>O aviso, no seu WhatsApp, de toda compra pública que é pra sua empresa. Feito pra quem tem uma empresa pra tocar e não tem tempo de ficar abrindo portal.</p>
     </div>
     <ol class="trilha">
-      <li class="rv"><b>Oferta</b><span>Você embala o que já construiu do jeito que o seu cliente quer ouvir, com as palavras dele.</span></li>
-      <li class="rv d1"><b>Página</b><span>Vende sozinha, sem demonstração e sem reunião. A pessoa chega, entende e paga.</span></li>
-      <li class="rv d2"><b>Anúncios</b><span>Modelo pronto de gancho e roteiro, para gravar sem aparecer e sem ser criativo.</span></li>
-      <li class="rv"><b>Campanha</b><span>A estrutura pronta para copiar, sem se perder nos mil botões do gerenciador.</span></li>
-      <li class="rv d1"><b>Leitura</b><span>Vendeu, faz isso. Não vendeu, faz aquilo. Você sempre sabe o que o número quer dizer.</span></li>
-      <li class="rv d2"><b>Escala</b><span>Quando começar a vender, você sabe como colocar mais dinheiro e tirar mais venda.</span></li>
+      <li class="rv"><b>Você digita o CNPJ</b><span>O LicitaCerta vê na Receita o que a sua empresa vende e já mostra o que o governo quer comprar dela hoje.</span></li>
+      <li class="rv d1"><b>Você deixa o seu WhatsApp</b><span>E escolhe o plano. Leva um minuto.</span></li>
+      <li class="rv d2"><b>Todo dia útil de manhã chega o aviso</b><span>Só o que é pra sua empresa, com o órgão, a cidade, o valor e o prazo. Você só decide em qual entrar.</span></li>
     </ol>
-  </div>
-</section>
-
-<!-- V3: elemento 11. Condições: pra quem é e pra quem não é (com a admissão que dá credibilidade). -->
-<section>
-  <div class="wrap">
-    <div class="centro rv">
-      <div class="olho">Antes de entrar</div>
-      <h2>Para quem é. E para quem não é.</h2>
+    <div class="numeros rv">
+      <div><strong>44.554</strong><span>compras abertas agora</span></div>
+      <div><strong>+70</strong><span>sistemas lidos todo dia</span></div>
     </div>
-    <div class="caminhos">
-      <div class="caminho b rv">
-        <div class="rot">É para você se</div>
-        <p>Você já tem um SaaS ou app no ar. O cliente consegue entrar na página e pagar sozinho. Você tem cerca de R$ 300 para o primeiro teste e meia hora por dia. Nunca ter anunciado não atrapalha.</p>
-      </div>
-      <div class="caminho rv d1">
-        <div class="rot">Não é para você se</div>
-        <p>Ainda não tem produto. Ou vende só com reunião e proposta. E um aviso honesto: anúncio não conserta produto que ninguém quer. Ele só mostra isso mais rápido, o que também vale os R$ 97.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="autor">
-      <img class="foto rv" src="https://thallisribeiro.com.br/assets/thallis.webp" alt="Thallis Ribeiro" width="300" height="340">
-      <div class="rv d1">
-        <div class="olho">Quem está te ensinando</div>
-        <h2>Um fundador, igual a você</h2>
-        <p>Sou o Thallis Ribeiro. Eu construo software e vendo por anúncio, com o meu dinheiro, nos meus produtos.</p>
-        <div class="numeros">
-          <div><strong>+R$ 800 mil</strong><span>investidos em anúncios</span></div>
-          <div><strong>ROI 2</strong><span>com consistência</span></div>
-        </div>
-        <p>Cada real que entra em anúncio volta em dobro.</p>
-        <!-- V3: PROVA. Demonstração é a prova mais forte e a página só tem os dois números acima.
-             CONFIRMAR com o Thallis: colocar aqui 1 print real do gerenciador (gasto do mês) ao lado do faturamento do mesmo mês,
-             com a legenda do período. Sem print real, este bloco não entra. -->
-        <div class="legenda" style="border:1px dashed var(--line);border-radius:12px;padding:18px;margin:18px 0">[ lugar do print real: gasto no gerenciador × faturamento do mesmo mês ]</div>
-        <p>Não sou agência e não sou guru de tráfego. Aprendi a fazer o próprio produto vender todo dia, e o FounderADS é esse caminho, organizado para você não gastar o que eu gastei para aprender.</p>
-      </div>
-    </div>
+    <p class="muted rv" style="margin-top:22px;max-width:660px">Uma coisa a gente não faz: a proposta, os documentos e o lance são com você. O LicitaCerta acha e avisa.</p>
   </div>
 </section>
 
@@ -479,21 +374,18 @@ footer a{color:var(--muted)}
     </div>
     <div class="oferta">
       <ul class="lista">
-        <li class="rv" data-n="01"><b>O curso FounderADS completo</b>Da oferta à escala, na ordem, com uma tarefa no fim de cada aula.</li>
-        <li class="rv" data-n="B1"><b>Bônus 1: roteiros para o seu Claude</b>Ele cria a página, o Instagram, o pixel e a conta de anúncios com você, enquanto você toma um café.</li>
-        <li class="rv" data-n="B2"><b>Bônus 2: swipe file</b>Os meus anúncios que vendem, com o roteiro de cada um, para você modelar em vez de começar do zero.</li>
-        <li class="rv" data-n="B3"><b>Bônus 3: a planilha da conta</b>Você coloca o seu preço e descobre quanto pode pagar por cliente antes de gastar o primeiro real.</li>
-        <li class="rv" data-n="B4"><b>Bônus 4: os scripts da minha rotina</b>O que o meu agente de IA roda todo dia para ler a conta e me dizer o lucro.</li>
+        <li class="rv" data-n="01"><b>O aviso de toda compra que é pra sua empresa</b>Todo dia útil de manhã, no WhatsApp, com valor e prazo. Na véspera de fechar chega um lembrete.</li>
+        <li class="rv" data-n="02"><b>O porquê de cada aviso</b>Item por item. Não tem a ver com a sua empresa? Você responde e a gente ajusta.</li>
+        <li class="rv" data-n="B1"><b>Bônus 1: Kit Primeira Proposta (vale R$ 27)</b>Habilitação, certidões, SICAF e um modelo de proposta pronto, em PDF. Pra quem nunca mandou uma.</li>
+        <li class="rv" data-n="B2"><b>Bônus 2: mais de 3 meses de graça no anual</b>R$ 397 no ano, contra R$ 588 em doze mensalidades.</li>
+        <li class="rv" data-n="B3"><b>Bônus 3: suporte 24/7 via WhatsApp</b>Travou em alguma coisa, é só mandar mensagem, a qualquer hora.</li>
       </ul>
       <div class="caixa rv d1">
-        <!-- V3: elemento 14. Ancoragem só com número que já está na página (os R$ 800 mil são dele). Os bônus seguem sem preço:
-             CONFIRMAR com o Thallis se algum deles vai ser vendido separado; só aí entra valor riscado. -->
-        <p class="muted" style="margin-bottom:10px">Eu investi mais de R$ 800 mil em anúncio para chegar neste passo a passo.</p>
-        <p class="muted" style="margin-bottom:0">Você pega ele pronto, na pré-venda, por</p>
-        <div class="preco"><small>R$</small>97</div>
-        <p class="muted" style="margin-bottom:0">Uma vez só. Sem mensalidade.</p>
-        <a class="btn" href="https://wa.me/5573988899345?text=Quero%20entrar%20na%20pr%C3%A9-venda%20do%20FounderADS" target="_blank" rel="noopener">Quero entrar agora por R$ 97</a>
-        <p class="nota">O botão abre o meu WhatsApp. Eu te mando o Pix e o seu acesso.</p>
+        <p class="muted" style="margin-bottom:0">Tudo isso por</p>
+        <div class="preco"><small>R$</small>1,09</div>
+        <p class="muted" style="margin-bottom:0">por dia. R$ 397 no ano, ou R$ 49 por mês.</p>
+        <a class="btn" href="#teste">Ver quem quer comprar de mim</a>
+        <p class="nota">Primeiro você vê as compras da sua empresa, de graça. Só depois escolhe o plano.</p>
       </div>
     </div>
   </div>
@@ -503,16 +395,10 @@ footer a{color:var(--muted)}
   <div class="wrap">
     <div class="duas">
       <div class="rv">
-        <div class="olho">O preço</div>
-        <h2>Por que só R$ 97?</h2>
-        <p>Porque é pré-venda. As aulas estão sendo gravadas agora e você recebe um módulo de cada vez, conforme elas saem.</p>
-        <!-- CONFIRMAR com o Thallis: o preço sobe depois da pré-venda -->
-        <p>Quem entra agora paga o menor preço que este curso vai ter e ainda me ajuda a gravar em cima das dúvidas reais de quem está aplicando. Depois que estiver tudo gravado, esse preço acaba.</p>
-        <p>Pensa na conta: <b>uma única venda</b> a mais do seu produto por mês já paga o curso. O resto é lucro.</p>
-        <!-- V3: elementos 16 e 17. Ganho de agora e perda de depois, só com fato.
-             CONFIRMAR com o Thallis: (a) o que a pessoa recebe no dia em que entra (primeiro módulo? roteiros do Claude?);
-             (b) se o preço sobe mesmo depois da pré-venda e pra quanto. Sem isso, a frase do preço acima sai. -->
-        <p><b>Entrando hoje</b>, você recebe o primeiro módulo e já sai com a oferta do seu produto escrita. <b>Deixando para depois</b>, a próxima semana vai para mais uma função, e o painel segue igual.</p>
+        <div class="olho">A conta</div>
+        <h2>Um cliente desse tamanho por R$ 1,09 por dia</h2>
+        <p>Pensa na conta: <b>uma venda só</b> pro governo já paga o LicitaCerta por muitos anos.</p>
+        <p>E você não paga pra descobrir se tem compra pra sua empresa. A consulta pelo CNPJ é de graça e sai na hora.</p>
       </div>
       <div class="garantia rv d1">
         <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
@@ -521,9 +407,8 @@ footer a{color:var(--muted)}
           <text x="60" y="84" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600" font-size="11" fill="#E6EDF3">DIAS</text>
         </svg>
         <div>
-          <h3 style="font-size:1.35rem;margin-bottom:8px">O risco é meu</h3>
-          <!-- CONFIRMAR com o Thallis: garantia de 7 dias contados do primeiro módulo recebido -->
-          <p>Entre, receba o primeiro módulo e assista. Se em 7 dias você achar que não é para você, por qualquer motivo, me chama no WhatsApp e eu devolvo os seus R$ 97 no Pix. Sem pergunta e sem formulário.</p>
+          <h3 style="font-size:1.35rem;margin-bottom:8px">Mas se você não gostar…</h3>
+          <p>Recebe os avisos por 7 dias. Se não servirem pra sua empresa, manda uma mensagem no WhatsApp e o dinheiro volta inteiro. Sem fidelidade, sem multa.</p>
         </div>
       </div>
     </div>
@@ -539,15 +424,14 @@ footer a{color:var(--muted)}
     <div class="caminhos">
       <div class="caminho rv">
         <div class="rot">Caminho 1</div>
-        <p>Fechar esta página, abrir o editor e começar mais uma função que ninguém vai ver. Continuar postando para vender, torcendo para alguém indicar e olhando o painel parado.</p>
+        <p>Fechar esta página. Segunda-feira a compra de Iperó fecha do mesmo jeito, e alguém vai vender aqueles uniformes.</p>
       </div>
       <div class="caminho b rv d1">
         <div class="rot">Caminho 2</div>
-        <p><b>Gastar R$ 97</b>, seguir o passo a passo e colocar o seu produto na frente de gente que quer comprar, todo dia, com ou sem você postando.</p>
+        <p><b>Digitar o CNPJ agora</b>, ver quem quer comprar da sua empresa e no próximo dia útil já acordar com o primeiro aviso.</p>
       </div>
     </div>
-    <p class="centro rv">Você já fez a parte difícil, que foi construir. Falta colocar para vender.</p>
-    <p class="centro rv" style="margin-top:28px"><a class="btn" href="https://wa.me/5573988899345?text=Quero%20entrar%20na%20pr%C3%A9-venda%20do%20FounderADS" target="_blank" rel="noopener">Quero vender todo dia</a></p>
+    <p class="centro rv" style="margin-top:28px"><a class="btn" href="#teste">Ver quem quer comprar de mim</a></p>
   </div>
 </section>
 
@@ -555,13 +439,11 @@ footer a{color:var(--muted)}
   <div class="wrap perguntas">
     <h2 class="rv">Perguntas frequentes</h2>
     <div class="faq rv d1">
-      <details><summary>Nunca rodei anúncio. Consigo?</summary><p>Consegue. O curso começa do zero, e criar conta e pixel o seu Claude faz com você.</p></details>
-      <details><summary>Quando eu recebo as aulas?</summary><p>Um módulo de cada vez, conforme eu gravo. Eu te aviso no WhatsApp a cada módulo liberado.</p></details>
-      <details><summary>Quanto preciso para investir em anúncio?</summary><p>Dá para começar com cerca de R$ 300.</p></details>
-      <details><summary>Preciso aparecer nos anúncios?</summary><p>Não. O curso mostra formatos que vendem sem você na frente da câmera.</p></details>
-      <details><summary>Meu produto é para empresa. Serve?</summary><p>Serve, se o cliente compra sozinho pela página.</p></details>
-      <details><summary>Ainda não tenho produto. Serve?</summary><p>Não. O FounderADS é para quem já tem o que vender.</p></details>
-      <details><summary>Tem acompanhamento?</summary><p>Tem a comunidade, que é opcional: grupo no WhatsApp com um encontro ao vivo por semana para olhar a sua conta. R$ 397 por seis meses, e você decide depois do curso.</p></details>
+      <details><summary>Nunca participei de licitação. Serve pra mim?</summary><p>Serve. Você vê as compras abertas pra sua empresa e decide se vale começar. O Kit Primeira Proposta vem junto pra isso.</p></details>
+      <details><summary>O portal do governo é de graça. Por que pagar?</summary><p>Porque lá você procura. Aqui chega no seu WhatsApp só o que é da sua empresa, já com valor e prazo.</p></details>
+      <details><summary>O LicitaCerta participa da licitação por mim?</summary><p>Não. O LicitaCerta acha e avisa. A proposta, os documentos e o lance são seus.</p></details>
+      <details><summary>Como eu pago?</summary><p>Pix ou cartão, depois de ver as compras da sua empresa.</p></details>
+      <details><summary>E pra cancelar?</summary><p>Uma mensagem no WhatsApp. Sem fidelidade e sem multa.</p></details>
     </div>
   </div>
 </section>
@@ -569,24 +451,25 @@ footer a{color:var(--muted)}
 <section>
   <div class="wrap">
     <div class="ps rv">
-      <p><b>P.S.</b> A função que você ia começar hoje pode esperar uma semana. O cliente que procurou uma solução hoje não esperou: comprou de outro, ou não comprou de ninguém. Por R$ 97 e com 7 dias de garantia, o único jeito de perder é não testar.</p>
-      <p class="centro" style="margin-top:24px;margin-bottom:0"><a class="btn" href="https://wa.me/5573988899345?text=Quero%20entrar%20na%20pr%C3%A9-venda%20do%20FounderADS" target="_blank" rel="noopener">Quero entrar agora por R$ 97</a></p>
+      <p><b>P.S.</b> A consulta é de graça e sai na hora. Se não aparecer nada pra sua empresa, você não gastou um real. Se aparecer, você acabou de descobrir um cliente que tava comprando sem você saber.</p>
+      <p class="centro" style="margin-top:24px;margin-bottom:0"><a class="btn" href="#teste">Ver quem quer comprar de mim</a></p>
     </div>
   </div>
 </section>
 </main>
 
 <footer>
-  <div class="wrap">FounderADS é um curso de <a href="/">Thallis Ribeiro</a>. Este site não é afiliado à Meta. As telas e os gráficos desta página são ilustrações. Não prometemos resultados: o resultado com anúncio depende do produto, da oferta e da execução de cada um.</div>
+  <div class="wrap">LicitaCerta · Ribeiro Gestão Ltda. Este site não é afiliado ao Facebook, ao Instagram nem à Meta. Não prometemos resultado: o LicitaCerta avisa das compras abertas; disputar e ganhar depende de você.</div>
 </footer>
 
 <div class="barra" id="barra">
-  <div><b>R$ 97</b>pré-venda · 7 dias de garantia</div>
-  <a class="btn" href="https://wa.me/5573988899345?text=Quero%20entrar%20na%20pr%C3%A9-venda%20do%20FounderADS" target="_blank" rel="noopener">Quero entrar</a>
+  <div><b>De graça</b>resultado na hora</div>
+  <a class="btn" href="#teste">Ver quem quer comprar</a>
 </div>
 
 <script>
 (function(){
+  document.getElementById('teste').addEventListener('submit',function(e){e.preventDefault();alert('Maquete: na página de verdade, aqui abre o relatório do seu CNPJ.')});
   var barra=document.getElementById('barra');
   if(!('IntersectionObserver' in window)){
     document.querySelectorAll('.rv').forEach(function(e){e.classList.add('vis')});
@@ -594,11 +477,8 @@ footer a{color:var(--muted)}
   }
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
-  // barra do celular: aparece depois da primeira dobra e some em cima da caixa da oferta
-  var foraHero=false,naOferta=false;
-  function pinta(){barra.classList.toggle('on',foraHero&&!naOferta)}
-  new IntersectionObserver(function(es){foraHero=!es[0].isIntersecting;pinta()}).observe(document.querySelector('.hero .btn'));
-  new IntersectionObserver(function(es){naOferta=es[0].isIntersecting;pinta()}).observe(document.querySelector('.caixa'));
+  // barra do celular: aparece quando o campo do CNPJ sai da tela
+  new IntersectionObserver(function(es){barra.classList.toggle('on',!es[0].isIntersecting)}).observe(document.getElementById('teste'));
 })();
 </script>
 </body>
