@@ -6,8 +6,8 @@
 <meta name="robots" content="noindex,nofollow">
 <title>LicitaCerta · página v2 (maquete)</title>
 <!-- MAQUETE da v2 da página de vendas, 3ª versão (20/11/2026). Não é a página de produção.
-     Manchete aprovada pelo Thallis, no molde "Como [resultado] sem [o que trava], mesmo que [medo]": a página vende
-     a prefeitura como cliente (oportunidade nova) e o radar só aparece no "Como funciona", sem metáfora nem personagem.
+     Manchete do Thallis ("Descubra como vender pro governo sem conhecer ninguém lá dentro"), no molde
+     "[resultado] sem [o que trava], mesmo que [medo]": a página vende o governo como cliente (oportunidade nova) e o radar só aparece no "Como funciona", sem metáfora nem personagem.
      As licitações citadas são reais, lidas de /api/abertas-agora em 20/11 às 15h47;
      na página real o servidor troca pelas do dia. O campo do CNPJ aqui não consulta nada.
      A CONFERIR antes de ir ao ar: LC 123 art. 48 (até R$ 80 mil só pra micro e pequena), Lei 14.133 art. 75 § 3º
@@ -87,6 +87,61 @@ details{border-bottom:1px solid var(--linha);padding-block:12px}
 summary{font-weight:700;cursor:pointer}
 details p{margin-top:8px;color:var(--grafite)}
 footer{padding:26px 18px 40px;font-size:13px;color:var(--suave);text-align:center}
+.vivo i{animation:pulso 1.8s ease-out infinite}
+@keyframes pulso{0%{box-shadow:0 0 0 0 rgba(60,203,138,.6)}100%{box-shadow:0 0 0 10px rgba(60,203,138,0)}}
+
+/* computador: topo em duas colunas, blocos largos em grade, movimento na entrada e no mouse */
+@media (min-width:900px){
+  body{font-size:18px}
+  .faixa{padding-block:76px;padding-inline:32px}
+  .miolo{max-width:740px;gap:22px}
+  .miolo.largo{max-width:1080px}
+  .miolo.largo>h2{text-align:center}
+  h2{font-size:40px}
+  .topo{position:relative;overflow:hidden;padding-block:72px 84px;
+    background:radial-gradient(700px 420px at 82% 38%,rgba(255,138,76,.20),transparent 70%),radial-gradient(600px 500px at 4% 0%,rgba(60,203,138,.10),transparent 70%),var(--tinta)}
+  .topo::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:44px 44px;
+    -webkit-mask-image:radial-gradient(ellipse at 50% 40%,#000 25%,transparent 75%);mask-image:radial-gradient(ellipse at 50% 40%,#000 25%,transparent 75%)}
+  .topo .miolo{position:relative;max-width:1120px;display:grid;grid-template-columns:1.15fr .85fr;column-gap:56px;row-gap:18px;align-items:start}
+  .topo .miolo>*{grid-column:1}
+  .topo .teste{grid-column:2;grid-row:1/span 4;align-self:center;padding:26px;border-radius:18px;gap:13px;
+    box-shadow:0 30px 70px -20px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.08),0 0 90px -10px rgba(255,138,76,.35)}
+  .topo .teste h3{font-size:23px;line-height:1.2}
+  h1{font-size:60px;line-height:1}
+  .topo .sub{font-size:22px}
+  .aviso{font-size:16.5px;align-self:start;justify-self:start}
+  .botao{position:relative;overflow:hidden;transition:transform .18s ease,box-shadow .18s ease,background .18s ease;box-shadow:0 10px 24px -10px rgba(194,65,12,.7)}
+  .botao:hover{transform:translateY(-2px);box-shadow:0 16px 30px -10px rgba(194,65,12,.8)}
+  .botao::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .6s ease}
+  .botao:hover::after{left:130%}
+  .achados{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .achado{padding:22px;border-radius:14px;transition:transform .2s ease,box-shadow .2s ease}
+  .achado:hover{transform:translateY(-6px);box-shadow:0 22px 40px -22px rgba(14,27,46,.45)}
+  .achado .valor{font-size:28px;margin-top:12px}
+  .largo>.fala,.largo>.miudo{text-align:center;max-width:740px;margin-inline:auto}
+  .largo ul.lista{display:grid;grid-template-columns:1fr 1fr;gap:18px 40px}
+  ol.passos{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  ol.passos li{grid-template-columns:1fr;gap:14px}
+  ol.passos li::before{width:52px;height:52px;font-size:23px}
+  .bonus{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .bonus div{background:#fff;border:1px solid var(--linha);border-top:4px solid var(--cta);border-radius:14px;padding:22px;transition:transform .2s ease,box-shadow .2s ease}
+  .bonus div:hover{transform:translateY(-6px);box-shadow:0 22px 40px -22px rgba(14,27,46,.45)}
+  .frase{font-size:36px;padding-left:20px}
+  .selo{width:120px;height:120px;font-size:12px}
+  .selo b{font-size:46px}
+  .pedido{padding:28px;box-shadow:0 30px 60px -30px rgba(14,27,46,.5)}
+  .plano{cursor:pointer;transition:border-color .15s ease,background .15s ease}
+  .plano:hover{border-color:var(--tinta)}
+  summary{transition:color .15s ease}
+  summary:hover{color:var(--cta)}
+}
+@media (min-width:900px) and (prefers-reduced-motion:no-preference){
+  .entra{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+  .entra.visto{opacity:1;transform:none}
+  .topo .teste{animation:sobe .7s .15s ease both}
+  @keyframes sobe{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+}
 </style>
 </head>
 <body>
@@ -96,7 +151,7 @@ footer{padding:26px 18px 40px;font-size:13px;color:var(--suave);text-align:cente
 <section class="faixa escura topo">
   <div class="miolo">
     <span class="vivo"><i></i>44.554 compras públicas abertas agora</span>
-    <h1>Como ter a prefeitura como cliente <span>sem conhecer ninguém lá dentro</span></h1>
+    <h1>Descubra como vender pro governo <span>sem conhecer ninguém lá dentro</span></h1>
     <p class="sub"><b>Mesmo que você nunca tenha participado de uma licitação na vida.</b></p>
     <p class="aviso"><b>AVISO:</b> tem pedido de R$ 483 mil aberto hoje. Vê se você dá conta de entregar.</p>
     <form class="teste" id="teste">
@@ -104,14 +159,13 @@ footer{padding:26px 18px 40px;font-size:13px;color:var(--suave);text-align:cente
       <label for="cnpj">Digite o CNPJ da sua empresa</label>
       <input id="cnpj" type="text" inputmode="numeric" placeholder="00.000.000/0000-00" autocomplete="off">
       <button class="botao" type="submit">Ver quem quer comprar de mim</button>
-      <p class="miudo">De graça, sem cadastro, resultado na hora. Não sabe o CNPJ de cabeça? Tá no app do banco e em qualquer nota fiscal sua.</p>
+      <p class="miudo">De graça, sem cadastro, resultado na hora.</p>
     </form>
-    <p class="preco-topo">Depois, as compras novas chegam todo dia no seu WhatsApp por <b>R$ 1,09 por dia</b>. 7 dias de garantia.</p>
   </div>
 </section>
 
 <section class="faixa">
-  <div class="miolo">
+  <div class="miolo largo">
     <h2>Olha quem tá comprando hoje</h2>
     <div class="achados">
       <p class="achado">Olha essa: a <b>Prefeitura de Iperó</b>, no interior de São Paulo, quer comprar uniforme.<span class="valor">R$ 483.493</span><span class="prazo">Proposta até segunda, 23/11, 8h</span></p>
@@ -160,7 +214,7 @@ footer{padding:26px 18px 40px;font-size:13px;color:var(--suave);text-align:cente
 </section>
 
 <section class="faixa">
-  <div class="miolo">
+  <div class="miolo largo">
     <h2>O que você fica sabendo logo no primeiro aviso</h2>
     <ul class="lista">
       <li><b>Quem tá comprando o que você vende esta semana</b>, com o nome do órgão e a cidade.</li>
@@ -174,7 +228,7 @@ footer{padding:26px 18px 40px;font-size:13px;color:var(--suave);text-align:cente
 </section>
 
 <section class="faixa branca">
-  <div class="miolo">
+  <div class="miolo largo">
     <h2>Como funciona:</h2>
     <ol class="passos">
       <li><div><h3>Você digita o CNPJ.</h3><p>O LicitaCerta vê na Receita o que a sua empresa vende e já mostra o que o governo quer comprar dela hoje.</p></div></li>
@@ -186,7 +240,7 @@ footer{padding:26px 18px 40px;font-size:13px;color:var(--suave);text-align:cente
 </section>
 
 <section class="faixa">
-  <div class="miolo">
+  <div class="miolo largo">
     <h2>E não para por aí…</h2>
     <div class="bonus">
       <div><span>Bônus 01 · vale R$ 27</span><b>Kit Primeira Proposta.</b> Habilitação, certidões, SICAF e um modelo de proposta pronto, em PDF. Pra quem nunca mandou uma.</div>
@@ -250,6 +304,11 @@ footer{padding:26px 18px 40px;font-size:13px;color:var(--suave);text-align:cente
 
 <script>
 document.getElementById('teste').addEventListener('submit', function (e) { e.preventDefault(); alert('Maquete: na página de verdade, aqui abre o relatório do seu CNPJ.'); });
+// entrada suave dos blocos (o CSS só anima no computador)
+if ('IntersectionObserver' in window) {
+  var olho = new IntersectionObserver(function (vistos) { vistos.forEach(function (v) { if (v.isIntersecting) { v.target.classList.add('visto'); olho.unobserve(v.target); } }); }, { rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.faixa:not(.topo) .miolo > *').forEach(function (el) { el.classList.add('entra'); olho.observe(el); });
+}
 </script>
 </body>
 </html>
