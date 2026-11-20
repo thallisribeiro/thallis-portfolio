@@ -10,13 +10,13 @@
      os dois caminhos). Não é a página de produção. As licitações citadas são reais, lidas de /api/abertas-agora
      em 20/11 às 15h47; na página real o servidor troca pelas do dia. O campo do CNPJ aqui não consulta nada.
      A CONFERIR antes de ir ao ar: LC 123 art. 48, Lei 14.133 art. 75 § 3º e art. 150. -->
-<meta name="theme-color" content="#0B0F14">
+<meta name="theme-color" content="#08131F">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js');</script>
 <style>
-:root{--primary:#E8A33D;--primary-2:#FFD08A;--bg:#0B0F14;--surface:#11161C;--surface-2:#161D26;--text:#E6EDF3;--muted:#8B949E;--line:rgba(255,255,255,.08);--verde:#3FB950;--vermelho:#F0736A;--mono:"JetBrains Mono",ui-monospace,Consolas,monospace;color-scheme:dark}
+:root{--primary:#E8A33D;--primary-2:#FFD08A;--bg:#08131F;--surface:#0E1C2C;--surface-2:#14263A;--text:#E6EDF3;--muted:#8FA0B3;--line:rgba(255,255,255,.09);--verde:#3FB950;--vermelho:#F0736A;--papel:#F3ECD9;--tinta:#1E2A38;--serifa:"Source Serif 4",Georgia,"Times New Roman",serif;--mono:"JetBrains Mono",ui-monospace,Consolas,monospace;color-scheme:dark}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--text);font:17px/1.65 Inter,system-ui,sans-serif;overflow-x:hidden;padding-bottom:84px}
@@ -38,11 +38,15 @@ section{padding:64px 0;position:relative}
 .centro .olho{justify-content:center}
 
 /* topo */
-.topo{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(11,15,20,.72);border-bottom:1px solid var(--line)}
+.topo{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(8,19,31,.78);border-bottom:1px solid var(--line)}
 .topo .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:14px}
 .marca{font:700 1.15rem "Space Grotesk",sans-serif;color:var(--text);text-decoration:none}
 .marca span{color:var(--primary)}
+.topo::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:3px;background:linear-gradient(90deg,#1F9D55 0 33.3%,#F2C230 33.3% 66.6%,#2A6FDB 66.6%)}
+.topo nav{display:flex;align-items:center;gap:14px}
 .topo .btn{display:none}
+.entrar{color:var(--text);text-decoration:none;font-weight:600;font-size:.92rem;padding:9px 16px;border:1px solid rgba(255,255,255,.22);border-radius:10px;transition:border-color .2s,color .2s}
+.entrar:hover,.entrar:focus-visible{border-color:var(--primary);color:var(--primary-2)}
 
 /* botão */
 .btn{position:relative;overflow:hidden;display:inline-block;border:0;cursor:pointer;background:linear-gradient(180deg,#F5B654,var(--primary));color:#0B0F14;font:700 1.08rem Inter,system-ui,sans-serif;text-decoration:none;padding:18px 30px;border-radius:14px;box-shadow:0 10px 34px -10px rgba(232,163,61,.65),inset 0 1px 0 rgba(255,255,255,.4);transition:transform .2s,box-shadow .2s}
@@ -84,14 +88,20 @@ section{padding:64px 0;position:relative}
 @keyframes chega{0%{opacity:0;transform:translateY(-14px) scale(.96)}6%,88%{opacity:1;transform:none}96%,100%{opacity:0;transform:none}}
 .legenda{font:400 .7rem var(--mono);color:var(--muted);text-align:center;margin-top:14px;letter-spacing:.04em}
 
-/* painel do "hoje" */
-.term{background:#080B0F;border:1px solid var(--line);border-radius:16px;font:400 .8rem/1.75 var(--mono);box-shadow:0 30px 70px -30px #000;overflow:hidden}
-.term-top{display:flex;gap:6px;padding:12px 14px;border-bottom:1px solid var(--line);background:var(--surface)}
-.term-top i{width:10px;height:10px;border-radius:50%;background:#2c3440}
-.term-corpo{padding:16px;overflow-x:auto;white-space:nowrap}
-.term .c{color:var(--muted)}.term .a{color:var(--primary)}.term .r{color:var(--vermelho);font-weight:500}
-.cursor{display:inline-block;width:8px;height:1em;background:var(--primary);vertical-align:-2px;animation:pisca 1s steps(1) infinite}
-@keyframes pisca{50%{opacity:0}}
+/* painel do "hoje": a folha de avisos de licitação */
+.folha{background:var(--papel);color:var(--tinta);border-radius:6px;padding:22px 20px 18px;font:400 .8rem/1.5 var(--serifa);box-shadow:0 30px 70px -30px #000,0 0 0 1px rgba(0,0,0,.2);transform:rotate(-1.2deg);position:relative}
+.folha::before{content:"";position:absolute;inset:8px -8px -8px 8px;background:#D9D0B8;border-radius:6px;z-index:-1;transform:rotate(2deg)}
+.folha-cab{text-align:center;border-bottom:3px double var(--tinta);padding-bottom:10px;margin-bottom:12px}
+.folha-cab b{display:block;font:700 1.25rem/1.1 var(--serifa);letter-spacing:.06em;text-transform:uppercase}
+.folha-cab span{font:400 .68rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#5A6675}
+.folha-cols{columns:2;column-gap:18px;column-rule:1px solid rgba(30,42,56,.25)}
+.aviso{break-inside:avoid;margin:0 0 10px}
+.aviso i{display:block;height:5px;border-radius:2px;background:rgba(30,42,56,.2);margin-bottom:5px}
+.aviso i:last-child{width:62%}
+.aviso.real{font-size:.78rem;line-height:1.4}
+.aviso.real b{display:block;color:var(--tinta);font-size:.7rem;letter-spacing:.05em;text-transform:uppercase}
+.aviso.real mark{background:linear-gradient(transparent 12%,#FFE066 12% 88%,transparent 88%);color:inherit;font-weight:700}
+.folha-pe{border-top:1px solid rgba(30,42,56,.35);margin-top:6px;padding-top:8px;font:500 .7rem var(--mono);text-align:center;color:#8A1F17;letter-spacing:.04em}
 
 /* dores */
 .dores{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:12px}
@@ -103,7 +113,9 @@ section{padding:64px 0;position:relative}
 
 /* as compras de hoje */
 .achados{display:grid;gap:14px;margin-top:30px}
-.achado{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px;transition:transform .25s,border-color .25s,box-shadow .25s}
+.achado{position:relative;background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--primary);border-radius:6px 6px 18px 18px;padding:20px;transition:transform .25s,border-color .25s,box-shadow .25s}
+.achado::before{content:"Aviso de licitação";display:block;font:500 .68rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-bottom:1px dashed rgba(255,255,255,.16);padding-bottom:10px;margin-bottom:12px}
+.achado::after{content:"ABERTA";position:absolute;right:14px;top:12px;font:700 .68rem var(--mono);letter-spacing:.16em;color:var(--verde);border:2px solid var(--verde);border-radius:6px;padding:3px 8px;transform:rotate(-8deg);opacity:.85}
 .achado:hover{transform:translateY(-4px);border-color:rgba(232,163,61,.45);box-shadow:0 24px 50px -30px rgba(232,163,61,.6)}
 .achado p{margin:0;color:#c9d1d9;font-size:.97rem}
 .achado .valor{display:block;font:700 1.7rem/1.2 "Space Grotesk",sans-serif;color:var(--primary);margin-top:10px}
@@ -223,7 +235,10 @@ footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--muted);f
 <header class="topo">
   <div class="wrap">
     <a class="marca" href="#teste">Licita<span>Certa</span></a>
-    <a class="btn p" href="#teste">Ver quem quer comprar de mim</a>
+    <nav>
+      <a class="entrar" href="https://licitacerta.com.br/entrar">Entrar</a>
+      <a class="btn p" href="#teste">Ver quem quer comprar de mim</a>
+    </nav>
   </div>
 </header>
 
@@ -231,11 +246,11 @@ footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--muted);f
 <section class="hero">
   <div class="wrap">
     <div>
-      <div class="selo"><i></i>44.554 compras públicas abertas agora · pra dono de empresa pequena</div>
+      <div class="selo"><i></i>44.554 compras públicas abertas agora</div>
       <h1>Descubra como vender pro governo <em>sem conhecer ninguém lá dentro</em></h1>
       <p class="lead">Mesmo que você nunca tenha participado de uma licitação na vida.</p>
       <form class="teste" id="teste">
-        <label for="cnpj">Veja o que o governo quer comprar da sua empresa hoje</label>
+        <label for="cnpj">Quem quer comprar de você hoje?</label>
         <input id="cnpj" type="text" inputmode="numeric" placeholder="Digite o CNPJ da sua empresa" autocomplete="off">
         <button class="btn" type="submit">Ver quem quer comprar de mim</button>
         <p class="nota">De graça, sem cadastro, resultado na hora.</p>
@@ -282,20 +297,21 @@ footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--muted);f
         <p>Pra achar a sua, alguém teria que abrir um por um, todo dia, e ler tudo. Você tem uma empresa pra tocar.</p>
         <p>Então a compra abre, fecha, e outra empresa vende. <b>Você nem fica sabendo que existiu.</b></p>
       </div>
-      <div class="term rv d1" aria-hidden="true">
-        <div class="term-top"><i></i><i></i><i></i></div>
-        <div class="term-corpo">
-          <div><span class="c">abas abertas pra procurar uma compra</span></div>
-          <div><span class="a">01</span> portal nacional de compras</div>
-          <div><span class="a">02</span> compras do governo federal</div>
-          <div><span class="a">03</span> sistema do estado</div>
-          <div><span class="a">04</span> site da prefeitura</div>
-          <div><span class="a">05</span> site da prefeitura vizinha</div>
-          <div><span class="c">… mais de 70 sistemas</span></div>
-          <div>&nbsp;</div>
-          <div><span class="c">tempo que sobrou pra vender hoje</span></div>
-          <div><span class="r">nenhum</span></div>
-          <div><span class="cursor"></span></div>
+      <div class="rv d1" aria-hidden="true" style="padding:10px 8px">
+        <div class="folha">
+          <div class="folha-cab"><b>Avisos de licitação</b><span>sexta-feira, 20 de novembro de 2026 · fonte: PNCP</span></div>
+          <div class="folha-cols">
+            <p class="aviso"><i></i><i></i><i></i><i></i></p>
+            <p class="aviso real"><b>Prefeitura de Iperó · SP</b>Aquisição de uniformes. Valor estimado: <mark>R$ 483.493</mark></p>
+            <p class="aviso"><i></i><i></i><i></i></p>
+            <p class="aviso"><i></i><i></i><i></i><i></i><i></i></p>
+            <p class="aviso real"><b>USP de Bauru · SP</b>Lâmpadas, refletores e iluminação. Valor estimado: <mark>R$ 186.439</mark></p>
+            <p class="aviso"><i></i><i></i><i></i></p>
+            <p class="aviso"><i></i><i></i><i></i><i></i></p>
+            <p class="aviso real"><b>Sec. de Agricultura · SP</b>Periféricos de informática. Valor estimado: <mark>R$ 65.346</mark></p>
+            <p class="aviso"><i></i><i></i><i></i></p>
+          </div>
+          <div class="folha-pe">+ 44.551 avisos abertos hoje. Qual é o seu?</div>
         </div>
       </div>
     </div>
