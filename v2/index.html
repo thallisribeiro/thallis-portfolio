@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <title>LicitaCerta · página v2 (maquete)</title>
-<!-- MAQUETE da v2 da página de vendas, 2ª versão (20/11/2026). Não é a página de produção.
-     Conceito: o radar vira "o funcionário que acha quem do governo quer comprar o que você vende", e a consulta do CNPJ
-     vira "o teste antes de contratar". As licitações citadas são reais, lidas de /api/abertas-agora em 20/11 às 15h47;
+<!-- MAQUETE da v2 da página de vendas, 3ª versão (20/11/2026). Não é a página de produção.
+     Manchete aprovada pelo Thallis, no molde "Como [resultado] sem [o que trava], mesmo que [medo]": a página vende
+     a prefeitura como cliente (oportunidade nova) e o radar só aparece no "Como funciona", sem metáfora nem personagem.
+     As licitações citadas são reais, lidas de /api/abertas-agora em 20/11 às 15h47;
      na página real o servidor troca pelas do dia. O campo do CNPJ aqui não consulta nada.
      A CONFERIR antes de ir ao ar: LC 123 art. 48 (até R$ 80 mil só pra micro e pequena), Lei 14.133 art. 75 § 3º
      (dispensa com 3 dias úteis) e art. 150 (indicação do crédito orçamentário). -->
@@ -90,28 +91,28 @@ footer{padding:26px 18px 40px;font-size:13px;color:var(--suave);text-align:cente
 </head>
 <body>
 <div class="maquete">MAQUETE DA V2 · licitações reais de 20/11, 15h47 · o campo do CNPJ aqui não consulta</div>
-<div class="pra-quem">Pra dono de empresa pequena que quer vender pro governo sem conhecer ninguém lá dentro</div>
+<div class="pra-quem">Pra dono de empresa pequena que quer um cliente grande</div>
 
 <section class="faixa escura topo">
   <div class="miolo">
     <span class="vivo"><i></i>44.554 compras públicas abertas agora</span>
-    <h1>O funcionário que acha, todo dia, <span>quem do governo quer comprar o que você vende</span></h1>
-    <p class="sub">Enquanto você dorme, ele lê mais de 70 sistemas de compra pública. De manhã, manda no seu WhatsApp só as compras abertas pra sua empresa, com valor e prazo. <b>Custa R$ 1,09 por dia.</b></p>
-    <p class="aviso"><b>AVISO:</b> ele não tira férias, não falta e não pede aumento.</p>
+    <h1>Como ter a prefeitura como cliente <span>sem conhecer ninguém lá dentro</span></h1>
+    <p class="sub"><b>Mesmo que você nunca tenha participado de uma licitação na vida.</b></p>
+    <p class="aviso"><b>AVISO:</b> tem pedido de R$ 483 mil aberto hoje. Vê se você dá conta de entregar.</p>
     <form class="teste" id="teste">
-      <h3>Antes de contratar, faz um teste com ele.</h3>
+      <h3>Veja o que o governo quer comprar da sua empresa hoje.</h3>
       <label for="cnpj">Digite o CNPJ da sua empresa</label>
       <input id="cnpj" type="text" inputmode="numeric" placeholder="00.000.000/0000-00" autocomplete="off">
-      <button class="botao" type="submit">Ver o que ele acha pra mim hoje</button>
+      <button class="botao" type="submit">Ver quem quer comprar de mim</button>
       <p class="miudo">De graça, sem cadastro, resultado na hora. Não sabe o CNPJ de cabeça? Tá no app do banco e em qualquer nota fiscal sua.</p>
     </form>
-    <p class="preco-topo">Gostou do teste? Ele fica por <b>R$ 397 no ano</b> ou R$ 49 por mês. 7 dias de garantia.</p>
+    <p class="preco-topo">Depois, as compras novas chegam todo dia no seu WhatsApp por <b>R$ 1,09 por dia</b>. 7 dias de garantia.</p>
   </div>
 </section>
 
 <section class="faixa">
   <div class="miolo">
-    <h2>Olha o que ele achou hoje de manhã</h2>
+    <h2>Olha quem tá comprando hoje</h2>
     <div class="achados">
       <p class="achado">Olha essa: a <b>Prefeitura de Iperó</b>, no interior de São Paulo, quer comprar uniforme.<span class="valor">R$ 483.493</span><span class="prazo">Proposta até segunda, 23/11, 8h</span></p>
       <p class="achado">Essa aqui é da <b>USP de Bauru</b>: lâmpada, refletor, iluminação.<span class="valor">R$ 186.439</span><span class="prazo">Também fecha segunda, 8h</span></p>
@@ -119,18 +120,18 @@ footer{padding:26px 18px 40px;font-size:13px;color:var(--suave);text-align:cente
     </div>
     <p class="fala">Nenhuma dessas saiu no jornal. Tão num portal que quase ninguém abre, no meio de outras 44 mil.</p>
     <p class="fala">Quem vende uniforme ali perto de Iperó e não ficou sabendo, perde na segunda. <b>Sem nem saber que perdeu.</b></p>
-    <p class="miudo">Compras reais, abertas em 20/11/2026. Fonte: PNCP. O teste lá em cima mostra as da sua empresa.</p>
+    <p class="miudo">Compras reais, abertas em 20/11/2026. Fonte: PNCP. Digitando o CNPJ lá em cima você vê as da sua empresa.</p>
   </div>
 </section>
 
 <section class="faixa branca">
   <div class="miolo">
-    <h2>“Ah, mas licitação é sempre pros mesmos.”</h2>
-    <p class="fala">Parece mesmo. Sabe por quê?</p>
+    <h2>“Ah, mas pra vender pra prefeitura tem que ter contato.”</h2>
+    <p class="fala">Parece mesmo, porque ganham sempre os mesmos. Sabe por quê?</p>
     <p class="frase">Porque só os mesmos ficam sabendo.</p>
     <p class="fala">A compra de Iperó tá publicada. Qualquer empresa do Brasil pode mandar proposta. Só que quem tem alguém olhando portal todo dia, vê. Quem não tem, acha que é panela.</p>
     <p class="fala">Contato ajuda? Pode ser. <b>Mas quem não fica sabendo não ganha nem com contato.</b></p>
-    <p class="fala">O LicitaCerta não é contato. É aviso.</p>
+    <p class="fala">Você não precisa conhecer ninguém lá dentro. Precisa ficar sabendo no dia em que abre. É isso que o LicitaCerta faz.</p>
   </div>
 </section>
 
@@ -142,7 +143,7 @@ footer{padding:26px 18px 40px;font-size:13px;color:var(--suave);text-align:cente
       <li><b>O dinheiro tem que ter endereço antes do contrato.</b> Órgão público não pode contratar sem dizer de qual verba do orçamento sai o pagamento.<small>Lei 14.133, art. 150</small></li>
       <li><b>O prazo de pagamento vem escrito no edital.</b> Você lê antes de mandar proposta. Não gostou do prazo, não entra.</li>
     </ul>
-    <p class="fala">Você escolhe pra quem vende. Ele só te mostra quem tá comprando.</p>
+    <p class="fala">Você escolhe pra quem vende. A gente só te mostra quem tá comprando.</p>
   </div>
 </section>
 
@@ -160,14 +161,14 @@ footer{padding:26px 18px 40px;font-size:13px;color:var(--suave);text-align:cente
 
 <section class="faixa">
   <div class="miolo">
-    <h2>O que ele te conta logo no primeiro aviso</h2>
+    <h2>O que você fica sabendo logo no primeiro aviso</h2>
     <ul class="lista">
       <li><b>Quem tá comprando o que você vende esta semana</b>, com o nome do órgão e a cidade.</li>
       <li><b>A compra que a lei separa só pra empresa pequena.</b> Até R$ 80 mil, empresa grande nem entra.<small>Lei Complementar 123, art. 48</small></li>
       <li><b>A compra que fecha em 3 dias úteis e quase ninguém vê.</b> Chama dispensa: sem pregão, sem sessão, proposta pela internet.<small>Lei 14.133, art. 75</small></li>
       <li><b>Quanto o órgão calcula pagar</b>, antes de você fazer qualquer conta.</li>
-      <li><b>Até que dia e que hora dá pra entrar.</b> Na véspera ele te lembra.</li>
-      <li><b>Por que aquele aviso chegou pra você</b>, item por item. Não tem a ver? Você fala e ele ajusta.</li>
+      <li><b>Até que dia e que hora dá pra entrar.</b> Na véspera chega um lembrete.</li>
+      <li><b>Por que aquele aviso chegou pra você</b>, item por item. Não tem a ver? Você responde e a gente ajusta.</li>
     </ul>
   </div>
 </section>
@@ -176,11 +177,11 @@ footer{padding:26px 18px 40px;font-size:13px;color:var(--suave);text-align:cente
   <div class="miolo">
     <h2>Como funciona:</h2>
     <ol class="passos">
-      <li><div><h3>Você digita o CNPJ.</h3><p>Ele descobre na Receita o que a sua empresa vende e já mostra o que tem aberto hoje.</p></div></li>
+      <li><div><h3>Você digita o CNPJ.</h3><p>O LicitaCerta vê na Receita o que a sua empresa vende e já mostra o que o governo quer comprar dela hoje.</p></div></li>
       <li><div><h3>Você deixa o seu WhatsApp.</h3><p>E escolhe o plano. Leva um minuto.</p></div></li>
-      <li><div><h3>Todo dia útil de manhã chega o aviso.</h3><p>Você só decide em qual entrar.</p></div></li>
+      <li><div><h3>Todo dia útil de manhã chega o aviso.</h3><p>A gente lê mais de 70 sistemas de compra pública e manda só o que é pra sua empresa, com valor e prazo. Você só decide em qual entrar.</p></div></li>
     </ol>
-    <p class="fala">Uma coisa ele não faz: a proposta, os documentos e o lance são com você. Ele acha e avisa. Mais nada.</p>
+    <p class="fala">Uma coisa a gente não faz: a proposta, os documentos e o lance são com você. O LicitaCerta acha e avisa.</p>
   </div>
 </section>
 
@@ -200,23 +201,23 @@ footer{padding:26px 18px 40px;font-size:13px;color:var(--suave);text-align:cente
     <h2>Mas se você não gostar…</h2>
     <div class="garantia">
       <div class="selo"><span><b>7</b>dias de<br>garantia</span></div>
-      <p class="fala">Deixa ele trabalhar 7 dias. Se os avisos não servirem pra sua empresa, manda uma mensagem no WhatsApp e o dinheiro volta inteiro. Sem fidelidade, sem multa.</p>
+      <p class="fala">Recebe os avisos por 7 dias. Se os avisos não servirem pra sua empresa, manda uma mensagem no WhatsApp e o dinheiro volta inteiro. Sem fidelidade, sem multa.</p>
     </div>
   </div>
 </section>
 
 <section class="faixa" id="contratar">
   <div class="miolo">
-    <h2>Ele custa R$ 1,09 por dia</h2>
-    <p class="fala">A compra de Iperó é de R$ 483 mil. Um pedaço pequeno de uma só dessas já paga ele por muitos anos.</p>
+    <h2>Um cliente desse tamanho por R$ 1,09 por dia</h2>
+    <p class="fala">A compra de Iperó é de R$ 483 mil. Um pedaço pequeno de uma só dessas já paga o LicitaCerta por muitos anos.</p>
     <div class="pedido">
-      <label for="zap">Em qual WhatsApp ele te avisa?</label>
+      <label for="zap">Em qual WhatsApp a gente te avisa?</label>
       <input id="zap" type="tel" inputmode="tel" placeholder="(00) 00000-0000">
       <label for="email">E-mail <span class="miudo">(opcional)</span></label>
       <input id="email" type="email" placeholder="voce@empresa.com.br">
       <label class="plano sel"><input type="radio" name="plano" checked><span><b>Anual · R$ 397</b><small>R$ 1,09 por dia. Mais de 3 meses de graça e o Kit Primeira Proposta.</small></span></label>
       <label class="plano"><input type="radio" name="plano"><span><b>Mensal · R$ 49</b><small>Cancela quando quiser.</small></span></label>
-      <a class="botao" href="#contratar">Contratar por R$ 397 no ano</a>
+      <a class="botao" href="#contratar">Quero receber por R$ 397 no ano</a>
       <p class="miudo" style="text-align:center">7 dias de garantia. O primeiro aviso chega no próximo dia útil de manhã.</p>
     </div>
   </div>
@@ -226,9 +227,9 @@ footer{padding:26px 18px 40px;font-size:13px;color:var(--suave);text-align:cente
   <div class="miolo">
     <h2>Daqui você tem <span>dois caminhos</span></h2>
     <p class="sub">No primeiro, você fecha esta página. Segunda-feira a compra de Iperó fecha do mesmo jeito, e alguém vai vender aqueles uniformes.</p>
-    <p class="sub">No segundo, você faz o teste agora, vê o que tem aberto pra sua empresa e <b>amanhã já acorda com o primeiro aviso.</b></p>
-    <a class="botao" href="#teste">Fazer o teste com o meu CNPJ</a>
-    <p class="miudo">P.S.: o teste é de graça e sai na hora. Se não aparecer nada pra sua empresa, você não gastou um real.</p>
+    <p class="sub">No segundo, você digita o CNPJ agora, vê quem quer comprar da sua empresa e <b>no próximo dia útil já acorda com o primeiro aviso.</b></p>
+    <a class="botao" href="#teste">Ver quem quer comprar de mim</a>
+    <p class="miudo">P.S.: a consulta é de graça e sai na hora. Se não aparecer nada pra sua empresa, você não gastou um real.</p>
   </div>
 </section>
 
@@ -236,9 +237,9 @@ footer{padding:26px 18px 40px;font-size:13px;color:var(--suave);text-align:cente
   <div class="miolo">
     <h2>O que todo mundo pergunta</h2>
     <div>
-      <details><summary>Nunca participei de licitação. Serve pra mim?</summary><p>Serve. Ele te mostra as compras e você decide se vale começar. O Kit Primeira Proposta vem junto pra isso.</p></details>
-      <details><summary>O portal do governo é de graça. Por que pagar?</summary><p>Porque lá você procura. Aqui ele lê tudo por você e manda só o que é da sua empresa.</p></details>
-      <details><summary>Ele participa da licitação por mim?</summary><p>Não. Ele acha e avisa. A proposta, os documentos e o lance são seus.</p></details>
+      <details><summary>Nunca participei de licitação. Serve pra mim?</summary><p>Serve. Você vê as compras abertas pra sua empresa e decide se vale começar. O Kit Primeira Proposta vem junto pra isso.</p></details>
+      <details><summary>O portal do governo é de graça. Por que pagar?</summary><p>Porque lá você procura. Aqui chega no seu WhatsApp só o que é da sua empresa, já com valor e prazo.</p></details>
+      <details><summary>O LicitaCerta participa da licitação por mim?</summary><p>Não. O LicitaCerta acha e avisa. A proposta, os documentos e o lance são seus.</p></details>
       <details><summary>Como eu pago?</summary><p>Pix ou cartão, no próximo passo.</p></details>
       <details><summary>E pra cancelar?</summary><p>Uma mensagem no WhatsApp. Sem fidelidade e sem multa.</p></details>
     </div>
