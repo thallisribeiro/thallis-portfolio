@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>LicitaCerta · página v2 (maquete)</title>
+<!-- MAQUETE da v2 da página de vendas, 2ª versão (20/11/2026). Não é a página de produção.
+     Conceito: o radar vira "o funcionário que acha quem do governo quer comprar o que você vende", e a consulta do CNPJ
+     vira "o teste antes de contratar". As licitações citadas são reais, lidas de /api/abertas-agora em 20/11 às 15h47;
+     na página real o servidor troca pelas do dia. O campo do CNPJ aqui não consulta nada.
+     A CONFERIR antes de ir ao ar: LC 123 art. 48 (até R$ 80 mil só pra micro e pequena), Lei 14.133 art. 75 § 3º
+     (dispensa com 3 dias úteis) e art. 150 (indicação do crédito orçamentário). -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,700..900&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+:root{
+  --tinta:#0E1B2E; --tinta-2:#16263D; --papel:#FFFFFF; --neblina:#F1F3F6; --linha:#D9DEE5; --grafite:#4A5565; --suave:#6B7686;
+  --cta:#C2410C; --cta-hover:#9A330A; --brasa:#FF8A4C; --zap:#0B6B45; --zap-claro:#E3F2EA; --carimbo:#B42318;
+  --display:"Archivo",system-ui,sans-serif; --corpo:"Public Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--neblina);color:var(--tinta);font:400 17px/1.55 var(--corpo);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{text-wrap:balance;margin:0;font-family:var(--display);font-stretch:85%;letter-spacing:-.01em}
+p{margin:0}
+a{color:inherit}
+.maquete{background:#FFF4C2;color:#5C4500;font:600 12px/1.3 var(--mono);text-align:center;padding:6px 12px}
+.pra-quem{background:var(--cta);color:#fff;font:700 13.5px/1.3 var(--corpo);text-align:center;padding:9px 14px}
+.faixa{padding-block:44px;padding-inline:18px}
+.faixa.branca{background:var(--papel)}
+.faixa.escura{background:var(--tinta);color:#fff}
+.miolo{max-width:660px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1{font-size:clamp(29px,7.6vw,46px);line-height:1.04;font-weight:900;text-transform:uppercase}
+h1 span,.escura h2 span{color:var(--brasa)}
+h2{font-size:clamp(25px,5.8vw,34px);line-height:1.1;font-weight:800}
+h3{font-size:18px;line-height:1.3;font-weight:700}
+.topo{padding-block:26px 34px}
+.topo .miolo{gap:14px}
+.sub{font-size:18px;color:#D5DCE6}
+.sub b{color:#fff}
+.aviso{border:1px solid rgba(255,138,76,.5);background:rgba(255,138,76,.09);border-radius:10px;padding:10px 12px;font-size:15px;color:#FFE1D0}
+.aviso b{color:var(--brasa)}
+.teste{background:#fff;color:var(--tinta);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.teste h3{font-size:19px}
+label{font-weight:600;font-size:15px}
+input[type=text],input[type=tel],input[type=email]{width:100%;font:500 18px/1.2 var(--corpo);padding:15px 14px;border:1.5px solid var(--linha);border-radius:10px;color:var(--tinta);background:#fff}
+input:focus{outline:3px solid #F4C9B4;border-color:var(--cta)}
+.botao{display:block;width:100%;text-align:center;text-decoration:none;cursor:pointer;border:0;background:var(--cta);color:#fff;font:700 18px/1.2 var(--corpo);padding:17px 16px;border-radius:10px}
+.botao:hover{background:var(--cta-hover)}
+.miudo{font-size:14px;color:var(--suave)}
+.escura .miudo{color:#B9C4D4}
+.preco-topo{font-size:15px;color:#D5DCE6;text-align:center}
+.preco-topo b{color:#fff}
+.vivo{display:inline-flex;align-items:center;gap:8px;font:600 12.5px/1 var(--mono);color:#9FE3C2;align-self:flex-start}
+.vivo i{width:8px;height:8px;border-radius:50%;background:#3CCB8A}
+/* as compras de hoje, contadas como gente conta */
+.achados{display:flex;flex-direction:column;gap:12px}
+.achado{background:#fff;border:1px solid var(--linha);border-left:5px solid var(--zap);border-radius:10px;padding:14px 16px;font-size:17px}
+.achado .valor{font:600 21px/1.2 var(--mono);display:block;margin-top:4px}
+.achado .prazo{font:600 12.5px/1.3 var(--mono);color:var(--carimbo);text-transform:uppercase;letter-spacing:.04em;display:block;margin-top:6px}
+.fala{font-size:18px}
+.fala b{font-weight:700}
+.frase{font:800 clamp(22px,5.2vw,28px)/1.15 var(--display);font-stretch:85%;border-left:5px solid var(--cta);padding-left:14px}
+ul.lista{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:13px}
+ul.lista li{padding-left:30px;position:relative}
+ul.lista li::before{content:"";position:absolute;left:0;top:.42em;width:16px;height:16px;border-radius:4px;background:var(--zap)}
+ul.lista.nao li::before{background:var(--carimbo);border-radius:50%}
+ul.lista small{display:block;color:var(--suave);font-size:13.5px}
+ol.passos{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px;counter-reset:p}
+ol.passos li{counter-increment:p;display:grid;grid-template-columns:42px 1fr;gap:12px;align-items:start}
+ol.passos li::before{content:counter(p);width:42px;height:42px;border-radius:50%;border:2px solid var(--cta);color:var(--cta);display:grid;place-items:center;font:800 19px/1 var(--display)}
+.bonus{display:flex;flex-direction:column;gap:14px}
+.bonus div{border-top:3px solid var(--cta);padding-top:10px}
+.bonus span{font:600 12.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--cta);display:block;margin-bottom:4px}
+.garantia{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center}
+.selo{width:92px;height:92px;border-radius:50%;border:3px solid var(--zap);display:grid;place-items:center;text-align:center;font:600 10.5px/1.2 var(--mono);text-transform:uppercase;color:var(--zap)}
+.selo b{display:block;font:900 34px/1 var(--display);color:var(--zap)}
+.pedido{background:#fff;border:2px solid var(--tinta);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.plano{display:flex;gap:10px;align-items:flex-start;border:1.5px solid var(--linha);border-radius:10px;padding:12px;font-weight:400}
+.plano.sel{border-color:var(--tinta);background:#F7F9FC}
+.plano b{display:block}
+.plano small{display:block;color:var(--grafite);font-size:14px}
+details{border-bottom:1px solid var(--linha);padding-block:12px}
+summary{font-weight:700;cursor:pointer}
+details p{margin-top:8px;color:var(--grafite)}
+footer{padding:26px 18px 40px;font-size:13px;color:var(--suave);text-align:center}
+</style>
+</head>
+<body>
+<div class="maquete">MAQUETE DA V2 · licitações reais de 20/11, 15h47 · o campo do CNPJ aqui não consulta</div>
+<div class="pra-quem">Pra dono de empresa pequena que quer vender pro governo sem conhecer ninguém lá dentro</div>
+
+<section class="faixa escura topo">
+  <div class="miolo">
+    <span class="vivo"><i></i>44.554 compras públicas abertas agora</span>
+    <h1>O funcionário que acha, todo dia, <span>quem do governo quer comprar o que você vende</span></h1>
+    <p class="sub">Enquanto você dorme, ele lê mais de 70 sistemas de compra pública. De manhã, manda no seu WhatsApp só as compras abertas pra sua empresa, com valor e prazo. <b>Custa R$ 1,09 por dia.</b></p>
+    <p class="aviso"><b>AVISO:</b> ele não tira férias, não falta e não pede aumento.</p>
+    <form class="teste" id="teste">
+      <h3>Antes de contratar, faz um teste com ele.</h3>
+      <label for="cnpj">Digite o CNPJ da sua empresa</label>
+      <input id="cnpj" type="text" inputmode="numeric" placeholder="00.000.000/0000-00" autocomplete="off">
+      <button class="botao" type="submit">Ver o que ele acha pra mim hoje</button>
+      <p class="miudo">De graça, sem cadastro, resultado na hora. Não sabe o CNPJ de cabeça? Tá no app do banco e em qualquer nota fiscal sua.</p>
+    </form>
+    <p class="preco-topo">Gostou do teste? Ele fica por <b>R$ 397 no ano</b> ou R$ 49 por mês. 7 dias de garantia.</p>
+  </div>
+</section>
+
+<section class="faixa">
+  <div class="miolo">
+    <h2>Olha o que ele achou hoje de manhã</h2>
+    <div class="achados">
+      <p class="achado">Olha essa: a <b>Prefeitura de Iperó</b>, no interior de São Paulo, quer comprar uniforme.<span class="valor">R$ 483.493</span><span class="prazo">Proposta até segunda, 23/11, 8h</span></p>
+      <p class="achado">Essa aqui é da <b>USP de Bauru</b>: lâmpada, refletor, iluminação.<span class="valor">R$ 186.439</span><span class="prazo">Também fecha segunda, 8h</span></p>
+      <p class="achado">E a <b>Secretaria de Agricultura de São Paulo</b> quer periférico de informática.<span class="valor">R$ 65.346</span><span class="prazo">Fecha segunda, 8h</span></p>
+    </div>
+    <p class="fala">Nenhuma dessas saiu no jornal. Tão num portal que quase ninguém abre, no meio de outras 44 mil.</p>
+    <p class="fala">Quem vende uniforme ali perto de Iperó e não ficou sabendo, perde na segunda. <b>Sem nem saber que perdeu.</b></p>
+    <p class="miudo">Compras reais, abertas em 20/11/2026. Fonte: PNCP. O teste lá em cima mostra as da sua empresa.</p>
+  </div>
+</section>
+
+<section class="faixa branca">
+  <div class="miolo">
+    <h2>“Ah, mas licitação é sempre pros mesmos.”</h2>
+    <p class="fala">Parece mesmo. Sabe por quê?</p>
+    <p class="frase">Porque só os mesmos ficam sabendo.</p>
+    <p class="fala">A compra de Iperó tá publicada. Qualquer empresa do Brasil pode mandar proposta. Só que quem tem alguém olhando portal todo dia, vê. Quem não tem, acha que é panela.</p>
+    <p class="fala">Contato ajuda? Pode ser. <b>Mas quem não fica sabendo não ganha nem com contato.</b></p>
+    <p class="fala">O LicitaCerta não é contato. É aviso.</p>
+  </div>
+</section>
+
+<section class="faixa">
+  <div class="miolo">
+    <h2>“Tá, e prefeitura paga?”</h2>
+    <p class="fala">Pergunta de quem tem juízo. Duas coisas que quase ninguém te conta:</p>
+    <ul class="lista">
+      <li><b>O dinheiro tem que ter endereço antes do contrato.</b> Órgão público não pode contratar sem dizer de qual verba do orçamento sai o pagamento.<small>Lei 14.133, art. 150</small></li>
+      <li><b>O prazo de pagamento vem escrito no edital.</b> Você lê antes de mandar proposta. Não gostou do prazo, não entra.</li>
+    </ul>
+    <p class="fala">Você escolhe pra quem vende. Ele só te mostra quem tá comprando.</p>
+  </div>
+</section>
+
+<section class="faixa branca">
+  <div class="miolo">
+    <h2>Chega de…</h2>
+    <ul class="lista nao">
+      <li>Chega de saber da licitação pelo concorrente, depois que ele ganhou.</li>
+      <li>Chega de depender de quem entra pela porta pra fechar o mês.</li>
+      <li>Chega de abrir site de prefeitura, um por um, sem saber onde clicar.</li>
+      <li>Chega de achar que governo só compra de empresa grande.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="faixa">
+  <div class="miolo">
+    <h2>O que ele te conta logo no primeiro aviso</h2>
+    <ul class="lista">
+      <li><b>Quem tá comprando o que você vende esta semana</b>, com o nome do órgão e a cidade.</li>
+      <li><b>A compra que a lei separa só pra empresa pequena.</b> Até R$ 80 mil, empresa grande nem entra.<small>Lei Complementar 123, art. 48</small></li>
+      <li><b>A compra que fecha em 3 dias úteis e quase ninguém vê.</b> Chama dispensa: sem pregão, sem sessão, proposta pela internet.<small>Lei 14.133, art. 75</small></li>
+      <li><b>Quanto o órgão calcula pagar</b>, antes de você fazer qualquer conta.</li>
+      <li><b>Até que dia e que hora dá pra entrar.</b> Na véspera ele te lembra.</li>
+      <li><b>Por que aquele aviso chegou pra você</b>, item por item. Não tem a ver? Você fala e ele ajusta.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="faixa branca">
+  <div class="miolo">
+    <h2>Como funciona:</h2>
+    <ol class="passos">
+      <li><div><h3>Você digita o CNPJ.</h3><p>Ele descobre na Receita o que a sua empresa vende e já mostra o que tem aberto hoje.</p></div></li>
+      <li><div><h3>Você deixa o seu WhatsApp.</h3><p>E escolhe o plano. Leva um minuto.</p></div></li>
+      <li><div><h3>Todo dia útil de manhã chega o aviso.</h3><p>Você só decide em qual entrar.</p></div></li>
+    </ol>
+    <p class="fala">Uma coisa ele não faz: a proposta, os documentos e o lance são com você. Ele acha e avisa. Mais nada.</p>
+  </div>
+</section>
+
+<section class="faixa">
+  <div class="miolo">
+    <h2>E não para por aí…</h2>
+    <div class="bonus">
+      <div><span>Bônus 01 · vale R$ 27</span><b>Kit Primeira Proposta.</b> Habilitação, certidões, SICAF e um modelo de proposta pronto, em PDF. Pra quem nunca mandou uma.</div>
+      <div><span>Bônus 02</span><b>Mais de 3 meses de graça no anual.</b> R$ 397 no ano, contra R$ 588 em doze mensalidades.</div>
+      <div><span>Bônus 03</span><b>Gente quando precisa.</b> Travou em alguma coisa, o fundador assume a conversa no WhatsApp.</div>
+    </div>
+  </div>
+</section>
+
+<section class="faixa branca">
+  <div class="miolo">
+    <h2>Mas se você não gostar…</h2>
+    <div class="garantia">
+      <div class="selo"><span><b>7</b>dias de<br>garantia</span></div>
+      <p class="fala">Deixa ele trabalhar 7 dias. Se os avisos não servirem pra sua empresa, manda uma mensagem no WhatsApp e o dinheiro volta inteiro. Sem fidelidade, sem multa.</p>
+    </div>
+  </div>
+</section>
+
+<section class="faixa" id="contratar">
+  <div class="miolo">
+    <h2>Ele custa R$ 1,09 por dia</h2>
+    <p class="fala">A compra de Iperó é de R$ 483 mil. Um pedaço pequeno de uma só dessas já paga ele por muitos anos.</p>
+    <div class="pedido">
+      <label for="zap">Em qual WhatsApp ele te avisa?</label>
+      <input id="zap" type="tel" inputmode="tel" placeholder="(00) 00000-0000">
+      <label for="email">E-mail <span class="miudo">(opcional)</span></label>
+      <input id="email" type="email" placeholder="voce@empresa.com.br">
+      <label class="plano sel"><input type="radio" name="plano" checked><span><b>Anual · R$ 397</b><small>R$ 1,09 por dia. Mais de 3 meses de graça e o Kit Primeira Proposta.</small></span></label>
+      <label class="plano"><input type="radio" name="plano"><span><b>Mensal · R$ 49</b><small>Cancela quando quiser.</small></span></label>
+      <a class="botao" href="#contratar">Contratar por R$ 397 no ano</a>
+      <p class="miudo" style="text-align:center">7 dias de garantia. O primeiro aviso chega no próximo dia útil de manhã.</p>
+    </div>
+  </div>
+</section>
+
+<section class="faixa escura">
+  <div class="miolo">
+    <h2>Daqui você tem <span>dois caminhos</span></h2>
+    <p class="sub">No primeiro, você fecha esta página. Segunda-feira a compra de Iperó fecha do mesmo jeito, e alguém vai vender aqueles uniformes.</p>
+    <p class="sub">No segundo, você faz o teste agora, vê o que tem aberto pra sua empresa e <b>amanhã já acorda com o primeiro aviso.</b></p>
+    <a class="botao" href="#teste">Fazer o teste com o meu CNPJ</a>
+    <p class="miudo">P.S.: o teste é de graça e sai na hora. Se não aparecer nada pra sua empresa, você não gastou um real.</p>
+  </div>
+</section>
+
+<section class="faixa branca">
+  <div class="miolo">
+    <h2>O que todo mundo pergunta</h2>
+    <div>
+      <details><summary>Nunca participei de licitação. Serve pra mim?</summary><p>Serve. Ele te mostra as compras e você decide se vale começar. O Kit Primeira Proposta vem junto pra isso.</p></details>
+      <details><summary>O portal do governo é de graça. Por que pagar?</summary><p>Porque lá você procura. Aqui ele lê tudo por você e manda só o que é da sua empresa.</p></details>
+      <details><summary>Ele participa da licitação por mim?</summary><p>Não. Ele acha e avisa. A proposta, os documentos e o lance são seus.</p></details>
+      <details><summary>Como eu pago?</summary><p>Pix ou cartão, no próximo passo.</p></details>
+      <details><summary>E pra cancelar?</summary><p>Uma mensagem no WhatsApp. Sem fidelidade e sem multa.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>LicitaCerta · Ribeiro Gestão Ltda. Este site não é afiliado ao Facebook, ao Instagram nem à Meta. Não prometemos resultado: o LicitaCerta avisa das compras abertas; disputar e ganhar depende de você.</footer>
+
+<script>
+document.getElementById('teste').addEventListener('submit', function (e) { e.preventDefault(); alert('Maquete: na página de verdade, aqui abre o relatório do seu CNPJ.'); });
+</script>
+</body>
+</html>
