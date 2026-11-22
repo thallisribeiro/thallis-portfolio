@@ -142,6 +142,13 @@ section{padding:64px 0;position:relative}
 .numeros{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:22px 0}
 .numeros div{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px}
 .numeros div:last-child:nth-child(odd){grid-column:1/-1}
+.raiox-box{display:grid;gap:10px;margin:26px 0 8px;padding:18px;border:1px solid rgba(232,163,61,.45);border-radius:18px;background:linear-gradient(180deg,rgba(232,163,61,.08),rgba(232,163,61,.02));box-shadow:0 0 40px -16px rgba(232,163,61,.6)}
+.raiox-box label{font-weight:600;color:var(--text)}
+.raiox-box span{font-size:.88rem;color:var(--muted)}
+.raiox-linha{display:flex;flex-wrap:wrap;gap:10px}
+.raiox-linha input{flex:1 1 220px;min-width:0;height:54px;padding:0 16px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--text);font:inherit;font-size:1rem}
+.raiox-linha input:focus{outline:2px solid var(--primary);outline-offset:2px}
+.raiox-linha .btn{flex:0 0 auto}
 .numeros strong{display:block;font:700 clamp(1.5rem,6vw,2.1rem)/1.1 "Space Grotesk",sans-serif;color:var(--primary)}
 .numeros span{font-size:.82rem;color:var(--muted)}
 
@@ -254,8 +261,16 @@ footer a{color:var(--muted)}
       <div class="selo"><i></i>Pré-venda aberta · para quem já tem um SaaS ou app pronto</div>
       <h1>Como acordar todo dia com <em>venda nova do seu software</em> sem postar conteúdo nem fazer dancinha</h1>
       <p class="lead">Mesmo que você nunca tenha aberto o gerenciador de anúncios, não goste de aparecer e não tenha um seguidor sequer.</p>
-      <a class="btn" href="https://wa.me/5573988899345?text=Quero%20entrar%20na%20pr%C3%A9-venda%20do%20FounderADS" target="_blank" rel="noopener">Quero vender todo dia</a>
-      <p class="nota">Pré-venda de <s>R$ 197</s> por R$ 97 · 7 dias de garantia</p>
+      <!-- 21/11 (Thallis): o topo pede o site, roda o Raio-X grátis e o checkout vem depois do resultado. -->
+      <form class="raiox-box" action="https://founderads.72-61-134-210.nip.io/raio-x" method="get">
+        <label for="raiox-site">Qual é o endereço do seu app ou site?</label>
+        <div class="raiox-linha">
+          <input id="raiox-site" name="site" type="text" inputmode="url" autocomplete="url" placeholder="seuapp.com.br" required>
+          <button class="btn" type="submit">Fazer o Raio-X grátis</button>
+        </div>
+        <span>Em 30 segundos você vê a nota do seu site e os 3 pontos que mais travam a sua venda.</span>
+      </form>
+      <p class="nota">Curso + Marketeiro em pré-venda de <s>R$ 197</s> por R$ 97 · 7 dias de garantia</p>
     </div>
     <div class="hero-arte" aria-hidden="true">
       <div>
@@ -397,13 +412,13 @@ footer a{color:var(--muted)}
   </div>
 </section>
 
-<!-- O HOLOFOTE (nome decidido em 21/11): a ferramenta que vem com o curso. Mora em /maquina na plataforma. -->
+<!-- O MARKETEIRO (nome decidido em 21/11, antes era Holofote): a ferramenta que vem com o curso. Mora em /maquina na plataforma. -->
 <section id="maquina">
   <div class="wrap">
     <div class="prosa rv">
-      <div class="olho">O Holofote</div>
-      <h2>Você não faz isso sozinho. <em>O Holofote faz com você.</em></h2>
-      <p>Junto com o curso, você ganha acesso ao Holofote. Você coloca o endereço do seu site e ele te leva etapa por etapa, do primeiro diagnóstico até a campanha vendendo.</p>
+      <div class="olho">O Marketeiro</div>
+      <h2>Você não faz isso sozinho. <em>O Marketeiro faz com você.</em></h2>
+      <p>Junto com o curso, você ganha acesso ao Marketeiro. Você coloca o endereço do seu site e ele te leva etapa por etapa, do primeiro diagnóstico até a campanha vendendo.</p>
       <p><a href="/raio-x/">Faça agora o Raio-X grátis do seu site</a> e veja a nota e os 3 pontos que mais travam a sua venda.</p>
     </div>
     <div class="grade tres" style="margin-top:30px">
@@ -470,7 +485,7 @@ footer a{color:var(--muted)}
     <div class="oferta">
       <ul class="lista">
         <li class="rv" data-n="01"><b>O curso FounderADS completo</b>Da oferta à escala, na ordem, com uma tarefa no fim de cada aula.</li>
-        <li class="rv" data-n="02"><b>O Holofote</b>O raio-x do seu site, as melhorias com o prompt pronto para o Claude, os roteiros dos anúncios e a leitura da campanha, num lugar só. Liberado no mesmo dia da compra.</li>
+        <li class="rv" data-n="02"><b>O Marketeiro</b>O raio-x do seu site, as melhorias com o prompt pronto para o Claude, os roteiros dos anúncios e a leitura da campanha, num lugar só. Liberado no mesmo dia da compra.</li>
         <li class="rv" data-n="B1"><b>Bônus 1: roteiros para o seu Claude</b>Ele cria a página, o Instagram, o pixel e a conta de anúncios com você, enquanto você toma um café.</li>
         <li class="rv" data-n="B2"><b>Bônus 2: swipe file</b>Os meus anúncios que vendem, com o roteiro de cada um, para você modelar em vez de começar do zero.</li>
         <li class="rv" data-n="B3"><b>Bônus 3: a planilha da conta</b>Você coloca o seu preço e descobre quanto pode pagar por cliente antes de gastar o primeiro real.</li>
@@ -506,7 +521,7 @@ footer a{color:var(--muted)}
         <div>
           <h3 style="font-size:1.35rem;margin-bottom:8px">O risco é meu</h3>
           <!-- Decidido em 21/11: 7 dias contados da compra, sem pergunta (o prazo do direito de arrependimento). -->
-          <p>Entre, use o Holofote e assista ao que já estiver liberado. Se em 7 dias depois da compra você achar que não é para você, por qualquer motivo, me chama no WhatsApp e eu devolvo os seus R$ 97 no Pix. Sem pergunta e sem formulário.</p>
+          <p>Entre, use o Marketeiro e assista ao que já estiver liberado. Se em 7 dias depois da compra você achar que não é para você, por qualquer motivo, me chama no WhatsApp e eu devolvo os seus R$ 97 no Pix. Sem pergunta e sem formulário.</p>
         </div>
       </div>
     </div>
@@ -539,8 +554,8 @@ footer a{color:var(--muted)}
     <h2 class="rv">Perguntas frequentes</h2>
     <div class="faq rv d1">
       <details><summary>Nunca rodei anúncio. Consigo?</summary><p>Consegue. O curso começa do zero, e criar conta e pixel o seu Claude faz com você.</p></details>
-      <details><summary>Quando eu recebo as aulas?</summary><p>O Holofote e o swipe file ficam liberados no mesmo dia da compra. As aulas chegam um módulo de cada vez, conforme eu gravo, e eu te aviso no WhatsApp a cada módulo liberado.</p></details>
-      <details><summary>O que é o Holofote?</summary><p>A ferramenta que vem com o curso. Você coloca o seu site e ele faz o raio-x, mostra o que mudar primeiro, escreve os roteiros dos anúncios, monta a campanha com a conta feita e lê os seus resultados. Dá para testar o raio-x de graça em <a href="/raio-x/">thallisribeiro.com.br/raio-x</a>.</p></details>
+      <details><summary>Quando eu recebo as aulas?</summary><p>O Marketeiro e o swipe file ficam liberados no mesmo dia da compra. As aulas chegam um módulo de cada vez, conforme eu gravo, e eu te aviso no WhatsApp a cada módulo liberado.</p></details>
+      <details><summary>O que é o Marketeiro?</summary><p>A ferramenta que vem com o curso. Você coloca o seu site e ele faz o raio-x, mostra o que mudar primeiro, escreve os roteiros dos anúncios, monta a campanha com a conta feita e lê os seus resultados. Dá para testar o raio-x de graça em <a href="/raio-x/">thallisribeiro.com.br/raio-x</a>.</p></details>
       <details><summary>Quanto preciso para investir em anúncio?</summary><p>Dá para começar com cerca de R$ 300.</p></details>
       <details><summary>Preciso aparecer nos anúncios?</summary><p>Não. O curso mostra formatos que vendem sem você na frente da câmera.</p></details>
       <details><summary>Meu produto é para empresa. Serve?</summary><p>Serve, se o cliente compra sozinho pela página.</p></details>
