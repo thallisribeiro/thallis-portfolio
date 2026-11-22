@@ -297,7 +297,7 @@ footer a{color:var(--mudo)}
     <a class="marca" href="/marketeiro/"><i class="orbe" aria-hidden="true"></i><b>Market<span>eiro</span></b></a>
     <div class="topo-dir">
       <a class="entrar" href="https://founderads.72-61-134-210.nip.io/entrar">Já é aluno? Entrar</a>
-      <a class="btn p" href="/founderads/comprar/">Entrar por R$&nbsp;97</a>
+      <a class="btn p" href="/founderads/comprar/" data-compra="founderads">Entrar por R$&nbsp;97</a>
     </div>
   </div>
 </header>
@@ -311,7 +311,7 @@ footer a{color:var(--mudo)}
       <h1>Como acordar todo dia com <em>venda nova do seu software</em> sem postar conteúdo nem fazer dancinha</h1>
       <p class="lead">Mesmo que você nunca tenha aberto o gerenciador de anúncios, não goste de aparecer e não tenha um seguidor sequer.</p>
       <!-- 22/11 (Thallis): voltou o botão no lugar da caixa do site, pra pessoa ler a carta inteira. O site é pedido no onboarding, depois da compra. -->
-      <a class="btn" href="/founderads/comprar/">Quero vender todo dia</a>
+      <a class="btn" href="/founderads/comprar/" data-compra="founderads">Quero vender todo dia</a>
       <p class="nota">Marketeiro + curso em pré-venda de <s>R$&nbsp;197</s> por R$&nbsp;97 · 7 dias de garantia</p>
     </div>
     <div class="hero-arte">
@@ -553,7 +553,7 @@ footer a{color:var(--mudo)}
             <p class="muted" style="margin-bottom:0">Tudo isso, de <s>R$&nbsp;197</s> por</p>
             <div class="preco"><small>R$</small>97</div>
             <p class="muted" style="margin-bottom:0">Preço de pré-venda. Uma vez só, sem mensalidade.</p>
-            <a class="btn" href="/founderads/comprar/">Quero entrar agora por R$&nbsp;97</a>
+            <a class="btn" href="/founderads/comprar/" data-compra="founderads">Quero entrar agora por R$&nbsp;97</a>
             <p class="nota">Pagamento no Pix. O acesso ao Marketeiro e ao curso chega assim que o Pix cai.</p>
           </div>
         </div>
@@ -605,7 +605,7 @@ footer a{color:var(--mudo)}
       </div>
     </div>
     <p class="centro rv">Você já fez a parte difícil, que foi construir. Falta colocar para vender.</p>
-    <p class="centro rv" style="margin-top:28px"><a class="btn" href="/founderads/comprar/">Quero vender todo dia</a></p>
+    <p class="centro rv" style="margin-top:28px"><a class="btn" href="/founderads/comprar/" data-compra="founderads">Quero vender todo dia</a></p>
   </div>
 </section>
 
@@ -629,7 +629,7 @@ footer a{color:var(--mudo)}
   <div class="wrap">
     <div class="ps rv">
       <p><b>P.S.</b> A função que você ia começar hoje pode esperar uma semana. O cliente que procurou uma solução hoje não esperou: comprou de outro, ou não comprou de ninguém. Por R$&nbsp;97 e com 7 dias de garantia, o único jeito de perder é não testar.</p>
-      <p class="centro" style="margin-top:24px;margin-bottom:0"><a class="btn" href="/founderads/comprar/">Quero entrar agora por R$&nbsp;97</a></p>
+      <p class="centro" style="margin-top:24px;margin-bottom:0"><a class="btn" href="/founderads/comprar/" data-compra="founderads">Quero entrar agora por R$&nbsp;97</a></p>
     </div>
   </div>
 </section>
@@ -641,9 +641,10 @@ footer a{color:var(--mudo)}
 
 <div class="barra" id="barra">
   <div><b><s>R$&nbsp;197</s> R$&nbsp;97</b>pré-venda · 7 dias de garantia</div>
-  <a class="btn" href="/founderads/comprar/">Quero entrar</a>
+  <a class="btn" href="/founderads/comprar/" data-compra="founderads">Quero entrar</a>
 </div>
 
+<script src="https://founderads.72-61-134-210.nip.io/folha.js" defer></script>
 <script>
 (function(){
   var calmo = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
